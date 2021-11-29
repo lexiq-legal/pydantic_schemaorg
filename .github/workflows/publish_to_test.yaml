@@ -19,6 +19,7 @@ jobs:
       - name:  Publish distribution 📦 to Test PyPI
         run: |
           poetry config pypi-token.pypi ${{ secrets.TEST_PYPI_API_TOKEN }}
+          poetry config repositories.testpypi https://test.pypi.org/simple
           poetry version $(git describe --tags --abbrev=0)
           poetry build
-          poetry publish
+          poetry publish --repository testpypi
