@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "pydantic_schemaorg"
+version = "0.0.0"
+description = 'Pydantic classes for Schema.org'
+authors = [
+    "Reinoud Baker <reinoud@lexiq.nl>",
+    "Ewout Mante <e.mante@lexiq.nl>"
+]
+license = "MIT"
+readme = "README.md"
+
+homepage = "https://github.com/lexiq-legal/pydantic_schemaorg"
+repository = "https://github.com/lexiq-legal/pydantic_schemaorg"
+documentation = "https://github.com/lexiq-legal/pydantic_schemaorg"
+
+keywords = ["schema.org", "pydantic"]
+
+[tool.poetry.dependencies]
+pydantic = "^1.8.2"
+
+[tool.poetry.dev-dependencies]
+black = { version = "^21.11b1", python = "^3.8" }
+
+[build-system]
+requires = [
+    "setuptools >= 35.0.2",
+    "setuptools_scm >= 2.0.0, <3",
+    "poetry>=1.1.1"
+]
+build-backend = "poetry.masonry.api"

@@ -1,4 +1,4 @@
-PACKAGE_NAME = 'pydantic_schema_org'
+PACKAGE_NAME = 'pydantic_schemaorg'
 
 # schema.org data types to pydantic https://schema.org/DataType
 data_type_map = {
