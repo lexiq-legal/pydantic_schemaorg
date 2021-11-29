@@ -13,7 +13,7 @@ class {{ model.valid_name }}({{model.parents | join(', ')}}):
     {{ field.valid_name }}: {{ field.type }} = Field(
         None,
         {%- if field.valid_name != field.name -%} alias="{{ field.name }}",{% endif %}
-        description="{{ field.description | format_description }}",
+        description="{{ field.description | replace('\\n','\n') | format_description }}",
     )
     {% endfor -%}
 
