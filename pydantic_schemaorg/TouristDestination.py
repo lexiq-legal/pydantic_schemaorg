@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.TouristAttraction import TouristAttraction
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Audience import Audience
 from pydantic_schemaorg.Place import Place
 

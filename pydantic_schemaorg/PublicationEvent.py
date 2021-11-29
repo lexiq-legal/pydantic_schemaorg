@@ -1,7 +1,7 @@
-from pydantic import StrictBool, Field
+from pydantic import Field, StrictBool
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Event import Event
 
 

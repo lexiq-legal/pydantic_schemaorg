@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.GeoCoordinates import GeoCoordinates
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Distance import Distance
 from decimal import Decimal
 from pydantic_schemaorg.GeoShape import GeoShape

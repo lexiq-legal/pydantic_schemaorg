@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MenuSection import MenuSection
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Offer import Offer
 from pydantic_schemaorg.Demand import Demand
 from pydantic_schemaorg.NutritionInformation import NutritionInformation

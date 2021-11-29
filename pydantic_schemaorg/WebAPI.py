@@ -1,6 +1,6 @@
-from pydantic import AnyUrl, Field
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.CreativeWork import CreativeWork
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Service import Service
 
 

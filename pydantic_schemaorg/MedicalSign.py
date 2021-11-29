@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.PhysicalExam import PhysicalExam
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.MedicalTest import MedicalTest
 from pydantic_schemaorg.MedicalSignOrSymptom import MedicalSignOrSymptom
 

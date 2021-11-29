@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
+from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
-class Geriatric(MedicalSpecialty, MedicalBusiness):
+class Geriatric(MedicalBusiness, MedicalSpecialty):
     """A specific branch of medical science that is concerned with the diagnosis and treatment"
      "of diseases, debilities and provision of care to the aged.
 

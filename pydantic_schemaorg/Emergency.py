@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
+from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
-class Emergency(MedicalSpecialty, MedicalBusiness):
+class Emergency(MedicalBusiness, MedicalSpecialty):
     """A specific branch of medical science that deals with the evaluation and initial treatment"
      "of medical conditions caused by trauma or sudden illness.
 

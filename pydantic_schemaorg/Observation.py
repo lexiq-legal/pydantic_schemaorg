@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from datetime import datetime
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.DataType import DataType

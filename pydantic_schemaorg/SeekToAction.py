@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.HyperTocEntry import HyperTocEntry
 from decimal import Decimal
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Action import Action
 
 

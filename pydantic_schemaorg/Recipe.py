@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.ItemList import ItemList
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.NutritionInformation import NutritionInformation
 from pydantic_schemaorg.RestrictedDiet import RestrictedDiet

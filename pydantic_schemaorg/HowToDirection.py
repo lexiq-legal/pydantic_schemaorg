@@ -1,12 +1,12 @@
-from pydantic import AnyUrl, Field
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.MediaObject import MediaObject
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Duration import Duration
-from pydantic_schemaorg.ListItem import ListItem
 from pydantic_schemaorg.CreativeWork import CreativeWork
+from pydantic_schemaorg.ListItem import ListItem
 
 
-class HowToDirection(ListItem, CreativeWork):
+class HowToDirection(CreativeWork, ListItem):
     """A direction indicating a single action to do in the instructions for how to achieve a result.
 
     See https://schema.org/HowToDirection.

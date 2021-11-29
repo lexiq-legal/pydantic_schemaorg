@@ -1,6 +1,6 @@
-from pydantic import AnyUrl, Field
+from pydantic import Field, AnyUrl
 from decimal import Decimal
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.PriceTypeEnumeration import PriceTypeEnumeration
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.PriceComponentTypeEnumeration import PriceComponentTypeEnumeration

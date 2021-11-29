@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicineSystem import MedicineSystem
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration

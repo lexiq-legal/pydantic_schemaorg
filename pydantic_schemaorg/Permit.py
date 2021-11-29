@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from datetime import date, datetime
 from pydantic_schemaorg.Audience import Audience
 from pydantic_schemaorg.Organization import Organization

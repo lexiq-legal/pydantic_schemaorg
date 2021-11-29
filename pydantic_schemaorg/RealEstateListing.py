@@ -1,7 +1,7 @@
 from pydantic import Field
-from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from typing import List, Optional, Union, Any
+from pydantic_schemaorg.Duration import Duration
+from typing import Any, Union, List, Optional
 from datetime import date, datetime
 from pydantic_schemaorg.WebPage import WebPage
 
@@ -15,7 +15,7 @@ class RealEstateListing(WebPage):
 
     """
 
-    leaseLength: Optional[Union[List[Union[Duration, QuantitativeValue]], Union[Duration, QuantitativeValue]]] = Field(
+    leaseLength: Optional[Union[List[Union[QuantitativeValue, Duration]], Union[QuantitativeValue, Duration]]] = Field(
         None,
         description="Length of the lease for some [[Accommodation]], either particular to some [[Offer]]"
      "or in some cases intrinsic to the property.",

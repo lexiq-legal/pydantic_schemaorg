@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.CategoryCode import CategoryCode
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.DefinedTermSet import DefinedTermSet
 
 

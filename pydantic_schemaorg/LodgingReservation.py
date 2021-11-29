@@ -1,7 +1,7 @@
 from pydantic import Field
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from datetime import time, datetime
+from datetime import datetime, time
 from pydantic_schemaorg.QualitativeValue import QualitativeValue
 from pydantic_schemaorg.Reservation import Reservation
 

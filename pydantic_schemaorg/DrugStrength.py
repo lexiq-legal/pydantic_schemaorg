@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
 from decimal import Decimal
 from pydantic_schemaorg.MedicalIntangible import MedicalIntangible

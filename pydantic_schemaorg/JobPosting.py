@@ -1,6 +1,6 @@
-from pydantic import StrictBool, Field, AnyUrl
+from pydantic import Field, AnyUrl, StrictBool
 from pydantic_schemaorg.OccupationalExperienceRequirements import OccupationalExperienceRequirements
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution

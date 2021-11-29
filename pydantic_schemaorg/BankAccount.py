@@ -1,5 +1,5 @@
-from pydantic import AnyUrl, Field
-from typing import List, Optional, Union, Any
+from pydantic import Field, AnyUrl
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.FinancialProduct import FinancialProduct
 
 

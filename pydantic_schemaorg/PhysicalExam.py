@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
 from pydantic_schemaorg.MedicalProcedure import MedicalProcedure
+from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
 
 
-class PhysicalExam(MedicalEnumeration, MedicalProcedure):
+class PhysicalExam(MedicalProcedure, MedicalEnumeration):
     """A type of physical examination of a patient performed by a physician.
 
     See https://schema.org/PhysicalExam.

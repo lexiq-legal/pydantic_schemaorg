@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from datetime import date, datetime
 from pydantic_schemaorg.StructuredValue import StructuredValue
 

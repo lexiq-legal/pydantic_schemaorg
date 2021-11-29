@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
+from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
-class Pediatric(MedicalSpecialty, MedicalBusiness):
+class Pediatric(MedicalBusiness, MedicalSpecialty):
     """A specific branch of medical science that specializes in the care of infants, children"
      "and adolescents.
 

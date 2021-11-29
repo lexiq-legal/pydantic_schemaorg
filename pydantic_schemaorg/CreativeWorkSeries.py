@@ -1,11 +1,11 @@
 from pydantic import Field
 from datetime import date, datetime
-from typing import List, Optional, Union, Any
-from pydantic_schemaorg.Series import Series
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.CreativeWork import CreativeWork
+from pydantic_schemaorg.Series import Series
 
 
-class CreativeWorkSeries(Series, CreativeWork):
+class CreativeWorkSeries(CreativeWork, Series):
     """A CreativeWorkSeries in schema.org is a group of related items, typically but not necessarily"
      "of the same kind. CreativeWorkSeries are usually organized into some order, often chronological."
      "Unlike [[ItemList]] which is a general purpose data structure for lists of things, the"

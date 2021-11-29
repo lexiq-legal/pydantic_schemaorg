@@ -1,5 +1,5 @@
-from pydantic import AnyUrl, Field
-from typing import List, Optional, Union, Any
+from pydantic import Field, AnyUrl
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.MusicAlbum import MusicAlbum
 from pydantic_schemaorg.MusicRecording import MusicRecording
 from pydantic_schemaorg.ItemList import ItemList
@@ -26,7 +26,7 @@ class MusicGroup(PerformingGroup):
         None,
         description="A music recording (track)&#x2014;usually a single song.",
     )
-    track: Optional[Union[List[Union[MusicRecording, ItemList]], Union[MusicRecording, ItemList]]] = Field(
+    track: Optional[Union[List[Union[ItemList, MusicRecording]], Union[ItemList, MusicRecording]]] = Field(
         None,
         description="A music recording (track)&#x2014;usually a single song. If an ItemList is given, the"
      "list should contain items of type MusicRecording.",

@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
+from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
-class Midwifery(MedicalSpecialty, MedicalBusiness):
+class Midwifery(MedicalBusiness, MedicalSpecialty):
     """A nurse-like health profession that deals with pregnancy, childbirth, and the postpartum"
      "period (including care of the newborn), besides sexual and reproductive health of women"
      "throughout their lives.

@@ -1,8 +1,8 @@
-from pydantic import StrictBool, AnyUrl, Field
-from typing import List, Optional, Union, Any
+from pydantic import Field, AnyUrl, StrictBool
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Place import Place
-from datetime import time, date, datetime
+from datetime import date, datetime, time
 from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.NewsArticle import NewsArticle
 

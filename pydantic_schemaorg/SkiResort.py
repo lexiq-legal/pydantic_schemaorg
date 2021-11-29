@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.Resort import Resort
 from pydantic_schemaorg.SportsActivityLocation import SportsActivityLocation
+from pydantic_schemaorg.Resort import Resort
 
 
-class SkiResort(Resort, SportsActivityLocation):
+class SkiResort(SportsActivityLocation, Resort):
     """A ski resort.
 
     See https://schema.org/SkiResort.

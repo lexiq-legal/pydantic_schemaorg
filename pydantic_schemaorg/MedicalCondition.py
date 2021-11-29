@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.MedicalTest import MedicalTest
 from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
 from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus

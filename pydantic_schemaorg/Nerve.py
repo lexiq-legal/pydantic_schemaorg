@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 
 

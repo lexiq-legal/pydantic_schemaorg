@@ -1,9 +1,9 @@
 from pydantic import Field
 from pydantic_schemaorg.Thing import Thing
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Organization import Organization
-from pydantic_schemaorg.Audience import Audience
 from pydantic_schemaorg.Person import Person
+from pydantic_schemaorg.Audience import Audience
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -23,7 +23,7 @@ class CommunicateAction(InteractAction):
         None,
         description="A sub property of instrument. The language used on this action.",
     )
-    recipient: Union[List[Union[Organization, Audience, Person, Any]], Union[Organization, Audience, Person, Any]] = Field(
+    recipient: Union[List[Union[Organization, Person, Audience, Any]], Union[Organization, Person, Audience, Any]] = Field(
         None,
         description="A sub property of participant. The participant who is at the receiving end of the action.",
     )

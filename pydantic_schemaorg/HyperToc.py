@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MediaObject import MediaObject
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.HyperTocEntry import HyperTocEntry
 from pydantic_schemaorg.CreativeWork import CreativeWork
 

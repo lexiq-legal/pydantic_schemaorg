@@ -1,6 +1,6 @@
-from pydantic import AnyUrl, Field
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.StructuredValue import StructuredValue
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
 from pydantic_schemaorg.AlignmentObject import AlignmentObject
 from pydantic_schemaorg.CreativeWork import CreativeWork

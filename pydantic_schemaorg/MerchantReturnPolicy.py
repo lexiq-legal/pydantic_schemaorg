@@ -1,6 +1,6 @@
-from pydantic import StrictBool, Field, AnyUrl
+from pydantic import Field, AnyUrl, StrictBool
 from pydantic_schemaorg.ReturnFeesEnumeration import ReturnFeesEnumeration
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.ReturnLabelSourceEnumeration import ReturnLabelSourceEnumeration
 from datetime import date, datetime
 from pydantic_schemaorg.ReturnMethodEnumeration import ReturnMethodEnumeration
@@ -50,7 +50,7 @@ class MerchantReturnPolicy(Intangible):
         description="The method (from an enumeration) by which the customer obtains a return shipping label"
      "for a defect product.",
     )
-    merchantReturnDays: Optional[Union[List[Union[int, datetime, date]], Union[int, datetime, date]]] = Field(
+    merchantReturnDays: Optional[Union[List[Union[datetime, int, date]], Union[datetime, int, date]]] = Field(
         None,
         description="Specifies either a fixed return date or the number of days (from the delivery date) that"
      "a product can be returned. Used when the [[returnPolicyCategory]] property is specified"

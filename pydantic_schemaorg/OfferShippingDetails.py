@@ -1,5 +1,5 @@
-from pydantic import StrictBool, Field, AnyUrl
-from typing import List, Optional, Union, Any
+from pydantic import Field, AnyUrl, StrictBool
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.DefinedRegion import DefinedRegion
 from pydantic_schemaorg.StructuredValue import StructuredValue
 

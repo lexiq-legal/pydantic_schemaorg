@@ -1,10 +1,10 @@
-from pydantic import AnyUrl, Field
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
-from datetime import time, date, datetime
+from datetime import date, datetime, time
 from pydantic_schemaorg.BusinessEntityType import BusinessEntityType
 from pydantic_schemaorg.ItemAvailability import ItemAvailability
 from pydantic_schemaorg.PriceSpecification import PriceSpecification
@@ -15,10 +15,10 @@ from pydantic_schemaorg.MerchantReturnPolicy import MerchantReturnPolicy
 from decimal import Decimal
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from pydantic_schemaorg.Event import Event
 from pydantic_schemaorg.Product import Product
-from pydantic_schemaorg.Service import Service
 from pydantic_schemaorg.CreativeWork import CreativeWork
+from pydantic_schemaorg.Service import Service
+from pydantic_schemaorg.Event import Event
 from pydantic_schemaorg.Review import Review
 from pydantic_schemaorg.OfferItemCondition import OfferItemCondition
 from pydantic_schemaorg.Intangible import Intangible
@@ -199,7 +199,7 @@ class Offer(Intangible):
         None,
         description="The date when the item becomes valid.",
     )
-    itemOffered: Union[List[Union[Event, Product, Service, CreativeWork, Any]], Union[Event, Product, Service, CreativeWork, Any]] = Field(
+    itemOffered: Union[List[Union[Product, CreativeWork, Service, Event, Any]], Union[Product, CreativeWork, Service, Event, Any]] = Field(
         None,
         description="An item being offered (or demanded). The transactional nature of the offer or demand"
      "is documented using [[businessFunction]], e.g. sell, lease etc. While several common"

@@ -1,6 +1,6 @@
-from pydantic import StrictBool, Field, AnyUrl
+from pydantic import Field, AnyUrl, StrictBool
 from datetime import date, datetime
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from decimal import Decimal
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person

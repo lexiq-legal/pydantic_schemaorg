@@ -1,7 +1,7 @@
-from pydantic import StrictBool, Field
-from typing import List, Optional, Union, Any
+from pydantic import Field, StrictBool
+from typing import Any, Union, List, Optional
 from decimal import Decimal
-from datetime import time, datetime
+from datetime import datetime, time
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 
@@ -34,7 +34,7 @@ class LodgingBusiness(LocalBusiness):
         None,
         description="The earliest someone may check into a lodging establishment.",
     )
-    petsAllowed: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
+    petsAllowed: Optional[Union[List[Union[str, StrictBool]], Union[str, StrictBool]]] = Field(
         None,
         description="Indicates whether pets are allowed to enter the accommodation or lodging business."
      "More detailed information can be put in a text value.",

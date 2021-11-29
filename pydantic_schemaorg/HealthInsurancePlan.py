@@ -1,6 +1,6 @@
-from pydantic import AnyUrl, Field
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.ContactPoint import ContactPoint
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.HealthPlanNetwork import HealthPlanNetwork
 from pydantic_schemaorg.Intangible import Intangible
 

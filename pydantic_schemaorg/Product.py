@@ -1,6 +1,6 @@
-from pydantic import AnyUrl, Field
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from datetime import date
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Thing import Thing

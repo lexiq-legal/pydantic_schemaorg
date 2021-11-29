@@ -1,6 +1,6 @@
 from pydantic import Field
-from datetime import time, date, datetime
-from typing import List, Optional, Union, Any
+from datetime import date, datetime, time
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.DayOfWeek import DayOfWeek
 from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.Intangible import Intangible

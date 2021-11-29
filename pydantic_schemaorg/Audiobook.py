@@ -1,11 +1,11 @@
 from pydantic import Field
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Person import Person
-from pydantic_schemaorg.AudioObject import AudioObject
 from pydantic_schemaorg.Book import Book
+from pydantic_schemaorg.AudioObject import AudioObject
 
 
-class Audiobook(AudioObject, Book):
+class Audiobook(Book, AudioObject):
     """An audiobook.
 
     See https://schema.org/Audiobook.

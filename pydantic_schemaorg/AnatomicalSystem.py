@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.MedicalCondition import MedicalCondition
 from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
 from pydantic_schemaorg.MedicalEntity import MedicalEntity

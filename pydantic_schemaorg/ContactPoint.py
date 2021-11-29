@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.ContactPointOption import ContactPointOption
 from pydantic_schemaorg.Product import Product
 from pydantic_schemaorg.StructuredValue import StructuredValue
@@ -30,7 +30,7 @@ class ContactPoint(StructuredValue):
      "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
      "[[inLanguage]]",
     )
-    serviceArea: Union[List[Union[Place, AdministrativeArea, Any]], Union[Place, AdministrativeArea, Any]] = Field(
+    serviceArea: Union[List[Union[AdministrativeArea, Place, Any]], Union[AdministrativeArea, Place, Any]] = Field(
         None,
         description="The geographic area where the service is provided.",
     )

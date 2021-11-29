@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.BedDetails import BedDetails
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.Room import Room
 

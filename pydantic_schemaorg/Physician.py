@@ -1,9 +1,9 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
-from typing import List, Optional, Union, Any
-from pydantic_schemaorg.MedicalTest import MedicalTest
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.MedicalProcedure import MedicalProcedure
 from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
+from pydantic_schemaorg.MedicalTest import MedicalTest
 from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
 from pydantic_schemaorg.MedicalOrganization import MedicalOrganization
 
@@ -23,7 +23,7 @@ class Physician(MedicalBusiness, MedicalOrganization):
         None,
         description="A hospital with which the physician or office is affiliated.",
     )
-    availableService: Optional[Union[List[Union[MedicalTest, MedicalProcedure, MedicalTherapy]], Union[MedicalTest, MedicalProcedure, MedicalTherapy]]] = Field(
+    availableService: Optional[Union[List[Union[MedicalProcedure, MedicalTherapy, MedicalTest]], Union[MedicalProcedure, MedicalTherapy, MedicalTest]]] = Field(
         None,
         description="A medical service available from this provider.",
     )

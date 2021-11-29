@@ -1,5 +1,5 @@
-from pydantic import StrictBool, AnyUrl, Field
-from typing import List, Optional, Union, Any
+from pydantic import Field, AnyUrl, StrictBool
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Thing import Thing
 from datetime import date, datetime
 from pydantic_schemaorg.Organization import Organization

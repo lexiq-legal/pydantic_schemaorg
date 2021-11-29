@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Comment import Comment
 from pydantic_schemaorg.RsvpResponseType import RsvpResponseType
 from pydantic_schemaorg.InformAction import InformAction

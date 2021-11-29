@@ -1,9 +1,9 @@
 from pydantic import Field
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.BioChemEntity import BioChemEntity
-from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
-from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
+from pydantic_schemaorg.DefinedTerm import DefinedTerm
+from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
 
 
 class Gene(BioChemEntity):
@@ -29,7 +29,7 @@ class Gene(BioChemEntity):
         None,
         description="Another gene which is a variation of this one.",
     )
-    expressedIn: Optional[Union[List[Union[BioChemEntity, AnatomicalSystem, DefinedTerm, AnatomicalStructure]], Union[BioChemEntity, AnatomicalSystem, DefinedTerm, AnatomicalStructure]]] = Field(
+    expressedIn: Optional[Union[List[Union[AnatomicalStructure, DefinedTerm, AnatomicalSystem, BioChemEntity]], Union[AnatomicalStructure, DefinedTerm, AnatomicalSystem, BioChemEntity]]] = Field(
         None,
         description="Tissue, organ, biological sample, etc in which activity of this gene has been observed"
      "experimentally. For example brain, digestive system.",

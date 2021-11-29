@@ -1,12 +1,12 @@
 from pydantic import Field
 from pydantic_schemaorg.Country import Country
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.TVSeries import TVSeries
-from pydantic_schemaorg.CreativeWorkSeason import CreativeWorkSeason
 from pydantic_schemaorg.CreativeWork import CreativeWork
+from pydantic_schemaorg.CreativeWorkSeason import CreativeWorkSeason
 
 
-class TVSeason(CreativeWorkSeason, CreativeWork):
+class TVSeason(CreativeWork, CreativeWorkSeason):
     """Season dedicated to TV broadcast and associated online delivery.
 
     See https://schema.org/TVSeason.

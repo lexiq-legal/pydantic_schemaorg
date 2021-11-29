@@ -1,8 +1,8 @@
 from pydantic import Field
 from pydantic_schemaorg.Organization import Organization
-from pydantic_schemaorg.Audience import Audience
 from pydantic_schemaorg.Person import Person
-from typing import List, Optional, Union, Any
+from pydantic_schemaorg.Audience import Audience
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
 from pydantic_schemaorg.TransferAction import TransferAction
 
@@ -18,7 +18,7 @@ class ReceiveAction(TransferAction):
 
     """
 
-    sender: Optional[Union[List[Union[Organization, Audience, Person]], Union[Organization, Audience, Person]]] = Field(
+    sender: Optional[Union[List[Union[Organization, Person, Audience]], Union[Organization, Person, Audience]]] = Field(
         None,
         description="A sub property of participant. The participant who is at the sending end of the action.",
     )

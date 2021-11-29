@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.DrugCostCategory import DrugCostCategory
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from decimal import Decimal
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 

@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Offer import Offer
 from pydantic_schemaorg.Demand import Demand
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from decimal import Decimal
 
 

@@ -1,10 +1,10 @@
-from pydantic import AnyUrl, Field
-from pydantic_schemaorg.CivicStructure import CivicStructure
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
-from typing import List, Optional, Union, Any
+from pydantic_schemaorg.CivicStructure import CivicStructure
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.WebContent import WebContent
-from pydantic_schemaorg.Observation import Observation
 from pydantic_schemaorg.Dataset import Dataset
+from pydantic_schemaorg.Observation import Observation
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
 from datetime import date, datetime
@@ -64,7 +64,7 @@ class SpecialAnnouncement(CreativeWork):
 
     """
 
-    announcementLocation: Optional[Union[List[Union[CivicStructure, LocalBusiness]], Union[CivicStructure, LocalBusiness]]] = Field(
+    announcementLocation: Optional[Union[List[Union[LocalBusiness, CivicStructure]], Union[LocalBusiness, CivicStructure]]] = Field(
         None,
         description="Indicates a specific [[CivicStructure]] or [[LocalBusiness]] associated with the"
      "SpecialAnnouncement. For example, a specific testing facility or business with special"
@@ -80,7 +80,7 @@ class SpecialAnnouncement(CreativeWork):
         description="governmentBenefitsInfo provides information about government benefits associated"
      "with a SpecialAnnouncement.",
     )
-    diseaseSpreadStatistics: Optional[Union[List[Union[AnyUrl, Observation, WebContent, Dataset]], Union[AnyUrl, Observation, WebContent, Dataset]]] = Field(
+    diseaseSpreadStatistics: Optional[Union[List[Union[AnyUrl, Dataset, WebContent, Observation]], Union[AnyUrl, Dataset, WebContent, Observation]]] = Field(
         None,
         description="Statistical information about the spread of a disease, either as [[WebContent]], or"
      "described directly as a [[Dataset]], or the specific [[Observation]]s in the dataset."

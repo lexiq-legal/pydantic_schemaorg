@@ -1,12 +1,12 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Energy import Energy
-from pydantic_schemaorg.PhysicalActivity import PhysicalActivity
 from pydantic_schemaorg.CreativeWork import CreativeWork
+from pydantic_schemaorg.PhysicalActivity import PhysicalActivity
 
 
-class ExercisePlan(PhysicalActivity, CreativeWork):
+class ExercisePlan(CreativeWork, PhysicalActivity):
     """Fitness-related activity designed for a specific health-related purpose, including"
      "defined exercise routines as well as activity prescribed by a clinician.
 

@@ -1,8 +1,8 @@
 from pydantic import Field
 from pydantic_schemaorg.Organization import Organization
-from pydantic_schemaorg.Audience import Audience
 from pydantic_schemaorg.Person import Person
-from typing import List, Optional, Union, Any
+from pydantic_schemaorg.Audience import Audience
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.CreativeWork import CreativeWork
 from datetime import date, datetime
 
@@ -14,7 +14,7 @@ class Message(CreativeWork):
 
     """
 
-    sender: Optional[Union[List[Union[Organization, Audience, Person]], Union[Organization, Audience, Person]]] = Field(
+    sender: Optional[Union[List[Union[Organization, Person, Audience]], Union[Organization, Person, Audience]]] = Field(
         None,
         description="A sub property of participant. The participant who is at the sending end of the action.",
     )
@@ -22,11 +22,11 @@ class Message(CreativeWork):
         None,
         description="A sub property of recipient. The recipient copied on a message.",
     )
-    toRecipient: Union[List[Union[Audience, Organization, Person, Any]], Union[Audience, Organization, Person, Any]] = Field(
+    toRecipient: Union[List[Union[Organization, Person, Audience, Any]], Union[Organization, Person, Audience, Any]] = Field(
         None,
         description="A sub property of recipient. The recipient who was directly sent the message.",
     )
-    recipient: Union[List[Union[Organization, Audience, Person, Any]], Union[Organization, Audience, Person, Any]] = Field(
+    recipient: Union[List[Union[Organization, Person, Audience, Any]], Union[Organization, Person, Audience, Any]] = Field(
         None,
         description="A sub property of participant. The participant who is at the receiving end of the action.",
     )

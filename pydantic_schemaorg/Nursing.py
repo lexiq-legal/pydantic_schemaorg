@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
+from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
-class Nursing(MedicalSpecialty, MedicalBusiness):
+class Nursing(MedicalBusiness, MedicalSpecialty):
     """A health profession of a person formally educated and trained in the care of the sick or"
      "infirm person.
 

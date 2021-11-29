@@ -1,8 +1,8 @@
-from pydantic import StrictBool, AnyUrl, Field
+from pydantic import Field, AnyUrl, StrictBool
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
-from typing import List, Optional, Union, Any
-from datetime import time, datetime, date
+from typing import Any, Union, List, Optional
+from datetime import date, datetime, time
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.Intangible import Intangible
 

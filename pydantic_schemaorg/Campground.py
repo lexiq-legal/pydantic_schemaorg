@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.CivicStructure import CivicStructure
 from pydantic_schemaorg.LodgingBusiness import LodgingBusiness
+from pydantic_schemaorg.CivicStructure import CivicStructure
 
 
-class Campground(CivicStructure, LodgingBusiness):
+class Campground(LodgingBusiness, CivicStructure):
     """A camping site, campsite, or [[Campground]] is a place used for overnight stay in the"
      "outdoors, typically containing individual [[CampingPitch]] locations. In British"
      "English a campsite is an area, usually divided into a number of pitches, where people"

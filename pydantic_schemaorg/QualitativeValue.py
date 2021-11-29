@@ -1,10 +1,10 @@
 from pydantic import Field
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.PropertyValue import PropertyValue
 from pydantic_schemaorg.Enumeration import Enumeration
-from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from pydantic_schemaorg.StructuredValue import StructuredValue
 from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
+from pydantic_schemaorg.StructuredValue import StructuredValue
+from pydantic_schemaorg.DefinedTerm import DefinedTerm
 
 
 class QualitativeValue(Enumeration):
@@ -54,7 +54,7 @@ class QualitativeValue(Enumeration):
      "https://schema.org/gtin13, ...) will typically expect such data to be provided using"
      "those properties, rather than using the generic property/value mechanism.",
     )
-    valueReference: Union[List[Union[str, Enumeration, PropertyValue, DefinedTerm, StructuredValue, MeasurementTypeEnumeration, Any]], Union[str, Enumeration, PropertyValue, DefinedTerm, StructuredValue, MeasurementTypeEnumeration, Any]] = Field(
+    valueReference: Union[List[Union[str, Enumeration, MeasurementTypeEnumeration, PropertyValue, StructuredValue, DefinedTerm, Any]], Union[str, Enumeration, MeasurementTypeEnumeration, PropertyValue, StructuredValue, DefinedTerm, Any]] = Field(
         None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",

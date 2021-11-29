@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.GameServerStatus import GameServerStatus
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.VideoGame import VideoGame
 from pydantic_schemaorg.Intangible import Intangible
 

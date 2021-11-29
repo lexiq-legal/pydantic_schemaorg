@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Energy import Energy
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Mass import Mass
 from pydantic_schemaorg.StructuredValue import StructuredValue
 

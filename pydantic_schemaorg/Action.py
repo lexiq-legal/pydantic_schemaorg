@@ -1,8 +1,8 @@
 from pydantic import Field
 from pydantic_schemaorg.Thing import Thing
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Organization import Organization
-from datetime import time, datetime
+from datetime import datetime, time
 
 
 class Action(Thing):

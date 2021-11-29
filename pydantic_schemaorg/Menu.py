@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MenuSection import MenuSection
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.MenuItem import MenuItem
 from pydantic_schemaorg.CreativeWork import CreativeWork
 

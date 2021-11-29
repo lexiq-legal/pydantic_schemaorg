@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
 from pydantic_schemaorg.PriceSpecification import PriceSpecification
 

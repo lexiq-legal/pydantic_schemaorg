@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.HowToSection import HowToSection

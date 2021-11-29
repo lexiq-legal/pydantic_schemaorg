@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalCondition import MedicalCondition
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.MedicalSignOrSymptom import MedicalSignOrSymptom
 from pydantic_schemaorg.MedicalIntangible import MedicalIntangible
 

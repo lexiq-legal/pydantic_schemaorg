@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
+from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
-class RespiratoryTherapy(MedicalSpecialty, MedicalTherapy):
+class RespiratoryTherapy(MedicalTherapy, MedicalSpecialty):
     """The therapy that is concerned with the maintenance or improvement of respiratory function"
      "(as in patients with pulmonary disease).
 

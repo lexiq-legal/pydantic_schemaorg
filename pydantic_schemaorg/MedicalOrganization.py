@@ -1,6 +1,6 @@
-from pydantic import StrictBool, Field
+from pydantic import Field, StrictBool
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Organization import Organization
 
 

@@ -1,12 +1,12 @@
-from pydantic import StrictBool, Field, AnyUrl
+from pydantic import Field, AnyUrl, StrictBool
 from decimal import Decimal
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.StructuredValue import StructuredValue
 from pydantic_schemaorg.PropertyValue import PropertyValue
-from pydantic_schemaorg.QualitativeValue import QualitativeValue
 from pydantic_schemaorg.Enumeration import Enumeration
-from pydantic_schemaorg.DefinedTerm import DefinedTerm
+from pydantic_schemaorg.QualitativeValue import QualitativeValue
 from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
+from pydantic_schemaorg.DefinedTerm import DefinedTerm
 
 
 class QuantitativeValue(StructuredValue):
@@ -25,7 +25,7 @@ class QuantitativeValue(StructuredValue):
         description="A string or text indicating the unit of measurement. Useful if you cannot provide a standard"
      "unit code for <a href='unitCode'>unitCode</a>.",
     )
-    value: Optional[Union[List[Union[Decimal, StrictBool, str, StructuredValue]], Union[Decimal, StrictBool, str, StructuredValue]]] = Field(
+    value: Optional[Union[List[Union[Decimal, str, StrictBool, StructuredValue]], Union[Decimal, str, StrictBool, StructuredValue]]] = Field(
         None,
         description="The value of the quantitative value or property value node. * For [[QuantitativeValue]]"
      "and [[MonetaryAmount]], the recommended type for values is 'Number'. * For [[PropertyValue]],"
@@ -52,7 +52,7 @@ class QuantitativeValue(StructuredValue):
      "https://schema.org/gtin13, ...) will typically expect such data to be provided using"
      "those properties, rather than using the generic property/value mechanism.",
     )
-    valueReference: Union[List[Union[str, QualitativeValue, Enumeration, PropertyValue, DefinedTerm, StructuredValue, MeasurementTypeEnumeration, Any]], Union[str, QualitativeValue, Enumeration, PropertyValue, DefinedTerm, StructuredValue, MeasurementTypeEnumeration, Any]] = Field(
+    valueReference: Union[List[Union[str, Enumeration, QualitativeValue, MeasurementTypeEnumeration, PropertyValue, StructuredValue, DefinedTerm, Any]], Union[str, Enumeration, QualitativeValue, MeasurementTypeEnumeration, PropertyValue, StructuredValue, DefinedTerm, Any]] = Field(
         None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",

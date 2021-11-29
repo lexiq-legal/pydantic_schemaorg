@@ -1,6 +1,6 @@
 from pydantic import Field
-from datetime import time, datetime, date
-from typing import List, Optional, Union, Any
+from datetime import date, datetime, time
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.DayOfWeek import DayOfWeek
 from pydantic_schemaorg.StructuredValue import StructuredValue
 

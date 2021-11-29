@@ -1,6 +1,6 @@
-from pydantic import AnyUrl, Field
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.DataCatalog import DataCatalog
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from datetime import datetime
 from pydantic_schemaorg.DataDownload import DataDownload
 from pydantic_schemaorg.PropertyValue import PropertyValue

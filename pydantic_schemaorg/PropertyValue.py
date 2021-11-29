@@ -1,9 +1,9 @@
-from pydantic import StrictBool, AnyUrl, Field
-from typing import List, Optional, Union, Any
+from pydantic import Field, AnyUrl, StrictBool
+from typing import Any, Union, List, Optional
 from decimal import Decimal
 from pydantic_schemaorg.Enumeration import Enumeration
-from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
+from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -41,7 +41,7 @@ class PropertyValue(StructuredValue):
         description="A string or text indicating the unit of measurement. Useful if you cannot provide a standard"
      "unit code for <a href='unitCode'>unitCode</a>.",
     )
-    value: Union[List[Union[Decimal, StrictBool, str, Any]], Union[Decimal, StrictBool, str, Any]] = Field(
+    value: Union[List[Union[Decimal, str, StrictBool, Any]], Union[Decimal, str, StrictBool, Any]] = Field(
         None,
         description="The value of the quantitative value or property value node. * For [[QuantitativeValue]]"
      "and [[MonetaryAmount]], the recommended type for values is 'Number'. * For [[PropertyValue]],"
@@ -70,7 +70,7 @@ class PropertyValue(StructuredValue):
         None,
         description="The upper value of some characteristic or property.",
     )
-    valueReference: Union[List[Union[str, Enumeration, DefinedTerm, MeasurementTypeEnumeration, Any]], Union[str, Enumeration, DefinedTerm, MeasurementTypeEnumeration, Any]] = Field(
+    valueReference: Union[List[Union[str, Enumeration, MeasurementTypeEnumeration, DefinedTerm, Any]], Union[str, Enumeration, MeasurementTypeEnumeration, DefinedTerm, Any]] = Field(
         None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",

@@ -1,6 +1,6 @@
 from pydantic import Field
 from datetime import date, datetime
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.MerchantReturnEnumeration import MerchantReturnEnumeration
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -12,7 +12,7 @@ class MerchantReturnPolicySeasonalOverride(Intangible):
 
     """
 
-    merchantReturnDays: Optional[Union[List[Union[int, datetime, date]], Union[int, datetime, date]]] = Field(
+    merchantReturnDays: Optional[Union[List[Union[datetime, int, date]], Union[datetime, int, date]]] = Field(
         None,
         description="Specifies either a fixed return date or the number of days (from the delivery date) that"
      "a product can be returned. Used when the [[returnPolicyCategory]] property is specified"

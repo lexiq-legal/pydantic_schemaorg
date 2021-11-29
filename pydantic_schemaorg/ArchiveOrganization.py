@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.ArchiveComponent import ArchiveComponent
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 

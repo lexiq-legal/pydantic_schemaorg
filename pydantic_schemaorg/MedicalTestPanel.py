@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalTest import MedicalTest
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 
 
 class MedicalTestPanel(MedicalTest):

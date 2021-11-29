@@ -1,7 +1,7 @@
 from pydantic import Field
-from pydantic_schemaorg.WebContent import WebContent
 from pydantic_schemaorg.Comment import Comment
-from typing import List, Optional, Union, Any
+from pydantic_schemaorg.WebContent import WebContent
+from typing import Any, Union, List, Optional
 
 
 class Answer(Comment):
@@ -11,7 +11,7 @@ class Answer(Comment):
 
     """
 
-    answerExplanation: Optional[Union[List[Union[WebContent, Comment]], Union[WebContent, Comment]]] = Field(
+    answerExplanation: Optional[Union[List[Union[Comment, WebContent]], Union[Comment, WebContent]]] = Field(
         None,
         description="A step-by-step or full explanation about Answer. Can outline how this Answer was achieved"
      "or contain more broad clarification or statement about it.",

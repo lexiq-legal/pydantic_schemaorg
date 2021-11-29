@@ -1,5 +1,5 @@
-from pydantic import StrictBool, Field
-from typing import List, Optional, Union, Any
+from pydantic import Field, StrictBool
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Language import Language
 from pydantic_schemaorg.Event import Event
 from pydantic_schemaorg.PublicationEvent import PublicationEvent

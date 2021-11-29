@@ -1,6 +1,6 @@
-from pydantic import AnyUrl, Field
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Duration import Duration
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.PostalAddress import PostalAddress
 from pydantic_schemaorg.Service import Service

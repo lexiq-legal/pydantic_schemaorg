@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.Series import Series
 from pydantic_schemaorg.Event import Event
+from pydantic_schemaorg.Series import Series
 
 
-class EventSeries(Series, Event):
+class EventSeries(Event, Series):
     """A series of [[Event]]s. Included events can relate with the series using the [[superEvent]]"
      "property. An EventSeries is a collection of events that share some unifying characteristic."
      "For example, \"The Olympic Games\" is a series, which is repeated regularly. The \"2012"

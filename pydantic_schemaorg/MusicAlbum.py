@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MusicAlbumProductionType import MusicAlbumProductionType
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.MusicAlbumReleaseType import MusicAlbumReleaseType
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.MusicPlaylist import MusicPlaylist

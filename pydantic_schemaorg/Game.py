@@ -1,7 +1,7 @@
-from pydantic import AnyUrl, Field
-from pydantic_schemaorg.PostalAddress import PostalAddress
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Place import Place
-from typing import List, Optional, Union, Any
+from pydantic_schemaorg.PostalAddress import PostalAddress
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.CreativeWork import CreativeWork
@@ -16,7 +16,7 @@ class Game(CreativeWork):
 
     """
 
-    gameLocation: Optional[Union[List[Union[AnyUrl, PostalAddress, Place]], Union[AnyUrl, PostalAddress, Place]]] = Field(
+    gameLocation: Optional[Union[List[Union[AnyUrl, Place, PostalAddress]], Union[AnyUrl, Place, PostalAddress]]] = Field(
         None,
         description="Real or fictional location of the game (or part of game).",
     )

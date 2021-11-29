@@ -1,8 +1,8 @@
 from pydantic import Field
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Action import Action
 from pydantic_schemaorg.Place import Place
-from datetime import time, datetime
+from datetime import datetime, time
 from pydantic_schemaorg.SoftwareApplication import SoftwareApplication
 from pydantic_schemaorg.StructuredValue import StructuredValue
 

@@ -1,7 +1,7 @@
-from pydantic import StrictBool, AnyUrl, Field
+from pydantic import Field, AnyUrl, StrictBool
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from decimal import Decimal
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.ImageObject import ImageObject
 from pydantic_schemaorg.LocationFeatureSpecification import LocationFeatureSpecification
 from pydantic_schemaorg.Accommodation import Accommodation
@@ -60,7 +60,7 @@ class FloorPlan(Intangible):
      "an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]]"
      "(within its specific [[ApartmentComplex]]). See also [[numberOfAvailableAccommodationUnits]].",
     )
-    petsAllowed: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
+    petsAllowed: Optional[Union[List[Union[str, StrictBool]], Union[str, StrictBool]]] = Field(
         None,
         description="Indicates whether pets are allowed to enter the accommodation or lodging business."
      "More detailed information can be put in a text value.",

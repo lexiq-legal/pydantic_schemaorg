@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalCondition import MedicalCondition
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Drug import Drug
 from pydantic_schemaorg.MedicalAudience import MedicalAudience
 from pydantic_schemaorg.Person import Person

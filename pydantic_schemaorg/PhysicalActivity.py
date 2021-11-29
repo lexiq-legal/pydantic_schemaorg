@@ -1,5 +1,5 @@
-from pydantic import AnyUrl, Field
-from typing import List, Optional, Union, Any
+from pydantic import Field, AnyUrl
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure

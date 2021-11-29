@@ -1,6 +1,6 @@
-from pydantic import StrictBool, AnyUrl, Field
+from pydantic import Field, AnyUrl, StrictBool
 from decimal import Decimal
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.LocationFeatureSpecification import LocationFeatureSpecification
 from pydantic_schemaorg.Place import Place
 
@@ -64,7 +64,7 @@ class Accommodation(Place):
         description="A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]]"
      "or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.",
     )
-    petsAllowed: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
+    petsAllowed: Optional[Union[List[Union[str, StrictBool]], Union[str, StrictBool]]] = Field(
         None,
         description="Indicates whether pets are allowed to enter the accommodation or lodging business."
      "More detailed information can be put in a text value.",

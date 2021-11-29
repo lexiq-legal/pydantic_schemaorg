@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.CivicStructure import CivicStructure
 from pydantic_schemaorg.SportsActivityLocation import SportsActivityLocation
+from pydantic_schemaorg.CivicStructure import CivicStructure
 
 
-class StadiumOrArena(CivicStructure, SportsActivityLocation):
+class StadiumOrArena(SportsActivityLocation, CivicStructure):
     """A stadium.
 
     See https://schema.org/StadiumOrArena.

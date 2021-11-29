@@ -1,11 +1,11 @@
 from pydantic import Field
 from pydantic_schemaorg.TypeAndQuantityNode import TypeAndQuantityNode
-from typing import List, Optional, Union, Any
-from pydantic_schemaorg.Collection import Collection
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Product import Product
+from pydantic_schemaorg.Collection import Collection
 
 
-class ProductCollection(Collection, Product):
+class ProductCollection(Product, Collection):
     """A set of products (either [[ProductGroup]]s or specific variants) that are listed together"
      "e.g. in an [[Offer]].
 

@@ -1,10 +1,10 @@
 from pydantic import Field
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Place import Place
 
 
-class LocalBusiness(Organization, Place):
+class LocalBusiness(Place, Organization):
     """A particular physical business or branch of an organization. Examples of LocalBusiness"
      "include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a"
      "medical practice, a club, a bowling alley, etc.

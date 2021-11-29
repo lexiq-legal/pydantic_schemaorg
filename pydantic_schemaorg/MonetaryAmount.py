@@ -1,6 +1,6 @@
-from pydantic import StrictBool, Field
+from pydantic import Field, StrictBool
 from decimal import Decimal
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from datetime import date, datetime
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -23,7 +23,7 @@ class MonetaryAmount(StructuredValue):
         None,
         description="The date when the item becomes valid.",
     )
-    value: Optional[Union[List[Union[Decimal, StrictBool, str, StructuredValue]], Union[Decimal, StrictBool, str, StructuredValue]]] = Field(
+    value: Optional[Union[List[Union[Decimal, str, StrictBool, StructuredValue]], Union[Decimal, str, StrictBool, StructuredValue]]] = Field(
         None,
         description="The value of the quantitative value or property value node. * For [[QuantitativeValue]]"
      "and [[MonetaryAmount]], the recommended type for values is 'Number'. * For [[PropertyValue]],"

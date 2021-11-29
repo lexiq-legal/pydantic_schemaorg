@@ -1,7 +1,7 @@
-from pydantic import AnyUrl, Field
-from typing import List, Optional, Union, Any
-from pydantic_schemaorg.PropertyValue import PropertyValue
+from pydantic import Field, AnyUrl
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
+from pydantic_schemaorg.PropertyValue import PropertyValue
 from pydantic_schemaorg.Thing import Thing
 
 
@@ -21,7 +21,7 @@ class BioChemEntity(Thing):
         None,
         description="Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.",
     )
-    hasMolecularFunction: Optional[Union[List[Union[AnyUrl, PropertyValue, DefinedTerm]], Union[AnyUrl, PropertyValue, DefinedTerm]]] = Field(
+    hasMolecularFunction: Optional[Union[List[Union[AnyUrl, DefinedTerm, PropertyValue]], Union[AnyUrl, DefinedTerm, PropertyValue]]] = Field(
         None,
         description="Molecular function performed by this BioChemEntity; please use PropertyValue if you"
      "want to include any evidence.",
@@ -45,7 +45,7 @@ class BioChemEntity(Thing):
         description="The taxonomic grouping of the organism that expresses, encodes, or in someway related"
      "to the BioChemEntity.",
     )
-    isInvolvedInBiologicalProcess: Optional[Union[List[Union[AnyUrl, PropertyValue, DefinedTerm]], Union[AnyUrl, PropertyValue, DefinedTerm]]] = Field(
+    isInvolvedInBiologicalProcess: Optional[Union[List[Union[AnyUrl, DefinedTerm, PropertyValue]], Union[AnyUrl, DefinedTerm, PropertyValue]]] = Field(
         None,
         description="Biological process this BioChemEntity is involved in; please use PropertyValue if"
      "you want to include any evidence.",
@@ -62,7 +62,7 @@ class BioChemEntity(Thing):
         None,
         description="Another BioChemEntity encoding by this one.",
     )
-    isLocatedInSubcellularLocation: Optional[Union[List[Union[AnyUrl, PropertyValue, DefinedTerm]], Union[AnyUrl, PropertyValue, DefinedTerm]]] = Field(
+    isLocatedInSubcellularLocation: Optional[Union[List[Union[AnyUrl, DefinedTerm, PropertyValue]], Union[AnyUrl, DefinedTerm, PropertyValue]]] = Field(
         None,
         description="Subcellular location where this BioChemEntity is located; please use PropertyValue"
      "if you want to include any evidence.",

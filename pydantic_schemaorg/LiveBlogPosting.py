@@ -1,6 +1,6 @@
 from pydantic import Field
 from datetime import datetime
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.BlogPosting import BlogPosting
 
 

@@ -1,6 +1,6 @@
-from pydantic import AnyUrl, Field
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Person import Person
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.GamePlayMode import GamePlayMode
 from pydantic_schemaorg.CreativeWork import CreativeWork

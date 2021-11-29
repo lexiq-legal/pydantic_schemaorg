@@ -1,7 +1,7 @@
-from pydantic import AnyUrl, Field
+from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import List, Optional, Union, Any
+from typing import Any, Union, List, Optional
 from datetime import date
 from pydantic_schemaorg.LegalForceStatus import LegalForceStatus
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea

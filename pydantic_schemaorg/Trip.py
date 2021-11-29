@@ -1,10 +1,10 @@
 from pydantic import Field
 from pydantic_schemaorg.Offer import Offer
 from pydantic_schemaorg.Demand import Demand
-from typing import List, Optional, Union, Any
-from datetime import time, datetime
-from pydantic_schemaorg.ItemList import ItemList
+from typing import Any, Union, List, Optional
+from datetime import datetime, time
 from pydantic_schemaorg.Place import Place
+from pydantic_schemaorg.ItemList import ItemList
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Intangible import Intangible
@@ -30,7 +30,7 @@ class Trip(Intangible):
         None,
         description="The expected departure time.",
     )
-    itinerary: Optional[Union[List[Union[ItemList, Place]], Union[ItemList, Place]]] = Field(
+    itinerary: Optional[Union[List[Union[Place, ItemList]], Union[Place, ItemList]]] = Field(
         None,
         description="Destination(s) ( [[Place]] ) that make up a trip. For a trip where destination order is"
      "important use [[ItemList]] to specify that order (see examples).",
