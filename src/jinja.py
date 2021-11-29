@@ -21,4 +21,3 @@ def format_description(_input: str, max_width=70):
 
 
 jinja_env.filters['format_description'] = format_description
-
