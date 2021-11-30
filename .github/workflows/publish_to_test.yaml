@@ -22,7 +22,8 @@ jobs:
       - name: Publish distribution 📦 to Test PyPI
         run: |
           poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }}
-          poetry version $(git describe --tags --abbrev=0)
+          RELEASE_TAG= $(git describe --tags --abbrev=0)
+          poetry version ${RELEASE_TAG#"v"}
           poetry build
           poetry publish
       - name: Create Release
