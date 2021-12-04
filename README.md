@@ -19,11 +19,11 @@ A full (hierarchical) list of Schema.org model names can be found [here](https:/
 from datetime import datetime
 from pydantic_schemaorg.ScholarlyArticle import ScholarlyArticle
 
-scholary_article = ScholarlyArticle(url='https://github.com/lexiq-legal/pydantic_schemaorg',
+scholarly_article = ScholarlyArticle(url='https://github.com/lexiq-legal/pydantic_schemaorg',
                                     sameAs='https://github.com/lexiq-legal/pydantic_schemaorg',
                                     copyrightNotice='Free to use under the MIT license',
                                     dateCreated=datetime.now())
-print(scholary_article.json(exclude_none=True))
+print(scholarly_article.json(exclude_none=True))
 ```
 
 ```{"url": "https://github.com/lexiq-legal/pydantic_schemaorg", "sameAs": "https://github.com/lexiq-legal/pydantic_schemaorg", "@type": "ScholarlyArticle", "copyrightNotice": "Free to use under the MIT license", "dateCreated": "2021-11-30T17:31:38.454252"}```
