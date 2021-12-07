@@ -10,8 +10,7 @@ class UserInteraction(Event):
     See https://schema.org/UserInteraction.
 
     """
-
-    locals().update({"@type": Field("UserInteraction", const=True)})
-
+    type_: str = Field("UserInteraction", const=True, alias='@type')
+    
 
 UserInteraction.update_forward_refs()

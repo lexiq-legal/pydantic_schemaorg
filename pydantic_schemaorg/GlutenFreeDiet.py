@@ -8,8 +8,7 @@ class GlutenFreeDiet(RestrictedDiet):
     See https://schema.org/GlutenFreeDiet.
 
     """
-
-    locals().update({"@type": Field("GlutenFreeDiet", const=True)})
-
+    type_: str = Field("GlutenFreeDiet", const=True, alias='@type')
+    
 
 GlutenFreeDiet.update_forward_refs()

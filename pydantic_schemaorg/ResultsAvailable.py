@@ -8,8 +8,7 @@ class ResultsAvailable(MedicalStudyStatus):
     See https://schema.org/ResultsAvailable.
 
     """
-
-    locals().update({"@type": Field("ResultsAvailable", const=True)})
-
+    type_: str = Field("ResultsAvailable", const=True, alias='@type')
+    
 
 ResultsAvailable.update_forward_refs()

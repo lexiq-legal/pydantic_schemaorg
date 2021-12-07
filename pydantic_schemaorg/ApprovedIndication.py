@@ -10,8 +10,7 @@ class ApprovedIndication(MedicalIndication):
     See https://schema.org/ApprovedIndication.
 
     """
-
-    locals().update({"@type": Field("ApprovedIndication", const=True)})
-
+    type_: str = Field("ApprovedIndication", const=True, alias='@type')
+    
 
 ApprovedIndication.update_forward_refs()

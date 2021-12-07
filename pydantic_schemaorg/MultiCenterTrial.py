@@ -8,8 +8,7 @@ class MultiCenterTrial(MedicalTrialDesign):
     See https://schema.org/MultiCenterTrial.
 
     """
-
-    locals().update({"@type": Field("MultiCenterTrial", const=True)})
-
+    type_: str = Field("MultiCenterTrial", const=True, alias='@type')
+    
 
 MultiCenterTrial.update_forward_refs()

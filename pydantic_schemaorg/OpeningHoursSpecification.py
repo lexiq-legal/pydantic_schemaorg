@@ -1,6 +1,6 @@
 from pydantic import Field
-from datetime import date, datetime, time
-from typing import Any, Union, List, Optional
+from datetime import datetime, time, date
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DayOfWeek import DayOfWeek
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -14,7 +14,7 @@ class OpeningHoursSpecification(StructuredValue):
     See https://schema.org/OpeningHoursSpecification.
 
     """
-
+    type_: str = Field("OpeningHoursSpecification", const=True, alias='@type')
     opens: Optional[Union[List[time], time]] = Field(
         None,
         description="The opening hour of the place or service on the given day(s) of the week.",
@@ -36,7 +36,6 @@ class OpeningHoursSpecification(StructuredValue):
         None,
         description="The day of the week for which these opening hours are valid.",
     )
-    locals().update({"@type": Field("OpeningHoursSpecification", const=True)})
-
+    
 
 OpeningHoursSpecification.update_forward_refs()

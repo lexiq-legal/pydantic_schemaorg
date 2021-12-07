@@ -8,8 +8,7 @@ class Registry(MedicalObservationalStudyDesign):
     See https://schema.org/Registry.
 
     """
-
-    locals().update({"@type": Field("Registry", const=True)})
-
+    type_: str = Field("Registry", const=True, alias='@type')
+    
 
 Registry.update_forward_refs()

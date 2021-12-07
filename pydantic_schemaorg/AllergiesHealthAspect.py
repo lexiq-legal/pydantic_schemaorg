@@ -8,8 +8,7 @@ class AllergiesHealthAspect(HealthAspectEnumeration):
     See https://schema.org/AllergiesHealthAspect.
 
     """
-
-    locals().update({"@type": Field("AllergiesHealthAspect", const=True)})
-
+    type_: str = Field("AllergiesHealthAspect", const=True, alias='@type')
+    
 
 AllergiesHealthAspect.update_forward_refs()

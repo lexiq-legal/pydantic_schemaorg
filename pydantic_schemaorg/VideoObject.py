@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.ImageObject import ImageObject
 from pydantic_schemaorg.MediaObject import MediaObject
 
@@ -11,7 +11,7 @@ class VideoObject(MediaObject):
     See https://schema.org/VideoObject.
 
     """
-
+    type_: str = Field("VideoObject", const=True, alias='@type')
     actors: Optional[Union[List[Person], Person]] = Field(
         None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
@@ -61,7 +61,6 @@ class VideoObject(MediaObject):
         None,
         description="The composer of the soundtrack.",
     )
-    locals().update({"@type": Field("VideoObject", const=True)})
-
+    
 
 VideoObject.update_forward_refs()

@@ -9,8 +9,7 @@ class QAPage(WebPage):
     See https://schema.org/QAPage.
 
     """
-
-    locals().update({"@type": Field("QAPage", const=True)})
-
+    type_: str = Field("QAPage", const=True, alias='@type')
+    
 
 QAPage.update_forward_refs()

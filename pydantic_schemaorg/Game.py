@@ -1,7 +1,7 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.PostalAddress import PostalAddress
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.CreativeWork import CreativeWork
@@ -15,7 +15,7 @@ class Game(CreativeWork):
     See https://schema.org/Game.
 
     """
-
+    type_: str = Field("Game", const=True, alias='@type')
     gameLocation: Optional[Union[List[Union[AnyUrl, Place, PostalAddress]], Union[AnyUrl, Place, PostalAddress]]] = Field(
         None,
         description="Real or fictional location of the game (or part of game).",
@@ -39,7 +39,6 @@ class Game(CreativeWork):
         None,
         description="Indicate how many people can play this game (minimum, maximum, or range).",
     )
-    locals().update({"@type": Field("Game", const=True)})
-
+    
 
 Game.update_forward_refs()

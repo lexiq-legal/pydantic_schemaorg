@@ -8,8 +8,7 @@ class ItemListOrderAscending(ItemListOrderType):
     See https://schema.org/ItemListOrderAscending.
 
     """
-
-    locals().update({"@type": Field("ItemListOrderAscending", const=True)})
-
+    type_: str = Field("ItemListOrderAscending", const=True, alias='@type')
+    
 
 ItemListOrderAscending.update_forward_refs()

@@ -8,8 +8,7 @@ class AutomotiveBusiness(LocalBusiness):
     See https://schema.org/AutomotiveBusiness.
 
     """
-
-    locals().update({"@type": Field("AutomotiveBusiness", const=True)})
-
+    type_: str = Field("AutomotiveBusiness", const=True, alias='@type')
+    
 
 AutomotiveBusiness.update_forward_refs()

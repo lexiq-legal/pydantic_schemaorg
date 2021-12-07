@@ -11,8 +11,7 @@ class UnRegisterAction(InteractAction):
     See https://schema.org/UnRegisterAction.
 
     """
-
-    locals().update({"@type": Field("UnRegisterAction", const=True)})
-
+    type_: str = Field("UnRegisterAction", const=True, alias='@type')
+    
 
 UnRegisterAction.update_forward_refs()

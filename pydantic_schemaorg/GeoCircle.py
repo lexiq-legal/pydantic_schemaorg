@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.GeoCoordinates import GeoCoordinates
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Distance import Distance
 from decimal import Decimal
 from pydantic_schemaorg.GeoShape import GeoShape
@@ -15,7 +15,7 @@ class GeoCircle(GeoShape):
     See https://schema.org/GeoCircle.
 
     """
-
+    type_: str = Field("GeoCircle", const=True, alias='@type')
     geoMidpoint: Optional[Union[List[GeoCoordinates], GeoCoordinates]] = Field(
         None,
         description="Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle.",
@@ -25,7 +25,6 @@ class GeoCircle(GeoShape):
         description="Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise"
      "via Distance notation).",
     )
-    locals().update({"@type": Field("GeoCircle", const=True)})
-
+    
 
 GeoCircle.update_forward_refs()

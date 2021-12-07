@@ -9,8 +9,7 @@ class EnergyEfficiencyEnumeration(Enumeration):
     See https://schema.org/EnergyEfficiencyEnumeration.
 
     """
-
-    locals().update({"@type": Field("EnergyEfficiencyEnumeration", const=True)})
-
+    type_: str = Field("EnergyEfficiencyEnumeration", const=True, alias='@type')
+    
 
 EnergyEfficiencyEnumeration.update_forward_refs()

@@ -8,8 +8,7 @@ class EnrollingByInvitation(MedicalStudyStatus):
     See https://schema.org/EnrollingByInvitation.
 
     """
-
-    locals().update({"@type": Field("EnrollingByInvitation", const=True)})
-
+    type_: str = Field("EnrollingByInvitation", const=True, alias='@type')
+    
 
 EnrollingByInvitation.update_forward_refs()

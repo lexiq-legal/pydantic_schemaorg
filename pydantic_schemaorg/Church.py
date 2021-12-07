@@ -8,8 +8,7 @@ class Church(PlaceOfWorship):
     See https://schema.org/Church.
 
     """
-
-    locals().update({"@type": Field("Church", const=True)})
-
+    type_: str = Field("Church", const=True, alias='@type')
+    
 
 Church.update_forward_refs()

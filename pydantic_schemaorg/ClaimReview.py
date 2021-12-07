@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Review import Review
 
 
@@ -10,12 +10,11 @@ class ClaimReview(Review):
     See https://schema.org/ClaimReview.
 
     """
-
+    type_: str = Field("ClaimReview", const=True, alias='@type')
     claimReviewed: Optional[Union[List[str], str]] = Field(
         None,
         description="A short summary of the specific claims reviewed in a ClaimReview.",
     )
-    locals().update({"@type": Field("ClaimReview", const=True)})
-
+    
 
 ClaimReview.update_forward_refs()

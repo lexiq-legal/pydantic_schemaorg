@@ -8,8 +8,7 @@ class BodyOfWater(Landform):
     See https://schema.org/BodyOfWater.
 
     """
-
-    locals().update({"@type": Field("BodyOfWater", const=True)})
-
+    type_: str = Field("BodyOfWater", const=True, alias='@type')
+    
 
 BodyOfWater.update_forward_refs()

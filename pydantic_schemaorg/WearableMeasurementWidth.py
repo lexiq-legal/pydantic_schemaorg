@@ -8,8 +8,7 @@ class WearableMeasurementWidth(WearableMeasurementTypeEnumeration):
     See https://schema.org/WearableMeasurementWidth.
 
     """
-
-    locals().update({"@type": Field("WearableMeasurementWidth", const=True)})
-
+    type_: str = Field("WearableMeasurementWidth", const=True, alias='@type')
+    
 
 WearableMeasurementWidth.update_forward_refs()

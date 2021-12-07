@@ -8,8 +8,7 @@ class NewCondition(OfferItemCondition):
     See https://schema.org/NewCondition.
 
     """
-
-    locals().update({"@type": Field("NewCondition", const=True)})
-
+    type_: str = Field("NewCondition", const=True, alias='@type')
+    
 
 NewCondition.update_forward_refs()

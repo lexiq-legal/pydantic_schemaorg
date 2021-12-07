@@ -8,8 +8,7 @@ class RecyclingCenter(LocalBusiness):
     See https://schema.org/RecyclingCenter.
 
     """
-
-    locals().update({"@type": Field("RecyclingCenter", const=True)})
-
+    type_: str = Field("RecyclingCenter", const=True, alias='@type')
+    
 
 RecyclingCenter.update_forward_refs()

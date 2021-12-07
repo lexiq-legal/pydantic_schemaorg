@@ -1,8 +1,8 @@
-from pydantic import Field, AnyUrl, StrictBool
+from pydantic import StrictBool, Field, AnyUrl
 from pydantic_schemaorg.ReturnFeesEnumeration import ReturnFeesEnumeration
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.ReturnLabelSourceEnumeration import ReturnLabelSourceEnumeration
-from datetime import date, datetime
+from datetime import datetime, date
 from pydantic_schemaorg.ReturnMethodEnumeration import ReturnMethodEnumeration
 from pydantic_schemaorg.OfferItemCondition import OfferItemCondition
 from decimal import Decimal
@@ -17,7 +17,7 @@ class MerchantReturnPolicy(Intangible):
     See https://schema.org/MerchantReturnPolicy.
 
     """
-
+    type_: str = Field("MerchantReturnPolicy", const=True, alias='@type')
     customerRemorseReturnFees: Optional[Union[List[ReturnFeesEnumeration], ReturnFeesEnumeration]] = Field(
         None,
         description="The type of return fees if the product is returned due to customer remorse.",
@@ -119,7 +119,6 @@ class MerchantReturnPolicy(Intangible):
         description="The method (from an enumeration) by which the customer obtains a return shipping label"
      "for a product returned due to customer remorse.",
     )
-    locals().update({"@type": Field("MerchantReturnPolicy", const=True)})
-
+    
 
 MerchantReturnPolicy.update_forward_refs()

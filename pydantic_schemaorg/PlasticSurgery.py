@@ -11,8 +11,7 @@ class PlasticSurgery(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/PlasticSurgery.
 
     """
-
-    locals().update({"@type": Field("PlasticSurgery", const=True)})
-
+    type_: str = Field("PlasticSurgery", const=True, alias='@type')
+    
 
 PlasticSurgery.update_forward_refs()

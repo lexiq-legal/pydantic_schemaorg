@@ -8,8 +8,7 @@ class Monday(DayOfWeek):
     See https://schema.org/Monday.
 
     """
-
-    locals().update({"@type": Field("Monday", const=True)})
-
+    type_: str = Field("Monday", const=True, alias='@type')
+    
 
 Monday.update_forward_refs()

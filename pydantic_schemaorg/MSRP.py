@@ -8,8 +8,7 @@ class MSRP(PriceTypeEnumeration):
     See https://schema.org/MSRP.
 
     """
-
-    locals().update({"@type": Field("MSRP", const=True)})
-
+    type_: str = Field("MSRP", const=True, alias='@type')
+    
 
 MSRP.update_forward_refs()

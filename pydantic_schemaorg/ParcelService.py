@@ -10,8 +10,7 @@ class ParcelService(DeliveryMethod):
     See https://schema.org/ParcelService.
 
     """
-
-    locals().update({"@type": Field("ParcelService", const=True)})
-
+    type_: str = Field("ParcelService", const=True, alias='@type')
+    
 
 ParcelService.update_forward_refs()

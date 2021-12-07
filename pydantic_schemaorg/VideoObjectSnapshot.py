@@ -12,8 +12,7 @@ class VideoObjectSnapshot(VideoObject):
     See https://schema.org/VideoObjectSnapshot.
 
     """
-
-    locals().update({"@type": Field("VideoObjectSnapshot", const=True)})
-
+    type_: str = Field("VideoObjectSnapshot", const=True, alias='@type')
+    
 
 VideoObjectSnapshot.update_forward_refs()

@@ -9,8 +9,7 @@ class CharitableIncorporatedOrganization(UKNonprofitType):
     See https://schema.org/CharitableIncorporatedOrganization.
 
     """
-
-    locals().update({"@type": Field("CharitableIncorporatedOrganization", const=True)})
-
+    type_: str = Field("CharitableIncorporatedOrganization", const=True, alias='@type')
+    
 
 CharitableIncorporatedOrganization.update_forward_refs()

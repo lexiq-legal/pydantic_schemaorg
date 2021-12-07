@@ -9,8 +9,7 @@ class Genetic(MedicalSpecialty):
     See https://schema.org/Genetic.
 
     """
-
-    locals().update({"@type": Field("Genetic", const=True)})
-
+    type_: str = Field("Genetic", const=True, alias='@type')
+    
 
 Genetic.update_forward_refs()

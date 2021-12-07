@@ -8,8 +8,7 @@ class DrinkAction(ConsumeAction):
     See https://schema.org/DrinkAction.
 
     """
-
-    locals().update({"@type": Field("DrinkAction", const=True)})
-
+    type_: str = Field("DrinkAction", const=True, alias='@type')
+    
 
 DrinkAction.update_forward_refs()

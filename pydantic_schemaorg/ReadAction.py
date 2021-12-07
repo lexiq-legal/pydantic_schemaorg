@@ -8,8 +8,7 @@ class ReadAction(ConsumeAction):
     See https://schema.org/ReadAction.
 
     """
-
-    locals().update({"@type": Field("ReadAction", const=True)})
-
+    type_: str = Field("ReadAction", const=True, alias='@type')
+    
 
 ReadAction.update_forward_refs()

@@ -17,8 +17,7 @@ class CampingPitch(Accommodation):
     See https://schema.org/CampingPitch.
 
     """
-
-    locals().update({"@type": Field("CampingPitch", const=True)})
-
+    type_: str = Field("CampingPitch", const=True, alias='@type')
+    
 
 CampingPitch.update_forward_refs()

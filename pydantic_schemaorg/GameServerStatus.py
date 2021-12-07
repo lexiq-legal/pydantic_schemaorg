@@ -8,8 +8,7 @@ class GameServerStatus(StatusEnumeration):
     See https://schema.org/GameServerStatus.
 
     """
-
-    locals().update({"@type": Field("GameServerStatus", const=True)})
-
+    type_: str = Field("GameServerStatus", const=True, alias='@type')
+    
 
 GameServerStatus.update_forward_refs()

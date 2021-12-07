@@ -8,8 +8,7 @@ class WPSideBar(WebPageElement):
     See https://schema.org/WPSideBar.
 
     """
-
-    locals().update({"@type": Field("WPSideBar", const=True)})
-
+    type_: str = Field("WPSideBar", const=True, alias='@type')
+    
 
 WPSideBar.update_forward_refs()

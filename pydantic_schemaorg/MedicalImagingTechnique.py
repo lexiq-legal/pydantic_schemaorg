@@ -8,8 +8,7 @@ class MedicalImagingTechnique(MedicalEnumeration):
     See https://schema.org/MedicalImagingTechnique.
 
     """
-
-    locals().update({"@type": Field("MedicalImagingTechnique", const=True)})
-
+    type_: str = Field("MedicalImagingTechnique", const=True, alias='@type')
+    
 
 MedicalImagingTechnique.update_forward_refs()

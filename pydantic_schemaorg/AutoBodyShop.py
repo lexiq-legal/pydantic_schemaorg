@@ -8,8 +8,7 @@ class AutoBodyShop(AutomotiveBusiness):
     See https://schema.org/AutoBodyShop.
 
     """
-
-    locals().update({"@type": Field("AutoBodyShop", const=True)})
-
+    type_: str = Field("AutoBodyShop", const=True, alias='@type')
+    
 
 AutoBodyShop.update_forward_refs()

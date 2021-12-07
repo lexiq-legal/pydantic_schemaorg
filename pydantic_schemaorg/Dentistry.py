@@ -8,8 +8,7 @@ class Dentistry(MedicalSpecialty):
     See https://schema.org/Dentistry.
 
     """
-
-    locals().update({"@type": Field("Dentistry", const=True)})
-
+    type_: str = Field("Dentistry", const=True, alias='@type')
+    
 
 Dentistry.update_forward_refs()

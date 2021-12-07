@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Thing import Thing
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.UpdateAction import UpdateAction
 
 
@@ -10,7 +10,7 @@ class ReplaceAction(UpdateAction):
     See https://schema.org/ReplaceAction.
 
     """
-
+    type_: str = Field("ReplaceAction", const=True, alias='@type')
     replacer: Optional[Union[List[Thing], Thing]] = Field(
         None,
         description="A sub property of object. The object that replaces.",
@@ -19,7 +19,6 @@ class ReplaceAction(UpdateAction):
         None,
         description="A sub property of object. The object that is being replaced.",
     )
-    locals().update({"@type": Field("ReplaceAction", const=True)})
-
+    
 
 ReplaceAction.update_forward_refs()

@@ -8,8 +8,7 @@ class City(AdministrativeArea):
     See https://schema.org/City.
 
     """
-
-    locals().update({"@type": Field("City", const=True)})
-
+    type_: str = Field("City", const=True, alias='@type')
+    
 
 City.update_forward_refs()

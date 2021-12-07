@@ -10,8 +10,7 @@ class UserBlocks(UserInteraction):
     See https://schema.org/UserBlocks.
 
     """
-
-    locals().update({"@type": Field("UserBlocks", const=True)})
-
+    type_: str = Field("UserBlocks", const=True, alias='@type')
+    
 
 UserBlocks.update_forward_refs()

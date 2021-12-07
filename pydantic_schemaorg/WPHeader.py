@@ -8,8 +8,7 @@ class WPHeader(WebPageElement):
     See https://schema.org/WPHeader.
 
     """
-
-    locals().update({"@type": Field("WPHeader", const=True)})
-
+    type_: str = Field("WPHeader", const=True, alias='@type')
+    
 
 WPHeader.update_forward_refs()

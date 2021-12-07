@@ -10,8 +10,7 @@ class BoatReservation(Reservation):
     See https://schema.org/BoatReservation.
 
     """
-
-    locals().update({"@type": Field("BoatReservation", const=True)})
-
+    type_: str = Field("BoatReservation", const=True, alias='@type')
+    
 
 BoatReservation.update_forward_refs()

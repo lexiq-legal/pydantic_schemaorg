@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Role import Role
 
 
@@ -10,12 +10,11 @@ class PerformanceRole(Role):
     See https://schema.org/PerformanceRole.
 
     """
-
+    type_: str = Field("PerformanceRole", const=True, alias='@type')
     characterName: Optional[Union[List[str], str]] = Field(
         None,
         description="The name of a character played in some acting or performing role, i.e. in a PerformanceRole.",
     )
-    locals().update({"@type": Field("PerformanceRole", const=True)})
-
+    
 
 PerformanceRole.update_forward_refs()

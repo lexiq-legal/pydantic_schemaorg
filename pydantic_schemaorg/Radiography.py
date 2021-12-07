@@ -11,8 +11,7 @@ class Radiography(MedicalImagingTechnique, MedicalSpecialty):
     See https://schema.org/Radiography.
 
     """
-
-    locals().update({"@type": Field("Radiography", const=True)})
-
+    type_: str = Field("Radiography", const=True, alias='@type')
+    
 
 Radiography.update_forward_refs()

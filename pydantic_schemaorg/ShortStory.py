@@ -8,8 +8,7 @@ class ShortStory(CreativeWork):
     See https://schema.org/ShortStory.
 
     """
-
-    locals().update({"@type": Field("ShortStory", const=True)})
-
+    type_: str = Field("ShortStory", const=True, alias='@type')
+    
 
 ShortStory.update_forward_refs()

@@ -9,8 +9,7 @@ class EventAttendanceModeEnumeration(Enumeration):
     See https://schema.org/EventAttendanceModeEnumeration.
 
     """
-
-    locals().update({"@type": Field("EventAttendanceModeEnumeration", const=True)})
-
+    type_: str = Field("EventAttendanceModeEnumeration", const=True, alias='@type')
+    
 
 EventAttendanceModeEnumeration.update_forward_refs()

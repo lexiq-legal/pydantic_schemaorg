@@ -10,8 +10,7 @@ class Pediatric(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Pediatric.
 
     """
-
-    locals().update({"@type": Field("Pediatric", const=True)})
-
+    type_: str = Field("Pediatric", const=True, alias='@type')
+    
 
 Pediatric.update_forward_refs()

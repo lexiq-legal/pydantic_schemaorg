@@ -9,8 +9,7 @@ class LaboratoryScience(MedicalSpecialty):
     See https://schema.org/LaboratoryScience.
 
     """
-
-    locals().update({"@type": Field("LaboratoryScience", const=True)})
-
+    type_: str = Field("LaboratoryScience", const=True, alias='@type')
+    
 
 LaboratoryScience.update_forward_refs()

@@ -9,8 +9,7 @@ class FindAction(Action):
     See https://schema.org/FindAction.
 
     """
-
-    locals().update({"@type": Field("FindAction", const=True)})
-
+    type_: str = Field("FindAction", const=True, alias='@type')
+    
 
 FindAction.update_forward_refs()

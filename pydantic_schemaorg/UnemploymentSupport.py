@@ -8,8 +8,7 @@ class UnemploymentSupport(GovernmentBenefitsType):
     See https://schema.org/UnemploymentSupport.
 
     """
-
-    locals().update({"@type": Field("UnemploymentSupport", const=True)})
-
+    type_: str = Field("UnemploymentSupport", const=True, alias='@type')
+    
 
 UnemploymentSupport.update_forward_refs()

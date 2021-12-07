@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -10,7 +10,7 @@ class ListItem(Intangible):
     See https://schema.org/ListItem.
 
     """
-
+    type_: str = Field("ListItem", const=True, alias='@type')
     position: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="The position of an item in a series or sequence of items.",
@@ -27,7 +27,6 @@ class ListItem(Intangible):
         None,
         description="An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.",
     )
-    locals().update({"@type": Field("ListItem", const=True)})
-
+    
 
 ListItem.update_forward_refs()

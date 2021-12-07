@@ -9,8 +9,7 @@ class OccupationalTherapy(MedicalTherapy):
     See https://schema.org/OccupationalTherapy.
 
     """
-
-    locals().update({"@type": Field("OccupationalTherapy", const=True)})
-
+    type_: str = Field("OccupationalTherapy", const=True, alias='@type')
+    
 
 OccupationalTherapy.update_forward_refs()

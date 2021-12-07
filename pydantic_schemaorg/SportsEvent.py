@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.SportsTeam import SportsTeam
 from pydantic_schemaorg.Event import Event
@@ -11,7 +11,7 @@ class SportsEvent(Event):
     See https://schema.org/SportsEvent.
 
     """
-
+    type_: str = Field("SportsEvent", const=True, alias='@type')
     sport: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="A type of sport (e.g. Baseball).",
@@ -28,7 +28,6 @@ class SportsEvent(Event):
         None,
         description="A competitor in a sports event.",
     )
-    locals().update({"@type": Field("SportsEvent", const=True)})
-
+    
 
 SportsEvent.update_forward_refs()

@@ -10,8 +10,7 @@ class WorkersUnion(Organization):
     See https://schema.org/WorkersUnion.
 
     """
-
-    locals().update({"@type": Field("WorkersUnion", const=True)})
-
+    type_: str = Field("WorkersUnion", const=True, alias='@type')
+    
 
 WorkersUnion.update_forward_refs()

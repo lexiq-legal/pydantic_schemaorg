@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Action import Action
 
 
@@ -9,7 +9,7 @@ class ConsumeAction(Action):
     See https://schema.org/ConsumeAction.
 
     """
-
+    type_: str = Field("ConsumeAction", const=True, alias='@type')
     actionAccessibilityRequirement: Any = Field(
         None,
         description="A set of requirements that a must be fulfilled in order to perform an Action. If more than"
@@ -20,7 +20,6 @@ class ConsumeAction(Action):
         description="An Offer which must be accepted before the user can perform the Action. For example, the"
      "user may need to buy a movie before being able to watch it.",
     )
-    locals().update({"@type": Field("ConsumeAction", const=True)})
-
+    
 
 ConsumeAction.update_forward_refs()

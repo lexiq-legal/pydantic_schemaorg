@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Action import Action
 from pydantic_schemaorg.Place import Place
 from datetime import datetime, time
@@ -14,7 +14,7 @@ class InteractionCounter(StructuredValue):
     See https://schema.org/InteractionCounter.
 
     """
-
+    type_: str = Field("InteractionCounter", const=True, alias='@type')
     userInteractionCount: Optional[Union[List[int], int]] = Field(
         None,
         description="The number of interactions for the CreativeWork using the WebSite or SoftwareApplication.",
@@ -51,7 +51,6 @@ class InteractionCounter(StructuredValue):
      "Event uses startDate/endDate instead of startTime/endTime, even when describing"
      "dates with times. This situation may be clarified in future revisions.",
     )
-    locals().update({"@type": Field("InteractionCounter", const=True)})
-
+    
 
 InteractionCounter.update_forward_refs()

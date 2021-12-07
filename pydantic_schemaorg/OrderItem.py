@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Service import Service
 from pydantic_schemaorg.Product import Product
 from decimal import Decimal
@@ -14,7 +14,7 @@ class OrderItem(Intangible):
     See https://schema.org/OrderItem.
 
     """
-
+    type_: str = Field("OrderItem", const=True, alias='@type')
     orderDelivery: Any = Field(
         None,
         description="The delivery of the parcel related to this order or order item.",
@@ -35,7 +35,6 @@ class OrderItem(Intangible):
         None,
         description="The current status of the order item.",
     )
-    locals().update({"@type": Field("OrderItem", const=True)})
-
+    
 
 OrderItem.update_forward_refs()

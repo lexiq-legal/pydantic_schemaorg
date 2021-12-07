@@ -9,8 +9,7 @@ class AmpStory(CreativeWork):
     See https://schema.org/AmpStory.
 
     """
-
-    locals().update({"@type": Field("AmpStory", const=True)})
-
+    type_: str = Field("AmpStory", const=True, alias='@type')
+    
 
 AmpStory.update_forward_refs()

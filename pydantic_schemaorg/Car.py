@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.Vehicle import Vehicle
 
@@ -10,7 +10,7 @@ class Car(Vehicle):
     See https://schema.org/Car.
 
     """
-
+    type_: str = Field("Car", const=True, alias='@type')
     acrissCode: Optional[Union[List[str], str]] = Field(
         None,
         description="The ACRISS Car Classification Code is a code used by many car rental companies, for classifying"
@@ -25,7 +25,6 @@ class Car(Vehicle):
      "using [[valueReference]] * Note 3: Note that you can use [[minValue]] and [[maxValue]]"
      "to indicate ranges.",
     )
-    locals().update({"@type": Field("Car", const=True)})
-
+    
 
 Car.update_forward_refs()

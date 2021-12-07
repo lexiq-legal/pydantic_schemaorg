@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Place import Place
 from datetime import datetime
 from pydantic_schemaorg.Reservation import Reservation
@@ -13,7 +13,7 @@ class TaxiReservation(Reservation):
     See https://schema.org/TaxiReservation.
 
     """
-
+    type_: str = Field("TaxiReservation", const=True, alias='@type')
     partySize: Union[List[Union[int, Any]], Union[int, Any]] = Field(
         None,
         description="Number of people the reservation should accommodate.",
@@ -26,7 +26,6 @@ class TaxiReservation(Reservation):
         None,
         description="When a taxi will pickup a passenger or a rental car can be picked up.",
     )
-    locals().update({"@type": Field("TaxiReservation", const=True)})
-
+    
 
 TaxiReservation.update_forward_refs()

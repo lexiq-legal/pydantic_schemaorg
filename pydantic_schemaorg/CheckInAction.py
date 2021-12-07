@@ -15,8 +15,7 @@ class CheckInAction(CommunicateAction):
     See https://schema.org/CheckInAction.
 
     """
-
-    locals().update({"@type": Field("CheckInAction", const=True)})
-
+    type_: str = Field("CheckInAction", const=True, alias='@type')
+    
 
 CheckInAction.update_forward_refs()

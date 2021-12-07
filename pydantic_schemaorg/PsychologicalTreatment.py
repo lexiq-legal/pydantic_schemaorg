@@ -9,8 +9,7 @@ class PsychologicalTreatment(TherapeuticProcedure):
     See https://schema.org/PsychologicalTreatment.
 
     """
-
-    locals().update({"@type": Field("PsychologicalTreatment", const=True)})
-
+    type_: str = Field("PsychologicalTreatment", const=True, alias='@type')
+    
 
 PsychologicalTreatment.update_forward_refs()

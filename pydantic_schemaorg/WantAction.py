@@ -8,8 +8,7 @@ class WantAction(ReactAction):
     See https://schema.org/WantAction.
 
     """
-
-    locals().update({"@type": Field("WantAction", const=True)})
-
+    type_: str = Field("WantAction", const=True, alias='@type')
+    
 
 WantAction.update_forward_refs()

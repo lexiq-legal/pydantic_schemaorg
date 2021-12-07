@@ -8,8 +8,7 @@ class Embassy(GovernmentBuilding):
     See https://schema.org/Embassy.
 
     """
-
-    locals().update({"@type": Field("Embassy", const=True)})
-
+    type_: str = Field("Embassy", const=True, alias='@type')
+    
 
 Embassy.update_forward_refs()

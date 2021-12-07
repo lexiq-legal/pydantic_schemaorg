@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CommunicateAction import CommunicateAction
 
 
@@ -10,12 +10,11 @@ class InformAction(CommunicateAction):
     See https://schema.org/InformAction.
 
     """
-
+    type_: str = Field("InformAction", const=True, alias='@type')
     event: Any = Field(
         None,
         description="Upcoming or past event associated with this place, organization, or action.",
     )
-    locals().update({"@type": Field("InformAction", const=True)})
-
+    
 
 InformAction.update_forward_refs()

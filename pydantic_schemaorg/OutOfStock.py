@@ -8,8 +8,7 @@ class OutOfStock(ItemAvailability):
     See https://schema.org/OutOfStock.
 
     """
-
-    locals().update({"@type": Field("OutOfStock", const=True)})
-
+    type_: str = Field("OutOfStock", const=True, alias='@type')
+    
 
 OutOfStock.update_forward_refs()

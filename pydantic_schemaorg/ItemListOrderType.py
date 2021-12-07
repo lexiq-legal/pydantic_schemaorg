@@ -8,8 +8,7 @@ class ItemListOrderType(Enumeration):
     See https://schema.org/ItemListOrderType.
 
     """
-
-    locals().update({"@type": Field("ItemListOrderType", const=True)})
-
+    type_: str = Field("ItemListOrderType", const=True, alias='@type')
+    
 
 ItemListOrderType.update_forward_refs()

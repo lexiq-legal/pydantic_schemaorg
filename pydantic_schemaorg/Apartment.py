@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Accommodation import Accommodation
 
 
@@ -12,7 +12,7 @@ class Apartment(Accommodation):
     See https://schema.org/Apartment.
 
     """
-
+    type_: str = Field("Apartment", const=True, alias='@type')
     numberOfRooms: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
         None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
@@ -26,7 +26,6 @@ class Apartment(Accommodation):
      "the permitted usage as per the contractual agreement (e.g. a double room used by a single"
      "person). Typical unit code(s): C62 for person",
     )
-    locals().update({"@type": Field("Apartment", const=True)})
-
+    
 
 Apartment.update_forward_refs()

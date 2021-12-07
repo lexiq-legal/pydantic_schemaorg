@@ -9,8 +9,7 @@ class Atlas(CreativeWork):
     See https://schema.org/Atlas.
 
     """
-
-    locals().update({"@type": Field("Atlas", const=True)})
-
+    type_: str = Field("Atlas", const=True, alias='@type')
+    
 
 Atlas.update_forward_refs()

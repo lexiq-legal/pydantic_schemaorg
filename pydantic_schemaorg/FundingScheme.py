@@ -15,8 +15,7 @@ class FundingScheme(Organization):
     See https://schema.org/FundingScheme.
 
     """
-
-    locals().update({"@type": Field("FundingScheme", const=True)})
-
+    type_: str = Field("FundingScheme", const=True, alias='@type')
+    
 
 FundingScheme.update_forward_refs()

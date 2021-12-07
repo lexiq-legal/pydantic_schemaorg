@@ -11,8 +11,7 @@ class OfficialLegalValue(LegalValueLevel):
     See https://schema.org/OfficialLegalValue.
 
     """
-
-    locals().update({"@type": Field("OfficialLegalValue", const=True)})
-
+    type_: str = Field("OfficialLegalValue", const=True, alias='@type')
+    
 
 OfficialLegalValue.update_forward_refs()

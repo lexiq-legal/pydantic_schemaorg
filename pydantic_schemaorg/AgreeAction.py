@@ -9,8 +9,7 @@ class AgreeAction(ReactAction):
     See https://schema.org/AgreeAction.
 
     """
-
-    locals().update({"@type": Field("AgreeAction", const=True)})
-
+    type_: str = Field("AgreeAction", const=True, alias='@type')
+    
 
 AgreeAction.update_forward_refs()

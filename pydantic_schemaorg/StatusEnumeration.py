@@ -8,8 +8,7 @@ class StatusEnumeration(Enumeration):
     See https://schema.org/StatusEnumeration.
 
     """
-
-    locals().update({"@type": Field("StatusEnumeration", const=True)})
-
+    type_: str = Field("StatusEnumeration", const=True, alias='@type')
+    
 
 StatusEnumeration.update_forward_refs()

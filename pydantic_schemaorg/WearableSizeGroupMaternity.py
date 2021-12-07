@@ -8,8 +8,7 @@ class WearableSizeGroupMaternity(WearableSizeGroupEnumeration):
     See https://schema.org/WearableSizeGroupMaternity.
 
     """
-
-    locals().update({"@type": Field("WearableSizeGroupMaternity", const=True)})
-
+    type_: str = Field("WearableSizeGroupMaternity", const=True, alias='@type')
+    
 
 WearableSizeGroupMaternity.update_forward_refs()

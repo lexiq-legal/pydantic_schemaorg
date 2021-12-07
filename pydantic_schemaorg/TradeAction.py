@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from decimal import Decimal
 from pydantic_schemaorg.Action import Action
 
@@ -12,7 +12,7 @@ class TradeAction(Action):
     See https://schema.org/TradeAction.
 
     """
-
+    type_: str = Field("TradeAction", const=True, alias='@type')
     priceCurrency: Optional[Union[List[str], str]] = Field(
         None,
         description="The currency of the price, or a price component when attached to [[PriceSpecification]]"
@@ -43,7 +43,6 @@ class TradeAction(Action):
         description="One or more detailed price specifications, indicating the unit price and delivery or"
      "payment charges.",
     )
-    locals().update({"@type": Field("TradeAction", const=True)})
-
+    
 
 TradeAction.update_forward_refs()

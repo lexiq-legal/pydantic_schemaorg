@@ -1,7 +1,7 @@
-from pydantic import Field, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field
+from typing import Any, Optional, Union, List
 from decimal import Decimal
-from datetime import date, datetime
+from datetime import datetime, date
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -13,7 +13,7 @@ class PriceSpecification(StructuredValue):
     See https://schema.org/PriceSpecification.
 
     """
-
+    type_: str = Field("PriceSpecification", const=True, alias='@type')
     valueAddedTaxIncluded: Optional[Union[List[StrictBool], StrictBool]] = Field(
         None,
         description="Specifies whether the applicable value-added tax (VAT) is included in the price specification"
@@ -74,7 +74,6 @@ class PriceSpecification(StructuredValue):
      "specification is valid. This allows e.g. specifying that a certain freight charge is"
      "valid only for a certain quantity.",
     )
-    locals().update({"@type": Field("PriceSpecification", const=True)})
-
+    
 
 PriceSpecification.update_forward_refs()

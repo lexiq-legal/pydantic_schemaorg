@@ -1,24 +1,24 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from typing import Any, Union, List, Optional
-from pydantic_schemaorg.Place import Place
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
+from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
-from datetime import date, datetime, time
+from datetime import datetime, time, date
 from pydantic_schemaorg.BusinessEntityType import BusinessEntityType
 from pydantic_schemaorg.ItemAvailability import ItemAvailability
 from pydantic_schemaorg.PriceSpecification import PriceSpecification
 from pydantic_schemaorg.PaymentMethod import PaymentMethod
-from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.MerchantReturnPolicy import MerchantReturnPolicy
 from decimal import Decimal
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from pydantic_schemaorg.Product import Product
-from pydantic_schemaorg.CreativeWork import CreativeWork
-from pydantic_schemaorg.Service import Service
 from pydantic_schemaorg.Event import Event
+from pydantic_schemaorg.CreativeWork import CreativeWork
+from pydantic_schemaorg.Product import Product
+from pydantic_schemaorg.Service import Service
 from pydantic_schemaorg.Review import Review
 from pydantic_schemaorg.OfferItemCondition import OfferItemCondition
 from pydantic_schemaorg.Intangible import Intangible
@@ -38,7 +38,7 @@ class Offer(Intangible):
     See https://schema.org/Offer.
 
     """
-
+    type_: str = Field("Offer", const=True, alias='@type')
     hasMeasurement: Optional[Union[List[QuantitativeValue], QuantitativeValue]] = Field(
         None,
         description="A product measurement, for example the inseam of pants, the wheel size of a bicycle, or"
@@ -50,7 +50,7 @@ class Offer(Intangible):
         description="This links to a node or nodes indicating the exact quantity of the products included in"
      "an [[Offer]] or [[ProductCollection]].",
     )
-    areaServed: Union[List[Union[str, Place, AdministrativeArea, Any]], Union[str, Place, AdministrativeArea, Any]] = Field(
+    areaServed: Union[List[Union[str, AdministrativeArea, Place, Any]], Union[str, AdministrativeArea, Place, Any]] = Field(
         None,
         description="The geographic area where a service or offered item is provided.",
     )
@@ -118,7 +118,7 @@ class Offer(Intangible):
         None,
         description="The duration for which the given offer is valid.",
     )
-    category: Optional[Union[List[Union[AnyUrl, str, Thing, PhysicalActivityCategory]], Union[AnyUrl, str, Thing, PhysicalActivityCategory]]] = Field(
+    category: Optional[Union[List[Union[AnyUrl, str, PhysicalActivityCategory, Thing]], Union[AnyUrl, str, PhysicalActivityCategory, Thing]]] = Field(
         None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -199,7 +199,7 @@ class Offer(Intangible):
         None,
         description="The date when the item becomes valid.",
     )
-    itemOffered: Union[List[Union[Product, CreativeWork, Service, Event, Any]], Union[Product, CreativeWork, Service, Event, Any]] = Field(
+    itemOffered: Union[List[Union[Event, CreativeWork, Product, Service, Any]], Union[Event, CreativeWork, Product, Service, Any]] = Field(
         None,
         description="An item being offered (or demanded). The transactional nature of the offer or demand"
      "is documented using [[businessFunction]], e.g. sell, lease etc. While several common"
@@ -287,7 +287,6 @@ class Offer(Intangible):
         None,
         description="Indicates information about the shipping policies and options associated with an [[Offer]].",
     )
-    locals().update({"@type": Field("Offer", const=True)})
-
+    
 
 Offer.update_forward_refs()

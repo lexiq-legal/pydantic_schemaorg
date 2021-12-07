@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QualitativeValue import QualitativeValue
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -10,7 +10,7 @@ class Seat(Intangible):
     See https://schema.org/Seat.
 
     """
-
+    type_: str = Field("Seat", const=True, alias='@type')
     seatNumber: Optional[Union[List[str], str]] = Field(
         None,
         description="The location of the reserved seat (e.g., 27).",
@@ -27,7 +27,6 @@ class Seat(Intangible):
         None,
         description="The row location of the reserved seat (e.g., B).",
     )
-    locals().update({"@type": Field("Seat", const=True)})
-
+    
 
 Seat.update_forward_refs()

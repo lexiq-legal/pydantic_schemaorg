@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Article import Article
 
 
@@ -11,7 +11,7 @@ class NewsArticle(Article):
     See https://schema.org/NewsArticle.
 
     """
-
+    type_: str = Field("NewsArticle", const=True, alias='@type')
     dateline: Optional[Union[List[str], str]] = Field(
         None,
         description="A [dateline](https://en.wikipedia.org/wiki/Dateline) is a brief piece of text included"
@@ -44,7 +44,6 @@ class NewsArticle(Article):
         None,
         description="The edition of the print product in which the NewsArticle appears.",
     )
-    locals().update({"@type": Field("NewsArticle", const=True)})
-
+    
 
 NewsArticle.update_forward_refs()

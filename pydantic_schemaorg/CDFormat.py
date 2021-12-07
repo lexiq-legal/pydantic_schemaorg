@@ -8,8 +8,7 @@ class CDFormat(MusicReleaseFormatType):
     See https://schema.org/CDFormat.
 
     """
-
-    locals().update({"@type": Field("CDFormat", const=True)})
-
+    type_: str = Field("CDFormat", const=True, alias='@type')
+    
 
 CDFormat.update_forward_refs()

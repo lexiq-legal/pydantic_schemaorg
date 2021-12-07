@@ -8,8 +8,7 @@ class HowToTool(HowToItem):
     See https://schema.org/HowToTool.
 
     """
-
-    locals().update({"@type": Field("HowToTool", const=True)})
-
+    type_: str = Field("HowToTool", const=True, alias='@type')
+    
 
 HowToTool.update_forward_refs()

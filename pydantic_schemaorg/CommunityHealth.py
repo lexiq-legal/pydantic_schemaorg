@@ -10,8 +10,7 @@ class CommunityHealth(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/CommunityHealth.
 
     """
-
-    locals().update({"@type": Field("CommunityHealth", const=True)})
-
+    type_: str = Field("CommunityHealth", const=True, alias='@type')
+    
 
 CommunityHealth.update_forward_refs()

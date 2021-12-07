@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.PriceSpecification import PriceSpecification
 from decimal import Decimal
 from pydantic_schemaorg.OrganizationRole import OrganizationRole
@@ -11,7 +11,7 @@ class EmployeeRole(OrganizationRole):
     See https://schema.org/EmployeeRole.
 
     """
-
+    type_: str = Field("EmployeeRole", const=True, alias='@type')
     salaryCurrency: Optional[Union[List[str], str]] = Field(
         None,
         description="The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) )"
@@ -21,7 +21,6 @@ class EmployeeRole(OrganizationRole):
         None,
         description="The base salary of the job or of an employee in an EmployeeRole.",
     )
-    locals().update({"@type": Field("EmployeeRole", const=True)})
-
+    
 
 EmployeeRole.update_forward_refs()

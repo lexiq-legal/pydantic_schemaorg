@@ -9,8 +9,7 @@ class Distance(Quantity):
     See https://schema.org/Distance.
 
     """
-
-    locals().update({"@type": Field("Distance", const=True)})
-
+    type_: str = Field("Distance", const=True, alias='@type')
+    
 
 Distance.update_forward_refs()

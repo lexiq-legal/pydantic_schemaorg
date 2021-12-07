@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.ImageObject import ImageObject
 from pydantic_schemaorg.Review import Review
 from pydantic_schemaorg.Intangible import Intangible
@@ -12,7 +12,7 @@ class Brand(Intangible):
     See https://schema.org/Brand.
 
     """
-
+    type_: str = Field("Brand", const=True, alias='@type')
     aggregateRating: Any = Field(
         None,
         description="The overall rating, based on a collection of reviews or ratings, of the item.",
@@ -29,7 +29,6 @@ class Brand(Intangible):
         None,
         description="A review of the item.",
     )
-    locals().update({"@type": Field("Brand", const=True)})
-
+    
 
 Brand.update_forward_refs()

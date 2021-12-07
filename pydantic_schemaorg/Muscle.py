@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Nerve import Nerve
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Vessel import Vessel
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 
@@ -12,7 +12,7 @@ class Muscle(AnatomicalStructure):
     See https://schema.org/Muscle.
 
     """
-
+    type_: str = Field("Muscle", const=True, alias='@type')
     nerve: Optional[Union[List[Nerve], Nerve]] = Field(
         None,
         description="The underlying innervation associated with the muscle.",
@@ -33,7 +33,6 @@ class Muscle(AnatomicalStructure):
         None,
         description="The place of attachment of a muscle, or what the muscle moves.",
     )
-    locals().update({"@type": Field("Muscle", const=True)})
-
+    
 
 Muscle.update_forward_refs()

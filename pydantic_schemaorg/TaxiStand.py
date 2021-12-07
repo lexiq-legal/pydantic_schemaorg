@@ -8,8 +8,7 @@ class TaxiStand(CivicStructure):
     See https://schema.org/TaxiStand.
 
     """
-
-    locals().update({"@type": Field("TaxiStand", const=True)})
-
+    type_: str = Field("TaxiStand", const=True, alias='@type')
+    
 
 TaxiStand.update_forward_refs()

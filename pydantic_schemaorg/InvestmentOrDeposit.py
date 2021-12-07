@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.FinancialProduct import FinancialProduct
 
 
@@ -11,12 +11,11 @@ class InvestmentOrDeposit(FinancialProduct):
     See https://schema.org/InvestmentOrDeposit.
 
     """
-
+    type_: str = Field("InvestmentOrDeposit", const=True, alias='@type')
     amount: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
         None,
         description="The amount of money.",
     )
-    locals().update({"@type": Field("InvestmentOrDeposit", const=True)})
-
+    
 
 InvestmentOrDeposit.update_forward_refs()

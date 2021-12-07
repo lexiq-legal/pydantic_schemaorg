@@ -8,8 +8,7 @@ class RsvpResponseMaybe(RsvpResponseType):
     See https://schema.org/RsvpResponseMaybe.
 
     """
-
-    locals().update({"@type": Field("RsvpResponseMaybe", const=True)})
-
+    type_: str = Field("RsvpResponseMaybe", const=True, alias='@type')
+    
 
 RsvpResponseMaybe.update_forward_refs()

@@ -8,8 +8,7 @@ class Preschool(EducationalOrganization):
     See https://schema.org/Preschool.
 
     """
-
-    locals().update({"@type": Field("Preschool", const=True)})
-
+    type_: str = Field("Preschool", const=True, alias='@type')
+    
 
 Preschool.update_forward_refs()

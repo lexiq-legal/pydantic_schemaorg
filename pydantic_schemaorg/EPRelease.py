@@ -8,8 +8,7 @@ class EPRelease(MusicAlbumReleaseType):
     See https://schema.org/EPRelease.
 
     """
-
-    locals().update({"@type": Field("EPRelease", const=True)})
-
+    type_: str = Field("EPRelease", const=True, alias='@type')
+    
 
 EPRelease.update_forward_refs()

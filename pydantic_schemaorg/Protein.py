@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.BioChemEntity import BioChemEntity
 
 
@@ -14,13 +14,12 @@ class Protein(BioChemEntity):
     See https://schema.org/Protein.
 
     """
-
+    type_: str = Field("Protein", const=True, alias='@type')
     hasBioPolymerSequence: Optional[Union[List[str], str]] = Field(
         None,
         description="A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of"
      "a Gene or an amino acid sequence of a Protein.",
     )
-    locals().update({"@type": Field("Protein", const=True)})
-
+    
 
 Protein.update_forward_refs()

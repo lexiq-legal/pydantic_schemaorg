@@ -9,8 +9,7 @@ class Hematologic(MedicalSpecialty):
     See https://schema.org/Hematologic.
 
     """
-
-    locals().update({"@type": Field("Hematologic", const=True)})
-
+    type_: str = Field("Hematologic", const=True, alias='@type')
+    
 
 Hematologic.update_forward_refs()

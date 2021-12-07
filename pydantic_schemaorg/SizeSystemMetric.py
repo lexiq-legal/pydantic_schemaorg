@@ -8,8 +8,7 @@ class SizeSystemMetric(SizeSystemEnumeration):
     See https://schema.org/SizeSystemMetric.
 
     """
-
-    locals().update({"@type": Field("SizeSystemMetric", const=True)})
-
+    type_: str = Field("SizeSystemMetric", const=True, alias='@type')
+    
 
 SizeSystemMetric.update_forward_refs()

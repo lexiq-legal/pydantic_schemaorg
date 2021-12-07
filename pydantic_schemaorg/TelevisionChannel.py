@@ -8,8 +8,7 @@ class TelevisionChannel(BroadcastChannel):
     See https://schema.org/TelevisionChannel.
 
     """
-
-    locals().update({"@type": Field("TelevisionChannel", const=True)})
-
+    type_: str = Field("TelevisionChannel", const=True, alias='@type')
+    
 
 TelevisionChannel.update_forward_refs()

@@ -1,9 +1,9 @@
 from pydantic import Field
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Duration import Duration
-from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.HowToSection import HowToSection
+from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.ItemList import ItemList
 
 
@@ -13,7 +13,7 @@ class HowTo(CreativeWork):
     See https://schema.org/HowTo.
 
     """
-
+    type_: str = Field("HowTo", const=True, alias='@type')
     yield_: Optional[Union[List[Union[str, QuantitativeValue]], Union[str, QuantitativeValue]]] = Field(
         None,alias="yield",
         description="The quantity that results by performing instructions. For example, a paper airplane,"
@@ -28,7 +28,7 @@ class HowTo(CreativeWork):
         description="The length of time it takes to prepare the items to be used in instructions or a direction,"
      "in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
     )
-    step: Union[List[Union[str, CreativeWork, HowToSection, Any]], Union[str, CreativeWork, HowToSection, Any]] = Field(
+    step: Union[List[Union[str, HowToSection, CreativeWork, Any]], Union[str, HowToSection, CreativeWork, Any]] = Field(
         None,
         description="A single step item (as HowToStep, text, document, video, etc.) or a HowToSection.",
     )
@@ -47,7 +47,7 @@ class HowTo(CreativeWork):
         description="A sub property of instrument. An object used (but not consumed) when performing instructions"
      "or a direction.",
     )
-    steps: Optional[Union[List[Union[str, CreativeWork, ItemList]], Union[str, CreativeWork, ItemList]]] = Field(
+    steps: Optional[Union[List[Union[str, ItemList, CreativeWork]], Union[str, ItemList, CreativeWork]]] = Field(
         None,
         description="A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally"
      "misnamed 'steps'; 'step' is preferred).",
@@ -56,7 +56,6 @@ class HowTo(CreativeWork):
         None,
         description="A sub-property of instrument. A supply consumed when performing instructions or a direction.",
     )
-    locals().update({"@type": Field("HowTo", const=True)})
-
+    
 
 HowTo.update_forward_refs()

@@ -11,8 +11,7 @@ class VirtualLocation(Intangible):
     See https://schema.org/VirtualLocation.
 
     """
-
-    locals().update({"@type": Field("VirtualLocation", const=True)})
-
+    type_: str = Field("VirtualLocation", const=True, alias='@type')
+    
 
 VirtualLocation.update_forward_refs()

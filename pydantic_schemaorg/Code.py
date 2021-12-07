@@ -9,8 +9,7 @@ class Code(CreativeWork):
     See https://schema.org/Code.
 
     """
-
-    locals().update({"@type": Field("Code", const=True)})
-
+    type_: str = Field("Code", const=True, alias='@type')
+    
 
 Code.update_forward_refs()

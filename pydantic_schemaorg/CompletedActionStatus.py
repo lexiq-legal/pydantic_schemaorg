@@ -8,8 +8,7 @@ class CompletedActionStatus(ActionStatusType):
     See https://schema.org/CompletedActionStatus.
 
     """
-
-    locals().update({"@type": Field("CompletedActionStatus", const=True)})
-
+    type_: str = Field("CompletedActionStatus", const=True, alias='@type')
+    
 
 CompletedActionStatus.update_forward_refs()

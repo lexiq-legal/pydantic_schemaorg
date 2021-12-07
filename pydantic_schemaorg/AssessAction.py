@@ -8,8 +8,7 @@ class AssessAction(Action):
     See https://schema.org/AssessAction.
 
     """
-
-    locals().update({"@type": Field("AssessAction", const=True)})
-
+    type_: str = Field("AssessAction", const=True, alias='@type')
+    
 
 AssessAction.update_forward_refs()

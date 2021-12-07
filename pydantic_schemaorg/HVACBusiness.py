@@ -8,8 +8,7 @@ class HVACBusiness(HomeAndConstructionBusiness):
     See https://schema.org/HVACBusiness.
 
     """
-
-    locals().update({"@type": Field("HVACBusiness", const=True)})
-
+    type_: str = Field("HVACBusiness", const=True, alias='@type')
+    
 
 HVACBusiness.update_forward_refs()

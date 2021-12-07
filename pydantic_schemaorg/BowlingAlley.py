@@ -8,8 +8,7 @@ class BowlingAlley(SportsActivityLocation):
     See https://schema.org/BowlingAlley.
 
     """
-
-    locals().update({"@type": Field("BowlingAlley", const=True)})
-
+    type_: str = Field("BowlingAlley", const=True, alias='@type')
+    
 
 BowlingAlley.update_forward_refs()

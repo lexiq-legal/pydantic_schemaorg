@@ -8,8 +8,7 @@ class RandomizedTrial(MedicalTrialDesign):
     See https://schema.org/RandomizedTrial.
 
     """
-
-    locals().update({"@type": Field("RandomizedTrial", const=True)})
-
+    type_: str = Field("RandomizedTrial", const=True, alias='@type')
+    
 
 RandomizedTrial.update_forward_refs()

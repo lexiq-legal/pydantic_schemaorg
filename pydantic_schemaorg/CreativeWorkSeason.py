@@ -1,9 +1,9 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Episode import Episode
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Organization import Organization
-from datetime import date, datetime
+from datetime import datetime, date
 from pydantic_schemaorg.CreativeWorkSeries import CreativeWorkSeries
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -14,7 +14,7 @@ class CreativeWorkSeason(CreativeWork):
     See https://schema.org/CreativeWorkSeason.
 
     """
-
+    type_: str = Field("CreativeWorkSeason", const=True, alias='@type')
     trailer: Any = Field(
         None,
         description="The trailer of a movie or tv/radio series, season, episode, etc.",
@@ -62,7 +62,6 @@ class CreativeWorkSeason(CreativeWork):
         None,
         description="An episode of a tv, radio or game media within a series or season.",
     )
-    locals().update({"@type": Field("CreativeWorkSeason", const=True)})
-
+    
 
 CreativeWorkSeason.update_forward_refs()

@@ -8,8 +8,7 @@ class ActiveActionStatus(ActionStatusType):
     See https://schema.org/ActiveActionStatus.
 
     """
-
-    locals().update({"@type": Field("ActiveActionStatus", const=True)})
-
+    type_: str = Field("ActiveActionStatus", const=True, alias='@type')
+    
 
 ActiveActionStatus.update_forward_refs()

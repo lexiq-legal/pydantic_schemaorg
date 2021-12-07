@@ -9,8 +9,7 @@ class Infectious(MedicalSpecialty):
     See https://schema.org/Infectious.
 
     """
-
-    locals().update({"@type": Field("Infectious", const=True)})
-
+    type_: str = Field("Infectious", const=True, alias='@type')
+    
 
 Infectious.update_forward_refs()

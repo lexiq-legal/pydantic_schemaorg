@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Duration import Duration
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.PostalAddress import PostalAddress
 from pydantic_schemaorg.Service import Service
@@ -15,7 +15,7 @@ class ServiceChannel(Intangible):
     See https://schema.org/ServiceChannel.
 
     """
-
+    type_: str = Field("ServiceChannel", const=True, alias='@type')
     processingTime: Optional[Union[List[Duration], Duration]] = Field(
         None,
         description="Estimated processing time for the service using this channel.",
@@ -51,7 +51,6 @@ class ServiceChannel(Intangible):
      "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
      "[[inLanguage]]",
     )
-    locals().update({"@type": Field("ServiceChannel", const=True)})
-
+    
 
 ServiceChannel.update_forward_refs()

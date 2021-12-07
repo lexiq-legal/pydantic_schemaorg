@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -10,14 +10,13 @@ class WebSite(CreativeWork):
     See https://schema.org/WebSite.
 
     """
-
+    type_: str = Field("WebSite", const=True, alias='@type')
     issn: Optional[Union[List[str], str]] = Field(
         None,
         description="The International Standard Serial Number (ISSN) that identifies this serial publication."
      "You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L)"
      "for, this serial publication.",
     )
-    locals().update({"@type": Field("WebSite", const=True)})
-
+    
 
 WebSite.update_forward_refs()

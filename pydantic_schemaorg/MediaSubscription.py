@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Offer import Offer
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -11,7 +11,7 @@ class MediaSubscription(Intangible):
     See https://schema.org/MediaSubscription.
 
     """
-
+    type_: str = Field("MediaSubscription", const=True, alias='@type')
     expectsAcceptanceOf: Optional[Union[List[Offer], Offer]] = Field(
         None,
         description="An Offer which must be accepted before the user can perform the Action. For example, the"
@@ -23,7 +23,6 @@ class MediaSubscription(Intangible):
      "many media apps require a cable/satellite provider to authenticate your subscription"
      "before playing media.",
     )
-    locals().update({"@type": Field("MediaSubscription", const=True)})
-
+    
 
 MediaSubscription.update_forward_refs()

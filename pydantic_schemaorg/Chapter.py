@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -10,7 +10,7 @@ class Chapter(CreativeWork):
     See https://schema.org/Chapter.
 
     """
-
+    type_: str = Field("Chapter", const=True, alias='@type')
     pageStart: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="The page on which the work starts; for example \"135\" or \"xiii\".",
@@ -24,7 +24,6 @@ class Chapter(CreativeWork):
         None,
         description="The page on which the work ends; for example \"138\" or \"xvi\".",
     )
-    locals().update({"@type": Field("Chapter", const=True)})
-
+    
 
 Chapter.update_forward_refs()

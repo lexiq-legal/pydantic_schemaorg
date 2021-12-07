@@ -11,8 +11,7 @@ class Midwifery(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Midwifery.
 
     """
-
-    locals().update({"@type": Field("Midwifery", const=True)})
-
+    type_: str = Field("Midwifery", const=True, alias='@type')
+    
 
 Midwifery.update_forward_refs()

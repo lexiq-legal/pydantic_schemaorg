@@ -9,8 +9,7 @@ class Energy(Quantity):
     See https://schema.org/Energy.
 
     """
-
-    locals().update({"@type": Field("Energy", const=True)})
-
+    type_: str = Field("Energy", const=True, alias='@type')
+    
 
 Energy.update_forward_refs()

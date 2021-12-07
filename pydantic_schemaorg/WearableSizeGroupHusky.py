@@ -8,8 +8,7 @@ class WearableSizeGroupHusky(WearableSizeGroupEnumeration):
     See https://schema.org/WearableSizeGroupHusky.
 
     """
-
-    locals().update({"@type": Field("WearableSizeGroupHusky", const=True)})
-
+    type_: str = Field("WearableSizeGroupHusky", const=True, alias='@type')
+    
 
 WearableSizeGroupHusky.update_forward_refs()

@@ -8,8 +8,7 @@ class ChildCare(LocalBusiness):
     See https://schema.org/ChildCare.
 
     """
-
-    locals().update({"@type": Field("ChildCare", const=True)})
-
+    type_: str = Field("ChildCare", const=True, alias='@type')
+    
 
 ChildCare.update_forward_refs()

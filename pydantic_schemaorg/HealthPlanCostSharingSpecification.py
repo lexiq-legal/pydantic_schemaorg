@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.PriceSpecification import PriceSpecification
 from decimal import Decimal
 from pydantic_schemaorg.Intangible import Intangible
@@ -11,7 +11,7 @@ class HealthPlanCostSharingSpecification(Intangible):
     See https://schema.org/HealthPlanCostSharingSpecification.
 
     """
-
+    type_: str = Field("HealthPlanCostSharingSpecification", const=True, alias='@type')
     healthPlanCoinsuranceOption: Optional[Union[List[str], str]] = Field(
         None,
         description="Whether the coinsurance applies before or after deductible, etc. TODO: Is this a closed"
@@ -33,7 +33,6 @@ class HealthPlanCostSharingSpecification(Intangible):
         None,
         description="Whether The rate of coinsurance expressed as a number between 0.0 and 1.0.",
     )
-    locals().update({"@type": Field("HealthPlanCostSharingSpecification", const=True)})
-
+    
 
 HealthPlanCostSharingSpecification.update_forward_refs()

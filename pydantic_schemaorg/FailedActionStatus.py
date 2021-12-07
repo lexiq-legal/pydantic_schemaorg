@@ -9,8 +9,7 @@ class FailedActionStatus(ActionStatusType):
     See https://schema.org/FailedActionStatus.
 
     """
-
-    locals().update({"@type": Field("FailedActionStatus", const=True)})
-
+    type_: str = Field("FailedActionStatus", const=True, alias='@type')
+    
 
 FailedActionStatus.update_forward_refs()

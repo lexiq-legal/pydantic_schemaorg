@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MediaObject import MediaObject
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -16,7 +16,7 @@ class HyperTocEntry(CreativeWork):
     See https://schema.org/HyperTocEntry.
 
     """
-
+    type_: str = Field("HyperTocEntry", const=True, alias='@type')
     utterances: Optional[Union[List[str], str]] = Field(
         None,
         description="Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of"
@@ -31,7 +31,6 @@ class HyperTocEntry(CreativeWork):
         None,
         description="A media object that encodes this CreativeWork. This property is a synonym for encoding.",
     )
-    locals().update({"@type": Field("HyperTocEntry", const=True)})
-
+    
 
 HyperTocEntry.update_forward_refs()

@@ -8,8 +8,7 @@ class DownloadAction(TransferAction):
     See https://schema.org/DownloadAction.
 
     """
-
-    locals().update({"@type": Field("DownloadAction", const=True)})
-
+    type_: str = Field("DownloadAction", const=True, alias='@type')
+    
 
 DownloadAction.update_forward_refs()

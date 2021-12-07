@@ -10,8 +10,7 @@ class RespiratoryTherapy(MedicalTherapy, MedicalSpecialty):
     See https://schema.org/RespiratoryTherapy.
 
     """
-
-    locals().update({"@type": Field("RespiratoryTherapy", const=True)})
-
+    type_: str = Field("RespiratoryTherapy", const=True, alias='@type')
+    
 
 RespiratoryTherapy.update_forward_refs()

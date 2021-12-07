@@ -8,8 +8,7 @@ class CoOp(GamePlayMode):
     See https://schema.org/CoOp.
 
     """
-
-    locals().update({"@type": Field("CoOp", const=True)})
-
+    type_: str = Field("CoOp", const=True, alias='@type')
+    
 
 CoOp.update_forward_refs()

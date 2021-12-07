@@ -8,8 +8,7 @@ class TreatmentIndication(MedicalIndication):
     See https://schema.org/TreatmentIndication.
 
     """
-
-    locals().update({"@type": Field("TreatmentIndication", const=True)})
-
+    type_: str = Field("TreatmentIndication", const=True, alias='@type')
+    
 
 TreatmentIndication.update_forward_refs()

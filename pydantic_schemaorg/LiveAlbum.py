@@ -8,8 +8,7 @@ class LiveAlbum(MusicAlbumProductionType):
     See https://schema.org/LiveAlbum.
 
     """
-
-    locals().update({"@type": Field("LiveAlbum", const=True)})
-
+    type_: str = Field("LiveAlbum", const=True, alias='@type')
+    
 
 LiveAlbum.update_forward_refs()

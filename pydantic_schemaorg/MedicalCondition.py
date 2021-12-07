@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalTest import MedicalTest
 from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
 from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
@@ -16,7 +16,7 @@ class MedicalCondition(MedicalEntity):
     See https://schema.org/MedicalCondition.
 
     """
-
+    type_: str = Field("MedicalCondition", const=True, alias='@type')
     epidemiology: Optional[Union[List[str], str]] = Field(
         None,
         description="The characteristics of associated patients, such as age, gender, race etc.",
@@ -94,7 +94,6 @@ class MedicalCondition(MedicalEntity):
      "of the medical condition while symptoms are the subjective experience of the medical"
      "condition.",
     )
-    locals().update({"@type": Field("MedicalCondition", const=True)})
-
+    
 
 MedicalCondition.update_forward_refs()

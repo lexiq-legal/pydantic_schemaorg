@@ -10,8 +10,7 @@ class DepositAccount(InvestmentOrDeposit, BankAccount):
     See https://schema.org/DepositAccount.
 
     """
-
-    locals().update({"@type": Field("DepositAccount", const=True)})
-
+    type_: str = Field("DepositAccount", const=True, alias='@type')
+    
 
 DepositAccount.update_forward_refs()

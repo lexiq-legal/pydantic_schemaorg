@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Thing import Thing
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Intangible import Intangible
@@ -21,7 +21,7 @@ class Grant(Intangible):
     See https://schema.org/Grant.
 
     """
-
+    type_: str = Field("Grant", const=True, alias='@type')
     fundedItem: Optional[Union[List[Thing], Thing]] = Field(
         None,
         description="Indicates an item funded or sponsored through a [[Grant]].",
@@ -31,7 +31,6 @@ class Grant(Intangible):
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
     )
-    locals().update({"@type": Field("Grant", const=True)})
-
+    
 
 Grant.update_forward_refs()

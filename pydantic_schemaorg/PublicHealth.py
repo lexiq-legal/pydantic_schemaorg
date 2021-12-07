@@ -10,8 +10,7 @@ class PublicHealth(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/PublicHealth.
 
     """
-
-    locals().update({"@type": Field("PublicHealth", const=True)})
-
+    type_: str = Field("PublicHealth", const=True, alias='@type')
+    
 
 PublicHealth.update_forward_refs()

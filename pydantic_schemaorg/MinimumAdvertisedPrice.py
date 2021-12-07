@@ -9,8 +9,7 @@ class MinimumAdvertisedPrice(PriceTypeEnumeration):
     See https://schema.org/MinimumAdvertisedPrice.
 
     """
-
-    locals().update({"@type": Field("MinimumAdvertisedPrice", const=True)})
-
+    type_: str = Field("MinimumAdvertisedPrice", const=True, alias='@type')
+    
 
 MinimumAdvertisedPrice.update_forward_refs()

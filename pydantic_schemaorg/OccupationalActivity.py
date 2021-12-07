@@ -10,8 +10,7 @@ class OccupationalActivity(PhysicalActivityCategory):
     See https://schema.org/OccupationalActivity.
 
     """
-
-    locals().update({"@type": Field("OccupationalActivity", const=True)})
-
+    type_: str = Field("OccupationalActivity", const=True, alias='@type')
+    
 
 OccupationalActivity.update_forward_refs()

@@ -9,8 +9,7 @@ class OnlineFull(GameServerStatus):
     See https://schema.org/OnlineFull.
 
     """
-
-    locals().update({"@type": Field("OnlineFull", const=True)})
-
+    type_: str = Field("OnlineFull", const=True, alias='@type')
+    
 
 OnlineFull.update_forward_refs()

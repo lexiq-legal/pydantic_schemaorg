@@ -8,8 +8,7 @@ class MovieClip(Clip):
     See https://schema.org/MovieClip.
 
     """
-
-    locals().update({"@type": Field("MovieClip", const=True)})
-
+    type_: str = Field("MovieClip", const=True, alias='@type')
+    
 
 MovieClip.update_forward_refs()

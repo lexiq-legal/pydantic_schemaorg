@@ -8,8 +8,7 @@ class OnSitePickup(DeliveryMethod):
     See https://schema.org/OnSitePickup.
 
     """
-
-    locals().update({"@type": Field("OnSitePickup", const=True)})
-
+    type_: str = Field("OnSitePickup", const=True, alias='@type')
+    
 
 OnSitePickup.update_forward_refs()

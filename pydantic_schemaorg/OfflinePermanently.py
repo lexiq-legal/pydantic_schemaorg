@@ -8,8 +8,7 @@ class OfflinePermanently(GameServerStatus):
     See https://schema.org/OfflinePermanently.
 
     """
-
-    locals().update({"@type": Field("OfflinePermanently", const=True)})
-
+    type_: str = Field("OfflinePermanently", const=True, alias='@type')
+    
 
 OfflinePermanently.update_forward_refs()

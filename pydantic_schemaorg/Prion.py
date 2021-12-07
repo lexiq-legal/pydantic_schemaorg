@@ -8,8 +8,7 @@ class Prion(InfectiousAgentClass):
     See https://schema.org/Prion.
 
     """
-
-    locals().update({"@type": Field("Prion", const=True)})
-
+    type_: str = Field("Prion", const=True, alias='@type')
+    
 
 Prion.update_forward_refs()

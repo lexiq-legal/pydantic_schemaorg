@@ -8,8 +8,7 @@ class TaxiVehicleUsage(CarUsageType):
     See https://schema.org/TaxiVehicleUsage.
 
     """
-
-    locals().update({"@type": Field("TaxiVehicleUsage", const=True)})
-
+    type_: str = Field("TaxiVehicleUsage", const=True, alias='@type')
+    
 
 TaxiVehicleUsage.update_forward_refs()

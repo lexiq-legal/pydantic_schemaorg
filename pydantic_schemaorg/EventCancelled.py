@@ -10,8 +10,7 @@ class EventCancelled(EventStatusType):
     See https://schema.org/EventCancelled.
 
     """
-
-    locals().update({"@type": Field("EventCancelled", const=True)})
-
+    type_: str = Field("EventCancelled", const=True, alias='@type')
+    
 
 EventCancelled.update_forward_refs()

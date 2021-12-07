@@ -8,8 +8,7 @@ class CassetteFormat(MusicReleaseFormatType):
     See https://schema.org/CassetteFormat.
 
     """
-
-    locals().update({"@type": Field("CassetteFormat", const=True)})
-
+    type_: str = Field("CassetteFormat", const=True, alias='@type')
+    
 
 CassetteFormat.update_forward_refs()

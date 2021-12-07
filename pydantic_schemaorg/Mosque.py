@@ -8,8 +8,7 @@ class Mosque(PlaceOfWorship):
     See https://schema.org/Mosque.
 
     """
-
-    locals().update({"@type": Field("Mosque", const=True)})
-
+    type_: str = Field("Mosque", const=True, alias='@type')
+    
 
 Mosque.update_forward_refs()

@@ -1,7 +1,7 @@
-from pydantic import Field, StrictBool
+from pydantic import StrictBool, Field
 from decimal import Decimal
-from typing import Any, Union, List, Optional
-from datetime import date, datetime
+from typing import Any, Optional, Union, List
+from datetime import datetime, date
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -14,7 +14,7 @@ class MonetaryAmount(StructuredValue):
     See https://schema.org/MonetaryAmount.
 
     """
-
+    type_: str = Field("MonetaryAmount", const=True, alias='@type')
     minValue: Optional[Union[List[Decimal], Decimal]] = Field(
         None,
         description="The lower value of some characteristic or property.",
@@ -23,7 +23,7 @@ class MonetaryAmount(StructuredValue):
         None,
         description="The date when the item becomes valid.",
     )
-    value: Optional[Union[List[Union[Decimal, str, StrictBool, StructuredValue]], Union[Decimal, str, StrictBool, StructuredValue]]] = Field(
+    value: Optional[Union[List[Union[Decimal, StrictBool, str, StructuredValue]], Union[Decimal, StrictBool, str, StructuredValue]]] = Field(
         None,
         description="The value of the quantitative value or property value node. * For [[QuantitativeValue]]"
      "and [[MonetaryAmount]], the recommended type for values is 'Number'. * For [[PropertyValue]],"
@@ -49,7 +49,6 @@ class MonetaryAmount(StructuredValue):
      "e.g. \"BTC\"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system)"
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
-    locals().update({"@type": Field("MonetaryAmount", const=True)})
-
+    
 
 MonetaryAmount.update_forward_refs()

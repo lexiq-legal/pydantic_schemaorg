@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Action import Action
 
 
@@ -10,12 +10,11 @@ class SearchAction(Action):
     See https://schema.org/SearchAction.
 
     """
-
+    type_: str = Field("SearchAction", const=True, alias='@type')
     query: Optional[Union[List[str], str]] = Field(
         None,
         description="A sub property of instrument. The query used on this action.",
     )
-    locals().update({"@type": Field("SearchAction", const=True)})
-
+    
 
 SearchAction.update_forward_refs()

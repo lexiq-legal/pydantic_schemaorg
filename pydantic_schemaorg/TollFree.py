@@ -8,8 +8,7 @@ class TollFree(ContactPointOption):
     See https://schema.org/TollFree.
 
     """
-
-    locals().update({"@type": Field("TollFree", const=True)})
-
+    type_: str = Field("TollFree", const=True, alias='@type')
+    
 
 TollFree.update_forward_refs()

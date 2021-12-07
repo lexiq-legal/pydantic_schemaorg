@@ -8,8 +8,7 @@ class WholesaleStore(Store):
     See https://schema.org/WholesaleStore.
 
     """
-
-    locals().update({"@type": Field("WholesaleStore", const=True)})
-
+    type_: str = Field("WholesaleStore", const=True, alias='@type')
+    
 
 WholesaleStore.update_forward_refs()

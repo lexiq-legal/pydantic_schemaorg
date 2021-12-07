@@ -8,8 +8,7 @@ class SoundtrackAlbum(MusicAlbumProductionType):
     See https://schema.org/SoundtrackAlbum.
 
     """
-
-    locals().update({"@type": Field("SoundtrackAlbum", const=True)})
-
+    type_: str = Field("SoundtrackAlbum", const=True, alias='@type')
+    
 
 SoundtrackAlbum.update_forward_refs()

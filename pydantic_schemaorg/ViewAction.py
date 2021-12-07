@@ -8,8 +8,7 @@ class ViewAction(ConsumeAction):
     See https://schema.org/ViewAction.
 
     """
-
-    locals().update({"@type": Field("ViewAction", const=True)})
-
+    type_: str = Field("ViewAction", const=True, alias='@type')
+    
 
 ViewAction.update_forward_refs()

@@ -8,8 +8,7 @@ class LimitedAvailability(ItemAvailability):
     See https://schema.org/LimitedAvailability.
 
     """
-
-    locals().update({"@type": Field("LimitedAvailability", const=True)})
-
+    type_: str = Field("LimitedAvailability", const=True, alias='@type')
+    
 
 LimitedAvailability.update_forward_refs()

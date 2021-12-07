@@ -1,7 +1,7 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.CreativeWork import CreativeWork
-from typing import Any, Union, List, Optional
-from datetime import date, datetime
+from typing import Any, Optional, Union, List
+from datetime import datetime, date
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.UserInteraction import UserInteraction
@@ -15,7 +15,7 @@ class UserComments(UserInteraction):
     See https://schema.org/UserComments.
 
     """
-
+    type_: str = Field("UserComments", const=True, alias='@type')
     discusses: Optional[Union[List[CreativeWork], CreativeWork]] = Field(
         None,
         description="Specifies the CreativeWork associated with the UserComment.",
@@ -37,7 +37,6 @@ class UserComments(UserInteraction):
         description="The creator/author of this CreativeWork. This is the same as the Author property for"
      "CreativeWork.",
     )
-    locals().update({"@type": Field("UserComments", const=True)})
-
+    
 
 UserComments.update_forward_refs()

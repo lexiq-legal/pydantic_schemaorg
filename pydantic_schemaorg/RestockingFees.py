@@ -8,8 +8,7 @@ class RestockingFees(ReturnFeesEnumeration):
     See https://schema.org/RestockingFees.
 
     """
-
-    locals().update({"@type": Field("RestockingFees", const=True)})
-
+    type_: str = Field("RestockingFees", const=True, alias='@type')
+    
 
 RestockingFees.update_forward_refs()

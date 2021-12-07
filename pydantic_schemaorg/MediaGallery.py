@@ -9,8 +9,7 @@ class MediaGallery(CollectionPage):
     See https://schema.org/MediaGallery.
 
     """
-
-    locals().update({"@type": Field("MediaGallery", const=True)})
-
+    type_: str = Field("MediaGallery", const=True, alias='@type')
+    
 
 MediaGallery.update_forward_refs()

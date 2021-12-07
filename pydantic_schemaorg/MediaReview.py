@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Review import Review
 
 
@@ -17,7 +17,7 @@ class MediaReview(Review):
     See https://schema.org/MediaReview.
 
     """
-
+    type_: str = Field("MediaReview", const=True, alias='@type')
     originalMediaLink: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
         None,
         description="Link to the page containing an original version of the content, or directly to an online"
@@ -33,7 +33,6 @@ class MediaReview(Review):
         description="Describes, in a [[MediaReview]] when dealing with [[DecontextualizedContent]],"
      "background information that can contribute to better interpretation of the [[MediaObject]].",
     )
-    locals().update({"@type": Field("MediaReview", const=True)})
-
+    
 
 MediaReview.update_forward_refs()

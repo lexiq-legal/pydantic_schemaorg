@@ -8,8 +8,7 @@ class SoldOut(ItemAvailability):
     See https://schema.org/SoldOut.
 
     """
-
-    locals().update({"@type": Field("SoldOut", const=True)})
-
+    type_: str = Field("SoldOut", const=True, alias='@type')
+    
 
 SoldOut.update_forward_refs()

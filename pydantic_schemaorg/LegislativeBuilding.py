@@ -8,8 +8,7 @@ class LegislativeBuilding(GovernmentBuilding):
     See https://schema.org/LegislativeBuilding.
 
     """
-
-    locals().update({"@type": Field("LegislativeBuilding", const=True)})
-
+    type_: str = Field("LegislativeBuilding", const=True, alias='@type')
+    
 
 LegislativeBuilding.update_forward_refs()

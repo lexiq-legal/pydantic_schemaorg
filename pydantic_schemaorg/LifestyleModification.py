@@ -9,8 +9,7 @@ class LifestyleModification(MedicalEntity):
     See https://schema.org/LifestyleModification.
 
     """
-
-    locals().update({"@type": Field("LifestyleModification", const=True)})
-
+    type_: str = Field("LifestyleModification", const=True, alias='@type')
+    
 
 LifestyleModification.update_forward_refs()

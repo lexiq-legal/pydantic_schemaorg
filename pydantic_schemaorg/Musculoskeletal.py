@@ -9,8 +9,7 @@ class Musculoskeletal(MedicalSpecialty):
     See https://schema.org/Musculoskeletal.
 
     """
-
-    locals().update({"@type": Field("Musculoskeletal", const=True)})
-
+    type_: str = Field("Musculoskeletal", const=True, alias='@type')
+    
 
 Musculoskeletal.update_forward_refs()

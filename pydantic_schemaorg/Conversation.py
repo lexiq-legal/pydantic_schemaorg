@@ -9,8 +9,7 @@ class Conversation(CreativeWork):
     See https://schema.org/Conversation.
 
     """
-
-    locals().update({"@type": Field("Conversation", const=True)})
-
+    type_: str = Field("Conversation", const=True, alias='@type')
+    
 
 Conversation.update_forward_refs()

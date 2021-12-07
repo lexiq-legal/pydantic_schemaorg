@@ -8,8 +8,7 @@ class BodyMeasurementHead(BodyMeasurementTypeEnumeration):
     See https://schema.org/BodyMeasurementHead.
 
     """
-
-    locals().update({"@type": Field("BodyMeasurementHead", const=True)})
-
+    type_: str = Field("BodyMeasurementHead", const=True, alias='@type')
+    
 
 BodyMeasurementHead.update_forward_refs()

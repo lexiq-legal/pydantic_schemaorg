@@ -9,8 +9,7 @@ class RadioBroadcastService(BroadcastService):
     See https://schema.org/RadioBroadcastService.
 
     """
-
-    locals().update({"@type": Field("RadioBroadcastService", const=True)})
-
+    type_: str = Field("RadioBroadcastService", const=True, alias='@type')
+    
 
 RadioBroadcastService.update_forward_refs()

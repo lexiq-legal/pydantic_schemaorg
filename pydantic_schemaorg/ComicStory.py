@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -12,7 +12,7 @@ class ComicStory(CreativeWork):
     See https://schema.org/ComicStory.
 
     """
-
+    type_: str = Field("ComicStory", const=True, alias='@type')
     colorist: Optional[Union[List[Person], Person]] = Field(
         None,
         description="The individual who adds color to inked drawings.",
@@ -35,7 +35,6 @@ class ComicStory(CreativeWork):
         None,
         description="The individual who traces over the pencil drawings in ink after pencils are complete.",
     )
-    locals().update({"@type": Field("ComicStory", const=True)})
-
+    
 
 ComicStory.update_forward_refs()

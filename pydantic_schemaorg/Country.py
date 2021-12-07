@@ -8,8 +8,7 @@ class Country(AdministrativeArea):
     See https://schema.org/Country.
 
     """
-
-    locals().update({"@type": Field("Country", const=True)})
-
+    type_: str = Field("Country", const=True, alias='@type')
+    
 
 Country.update_forward_refs()

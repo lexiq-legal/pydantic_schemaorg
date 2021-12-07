@@ -1,8 +1,8 @@
 from pydantic import Field
-from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.Duration import Duration
-from typing import Any, Union, List, Optional
-from datetime import date, datetime
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from typing import Any, Optional, Union, List
+from datetime import datetime, date
 from pydantic_schemaorg.WebPage import WebPage
 
 
@@ -14,8 +14,8 @@ class RealEstateListing(WebPage):
     See https://schema.org/RealEstateListing.
 
     """
-
-    leaseLength: Optional[Union[List[Union[QuantitativeValue, Duration]], Union[QuantitativeValue, Duration]]] = Field(
+    type_: str = Field("RealEstateListing", const=True, alias='@type')
+    leaseLength: Optional[Union[List[Union[Duration, QuantitativeValue]], Union[Duration, QuantitativeValue]]] = Field(
         None,
         description="Length of the lease for some [[Accommodation]], either particular to some [[Offer]]"
      "or in some cases intrinsic to the property.",
@@ -24,7 +24,6 @@ class RealEstateListing(WebPage):
         None,
         description="Publication date of an online listing.",
     )
-    locals().update({"@type": Field("RealEstateListing", const=True)})
-
+    
 
 RealEstateListing.update_forward_refs()

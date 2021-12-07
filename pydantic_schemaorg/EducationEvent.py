@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Event import Event
 
 
@@ -10,7 +10,7 @@ class EducationEvent(Event):
     See https://schema.org/EducationEvent.
 
     """
-
+    type_: str = Field("EducationEvent", const=True, alias='@type')
     teaches: Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]] = Field(
         None,
         description="The item being described is intended to help a person learn the competency or learning"
@@ -27,7 +27,6 @@ class EducationEvent(Event):
         description="The item being described is intended to assess the competency or learning outcome defined"
      "by the referenced term.",
     )
-    locals().update({"@type": Field("EducationEvent", const=True)})
-
+    
 
 EducationEvent.update_forward_refs()

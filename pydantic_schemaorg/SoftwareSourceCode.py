@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.SoftwareApplication import SoftwareApplication
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -11,7 +11,7 @@ class SoftwareSourceCode(CreativeWork):
     See https://schema.org/SoftwareSourceCode.
 
     """
-
+    type_: str = Field("SoftwareSourceCode", const=True, alias='@type')
     codeRepository: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
         None,
         description="Link to the repository where the un-compiled, human readable code and related code is"
@@ -46,7 +46,6 @@ class SoftwareSourceCode(CreativeWork):
         description="Target Operating System / Product to which the code applies. If applies to several versions,"
      "just the product name can be used.",
     )
-    locals().update({"@type": Field("SoftwareSourceCode", const=True)})
-
+    
 
 SoftwareSourceCode.update_forward_refs()

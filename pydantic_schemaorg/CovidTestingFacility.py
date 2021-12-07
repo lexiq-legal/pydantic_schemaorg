@@ -13,8 +13,7 @@ class CovidTestingFacility(MedicalClinic):
     See https://schema.org/CovidTestingFacility.
 
     """
-
-    locals().update({"@type": Field("CovidTestingFacility", const=True)})
-
+    type_: str = Field("CovidTestingFacility", const=True, alias='@type')
+    
 
 CovidTestingFacility.update_forward_refs()

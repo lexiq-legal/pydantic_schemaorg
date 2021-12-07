@@ -9,8 +9,7 @@ class CleaningFee(PriceComponentTypeEnumeration):
     See https://schema.org/CleaningFee.
 
     """
-
-    locals().update({"@type": Field("CleaningFee", const=True)})
-
+    type_: str = Field("CleaningFee", const=True, alias='@type')
+    
 
 CleaningFee.update_forward_refs()

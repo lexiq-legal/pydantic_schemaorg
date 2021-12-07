@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Demand import Demand
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.Organization import Organization
@@ -19,7 +19,7 @@ class Service(Intangible):
     See https://schema.org/Service.
 
     """
-
+    type_: str = Field("Service", const=True, alias='@type')
     offers: Union[List[Union[Demand, Any]], Union[Demand, Any]] = Field(
         None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
@@ -62,7 +62,7 @@ class Service(Intangible):
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
     )
-    category: Optional[Union[List[Union[AnyUrl, str, Thing, PhysicalActivityCategory]], Union[AnyUrl, str, Thing, PhysicalActivityCategory]]] = Field(
+    category: Optional[Union[List[Union[AnyUrl, str, PhysicalActivityCategory, Thing]], Union[AnyUrl, str, PhysicalActivityCategory, Thing]]] = Field(
         None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -128,7 +128,6 @@ class Service(Intangible):
         None,
         description="The audience eligible for this service.",
     )
-    locals().update({"@type": Field("Service", const=True)})
-
+    
 
 Service.update_forward_refs()

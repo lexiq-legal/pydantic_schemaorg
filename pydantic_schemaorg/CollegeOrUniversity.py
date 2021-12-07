@@ -8,8 +8,7 @@ class CollegeOrUniversity(EducationalOrganization):
     See https://schema.org/CollegeOrUniversity.
 
     """
-
-    locals().update({"@type": Field("CollegeOrUniversity", const=True)})
-
+    type_: str = Field("CollegeOrUniversity", const=True, alias='@type')
+    
 
 CollegeOrUniversity.update_forward_refs()

@@ -11,8 +11,7 @@ class Room(Accommodation):
     See https://schema.org/Room.
 
     """
-
-    locals().update({"@type": Field("Room", const=True)})
-
+    type_: str = Field("Room", const=True, alias='@type')
+    
 
 Room.update_forward_refs()

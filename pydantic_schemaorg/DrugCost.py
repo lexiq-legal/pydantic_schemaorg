@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.DrugCostCategory import DrugCostCategory
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from decimal import Decimal
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
@@ -16,7 +16,7 @@ class DrugCost(MedicalEntity):
     See https://schema.org/DrugCost.
 
     """
-
+    type_: str = Field("DrugCost", const=True, alias='@type')
     costCategory: Optional[Union[List[DrugCostCategory], DrugCostCategory]] = Field(
         None,
         description="The category of cost, such as wholesale, retail, reimbursement cap, etc.",
@@ -42,7 +42,6 @@ class DrugCost(MedicalEntity):
         description="Additional details to capture the origin of the cost data. For example, 'Medicare Part"
      "B'.",
     )
-    locals().update({"@type": Field("DrugCost", const=True)})
-
+    
 
 DrugCost.update_forward_refs()

@@ -8,8 +8,7 @@ class PreOrder(ItemAvailability):
     See https://schema.org/PreOrder.
 
     """
-
-    locals().update({"@type": Field("PreOrder", const=True)})
-
+    type_: str = Field("PreOrder", const=True, alias='@type')
+    
 
 PreOrder.update_forward_refs()

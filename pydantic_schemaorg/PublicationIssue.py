@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -11,7 +11,7 @@ class PublicationIssue(CreativeWork):
     See https://schema.org/PublicationIssue.
 
     """
-
+    type_: str = Field("PublicationIssue", const=True, alias='@type')
     issueNumber: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="Identifies the issue of publication; for example, \"iii\" or \"2\".",
@@ -29,7 +29,6 @@ class PublicationIssue(CreativeWork):
         None,
         description="The page on which the work ends; for example \"138\" or \"xvi\".",
     )
-    locals().update({"@type": Field("PublicationIssue", const=True)})
-
+    
 
 PublicationIssue.update_forward_refs()

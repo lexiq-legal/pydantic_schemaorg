@@ -8,8 +8,7 @@ class PostOffice(GovernmentOffice):
     See https://schema.org/PostOffice.
 
     """
-
-    locals().update({"@type": Field("PostOffice", const=True)})
-
+    type_: str = Field("PostOffice", const=True, alias='@type')
+    
 
 PostOffice.update_forward_refs()

@@ -8,8 +8,7 @@ class ArtGallery(EntertainmentBusiness):
     See https://schema.org/ArtGallery.
 
     """
-
-    locals().update({"@type": Field("ArtGallery", const=True)})
-
+    type_: str = Field("ArtGallery", const=True, alias='@type')
+    
 
 ArtGallery.update_forward_refs()

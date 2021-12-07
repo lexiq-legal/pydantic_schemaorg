@@ -9,8 +9,7 @@ class PatientExperienceHealthAspect(HealthAspectEnumeration):
     See https://schema.org/PatientExperienceHealthAspect.
 
     """
-
-    locals().update({"@type": Field("PatientExperienceHealthAspect", const=True)})
-
+    type_: str = Field("PatientExperienceHealthAspect", const=True, alias='@type')
+    
 
 PatientExperienceHealthAspect.update_forward_refs()

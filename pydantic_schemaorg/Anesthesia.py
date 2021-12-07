@@ -9,8 +9,7 @@ class Anesthesia(MedicalSpecialty):
     See https://schema.org/Anesthesia.
 
     """
-
-    locals().update({"@type": Field("Anesthesia", const=True)})
-
+    type_: str = Field("Anesthesia", const=True, alias='@type')
+    
 
 Anesthesia.update_forward_refs()

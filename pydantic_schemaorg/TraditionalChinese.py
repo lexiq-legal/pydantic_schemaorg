@@ -10,8 +10,7 @@ class TraditionalChinese(MedicineSystem):
     See https://schema.org/TraditionalChinese.
 
     """
-
-    locals().update({"@type": Field("TraditionalChinese", const=True)})
-
+    type_: str = Field("TraditionalChinese", const=True, alias='@type')
+    
 
 TraditionalChinese.update_forward_refs()

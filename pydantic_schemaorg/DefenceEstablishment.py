@@ -8,8 +8,7 @@ class DefenceEstablishment(GovernmentBuilding):
     See https://schema.org/DefenceEstablishment.
 
     """
-
-    locals().update({"@type": Field("DefenceEstablishment", const=True)})
-
+    type_: str = Field("DefenceEstablishment", const=True, alias='@type')
+    
 
 DefenceEstablishment.update_forward_refs()

@@ -1,7 +1,7 @@
 from pydantic import Field
-from pydantic_schemaorg.Offer import Offer
 from pydantic_schemaorg.Demand import Demand
-from typing import Any, Union, List, Optional
+from pydantic_schemaorg.Offer import Offer
+from typing import Any, Optional, Union, List
 from decimal import Decimal
 
 
@@ -15,8 +15,8 @@ class AggregateOffer(Offer):
     See https://schema.org/AggregateOffer.
 
     """
-
-    offers: Optional[Union[List[Union[Offer, Demand]], Union[Offer, Demand]]] = Field(
+    type_: str = Field("AggregateOffer", const=True, alias='@type')
+    offers: Optional[Union[List[Union[Demand, Offer]], Union[Demand, Offer]]] = Field(
         None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -43,7 +43,6 @@ class AggregateOffer(Offer):
         None,
         description="The number of offers for the product.",
     )
-    locals().update({"@type": Field("AggregateOffer", const=True)})
-
+    
 
 AggregateOffer.update_forward_refs()

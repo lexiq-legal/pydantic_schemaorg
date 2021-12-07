@@ -8,8 +8,7 @@ class PlaceboControlledTrial(MedicalTrialDesign):
     See https://schema.org/PlaceboControlledTrial.
 
     """
-
-    locals().update({"@type": Field("PlaceboControlledTrial", const=True)})
-
+    type_: str = Field("PlaceboControlledTrial", const=True, alias='@type')
+    
 
 PlaceboControlledTrial.update_forward_refs()

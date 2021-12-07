@@ -8,8 +8,7 @@ class InternetCafe(LocalBusiness):
     See https://schema.org/InternetCafe.
 
     """
-
-    locals().update({"@type": Field("InternetCafe", const=True)})
-
+    type_: str = Field("InternetCafe", const=True, alias='@type')
+    
 
 InternetCafe.update_forward_refs()

@@ -8,8 +8,7 @@ class CurrencyConversionService(FinancialProduct):
     See https://schema.org/CurrencyConversionService.
 
     """
-
-    locals().update({"@type": Field("CurrencyConversionService", const=True)})
-
+    type_: str = Field("CurrencyConversionService", const=True, alias='@type')
+    
 
 CurrencyConversionService.update_forward_refs()

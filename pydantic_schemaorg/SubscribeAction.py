@@ -14,8 +14,7 @@ class SubscribeAction(InteractAction):
     See https://schema.org/SubscribeAction.
 
     """
-
-    locals().update({"@type": Field("SubscribeAction", const=True)})
-
+    type_: str = Field("SubscribeAction", const=True, alias='@type')
+    
 
 SubscribeAction.update_forward_refs()

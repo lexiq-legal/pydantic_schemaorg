@@ -8,8 +8,7 @@ class FurnitureStore(Store):
     See https://schema.org/FurnitureStore.
 
     """
-
-    locals().update({"@type": Field("FurnitureStore", const=True)})
-
+    type_: str = Field("FurnitureStore", const=True, alias='@type')
+    
 
 FurnitureStore.update_forward_refs()

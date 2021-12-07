@@ -9,8 +9,7 @@ class FourWheelDriveConfiguration(DriveWheelConfigurationValue):
     See https://schema.org/FourWheelDriveConfiguration.
 
     """
-
-    locals().update({"@type": Field("FourWheelDriveConfiguration", const=True)})
-
+    type_: str = Field("FourWheelDriveConfiguration", const=True, alias='@type')
+    
 
 FourWheelDriveConfiguration.update_forward_refs()

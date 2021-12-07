@@ -8,8 +8,7 @@ class BoardingPolicyType(Enumeration):
     See https://schema.org/BoardingPolicyType.
 
     """
-
-    locals().update({"@type": Field("BoardingPolicyType", const=True)})
-
+    type_: str = Field("BoardingPolicyType", const=True, alias='@type')
+    
 
 BoardingPolicyType.update_forward_refs()

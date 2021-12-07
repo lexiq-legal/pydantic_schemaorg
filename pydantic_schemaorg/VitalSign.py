@@ -9,8 +9,7 @@ class VitalSign(MedicalSign):
     See https://schema.org/VitalSign.
 
     """
-
-    locals().update({"@type": Field("VitalSign", const=True)})
-
+    type_: str = Field("VitalSign", const=True, alias='@type')
+    
 
 VitalSign.update_forward_refs()

@@ -8,8 +8,7 @@ class BookmarkAction(OrganizeAction):
     See https://schema.org/BookmarkAction.
 
     """
-
-    locals().update({"@type": Field("BookmarkAction", const=True)})
-
+    type_: str = Field("BookmarkAction", const=True, alias='@type')
+    
 
 BookmarkAction.update_forward_refs()

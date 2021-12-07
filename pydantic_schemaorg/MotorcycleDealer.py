@@ -8,8 +8,7 @@ class MotorcycleDealer(AutomotiveBusiness):
     See https://schema.org/MotorcycleDealer.
 
     """
-
-    locals().update({"@type": Field("MotorcycleDealer", const=True)})
-
+    type_: str = Field("MotorcycleDealer", const=True, alias='@type')
+    
 
 MotorcycleDealer.update_forward_refs()

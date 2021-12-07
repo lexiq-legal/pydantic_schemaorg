@@ -11,8 +11,7 @@ class AuthoritativeLegalValue(LegalValueLevel):
     See https://schema.org/AuthoritativeLegalValue.
 
     """
-
-    locals().update({"@type": Field("AuthoritativeLegalValue", const=True)})
-
+    type_: str = Field("AuthoritativeLegalValue", const=True, alias='@type')
+    
 
 AuthoritativeLegalValue.update_forward_refs()

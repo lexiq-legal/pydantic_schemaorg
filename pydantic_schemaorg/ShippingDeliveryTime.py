@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from datetime import time
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -12,7 +12,7 @@ class ShippingDeliveryTime(StructuredValue):
     See https://schema.org/ShippingDeliveryTime.
 
     """
-
+    type_: str = Field("ShippingDeliveryTime", const=True, alias='@type')
     transitTime: Optional[Union[List[QuantitativeValue], QuantitativeValue]] = Field(
         None,
         description="The typical delay the order has been sent for delivery and the goods reach the final customer."
@@ -39,7 +39,6 @@ class ShippingDeliveryTime(StructuredValue):
         None,
         description="Days of the week when the merchant typically operates, indicated via opening hours markup.",
     )
-    locals().update({"@type": Field("ShippingDeliveryTime", const=True)})
-
+    
 
 ShippingDeliveryTime.update_forward_refs()

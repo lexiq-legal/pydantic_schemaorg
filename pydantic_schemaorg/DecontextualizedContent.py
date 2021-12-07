@@ -23,8 +23,7 @@ class DecontextualizedContent(MediaManipulationRatingEnumeration):
     See https://schema.org/DecontextualizedContent.
 
     """
-
-    locals().update({"@type": Field("DecontextualizedContent", const=True)})
-
+    type_: str = Field("DecontextualizedContent", const=True, alias='@type')
+    
 
 DecontextualizedContent.update_forward_refs()

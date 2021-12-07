@@ -8,8 +8,7 @@ class Bacteria(InfectiousAgentClass):
     See https://schema.org/Bacteria.
 
     """
-
-    locals().update({"@type": Field("Bacteria", const=True)})
-
+    type_: str = Field("Bacteria", const=True, alias='@type')
+    
 
 Bacteria.update_forward_refs()

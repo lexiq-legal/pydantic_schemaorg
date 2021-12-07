@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MusicAlbum import MusicAlbum
 from pydantic_schemaorg.MusicRecording import MusicRecording
 from pydantic_schemaorg.ItemList import ItemList
@@ -13,7 +13,7 @@ class MusicGroup(PerformingGroup):
     See https://schema.org/MusicGroup.
 
     """
-
+    type_: str = Field("MusicGroup", const=True, alias='@type')
     genre: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="Genre of the creative work, broadcast channel or group.",
@@ -39,7 +39,6 @@ class MusicGroup(PerformingGroup):
         None,
         description="A member of a music group&#x2014;for example, John, Paul, George, or Ringo.",
     )
-    locals().update({"@type": Field("MusicGroup", const=True)})
-
+    
 
 MusicGroup.update_forward_refs()

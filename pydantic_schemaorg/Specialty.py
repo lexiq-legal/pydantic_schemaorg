@@ -9,8 +9,7 @@ class Specialty(Enumeration):
     See https://schema.org/Specialty.
 
     """
-
-    locals().update({"@type": Field("Specialty", const=True)})
-
+    type_: str = Field("Specialty", const=True, alias='@type')
+    
 
 Specialty.update_forward_refs()

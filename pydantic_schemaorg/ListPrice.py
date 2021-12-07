@@ -9,8 +9,7 @@ class ListPrice(PriceTypeEnumeration):
     See https://schema.org/ListPrice.
 
     """
-
-    locals().update({"@type": Field("ListPrice", const=True)})
-
+    type_: str = Field("ListPrice", const=True, alias='@type')
+    
 
 ListPrice.update_forward_refs()

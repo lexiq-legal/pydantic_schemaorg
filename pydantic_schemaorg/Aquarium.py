@@ -8,8 +8,7 @@ class Aquarium(CivicStructure):
     See https://schema.org/Aquarium.
 
     """
-
-    locals().update({"@type": Field("Aquarium", const=True)})
-
+    type_: str = Field("Aquarium", const=True, alias='@type')
+    
 
 Aquarium.update_forward_refs()

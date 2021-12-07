@@ -8,8 +8,7 @@ class MusicVideoObject(MediaObject):
     See https://schema.org/MusicVideoObject.
 
     """
-
-    locals().update({"@type": Field("MusicVideoObject", const=True)})
-
+    type_: str = Field("MusicVideoObject", const=True, alias='@type')
+    
 
 MusicVideoObject.update_forward_refs()

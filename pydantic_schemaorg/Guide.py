@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -13,12 +13,11 @@ class Guide(CreativeWork):
     See https://schema.org/Guide.
 
     """
-
+    type_: str = Field("Guide", const=True, alias='@type')
     reviewAspect: Optional[Union[List[str], str]] = Field(
         None,
         description="This Review or Rating is relevant to this part or facet of the itemReviewed.",
     )
-    locals().update({"@type": Field("Guide", const=True)})
-
+    
 
 Guide.update_forward_refs()

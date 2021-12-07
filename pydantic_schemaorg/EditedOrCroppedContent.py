@@ -18,8 +18,7 @@ class EditedOrCroppedContent(MediaManipulationRatingEnumeration):
     See https://schema.org/EditedOrCroppedContent.
 
     """
-
-    locals().update({"@type": Field("EditedOrCroppedContent", const=True)})
-
+    type_: str = Field("EditedOrCroppedContent", const=True, alias='@type')
+    
 
 EditedOrCroppedContent.update_forward_refs()

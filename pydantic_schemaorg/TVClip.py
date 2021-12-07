@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.TVSeries import TVSeries
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Clip import Clip
 
 
@@ -10,12 +10,11 @@ class TVClip(Clip):
     See https://schema.org/TVClip.
 
     """
-
+    type_: str = Field("TVClip", const=True, alias='@type')
     partOfTVSeries: Optional[Union[List[TVSeries], TVSeries]] = Field(
         None,
         description="The TV series to which this episode or season belongs.",
     )
-    locals().update({"@type": Field("TVClip", const=True)})
-
+    
 
 TVClip.update_forward_refs()

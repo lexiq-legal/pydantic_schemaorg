@@ -8,8 +8,7 @@ class Canal(BodyOfWater):
     See https://schema.org/Canal.
 
     """
-
-    locals().update({"@type": Field("Canal", const=True)})
-
+    type_: str = Field("Canal", const=True, alias='@type')
+    
 
 Canal.update_forward_refs()

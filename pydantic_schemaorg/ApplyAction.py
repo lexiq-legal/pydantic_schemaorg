@@ -10,8 +10,7 @@ class ApplyAction(OrganizeAction):
     See https://schema.org/ApplyAction.
 
     """
-
-    locals().update({"@type": Field("ApplyAction", const=True)})
-
+    type_: str = Field("ApplyAction", const=True, alias='@type')
+    
 
 ApplyAction.update_forward_refs()

@@ -9,8 +9,7 @@ class MedicalRiskCalculator(MedicalRiskEstimator):
     See https://schema.org/MedicalRiskCalculator.
 
     """
-
-    locals().update({"@type": Field("MedicalRiskCalculator", const=True)})
-
+    type_: str = Field("MedicalRiskCalculator", const=True, alias='@type')
+    
 
 MedicalRiskCalculator.update_forward_refs()

@@ -9,8 +9,7 @@ class Urologic(MedicalSpecialty):
     See https://schema.org/Urologic.
 
     """
-
-    locals().update({"@type": Field("Urologic", const=True)})
-
+    type_: str = Field("Urologic", const=True, alias='@type')
+    
 
 Urologic.update_forward_refs()

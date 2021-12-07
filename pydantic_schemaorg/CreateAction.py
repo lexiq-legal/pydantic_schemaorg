@@ -9,8 +9,7 @@ class CreateAction(Action):
     See https://schema.org/CreateAction.
 
     """
-
-    locals().update({"@type": Field("CreateAction", const=True)})
-
+    type_: str = Field("CreateAction", const=True, alias='@type')
+    
 
 CreateAction.update_forward_refs()

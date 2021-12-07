@@ -8,8 +8,7 @@ class AdministrativeArea(Place):
     See https://schema.org/AdministrativeArea.
 
     """
-
-    locals().update({"@type": Field("AdministrativeArea", const=True)})
-
+    type_: str = Field("AdministrativeArea", const=True, alias='@type')
+    
 
 AdministrativeArea.update_forward_refs()

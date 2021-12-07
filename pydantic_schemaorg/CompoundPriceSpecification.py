@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.PriceTypeEnumeration import PriceTypeEnumeration
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.UnitPriceSpecification import UnitPriceSpecification
 from pydantic_schemaorg.PriceSpecification import PriceSpecification
 
@@ -14,7 +14,7 @@ class CompoundPriceSpecification(PriceSpecification):
     See https://schema.org/CompoundPriceSpecification.
 
     """
-
+    type_: str = Field("CompoundPriceSpecification", const=True, alias='@type')
     priceType: Optional[Union[List[Union[str, PriceTypeEnumeration]], Union[str, PriceTypeEnumeration]]] = Field(
         None,
         description="Defines the type of a price specified for an offered product, for example a list price,"
@@ -29,7 +29,6 @@ class CompoundPriceSpecification(PriceSpecification):
         description="This property links to all [[UnitPriceSpecification]] nodes that apply in parallel"
      "for the [[CompoundPriceSpecification]] node.",
     )
-    locals().update({"@type": Field("CompoundPriceSpecification", const=True)})
-
+    
 
 CompoundPriceSpecification.update_forward_refs()

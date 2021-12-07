@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MusicAlbum import MusicAlbum
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MusicReleaseFormatType import MusicReleaseFormatType
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
@@ -13,7 +13,7 @@ class MusicRelease(MusicPlaylist):
     See https://schema.org/MusicRelease.
 
     """
-
+    type_: str = Field("MusicRelease", const=True, alias='@type')
     releaseOf: Optional[Union[List[MusicAlbum], MusicAlbum]] = Field(
         None,
         description="The album this is a release of.",
@@ -40,7 +40,6 @@ class MusicRelease(MusicPlaylist):
         None,
         description="The label that issued the release.",
     )
-    locals().update({"@type": Field("MusicRelease", const=True)})
-
+    
 
 MusicRelease.update_forward_refs()

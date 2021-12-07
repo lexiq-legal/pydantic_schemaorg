@@ -10,8 +10,7 @@ class PublicToilet(CivicStructure):
     See https://schema.org/PublicToilet.
 
     """
-
-    locals().update({"@type": Field("PublicToilet", const=True)})
-
+    type_: str = Field("PublicToilet", const=True, alias='@type')
+    
 
 PublicToilet.update_forward_refs()

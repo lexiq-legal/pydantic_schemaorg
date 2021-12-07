@@ -8,8 +8,7 @@ class Mountain(Landform):
     See https://schema.org/Mountain.
 
     """
-
-    locals().update({"@type": Field("Mountain", const=True)})
-
+    type_: str = Field("Mountain", const=True, alias='@type')
+    
 
 Mountain.update_forward_refs()

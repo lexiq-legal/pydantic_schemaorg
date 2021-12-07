@@ -9,8 +9,7 @@ class GovernmentBenefitsType(Enumeration):
     See https://schema.org/GovernmentBenefitsType.
 
     """
-
-    locals().update({"@type": Field("GovernmentBenefitsType", const=True)})
-
+    type_: str = Field("GovernmentBenefitsType", const=True, alias='@type')
+    
 
 GovernmentBenefitsType.update_forward_refs()

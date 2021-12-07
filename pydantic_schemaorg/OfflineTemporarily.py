@@ -8,8 +8,7 @@ class OfflineTemporarily(GameServerStatus):
     See https://schema.org/OfflineTemporarily.
 
     """
-
-    locals().update({"@type": Field("OfflineTemporarily", const=True)})
-
+    type_: str = Field("OfflineTemporarily", const=True, alias='@type')
+    
 
 OfflineTemporarily.update_forward_refs()

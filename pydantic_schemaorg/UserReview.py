@@ -9,8 +9,7 @@ class UserReview(Review):
     See https://schema.org/UserReview.
 
     """
-
-    locals().update({"@type": Field("UserReview", const=True)})
-
+    type_: str = Field("UserReview", const=True, alias='@type')
+    
 
 UserReview.update_forward_refs()

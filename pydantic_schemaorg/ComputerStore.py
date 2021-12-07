@@ -8,8 +8,7 @@ class ComputerStore(Store):
     See https://schema.org/ComputerStore.
 
     """
-
-    locals().update({"@type": Field("ComputerStore", const=True)})
-
+    type_: str = Field("ComputerStore", const=True, alias='@type')
+    
 
 ComputerStore.update_forward_refs()

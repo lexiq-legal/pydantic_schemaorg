@@ -8,8 +8,7 @@ class CollectionPage(WebPage):
     See https://schema.org/CollectionPage.
 
     """
-
-    locals().update({"@type": Field("CollectionPage", const=True)})
-
+    type_: str = Field("CollectionPage", const=True, alias='@type')
+    
 
 CollectionPage.update_forward_refs()

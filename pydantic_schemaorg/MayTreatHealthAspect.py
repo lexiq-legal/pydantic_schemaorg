@@ -8,8 +8,7 @@ class MayTreatHealthAspect(HealthAspectEnumeration):
     See https://schema.org/MayTreatHealthAspect.
 
     """
-
-    locals().update({"@type": Field("MayTreatHealthAspect", const=True)})
-
+    type_: str = Field("MayTreatHealthAspect", const=True, alias='@type')
+    
 
 MayTreatHealthAspect.update_forward_refs()

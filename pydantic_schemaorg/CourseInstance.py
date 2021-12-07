@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Event import Event
 
@@ -12,7 +12,7 @@ class CourseInstance(Event):
     See https://schema.org/CourseInstance.
 
     """
-
+    type_: str = Field("CourseInstance", const=True, alias='@type')
     courseWorkload: Optional[Union[List[str], str]] = Field(
         None,
         description="The amount of work expected of students taking the course, often provided as a figure"
@@ -30,7 +30,6 @@ class CourseInstance(Event):
      "\"full-time\" or \"part-time\") or as a URL reference to a term from a controlled vocabulary"
      "(e.g. https://ceds.ed.gov/element/001311#Asynchronous ).",
     )
-    locals().update({"@type": Field("CourseInstance", const=True)})
-
+    
 
 CourseInstance.update_forward_refs()

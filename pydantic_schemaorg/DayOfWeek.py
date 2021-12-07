@@ -12,8 +12,7 @@ class DayOfWeek(Enumeration):
     See https://schema.org/DayOfWeek.
 
     """
-
-    locals().update({"@type": Field("DayOfWeek", const=True)})
-
+    type_: str = Field("DayOfWeek", const=True, alias='@type')
+    
 
 DayOfWeek.update_forward_refs()

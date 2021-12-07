@@ -8,8 +8,7 @@ class Appearance(PhysicalExam):
     See https://schema.org/Appearance.
 
     """
-
-    locals().update({"@type": Field("Appearance", const=True)})
-
+    type_: str = Field("Appearance", const=True, alias='@type')
+    
 
 Appearance.update_forward_refs()

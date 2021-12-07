@@ -9,8 +9,7 @@ class LimitedByGuaranteeCharity(UKNonprofitType):
     See https://schema.org/LimitedByGuaranteeCharity.
 
     """
-
-    locals().update({"@type": Field("LimitedByGuaranteeCharity", const=True)})
-
+    type_: str = Field("LimitedByGuaranteeCharity", const=True, alias='@type')
+    
 
 LimitedByGuaranteeCharity.update_forward_refs()

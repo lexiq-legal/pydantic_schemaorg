@@ -8,8 +8,7 @@ class CT(MedicalImagingTechnique):
     See https://schema.org/CT.
 
     """
-
-    locals().update({"@type": Field("CT", const=True)})
-
+    type_: str = Field("CT", const=True, alias='@type')
+    
 
 CT.update_forward_refs()

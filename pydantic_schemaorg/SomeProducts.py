@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Product import Product
 
 
@@ -9,12 +9,11 @@ class SomeProducts(Product):
     See https://schema.org/SomeProducts.
 
     """
-
+    type_: str = Field("SomeProducts", const=True, alias='@type')
     inventoryLevel: Any = Field(
         None,
         description="The current approximate inventory level for the item or items.",
     )
-    locals().update({"@type": Field("SomeProducts", const=True)})
-
+    
 
 SomeProducts.update_forward_refs()

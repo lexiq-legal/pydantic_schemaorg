@@ -8,8 +8,7 @@ class FrontWheelDriveConfiguration(DriveWheelConfigurationValue):
     See https://schema.org/FrontWheelDriveConfiguration.
 
     """
-
-    locals().update({"@type": Field("FrontWheelDriveConfiguration", const=True)})
-
+    type_: str = Field("FrontWheelDriveConfiguration", const=True, alias='@type')
+    
 
 FrontWheelDriveConfiguration.update_forward_refs()

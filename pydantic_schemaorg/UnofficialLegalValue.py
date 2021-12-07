@@ -9,8 +9,7 @@ class UnofficialLegalValue(LegalValueLevel):
     See https://schema.org/UnofficialLegalValue.
 
     """
-
-    locals().update({"@type": Field("UnofficialLegalValue", const=True)})
-
+    type_: str = Field("UnofficialLegalValue", const=True, alias='@type')
+    
 
 UnofficialLegalValue.update_forward_refs()

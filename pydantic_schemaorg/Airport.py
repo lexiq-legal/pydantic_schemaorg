@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CivicStructure import CivicStructure
 
 
@@ -9,7 +9,7 @@ class Airport(CivicStructure):
     See https://schema.org/Airport.
 
     """
-
+    type_: str = Field("Airport", const=True, alias='@type')
     iataCode: Optional[Union[List[str], str]] = Field(
         None,
         description="IATA identifier for an airline or airport.",
@@ -18,7 +18,6 @@ class Airport(CivicStructure):
         None,
         description="ICAO identifier for an airport.",
     )
-    locals().update({"@type": Field("Airport", const=True)})
-
+    
 
 Airport.update_forward_refs()

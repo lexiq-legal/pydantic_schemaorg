@@ -9,8 +9,7 @@ class Rheumatologic(MedicalSpecialty):
     See https://schema.org/Rheumatologic.
 
     """
-
-    locals().update({"@type": Field("Rheumatologic", const=True)})
-
+    type_: str = Field("Rheumatologic", const=True, alias='@type')
+    
 
 Rheumatologic.update_forward_refs()

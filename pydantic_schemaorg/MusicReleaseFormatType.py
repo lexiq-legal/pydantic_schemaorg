@@ -9,8 +9,7 @@ class MusicReleaseFormatType(Enumeration):
     See https://schema.org/MusicReleaseFormatType.
 
     """
-
-    locals().update({"@type": Field("MusicReleaseFormatType", const=True)})
-
+    type_: str = Field("MusicReleaseFormatType", const=True, alias='@type')
+    
 
 MusicReleaseFormatType.update_forward_refs()

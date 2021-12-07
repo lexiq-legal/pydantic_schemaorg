@@ -1,7 +1,7 @@
 from pydantic import Field
-from pydantic_schemaorg.Comment import Comment
 from pydantic_schemaorg.WebContent import WebContent
-from typing import Any, Union, List, Optional
+from pydantic_schemaorg.Comment import Comment
+from typing import Any, Optional, Union, List
 
 
 class Answer(Comment):
@@ -10,13 +10,12 @@ class Answer(Comment):
     See https://schema.org/Answer.
 
     """
-
-    answerExplanation: Optional[Union[List[Union[Comment, WebContent]], Union[Comment, WebContent]]] = Field(
+    type_: str = Field("Answer", const=True, alias='@type')
+    answerExplanation: Optional[Union[List[Union[WebContent, Comment]], Union[WebContent, Comment]]] = Field(
         None,
         description="A step-by-step or full explanation about Answer. Can outline how this Answer was achieved"
      "or contain more broad clarification or statement about it.",
     )
-    locals().update({"@type": Field("Answer", const=True)})
-
+    
 
 Answer.update_forward_refs()

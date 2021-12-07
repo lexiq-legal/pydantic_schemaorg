@@ -8,8 +8,7 @@ class Suspended(MedicalStudyStatus):
     See https://schema.org/Suspended.
 
     """
-
-    locals().update({"@type": Field("Suspended", const=True)})
-
+    type_: str = Field("Suspended", const=True, alias='@type')
+    
 
 Suspended.update_forward_refs()

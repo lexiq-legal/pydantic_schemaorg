@@ -8,8 +8,7 @@ class OrderPaymentDue(OrderStatus):
     See https://schema.org/OrderPaymentDue.
 
     """
-
-    locals().update({"@type": Field("OrderPaymentDue", const=True)})
-
+    type_: str = Field("OrderPaymentDue", const=True, alias='@type')
+    
 
 OrderPaymentDue.update_forward_refs()

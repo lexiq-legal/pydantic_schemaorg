@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -10,7 +10,7 @@ class VisualArtwork(CreativeWork):
     See https://schema.org/VisualArtwork.
 
     """
-
+    type_: str = Field("VisualArtwork", const=True, alias='@type')
     artworkSurface: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc.",
@@ -68,7 +68,6 @@ class VisualArtwork(CreativeWork):
         None,
         description="The individual who traces over the pencil drawings in ink after pencils are complete.",
     )
-    locals().update({"@type": Field("VisualArtwork", const=True)})
-
+    
 
 VisualArtwork.update_forward_refs()

@@ -8,8 +8,7 @@ class MultiPlayer(GamePlayMode):
     See https://schema.org/MultiPlayer.
 
     """
-
-    locals().update({"@type": Field("MultiPlayer", const=True)})
-
+    type_: str = Field("MultiPlayer", const=True, alias='@type')
+    
 
 MultiPlayer.update_forward_refs()

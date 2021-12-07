@@ -8,8 +8,7 @@ class MixtapeAlbum(MusicAlbumProductionType):
     See https://schema.org/MixtapeAlbum.
 
     """
-
-    locals().update({"@type": Field("MixtapeAlbum", const=True)})
-
+    type_: str = Field("MixtapeAlbum", const=True, alias='@type')
+    
 
 MixtapeAlbum.update_forward_refs()

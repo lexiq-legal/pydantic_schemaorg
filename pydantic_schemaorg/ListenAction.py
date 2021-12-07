@@ -8,8 +8,7 @@ class ListenAction(ConsumeAction):
     See https://schema.org/ListenAction.
 
     """
-
-    locals().update({"@type": Field("ListenAction", const=True)})
-
+    type_: str = Field("ListenAction", const=True, alias='@type')
+    
 
 ListenAction.update_forward_refs()

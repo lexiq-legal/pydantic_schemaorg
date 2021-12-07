@@ -8,8 +8,7 @@ class ActionStatusType(StatusEnumeration):
     See https://schema.org/ActionStatusType.
 
     """
-
-    locals().update({"@type": Field("ActionStatusType", const=True)})
-
+    type_: str = Field("ActionStatusType", const=True, alias='@type')
+    
 
 ActionStatusType.update_forward_refs()

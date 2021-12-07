@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
 from pydantic_schemaorg.EventStatusType import EventStatusType
@@ -12,7 +12,7 @@ class MedicalProcedure(MedicalEntity):
     See https://schema.org/MedicalProcedure.
 
     """
-
+    type_: str = Field("MedicalProcedure", const=True, alias='@type')
     procedureType: Any = Field(
         None,
         description="The type of procedure, for example Surgical, Noninvasive, or Percutaneous.",
@@ -37,7 +37,6 @@ class MedicalProcedure(MedicalEntity):
         None,
         description="Typical or recommended followup care after the procedure is performed.",
     )
-    locals().update({"@type": Field("MedicalProcedure", const=True)})
-
+    
 
 MedicalProcedure.update_forward_refs()

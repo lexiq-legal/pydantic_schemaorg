@@ -8,8 +8,7 @@ class Therapeutic(MedicalDevicePurpose):
     See https://schema.org/Therapeutic.
 
     """
-
-    locals().update({"@type": Field("Therapeutic", const=True)})
-
+    type_: str = Field("Therapeutic", const=True, alias='@type')
+    
 
 Therapeutic.update_forward_refs()

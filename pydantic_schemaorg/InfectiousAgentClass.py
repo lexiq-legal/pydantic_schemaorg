@@ -8,8 +8,7 @@ class InfectiousAgentClass(MedicalEnumeration):
     See https://schema.org/InfectiousAgentClass.
 
     """
-
-    locals().update({"@type": Field("InfectiousAgentClass", const=True)})
-
+    type_: str = Field("InfectiousAgentClass", const=True, alias='@type')
+    
 
 InfectiousAgentClass.update_forward_refs()

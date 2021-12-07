@@ -9,8 +9,7 @@ class AccountingService(FinancialService):
     See https://schema.org/AccountingService.
 
     """
-
-    locals().update({"@type": Field("AccountingService", const=True)})
-
+    type_: str = Field("AccountingService", const=True, alias='@type')
+    
 
 AccountingService.update_forward_refs()

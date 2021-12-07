@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Place import Place
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -11,7 +11,7 @@ class ArchiveComponent(CreativeWork):
     See https://schema.org/ArchiveComponent.
 
     """
-
+    type_: str = Field("ArchiveComponent", const=True, alias='@type')
     itemLocation: Union[List[Union[str, Place, Any]], Union[str, Place, Any]] = Field(
         None,
         description="Current location of the item.",
@@ -20,7 +20,6 @@ class ArchiveComponent(CreativeWork):
         None,
         description="[[ArchiveOrganization]] that holds, keeps or maintains the [[ArchiveComponent]].",
     )
-    locals().update({"@type": Field("ArchiveComponent", const=True)})
-
+    
 
 ArchiveComponent.update_forward_refs()

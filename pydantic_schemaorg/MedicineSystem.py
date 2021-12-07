@@ -8,8 +8,7 @@ class MedicineSystem(MedicalEnumeration):
     See https://schema.org/MedicineSystem.
 
     """
-
-    locals().update({"@type": Field("MedicineSystem", const=True)})
-
+    type_: str = Field("MedicineSystem", const=True, alias='@type')
+    
 
 MedicineSystem.update_forward_refs()

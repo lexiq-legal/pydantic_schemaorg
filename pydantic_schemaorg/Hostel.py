@@ -10,8 +10,7 @@ class Hostel(LodgingBusiness):
     See https://schema.org/Hostel.
 
     """
-
-    locals().update({"@type": Field("Hostel", const=True)})
-
+    type_: str = Field("Hostel", const=True, alias='@type')
+    
 
 Hostel.update_forward_refs()

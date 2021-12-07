@@ -8,8 +8,7 @@ class Female(GenderType):
     See https://schema.org/Female.
 
     """
-
-    locals().update({"@type": Field("Female", const=True)})
-
+    type_: str = Field("Female", const=True, alias='@type')
+    
 
 Female.update_forward_refs()

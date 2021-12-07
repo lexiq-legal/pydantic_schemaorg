@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.CreativeWork import CreativeWork
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 
 
 class Article(CreativeWork):
@@ -11,7 +11,7 @@ class Article(CreativeWork):
     See https://schema.org/Article.
 
     """
-
+    type_: str = Field("Article", const=True, alias='@type')
     backstory: Optional[Union[List[Union[str, CreativeWork]], Union[str, CreativeWork]]] = Field(
         None,
         description="For an [[Article]], typically a [[NewsArticle]], the backstory property provides"
@@ -62,7 +62,6 @@ class Article(CreativeWork):
         None,
         description="The page on which the work ends; for example \"138\" or \"xvi\".",
     )
-    locals().update({"@type": Field("Article", const=True)})
-
+    
 
 Article.update_forward_refs()

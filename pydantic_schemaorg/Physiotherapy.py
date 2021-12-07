@@ -10,8 +10,7 @@ class Physiotherapy(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Physiotherapy.
 
     """
-
-    locals().update({"@type": Field("Physiotherapy", const=True)})
-
+    type_: str = Field("Physiotherapy", const=True, alias='@type')
+    
 
 Physiotherapy.update_forward_refs()

@@ -8,8 +8,7 @@ class ShareAction(CommunicateAction):
     See https://schema.org/ShareAction.
 
     """
-
-    locals().update({"@type": Field("ShareAction", const=True)})
-
+    type_: str = Field("ShareAction", const=True, alias='@type')
+    
 
 ShareAction.update_forward_refs()

@@ -8,8 +8,7 @@ class Season(CreativeWork):
     See https://schema.org/Season.
 
     """
-
-    locals().update({"@type": Field("Season", const=True)})
-
+    type_: str = Field("Season", const=True, alias='@type')
+    
 
 Season.update_forward_refs()

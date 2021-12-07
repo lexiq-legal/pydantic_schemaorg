@@ -8,8 +8,7 @@ class OrderProcessing(OrderStatus):
     See https://schema.org/OrderProcessing.
 
     """
-
-    locals().update({"@type": Field("OrderProcessing", const=True)})
-
+    type_: str = Field("OrderProcessing", const=True, alias='@type')
+    
 
 OrderProcessing.update_forward_refs()

@@ -8,8 +8,7 @@ class ExerciseGym(SportsActivityLocation):
     See https://schema.org/ExerciseGym.
 
     """
-
-    locals().update({"@type": Field("ExerciseGym", const=True)})
-
+    type_: str = Field("ExerciseGym", const=True, alias='@type')
+    
 
 ExerciseGym.update_forward_refs()

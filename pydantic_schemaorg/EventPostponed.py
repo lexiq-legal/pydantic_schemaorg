@@ -9,8 +9,7 @@ class EventPostponed(EventStatusType):
     See https://schema.org/EventPostponed.
 
     """
-
-    locals().update({"@type": Field("EventPostponed", const=True)})
-
+    type_: str = Field("EventPostponed", const=True, alias='@type')
+    
 
 EventPostponed.update_forward_refs()

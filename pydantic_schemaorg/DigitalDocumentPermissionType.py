@@ -8,8 +8,7 @@ class DigitalDocumentPermissionType(Enumeration):
     See https://schema.org/DigitalDocumentPermissionType.
 
     """
-
-    locals().update({"@type": Field("DigitalDocumentPermissionType", const=True)})
-
+    type_: str = Field("DigitalDocumentPermissionType", const=True, alias='@type')
+    
 
 DigitalDocumentPermissionType.update_forward_refs()

@@ -10,8 +10,7 @@ class RecommendedDoseSchedule(DoseSchedule):
     See https://schema.org/RecommendedDoseSchedule.
 
     """
-
-    locals().update({"@type": Field("RecommendedDoseSchedule", const=True)})
-
+    type_: str = Field("RecommendedDoseSchedule", const=True, alias='@type')
+    
 
 RecommendedDoseSchedule.update_forward_refs()

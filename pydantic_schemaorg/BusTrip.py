@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.BusStation import BusStation
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Trip import Trip
 
 
@@ -10,7 +10,7 @@ class BusTrip(Trip):
     See https://schema.org/BusTrip.
 
     """
-
+    type_: str = Field("BusTrip", const=True, alias='@type')
     departureBusStop: Union[List[Union[BusStation, Any]], Union[BusStation, Any]] = Field(
         None,
         description="The stop or station from which the bus departs.",
@@ -27,7 +27,6 @@ class BusTrip(Trip):
         None,
         description="The name of the bus (e.g. Bolt Express).",
     )
-    locals().update({"@type": Field("BusTrip", const=True)})
-
+    
 
 BusTrip.update_forward_refs()

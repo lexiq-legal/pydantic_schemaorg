@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Class import Class
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Enumeration import Enumeration
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -12,7 +12,7 @@ class Property(Intangible):
     See https://schema.org/Property.
 
     """
-
+    type_: str = Field("Property", const=True, alias='@type')
     domainIncludes: Optional[Union[List[Class], Class]] = Field(
         None,
         description="Relates a property to a class that is (one of) the type(s) the property is expected to be"
@@ -35,7 +35,6 @@ class Property(Intangible):
         None,
         description="Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",
     )
-    locals().update({"@type": Field("Property", const=True)})
-
+    
 
 Property.update_forward_refs()

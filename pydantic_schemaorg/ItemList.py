@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Thing import Thing
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.ItemListOrderType import ItemListOrderType
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -12,7 +12,7 @@ class ItemList(Intangible):
     See https://schema.org/ItemList.
 
     """
-
+    type_: str = Field("ItemList", const=True, alias='@type')
     itemListElement: Union[List[Union[str, Thing, Any]], Union[str, Thing, Any]] = Field(
         None,
         description="For itemListElement values, you can use simple strings (e.g. \"Peter\", \"Paul\","
@@ -34,7 +34,6 @@ class ItemList(Intangible):
         None,
         description="Type of ordering (e.g. Ascending, Descending, Unordered).",
     )
-    locals().update({"@type": Field("ItemList", const=True)})
-
+    
 
 ItemList.update_forward_refs()

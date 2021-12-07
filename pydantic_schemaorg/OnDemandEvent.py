@@ -9,8 +9,7 @@ class OnDemandEvent(PublicationEvent):
     See https://schema.org/OnDemandEvent.
 
     """
-
-    locals().update({"@type": Field("OnDemandEvent", const=True)})
-
+    type_: str = Field("OnDemandEvent", const=True, alias='@type')
+    
 
 OnDemandEvent.update_forward_refs()

@@ -8,8 +8,7 @@ class Completed(MedicalStudyStatus):
     See https://schema.org/Completed.
 
     """
-
-    locals().update({"@type": Field("Completed", const=True)})
-
+    type_: str = Field("Completed", const=True, alias='@type')
+    
 
 Completed.update_forward_refs()

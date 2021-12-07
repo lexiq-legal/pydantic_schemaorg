@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.ContactPoint import ContactPoint
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.HealthPlanNetwork import HealthPlanNetwork
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -11,7 +11,7 @@ class HealthInsurancePlan(Intangible):
     See https://schema.org/HealthInsurancePlan.
 
     """
-
+    type_: str = Field("HealthInsurancePlan", const=True, alias='@type')
     contactPoint: Optional[Union[List[ContactPoint], ContactPoint]] = Field(
         None,
         description="A contact point for a person or organization.",
@@ -52,7 +52,6 @@ class HealthInsurancePlan(Intangible):
         None,
         description="Formularies covered by this plan.",
     )
-    locals().update({"@type": Field("HealthInsurancePlan", const=True)})
-
+    
 
 HealthInsurancePlan.update_forward_refs()

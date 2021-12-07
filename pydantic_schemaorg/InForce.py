@@ -8,8 +8,7 @@ class InForce(LegalForceStatus):
     See https://schema.org/InForce.
 
     """
-
-    locals().update({"@type": Field("InForce", const=True)})
-
+    type_: str = Field("InForce", const=True, alias='@type')
+    
 
 InForce.update_forward_refs()

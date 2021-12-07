@@ -8,8 +8,7 @@ class EventVenue(CivicStructure):
     See https://schema.org/EventVenue.
 
     """
-
-    locals().update({"@type": Field("EventVenue", const=True)})
-
+    type_: str = Field("EventVenue", const=True, alias='@type')
+    
 
 EventVenue.update_forward_refs()

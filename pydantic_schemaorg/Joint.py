@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 
 
@@ -10,7 +10,7 @@ class Joint(AnatomicalStructure):
     See https://schema.org/Joint.
 
     """
-
+    type_: str = Field("Joint", const=True, alias='@type')
     functionalClass: Optional[Union[List[Union[str, MedicalEntity]], Union[str, MedicalEntity]]] = Field(
         None,
         description="The degree of mobility the joint allows.",
@@ -23,7 +23,6 @@ class Joint(AnatomicalStructure):
         None,
         description="The biomechanical properties of the bone.",
     )
-    locals().update({"@type": Field("Joint", const=True)})
-
+    
 
 Joint.update_forward_refs()

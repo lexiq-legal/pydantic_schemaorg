@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
 from decimal import Decimal
 from pydantic_schemaorg.MedicalIntangible import MedicalIntangible
@@ -11,7 +11,7 @@ class DrugStrength(MedicalIntangible):
     See https://schema.org/DrugStrength.
 
     """
-
+    type_: str = Field("DrugStrength", const=True, alias='@type')
     activeIngredient: Optional[Union[List[str], str]] = Field(
         None,
         description="An active ingredient, typically chemical compounds and/or biologic substances.",
@@ -33,7 +33,6 @@ class DrugStrength(MedicalIntangible):
         description="Recommended intake of this supplement for a given population as defined by a specific"
      "recommending authority.",
     )
-    locals().update({"@type": Field("DrugStrength", const=True)})
-
+    
 
 DrugStrength.update_forward_refs()

@@ -8,8 +8,7 @@ class MerchantReturnEnumeration(Enumeration):
     See https://schema.org/MerchantReturnEnumeration.
 
     """
-
-    locals().update({"@type": Field("MerchantReturnEnumeration", const=True)})
-
+    type_: str = Field("MerchantReturnEnumeration", const=True, alias='@type')
+    
 
 MerchantReturnEnumeration.update_forward_refs()

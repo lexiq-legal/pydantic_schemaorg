@@ -8,8 +8,7 @@ class ImageGallery(MediaGallery):
     See https://schema.org/ImageGallery.
 
     """
-
-    locals().update({"@type": Field("ImageGallery", const=True)})
-
+    type_: str = Field("ImageGallery", const=True, alias='@type')
+    
 
 ImageGallery.update_forward_refs()

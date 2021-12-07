@@ -8,8 +8,7 @@ class DiscussionForumPosting(SocialMediaPosting):
     See https://schema.org/DiscussionForumPosting.
 
     """
-
-    locals().update({"@type": Field("DiscussionForumPosting", const=True)})
-
+    type_: str = Field("DiscussionForumPosting", const=True, alias='@type')
+    
 
 DiscussionForumPosting.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Energy import Energy
 from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.PhysicalActivity import PhysicalActivity
@@ -13,7 +13,7 @@ class ExercisePlan(CreativeWork, PhysicalActivity):
     See https://schema.org/ExercisePlan.
 
     """
-
+    type_: str = Field("ExercisePlan", const=True, alias='@type')
     repetitions: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
         None,
         description="Number of times one should repeat the activity.",
@@ -51,7 +51,6 @@ class ExercisePlan(CreativeWork, PhysicalActivity):
         None,
         description="How often one should engage in the activity.",
     )
-    locals().update({"@type": Field("ExercisePlan", const=True)})
-
+    
 
 ExercisePlan.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.UnitPriceSpecification import UnitPriceSpecification
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -11,7 +11,7 @@ class ExchangeRateSpecification(StructuredValue):
     See https://schema.org/ExchangeRateSpecification.
 
     """
-
+    type_: str = Field("ExchangeRateSpecification", const=True, alias='@type')
     exchangeRateSpread: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
         None,
         description="The difference between the price at which a broker or other intermediary buys and sells"
@@ -29,7 +29,6 @@ class ExchangeRateSpecification(StructuredValue):
      "e.g. \"BTC\"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system)"
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
-    locals().update({"@type": Field("ExchangeRateSpecification", const=True)})
-
+    
 
 ExchangeRateSpecification.update_forward_refs()

@@ -12,8 +12,7 @@ class MeetingRoom(Room):
     See https://schema.org/MeetingRoom.
 
     """
-
-    locals().update({"@type": Field("MeetingRoom", const=True)})
-
+    type_: str = Field("MeetingRoom", const=True, alias='@type')
+    
 
 MeetingRoom.update_forward_refs()

@@ -8,8 +8,7 @@ class PregnancyHealthAspect(HealthAspectEnumeration):
     See https://schema.org/PregnancyHealthAspect.
 
     """
-
-    locals().update({"@type": Field("PregnancyHealthAspect", const=True)})
-
+    type_: str = Field("PregnancyHealthAspect", const=True, alias='@type')
+    
 
 PregnancyHealthAspect.update_forward_refs()

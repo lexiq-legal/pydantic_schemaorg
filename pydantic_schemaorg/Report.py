@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Article import Article
 
 
@@ -9,12 +9,11 @@ class Report(Article):
     See https://schema.org/Report.
 
     """
-
+    type_: str = Field("Report", const=True, alias='@type')
     reportNumber: Optional[Union[List[str], str]] = Field(
         None,
         description="The number or other unique designator assigned to a Report by the publishing organization.",
     )
-    locals().update({"@type": Field("Report", const=True)})
-
+    
 
 Report.update_forward_refs()

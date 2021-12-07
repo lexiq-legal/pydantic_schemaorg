@@ -9,8 +9,7 @@ class CableOrSatelliteService(Service):
     See https://schema.org/CableOrSatelliteService.
 
     """
-
-    locals().update({"@type": Field("CableOrSatelliteService", const=True)})
-
+    type_: str = Field("CableOrSatelliteService", const=True, alias='@type')
+    
 
 CableOrSatelliteService.update_forward_refs()

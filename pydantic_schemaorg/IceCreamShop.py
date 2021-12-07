@@ -8,8 +8,7 @@ class IceCreamShop(FoodEstablishment):
     See https://schema.org/IceCreamShop.
 
     """
-
-    locals().update({"@type": Field("IceCreamShop", const=True)})
-
+    type_: str = Field("IceCreamShop", const=True, alias='@type')
+    
 
 IceCreamShop.update_forward_refs()

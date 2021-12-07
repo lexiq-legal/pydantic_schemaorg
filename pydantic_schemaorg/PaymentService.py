@@ -8,8 +8,7 @@ class PaymentService(FinancialProduct):
     See https://schema.org/PaymentService.
 
     """
-
-    locals().update({"@type": Field("PaymentService", const=True)})
-
+    type_: str = Field("PaymentService", const=True, alias='@type')
+    
 
 PaymentService.update_forward_refs()

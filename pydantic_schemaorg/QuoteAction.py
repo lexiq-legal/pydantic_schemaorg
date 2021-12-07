@@ -8,8 +8,7 @@ class QuoteAction(TradeAction):
     See https://schema.org/QuoteAction.
 
     """
-
-    locals().update({"@type": Field("QuoteAction", const=True)})
-
+    type_: str = Field("QuoteAction", const=True, alias='@type')
+    
 
 QuoteAction.update_forward_refs()

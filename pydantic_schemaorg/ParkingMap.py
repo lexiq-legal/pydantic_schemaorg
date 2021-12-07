@@ -8,8 +8,7 @@ class ParkingMap(MapCategoryType):
     See https://schema.org/ParkingMap.
 
     """
-
-    locals().update({"@type": Field("ParkingMap", const=True)})
-
+    type_: str = Field("ParkingMap", const=True, alias='@type')
+    
 
 ParkingMap.update_forward_refs()

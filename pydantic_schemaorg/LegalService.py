@@ -10,8 +10,7 @@ class LegalService(LocalBusiness):
     See https://schema.org/LegalService.
 
     """
-
-    locals().update({"@type": Field("LegalService", const=True)})
-
+    type_: str = Field("LegalService", const=True, alias='@type')
+    
 
 LegalService.update_forward_refs()

@@ -8,8 +8,7 @@ class ItemAvailability(Enumeration):
     See https://schema.org/ItemAvailability.
 
     """
-
-    locals().update({"@type": Field("ItemAvailability", const=True)})
-
+    type_: str = Field("ItemAvailability", const=True, alias='@type')
+    
 
 ItemAvailability.update_forward_refs()

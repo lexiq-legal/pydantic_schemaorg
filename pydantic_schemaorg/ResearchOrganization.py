@@ -8,8 +8,7 @@ class ResearchOrganization(Organization):
     See https://schema.org/ResearchOrganization.
 
     """
-
-    locals().update({"@type": Field("ResearchOrganization", const=True)})
-
+    type_: str = Field("ResearchOrganization", const=True, alias='@type')
+    
 
 ResearchOrganization.update_forward_refs()

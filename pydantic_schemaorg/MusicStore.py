@@ -8,8 +8,7 @@ class MusicStore(Store):
     See https://schema.org/MusicStore.
 
     """
-
-    locals().update({"@type": Field("MusicStore", const=True)})
-
+    type_: str = Field("MusicStore", const=True, alias='@type')
+    
 
 MusicStore.update_forward_refs()

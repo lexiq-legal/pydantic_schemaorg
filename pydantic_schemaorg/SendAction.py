@@ -1,8 +1,8 @@
 from pydantic import Field
 from pydantic_schemaorg.Organization import Organization
-from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Audience import Audience
-from typing import Any, Union, List, Optional
+from pydantic_schemaorg.Person import Person
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.TransferAction import TransferAction
 
 
@@ -15,8 +15,8 @@ class SendAction(TransferAction):
     See https://schema.org/SendAction.
 
     """
-
-    recipient: Union[List[Union[Organization, Person, Audience, Any]], Union[Organization, Person, Audience, Any]] = Field(
+    type_: str = Field("SendAction", const=True, alias='@type')
+    recipient: Union[List[Union[Organization, Audience, Person, Any]], Union[Organization, Audience, Person, Any]] = Field(
         None,
         description="A sub property of participant. The participant who is at the receiving end of the action.",
     )
@@ -24,7 +24,6 @@ class SendAction(TransferAction):
         None,
         description="A sub property of instrument. The method of delivery.",
     )
-    locals().update({"@type": Field("SendAction", const=True)})
-
+    
 
 SendAction.update_forward_refs()

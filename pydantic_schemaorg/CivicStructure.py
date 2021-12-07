@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Place import Place
 
 
@@ -9,7 +9,7 @@ class CivicStructure(Place):
     See https://schema.org/CivicStructure.
 
     """
-
+    type_: str = Field("CivicStructure", const=True, alias='@type')
     openingHours: Optional[Union[List[str], str]] = Field(
         None,
         description="The general opening hours for a business. Opening hours can be specified as a weekly time"
@@ -23,7 +23,6 @@ class CivicStructure(Place):
      "it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday"
      "through Sunday, all day&lt;/time&gt;</code>.",
     )
-    locals().update({"@type": Field("CivicStructure", const=True)})
-
+    
 
 CivicStructure.update_forward_refs()

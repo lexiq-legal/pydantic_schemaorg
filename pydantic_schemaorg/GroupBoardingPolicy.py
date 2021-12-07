@@ -8,8 +8,7 @@ class GroupBoardingPolicy(BoardingPolicyType):
     See https://schema.org/GroupBoardingPolicy.
 
     """
-
-    locals().update({"@type": Field("GroupBoardingPolicy", const=True)})
-
+    type_: str = Field("GroupBoardingPolicy", const=True, alias='@type')
+    
 
 GroupBoardingPolicy.update_forward_refs()

@@ -1,8 +1,8 @@
-from pydantic import Field, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.Demand import Demand
-from datetime import date, datetime, time
+from datetime import datetime, time, date
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Place import Place
@@ -20,7 +20,7 @@ class Event(Thing):
     See https://schema.org/Event.
 
     """
-
+    type_: str = Field("Event", const=True, alias='@type')
     subEvent: Any = Field(
         None,
         description="An Event that is part of this event. For example, a conference event includes many presentations,"
@@ -213,7 +213,6 @@ class Event(Thing):
         None,
         description="A flag to signal that the item, event, or place is accessible for free.",
     )
-    locals().update({"@type": Field("Event", const=True)})
-
+    
 
 Event.update_forward_refs()

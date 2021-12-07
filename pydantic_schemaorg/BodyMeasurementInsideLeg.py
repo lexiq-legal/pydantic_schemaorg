@@ -8,8 +8,7 @@ class BodyMeasurementInsideLeg(BodyMeasurementTypeEnumeration):
     See https://schema.org/BodyMeasurementInsideLeg.
 
     """
-
-    locals().update({"@type": Field("BodyMeasurementInsideLeg", const=True)})
-
+    type_: str = Field("BodyMeasurementInsideLeg", const=True, alias='@type')
+    
 
 BodyMeasurementInsideLeg.update_forward_refs()

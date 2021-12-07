@@ -8,8 +8,7 @@ class AllocateAction(OrganizeAction):
     See https://schema.org/AllocateAction.
 
     """
-
-    locals().update({"@type": Field("AllocateAction", const=True)})
-
+    type_: str = Field("AllocateAction", const=True, alias='@type')
+    
 
 AllocateAction.update_forward_refs()

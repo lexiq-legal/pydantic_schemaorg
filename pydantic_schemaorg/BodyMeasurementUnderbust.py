@@ -8,8 +8,7 @@ class BodyMeasurementUnderbust(BodyMeasurementTypeEnumeration):
     See https://schema.org/BodyMeasurementUnderbust.
 
     """
-
-    locals().update({"@type": Field("BodyMeasurementUnderbust", const=True)})
-
+    type_: str = Field("BodyMeasurementUnderbust", const=True, alias='@type')
+    
 
 BodyMeasurementUnderbust.update_forward_refs()

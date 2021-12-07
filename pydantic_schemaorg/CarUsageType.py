@@ -9,8 +9,7 @@ class CarUsageType(Enumeration):
     See https://schema.org/CarUsageType.
 
     """
-
-    locals().update({"@type": Field("CarUsageType", const=True)})
-
+    type_: str = Field("CarUsageType", const=True, alias='@type')
+    
 
 CarUsageType.update_forward_refs()

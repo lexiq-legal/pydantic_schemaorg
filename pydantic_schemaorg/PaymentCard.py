@@ -1,18 +1,18 @@
-from pydantic import Field, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field
+from typing import Any, Optional, Union, List
 from decimal import Decimal
-from pydantic_schemaorg.FinancialProduct import FinancialProduct
 from pydantic_schemaorg.PaymentMethod import PaymentMethod
+from pydantic_schemaorg.FinancialProduct import FinancialProduct
 
 
-class PaymentCard(FinancialProduct, PaymentMethod):
+class PaymentCard(PaymentMethod, FinancialProduct):
     """A payment method using a credit, debit, store or other card to associate the payment with"
      "an account.
 
     See https://schema.org/PaymentCard.
 
     """
-
+    type_: str = Field("PaymentCard", const=True, alias='@type')
     contactlessPayment: Optional[Union[List[StrictBool], StrictBool]] = Field(
         None,
         description="A secure method for consumers to purchase products or services via debit, credit or smartcards"
@@ -31,7 +31,6 @@ class PaymentCard(FinancialProduct, PaymentMethod):
         description="The minimum payment is the lowest amount of money that one is required to pay on a credit"
      "card statement each month.",
     )
-    locals().update({"@type": Field("PaymentCard", const=True)})
-
+    
 
 PaymentCard.update_forward_refs()

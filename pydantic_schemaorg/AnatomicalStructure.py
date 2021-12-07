@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
 
@@ -10,7 +10,7 @@ class AnatomicalStructure(MedicalEntity):
     See https://schema.org/AnatomicalStructure.
 
     """
-
+    type_: str = Field("AnatomicalStructure", const=True, alias='@type')
     diagram: Any = Field(
         None,
         description="An image containing a diagram that illustrates the structure and/or its component substructures"
@@ -46,7 +46,6 @@ class AnatomicalStructure(MedicalEntity):
      "system, including potential abnormal changes in the mechanical, physical, and biochemical"
      "functions of the system.",
     )
-    locals().update({"@type": Field("AnatomicalStructure", const=True)})
-
+    
 
 AnatomicalStructure.update_forward_refs()

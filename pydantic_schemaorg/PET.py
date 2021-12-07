@@ -8,8 +8,7 @@ class PET(MedicalImagingTechnique):
     See https://schema.org/PET.
 
     """
-
-    locals().update({"@type": Field("PET", const=True)})
-
+    type_: str = Field("PET", const=True, alias='@type')
+    
 
 PET.update_forward_refs()

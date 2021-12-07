@@ -9,8 +9,7 @@ class DietNutrition(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/DietNutrition.
 
     """
-
-    locals().update({"@type": Field("DietNutrition", const=True)})
-
+    type_: str = Field("DietNutrition", const=True, alias='@type')
+    
 
 DietNutrition.update_forward_refs()

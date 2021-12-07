@@ -8,8 +8,7 @@ class PawnShop(Store):
     See https://schema.org/PawnShop.
 
     """
-
-    locals().update({"@type": Field("PawnShop", const=True)})
-
+    type_: str = Field("PawnShop", const=True, alias='@type')
+    
 
 PawnShop.update_forward_refs()

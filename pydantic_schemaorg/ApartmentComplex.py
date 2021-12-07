@@ -1,7 +1,7 @@
-from pydantic import Field, AnyUrl, StrictBool
+from pydantic import StrictBool, Field, AnyUrl
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Residence import Residence
 
 
@@ -11,7 +11,7 @@ class ApartmentComplex(Residence):
     See https://schema.org/ApartmentComplex.
 
     """
-
+    type_: str = Field("ApartmentComplex", const=True, alias='@type')
     numberOfBedrooms: Optional[Union[List[Union[Decimal, QuantitativeValue]], Union[Decimal, QuantitativeValue]]] = Field(
         None,
         description="The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]]"
@@ -28,7 +28,7 @@ class ApartmentComplex(Residence):
      "an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]]"
      "(within its specific [[ApartmentComplex]]). See also [[numberOfAvailableAccommodationUnits]].",
     )
-    petsAllowed: Optional[Union[List[Union[str, StrictBool]], Union[str, StrictBool]]] = Field(
+    petsAllowed: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Indicates whether pets are allowed to enter the accommodation or lodging business."
      "More detailed information can be put in a text value.",
@@ -39,7 +39,6 @@ class ApartmentComplex(Residence):
      "or the number of accommodation units for a specific [[FloorPlan]] (within its specific"
      "[[ApartmentComplex]]). See also [[numberOfAccommodationUnits]].",
     )
-    locals().update({"@type": Field("ApartmentComplex", const=True)})
-
+    
 
 ApartmentComplex.update_forward_refs()

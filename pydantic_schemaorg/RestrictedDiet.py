@@ -9,8 +9,7 @@ class RestrictedDiet(Enumeration):
     See https://schema.org/RestrictedDiet.
 
     """
-
-    locals().update({"@type": Field("RestrictedDiet", const=True)})
-
+    type_: str = Field("RestrictedDiet", const=True, alias='@type')
+    
 
 RestrictedDiet.update_forward_refs()

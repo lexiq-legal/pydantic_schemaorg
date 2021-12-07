@@ -9,8 +9,7 @@ class LeisureTimeActivity(PhysicalActivityCategory):
     See https://schema.org/LeisureTimeActivity.
 
     """
-
-    locals().update({"@type": Field("LeisureTimeActivity", const=True)})
-
+    type_: str = Field("LeisureTimeActivity", const=True, alias='@type')
+    
 
 LeisureTimeActivity.update_forward_refs()

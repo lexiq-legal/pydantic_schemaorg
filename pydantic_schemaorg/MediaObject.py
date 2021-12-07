@@ -1,8 +1,8 @@
-from pydantic import Field, AnyUrl, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field, AnyUrl
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Place import Place
-from datetime import date, datetime, time
+from datetime import datetime, time, date
 from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.NewsArticle import NewsArticle
 
@@ -16,7 +16,7 @@ class MediaObject(CreativeWork):
     See https://schema.org/MediaObject.
 
     """
-
+    type_: str = Field("MediaObject", const=True, alias='@type')
     bitrate: Optional[Union[List[str], str]] = Field(
         None,
         description="The bitrate of the media object.",
@@ -123,7 +123,6 @@ class MediaObject(CreativeWork):
      "the geo-political region(s) for which the offer or delivery charge specification is"
      "not valid, e.g. a region where the transaction is not allowed. See also [[eligibleRegion]].",
     )
-    locals().update({"@type": Field("MediaObject", const=True)})
-
+    
 
 MediaObject.update_forward_refs()

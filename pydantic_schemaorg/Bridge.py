@@ -8,8 +8,7 @@ class Bridge(CivicStructure):
     See https://schema.org/Bridge.
 
     """
-
-    locals().update({"@type": Field("Bridge", const=True)})
-
+    type_: str = Field("Bridge", const=True, alias='@type')
+    
 
 Bridge.update_forward_refs()

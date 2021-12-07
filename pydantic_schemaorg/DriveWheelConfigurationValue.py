@@ -8,8 +8,7 @@ class DriveWheelConfigurationValue(QualitativeValue):
     See https://schema.org/DriveWheelConfigurationValue.
 
     """
-
-    locals().update({"@type": Field("DriveWheelConfigurationValue", const=True)})
-
+    type_: str = Field("DriveWheelConfigurationValue", const=True, alias='@type')
+    
 
 DriveWheelConfigurationValue.update_forward_refs()

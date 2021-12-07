@@ -8,8 +8,7 @@ class ReactAction(AssessAction):
     See https://schema.org/ReactAction.
 
     """
-
-    locals().update({"@type": Field("ReactAction", const=True)})
-
+    type_: str = Field("ReactAction", const=True, alias='@type')
+    
 
 ReactAction.update_forward_refs()

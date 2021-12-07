@@ -8,8 +8,7 @@ class GeneralContractor(HomeAndConstructionBusiness):
     See https://schema.org/GeneralContractor.
 
     """
-
-    locals().update({"@type": Field("GeneralContractor", const=True)})
-
+    type_: str = Field("GeneralContractor", const=True, alias='@type')
+    
 
 GeneralContractor.update_forward_refs()

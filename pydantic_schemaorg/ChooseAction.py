@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Thing import Thing
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.AssessAction import AssessAction
 
 
@@ -10,7 +10,7 @@ class ChooseAction(AssessAction):
     See https://schema.org/ChooseAction.
 
     """
-
+    type_: str = Field("ChooseAction", const=True, alias='@type')
     option: Optional[Union[List[Union[str, Thing]], Union[str, Thing]]] = Field(
         None,
         description="A sub property of object. The options subject to this action.",
@@ -19,7 +19,6 @@ class ChooseAction(AssessAction):
         None,
         description="A sub property of object. The options subject to this action.",
     )
-    locals().update({"@type": Field("ChooseAction", const=True)})
-
+    
 
 ChooseAction.update_forward_refs()

@@ -8,8 +8,7 @@ class IgnoreAction(AssessAction):
     See https://schema.org/IgnoreAction.
 
     """
-
-    locals().update({"@type": Field("IgnoreAction", const=True)})
-
+    type_: str = Field("IgnoreAction", const=True, alias='@type')
+    
 
 IgnoreAction.update_forward_refs()

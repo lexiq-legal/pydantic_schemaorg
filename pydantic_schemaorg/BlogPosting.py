@@ -8,8 +8,7 @@ class BlogPosting(SocialMediaPosting):
     See https://schema.org/BlogPosting.
 
     """
-
-    locals().update({"@type": Field("BlogPosting", const=True)})
-
+    type_: str = Field("BlogPosting", const=True, alias='@type')
+    
 
 BlogPosting.update_forward_refs()

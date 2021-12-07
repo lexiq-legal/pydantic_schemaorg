@@ -8,8 +8,7 @@ class GasStation(AutomotiveBusiness):
     See https://schema.org/GasStation.
 
     """
-
-    locals().update({"@type": Field("GasStation", const=True)})
-
+    type_: str = Field("GasStation", const=True, alias='@type')
+    
 
 GasStation.update_forward_refs()

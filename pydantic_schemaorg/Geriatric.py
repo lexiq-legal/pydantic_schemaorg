@@ -10,8 +10,7 @@ class Geriatric(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Geriatric.
 
     """
-
-    locals().update({"@type": Field("Geriatric", const=True)})
-
+    type_: str = Field("Geriatric", const=True, alias='@type')
+    
 
 Geriatric.update_forward_refs()

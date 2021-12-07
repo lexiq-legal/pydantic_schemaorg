@@ -9,8 +9,7 @@ class Endocrine(MedicalSpecialty):
     See https://schema.org/Endocrine.
 
     """
-
-    locals().update({"@type": Field("Endocrine", const=True)})
-
+    type_: str = Field("Endocrine", const=True, alias='@type')
+    
 
 Endocrine.update_forward_refs()

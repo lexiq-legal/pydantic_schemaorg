@@ -8,8 +8,7 @@ class AutomatedTeller(FinancialService):
     See https://schema.org/AutomatedTeller.
 
     """
-
-    locals().update({"@type": Field("AutomatedTeller", const=True)})
-
+    type_: str = Field("AutomatedTeller", const=True, alias='@type')
+    
 
 AutomatedTeller.update_forward_refs()

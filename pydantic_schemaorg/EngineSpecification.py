@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QualitativeValue import QualitativeValue
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -12,7 +12,7 @@ class EngineSpecification(StructuredValue):
     See https://schema.org/EngineSpecification.
 
     """
-
+    type_: str = Field("EngineSpecification", const=True, alias='@type')
     torque: Optional[Union[List[QuantitativeValue], QuantitativeValue]] = Field(
         None,
         description="The torque (turning force) of the vehicle's engine. Typical unit code(s): NU for newton"
@@ -47,7 +47,6 @@ class EngineSpecification(StructuredValue):
      "the [[valueReference]] property. * Note 3: You can use [[minValue]] and [[maxValue]]"
      "to indicate ranges.",
     )
-    locals().update({"@type": Field("EngineSpecification", const=True)})
-
+    
 
 EngineSpecification.update_forward_refs()

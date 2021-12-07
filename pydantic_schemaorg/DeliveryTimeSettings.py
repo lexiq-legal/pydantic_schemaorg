@@ -1,6 +1,6 @@
-from pydantic import Field, StrictBool
+from pydantic import StrictBool, Field
 from pydantic_schemaorg.DefinedRegion import DefinedRegion
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -13,7 +13,7 @@ class DeliveryTimeSettings(StructuredValue):
     See https://schema.org/DeliveryTimeSettings.
 
     """
-
+    type_: str = Field("DeliveryTimeSettings", const=True, alias='@type')
     shippingDestination: Optional[Union[List[DefinedRegion], DefinedRegion]] = Field(
         None,
         description="indicates (possibly multiple) shipping destinations. These can be defined in several"
@@ -37,7 +37,6 @@ class DeliveryTimeSettings(StructuredValue):
         description="Label to match an [[OfferShippingDetails]] with a [[DeliveryTimeSettings]] (within"
      "the context of a [[shippingSettingsLink]] cross-reference).",
     )
-    locals().update({"@type": Field("DeliveryTimeSettings", const=True)})
-
+    
 
 DeliveryTimeSettings.update_forward_refs()

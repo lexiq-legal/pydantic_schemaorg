@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
-from datetime import date, datetime
+from typing import Any, Optional, Union, List
+from datetime import datetime, date
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -15,7 +15,7 @@ class Role(Intangible):
     See https://schema.org/Role.
 
     """
-
+    type_: str = Field("Role", const=True, alias='@type')
     roleName: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="A role played, performed or filled by a person or organization. For example, the team"
@@ -35,7 +35,6 @@ class Role(Intangible):
         None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    locals().update({"@type": Field("Role", const=True)})
-
+    
 
 Role.update_forward_refs()

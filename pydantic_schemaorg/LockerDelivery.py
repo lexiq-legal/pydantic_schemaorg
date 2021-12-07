@@ -8,8 +8,7 @@ class LockerDelivery(DeliveryMethod):
     See https://schema.org/LockerDelivery.
 
     """
-
-    locals().update({"@type": Field("LockerDelivery", const=True)})
-
+    type_: str = Field("LockerDelivery", const=True, alias='@type')
+    
 
 LockerDelivery.update_forward_refs()

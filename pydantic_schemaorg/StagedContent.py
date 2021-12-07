@@ -15,8 +15,7 @@ class StagedContent(MediaManipulationRatingEnumeration):
     See https://schema.org/StagedContent.
 
     """
-
-    locals().update({"@type": Field("StagedContent", const=True)})
-
+    type_: str = Field("StagedContent", const=True, alias='@type')
+    
 
 StagedContent.update_forward_refs()

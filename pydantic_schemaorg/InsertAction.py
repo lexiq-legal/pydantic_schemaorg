@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Place import Place
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.AddAction import AddAction
 
 
@@ -10,12 +10,11 @@ class InsertAction(AddAction):
     See https://schema.org/InsertAction.
 
     """
-
+    type_: str = Field("InsertAction", const=True, alias='@type')
     toLocation: Optional[Union[List[Place], Place]] = Field(
         None,
         description="A sub property of location. The final location of the object or the agent after the action.",
     )
-    locals().update({"@type": Field("InsertAction", const=True)})
-
+    
 
 InsertAction.update_forward_refs()

@@ -8,8 +8,7 @@ class PhotographAction(CreateAction):
     See https://schema.org/PhotographAction.
 
     """
-
-    locals().update({"@type": Field("PhotographAction", const=True)})
-
+    type_: str = Field("PhotographAction", const=True, alias='@type')
+    
 
 PhotographAction.update_forward_refs()

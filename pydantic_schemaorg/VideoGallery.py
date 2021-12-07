@@ -8,8 +8,7 @@ class VideoGallery(MediaGallery):
     See https://schema.org/VideoGallery.
 
     """
-
-    locals().update({"@type": Field("VideoGallery", const=True)})
-
+    type_: str = Field("VideoGallery", const=True, alias='@type')
+    
 
 VideoGallery.update_forward_refs()

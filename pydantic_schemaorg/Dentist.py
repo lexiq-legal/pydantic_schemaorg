@@ -1,17 +1,16 @@
 from pydantic import Field
-from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
+from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
 from pydantic_schemaorg.MedicalOrganization import MedicalOrganization
 
 
-class Dentist(MedicalBusiness, LocalBusiness, MedicalOrganization):
+class Dentist(LocalBusiness, MedicalBusiness, MedicalOrganization):
     """A dentist.
 
     See https://schema.org/Dentist.
 
     """
-
-    locals().update({"@type": Field("Dentist", const=True)})
-
+    type_: str = Field("Dentist", const=True, alias='@type')
+    
 
 Dentist.update_forward_refs()

@@ -9,8 +9,7 @@ class ArriveAction(MoveAction):
     See https://schema.org/ArriveAction.
 
     """
-
-    locals().update({"@type": Field("ArriveAction", const=True)})
-
+    type_: str = Field("ArriveAction", const=True, alias='@type')
+    
 
 ArriveAction.update_forward_refs()

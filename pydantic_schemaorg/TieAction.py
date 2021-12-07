@@ -8,8 +8,7 @@ class TieAction(AchieveAction):
     See https://schema.org/TieAction.
 
     """
-
-    locals().update({"@type": Field("TieAction", const=True)})
-
+    type_: str = Field("TieAction", const=True, alias='@type')
+    
 
 TieAction.update_forward_refs()

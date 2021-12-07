@@ -9,8 +9,7 @@ class NonprofitType(Enumeration):
     See https://schema.org/NonprofitType.
 
     """
-
-    locals().update({"@type": Field("NonprofitType", const=True)})
-
+    type_: str = Field("NonprofitType", const=True, alias='@type')
+    
 
 NonprofitType.update_forward_refs()

@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
 from pydantic_schemaorg.EventStatusType import EventStatusType
@@ -21,7 +21,7 @@ class MedicalStudy(MedicalEntity):
     See https://schema.org/MedicalStudy.
 
     """
-
+    type_: str = Field("MedicalStudy", const=True, alias='@type')
     studyLocation: Any = Field(
         None,
         description="The location in which the study is taking/took place.",
@@ -44,7 +44,6 @@ class MedicalStudy(MedicalEntity):
         None,
         description="Specifying the health condition(s) of a patient, medical study, or other target audience.",
     )
-    locals().update({"@type": Field("MedicalStudy", const=True)})
-
+    
 
 MedicalStudy.update_forward_refs()

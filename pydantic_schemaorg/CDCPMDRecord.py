@@ -1,7 +1,7 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Union, List, Optional
-from datetime import date, datetime
+from typing import Any, Optional, Union, List
+from datetime import datetime, date
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -14,7 +14,7 @@ class CDCPMDRecord(StructuredValue):
     See https://schema.org/CDCPMDRecord.
 
     """
-
+    type_: str = Field("CDCPMDRecord", const=True, alias='@type')
     cvdNumVentUse: Optional[Union[List[Decimal], Decimal]] = Field(
         None,
         description="numventuse - MECHANICAL VENTILATORS IN USE: Total number of ventilators in use.",
@@ -99,7 +99,6 @@ class CDCPMDRecord(StructuredValue):
         description="numbedsocc - HOSPITAL INPATIENT BED OCCUPANCY: Total number of staffed inpatient beds"
      "that are occupied.",
     )
-    locals().update({"@type": Field("CDCPMDRecord", const=True)})
-
+    
 
 CDCPMDRecord.update_forward_refs()

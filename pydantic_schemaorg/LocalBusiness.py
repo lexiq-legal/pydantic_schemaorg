@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Place import Place
 
@@ -12,7 +12,7 @@ class LocalBusiness(Place, Organization):
     See https://schema.org/LocalBusiness.
 
     """
-
+    type_: str = Field("LocalBusiness", const=True, alias='@type')
     priceRange: Optional[Union[List[str], str]] = Field(
         None,
         description="The price range of the business, for example ```$$$```.",
@@ -46,7 +46,6 @@ class LocalBusiness(Place, Organization):
         None,
         description="Cash, Credit Card, Cryptocurrency, Local Exchange Tradings System, etc.",
     )
-    locals().update({"@type": Field("LocalBusiness", const=True)})
-
+    
 
 LocalBusiness.update_forward_refs()

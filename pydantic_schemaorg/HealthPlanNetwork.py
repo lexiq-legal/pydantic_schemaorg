@@ -1,5 +1,5 @@
-from pydantic import Field, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -9,7 +9,7 @@ class HealthPlanNetwork(Intangible):
     See https://schema.org/HealthPlanNetwork.
 
     """
-
+    type_: str = Field("HealthPlanNetwork", const=True, alias='@type')
     healthPlanNetworkTier: Optional[Union[List[str], str]] = Field(
         None,
         description="The tier(s) for this network.",
@@ -23,7 +23,6 @@ class HealthPlanNetwork(Intangible):
         None,
         description="Whether The costs to the patient for services under this network or formulary.",
     )
-    locals().update({"@type": Field("HealthPlanNetwork", const=True)})
-
+    
 
 HealthPlanNetwork.update_forward_refs()

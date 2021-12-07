@@ -8,8 +8,7 @@ class OfficeEquipmentStore(Store):
     See https://schema.org/OfficeEquipmentStore.
 
     """
-
-    locals().update({"@type": Field("OfficeEquipmentStore", const=True)})
-
+    type_: str = Field("OfficeEquipmentStore", const=True, alias='@type')
+    
 
 OfficeEquipmentStore.update_forward_refs()

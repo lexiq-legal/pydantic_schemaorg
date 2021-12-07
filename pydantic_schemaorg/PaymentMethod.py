@@ -15,8 +15,7 @@ class PaymentMethod(Enumeration):
     See https://schema.org/PaymentMethod.
 
     """
-
-    locals().update({"@type": Field("PaymentMethod", const=True)})
-
+    type_: str = Field("PaymentMethod", const=True, alias='@type')
+    
 
 PaymentMethod.update_forward_refs()

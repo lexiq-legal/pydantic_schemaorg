@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalCondition import MedicalCondition
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalSignOrSymptom import MedicalSignOrSymptom
 from pydantic_schemaorg.MedicalIntangible import MedicalIntangible
 
@@ -12,7 +12,7 @@ class DDxElement(MedicalIntangible):
     See https://schema.org/DDxElement.
 
     """
-
+    type_: str = Field("DDxElement", const=True, alias='@type')
     diagnosis: Optional[Union[List[MedicalCondition], MedicalCondition]] = Field(
         None,
         description="One or more alternative conditions considered in the differential diagnosis process"
@@ -23,7 +23,6 @@ class DDxElement(MedicalIntangible):
         description="One of a set of signs and symptoms that can be used to distinguish this diagnosis from others"
      "in the differential diagnosis.",
     )
-    locals().update({"@type": Field("DDxElement", const=True)})
-
+    
 
 DDxElement.update_forward_refs()

@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from datetime import date
 from pydantic_schemaorg.Thing import Thing
 
@@ -10,7 +10,7 @@ class Organization(Thing):
     See https://schema.org/Organization.
 
     """
-
+    type_: str = Field("Organization", const=True, alias='@type')
     subOrganization: Any = Field(
         None,
         description="A relationship between two organizations where the first includes the second, e.g.,"
@@ -306,7 +306,6 @@ class Organization(Thing):
         None,
         description="Products owned by the organization or person.",
     )
-    locals().update({"@type": Field("Organization", const=True)})
-
+    
 
 Organization.update_forward_refs()

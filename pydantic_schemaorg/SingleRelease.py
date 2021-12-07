@@ -8,8 +8,7 @@ class SingleRelease(MusicAlbumReleaseType):
     See https://schema.org/SingleRelease.
 
     """
-
-    locals().update({"@type": Field("SingleRelease", const=True)})
-
+    type_: str = Field("SingleRelease", const=True, alias='@type')
+    
 
 SingleRelease.update_forward_refs()

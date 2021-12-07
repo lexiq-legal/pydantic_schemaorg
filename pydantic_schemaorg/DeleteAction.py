@@ -8,8 +8,7 @@ class DeleteAction(UpdateAction):
     See https://schema.org/DeleteAction.
 
     """
-
-    locals().update({"@type": Field("DeleteAction", const=True)})
-
+    type_: str = Field("DeleteAction", const=True, alias='@type')
+    
 
 DeleteAction.update_forward_refs()

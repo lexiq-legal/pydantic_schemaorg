@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 from pydantic_schemaorg.MedicalCondition import MedicalCondition
 from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
@@ -26,7 +26,7 @@ class SuperficialAnatomy(MedicalEntity):
     See https://schema.org/SuperficialAnatomy.
 
     """
-
+    type_: str = Field("SuperficialAnatomy", const=True, alias='@type')
     significance: Optional[Union[List[str], str]] = Field(
         None,
         description="The significance associated with the superficial anatomy; as an example, how characteristics"
@@ -51,7 +51,6 @@ class SuperficialAnatomy(MedicalEntity):
      "system, including potential abnormal changes in the mechanical, physical, and biochemical"
      "functions of the system.",
     )
-    locals().update({"@type": Field("SuperficialAnatomy", const=True)})
-
+    
 
 SuperficialAnatomy.update_forward_refs()

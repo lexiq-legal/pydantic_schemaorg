@@ -10,8 +10,7 @@ class UserCheckins(UserInteraction):
     See https://schema.org/UserCheckins.
 
     """
-
-    locals().update({"@type": Field("UserCheckins", const=True)})
-
+    type_: str = Field("UserCheckins", const=True, alias='@type')
+    
 
 UserCheckins.update_forward_refs()

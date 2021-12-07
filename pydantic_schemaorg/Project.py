@@ -10,8 +10,7 @@ class Project(Organization):
     See https://schema.org/Project.
 
     """
-
-    locals().update({"@type": Field("Project", const=True)})
-
+    type_: str = Field("Project", const=True, alias='@type')
+    
 
 Project.update_forward_refs()

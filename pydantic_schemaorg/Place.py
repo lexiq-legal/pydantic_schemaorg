@@ -1,5 +1,5 @@
-from pydantic import Field, AnyUrl, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field, AnyUrl
+from typing import Any, Optional, Union, List
 from decimal import Decimal
 from pydantic_schemaorg.Thing import Thing
 
@@ -10,7 +10,7 @@ class Place(Thing):
     See https://schema.org/Place.
 
     """
-
+    type_: str = Field("Place", const=True, alias='@type')
     geo: Any = Field(
         None,
         description="The geo coordinates of the place.",
@@ -229,7 +229,6 @@ class Place(Thing):
         None,
         description="The fax number.",
     )
-    locals().update({"@type": Field("Place", const=True)})
-
+    
 
 Place.update_forward_refs()

@@ -8,8 +8,7 @@ class SheetMusic(CreativeWork):
     See https://schema.org/SheetMusic.
 
     """
-
-    locals().update({"@type": Field("SheetMusic", const=True)})
-
+    type_: str = Field("SheetMusic", const=True, alias='@type')
+    
 
 SheetMusic.update_forward_refs()

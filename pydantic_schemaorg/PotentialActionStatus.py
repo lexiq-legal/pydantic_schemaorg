@@ -8,8 +8,7 @@ class PotentialActionStatus(ActionStatusType):
     See https://schema.org/PotentialActionStatus.
 
     """
-
-    locals().update({"@type": Field("PotentialActionStatus", const=True)})
-
+    type_: str = Field("PotentialActionStatus", const=True, alias='@type')
+    
 
 PotentialActionStatus.update_forward_refs()

@@ -8,8 +8,7 @@ class MerchantReturnUnlimitedWindow(MerchantReturnEnumeration):
     See https://schema.org/MerchantReturnUnlimitedWindow.
 
     """
-
-    locals().update({"@type": Field("MerchantReturnUnlimitedWindow", const=True)})
-
+    type_: str = Field("MerchantReturnUnlimitedWindow", const=True, alias='@type')
+    
 
 MerchantReturnUnlimitedWindow.update_forward_refs()

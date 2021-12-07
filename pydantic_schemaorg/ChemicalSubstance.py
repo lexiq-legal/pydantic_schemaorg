@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.BioChemEntity import BioChemEntity
 
@@ -11,7 +11,7 @@ class ChemicalSubstance(BioChemEntity):
     See https://schema.org/ChemicalSubstance.
 
     """
-
+    type_: str = Field("ChemicalSubstance", const=True, alias='@type')
     chemicalComposition: Optional[Union[List[str], str]] = Field(
         None,
         description="The chemical composition describes the identity and relative ratio of the chemical"
@@ -25,7 +25,6 @@ class ChemicalSubstance(BioChemEntity):
         None,
         description="Intended use of the BioChemEntity by humans.",
     )
-    locals().update({"@type": Field("ChemicalSubstance", const=True)})
-
+    
 
 ChemicalSubstance.update_forward_refs()

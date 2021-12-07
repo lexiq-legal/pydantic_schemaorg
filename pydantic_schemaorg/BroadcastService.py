@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.BroadcastFrequencySpecification import BroadcastFrequencySpecification
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.BroadcastChannel import BroadcastChannel
@@ -13,7 +13,7 @@ class BroadcastService(Service):
     See https://schema.org/BroadcastService.
 
     """
-
+    type_: str = Field("BroadcastService", const=True, alias='@type')
     broadcastFrequency: Optional[Union[List[Union[str, BroadcastFrequencySpecification]], Union[str, BroadcastFrequencySpecification]]] = Field(
         None,
         description="The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g."
@@ -65,7 +65,6 @@ class BroadcastService(Service):
         description="A [callsign](https://en.wikipedia.org/wiki/Call_sign), as used in broadcasting"
      "and radio communications to identify people, radio and TV stations, or vehicles.",
     )
-    locals().update({"@type": Field("BroadcastService", const=True)})
-
+    
 
 BroadcastService.update_forward_refs()

@@ -12,8 +12,7 @@ class BusinessEntityType(Enumeration):
     See https://schema.org/BusinessEntityType.
 
     """
-
-    locals().update({"@type": Field("BusinessEntityType", const=True)})
-
+    type_: str = Field("BusinessEntityType", const=True, alias='@type')
+    
 
 BusinessEntityType.update_forward_refs()

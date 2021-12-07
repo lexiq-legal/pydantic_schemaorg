@@ -10,8 +10,7 @@ class ScheduleAction(PlanAction):
     See https://schema.org/ScheduleAction.
 
     """
-
-    locals().update({"@type": Field("ScheduleAction", const=True)})
-
+    type_: str = Field("ScheduleAction", const=True, alias='@type')
+    
 
 ScheduleAction.update_forward_refs()

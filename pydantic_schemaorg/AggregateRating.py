@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.Rating import Rating
 
@@ -10,7 +10,7 @@ class AggregateRating(Rating):
     See https://schema.org/AggregateRating.
 
     """
-
+    type_: str = Field("AggregateRating", const=True, alias='@type')
     reviewCount: Optional[Union[List[int], int]] = Field(
         None,
         description="The count of total number of reviews.",
@@ -23,7 +23,6 @@ class AggregateRating(Rating):
         None,
         description="The item that is being reviewed/rated.",
     )
-    locals().update({"@type": Field("AggregateRating", const=True)})
-
+    
 
 AggregateRating.update_forward_refs()

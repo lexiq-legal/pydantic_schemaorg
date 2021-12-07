@@ -8,8 +8,7 @@ class EatAction(ConsumeAction):
     See https://schema.org/EatAction.
 
     """
-
-    locals().update({"@type": Field("EatAction", const=True)})
-
+    type_: str = Field("EatAction", const=True, alias='@type')
+    
 
 EatAction.update_forward_refs()

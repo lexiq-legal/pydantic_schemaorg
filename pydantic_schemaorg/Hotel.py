@@ -11,8 +11,7 @@ class Hotel(LodgingBusiness):
     See https://schema.org/Hotel.
 
     """
-
-    locals().update({"@type": Field("Hotel", const=True)})
-
+    type_: str = Field("Hotel", const=True, alias='@type')
+    
 
 Hotel.update_forward_refs()

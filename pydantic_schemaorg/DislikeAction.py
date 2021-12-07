@@ -9,8 +9,7 @@ class DislikeAction(ReactAction):
     See https://schema.org/DislikeAction.
 
     """
-
-    locals().update({"@type": Field("DislikeAction", const=True)})
-
+    type_: str = Field("DislikeAction", const=True, alias='@type')
+    
 
 DislikeAction.update_forward_refs()

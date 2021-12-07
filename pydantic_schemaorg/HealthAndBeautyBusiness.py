@@ -8,8 +8,7 @@ class HealthAndBeautyBusiness(LocalBusiness):
     See https://schema.org/HealthAndBeautyBusiness.
 
     """
-
-    locals().update({"@type": Field("HealthAndBeautyBusiness", const=True)})
-
+    type_: str = Field("HealthAndBeautyBusiness", const=True, alias='@type')
+    
 
 HealthAndBeautyBusiness.update_forward_refs()

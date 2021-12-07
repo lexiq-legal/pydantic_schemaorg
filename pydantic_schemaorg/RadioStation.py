@@ -8,8 +8,7 @@ class RadioStation(LocalBusiness):
     See https://schema.org/RadioStation.
 
     """
-
-    locals().update({"@type": Field("RadioStation", const=True)})
-
+    type_: str = Field("RadioStation", const=True, alias='@type')
+    
 
 RadioStation.update_forward_refs()

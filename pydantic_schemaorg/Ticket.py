@@ -1,10 +1,10 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.PriceSpecification import PriceSpecification
 from decimal import Decimal
-from datetime import date, datetime
+from datetime import datetime, date
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -14,7 +14,7 @@ class Ticket(Intangible):
     See https://schema.org/Ticket.
 
     """
-
+    type_: str = Field("Ticket", const=True, alias='@type')
     underName: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
         None,
         description="The person or organization the reservation or ticket is for.",
@@ -55,7 +55,6 @@ class Ticket(Intangible):
         None,
         description="The organization issuing the ticket or permit.",
     )
-    locals().update({"@type": Field("Ticket", const=True)})
-
+    
 
 Ticket.update_forward_refs()

@@ -8,8 +8,7 @@ class ElementarySchool(EducationalOrganization):
     See https://schema.org/ElementarySchool.
 
     """
-
-    locals().update({"@type": Field("ElementarySchool", const=True)})
-
+    type_: str = Field("ElementarySchool", const=True, alias='@type')
+    
 
 ElementarySchool.update_forward_refs()

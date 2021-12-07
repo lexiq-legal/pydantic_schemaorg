@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MediaObject import MediaObject
 
 
@@ -9,7 +9,7 @@ class DataDownload(MediaObject):
     See https://schema.org/DataDownload.
 
     """
-
+    type_: str = Field("DataDownload", const=True, alias='@type')
     measurementTechnique: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),"
@@ -24,7 +24,6 @@ class DataDownload(MediaObject):
      "several [[variableMeasured]] properties recorded for some given data object, use"
      "a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].",
     )
-    locals().update({"@type": Field("DataDownload", const=True)})
-
+    
 
 DataDownload.update_forward_refs()

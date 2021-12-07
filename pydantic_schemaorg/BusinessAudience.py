@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Audience import Audience
 
 
@@ -10,7 +10,7 @@ class BusinessAudience(Audience):
     See https://schema.org/BusinessAudience.
 
     """
-
+    type_: str = Field("BusinessAudience", const=True, alias='@type')
     yearsInOperation: Any = Field(
         None,
         description="The age of the business.",
@@ -23,7 +23,6 @@ class BusinessAudience(Audience):
         None,
         description="The size of the business in annual revenue.",
     )
-    locals().update({"@type": Field("BusinessAudience", const=True)})
-
+    
 
 BusinessAudience.update_forward_refs()

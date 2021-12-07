@@ -8,8 +8,7 @@ class CatholicChurch(Church):
     See https://schema.org/CatholicChurch.
 
     """
-
-    locals().update({"@type": Field("CatholicChurch", const=True)})
-
+    type_: str = Field("CatholicChurch", const=True, alias='@type')
+    
 
 CatholicChurch.update_forward_refs()

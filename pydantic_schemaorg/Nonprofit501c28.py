@@ -9,8 +9,7 @@ class Nonprofit501c28(USNonprofitType):
     See https://schema.org/Nonprofit501c28.
 
     """
-
-    locals().update({"@type": Field("Nonprofit501c28", const=True)})
-
+    type_: str = Field("Nonprofit501c28", const=True, alias='@type')
+    
 
 Nonprofit501c28.update_forward_refs()

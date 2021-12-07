@@ -8,8 +8,7 @@ class TravelAgency(LocalBusiness):
     See https://schema.org/TravelAgency.
 
     """
-
-    locals().update({"@type": Field("TravelAgency", const=True)})
-
+    type_: str = Field("TravelAgency", const=True, alias='@type')
+    
 
 TravelAgency.update_forward_refs()

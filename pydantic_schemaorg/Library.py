@@ -8,8 +8,7 @@ class Library(LocalBusiness):
     See https://schema.org/Library.
 
     """
-
-    locals().update({"@type": Field("Library", const=True)})
-
+    type_: str = Field("Library", const=True, alias='@type')
+    
 
 Library.update_forward_refs()

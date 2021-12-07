@@ -8,8 +8,7 @@ class FoodService(Service):
     See https://schema.org/FoodService.
 
     """
-
-    locals().update({"@type": Field("FoodService", const=True)})
-
+    type_: str = Field("FoodService", const=True, alias='@type')
+    
 
 FoodService.update_forward_refs()

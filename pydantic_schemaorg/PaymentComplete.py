@@ -8,8 +8,7 @@ class PaymentComplete(PaymentStatusType):
     See https://schema.org/PaymentComplete.
 
     """
-
-    locals().update({"@type": Field("PaymentComplete", const=True)})
-
+    type_: str = Field("PaymentComplete", const=True, alias='@type')
+    
 
 PaymentComplete.update_forward_refs()

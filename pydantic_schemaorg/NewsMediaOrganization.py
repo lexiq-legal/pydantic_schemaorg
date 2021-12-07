@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 
 
@@ -9,7 +9,7 @@ class NewsMediaOrganization(Organization):
     See https://schema.org/NewsMediaOrganization.
 
     """
-
+    type_: str = Field("NewsMediaOrganization", const=True, alias='@type')
     actionableFeedbackPolicy: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
         None,
         description="For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement"
@@ -74,7 +74,6 @@ class NewsMediaOrganization(Organization):
         description="For a [[NewsMediaOrganization]], a link to the masthead page or a page listing top editorial"
      "management.",
     )
-    locals().update({"@type": Field("NewsMediaOrganization", const=True)})
-
+    
 
 NewsMediaOrganization.update_forward_refs()

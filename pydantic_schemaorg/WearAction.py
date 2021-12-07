@@ -8,8 +8,7 @@ class WearAction(UseAction):
     See https://schema.org/WearAction.
 
     """
-
-    locals().update({"@type": Field("WearAction", const=True)})
-
+    type_: str = Field("WearAction", const=True, alias='@type')
+    
 
 WearAction.update_forward_refs()

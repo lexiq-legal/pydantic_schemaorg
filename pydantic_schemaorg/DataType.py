@@ -8,8 +8,7 @@ class DataType(Class):
     See https://schema.org/DataType.
 
     """
-
-    locals().update({"@type": Field("DataType", const=True)})
-
+    type_: str = Field("DataType", const=True, alias='@type')
+    
 
 DataType.update_forward_refs()

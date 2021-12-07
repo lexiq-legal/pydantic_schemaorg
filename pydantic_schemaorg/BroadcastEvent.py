@@ -1,5 +1,5 @@
-from pydantic import Field, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Language import Language
 from pydantic_schemaorg.Event import Event
 from pydantic_schemaorg.PublicationEvent import PublicationEvent
@@ -11,7 +11,7 @@ class BroadcastEvent(PublicationEvent):
     See https://schema.org/BroadcastEvent.
 
     """
-
+    type_: str = Field("BroadcastEvent", const=True, alias='@type')
     isLiveBroadcast: Optional[Union[List[StrictBool], StrictBool]] = Field(
         None,
         description="True if the broadcast is of a live event.",
@@ -28,7 +28,6 @@ class BroadcastEvent(PublicationEvent):
         None,
         description="The event being broadcast such as a sporting event or awards ceremony.",
     )
-    locals().update({"@type": Field("BroadcastEvent", const=True)})
-
+    
 
 BroadcastEvent.update_forward_refs()

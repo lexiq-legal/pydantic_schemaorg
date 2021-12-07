@@ -8,8 +8,7 @@ class Cemetery(CivicStructure):
     See https://schema.org/Cemetery.
 
     """
-
-    locals().update({"@type": Field("Cemetery", const=True)})
-
+    type_: str = Field("Cemetery", const=True, alias='@type')
+    
 
 Cemetery.update_forward_refs()

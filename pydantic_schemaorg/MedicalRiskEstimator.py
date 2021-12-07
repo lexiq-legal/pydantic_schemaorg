@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 
 
 class MedicalRiskEstimator(MedicalEntity):
@@ -10,7 +10,7 @@ class MedicalRiskEstimator(MedicalEntity):
     See https://schema.org/MedicalRiskEstimator.
 
     """
-
+    type_: str = Field("MedicalRiskEstimator", const=True, alias='@type')
     estimatesRiskOf: Optional[Union[List[MedicalEntity], MedicalEntity]] = Field(
         None,
         description="The condition, complication, or symptom whose risk is being estimated.",
@@ -20,7 +20,6 @@ class MedicalRiskEstimator(MedicalEntity):
         description="A modifiable or non-modifiable risk factor included in the calculation, e.g. age, coexisting"
      "condition.",
     )
-    locals().update({"@type": Field("MedicalRiskEstimator", const=True)})
-
+    
 
 MedicalRiskEstimator.update_forward_refs()

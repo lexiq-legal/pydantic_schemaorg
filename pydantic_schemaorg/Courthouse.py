@@ -8,8 +8,7 @@ class Courthouse(GovernmentBuilding):
     See https://schema.org/Courthouse.
 
     """
-
-    locals().update({"@type": Field("Courthouse", const=True)})
-
+    type_: str = Field("Courthouse", const=True, alias='@type')
+    
 
 Courthouse.update_forward_refs()

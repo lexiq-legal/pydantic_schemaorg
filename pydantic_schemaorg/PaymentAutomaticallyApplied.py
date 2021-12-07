@@ -8,8 +8,7 @@ class PaymentAutomaticallyApplied(PaymentStatusType):
     See https://schema.org/PaymentAutomaticallyApplied.
 
     """
-
-    locals().update({"@type": Field("PaymentAutomaticallyApplied", const=True)})
-
+    type_: str = Field("PaymentAutomaticallyApplied", const=True, alias='@type')
+    
 
 PaymentAutomaticallyApplied.update_forward_refs()

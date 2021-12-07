@@ -8,8 +8,7 @@ class RadioChannel(BroadcastChannel):
     See https://schema.org/RadioChannel.
 
     """
-
-    locals().update({"@type": Field("RadioChannel", const=True)})
-
+    type_: str = Field("RadioChannel", const=True, alias='@type')
+    
 
 RadioChannel.update_forward_refs()

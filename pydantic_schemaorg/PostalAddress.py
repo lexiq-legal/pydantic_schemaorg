@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Country import Country
 from pydantic_schemaorg.ContactPoint import ContactPoint
 
@@ -10,7 +10,7 @@ class PostalAddress(ContactPoint):
     See https://schema.org/PostalAddress.
 
     """
-
+    type_: str = Field("PostalAddress", const=True, alias='@type')
     postalCode: Optional[Union[List[str], str]] = Field(
         None,
         description="The postal code. For example, 94043.",
@@ -38,7 +38,6 @@ class PostalAddress(ContactPoint):
         description="The region in which the locality is, and which is in the country. For example, California"
      "or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country)",
     )
-    locals().update({"@type": Field("PostalAddress", const=True)})
-
+    
 
 PostalAddress.update_forward_refs()

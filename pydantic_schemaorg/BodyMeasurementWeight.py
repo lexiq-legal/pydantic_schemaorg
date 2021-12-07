@@ -8,8 +8,7 @@ class BodyMeasurementWeight(BodyMeasurementTypeEnumeration):
     See https://schema.org/BodyMeasurementWeight.
 
     """
-
-    locals().update({"@type": Field("BodyMeasurementWeight", const=True)})
-
+    type_: str = Field("BodyMeasurementWeight", const=True, alias='@type')
+    
 
 BodyMeasurementWeight.update_forward_refs()

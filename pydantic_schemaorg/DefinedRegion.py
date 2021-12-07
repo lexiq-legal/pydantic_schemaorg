@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -15,7 +15,7 @@ class DefinedRegion(StructuredValue):
     See https://schema.org/DefinedRegion.
 
     """
-
+    type_: str = Field("DefinedRegion", const=True, alias='@type')
     postalCode: Optional[Union[List[str], str]] = Field(
         None,
         description="The postal code. For example, 94043.",
@@ -39,7 +39,6 @@ class DefinedRegion(StructuredValue):
         description="The region in which the locality is, and which is in the country. For example, California"
      "or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country)",
     )
-    locals().update({"@type": Field("DefinedRegion", const=True)})
-
+    
 
 DefinedRegion.update_forward_refs()

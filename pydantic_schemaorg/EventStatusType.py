@@ -9,8 +9,7 @@ class EventStatusType(StatusEnumeration):
     See https://schema.org/EventStatusType.
 
     """
-
-    locals().update({"@type": Field("EventStatusType", const=True)})
-
+    type_: str = Field("EventStatusType", const=True, alias='@type')
+    
 
 EventStatusType.update_forward_refs()

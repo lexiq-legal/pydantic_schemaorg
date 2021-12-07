@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.CreativeWork import CreativeWork
@@ -13,7 +13,7 @@ class Diet(CreativeWork, LifestyleModification):
     See https://schema.org/Diet.
 
     """
-
+    type_: str = Field("Diet", const=True, alias='@type')
     risks: Optional[Union[List[str], str]] = Field(
         None,
         description="Specific physiologic risks associated to the diet plan.",
@@ -36,7 +36,6 @@ class Diet(CreativeWork, LifestyleModification):
      "on what foods to avoid, what foods to consume, and specific alterations/deviations"
      "from the USDA or other regulatory body's approved dietary guidelines.",
     )
-    locals().update({"@type": Field("Diet", const=True)})
-
+    
 
 Diet.update_forward_refs()

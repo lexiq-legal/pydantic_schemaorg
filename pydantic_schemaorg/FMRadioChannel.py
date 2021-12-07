@@ -8,8 +8,7 @@ class FMRadioChannel(RadioChannel):
     See https://schema.org/FMRadioChannel.
 
     """
-
-    locals().update({"@type": Field("FMRadioChannel", const=True)})
-
+    type_: str = Field("FMRadioChannel", const=True, alias='@type')
+    
 
 FMRadioChannel.update_forward_refs()

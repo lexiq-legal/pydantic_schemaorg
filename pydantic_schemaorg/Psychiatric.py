@@ -10,8 +10,7 @@ class Psychiatric(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Psychiatric.
 
     """
-
-    locals().update({"@type": Field("Psychiatric", const=True)})
-
+    type_: str = Field("Psychiatric", const=True, alias='@type')
+    
 
 Psychiatric.update_forward_refs()

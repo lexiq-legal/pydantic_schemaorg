@@ -8,8 +8,7 @@ class Manuscript(CreativeWork):
     See https://schema.org/Manuscript.
 
     """
-
-    locals().update({"@type": Field("Manuscript", const=True)})
-
+    type_: str = Field("Manuscript", const=True, alias='@type')
+    
 
 Manuscript.update_forward_refs()

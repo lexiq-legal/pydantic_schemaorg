@@ -8,8 +8,7 @@ class InStoreOnly(ItemAvailability):
     See https://schema.org/InStoreOnly.
 
     """
-
-    locals().update({"@type": Field("InStoreOnly", const=True)})
-
+    type_: str = Field("InStoreOnly", const=True, alias='@type')
+    
 
 InStoreOnly.update_forward_refs()

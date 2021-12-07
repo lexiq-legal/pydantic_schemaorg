@@ -8,8 +8,7 @@ class XRay(MedicalImagingTechnique):
     See https://schema.org/XRay.
 
     """
-
-    locals().update({"@type": Field("XRay", const=True)})
-
+    type_: str = Field("XRay", const=True, alias='@type')
+    
 
 XRay.update_forward_refs()

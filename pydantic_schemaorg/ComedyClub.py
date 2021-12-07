@@ -8,8 +8,7 @@ class ComedyClub(EntertainmentBusiness):
     See https://schema.org/ComedyClub.
 
     """
-
-    locals().update({"@type": Field("ComedyClub", const=True)})
-
+    type_: str = Field("ComedyClub", const=True, alias='@type')
+    
 
 ComedyClub.update_forward_refs()

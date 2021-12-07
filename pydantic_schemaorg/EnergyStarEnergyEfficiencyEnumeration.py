@@ -8,8 +8,7 @@ class EnergyStarEnergyEfficiencyEnumeration(EnergyEfficiencyEnumeration):
     See https://schema.org/EnergyStarEnergyEfficiencyEnumeration.
 
     """
-
-    locals().update({"@type": Field("EnergyStarEnergyEfficiencyEnumeration", const=True)})
-
+    type_: str = Field("EnergyStarEnergyEfficiencyEnumeration", const=True, alias='@type')
+    
 
 EnergyStarEnergyEfficiencyEnumeration.update_forward_refs()

@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from datetime import datetime
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.DataType import DataType
@@ -19,7 +19,7 @@ class Observation(Intangible):
     See https://schema.org/Observation.
 
     """
-
+    type_: str = Field("Observation", const=True, alias='@type')
     measuredProperty: Any = Field(
         None,
         description="The measuredProperty of an [[Observation]], either a schema.org property, a property"
@@ -42,7 +42,6 @@ class Observation(Intangible):
         None,
         description="The measuredValue of an [[Observation]].",
     )
-    locals().update({"@type": Field("Observation", const=True)})
-
+    
 
 Observation.update_forward_refs()

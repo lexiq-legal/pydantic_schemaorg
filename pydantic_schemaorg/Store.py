@@ -8,8 +8,7 @@ class Store(LocalBusiness):
     See https://schema.org/Store.
 
     """
-
-    locals().update({"@type": Field("Store", const=True)})
-
+    type_: str = Field("Store", const=True, alias='@type')
+    
 
 Store.update_forward_refs()

@@ -8,8 +8,7 @@ class Quiz(LearningResource):
     See https://schema.org/Quiz.
 
     """
-
-    locals().update({"@type": Field("Quiz", const=True)})
-
+    type_: str = Field("Quiz", const=True, alias='@type')
+    
 
 Quiz.update_forward_refs()

@@ -9,8 +9,7 @@ class DiagnosticProcedure(MedicalProcedure):
     See https://schema.org/DiagnosticProcedure.
 
     """
-
-    locals().update({"@type": Field("DiagnosticProcedure", const=True)})
-
+    type_: str = Field("DiagnosticProcedure", const=True, alias='@type')
+    
 
 DiagnosticProcedure.update_forward_refs()

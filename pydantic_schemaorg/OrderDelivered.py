@@ -8,8 +8,7 @@ class OrderDelivered(OrderStatus):
     See https://schema.org/OrderDelivered.
 
     """
-
-    locals().update({"@type": Field("OrderDelivered", const=True)})
-
+    type_: str = Field("OrderDelivered", const=True, alias='@type')
+    
 
 OrderDelivered.update_forward_refs()

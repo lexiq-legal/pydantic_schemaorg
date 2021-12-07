@@ -9,8 +9,7 @@ class Gastroenterologic(MedicalSpecialty):
     See https://schema.org/Gastroenterologic.
 
     """
-
-    locals().update({"@type": Field("Gastroenterologic", const=True)})
-
+    type_: str = Field("Gastroenterologic", const=True, alias='@type')
+    
 
 Gastroenterologic.update_forward_refs()

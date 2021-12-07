@@ -8,8 +8,7 @@ class MovieRentalStore(Store):
     See https://schema.org/MovieRentalStore.
 
     """
-
-    locals().update({"@type": Field("MovieRentalStore", const=True)})
-
+    type_: str = Field("MovieRentalStore", const=True, alias='@type')
+    
 
 MovieRentalStore.update_forward_refs()

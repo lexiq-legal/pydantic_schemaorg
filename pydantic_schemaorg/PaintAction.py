@@ -8,8 +8,7 @@ class PaintAction(CreateAction):
     See https://schema.org/PaintAction.
 
     """
-
-    locals().update({"@type": Field("PaintAction", const=True)})
-
+    type_: str = Field("PaintAction", const=True, alias='@type')
+    
 
 PaintAction.update_forward_refs()

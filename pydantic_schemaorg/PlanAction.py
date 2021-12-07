@@ -1,6 +1,6 @@
 from pydantic import Field
 from datetime import datetime
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.OrganizeAction import OrganizeAction
 
 
@@ -11,12 +11,11 @@ class PlanAction(OrganizeAction):
     See https://schema.org/PlanAction.
 
     """
-
+    type_: str = Field("PlanAction", const=True, alias='@type')
     scheduledTime: Optional[Union[List[datetime], datetime]] = Field(
         None,
         description="The time the object is scheduled to.",
     )
-    locals().update({"@type": Field("PlanAction", const=True)})
-
+    
 
 PlanAction.update_forward_refs()

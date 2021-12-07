@@ -1,10 +1,10 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from datetime import date
 from pydantic_schemaorg.Organization import Organization
-from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.Audience import Audience
 from pydantic_schemaorg.Review import Review
 
@@ -16,7 +16,7 @@ class Product(Thing):
     See https://schema.org/Product.
 
     """
-
+    type_: str = Field("Product", const=True, alias='@type')
     pattern: Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]] = Field(
         None,
         description="A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'."
@@ -116,7 +116,7 @@ class Product(Thing):
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
     )
-    category: Optional[Union[List[Union[AnyUrl, str, Thing, PhysicalActivityCategory]], Union[AnyUrl, str, Thing, PhysicalActivityCategory]]] = Field(
+    category: Optional[Union[List[Union[AnyUrl, str, PhysicalActivityCategory, Thing]], Union[AnyUrl, str, PhysicalActivityCategory, Thing]]] = Field(
         None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -267,7 +267,6 @@ class Product(Thing):
         None,
         description="The date the item e.g. vehicle was purchased by the current owner.",
     )
-    locals().update({"@type": Field("Product", const=True)})
-
+    
 
 Product.update_forward_refs()

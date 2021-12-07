@@ -1,5 +1,5 @@
-from pydantic import Field, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DefinedRegion import DefinedRegion
 from pydantic_schemaorg.DeliveryChargeSpecification import DeliveryChargeSpecification
 from pydantic_schemaorg.StructuredValue import StructuredValue
@@ -14,7 +14,7 @@ class ShippingRateSettings(StructuredValue):
     See https://schema.org/ShippingRateSettings.
 
     """
-
+    type_: str = Field("ShippingRateSettings", const=True, alias='@type')
     shippingLabel: Optional[Union[List[str], str]] = Field(
         None,
         description="Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within"
@@ -49,7 +49,6 @@ class ShippingRateSettings(StructuredValue):
      "(for [[DeliveryTimeSettings]]) or shippingLabel (for [[ShippingRateSettings]]),"
      "since this property is for use with unlabelled settings.",
     )
-    locals().update({"@type": Field("ShippingRateSettings", const=True)})
-
+    
 
 ShippingRateSettings.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.AlignmentObject import AlignmentObject
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -17,7 +17,7 @@ class LearningResource(CreativeWork):
     See https://schema.org/LearningResource.
 
     """
-
+    type_: str = Field("LearningResource", const=True, alias='@type')
     educationalAlignment: Optional[Union[List[AlignmentObject], AlignmentObject]] = Field(
         None,
         description="An alignment to an established educational framework. This property should not be used"
@@ -56,7 +56,6 @@ class LearningResource(CreativeWork):
         description="The predominant type or kind characterizing the learning resource. For example, 'presentation',"
      "'handout'.",
     )
-    locals().update({"@type": Field("LearningResource", const=True)})
-
+    
 
 LearningResource.update_forward_refs()

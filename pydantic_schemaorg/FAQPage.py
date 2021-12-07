@@ -9,8 +9,7 @@ class FAQPage(WebPage):
     See https://schema.org/FAQPage.
 
     """
-
-    locals().update({"@type": Field("FAQPage", const=True)})
-
+    type_: str = Field("FAQPage", const=True, alias='@type')
+    
 
 FAQPage.update_forward_refs()

@@ -9,8 +9,7 @@ class RsvpResponseType(Enumeration):
     See https://schema.org/RsvpResponseType.
 
     """
-
-    locals().update({"@type": Field("RsvpResponseType", const=True)})
-
+    type_: str = Field("RsvpResponseType", const=True, alias='@type')
+    
 
 RsvpResponseType.update_forward_refs()

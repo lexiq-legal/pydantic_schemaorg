@@ -8,8 +8,7 @@ class RefundTypeEnumeration(Enumeration):
     See https://schema.org/RefundTypeEnumeration.
 
     """
-
-    locals().update({"@type": Field("RefundTypeEnumeration", const=True)})
-
+    type_: str = Field("RefundTypeEnumeration", const=True, alias='@type')
+    
 
 RefundTypeEnumeration.update_forward_refs()

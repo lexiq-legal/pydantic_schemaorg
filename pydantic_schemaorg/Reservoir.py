@@ -8,8 +8,7 @@ class Reservoir(BodyOfWater):
     See https://schema.org/Reservoir.
 
     """
-
-    locals().update({"@type": Field("Reservoir", const=True)})
-
+    type_: str = Field("Reservoir", const=True, alias='@type')
+    
 
 Reservoir.update_forward_refs()

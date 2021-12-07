@@ -9,8 +9,7 @@ class AnaerobicActivity(PhysicalActivityCategory):
     See https://schema.org/AnaerobicActivity.
 
     """
-
-    locals().update({"@type": Field("AnaerobicActivity", const=True)})
-
+    type_: str = Field("AnaerobicActivity", const=True, alias='@type')
+    
 
 AnaerobicActivity.update_forward_refs()

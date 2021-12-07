@@ -8,8 +8,7 @@ class PlaceOfWorship(CivicStructure):
     See https://schema.org/PlaceOfWorship.
 
     """
-
-    locals().update({"@type": Field("PlaceOfWorship", const=True)})
-
+    type_: str = Field("PlaceOfWorship", const=True, alias='@type')
+    
 
 PlaceOfWorship.update_forward_refs()

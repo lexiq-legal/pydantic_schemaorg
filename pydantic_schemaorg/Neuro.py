@@ -8,8 +8,7 @@ class Neuro(PhysicalExam):
     See https://schema.org/Neuro.
 
     """
-
-    locals().update({"@type": Field("Neuro", const=True)})
-
+    type_: str = Field("Neuro", const=True, alias='@type')
+    
 
 Neuro.update_forward_refs()

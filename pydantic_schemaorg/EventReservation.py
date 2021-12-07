@@ -10,8 +10,7 @@ class EventReservation(Reservation):
     See https://schema.org/EventReservation.
 
     """
-
-    locals().update({"@type": Field("EventReservation", const=True)})
-
+    type_: str = Field("EventReservation", const=True, alias='@type')
+    
 
 EventReservation.update_forward_refs()

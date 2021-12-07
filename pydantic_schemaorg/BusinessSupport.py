@@ -8,8 +8,7 @@ class BusinessSupport(GovernmentBenefitsType):
     See https://schema.org/BusinessSupport.
 
     """
-
-    locals().update({"@type": Field("BusinessSupport", const=True)})
-
+    type_: str = Field("BusinessSupport", const=True, alias='@type')
+    
 
 BusinessSupport.update_forward_refs()

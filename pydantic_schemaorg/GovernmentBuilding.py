@@ -8,8 +8,7 @@ class GovernmentBuilding(CivicStructure):
     See https://schema.org/GovernmentBuilding.
 
     """
-
-    locals().update({"@type": Field("GovernmentBuilding", const=True)})
-
+    type_: str = Field("GovernmentBuilding", const=True, alias='@type')
+    
 
 GovernmentBuilding.update_forward_refs()

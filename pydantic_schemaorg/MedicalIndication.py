@@ -9,8 +9,7 @@ class MedicalIndication(MedicalEntity):
     See https://schema.org/MedicalIndication.
 
     """
-
-    locals().update({"@type": Field("MedicalIndication", const=True)})
-
+    type_: str = Field("MedicalIndication", const=True, alias='@type')
+    
 
 MedicalIndication.update_forward_refs()

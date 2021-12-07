@@ -9,8 +9,7 @@ class DoubleBlindedTrial(MedicalTrialDesign):
     See https://schema.org/DoubleBlindedTrial.
 
     """
-
-    locals().update({"@type": Field("DoubleBlindedTrial", const=True)})
-
+    type_: str = Field("DoubleBlindedTrial", const=True, alias='@type')
+    
 
 DoubleBlindedTrial.update_forward_refs()

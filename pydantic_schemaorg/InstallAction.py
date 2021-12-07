@@ -8,8 +8,7 @@ class InstallAction(ConsumeAction):
     See https://schema.org/InstallAction.
 
     """
-
-    locals().update({"@type": Field("InstallAction", const=True)})
-
+    type_: str = Field("InstallAction", const=True, alias='@type')
+    
 
 InstallAction.update_forward_refs()

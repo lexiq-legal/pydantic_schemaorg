@@ -1,5 +1,5 @@
-from pydantic import Field, AnyUrl, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field, AnyUrl
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DefinedRegion import DefinedRegion
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -15,7 +15,7 @@ class OfferShippingDetails(StructuredValue):
     See https://schema.org/OfferShippingDetails.
 
     """
-
+    type_: str = Field("OfferShippingDetails", const=True, alias='@type')
     shippingLabel: Optional[Union[List[str], str]] = Field(
         None,
         description="Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within"
@@ -49,7 +49,6 @@ class OfferShippingDetails(StructuredValue):
         description="Label to match an [[OfferShippingDetails]] with a [[DeliveryTimeSettings]] (within"
      "the context of a [[shippingSettingsLink]] cross-reference).",
     )
-    locals().update({"@type": Field("OfferShippingDetails", const=True)})
-
+    
 
 OfferShippingDetails.update_forward_refs()

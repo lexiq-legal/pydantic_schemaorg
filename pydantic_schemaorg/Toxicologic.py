@@ -9,8 +9,7 @@ class Toxicologic(MedicalSpecialty):
     See https://schema.org/Toxicologic.
 
     """
-
-    locals().update({"@type": Field("Toxicologic", const=True)})
-
+    type_: str = Field("Toxicologic", const=True, alias='@type')
+    
 
 Toxicologic.update_forward_refs()

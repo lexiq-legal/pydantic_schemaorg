@@ -8,8 +8,7 @@ class OnlineOnly(ItemAvailability):
     See https://schema.org/OnlineOnly.
 
     """
-
-    locals().update({"@type": Field("OnlineOnly", const=True)})
-
+    type_: str = Field("OnlineOnly", const=True, alias='@type')
+    
 
 OnlineOnly.update_forward_refs()

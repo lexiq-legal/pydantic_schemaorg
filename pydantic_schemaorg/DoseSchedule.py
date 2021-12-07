@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from decimal import Decimal
 from pydantic_schemaorg.MedicalIntangible import MedicalIntangible
 
@@ -10,7 +10,7 @@ class DoseSchedule(MedicalIntangible):
     See https://schema.org/DoseSchedule.
 
     """
-
+    type_: str = Field("DoseSchedule", const=True, alias='@type')
     targetPopulation: Optional[Union[List[str], str]] = Field(
         None,
         description="Characteristics of the population for which this is intended, or which typically uses"
@@ -28,7 +28,6 @@ class DoseSchedule(MedicalIntangible):
         None,
         description="How often the dose is taken, e.g. 'daily'.",
     )
-    locals().update({"@type": Field("DoseSchedule", const=True)})
-
+    
 
 DoseSchedule.update_forward_refs()

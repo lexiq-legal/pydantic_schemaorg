@@ -8,8 +8,7 @@ class SteeringPositionValue(QualitativeValue):
     See https://schema.org/SteeringPositionValue.
 
     """
-
-    locals().update({"@type": Field("SteeringPositionValue", const=True)})
-
+    type_: str = Field("SteeringPositionValue", const=True, alias='@type')
+    
 
 SteeringPositionValue.update_forward_refs()

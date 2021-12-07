@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -10,7 +10,7 @@ class PostalCodeRangeSpecification(StructuredValue):
     See https://schema.org/PostalCodeRangeSpecification.
 
     """
-
+    type_: str = Field("PostalCodeRangeSpecification", const=True, alias='@type')
     postalCodeEnd: Optional[Union[List[str], str]] = Field(
         None,
         description="Last postal code in the range (included). Needs to be after [[postalCodeBegin]].",
@@ -19,7 +19,6 @@ class PostalCodeRangeSpecification(StructuredValue):
         None,
         description="First postal code in a range (included).",
     )
-    locals().update({"@type": Field("PostalCodeRangeSpecification", const=True)})
-
+    
 
 PostalCodeRangeSpecification.update_forward_refs()

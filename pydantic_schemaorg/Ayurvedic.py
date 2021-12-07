@@ -9,8 +9,7 @@ class Ayurvedic(MedicineSystem):
     See https://schema.org/Ayurvedic.
 
     """
-
-    locals().update({"@type": Field("Ayurvedic", const=True)})
-
+    type_: str = Field("Ayurvedic", const=True, alias='@type')
+    
 
 Ayurvedic.update_forward_refs()

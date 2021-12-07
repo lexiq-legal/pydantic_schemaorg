@@ -10,8 +10,7 @@ class HomeAndConstructionBusiness(LocalBusiness):
     See https://schema.org/HomeAndConstructionBusiness.
 
     """
-
-    locals().update({"@type": Field("HomeAndConstructionBusiness", const=True)})
-
+    type_: str = Field("HomeAndConstructionBusiness", const=True, alias='@type')
+    
 
 HomeAndConstructionBusiness.update_forward_refs()

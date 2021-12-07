@@ -8,8 +8,7 @@ class BloodTest(MedicalTest):
     See https://schema.org/BloodTest.
 
     """
-
-    locals().update({"@type": Field("BloodTest", const=True)})
-
+    type_: str = Field("BloodTest", const=True, alias='@type')
+    
 
 BloodTest.update_forward_refs()

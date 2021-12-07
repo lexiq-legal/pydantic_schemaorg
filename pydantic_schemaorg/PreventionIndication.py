@@ -8,8 +8,7 @@ class PreventionIndication(MedicalIndication):
     See https://schema.org/PreventionIndication.
 
     """
-
-    locals().update({"@type": Field("PreventionIndication", const=True)})
-
+    type_: str = Field("PreventionIndication", const=True, alias='@type')
+    
 
 PreventionIndication.update_forward_refs()

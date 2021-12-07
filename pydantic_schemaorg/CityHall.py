@@ -8,8 +8,7 @@ class CityHall(GovernmentBuilding):
     See https://schema.org/CityHall.
 
     """
-
-    locals().update({"@type": Field("CityHall", const=True)})
-
+    type_: str = Field("CityHall", const=True, alias='@type')
+    
 
 CityHall.update_forward_refs()

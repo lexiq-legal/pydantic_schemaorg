@@ -8,8 +8,7 @@ class MedicalObservationalStudyDesign(MedicalEnumeration):
     See https://schema.org/MedicalObservationalStudyDesign.
 
     """
-
-    locals().update({"@type": Field("MedicalObservationalStudyDesign", const=True)})
-
+    type_: str = Field("MedicalObservationalStudyDesign", const=True, alias='@type')
+    
 
 MedicalObservationalStudyDesign.update_forward_refs()

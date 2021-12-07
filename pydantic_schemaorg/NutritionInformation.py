@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Energy import Energy
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Mass import Mass
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -11,7 +11,7 @@ class NutritionInformation(StructuredValue):
     See https://schema.org/NutritionInformation.
 
     """
-
+    type_: str = Field("NutritionInformation", const=True, alias='@type')
     calories: Optional[Union[List[Energy], Energy]] = Field(
         None,
         description="The number of calories.",
@@ -60,7 +60,6 @@ class NutritionInformation(StructuredValue):
         None,
         description="The number of grams of sugar.",
     )
-    locals().update({"@type": Field("NutritionInformation", const=True)})
-
+    
 
 NutritionInformation.update_forward_refs()

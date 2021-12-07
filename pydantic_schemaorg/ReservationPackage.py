@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Reservation import Reservation
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 
 
 class ReservationPackage(Reservation):
@@ -9,12 +9,11 @@ class ReservationPackage(Reservation):
     See https://schema.org/ReservationPackage.
 
     """
-
+    type_: str = Field("ReservationPackage", const=True, alias='@type')
     subReservation: Optional[Union[List[Reservation], Reservation]] = Field(
         None,
         description="The individual reservations included in the package. Typically a repeated property.",
     )
-    locals().update({"@type": Field("ReservationPackage", const=True)})
-
+    
 
 ReservationPackage.update_forward_refs()

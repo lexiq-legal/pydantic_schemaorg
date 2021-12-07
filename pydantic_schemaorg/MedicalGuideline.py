@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalEvidenceLevel import MedicalEvidenceLevel
 from datetime import date
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
@@ -16,7 +16,7 @@ class MedicalGuideline(MedicalEntity):
     See https://schema.org/MedicalGuideline.
 
     """
-
+    type_: str = Field("MedicalGuideline", const=True, alias='@type')
     evidenceOrigin: Optional[Union[List[str], str]] = Field(
         None,
         description="Source of the data used to formulate the guidance, e.g. RCT, consensus opinion, etc.",
@@ -33,7 +33,6 @@ class MedicalGuideline(MedicalEntity):
         None,
         description="The medical conditions, treatments, etc. that are the subject of the guideline.",
     )
-    locals().update({"@type": Field("MedicalGuideline", const=True)})
-
+    
 
 MedicalGuideline.update_forward_refs()

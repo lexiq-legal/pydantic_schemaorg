@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 
 
@@ -9,7 +9,7 @@ class CategoryCode(DefinedTerm):
     See https://schema.org/CategoryCode.
 
     """
-
+    type_: str = Field("CategoryCode", const=True, alias='@type')
     codeValue: Optional[Union[List[str], str]] = Field(
         None,
         description="A short textual code that uniquely identifies the value.",
@@ -18,7 +18,6 @@ class CategoryCode(DefinedTerm):
         None,
         description="A [[CategoryCodeSet]] that contains this category code.",
     )
-    locals().update({"@type": Field("CategoryCode", const=True)})
-
+    
 
 CategoryCode.update_forward_refs()

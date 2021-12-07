@@ -8,8 +8,7 @@ class PaymentPastDue(PaymentStatusType):
     See https://schema.org/PaymentPastDue.
 
     """
-
-    locals().update({"@type": Field("PaymentPastDue", const=True)})
-
+    type_: str = Field("PaymentPastDue", const=True, alias='@type')
+    
 
 PaymentPastDue.update_forward_refs()

@@ -1,16 +1,15 @@
 from pydantic import Field
-from pydantic_schemaorg.AutomotiveBusiness import AutomotiveBusiness
 from pydantic_schemaorg.Store import Store
+from pydantic_schemaorg.AutomotiveBusiness import AutomotiveBusiness
 
 
-class AutoPartsStore(AutomotiveBusiness, Store):
+class AutoPartsStore(Store, AutomotiveBusiness):
     """An auto parts store.
 
     See https://schema.org/AutoPartsStore.
 
     """
-
-    locals().update({"@type": Field("AutoPartsStore", const=True)})
-
+    type_: str = Field("AutoPartsStore", const=True, alias='@type')
+    
 
 AutoPartsStore.update_forward_refs()

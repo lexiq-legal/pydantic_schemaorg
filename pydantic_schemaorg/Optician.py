@@ -8,8 +8,7 @@ class Optician(MedicalBusiness):
     See https://schema.org/Optician.
 
     """
-
-    locals().update({"@type": Field("Optician", const=True)})
-
+    type_: str = Field("Optician", const=True, alias='@type')
+    
 
 Optician.update_forward_refs()

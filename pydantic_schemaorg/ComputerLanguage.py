@@ -10,8 +10,7 @@ class ComputerLanguage(Intangible):
     See https://schema.org/ComputerLanguage.
 
     """
-
-    locals().update({"@type": Field("ComputerLanguage", const=True)})
-
+    type_: str = Field("ComputerLanguage", const=True, alias='@type')
+    
 
 ComputerLanguage.update_forward_refs()

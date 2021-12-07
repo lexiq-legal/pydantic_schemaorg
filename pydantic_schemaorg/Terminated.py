@@ -8,8 +8,7 @@ class Terminated(MedicalStudyStatus):
     See https://schema.org/Terminated.
 
     """
-
-    locals().update({"@type": Field("Terminated", const=True)})
-
+    type_: str = Field("Terminated", const=True, alias='@type')
+    
 
 Terminated.update_forward_refs()

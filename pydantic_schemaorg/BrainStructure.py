@@ -9,8 +9,7 @@ class BrainStructure(AnatomicalStructure):
     See https://schema.org/BrainStructure.
 
     """
-
-    locals().update({"@type": Field("BrainStructure", const=True)})
-
+    type_: str = Field("BrainStructure", const=True, alias='@type')
+    
 
 BrainStructure.update_forward_refs()

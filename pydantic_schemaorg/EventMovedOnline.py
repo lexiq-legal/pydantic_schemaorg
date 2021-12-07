@@ -9,8 +9,7 @@ class EventMovedOnline(EventStatusType):
     See https://schema.org/EventMovedOnline.
 
     """
-
-    locals().update({"@type": Field("EventMovedOnline", const=True)})
-
+    type_: str = Field("EventMovedOnline", const=True, alias='@type')
+    
 
 EventMovedOnline.update_forward_refs()

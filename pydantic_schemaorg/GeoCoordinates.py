@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from decimal import Decimal
 from pydantic_schemaorg.PostalAddress import PostalAddress
 from pydantic_schemaorg.Country import Country
@@ -12,7 +12,7 @@ class GeoCoordinates(StructuredValue):
     See https://schema.org/GeoCoordinates.
 
     """
-
+    type_: str = Field("GeoCoordinates", const=True, alias='@type')
     postalCode: Optional[Union[List[str], str]] = Field(
         None,
         description="The postal code. For example, 94043.",
@@ -40,7 +40,6 @@ class GeoCoordinates(StructuredValue):
         description="The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2"
      "country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
     )
-    locals().update({"@type": Field("GeoCoordinates", const=True)})
-
+    
 
 GeoCoordinates.update_forward_refs()

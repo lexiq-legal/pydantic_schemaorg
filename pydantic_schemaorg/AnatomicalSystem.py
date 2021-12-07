@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalCondition import MedicalCondition
 from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
@@ -16,7 +16,7 @@ class AnatomicalSystem(MedicalEntity):
     See https://schema.org/AnatomicalSystem.
 
     """
-
+    type_: str = Field("AnatomicalSystem", const=True, alias='@type')
     comprisedOf: Union[List[Union[AnatomicalStructure, Any]], Union[AnatomicalStructure, Any]] = Field(
         None,
         description="Specifying something physically contained by something else. Typically used here"
@@ -42,7 +42,6 @@ class AnatomicalSystem(MedicalEntity):
      "system, including potential abnormal changes in the mechanical, physical, and biochemical"
      "functions of the system.",
     )
-    locals().update({"@type": Field("AnatomicalSystem", const=True)})
-
+    
 
 AnatomicalSystem.update_forward_refs()

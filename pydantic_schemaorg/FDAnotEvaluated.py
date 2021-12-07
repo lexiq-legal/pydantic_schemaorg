@@ -9,8 +9,7 @@ class FDAnotEvaluated(DrugPregnancyCategory):
     See https://schema.org/FDAnotEvaluated.
 
     """
-
-    locals().update({"@type": Field("FDAnotEvaluated", const=True)})
-
+    type_: str = Field("FDAnotEvaluated", const=True, alias='@type')
+    
 
 FDAnotEvaluated.update_forward_refs()

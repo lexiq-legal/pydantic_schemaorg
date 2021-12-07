@@ -9,8 +9,7 @@ class Cardiovascular(MedicalSpecialty):
     See https://schema.org/Cardiovascular.
 
     """
-
-    locals().update({"@type": Field("Cardiovascular", const=True)})
-
+    type_: str = Field("Cardiovascular", const=True, alias='@type')
+    
 
 Cardiovascular.update_forward_refs()

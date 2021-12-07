@@ -8,8 +8,7 @@ class NoteDigitalDocument(DigitalDocument):
     See https://schema.org/NoteDigitalDocument.
 
     """
-
-    locals().update({"@type": Field("NoteDigitalDocument", const=True)})
-
+    type_: str = Field("NoteDigitalDocument", const=True, alias='@type')
+    
 
 NoteDigitalDocument.update_forward_refs()

@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.SchemaOrgBase import SchemaOrgBase
 
 
@@ -9,7 +9,7 @@ class Thing(SchemaOrgBase):
     See https://schema.org/Thing.
 
     """
-
+    type_: str = Field("Thing", const=True, alias='@type')
     mainEntityOfPage: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
         None,
         description="Indicates a page (or other CreativeWork) for which this thing is the main entity being"
@@ -71,7 +71,6 @@ class Thing(SchemaOrgBase):
         None,
         description="An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].",
     )
-    locals().update({"@type": Field("Thing", const=True)})
-
+    
 
 Thing.update_forward_refs()

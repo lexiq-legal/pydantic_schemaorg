@@ -8,8 +8,7 @@ class GatedResidenceCommunity(Residence):
     See https://schema.org/GatedResidenceCommunity.
 
     """
-
-    locals().update({"@type": Field("GatedResidenceCommunity", const=True)})
-
+    type_: str = Field("GatedResidenceCommunity", const=True, alias='@type')
+    
 
 GatedResidenceCommunity.update_forward_refs()

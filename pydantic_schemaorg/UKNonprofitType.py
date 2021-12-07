@@ -8,8 +8,7 @@ class UKNonprofitType(NonprofitType):
     See https://schema.org/UKNonprofitType.
 
     """
-
-    locals().update({"@type": Field("UKNonprofitType", const=True)})
-
+    type_: str = Field("UKNonprofitType", const=True, alias='@type')
+    
 
 UKNonprofitType.update_forward_refs()

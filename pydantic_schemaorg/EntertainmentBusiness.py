@@ -8,8 +8,7 @@ class EntertainmentBusiness(LocalBusiness):
     See https://schema.org/EntertainmentBusiness.
 
     """
-
-    locals().update({"@type": Field("EntertainmentBusiness", const=True)})
-
+    type_: str = Field("EntertainmentBusiness", const=True, alias='@type')
+    
 
 EntertainmentBusiness.update_forward_refs()

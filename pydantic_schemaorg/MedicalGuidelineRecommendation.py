@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalGuideline import MedicalGuideline
 
 
@@ -10,12 +10,11 @@ class MedicalGuidelineRecommendation(MedicalGuideline):
     See https://schema.org/MedicalGuidelineRecommendation.
 
     """
-
+    type_: str = Field("MedicalGuidelineRecommendation", const=True, alias='@type')
     recommendationStrength: Optional[Union[List[str], str]] = Field(
         None,
         description="Strength of the guideline's recommendation (e.g. 'class I').",
     )
-    locals().update({"@type": Field("MedicalGuidelineRecommendation", const=True)})
-
+    
 
 MedicalGuidelineRecommendation.update_forward_refs()

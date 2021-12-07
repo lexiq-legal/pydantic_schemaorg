@@ -8,8 +8,7 @@ class BusStation(CivicStructure):
     See https://schema.org/BusStation.
 
     """
-
-    locals().update({"@type": Field("BusStation", const=True)})
-
+    type_: str = Field("BusStation", const=True, alias='@type')
+    
 
 BusStation.update_forward_refs()

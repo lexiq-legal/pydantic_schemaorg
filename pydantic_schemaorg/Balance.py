@@ -8,8 +8,7 @@ class Balance(PhysicalActivityCategory):
     See https://schema.org/Balance.
 
     """
-
-    locals().update({"@type": Field("Balance", const=True)})
-
+    type_: str = Field("Balance", const=True, alias='@type')
+    
 
 Balance.update_forward_refs()

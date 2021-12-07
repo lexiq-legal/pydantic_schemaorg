@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Audience import Audience
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Trip import Trip
 
 
@@ -13,13 +13,12 @@ class TouristTrip(Trip):
     See https://schema.org/TouristTrip.
 
     """
-
+    type_: str = Field("TouristTrip", const=True, alias='@type')
     touristType: Optional[Union[List[Union[str, Audience]], Union[str, Audience]]] = Field(
         None,
         description="Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular"
      "country, etc.",
     )
-    locals().update({"@type": Field("TouristTrip", const=True)})
-
+    
 
 TouristTrip.update_forward_refs()

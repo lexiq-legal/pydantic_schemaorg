@@ -8,8 +8,7 @@ class Continent(Landform):
     See https://schema.org/Continent.
 
     """
-
-    locals().update({"@type": Field("Continent", const=True)})
-
+    type_: str = Field("Continent", const=True, alias='@type')
+    
 
 Continent.update_forward_refs()

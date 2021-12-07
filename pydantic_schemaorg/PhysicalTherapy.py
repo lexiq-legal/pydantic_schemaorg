@@ -9,8 +9,7 @@ class PhysicalTherapy(MedicalTherapy):
     See https://schema.org/PhysicalTherapy.
 
     """
-
-    locals().update({"@type": Field("PhysicalTherapy", const=True)})
-
+    type_: str = Field("PhysicalTherapy", const=True, alias='@type')
+    
 
 PhysicalTherapy.update_forward_refs()

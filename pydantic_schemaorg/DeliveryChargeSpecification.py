@@ -1,7 +1,7 @@
 from pydantic import Field
-from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
-from typing import Any, Union, List, Optional
+from pydantic_schemaorg.Place import Place
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
 from pydantic_schemaorg.PriceSpecification import PriceSpecification
 
@@ -12,8 +12,8 @@ class DeliveryChargeSpecification(PriceSpecification):
     See https://schema.org/DeliveryChargeSpecification.
 
     """
-
-    areaServed: Union[List[Union[str, Place, AdministrativeArea, Any]], Union[str, Place, AdministrativeArea, Any]] = Field(
+    type_: str = Field("DeliveryChargeSpecification", const=True, alias='@type')
+    areaServed: Union[List[Union[str, AdministrativeArea, Place, Any]], Union[str, AdministrativeArea, Place, Any]] = Field(
         None,
         description="The geographic area where a service or offered item is provided.",
     )
@@ -34,7 +34,6 @@ class DeliveryChargeSpecification(PriceSpecification):
      "the geo-political region(s) for which the offer or delivery charge specification is"
      "not valid, e.g. a region where the transaction is not allowed. See also [[eligibleRegion]].",
     )
-    locals().update({"@type": Field("DeliveryChargeSpecification", const=True)})
-
+    
 
 DeliveryChargeSpecification.update_forward_refs()

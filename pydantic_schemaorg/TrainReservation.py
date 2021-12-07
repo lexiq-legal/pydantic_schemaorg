@@ -10,8 +10,7 @@ class TrainReservation(Reservation):
     See https://schema.org/TrainReservation.
 
     """
-
-    locals().update({"@type": Field("TrainReservation", const=True)})
-
+    type_: str = Field("TrainReservation", const=True, alias='@type')
+    
 
 TrainReservation.update_forward_refs()

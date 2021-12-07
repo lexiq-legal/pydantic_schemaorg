@@ -8,8 +8,7 @@ class MRI(MedicalImagingTechnique):
     See https://schema.org/MRI.
 
     """
-
-    locals().update({"@type": Field("MRI", const=True)})
-
+    type_: str = Field("MRI", const=True, alias='@type')
+    
 
 MRI.update_forward_refs()

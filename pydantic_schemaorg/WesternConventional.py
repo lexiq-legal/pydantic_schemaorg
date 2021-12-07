@@ -10,8 +10,7 @@ class WesternConventional(MedicineSystem):
     See https://schema.org/WesternConventional.
 
     """
-
-    locals().update({"@type": Field("WesternConventional", const=True)})
-
+    type_: str = Field("WesternConventional", const=True, alias='@type')
+    
 
 WesternConventional.update_forward_refs()

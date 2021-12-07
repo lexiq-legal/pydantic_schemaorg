@@ -9,8 +9,7 @@ class Clinician(MedicalAudienceType):
     See https://schema.org/Clinician.
 
     """
-
-    locals().update({"@type": Field("Clinician", const=True)})
-
+    type_: str = Field("Clinician", const=True, alias='@type')
+    
 
 Clinician.update_forward_refs()

@@ -8,8 +8,7 @@ class BasicIncome(GovernmentBenefitsType):
     See https://schema.org/BasicIncome.
 
     """
-
-    locals().update({"@type": Field("BasicIncome", const=True)})
-
+    type_: str = Field("BasicIncome", const=True, alias='@type')
+    
 
 BasicIncome.update_forward_refs()

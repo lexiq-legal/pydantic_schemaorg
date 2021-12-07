@@ -8,8 +8,7 @@ class Distillery(FoodEstablishment):
     See https://schema.org/Distillery.
 
     """
-
-    locals().update({"@type": Field("Distillery", const=True)})
-
+    type_: str = Field("Distillery", const=True, alias='@type')
+    
 
 Distillery.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.GenderType import GenderType
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.SportsOrganization import SportsOrganization
 
@@ -11,7 +11,7 @@ class SportsTeam(SportsOrganization):
     See https://schema.org/SportsTeam.
 
     """
-
+    type_: str = Field("SportsTeam", const=True, alias='@type')
     gender: Optional[Union[List[Union[str, GenderType]], Union[str, GenderType]]] = Field(
         None,
         description="Gender of something, typically a [[Person]], but possibly also fictional characters,"
@@ -29,7 +29,6 @@ class SportsTeam(SportsOrganization):
         None,
         description="A person that acts in a coaching role for a sports team.",
     )
-    locals().update({"@type": Field("SportsTeam", const=True)})
-
+    
 
 SportsTeam.update_forward_refs()

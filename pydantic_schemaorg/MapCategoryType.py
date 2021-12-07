@@ -8,8 +8,7 @@ class MapCategoryType(Enumeration):
     See https://schema.org/MapCategoryType.
 
     """
-
-    locals().update({"@type": Field("MapCategoryType", const=True)})
-
+    type_: str = Field("MapCategoryType", const=True, alias='@type')
+    
 
 MapCategoryType.update_forward_refs()

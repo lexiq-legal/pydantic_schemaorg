@@ -9,8 +9,7 @@ class Renal(MedicalSpecialty):
     See https://schema.org/Renal.
 
     """
-
-    locals().update({"@type": Field("Renal", const=True)})
-
+    type_: str = Field("Renal", const=True, alias='@type')
+    
 
 Renal.update_forward_refs()

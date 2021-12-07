@@ -9,8 +9,7 @@ class PhysicalExam(MedicalProcedure, MedicalEnumeration):
     See https://schema.org/PhysicalExam.
 
     """
-
-    locals().update({"@type": Field("PhysicalExam", const=True)})
-
+    type_: str = Field("PhysicalExam", const=True, alias='@type')
+    
 
 PhysicalExam.update_forward_refs()

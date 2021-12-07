@@ -8,8 +8,7 @@ class EmployerAggregateRating(AggregateRating):
     See https://schema.org/EmployerAggregateRating.
 
     """
-
-    locals().update({"@type": Field("EmployerAggregateRating", const=True)})
-
+    type_: str = Field("EmployerAggregateRating", const=True, alias='@type')
+    
 
 EmployerAggregateRating.update_forward_refs()

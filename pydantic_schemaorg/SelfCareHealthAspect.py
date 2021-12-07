@@ -9,8 +9,7 @@ class SelfCareHealthAspect(HealthAspectEnumeration):
     See https://schema.org/SelfCareHealthAspect.
 
     """
-
-    locals().update({"@type": Field("SelfCareHealthAspect", const=True)})
-
+    type_: str = Field("SelfCareHealthAspect", const=True, alias='@type')
+    
 
 SelfCareHealthAspect.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 
 
 class MedicalCause(MedicalEntity):
@@ -21,12 +21,11 @@ class MedicalCause(MedicalEntity):
     See https://schema.org/MedicalCause.
 
     """
-
+    type_: str = Field("MedicalCause", const=True, alias='@type')
     causeOf: Optional[Union[List[MedicalEntity], MedicalEntity]] = Field(
         None,
         description="The condition, complication, symptom, sign, etc. caused.",
     )
-    locals().update({"@type": Field("MedicalCause", const=True)})
-
+    
 
 MedicalCause.update_forward_refs()

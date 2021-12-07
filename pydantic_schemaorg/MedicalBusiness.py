@@ -9,8 +9,7 @@ class MedicalBusiness(LocalBusiness):
     See https://schema.org/MedicalBusiness.
 
     """
-
-    locals().update({"@type": Field("MedicalBusiness", const=True)})
-
+    type_: str = Field("MedicalBusiness", const=True, alias='@type')
+    
 
 MedicalBusiness.update_forward_refs()

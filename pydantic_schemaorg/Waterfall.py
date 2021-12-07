@@ -8,8 +8,7 @@ class Waterfall(BodyOfWater):
     See https://schema.org/Waterfall.
 
     """
-
-    locals().update({"@type": Field("Waterfall", const=True)})
-
+    type_: str = Field("Waterfall", const=True, alias='@type')
+    
 
 Waterfall.update_forward_refs()

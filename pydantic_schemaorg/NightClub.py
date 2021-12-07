@@ -8,8 +8,7 @@ class NightClub(EntertainmentBusiness):
     See https://schema.org/NightClub.
 
     """
-
-    locals().update({"@type": Field("NightClub", const=True)})
-
+    type_: str = Field("NightClub", const=True, alias='@type')
+    
 
 NightClub.update_forward_refs()

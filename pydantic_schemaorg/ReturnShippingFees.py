@@ -8,8 +8,7 @@ class ReturnShippingFees(ReturnFeesEnumeration):
     See https://schema.org/ReturnShippingFees.
 
     """
-
-    locals().update({"@type": Field("ReturnShippingFees", const=True)})
-
+    type_: str = Field("ReturnShippingFees", const=True, alias='@type')
+    
 
 ReturnShippingFees.update_forward_refs()

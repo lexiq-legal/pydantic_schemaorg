@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Thing import Thing
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from datetime import datetime, time
 
@@ -15,7 +15,7 @@ class Action(Thing):
     See https://schema.org/Action.
 
     """
-
+    type_: str = Field("Action", const=True, alias='@type')
     result: Optional[Union[List[Thing], Thing]] = Field(
         None,
         description="The result produced in the action. e.g. John wrote *a book*.",
@@ -75,7 +75,6 @@ class Action(Thing):
      "Event uses startDate/endDate instead of startTime/endTime, even when describing"
      "dates with times. This situation may be clarified in future revisions.",
     )
-    locals().update({"@type": Field("Action", const=True)})
-
+    
 
 Action.update_forward_refs()

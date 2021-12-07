@@ -8,8 +8,7 @@ class BikeStore(Store):
     See https://schema.org/BikeStore.
 
     """
-
-    locals().update({"@type": Field("BikeStore", const=True)})
-
+    type_: str = Field("BikeStore", const=True, alias='@type')
+    
 
 BikeStore.update_forward_refs()

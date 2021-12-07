@@ -9,8 +9,7 @@ class ResumeAction(ControlAction):
     See https://schema.org/ResumeAction.
 
     """
-
-    locals().update({"@type": Field("ResumeAction", const=True)})
-
+    type_: str = Field("ResumeAction", const=True, alias='@type')
+    
 
 ResumeAction.update_forward_refs()

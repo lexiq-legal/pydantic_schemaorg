@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 from pydantic_schemaorg.MedicalContraindication import MedicalContraindication
 from pydantic_schemaorg.TherapeuticProcedure import TherapeuticProcedure
@@ -15,7 +15,7 @@ class MedicalTherapy(TherapeuticProcedure):
     See https://schema.org/MedicalTherapy.
 
     """
-
+    type_: str = Field("MedicalTherapy", const=True, alias='@type')
     duplicateTherapy: Any = Field(
         None,
         description="A therapy that duplicates or overlaps this one.",
@@ -32,7 +32,6 @@ class MedicalTherapy(TherapeuticProcedure):
         None,
         description="A contraindication for this therapy.",
     )
-    locals().update({"@type": Field("MedicalTherapy", const=True)})
-
+    
 
 MedicalTherapy.update_forward_refs()

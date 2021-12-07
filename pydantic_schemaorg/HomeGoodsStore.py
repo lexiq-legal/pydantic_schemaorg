@@ -8,8 +8,7 @@ class HomeGoodsStore(Store):
     See https://schema.org/HomeGoodsStore.
 
     """
-
-    locals().update({"@type": Field("HomeGoodsStore", const=True)})
-
+    type_: str = Field("HomeGoodsStore", const=True, alias='@type')
+    
 
 HomeGoodsStore.update_forward_refs()

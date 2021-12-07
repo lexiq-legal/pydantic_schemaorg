@@ -11,8 +11,7 @@ class MedicalContraindication(MedicalEntity):
     See https://schema.org/MedicalContraindication.
 
     """
-
-    locals().update({"@type": Field("MedicalContraindication", const=True)})
-
+    type_: str = Field("MedicalContraindication", const=True, alias='@type')
+    
 
 MedicalContraindication.update_forward_refs()

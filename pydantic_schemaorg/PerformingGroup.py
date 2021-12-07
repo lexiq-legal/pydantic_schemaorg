@@ -8,8 +8,7 @@ class PerformingGroup(Organization):
     See https://schema.org/PerformingGroup.
 
     """
-
-    locals().update({"@type": Field("PerformingGroup", const=True)})
-
+    type_: str = Field("PerformingGroup", const=True, alias='@type')
+    
 
 PerformingGroup.update_forward_refs()

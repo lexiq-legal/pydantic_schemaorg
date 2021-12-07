@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -10,12 +10,11 @@ class Thesis(CreativeWork):
     See https://schema.org/Thesis.
 
     """
-
+    type_: str = Field("Thesis", const=True, alias='@type')
     inSupportOf: Optional[Union[List[str], str]] = Field(
         None,
         description="Qualification, candidature, degree, application that Thesis supports.",
     )
-    locals().update({"@type": Field("Thesis", const=True)})
-
+    
 
 Thesis.update_forward_refs()

@@ -8,8 +8,7 @@ class Synagogue(PlaceOfWorship):
     See https://schema.org/Synagogue.
 
     """
-
-    locals().update({"@type": Field("Synagogue", const=True)})
-
+    type_: str = Field("Synagogue", const=True, alias='@type')
+    
 
 Synagogue.update_forward_refs()

@@ -8,8 +8,7 @@ class DaySpa(HealthAndBeautyBusiness):
     See https://schema.org/DaySpa.
 
     """
-
-    locals().update({"@type": Field("DaySpa", const=True)})
-
+    type_: str = Field("DaySpa", const=True, alias='@type')
+    
 
 DaySpa.update_forward_refs()

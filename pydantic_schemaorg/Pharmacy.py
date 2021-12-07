@@ -9,8 +9,7 @@ class Pharmacy(MedicalBusiness, MedicalOrganization):
     See https://schema.org/Pharmacy.
 
     """
-
-    locals().update({"@type": Field("Pharmacy", const=True)})
-
+    type_: str = Field("Pharmacy", const=True, alias='@type')
+    
 
 Pharmacy.update_forward_refs()

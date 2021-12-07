@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.TradeAction import TradeAction
 
 
@@ -10,12 +10,11 @@ class OrderAction(TradeAction):
     See https://schema.org/OrderAction.
 
     """
-
+    type_: str = Field("OrderAction", const=True, alias='@type')
     deliveryMethod: Optional[Union[List[DeliveryMethod], DeliveryMethod]] = Field(
         None,
         description="A sub property of instrument. The method of delivery.",
     )
-    locals().update({"@type": Field("OrderAction", const=True)})
-
+    
 
 OrderAction.update_forward_refs()

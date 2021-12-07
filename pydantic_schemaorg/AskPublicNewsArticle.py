@@ -10,8 +10,7 @@ class AskPublicNewsArticle(NewsArticle):
     See https://schema.org/AskPublicNewsArticle.
 
     """
-
-    locals().update({"@type": Field("AskPublicNewsArticle", const=True)})
-
+    type_: str = Field("AskPublicNewsArticle", const=True, alias='@type')
+    
 
 AskPublicNewsArticle.update_forward_refs()

@@ -9,8 +9,7 @@ class Neurologic(MedicalSpecialty):
     See https://schema.org/Neurologic.
 
     """
-
-    locals().update({"@type": Field("Neurologic", const=True)})
-
+    type_: str = Field("Neurologic", const=True, alias='@type')
+    
 
 Neurologic.update_forward_refs()

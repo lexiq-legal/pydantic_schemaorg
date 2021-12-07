@@ -1,11 +1,11 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Place import Place
-from datetime import date, datetime, time
+from datetime import datetime, time, date
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from pydantic_schemaorg.Product import Product
 from pydantic_schemaorg.CreativeWork import CreativeWork
+from pydantic_schemaorg.Product import Product
 from pydantic_schemaorg.OfferItemCondition import OfferItemCondition
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -18,7 +18,7 @@ class Demand(Intangible):
     See https://schema.org/Demand.
 
     """
-
+    type_: str = Field("Demand", const=True, alias='@type')
     includesObject: Any = Field(
         None,
         description="This links to a node or nodes indicating the exact quantity of the products included in"
@@ -122,7 +122,7 @@ class Demand(Intangible):
         None,
         description="The date when the item becomes valid.",
     )
-    itemOffered: Union[List[Union[Product, CreativeWork, Any]], Union[Product, CreativeWork, Any]] = Field(
+    itemOffered: Union[List[Union[CreativeWork, Product, Any]], Union[CreativeWork, Product, Any]] = Field(
         None,
         description="An item being offered (or demanded). The transactional nature of the offer or demand"
      "is documented using [[businessFunction]], e.g. sell, lease etc. While several common"
@@ -193,7 +193,6 @@ class Demand(Intangible):
      "specification is valid. This allows e.g. specifying that a certain freight charge is"
      "valid only for a certain quantity.",
     )
-    locals().update({"@type": Field("Demand", const=True)})
-
+    
 
 Demand.update_forward_refs()

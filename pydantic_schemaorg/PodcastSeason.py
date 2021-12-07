@@ -9,8 +9,7 @@ class PodcastSeason(CreativeWorkSeason):
     See https://schema.org/PodcastSeason.
 
     """
-
-    locals().update({"@type": Field("PodcastSeason", const=True)})
-
+    type_: str = Field("PodcastSeason", const=True, alias='@type')
+    
 
 PodcastSeason.update_forward_refs()

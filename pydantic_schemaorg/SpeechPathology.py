@@ -10,8 +10,7 @@ class SpeechPathology(MedicalSpecialty):
     See https://schema.org/SpeechPathology.
 
     """
-
-    locals().update({"@type": Field("SpeechPathology", const=True)})
-
+    type_: str = Field("SpeechPathology", const=True, alias='@type')
+    
 
 SpeechPathology.update_forward_refs()

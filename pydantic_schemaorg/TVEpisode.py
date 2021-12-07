@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Language import Language
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Country import Country
 from pydantic_schemaorg.TVSeries import TVSeries
 from pydantic_schemaorg.Episode import Episode
@@ -12,7 +12,7 @@ class TVEpisode(Episode):
     See https://schema.org/TVEpisode.
 
     """
-
+    type_: str = Field("TVEpisode", const=True, alias='@type')
     subtitleLanguage: Optional[Union[List[Union[str, Language]], Union[str, Language]]] = Field(
         None,
         description="Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
@@ -41,7 +41,6 @@ class TVEpisode(Episode):
         None,
         description="The TV series to which this episode or season belongs.",
     )
-    locals().update({"@type": Field("TVEpisode", const=True)})
-
+    
 
 TVEpisode.update_forward_refs()

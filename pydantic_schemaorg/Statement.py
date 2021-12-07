@@ -11,8 +11,7 @@ class Statement(CreativeWork):
     See https://schema.org/Statement.
 
     """
-
-    locals().update({"@type": Field("Statement", const=True)})
-
+    type_: str = Field("Statement", const=True, alias='@type')
+    
 
 Statement.update_forward_refs()

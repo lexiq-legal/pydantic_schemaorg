@@ -10,8 +10,7 @@ class Oncologic(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Oncologic.
 
     """
-
-    locals().update({"@type": Field("Oncologic", const=True)})
-
+    type_: str = Field("Oncologic", const=True, alias='@type')
+    
 
 Oncologic.update_forward_refs()

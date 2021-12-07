@@ -8,8 +8,7 @@ class OrderCancelled(OrderStatus):
     See https://schema.org/OrderCancelled.
 
     """
-
-    locals().update({"@type": Field("OrderCancelled", const=True)})
-
+    type_: str = Field("OrderCancelled", const=True, alias='@type')
+    
 
 OrderCancelled.update_forward_refs()

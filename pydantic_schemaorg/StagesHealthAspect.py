@@ -8,8 +8,7 @@ class StagesHealthAspect(HealthAspectEnumeration):
     See https://schema.org/StagesHealthAspect.
 
     """
-
-    locals().update({"@type": Field("StagesHealthAspect", const=True)})
-
+    type_: str = Field("StagesHealthAspect", const=True, alias='@type')
+    
 
 StagesHealthAspect.update_forward_refs()

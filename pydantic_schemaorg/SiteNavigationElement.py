@@ -8,8 +8,7 @@ class SiteNavigationElement(WebPageElement):
     See https://schema.org/SiteNavigationElement.
 
     """
-
-    locals().update({"@type": Field("SiteNavigationElement", const=True)})
-
+    type_: str = Field("SiteNavigationElement", const=True, alias='@type')
+    
 
 SiteNavigationElement.update_forward_refs()

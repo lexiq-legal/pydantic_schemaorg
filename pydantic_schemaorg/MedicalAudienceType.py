@@ -8,8 +8,7 @@ class MedicalAudienceType(MedicalEnumeration):
     See https://schema.org/MedicalAudienceType.
 
     """
-
-    locals().update({"@type": Field("MedicalAudienceType", const=True)})
-
+    type_: str = Field("MedicalAudienceType", const=True, alias='@type')
+    
 
 MedicalAudienceType.update_forward_refs()

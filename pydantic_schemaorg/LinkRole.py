@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Language import Language
 from pydantic_schemaorg.Role import Role
 
@@ -13,7 +13,7 @@ class LinkRole(Role):
     See https://schema.org/LinkRole.
 
     """
-
+    type_: str = Field("LinkRole", const=True, alias='@type')
     linkRelationship: Optional[Union[List[str], str]] = Field(
         None,
         description="Indicates the relationship type of a Web link.",
@@ -24,7 +24,6 @@ class LinkRole(Role):
      "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
      "[[availableLanguage]].",
     )
-    locals().update({"@type": Field("LinkRole", const=True)})
-
+    
 
 LinkRole.update_forward_refs()

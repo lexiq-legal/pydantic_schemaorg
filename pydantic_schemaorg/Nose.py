@@ -8,8 +8,7 @@ class Nose(PhysicalExam):
     See https://schema.org/Nose.
 
     """
-
-    locals().update({"@type": Field("Nose", const=True)})
-
+    type_: str = Field("Nose", const=True, alias='@type')
+    
 
 Nose.update_forward_refs()

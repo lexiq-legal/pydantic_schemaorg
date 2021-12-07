@@ -8,8 +8,7 @@ class ItemPage(WebPage):
     See https://schema.org/ItemPage.
 
     """
-
-    locals().update({"@type": Field("ItemPage", const=True)})
-
+    type_: str = Field("ItemPage", const=True, alias='@type')
+    
 
 ItemPage.update_forward_refs()

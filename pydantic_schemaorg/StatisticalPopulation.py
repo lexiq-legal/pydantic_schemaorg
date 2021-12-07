@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Class import Class
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -21,7 +21,7 @@ class StatisticalPopulation(Intangible):
     See https://schema.org/StatisticalPopulation.
 
     """
-
+    type_: str = Field("StatisticalPopulation", const=True, alias='@type')
     numConstraints: Optional[Union[List[int], int]] = Field(
         None,
         description="Indicates the number of constraints (not counting [[populationType]]) defined for"
@@ -37,7 +37,6 @@ class StatisticalPopulation(Intangible):
         None,
         description="Indicates the populationType common to all members of a [[StatisticalPopulation]].",
     )
-    locals().update({"@type": Field("StatisticalPopulation", const=True)})
-
+    
 
 StatisticalPopulation.update_forward_refs()

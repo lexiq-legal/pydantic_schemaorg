@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from datetime import datetime, time
 from pydantic_schemaorg.Reservation import Reservation
 
@@ -13,7 +13,7 @@ class FoodEstablishmentReservation(Reservation):
     See https://schema.org/FoodEstablishmentReservation.
 
     """
-
+    type_: str = Field("FoodEstablishmentReservation", const=True, alias='@type')
     partySize: Optional[Union[List[Union[int, QuantitativeValue]], Union[int, QuantitativeValue]]] = Field(
         None,
         description="Number of people the reservation should accommodate.",
@@ -36,7 +36,6 @@ class FoodEstablishmentReservation(Reservation):
      "Event uses startDate/endDate instead of startTime/endTime, even when describing"
      "dates with times. This situation may be clarified in future revisions.",
     )
-    locals().update({"@type": Field("FoodEstablishmentReservation", const=True)})
-
+    
 
 FoodEstablishmentReservation.update_forward_refs()

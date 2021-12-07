@@ -8,8 +8,7 @@ class HairSalon(HealthAndBeautyBusiness):
     See https://schema.org/HairSalon.
 
     """
-
-    locals().update({"@type": Field("HairSalon", const=True)})
-
+    type_: str = Field("HairSalon", const=True, alias='@type')
+    
 
 HairSalon.update_forward_refs()

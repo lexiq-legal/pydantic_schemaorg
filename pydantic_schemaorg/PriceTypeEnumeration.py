@@ -8,8 +8,7 @@ class PriceTypeEnumeration(Enumeration):
     See https://schema.org/PriceTypeEnumeration.
 
     """
-
-    locals().update({"@type": Field("PriceTypeEnumeration", const=True)})
-
+    type_: str = Field("PriceTypeEnumeration", const=True, alias='@type')
+    
 
 PriceTypeEnumeration.update_forward_refs()

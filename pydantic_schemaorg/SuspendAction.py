@@ -9,8 +9,7 @@ class SuspendAction(ControlAction):
     See https://schema.org/SuspendAction.
 
     """
-
-    locals().update({"@type": Field("SuspendAction", const=True)})
-
+    type_: str = Field("SuspendAction", const=True, alias='@type')
+    
 
 SuspendAction.update_forward_refs()

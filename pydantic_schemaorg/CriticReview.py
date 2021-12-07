@@ -14,8 +14,7 @@ class CriticReview(Review):
     See https://schema.org/CriticReview.
 
     """
-
-    locals().update({"@type": Field("CriticReview", const=True)})
-
+    type_: str = Field("CriticReview", const=True, alias='@type')
+    
 
 CriticReview.update_forward_refs()

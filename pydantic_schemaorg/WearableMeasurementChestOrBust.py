@@ -8,8 +8,7 @@ class WearableMeasurementChestOrBust(WearableMeasurementTypeEnumeration):
     See https://schema.org/WearableMeasurementChestOrBust.
 
     """
-
-    locals().update({"@type": Field("WearableMeasurementChestOrBust", const=True)})
-
+    type_: str = Field("WearableMeasurementChestOrBust", const=True, alias='@type')
+    
 
 WearableMeasurementChestOrBust.update_forward_refs()

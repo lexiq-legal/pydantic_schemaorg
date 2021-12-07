@@ -1,5 +1,5 @@
-from pydantic import Field, AnyUrl, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field, AnyUrl
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Thing import Thing
 from decimal import Decimal
 from pydantic_schemaorg.Duration import Duration
@@ -14,7 +14,7 @@ class LoanOrCredit(FinancialProduct):
     See https://schema.org/LoanOrCredit.
 
     """
-
+    type_: str = Field("LoanOrCredit", const=True, alias='@type')
     loanRepaymentForm: Any = Field(
         None,
         description="A form of paying back money previously borrowed from a lender. Repayment usually takes"
@@ -60,7 +60,6 @@ class LoanOrCredit(FinancialProduct):
      "e.g. \"BTC\"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system)"
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
-    locals().update({"@type": Field("LoanOrCredit", const=True)})
-
+    
 
 LoanOrCredit.update_forward_refs()

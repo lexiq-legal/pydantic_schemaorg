@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -21,12 +21,11 @@ class FollowAction(InteractAction):
     See https://schema.org/FollowAction.
 
     """
-
+    type_: str = Field("FollowAction", const=True, alias='@type')
     followee: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
         None,
         description="A sub property of object. The person or organization being followed.",
     )
-    locals().update({"@type": Field("FollowAction", const=True)})
-
+    
 
 FollowAction.update_forward_refs()

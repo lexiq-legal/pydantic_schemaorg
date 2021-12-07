@@ -8,8 +8,7 @@ class Protozoa(InfectiousAgentClass):
     See https://schema.org/Protozoa.
 
     """
-
-    locals().update({"@type": Field("Protozoa", const=True)})
-
+    type_: str = Field("Protozoa", const=True, alias='@type')
+    
 
 Protozoa.update_forward_refs()

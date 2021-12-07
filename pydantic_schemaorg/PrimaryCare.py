@@ -10,8 +10,7 @@ class PrimaryCare(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/PrimaryCare.
 
     """
-
-    locals().update({"@type": Field("PrimaryCare", const=True)})
-
+    type_: str = Field("PrimaryCare", const=True, alias='@type')
+    
 
 PrimaryCare.update_forward_refs()

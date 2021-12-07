@@ -8,8 +8,7 @@ class CoverArt(VisualArtwork):
     See https://schema.org/CoverArt.
 
     """
-
-    locals().update({"@type": Field("CoverArt", const=True)})
-
+    type_: str = Field("CoverArt", const=True, alias='@type')
+    
 
 CoverArt.update_forward_refs()

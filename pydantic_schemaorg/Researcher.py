@@ -8,8 +8,7 @@ class Researcher(Audience):
     See https://schema.org/Researcher.
 
     """
-
-    locals().update({"@type": Field("Researcher", const=True)})
-
+    type_: str = Field("Researcher", const=True, alias='@type')
+    
 
 Researcher.update_forward_refs()

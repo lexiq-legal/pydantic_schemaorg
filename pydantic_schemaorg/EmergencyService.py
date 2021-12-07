@@ -8,8 +8,7 @@ class EmergencyService(LocalBusiness):
     See https://schema.org/EmergencyService.
 
     """
-
-    locals().update({"@type": Field("EmergencyService", const=True)})
-
+    type_: str = Field("EmergencyService", const=True, alias='@type')
+    
 
 EmergencyService.update_forward_refs()

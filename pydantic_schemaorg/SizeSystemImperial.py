@@ -8,8 +8,7 @@ class SizeSystemImperial(SizeSystemEnumeration):
     See https://schema.org/SizeSystemImperial.
 
     """
-
-    locals().update({"@type": Field("SizeSystemImperial", const=True)})
-
+    type_: str = Field("SizeSystemImperial", const=True, alias='@type')
+    
 
 SizeSystemImperial.update_forward_refs()

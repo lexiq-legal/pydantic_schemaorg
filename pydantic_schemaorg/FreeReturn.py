@@ -8,8 +8,7 @@ class FreeReturn(ReturnFeesEnumeration):
     See https://schema.org/FreeReturn.
 
     """
-
-    locals().update({"@type": Field("FreeReturn", const=True)})
-
+    type_: str = Field("FreeReturn", const=True, alias='@type')
+    
 
 FreeReturn.update_forward_refs()

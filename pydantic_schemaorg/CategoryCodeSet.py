@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.CategoryCode import CategoryCode
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DefinedTermSet import DefinedTermSet
 
 
@@ -10,12 +10,11 @@ class CategoryCodeSet(DefinedTermSet):
     See https://schema.org/CategoryCodeSet.
 
     """
-
+    type_: str = Field("CategoryCodeSet", const=True, alias='@type')
     hasCategoryCode: Optional[Union[List[CategoryCode], CategoryCode]] = Field(
         None,
         description="A Category code contained in this code set.",
     )
-    locals().update({"@type": Field("CategoryCodeSet", const=True)})
-
+    
 
 CategoryCodeSet.update_forward_refs()

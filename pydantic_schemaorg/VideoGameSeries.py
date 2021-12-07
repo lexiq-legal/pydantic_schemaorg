@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Thing import Thing
@@ -15,7 +15,7 @@ class VideoGameSeries(CreativeWorkSeries):
     See https://schema.org/VideoGameSeries.
 
     """
-
+    type_: str = Field("VideoGameSeries", const=True, alias='@type')
     actors: Optional[Union[List[Person], Person]] = Field(
         None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
@@ -114,7 +114,6 @@ class VideoGameSeries(CreativeWorkSeries):
         None,
         description="The composer of the soundtrack.",
     )
-    locals().update({"@type": Field("VideoGameSeries", const=True)})
-
+    
 
 VideoGameSeries.update_forward_refs()

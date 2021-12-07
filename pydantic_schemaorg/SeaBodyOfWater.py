@@ -8,8 +8,7 @@ class SeaBodyOfWater(BodyOfWater):
     See https://schema.org/SeaBodyOfWater.
 
     """
-
-    locals().update({"@type": Field("SeaBodyOfWater", const=True)})
-
+    type_: str = Field("SeaBodyOfWater", const=True, alias='@type')
+    
 
 SeaBodyOfWater.update_forward_refs()

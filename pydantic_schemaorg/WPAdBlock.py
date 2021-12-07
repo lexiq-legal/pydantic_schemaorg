@@ -8,8 +8,7 @@ class WPAdBlock(WebPageElement):
     See https://schema.org/WPAdBlock.
 
     """
-
-    locals().update({"@type": Field("WPAdBlock", const=True)})
-
+    type_: str = Field("WPAdBlock", const=True, alias='@type')
+    
 
 WPAdBlock.update_forward_refs()

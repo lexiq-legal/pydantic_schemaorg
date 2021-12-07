@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Question import Question
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CommunicateAction import CommunicateAction
 
 
@@ -11,12 +11,11 @@ class AskAction(CommunicateAction):
     See https://schema.org/AskAction.
 
     """
-
+    type_: str = Field("AskAction", const=True, alias='@type')
     question: Optional[Union[List[Question], Question]] = Field(
         None,
         description="A sub property of object. A question.",
     )
-    locals().update({"@type": Field("AskAction", const=True)})
-
+    
 
 AskAction.update_forward_refs()

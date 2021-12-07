@@ -8,8 +8,7 @@ class Taxi(Service):
     See https://schema.org/Taxi.
 
     """
-
-    locals().update({"@type": Field("Taxi", const=True)})
-
+    type_: str = Field("Taxi", const=True, alias='@type')
+    
 
 Taxi.update_forward_refs()

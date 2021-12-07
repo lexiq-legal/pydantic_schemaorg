@@ -8,8 +8,7 @@ class WearableSizeSystemDE(WearableSizeSystemEnumeration):
     See https://schema.org/WearableSizeSystemDE.
 
     """
-
-    locals().update({"@type": Field("WearableSizeSystemDE", const=True)})
-
+    type_: str = Field("WearableSizeSystemDE", const=True, alias='@type')
+    
 
 WearableSizeSystemDE.update_forward_refs()

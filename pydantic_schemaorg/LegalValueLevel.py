@@ -8,8 +8,7 @@ class LegalValueLevel(Enumeration):
     See https://schema.org/LegalValueLevel.
 
     """
-
-    locals().update({"@type": Field("LegalValueLevel", const=True)})
-
+    type_: str = Field("LegalValueLevel", const=True, alias='@type')
+    
 
 LegalValueLevel.update_forward_refs()

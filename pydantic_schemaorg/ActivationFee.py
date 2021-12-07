@@ -9,8 +9,7 @@ class ActivationFee(PriceComponentTypeEnumeration):
     See https://schema.org/ActivationFee.
 
     """
-
-    locals().update({"@type": Field("ActivationFee", const=True)})
-
+    type_: str = Field("ActivationFee", const=True, alias='@type')
+    
 
 ActivationFee.update_forward_refs()

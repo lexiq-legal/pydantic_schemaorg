@@ -9,8 +9,7 @@ class StructuredValue(Intangible):
     See https://schema.org/StructuredValue.
 
     """
-
-    locals().update({"@type": Field("StructuredValue", const=True)})
-
+    type_: str = Field("StructuredValue", const=True, alias='@type')
+    
 
 StructuredValue.update_forward_refs()

@@ -12,8 +12,7 @@ class ImageObjectSnapshot(ImageObject):
     See https://schema.org/ImageObjectSnapshot.
 
     """
-
-    locals().update({"@type": Field("ImageObjectSnapshot", const=True)})
-
+    type_: str = Field("ImageObjectSnapshot", const=True, alias='@type')
+    
 
 ImageObjectSnapshot.update_forward_refs()

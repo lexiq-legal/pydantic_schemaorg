@@ -9,8 +9,7 @@ class ComicSeries(Periodical):
     See https://schema.org/ComicSeries.
 
     """
-
-    locals().update({"@type": Field("ComicSeries", const=True)})
-
+    type_: str = Field("ComicSeries", const=True, alias='@type')
+    
 
 ComicSeries.update_forward_refs()

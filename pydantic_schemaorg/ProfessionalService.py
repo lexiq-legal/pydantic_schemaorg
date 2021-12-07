@@ -14,8 +14,7 @@ class ProfessionalService(LocalBusiness):
     See https://schema.org/ProfessionalService.
 
     """
-
-    locals().update({"@type": Field("ProfessionalService", const=True)})
-
+    type_: str = Field("ProfessionalService", const=True, alias='@type')
+    
 
 ProfessionalService.update_forward_refs()

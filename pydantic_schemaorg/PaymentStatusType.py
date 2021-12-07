@@ -8,8 +8,7 @@ class PaymentStatusType(StatusEnumeration):
     See https://schema.org/PaymentStatusType.
 
     """
-
-    locals().update({"@type": Field("PaymentStatusType", const=True)})
-
+    type_: str = Field("PaymentStatusType", const=True, alias='@type')
+    
 
 PaymentStatusType.update_forward_refs()

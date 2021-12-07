@@ -8,8 +8,7 @@ class EnergyStarCertified(EnergyStarEnergyEfficiencyEnumeration):
     See https://schema.org/EnergyStarCertified.
 
     """
-
-    locals().update({"@type": Field("EnergyStarCertified", const=True)})
-
+    type_: str = Field("EnergyStarCertified", const=True, alias='@type')
+    
 
 EnergyStarCertified.update_forward_refs()

@@ -8,8 +8,7 @@ class Lung(PhysicalExam):
     See https://schema.org/Lung.
 
     """
-
-    locals().update({"@type": Field("Lung", const=True)})
-
+    type_: str = Field("Lung", const=True, alias='@type')
+    
 
 Lung.update_forward_refs()

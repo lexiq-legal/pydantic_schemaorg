@@ -8,8 +8,7 @@ class BusinessEvent(Event):
     See https://schema.org/BusinessEvent.
 
     """
-
-    locals().update({"@type": Field("BusinessEvent", const=True)})
-
+    type_: str = Field("BusinessEvent", const=True, alias='@type')
+    
 
 BusinessEvent.update_forward_refs()

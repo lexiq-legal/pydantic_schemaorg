@@ -8,8 +8,7 @@ class MobilePhoneStore(Store):
     See https://schema.org/MobilePhoneStore.
 
     """
-
-    locals().update({"@type": Field("MobilePhoneStore", const=True)})
-
+    type_: str = Field("MobilePhoneStore", const=True, alias='@type')
+    
 
 MobilePhoneStore.update_forward_refs()

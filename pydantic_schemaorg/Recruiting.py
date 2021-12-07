@@ -8,8 +8,7 @@ class Recruiting(MedicalStudyStatus):
     See https://schema.org/Recruiting.
 
     """
-
-    locals().update({"@type": Field("Recruiting", const=True)})
-
+    type_: str = Field("Recruiting", const=True, alias='@type')
+    
 
 Recruiting.update_forward_refs()

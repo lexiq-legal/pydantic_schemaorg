@@ -8,8 +8,7 @@ class PartiallyInForce(LegalForceStatus):
     See https://schema.org/PartiallyInForce.
 
     """
-
-    locals().update({"@type": Field("PartiallyInForce", const=True)})
-
+    type_: str = Field("PartiallyInForce", const=True, alias='@type')
+    
 
 PartiallyInForce.update_forward_refs()

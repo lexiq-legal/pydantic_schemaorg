@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.GenderType import GenderType
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from decimal import Decimal
 from pydantic_schemaorg.MedicalCondition import MedicalCondition
@@ -13,7 +13,7 @@ class PeopleAudience(Audience):
     See https://schema.org/PeopleAudience.
 
     """
-
+    type_: str = Field("PeopleAudience", const=True, alias='@type')
     suggestedGender: Optional[Union[List[Union[str, GenderType]], Union[str, GenderType]]] = Field(
         None,
         description="The suggested gender of the intended person or audience, for example \"male\", \"female\","
@@ -54,7 +54,6 @@ class PeopleAudience(Audience):
         None,
         description="Audiences defined by a person's minimum age.",
     )
-    locals().update({"@type": Field("PeopleAudience", const=True)})
-
+    
 
 PeopleAudience.update_forward_refs()

@@ -9,8 +9,7 @@ class EventScheduled(EventStatusType):
     See https://schema.org/EventScheduled.
 
     """
-
-    locals().update({"@type": Field("EventScheduled", const=True)})
-
+    type_: str = Field("EventScheduled", const=True, alias='@type')
+    
 
 EventScheduled.update_forward_refs()

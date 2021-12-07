@@ -1,6 +1,6 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
-from datetime import date, datetime
+from typing import Any, Optional, Union, List
+from datetime import datetime, date
 from pydantic_schemaorg.Audience import Audience
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Intangible import Intangible
@@ -12,7 +12,7 @@ class Permit(Intangible):
     See https://schema.org/Permit.
 
     """
-
+    type_: str = Field("Permit", const=True, alias='@type')
     issuedThrough: Any = Field(
         None,
         description="The service through with the permit was granted.",
@@ -41,7 +41,6 @@ class Permit(Intangible):
         None,
         description="The geographic area where a permit or similar thing is valid.",
     )
-    locals().update({"@type": Field("Permit", const=True)})
-
+    
 
 Permit.update_forward_refs()

@@ -14,8 +14,7 @@ class BackgroundNewsArticle(NewsArticle):
     See https://schema.org/BackgroundNewsArticle.
 
     """
-
-    locals().update({"@type": Field("BackgroundNewsArticle", const=True)})
-
+    type_: str = Field("BackgroundNewsArticle", const=True, alias='@type')
+    
 
 BackgroundNewsArticle.update_forward_refs()

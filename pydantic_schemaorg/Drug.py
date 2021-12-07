@@ -1,5 +1,5 @@
-from pydantic import Field, AnyUrl, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field, AnyUrl
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DrugPregnancyCategory import DrugPregnancyCategory
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.DoseSchedule import DoseSchedule
@@ -15,7 +15,7 @@ class Drug(Substance):
     See https://schema.org/Drug.
 
     """
-
+    type_: str = Field("Drug", const=True, alias='@type')
     prescribingInfo: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
         None,
         description="Link to prescribing information for the drug.",
@@ -155,7 +155,6 @@ class Drug(Substance):
         None,
         description="Any FDA or other warnings about the drug (text or URL).",
     )
-    locals().update({"@type": Field("Drug", const=True)})
-
+    
 
 Drug.update_forward_refs()

@@ -8,8 +8,7 @@ class BedType(QualitativeValue):
     See https://schema.org/BedType.
 
     """
-
-    locals().update({"@type": Field("BedType", const=True)})
-
+    type_: str = Field("BedType", const=True, alias='@type')
+    
 
 BedType.update_forward_refs()

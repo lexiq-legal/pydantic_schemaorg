@@ -9,8 +9,7 @@ class Quantity(Intangible):
     See https://schema.org/Quantity.
 
     """
-
-    locals().update({"@type": Field("Quantity", const=True)})
-
+    type_: str = Field("Quantity", const=True, alias='@type')
+    
 
 Quantity.update_forward_refs()

@@ -8,8 +8,7 @@ class OrderPickupAvailable(OrderStatus):
     See https://schema.org/OrderPickupAvailable.
 
     """
-
-    locals().update({"@type": Field("OrderPickupAvailable", const=True)})
-
+    type_: str = Field("OrderPickupAvailable", const=True, alias='@type')
+    
 
 OrderPickupAvailable.update_forward_refs()

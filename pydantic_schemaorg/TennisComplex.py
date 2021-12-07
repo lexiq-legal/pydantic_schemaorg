@@ -8,8 +8,7 @@ class TennisComplex(SportsActivityLocation):
     See https://schema.org/TennisComplex.
 
     """
-
-    locals().update({"@type": Field("TennisComplex", const=True)})
-
+    type_: str = Field("TennisComplex", const=True, alias='@type')
+    
 
 TennisComplex.update_forward_refs()

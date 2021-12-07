@@ -9,8 +9,7 @@ class ConfirmAction(InformAction):
     See https://schema.org/ConfirmAction.
 
     """
-
-    locals().update({"@type": Field("ConfirmAction", const=True)})
-
+    type_: str = Field("ConfirmAction", const=True, alias='@type')
+    
 
 ConfirmAction.update_forward_refs()

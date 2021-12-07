@@ -8,8 +8,7 @@ class SearchResultsPage(WebPage):
     See https://schema.org/SearchResultsPage.
 
     """
-
-    locals().update({"@type": Field("SearchResultsPage", const=True)})
-
+    type_: str = Field("SearchResultsPage", const=True, alias='@type')
+    
 
 SearchResultsPage.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.SizeSystemEnumeration import SizeSystemEnumeration
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.GenderType import GenderType
 from pydantic_schemaorg.SizeGroupEnumeration import SizeGroupEnumeration
@@ -16,7 +16,7 @@ class SizeSpecification(QualitativeValue):
     See https://schema.org/SizeSpecification.
 
     """
-
+    type_: str = Field("SizeSpecification", const=True, alias='@type')
     sizeSystem: Optional[Union[List[Union[str, SizeSystemEnumeration]], Union[str, SizeSystemEnumeration]]] = Field(
         None,
         description="The size system used to identify a product's size. Typically either a standard (for example,"
@@ -52,7 +52,6 @@ class SizeSpecification(QualitativeValue):
      "inseam between 32 and 34 inches or height between 170 and 190 cm. Typically found on a size"
      "chart for wearable products.",
     )
-    locals().update({"@type": Field("SizeSpecification", const=True)})
-
+    
 
 SizeSpecification.update_forward_refs()

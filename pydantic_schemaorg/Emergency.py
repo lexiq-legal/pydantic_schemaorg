@@ -10,8 +10,7 @@ class Emergency(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Emergency.
 
     """
-
-    locals().update({"@type": Field("Emergency", const=True)})
-
+    type_: str = Field("Emergency", const=True, alias='@type')
+    
 
 Emergency.update_forward_refs()

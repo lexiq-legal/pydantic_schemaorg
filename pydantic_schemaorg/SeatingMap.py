@@ -8,8 +8,7 @@ class SeatingMap(MapCategoryType):
     See https://schema.org/SeatingMap.
 
     """
-
-    locals().update({"@type": Field("SeatingMap", const=True)})
-
+    type_: str = Field("SeatingMap", const=True, alias='@type')
+    
 
 SeatingMap.update_forward_refs()

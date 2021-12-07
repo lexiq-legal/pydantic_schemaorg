@@ -9,8 +9,7 @@ class BedAndBreakfast(LodgingBusiness):
     See https://schema.org/BedAndBreakfast.
 
     """
-
-    locals().update({"@type": Field("BedAndBreakfast", const=True)})
-
+    type_: str = Field("BedAndBreakfast", const=True, alias='@type')
+    
 
 BedAndBreakfast.update_forward_refs()

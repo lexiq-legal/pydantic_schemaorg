@@ -12,8 +12,7 @@ class PublicHolidays(DayOfWeek):
     See https://schema.org/PublicHolidays.
 
     """
-
-    locals().update({"@type": Field("PublicHolidays", const=True)})
-
+    type_: str = Field("PublicHolidays", const=True, alias='@type')
+    
 
 PublicHolidays.update_forward_refs()

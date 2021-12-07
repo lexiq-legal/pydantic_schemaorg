@@ -8,8 +8,7 @@ class HinduDiet(RestrictedDiet):
     See https://schema.org/HinduDiet.
 
     """
-
-    locals().update({"@type": Field("HinduDiet", const=True)})
-
+    type_: str = Field("HinduDiet", const=True, alias='@type')
+    
 
 HinduDiet.update_forward_refs()

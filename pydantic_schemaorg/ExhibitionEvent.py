@@ -8,8 +8,7 @@ class ExhibitionEvent(Event):
     See https://schema.org/ExhibitionEvent.
 
     """
-
-    locals().update({"@type": Field("ExhibitionEvent", const=True)})
-
+    type_: str = Field("ExhibitionEvent", const=True, alias='@type')
+    
 
 ExhibitionEvent.update_forward_refs()

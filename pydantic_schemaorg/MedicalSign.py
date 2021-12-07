@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.PhysicalExam import PhysicalExam
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalTest import MedicalTest
 from pydantic_schemaorg.MedicalSignOrSymptom import MedicalSignOrSymptom
 
@@ -12,7 +12,7 @@ class MedicalSign(MedicalSignOrSymptom):
     See https://schema.org/MedicalSign.
 
     """
-
+    type_: str = Field("MedicalSign", const=True, alias='@type')
     identifyingExam: Optional[Union[List[PhysicalExam], PhysicalExam]] = Field(
         None,
         description="A physical examination that can identify this sign.",
@@ -21,7 +21,6 @@ class MedicalSign(MedicalSignOrSymptom):
         None,
         description="A diagnostic test that can identify this sign.",
     )
-    locals().update({"@type": Field("MedicalSign", const=True)})
-
+    
 
 MedicalSign.update_forward_refs()

@@ -8,8 +8,7 @@ class ExchangeRefund(RefundTypeEnumeration):
     See https://schema.org/ExchangeRefund.
 
     """
-
-    locals().update({"@type": Field("ExchangeRefund", const=True)})
-
+    type_: str = Field("ExchangeRefund", const=True, alias='@type')
+    
 
 ExchangeRefund.update_forward_refs()

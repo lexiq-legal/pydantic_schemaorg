@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from datetime import date
@@ -16,7 +16,7 @@ class WebPage(CreativeWork):
     See https://schema.org/WebPage.
 
     """
-
+    type_: str = Field("WebPage", const=True, alias='@type')
     significantLink: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
         None,
         description="One of the more significant URLs on the page. Typically, these are the non-navigation"
@@ -73,7 +73,6 @@ class WebPage(CreativeWork):
         None,
         description="One of the domain specialities to which this web page's content applies.",
     )
-    locals().update({"@type": Field("WebPage", const=True)})
-
+    
 
 WebPage.update_forward_refs()

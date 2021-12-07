@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.EUEnergyEfficiencyEnumeration import EUEnergyEfficiencyEnumeration
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.EnergyEfficiencyEnumeration import EnergyEfficiencyEnumeration
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -15,7 +15,7 @@ class EnergyConsumptionDetails(Intangible):
     See https://schema.org/EnergyConsumptionDetails.
 
     """
-
+    type_: str = Field("EnergyConsumptionDetails", const=True, alias='@type')
     energyEfficiencyScaleMax: Optional[Union[List[EUEnergyEfficiencyEnumeration], EUEnergyEfficiencyEnumeration]] = Field(
         None,
         description="Specifies the most energy efficient class on the regulated EU energy consumption scale"
@@ -34,7 +34,6 @@ class EnergyConsumptionDetails(Intangible):
      "values or a yes/no certification) for a product according to an international energy"
      "efficiency standard.",
     )
-    locals().update({"@type": Field("EnergyConsumptionDetails", const=True)})
-
+    
 
 EnergyConsumptionDetails.update_forward_refs()

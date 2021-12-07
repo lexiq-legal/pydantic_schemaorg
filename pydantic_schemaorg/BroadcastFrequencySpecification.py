@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.QualitativeValue import QualitativeValue
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from decimal import Decimal
 from pydantic_schemaorg.Intangible import Intangible
@@ -12,7 +12,7 @@ class BroadcastFrequencySpecification(Intangible):
     See https://schema.org/BroadcastFrequencySpecification.
 
     """
-
+    type_: str = Field("BroadcastFrequencySpecification", const=True, alias='@type')
     broadcastSignalModulation: Optional[Union[List[Union[str, QualitativeValue]], Union[str, QualitativeValue]]] = Field(
         None,
         description="The modulation (e.g. FM, AM, etc) used by a particular broadcast service.",
@@ -25,7 +25,6 @@ class BroadcastFrequencySpecification(Intangible):
         None,
         description="The subchannel used for the broadcast.",
     )
-    locals().update({"@type": Field("BroadcastFrequencySpecification", const=True)})
-
+    
 
 BroadcastFrequencySpecification.update_forward_refs()

@@ -9,8 +9,7 @@ class ActivateAction(ControlAction):
     See https://schema.org/ActivateAction.
 
     """
-
-    locals().update({"@type": Field("ActivateAction", const=True)})
-
+    type_: str = Field("ActivateAction", const=True, alias='@type')
+    
 
 ActivateAction.update_forward_refs()

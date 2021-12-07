@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
@@ -14,7 +14,7 @@ class EducationalOccupationalCredential(CreativeWork):
     See https://schema.org/EducationalOccupationalCredential.
 
     """
-
+    type_: str = Field("EducationalOccupationalCredential", const=True, alias='@type')
     validFor: Any = Field(
         None,
         description="The duration of validity of a permit or similar thing.",
@@ -45,7 +45,6 @@ class EducationalOccupationalCredential(CreativeWork):
         description="The category or type of credential being described, for example \"degree”, “certificate”,"
      "“badge”, or more specific term.",
     )
-    locals().update({"@type": Field("EducationalOccupationalCredential", const=True)})
-
+    
 
 EducationalOccupationalCredential.update_forward_refs()

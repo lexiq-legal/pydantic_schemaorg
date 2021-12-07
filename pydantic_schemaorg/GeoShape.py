@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from decimal import Decimal
 from pydantic_schemaorg.PostalAddress import PostalAddress
 from pydantic_schemaorg.Country import Country
@@ -15,7 +15,7 @@ class GeoShape(StructuredValue):
     See https://schema.org/GeoShape.
 
     """
-
+    type_: str = Field("GeoShape", const=True, alias='@type')
     polygon: Optional[Union[List[str], str]] = Field(
         None,
         description="A polygon is the area enclosed by a point-to-point path for which the starting and ending"
@@ -57,7 +57,6 @@ class GeoShape(StructuredValue):
         description="The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2"
      "country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
     )
-    locals().update({"@type": Field("GeoShape", const=True)})
-
+    
 
 GeoShape.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -12,7 +12,7 @@ class BedDetails(Intangible):
     See https://schema.org/BedDetails.
 
     """
-
+    type_: str = Field("BedDetails", const=True, alias='@type')
     numberOfBeds: Optional[Union[List[Decimal], Decimal]] = Field(
         None,
         description="The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment.",
@@ -22,7 +22,6 @@ class BedDetails(Intangible):
         description="The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity"
      "indicated by quantity.",
     )
-    locals().update({"@type": Field("BedDetails", const=True)})
-
+    
 
 BedDetails.update_forward_refs()

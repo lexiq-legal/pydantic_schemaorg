@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Audience import Audience
 from pydantic_schemaorg.Place import Place
 
@@ -14,7 +14,7 @@ class TouristAttraction(Place):
     See https://schema.org/TouristAttraction.
 
     """
-
+    type_: str = Field("TouristAttraction", const=True, alias='@type')
     availableLanguage: Union[List[Union[str, Any]], Union[str, Any]] = Field(
         None,
         description="A language someone may use with or at the item, service or place. Please use one of the language"
@@ -26,7 +26,6 @@ class TouristAttraction(Place):
         description="Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular"
      "country, etc.",
     )
-    locals().update({"@type": Field("TouristAttraction", const=True)})
-
+    
 
 TouristAttraction.update_forward_refs()

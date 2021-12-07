@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MusicAlbumProductionType import MusicAlbumProductionType
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MusicAlbumReleaseType import MusicAlbumReleaseType
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.MusicPlaylist import MusicPlaylist
@@ -12,7 +12,7 @@ class MusicAlbum(MusicPlaylist):
     See https://schema.org/MusicAlbum.
 
     """
-
+    type_: str = Field("MusicAlbum", const=True, alias='@type')
     albumProductionType: Optional[Union[List[MusicAlbumProductionType], MusicAlbumProductionType]] = Field(
         None,
         description="Classification of the album by it's type of content: soundtrack, live album, studio"
@@ -30,7 +30,6 @@ class MusicAlbum(MusicPlaylist):
         None,
         description="A release of this album.",
     )
-    locals().update({"@type": Field("MusicAlbum", const=True)})
-
+    
 
 MusicAlbum.update_forward_refs()

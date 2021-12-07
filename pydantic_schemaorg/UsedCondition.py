@@ -8,8 +8,7 @@ class UsedCondition(OfferItemCondition):
     See https://schema.org/UsedCondition.
 
     """
-
-    locals().update({"@type": Field("UsedCondition", const=True)})
-
+    type_: str = Field("UsedCondition", const=True, alias='@type')
+    
 
 UsedCondition.update_forward_refs()

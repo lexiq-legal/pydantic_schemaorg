@@ -8,8 +8,7 @@ class Throat(PhysicalExam):
     See https://schema.org/Throat.
 
     """
-
-    locals().update({"@type": Field("Throat", const=True)})
-
+    type_: str = Field("Throat", const=True, alias='@type')
+    
 
 Throat.update_forward_refs()

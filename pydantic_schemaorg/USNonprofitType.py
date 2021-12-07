@@ -8,8 +8,7 @@ class USNonprofitType(NonprofitType):
     See https://schema.org/USNonprofitType.
 
     """
-
-    locals().update({"@type": Field("USNonprofitType", const=True)})
-
+    type_: str = Field("USNonprofitType", const=True, alias='@type')
+    
 
 USNonprofitType.update_forward_refs()

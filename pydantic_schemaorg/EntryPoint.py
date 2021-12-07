@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.SoftwareApplication import SoftwareApplication
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -10,7 +10,7 @@ class EntryPoint(Intangible):
     See https://schema.org/EntryPoint.
 
     """
-
+    type_: str = Field("EntryPoint", const=True, alias='@type')
     contentType: Optional[Union[List[str], str]] = Field(
         None,
         description="The supported content type(s) for an EntryPoint response.",
@@ -42,7 +42,6 @@ class EntryPoint(Intangible):
         description="An url template (RFC6570) that will be used to construct the target of the execution of"
      "the action.",
     )
-    locals().update({"@type": Field("EntryPoint", const=True)})
-
+    
 
 EntryPoint.update_forward_refs()

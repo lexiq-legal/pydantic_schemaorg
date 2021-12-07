@@ -18,8 +18,7 @@ class TransformedContent(MediaManipulationRatingEnumeration):
     See https://schema.org/TransformedContent.
 
     """
-
-    locals().update({"@type": Field("TransformedContent", const=True)})
-
+    type_: str = Field("TransformedContent", const=True, alias='@type')
+    
 
 TransformedContent.update_forward_refs()

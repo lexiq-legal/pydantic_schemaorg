@@ -8,8 +8,7 @@ class Notary(LegalService):
     See https://schema.org/Notary.
 
     """
-
-    locals().update({"@type": Field("Notary", const=True)})
-
+    type_: str = Field("Notary", const=True, alias='@type')
+    
 
 Notary.update_forward_refs()

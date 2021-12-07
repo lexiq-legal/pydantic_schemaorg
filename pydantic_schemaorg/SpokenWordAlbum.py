@@ -8,8 +8,7 @@ class SpokenWordAlbum(MusicAlbumProductionType):
     See https://schema.org/SpokenWordAlbum.
 
     """
-
-    locals().update({"@type": Field("SpokenWordAlbum", const=True)})
-
+    type_: str = Field("SpokenWordAlbum", const=True, alias='@type')
+    
 
 SpokenWordAlbum.update_forward_refs()

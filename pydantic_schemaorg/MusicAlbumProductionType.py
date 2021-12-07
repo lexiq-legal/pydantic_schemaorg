@@ -9,8 +9,7 @@ class MusicAlbumProductionType(Enumeration):
     See https://schema.org/MusicAlbumProductionType.
 
     """
-
-    locals().update({"@type": Field("MusicAlbumProductionType", const=True)})
-
+    type_: str = Field("MusicAlbumProductionType", const=True, alias='@type')
+    
 
 MusicAlbumProductionType.update_forward_refs()

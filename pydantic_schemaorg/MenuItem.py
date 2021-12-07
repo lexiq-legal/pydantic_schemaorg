@@ -1,8 +1,8 @@
 from pydantic import Field
 from pydantic_schemaorg.MenuSection import MenuSection
-from typing import Any, Union, List, Optional
-from pydantic_schemaorg.Offer import Offer
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Demand import Demand
+from pydantic_schemaorg.Offer import Offer
 from pydantic_schemaorg.NutritionInformation import NutritionInformation
 from pydantic_schemaorg.RestrictedDiet import RestrictedDiet
 from pydantic_schemaorg.Intangible import Intangible
@@ -14,14 +14,14 @@ class MenuItem(Intangible):
     See https://schema.org/MenuItem.
 
     """
-
+    type_: str = Field("MenuItem", const=True, alias='@type')
     menuAddOn: Union[List[Union[MenuSection, Any]], Union[MenuSection, Any]] = Field(
         None,
         description="Additional menu item(s) such as a side dish of salad or side order of fries that can be added"
      "to this menu item. Additionally it can be a menu section containing allowed add-on menu"
      "items for this menu item.",
     )
-    offers: Optional[Union[List[Union[Offer, Demand]], Union[Offer, Demand]]] = Field(
+    offers: Optional[Union[List[Union[Demand, Offer]], Union[Demand, Offer]]] = Field(
         None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -39,7 +39,6 @@ class MenuItem(Intangible):
         description="Indicates a dietary restriction or guideline for which this recipe or menu item is suitable,"
      "e.g. diabetic, halal etc.",
     )
-    locals().update({"@type": Field("MenuItem", const=True)})
-
+    
 
 MenuItem.update_forward_refs()

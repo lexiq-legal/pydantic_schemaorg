@@ -8,8 +8,7 @@ class TelevisionStation(LocalBusiness):
     See https://schema.org/TelevisionStation.
 
     """
-
-    locals().update({"@type": Field("TelevisionStation", const=True)})
-
+    type_: str = Field("TelevisionStation", const=True, alias='@type')
+    
 
 TelevisionStation.update_forward_refs()

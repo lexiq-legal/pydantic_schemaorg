@@ -8,8 +8,7 @@ class OrganizeAction(Action):
     See https://schema.org/OrganizeAction.
 
     """
-
-    locals().update({"@type": Field("OrganizeAction", const=True)})
-
+    type_: str = Field("OrganizeAction", const=True, alias='@type')
+    
 
 OrganizeAction.update_forward_refs()

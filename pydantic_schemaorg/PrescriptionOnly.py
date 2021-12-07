@@ -8,8 +8,7 @@ class PrescriptionOnly(DrugPrescriptionStatus):
     See https://schema.org/PrescriptionOnly.
 
     """
-
-    locals().update({"@type": Field("PrescriptionOnly", const=True)})
-
+    type_: str = Field("PrescriptionOnly", const=True, alias='@type')
+    
 
 PrescriptionOnly.update_forward_refs()

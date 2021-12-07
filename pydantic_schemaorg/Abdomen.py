@@ -8,8 +8,7 @@ class Abdomen(PhysicalExam):
     See https://schema.org/Abdomen.
 
     """
-
-    locals().update({"@type": Field("Abdomen", const=True)})
-
+    type_: str = Field("Abdomen", const=True, alias='@type')
+    
 
 Abdomen.update_forward_refs()

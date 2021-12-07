@@ -8,8 +8,7 @@ class MedicalEvidenceLevel(MedicalEnumeration):
     See https://schema.org/MedicalEvidenceLevel.
 
     """
-
-    locals().update({"@type": Field("MedicalEvidenceLevel", const=True)})
-
+    type_: str = Field("MedicalEvidenceLevel", const=True, alias='@type')
+    
 
 MedicalEvidenceLevel.update_forward_refs()

@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.ListItem import ListItem
 
 
@@ -12,12 +12,11 @@ class HowToItem(ListItem):
     See https://schema.org/HowToItem.
 
     """
-
+    type_: str = Field("HowToItem", const=True, alias='@type')
     requiredQuantity: Optional[Union[List[Union[Decimal, str, QuantitativeValue]], Union[Decimal, str, QuantitativeValue]]] = Field(
         None,
         description="The required quantity of the item(s).",
     )
-    locals().update({"@type": Field("HowToItem", const=True)})
-
+    
 
 HowToItem.update_forward_refs()

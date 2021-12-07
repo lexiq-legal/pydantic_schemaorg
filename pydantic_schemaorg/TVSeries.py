@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Episode import Episode
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.CreativeWork import CreativeWork
@@ -13,7 +13,7 @@ class TVSeries(CreativeWork, CreativeWorkSeries):
     See https://schema.org/TVSeries.
 
     """
-
+    type_: str = Field("TVSeries", const=True, alias='@type')
     actors: Optional[Union[List[Person], Person]] = Field(
         None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
@@ -85,7 +85,6 @@ class TVSeries(CreativeWork, CreativeWorkSeries):
         None,
         description="The composer of the soundtrack.",
     )
-    locals().update({"@type": Field("TVSeries", const=True)})
-
+    
 
 TVSeries.update_forward_refs()

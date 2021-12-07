@@ -8,8 +8,7 @@ class MerchantReturnFiniteReturnWindow(MerchantReturnEnumeration):
     See https://schema.org/MerchantReturnFiniteReturnWindow.
 
     """
-
-    locals().update({"@type": Field("MerchantReturnFiniteReturnWindow", const=True)})
-
+    type_: str = Field("MerchantReturnFiniteReturnWindow", const=True, alias='@type')
+    
 
 MerchantReturnFiniteReturnWindow.update_forward_refs()

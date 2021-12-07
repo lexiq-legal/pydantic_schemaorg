@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 
 
@@ -10,7 +10,7 @@ class Nerve(AnatomicalStructure):
     See https://schema.org/Nerve.
 
     """
-
+    type_: str = Field("Nerve", const=True, alias='@type')
     branch: Any = Field(
         None,
         description="The branches that delineate from the nerve bundle. Not to be confused with [[branchOf]].",
@@ -28,7 +28,6 @@ class Nerve(AnatomicalStructure):
         None,
         description="The neurological pathway that originates the neurons.",
     )
-    locals().update({"@type": Field("Nerve", const=True)})
-
+    
 
 Nerve.update_forward_refs()

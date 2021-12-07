@@ -8,8 +8,7 @@ class Duration(Quantity):
     See https://schema.org/Duration.
 
     """
-
-    locals().update({"@type": Field("Duration", const=True)})
-
+    type_: str = Field("Duration", const=True, alias='@type')
+    
 
 Duration.update_forward_refs()

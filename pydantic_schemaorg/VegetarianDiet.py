@@ -8,8 +8,7 @@ class VegetarianDiet(RestrictedDiet):
     See https://schema.org/VegetarianDiet.
 
     """
-
-    locals().update({"@type": Field("VegetarianDiet", const=True)})
-
+    type_: str = Field("VegetarianDiet", const=True, alias='@type')
+    
 
 VegetarianDiet.update_forward_refs()

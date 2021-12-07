@@ -8,8 +8,7 @@ class ControlAction(Action):
     See https://schema.org/ControlAction.
 
     """
-
-    locals().update({"@type": Field("ControlAction", const=True)})
-
+    type_: str = Field("ControlAction", const=True, alias='@type')
+    
 
 ControlAction.update_forward_refs()

@@ -8,8 +8,7 @@ class ParkingFacility(CivicStructure):
     See https://schema.org/ParkingFacility.
 
     """
-
-    locals().update({"@type": Field("ParkingFacility", const=True)})
-
+    type_: str = Field("ParkingFacility", const=True, alias='@type')
+    
 
 ParkingFacility.update_forward_refs()

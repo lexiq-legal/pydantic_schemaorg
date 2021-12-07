@@ -10,8 +10,7 @@ class UserPlusOnes(UserInteraction):
     See https://schema.org/UserPlusOnes.
 
     """
-
-    locals().update({"@type": Field("UserPlusOnes", const=True)})
-
+    type_: str = Field("UserPlusOnes", const=True, alias='@type')
+    
 
 UserPlusOnes.update_forward_refs()

@@ -11,8 +11,7 @@ class FDAcategoryX(DrugPregnancyCategory):
     See https://schema.org/FDAcategoryX.
 
     """
-
-    locals().update({"@type": Field("FDAcategoryX", const=True)})
-
+    type_: str = Field("FDAcategoryX", const=True, alias='@type')
+    
 
 FDAcategoryX.update_forward_refs()

@@ -8,8 +8,7 @@ class Nonprofit501k(USNonprofitType):
     See https://schema.org/Nonprofit501k.
 
     """
-
-    locals().update({"@type": Field("Nonprofit501k", const=True)})
-
+    type_: str = Field("Nonprofit501k", const=True, alias='@type')
+    
 
 Nonprofit501k.update_forward_refs()

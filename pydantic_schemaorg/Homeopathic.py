@@ -9,8 +9,7 @@ class Homeopathic(MedicineSystem):
     See https://schema.org/Homeopathic.
 
     """
-
-    locals().update({"@type": Field("Homeopathic", const=True)})
-
+    type_: str = Field("Homeopathic", const=True, alias='@type')
+    
 
 Homeopathic.update_forward_refs()

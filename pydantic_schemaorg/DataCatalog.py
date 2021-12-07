@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -9,7 +9,7 @@ class DataCatalog(CreativeWork):
     See https://schema.org/DataCatalog.
 
     """
-
+    type_: str = Field("DataCatalog", const=True, alias='@type')
     measurementTechnique: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),"
@@ -28,7 +28,6 @@ class DataCatalog(CreativeWork):
         None,
         description="A dataset contained in this catalog.",
     )
-    locals().update({"@type": Field("DataCatalog", const=True)})
-
+    
 
 DataCatalog.update_forward_refs()

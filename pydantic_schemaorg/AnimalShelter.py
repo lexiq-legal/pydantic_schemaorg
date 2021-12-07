@@ -8,8 +8,7 @@ class AnimalShelter(LocalBusiness):
     See https://schema.org/AnimalShelter.
 
     """
-
-    locals().update({"@type": Field("AnimalShelter", const=True)})
-
+    type_: str = Field("AnimalShelter", const=True, alias='@type')
+    
 
 AnimalShelter.update_forward_refs()

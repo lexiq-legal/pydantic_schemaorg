@@ -16,8 +16,7 @@ class EndorsementRating(Rating):
     See https://schema.org/EndorsementRating.
 
     """
-
-    locals().update({"@type": Field("EndorsementRating", const=True)})
-
+    type_: str = Field("EndorsementRating", const=True, alias='@type')
+    
 
 EndorsementRating.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.BankOrCreditUnion import BankOrCreditUnion
 from pydantic_schemaorg.TransferAction import TransferAction
 
@@ -12,7 +12,7 @@ class MoneyTransfer(TransferAction):
     See https://schema.org/MoneyTransfer.
 
     """
-
+    type_: str = Field("MoneyTransfer", const=True, alias='@type')
     amount: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
         None,
         description="The amount of money.",
@@ -22,7 +22,6 @@ class MoneyTransfer(TransferAction):
         description="A bank or bank’s branch, financial institution or international financial institution"
      "operating the beneficiary’s bank account or releasing funds for the beneficiary.",
     )
-    locals().update({"@type": Field("MoneyTransfer", const=True)})
-
+    
 
 MoneyTransfer.update_forward_refs()

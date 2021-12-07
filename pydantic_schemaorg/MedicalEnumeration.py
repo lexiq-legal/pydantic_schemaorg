@@ -10,8 +10,7 @@ class MedicalEnumeration(Enumeration):
     See https://schema.org/MedicalEnumeration.
 
     """
-
-    locals().update({"@type": Field("MedicalEnumeration", const=True)})
-
+    type_: str = Field("MedicalEnumeration", const=True, alias='@type')
+    
 
 MedicalEnumeration.update_forward_refs()

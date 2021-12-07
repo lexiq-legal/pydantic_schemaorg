@@ -9,8 +9,7 @@ class PoliceStation(CivicStructure, EmergencyService):
     See https://schema.org/PoliceStation.
 
     """
-
-    locals().update({"@type": Field("PoliceStation", const=True)})
-
+    type_: str = Field("PoliceStation", const=True, alias='@type')
+    
 
 PoliceStation.update_forward_refs()

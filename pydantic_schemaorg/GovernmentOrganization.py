@@ -8,8 +8,7 @@ class GovernmentOrganization(Organization):
     See https://schema.org/GovernmentOrganization.
 
     """
-
-    locals().update({"@type": Field("GovernmentOrganization", const=True)})
-
+    type_: str = Field("GovernmentOrganization", const=True, alias='@type')
+    
 
 GovernmentOrganization.update_forward_refs()

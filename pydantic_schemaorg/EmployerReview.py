@@ -9,8 +9,7 @@ class EmployerReview(Review):
     See https://schema.org/EmployerReview.
 
     """
-
-    locals().update({"@type": Field("EmployerReview", const=True)})
-
+    type_: str = Field("EmployerReview", const=True, alias='@type')
+    
 
 EmployerReview.update_forward_refs()

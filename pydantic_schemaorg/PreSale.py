@@ -8,8 +8,7 @@ class PreSale(ItemAvailability):
     See https://schema.org/PreSale.
 
     """
-
-    locals().update({"@type": Field("PreSale", const=True)})
-
+    type_: str = Field("PreSale", const=True, alias='@type')
+    
 
 PreSale.update_forward_refs()

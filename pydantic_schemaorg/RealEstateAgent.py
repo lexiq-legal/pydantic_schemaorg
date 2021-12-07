@@ -8,8 +8,7 @@ class RealEstateAgent(LocalBusiness):
     See https://schema.org/RealEstateAgent.
 
     """
-
-    locals().update({"@type": Field("RealEstateAgent", const=True)})
-
+    type_: str = Field("RealEstateAgent", const=True, alias='@type')
+    
 
 RealEstateAgent.update_forward_refs()

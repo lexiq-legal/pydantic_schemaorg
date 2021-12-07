@@ -8,8 +8,7 @@ class Sculpture(CreativeWork):
     See https://schema.org/Sculpture.
 
     """
-
-    locals().update({"@type": Field("Sculpture", const=True)})
-
+    type_: str = Field("Sculpture", const=True, alias='@type')
+    
 
 Sculpture.update_forward_refs()

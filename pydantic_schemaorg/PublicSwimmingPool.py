@@ -8,8 +8,7 @@ class PublicSwimmingPool(SportsActivityLocation):
     See https://schema.org/PublicSwimmingPool.
 
     """
-
-    locals().update({"@type": Field("PublicSwimmingPool", const=True)})
-
+    type_: str = Field("PublicSwimmingPool", const=True, alias='@type')
+    
 
 PublicSwimmingPool.update_forward_refs()

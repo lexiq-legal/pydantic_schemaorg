@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Vessel import Vessel
 
 
@@ -10,7 +10,7 @@ class Vein(Vessel):
     See https://schema.org/Vein.
 
     """
-
+    type_: str = Field("Vein", const=True, alias='@type')
     tributary: Optional[Union[List[AnatomicalStructure], AnatomicalStructure]] = Field(
         None,
         description="The anatomical or organ system that the vein flows into; a larger structure that the vein"
@@ -25,7 +25,6 @@ class Vein(Vessel):
         description="The anatomical or organ system drained by this vessel; generally refers to a specific"
      "part of an organ.",
     )
-    locals().update({"@type": Field("Vein", const=True)})
-
+    
 
 Vein.update_forward_refs()

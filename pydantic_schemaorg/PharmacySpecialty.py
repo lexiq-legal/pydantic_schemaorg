@@ -8,8 +8,7 @@ class PharmacySpecialty(MedicalSpecialty):
     See https://schema.org/PharmacySpecialty.
 
     """
-
-    locals().update({"@type": Field("PharmacySpecialty", const=True)})
-
+    type_: str = Field("PharmacySpecialty", const=True, alias='@type')
+    
 
 PharmacySpecialty.update_forward_refs()

@@ -8,8 +8,7 @@ class Electrician(HomeAndConstructionBusiness):
     See https://schema.org/Electrician.
 
     """
-
-    locals().update({"@type": Field("Electrician", const=True)})
-
+    type_: str = Field("Electrician", const=True, alias='@type')
+    
 
 Electrician.update_forward_refs()

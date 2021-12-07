@@ -1,6 +1,6 @@
 from pydantic import Field
-from datetime import date, datetime
-from typing import Any, Union, List, Optional
+from datetime import datetime, date
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.Series import Series
 
@@ -23,7 +23,7 @@ class CreativeWorkSeries(CreativeWork, Series):
     See https://schema.org/CreativeWorkSeries.
 
     """
-
+    type_: str = Field("CreativeWorkSeries", const=True, alias='@type')
     endDate: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
         None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
@@ -38,7 +38,6 @@ class CreativeWorkSeries(CreativeWork, Series):
      "You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L)"
      "for, this serial publication.",
     )
-    locals().update({"@type": Field("CreativeWorkSeries", const=True)})
-
+    
 
 CreativeWorkSeries.update_forward_refs()

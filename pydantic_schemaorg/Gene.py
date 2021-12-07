@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.BioChemEntity import BioChemEntity
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
@@ -15,7 +15,7 @@ class Gene(BioChemEntity):
     See https://schema.org/Gene.
 
     """
-
+    type_: str = Field("Gene", const=True, alias='@type')
     hasBioPolymerSequence: Optional[Union[List[str], str]] = Field(
         None,
         description="A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of"
@@ -29,12 +29,11 @@ class Gene(BioChemEntity):
         None,
         description="Another gene which is a variation of this one.",
     )
-    expressedIn: Optional[Union[List[Union[AnatomicalStructure, DefinedTerm, AnatomicalSystem, BioChemEntity]], Union[AnatomicalStructure, DefinedTerm, AnatomicalSystem, BioChemEntity]]] = Field(
+    expressedIn: Optional[Union[List[Union[AnatomicalStructure, DefinedTerm, BioChemEntity, AnatomicalSystem]], Union[AnatomicalStructure, DefinedTerm, BioChemEntity, AnatomicalSystem]]] = Field(
         None,
         description="Tissue, organ, biological sample, etc in which activity of this gene has been observed"
      "experimentally. For example brain, digestive system.",
     )
-    locals().update({"@type": Field("Gene", const=True)})
-
+    
 
 Gene.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Place import Place
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -11,7 +11,7 @@ class GeospatialGeometry(Intangible):
     See https://schema.org/GeospatialGeometry.
 
     """
-
+    type_: str = Field("GeospatialGeometry", const=True, alias='@type')
     geoEquals: Union[List[Union[Place, Any]], Union[Place, Any]] = Field(
         None,
         description="Represents spatial relations in which two geometries (or the places they represent)"
@@ -74,7 +74,6 @@ class GeospatialGeometry(Intangible):
      "a geometry to another that geospatially overlaps it, i.e. they have some but not all points"
      "in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
-    locals().update({"@type": Field("GeospatialGeometry", const=True)})
-
+    
 
 GeospatialGeometry.update_forward_refs()

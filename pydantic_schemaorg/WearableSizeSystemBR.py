@@ -8,8 +8,7 @@ class WearableSizeSystemBR(WearableSizeSystemEnumeration):
     See https://schema.org/WearableSizeSystemBR.
 
     """
-
-    locals().update({"@type": Field("WearableSizeSystemBR", const=True)})
-
+    type_: str = Field("WearableSizeSystemBR", const=True, alias='@type')
+    
 
 WearableSizeSystemBR.update_forward_refs()

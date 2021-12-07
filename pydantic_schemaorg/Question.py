@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Comment import Comment
 
 
@@ -10,7 +10,7 @@ class Question(Comment):
     See https://schema.org/Question.
 
     """
-
+    type_: str = Field("Question", const=True, alias='@type')
     eduQuestionType: Optional[Union[List[str], str]] = Field(
         None,
         description="For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates"
@@ -32,7 +32,6 @@ class Question(Comment):
      "vary in their selection mechanisms, e.g. drawing on community opinion and/or the view"
      "of the Question author.",
     )
-    locals().update({"@type": Field("Question", const=True)})
-
+    
 
 Question.update_forward_refs()

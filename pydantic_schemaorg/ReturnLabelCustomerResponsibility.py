@@ -8,8 +8,7 @@ class ReturnLabelCustomerResponsibility(ReturnLabelSourceEnumeration):
     See https://schema.org/ReturnLabelCustomerResponsibility.
 
     """
-
-    locals().update({"@type": Field("ReturnLabelCustomerResponsibility", const=True)})
-
+    type_: str = Field("ReturnLabelCustomerResponsibility", const=True, alias='@type')
+    
 
 ReturnLabelCustomerResponsibility.update_forward_refs()

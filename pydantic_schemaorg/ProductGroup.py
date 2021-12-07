@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Product import Product
 
 
@@ -18,7 +18,7 @@ class ProductGroup(Product):
     See https://schema.org/ProductGroup.
 
     """
-
+    type_: str = Field("ProductGroup", const=True, alias='@type')
     variesBy: Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]] = Field(
         None,
         description="Indicates the property or properties by which the variants in a [[ProductGroup]] vary,"
@@ -33,7 +33,6 @@ class ProductGroup(Product):
         None,
         description="Indicates a [[Product]] that is a member of this [[ProductGroup]] (or [[ProductModel]]).",
     )
-    locals().update({"@type": Field("ProductGroup", const=True)})
-
+    
 
 ProductGroup.update_forward_refs()

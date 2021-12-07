@@ -8,8 +8,7 @@ class School(EducationalOrganization):
     See https://schema.org/School.
 
     """
-
-    locals().update({"@type": Field("School", const=True)})
-
+    type_: str = Field("School", const=True, alias='@type')
+    
 
 School.update_forward_refs()

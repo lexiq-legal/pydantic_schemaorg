@@ -8,8 +8,7 @@ class HinduTemple(PlaceOfWorship):
     See https://schema.org/HinduTemple.
 
     """
-
-    locals().update({"@type": Field("HinduTemple", const=True)})
-
+    type_: str = Field("HinduTemple", const=True, alias='@type')
+    
 
 HinduTemple.update_forward_refs()

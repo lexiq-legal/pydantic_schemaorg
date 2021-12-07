@@ -10,8 +10,7 @@ class UserLikes(UserInteraction):
     See https://schema.org/UserLikes.
 
     """
-
-    locals().update({"@type": Field("UserLikes", const=True)})
-
+    type_: str = Field("UserLikes", const=True, alias='@type')
+    
 
 UserLikes.update_forward_refs()

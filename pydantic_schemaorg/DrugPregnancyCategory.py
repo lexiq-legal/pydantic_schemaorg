@@ -9,8 +9,7 @@ class DrugPregnancyCategory(MedicalEnumeration):
     See https://schema.org/DrugPregnancyCategory.
 
     """
-
-    locals().update({"@type": Field("DrugPregnancyCategory", const=True)})
-
+    type_: str = Field("DrugPregnancyCategory", const=True, alias='@type')
+    
 
 DrugPregnancyCategory.update_forward_refs()

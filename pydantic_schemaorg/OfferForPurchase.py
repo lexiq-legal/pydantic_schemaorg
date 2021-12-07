@@ -11,8 +11,7 @@ class OfferForPurchase(Offer):
     See https://schema.org/OfferForPurchase.
 
     """
-
-    locals().update({"@type": Field("OfferForPurchase", const=True)})
-
+    type_: str = Field("OfferForPurchase", const=True, alias='@type')
+    
 
 OfferForPurchase.update_forward_refs()

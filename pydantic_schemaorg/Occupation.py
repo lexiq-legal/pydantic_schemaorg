@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.OccupationalExperienceRequirements import OccupationalExperienceRequirements
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
 from decimal import Decimal
@@ -16,7 +16,7 @@ class Occupation(Intangible):
     See https://schema.org/Occupation.
 
     """
-
+    type_: str = Field("Occupation", const=True, alias='@type')
     experienceRequirements: Optional[Union[List[Union[str, OccupationalExperienceRequirements]], Union[str, OccupationalExperienceRequirements]]] = Field(
         None,
         description="Description of skills and experience needed for the position or Occupation.",
@@ -59,7 +59,6 @@ class Occupation(Intangible):
         None,
         description="Educational background needed for the position or Occupation.",
     )
-    locals().update({"@type": Field("Occupation", const=True)})
-
+    
 
 Occupation.update_forward_refs()

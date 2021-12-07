@@ -8,8 +8,7 @@ class Photograph(CreativeWork):
     See https://schema.org/Photograph.
 
     """
-
-    locals().update({"@type": Field("Photograph", const=True)})
-
+    type_: str = Field("Photograph", const=True, alias='@type')
+    
 
 Photograph.update_forward_refs()

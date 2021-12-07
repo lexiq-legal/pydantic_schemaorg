@@ -8,8 +8,7 @@ class DJMixAlbum(MusicAlbumProductionType):
     See https://schema.org/DJMixAlbum.
 
     """
-
-    locals().update({"@type": Field("DJMixAlbum", const=True)})
-
+    type_: str = Field("DJMixAlbum", const=True, alias='@type')
+    
 
 DJMixAlbum.update_forward_refs()

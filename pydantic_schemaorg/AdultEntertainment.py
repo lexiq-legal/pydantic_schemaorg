@@ -8,8 +8,7 @@ class AdultEntertainment(EntertainmentBusiness):
     See https://schema.org/AdultEntertainment.
 
     """
-
-    locals().update({"@type": Field("AdultEntertainment", const=True)})
-
+    type_: str = Field("AdultEntertainment", const=True, alias='@type')
+    
 
 AdultEntertainment.update_forward_refs()

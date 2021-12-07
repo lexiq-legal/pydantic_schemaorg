@@ -8,8 +8,7 @@ class InsuranceAgency(FinancialService):
     See https://schema.org/InsuranceAgency.
 
     """
-
-    locals().update({"@type": Field("InsuranceAgency", const=True)})
-
+    type_: str = Field("InsuranceAgency", const=True, alias='@type')
+    
 
 InsuranceAgency.update_forward_refs()

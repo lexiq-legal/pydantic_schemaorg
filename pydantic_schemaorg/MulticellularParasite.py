@@ -8,8 +8,7 @@ class MulticellularParasite(InfectiousAgentClass):
     See https://schema.org/MulticellularParasite.
 
     """
-
-    locals().update({"@type": Field("MulticellularParasite", const=True)})
-
+    type_: str = Field("MulticellularParasite", const=True, alias='@type')
+    
 
 MulticellularParasite.update_forward_refs()

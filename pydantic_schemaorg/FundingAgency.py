@@ -12,8 +12,7 @@ class FundingAgency(Project):
     See https://schema.org/FundingAgency.
 
     """
-
-    locals().update({"@type": Field("FundingAgency", const=True)})
-
+    type_: str = Field("FundingAgency", const=True, alias='@type')
+    
 
 FundingAgency.update_forward_refs()

@@ -9,8 +9,7 @@ class MotorizedBicycle(Vehicle):
     See https://schema.org/MotorizedBicycle.
 
     """
-
-    locals().update({"@type": Field("MotorizedBicycle", const=True)})
-
+    type_: str = Field("MotorizedBicycle", const=True, alias='@type')
+    
 
 MotorizedBicycle.update_forward_refs()

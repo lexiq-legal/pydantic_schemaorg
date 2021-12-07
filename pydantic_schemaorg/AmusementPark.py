@@ -8,8 +8,7 @@ class AmusementPark(EntertainmentBusiness):
     See https://schema.org/AmusementPark.
 
     """
-
-    locals().update({"@type": Field("AmusementPark", const=True)})
-
+    type_: str = Field("AmusementPark", const=True, alias='@type')
+    
 
 AmusementPark.update_forward_refs()

@@ -9,8 +9,7 @@ class LeftHandDriving(SteeringPositionValue):
     See https://schema.org/LeftHandDriving.
 
     """
-
-    locals().update({"@type": Field("LeftHandDriving", const=True)})
-
+    type_: str = Field("LeftHandDriving", const=True, alias='@type')
+    
 
 LeftHandDriving.update_forward_refs()

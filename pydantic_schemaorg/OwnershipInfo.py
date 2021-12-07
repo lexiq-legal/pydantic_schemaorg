@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Service import Service
 from pydantic_schemaorg.Product import Product
 from datetime import datetime
@@ -15,7 +15,7 @@ class OwnershipInfo(StructuredValue):
     See https://schema.org/OwnershipInfo.
 
     """
-
+    type_: str = Field("OwnershipInfo", const=True, alias='@type')
     acquiredFrom: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
         None,
         description="The organization or person from which the product was acquired.",
@@ -32,7 +32,6 @@ class OwnershipInfo(StructuredValue):
         None,
         description="The date and time of obtaining the product.",
     )
-    locals().update({"@type": Field("OwnershipInfo", const=True)})
-
+    
 
 OwnershipInfo.update_forward_refs()

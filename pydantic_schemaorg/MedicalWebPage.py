@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalAudienceType import MedicalAudienceType
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.WebPage import WebPage
 
 
@@ -10,7 +10,7 @@ class MedicalWebPage(WebPage):
     See https://schema.org/MedicalWebPage.
 
     """
-
+    type_: str = Field("MedicalWebPage", const=True, alias='@type')
     medicalAudience: Union[List[Union[MedicalAudienceType, Any]], Union[MedicalAudienceType, Any]] = Field(
         None,
         description="Medical audience for page.",
@@ -20,7 +20,6 @@ class MedicalWebPage(WebPage):
         description="An aspect of medical practice that is considered on the page, such as 'diagnosis', 'treatment',"
      "'causes', 'prognosis', 'etiology', 'epidemiology', etc.",
     )
-    locals().update({"@type": Field("MedicalWebPage", const=True)})
-
+    
 
 MedicalWebPage.update_forward_refs()

@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Event import Event
 
 
@@ -9,7 +9,7 @@ class ScreeningEvent(Event):
     See https://schema.org/ScreeningEvent.
 
     """
-
+    type_: str = Field("ScreeningEvent", const=True, alias='@type')
     workPresented: Any = Field(
         None,
         description="The movie presented during this event.",
@@ -22,7 +22,6 @@ class ScreeningEvent(Event):
         None,
         description="The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).",
     )
-    locals().update({"@type": Field("ScreeningEvent", const=True)})
-
+    
 
 ScreeningEvent.update_forward_refs()

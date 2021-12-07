@@ -8,8 +8,7 @@ class SpreadsheetDigitalDocument(DigitalDocument):
     See https://schema.org/SpreadsheetDigitalDocument.
 
     """
-
-    locals().update({"@type": Field("SpreadsheetDigitalDocument", const=True)})
-
+    type_: str = Field("SpreadsheetDigitalDocument", const=True, alias='@type')
+    
 
 SpreadsheetDigitalDocument.update_forward_refs()

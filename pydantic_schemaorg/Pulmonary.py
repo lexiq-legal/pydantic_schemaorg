@@ -9,8 +9,7 @@ class Pulmonary(MedicalSpecialty):
     See https://schema.org/Pulmonary.
 
     """
-
-    locals().update({"@type": Field("Pulmonary", const=True)})
-
+    type_: str = Field("Pulmonary", const=True, alias='@type')
+    
 
 Pulmonary.update_forward_refs()

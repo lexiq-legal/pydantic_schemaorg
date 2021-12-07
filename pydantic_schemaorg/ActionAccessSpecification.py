@@ -1,8 +1,8 @@
-from pydantic import Field, AnyUrl, StrictBool
-from pydantic_schemaorg.Thing import Thing
+from pydantic import StrictBool, Field, AnyUrl
 from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
-from typing import Any, Union, List, Optional
-from datetime import date, datetime, time
+from pydantic_schemaorg.Thing import Thing
+from typing import Any, Optional, Union, List
+from datetime import datetime, time, date
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -13,8 +13,8 @@ class ActionAccessSpecification(Intangible):
     See https://schema.org/ActionAccessSpecification.
 
     """
-
-    category: Optional[Union[List[Union[AnyUrl, str, Thing, PhysicalActivityCategory]], Union[AnyUrl, str, Thing, PhysicalActivityCategory]]] = Field(
+    type_: str = Field("ActionAccessSpecification", const=True, alias='@type')
+    category: Optional[Union[List[Union[AnyUrl, str, PhysicalActivityCategory, Thing]], Union[AnyUrl, str, PhysicalActivityCategory, Thing]]] = Field(
         None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -49,7 +49,6 @@ class ActionAccessSpecification(Intangible):
      "the geo-political region(s) for which the offer or delivery charge specification is"
      "not valid, e.g. a region where the transaction is not allowed. See also [[eligibleRegion]].",
     )
-    locals().update({"@type": Field("ActionAccessSpecification", const=True)})
-
+    
 
 ActionAccessSpecification.update_forward_refs()

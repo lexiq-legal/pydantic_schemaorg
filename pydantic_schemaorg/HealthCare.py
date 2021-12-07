@@ -8,8 +8,7 @@ class HealthCare(GovernmentBenefitsType):
     See https://schema.org/HealthCare.
 
     """
-
-    locals().update({"@type": Field("HealthCare", const=True)})
-
+    type_: str = Field("HealthCare", const=True, alias='@type')
+    
 
 HealthCare.update_forward_refs()

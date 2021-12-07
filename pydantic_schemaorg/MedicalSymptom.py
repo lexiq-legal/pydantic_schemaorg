@@ -9,8 +9,7 @@ class MedicalSymptom(MedicalSignOrSymptom):
     See https://schema.org/MedicalSymptom.
 
     """
-
-    locals().update({"@type": Field("MedicalSymptom", const=True)})
-
+    type_: str = Field("MedicalSymptom", const=True, alias='@type')
+    
 
 MedicalSymptom.update_forward_refs()

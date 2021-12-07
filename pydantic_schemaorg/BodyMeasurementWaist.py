@@ -9,8 +9,7 @@ class BodyMeasurementWaist(BodyMeasurementTypeEnumeration):
     See https://schema.org/BodyMeasurementWaist.
 
     """
-
-    locals().update({"@type": Field("BodyMeasurementWaist", const=True)})
-
+    type_: str = Field("BodyMeasurementWaist", const=True, alias='@type')
+    
 
 BodyMeasurementWaist.update_forward_refs()

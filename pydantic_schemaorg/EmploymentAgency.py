@@ -8,8 +8,7 @@ class EmploymentAgency(LocalBusiness):
     See https://schema.org/EmploymentAgency.
 
     """
-
-    locals().update({"@type": Field("EmploymentAgency", const=True)})
-
+    type_: str = Field("EmploymentAgency", const=True, alias='@type')
+    
 
 EmploymentAgency.update_forward_refs()

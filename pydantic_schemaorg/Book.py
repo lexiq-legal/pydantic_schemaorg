@@ -1,6 +1,6 @@
-from pydantic import Field, StrictBool
+from pydantic import StrictBool, Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.BookFormatType import BookFormatType
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -11,7 +11,7 @@ class Book(CreativeWork):
     See https://schema.org/Book.
 
     """
-
+    type_: str = Field("Book", const=True, alias='@type')
     illustrator: Optional[Union[List[Person], Person]] = Field(
         None,
         description="The illustrator of the book.",
@@ -36,7 +36,6 @@ class Book(CreativeWork):
         None,
         description="The edition of the book.",
     )
-    locals().update({"@type": Field("Book", const=True)})
-
+    
 
 Book.update_forward_refs()

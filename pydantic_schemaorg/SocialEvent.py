@@ -8,8 +8,7 @@ class SocialEvent(Event):
     See https://schema.org/SocialEvent.
 
     """
-
-    locals().update({"@type": Field("SocialEvent", const=True)})
-
+    type_: str = Field("SocialEvent", const=True, alias='@type')
+    
 
 SocialEvent.update_forward_refs()

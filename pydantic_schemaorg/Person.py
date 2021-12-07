@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.CreativeWork import CreativeWork
@@ -13,7 +13,7 @@ class Person(Thing):
     See https://schema.org/Person.
 
     """
-
+    type_: str = Field("Person", const=True, alias='@type')
     contactPoint: Any = Field(
         None,
         description="A contact point for a person or organization.",
@@ -289,7 +289,6 @@ class Person(Thing):
         None,
         description="Products owned by the organization or person.",
     )
-    locals().update({"@type": Field("Person", const=True)})
-
+    
 
 Person.update_forward_refs()

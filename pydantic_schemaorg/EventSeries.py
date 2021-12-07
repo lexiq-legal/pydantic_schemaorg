@@ -21,8 +21,7 @@ class EventSeries(Event, Series):
     See https://schema.org/EventSeries.
 
     """
-
-    locals().update({"@type": Field("EventSeries", const=True)})
-
+    type_: str = Field("EventSeries", const=True, alias='@type')
+    
 
 EventSeries.update_forward_refs()

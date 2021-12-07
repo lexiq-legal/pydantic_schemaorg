@@ -8,8 +8,7 @@ class OrderProblem(OrderStatus):
     See https://schema.org/OrderProblem.
 
     """
-
-    locals().update({"@type": Field("OrderProblem", const=True)})
-
+    type_: str = Field("OrderProblem", const=True, alias='@type')
+    
 
 OrderProblem.update_forward_refs()

@@ -8,8 +8,7 @@ class DigitalFormat(MusicReleaseFormatType):
     See https://schema.org/DigitalFormat.
 
     """
-
-    locals().update({"@type": Field("DigitalFormat", const=True)})
-
+    type_: str = Field("DigitalFormat", const=True, alias='@type')
+    
 
 DigitalFormat.update_forward_refs()

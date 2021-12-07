@@ -8,8 +8,7 @@ class PaymentDeclined(PaymentStatusType):
     See https://schema.org/PaymentDeclined.
 
     """
-
-    locals().update({"@type": Field("PaymentDeclined", const=True)})
-
+    type_: str = Field("PaymentDeclined", const=True, alias='@type')
+    
 
 PaymentDeclined.update_forward_refs()

@@ -9,8 +9,7 @@ class MedicalGuidelineContraindication(MedicalGuideline):
     See https://schema.org/MedicalGuidelineContraindication.
 
     """
-
-    locals().update({"@type": Field("MedicalGuidelineContraindication", const=True)})
-
+    type_: str = Field("MedicalGuidelineContraindication", const=True, alias='@type')
+    
 
 MedicalGuidelineContraindication.update_forward_refs()

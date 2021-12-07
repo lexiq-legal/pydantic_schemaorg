@@ -8,8 +8,7 @@ class CheckoutPage(WebPage):
     See https://schema.org/CheckoutPage.
 
     """
-
-    locals().update({"@type": Field("CheckoutPage", const=True)})
-
+    type_: str = Field("CheckoutPage", const=True, alias='@type')
+    
 
 CheckoutPage.update_forward_refs()

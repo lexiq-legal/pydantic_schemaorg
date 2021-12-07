@@ -9,8 +9,7 @@ class OfferCatalog(ItemList):
     See https://schema.org/OfferCatalog.
 
     """
-
-    locals().update({"@type": Field("OfferCatalog", const=True)})
-
+    type_: str = Field("OfferCatalog", const=True, alias='@type')
+    
 
 OfferCatalog.update_forward_refs()

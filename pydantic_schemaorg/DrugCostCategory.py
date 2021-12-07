@@ -8,8 +8,7 @@ class DrugCostCategory(MedicalEnumeration):
     See https://schema.org/DrugCostCategory.
 
     """
-
-    locals().update({"@type": Field("DrugCostCategory", const=True)})
-
+    type_: str = Field("DrugCostCategory", const=True, alias='@type')
+    
 
 DrugCostCategory.update_forward_refs()

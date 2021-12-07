@@ -10,8 +10,7 @@ class EventRescheduled(EventStatusType):
     See https://schema.org/EventRescheduled.
 
     """
-
-    locals().update({"@type": Field("EventRescheduled", const=True)})
-
+    type_: str = Field("EventRescheduled", const=True, alias='@type')
+    
 
 EventRescheduled.update_forward_refs()

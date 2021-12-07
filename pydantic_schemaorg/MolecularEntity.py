@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.BioChemEntity import BioChemEntity
 
@@ -12,7 +12,7 @@ class MolecularEntity(BioChemEntity):
     See https://schema.org/MolecularEntity.
 
     """
-
+    type_: str = Field("MolecularEntity", const=True, alias='@type')
     iupacName: Optional[Union[List[str], str]] = Field(
         None,
         description="Systematic method of naming chemical compounds as recommended by the International"
@@ -57,7 +57,6 @@ class MolecularEntity(BioChemEntity):
         None,
         description="Intended use of the BioChemEntity by humans.",
     )
-    locals().update({"@type": Field("MolecularEntity", const=True)})
-
+    
 
 MolecularEntity.update_forward_refs()

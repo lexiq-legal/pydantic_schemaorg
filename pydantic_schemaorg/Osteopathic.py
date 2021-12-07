@@ -8,8 +8,7 @@ class Osteopathic(MedicineSystem):
     See https://schema.org/Osteopathic.
 
     """
-
-    locals().update({"@type": Field("Osteopathic", const=True)})
-
+    type_: str = Field("Osteopathic", const=True, alias='@type')
+    
 
 Osteopathic.update_forward_refs()

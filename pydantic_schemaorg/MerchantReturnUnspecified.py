@@ -8,8 +8,7 @@ class MerchantReturnUnspecified(MerchantReturnEnumeration):
     See https://schema.org/MerchantReturnUnspecified.
 
     """
-
-    locals().update({"@type": Field("MerchantReturnUnspecified", const=True)})
-
+    type_: str = Field("MerchantReturnUnspecified", const=True, alias='@type')
+    
 
 MerchantReturnUnspecified.update_forward_refs()

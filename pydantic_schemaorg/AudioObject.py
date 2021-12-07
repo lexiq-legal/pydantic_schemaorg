@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MediaObject import MediaObject
 
 
@@ -9,7 +9,7 @@ class AudioObject(MediaObject):
     See https://schema.org/AudioObject.
 
     """
-
+    type_: str = Field("AudioObject", const=True, alias='@type')
     embeddedTextCaption: Optional[Union[List[str], str]] = Field(
         None,
         description="Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.",
@@ -23,7 +23,6 @@ class AudioObject(MediaObject):
         description="The caption for this object. For downloadable machine formats (closed caption, subtitles"
      "etc.) use MediaObject and indicate the [[encodingFormat]].",
     )
-    locals().update({"@type": Field("AudioObject", const=True)})
-
+    
 
 AudioObject.update_forward_refs()

@@ -8,8 +8,7 @@ class Ultrasound(MedicalImagingTechnique):
     See https://schema.org/Ultrasound.
 
     """
-
-    locals().update({"@type": Field("Ultrasound", const=True)})
-
+    type_: str = Field("Ultrasound", const=True, alias='@type')
+    
 
 Ultrasound.update_forward_refs()

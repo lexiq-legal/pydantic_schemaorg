@@ -8,8 +8,7 @@ class Drawing(CreativeWork):
     See https://schema.org/Drawing.
 
     """
-
-    locals().update({"@type": Field("Drawing", const=True)})
-
+    type_: str = Field("Drawing", const=True, alias='@type')
+    
 
 Drawing.update_forward_refs()

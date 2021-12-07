@@ -8,8 +8,7 @@ class ContagiousnessHealthAspect(HealthAspectEnumeration):
     See https://schema.org/ContagiousnessHealthAspect.
 
     """
-
-    locals().update({"@type": Field("ContagiousnessHealthAspect", const=True)})
-
+    type_: str = Field("ContagiousnessHealthAspect", const=True, alias='@type')
+    
 
 ContagiousnessHealthAspect.update_forward_refs()

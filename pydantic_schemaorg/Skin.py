@@ -8,8 +8,7 @@ class Skin(PhysicalExam):
     See https://schema.org/Skin.
 
     """
-
-    locals().update({"@type": Field("Skin", const=True)})
-
+    type_: str = Field("Skin", const=True, alias='@type')
+    
 
 Skin.update_forward_refs()

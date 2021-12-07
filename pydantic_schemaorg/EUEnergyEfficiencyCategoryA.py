@@ -8,8 +8,7 @@ class EUEnergyEfficiencyCategoryA(EUEnergyEfficiencyEnumeration):
     See https://schema.org/EUEnergyEfficiencyCategoryA.
 
     """
-
-    locals().update({"@type": Field("EUEnergyEfficiencyCategoryA", const=True)})
-
+    type_: str = Field("EUEnergyEfficiencyCategoryA", const=True, alias='@type')
+    
 
 EUEnergyEfficiencyCategoryA.update_forward_refs()

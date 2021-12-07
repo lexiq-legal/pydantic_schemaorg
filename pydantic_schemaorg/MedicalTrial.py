@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalTrialDesign import MedicalTrialDesign
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalStudy import MedicalStudy
 
 
@@ -13,12 +13,11 @@ class MedicalTrial(MedicalStudy):
     See https://schema.org/MedicalTrial.
 
     """
-
+    type_: str = Field("MedicalTrial", const=True, alias='@type')
     trialDesign: Optional[Union[List[MedicalTrialDesign], MedicalTrialDesign]] = Field(
         None,
         description="Specifics about the trial design (enumerated).",
     )
-    locals().update({"@type": Field("MedicalTrial", const=True)})
-
+    
 
 MedicalTrial.update_forward_refs()

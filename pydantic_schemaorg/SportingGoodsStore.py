@@ -8,8 +8,7 @@ class SportingGoodsStore(Store):
     See https://schema.org/SportingGoodsStore.
 
     """
-
-    locals().update({"@type": Field("SportingGoodsStore", const=True)})
-
+    type_: str = Field("SportingGoodsStore", const=True, alias='@type')
+    
 
 SportingGoodsStore.update_forward_refs()

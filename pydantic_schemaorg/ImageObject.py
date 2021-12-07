@@ -1,5 +1,5 @@
-from pydantic import Field, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.PropertyValue import PropertyValue
 from pydantic_schemaorg.MediaObject import MediaObject
 
@@ -10,7 +10,7 @@ class ImageObject(MediaObject):
     See https://schema.org/ImageObject.
 
     """
-
+    type_: str = Field("ImageObject", const=True, alias='@type')
     thumbnail: Any = Field(
         None,
         description="Thumbnail image for an image or video.",
@@ -32,7 +32,6 @@ class ImageObject(MediaObject):
         description="The caption for this object. For downloadable machine formats (closed caption, subtitles"
      "etc.) use MediaObject and indicate the [[encodingFormat]].",
     )
-    locals().update({"@type": Field("ImageObject", const=True)})
-
+    
 
 ImageObject.update_forward_refs()

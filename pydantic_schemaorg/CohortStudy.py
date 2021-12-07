@@ -15,8 +15,7 @@ class CohortStudy(MedicalObservationalStudyDesign):
     See https://schema.org/CohortStudy.
 
     """
-
-    locals().update({"@type": Field("CohortStudy", const=True)})
-
+    type_: str = Field("CohortStudy", const=True, alias='@type')
+    
 
 CohortStudy.update_forward_refs()

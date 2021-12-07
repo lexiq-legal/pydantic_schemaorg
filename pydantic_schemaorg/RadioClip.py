@@ -8,8 +8,7 @@ class RadioClip(Clip):
     See https://schema.org/RadioClip.
 
     """
-
-    locals().update({"@type": Field("RadioClip", const=True)})
-
+    type_: str = Field("RadioClip", const=True, alias='@type')
+    
 
 RadioClip.update_forward_refs()

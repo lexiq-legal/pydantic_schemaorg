@@ -8,8 +8,7 @@ class MusculoskeletalExam(PhysicalExam):
     See https://schema.org/MusculoskeletalExam.
 
     """
-
-    locals().update({"@type": Field("MusculoskeletalExam", const=True)})
-
+    type_: str = Field("MusculoskeletalExam", const=True, alias='@type')
+    
 
 MusculoskeletalExam.update_forward_refs()

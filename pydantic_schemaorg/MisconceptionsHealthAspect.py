@@ -8,8 +8,7 @@ class MisconceptionsHealthAspect(HealthAspectEnumeration):
     See https://schema.org/MisconceptionsHealthAspect.
 
     """
-
-    locals().update({"@type": Field("MisconceptionsHealthAspect", const=True)})
-
+    type_: str = Field("MisconceptionsHealthAspect", const=True, alias='@type')
+    
 
 MisconceptionsHealthAspect.update_forward_refs()

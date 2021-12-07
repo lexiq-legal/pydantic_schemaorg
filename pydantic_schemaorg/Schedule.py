@@ -1,6 +1,6 @@
 from pydantic import Field
-from datetime import date, datetime, time
-from typing import Any, Union, List, Optional
+from datetime import datetime, time, date
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DayOfWeek import DayOfWeek
 from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.Intangible import Intangible
@@ -18,7 +18,7 @@ class Schedule(Intangible):
     See https://schema.org/Schedule.
 
     """
-
+    type_: str = Field("Schedule", const=True, alias='@type')
     exceptDate: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
         None,
         description="Defines a [[Date]] or [[DateTime]] during which a scheduled [[Event]] will not take"
@@ -95,7 +95,6 @@ class Schedule(Intangible):
      "Event uses startDate/endDate instead of startTime/endTime, even when describing"
      "dates with times. This situation may be clarified in future revisions.",
     )
-    locals().update({"@type": Field("Schedule", const=True)})
-
+    
 
 Schedule.update_forward_refs()

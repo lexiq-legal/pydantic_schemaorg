@@ -8,8 +8,7 @@ class UKTrust(UKNonprofitType):
     See https://schema.org/UKTrust.
 
     """
-
-    locals().update({"@type": Field("UKTrust", const=True)})
-
+    type_: str = Field("UKTrust", const=True, alias='@type')
+    
 
 UKTrust.update_forward_refs()

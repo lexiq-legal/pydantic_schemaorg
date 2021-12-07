@@ -8,8 +8,7 @@ class Virus(InfectiousAgentClass):
     See https://schema.org/Virus.
 
     """
-
-    locals().update({"@type": Field("Virus", const=True)})
-
+    type_: str = Field("Virus", const=True, alias='@type')
+    
 
 Virus.update_forward_refs()

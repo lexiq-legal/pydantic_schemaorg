@@ -11,8 +11,7 @@ class Landform(Place):
     See https://schema.org/Landform.
 
     """
-
-    locals().update({"@type": Field("Landform", const=True)})
-
+    type_: str = Field("Landform", const=True, alias='@type')
+    
 
 Landform.update_forward_refs()

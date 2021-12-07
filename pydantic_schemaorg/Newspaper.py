@@ -10,8 +10,7 @@ class Newspaper(Periodical):
     See https://schema.org/Newspaper.
 
     """
-
-    locals().update({"@type": Field("Newspaper", const=True)})
-
+    type_: str = Field("Newspaper", const=True, alias='@type')
+    
 
 Newspaper.update_forward_refs()

@@ -8,8 +8,7 @@ class Museum(CivicStructure):
     See https://schema.org/Museum.
 
     """
-
-    locals().update({"@type": Field("Museum", const=True)})
-
+    type_: str = Field("Museum", const=True, alias='@type')
+    
 
 Museum.update_forward_refs()

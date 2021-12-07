@@ -11,8 +11,7 @@ class Pathology(MedicalSpecialty):
     See https://schema.org/Pathology.
 
     """
-
-    locals().update({"@type": Field("Pathology", const=True)})
-
+    type_: str = Field("Pathology", const=True, alias='@type')
+    
 
 Pathology.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.FindAction import FindAction
 
 
@@ -13,12 +13,11 @@ class TrackAction(FindAction):
     See https://schema.org/TrackAction.
 
     """
-
+    type_: str = Field("TrackAction", const=True, alias='@type')
     deliveryMethod: Optional[Union[List[DeliveryMethod], DeliveryMethod]] = Field(
         None,
         description="A sub property of instrument. The method of delivery.",
     )
-    locals().update({"@type": Field("TrackAction", const=True)})
-
+    
 
 TrackAction.update_forward_refs()

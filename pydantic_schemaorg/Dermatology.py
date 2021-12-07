@@ -10,8 +10,7 @@ class Dermatology(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Dermatology.
 
     """
-
-    locals().update({"@type": Field("Dermatology", const=True)})
-
+    type_: str = Field("Dermatology", const=True, alias='@type')
+    
 
 Dermatology.update_forward_refs()

@@ -8,8 +8,7 @@ class RoofingContractor(HomeAndConstructionBusiness):
     See https://schema.org/RoofingContractor.
 
     """
-
-    locals().update({"@type": Field("RoofingContractor", const=True)})
-
+    type_: str = Field("RoofingContractor", const=True, alias='@type')
+    
 
 RoofingContractor.update_forward_refs()

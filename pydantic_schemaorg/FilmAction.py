@@ -8,8 +8,7 @@ class FilmAction(CreateAction):
     See https://schema.org/FilmAction.
 
     """
-
-    locals().update({"@type": Field("FilmAction", const=True)})
-
+    type_: str = Field("FilmAction", const=True, alias='@type')
+    
 
 FilmAction.update_forward_refs()

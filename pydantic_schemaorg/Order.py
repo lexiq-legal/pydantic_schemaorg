@@ -1,6 +1,6 @@
-from pydantic import Field, AnyUrl, StrictBool
-from datetime import date, datetime
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field, AnyUrl
+from datetime import datetime, date
+from typing import Any, Optional, Union, List
 from decimal import Decimal
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
@@ -14,7 +14,7 @@ class Order(Intangible):
     See https://schema.org/Order.
 
     """
-
+    type_: str = Field("Order", const=True, alias='@type')
     orderDate: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
         None,
         description="Date order was placed.",
@@ -110,7 +110,6 @@ class Order(Intangible):
      "If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms"
      "are preferred.",
     )
-    locals().update({"@type": Field("Order", const=True)})
-
+    
 
 Order.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Vessel import Vessel
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 
 
@@ -11,7 +11,7 @@ class LymphaticVessel(Vessel):
     See https://schema.org/LymphaticVessel.
 
     """
-
+    type_: str = Field("LymphaticVessel", const=True, alias='@type')
     originatesFrom: Optional[Union[List[Vessel], Vessel]] = Field(
         None,
         description="The vasculature the lymphatic structure originates, or afferents, from.",
@@ -25,7 +25,6 @@ class LymphaticVessel(Vessel):
         description="The anatomical or organ system drained by this vessel; generally refers to a specific"
      "part of an organ.",
     )
-    locals().update({"@type": Field("LymphaticVessel", const=True)})
-
+    
 
 LymphaticVessel.update_forward_refs()

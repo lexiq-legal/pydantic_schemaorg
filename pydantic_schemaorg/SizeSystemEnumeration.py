@@ -9,8 +9,7 @@ class SizeSystemEnumeration(Enumeration):
     See https://schema.org/SizeSystemEnumeration.
 
     """
-
-    locals().update({"@type": Field("SizeSystemEnumeration", const=True)})
-
+    type_: str = Field("SizeSystemEnumeration", const=True, alias='@type')
+    
 
 SizeSystemEnumeration.update_forward_refs()

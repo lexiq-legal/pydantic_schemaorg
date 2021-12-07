@@ -8,8 +8,7 @@ class Crematorium(CivicStructure):
     See https://schema.org/Crematorium.
 
     """
-
-    locals().update({"@type": Field("Crematorium", const=True)})
-
+    type_: str = Field("Crematorium", const=True, alias='@type')
+    
 
 Crematorium.update_forward_refs()

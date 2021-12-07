@@ -8,8 +8,7 @@ class TheaterGroup(PerformingGroup):
     See https://schema.org/TheaterGroup.
 
     """
-
-    locals().update({"@type": Field("TheaterGroup", const=True)})
-
+    type_: str = Field("TheaterGroup", const=True, alias='@type')
+    
 
 TheaterGroup.update_forward_refs()

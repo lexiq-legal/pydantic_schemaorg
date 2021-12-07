@@ -8,8 +8,7 @@ class VideoGameClip(Clip):
     See https://schema.org/VideoGameClip.
 
     """
-
-    locals().update({"@type": Field("VideoGameClip", const=True)})
-
+    type_: str = Field("VideoGameClip", const=True, alias='@type')
+    
 
 VideoGameClip.update_forward_refs()

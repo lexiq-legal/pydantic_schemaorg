@@ -8,8 +8,7 @@ class HobbyShop(Store):
     See https://schema.org/HobbyShop.
 
     """
-
-    locals().update({"@type": Field("HobbyShop", const=True)})
-
+    type_: str = Field("HobbyShop", const=True, alias='@type')
+    
 
 HobbyShop.update_forward_refs()

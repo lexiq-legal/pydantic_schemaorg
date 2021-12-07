@@ -8,8 +8,7 @@ class HighSchool(EducationalOrganization):
     See https://schema.org/HighSchool.
 
     """
-
-    locals().update({"@type": Field("HighSchool", const=True)})
-
+    type_: str = Field("HighSchool", const=True, alias='@type')
+    
 
 HighSchool.update_forward_refs()

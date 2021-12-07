@@ -8,8 +8,7 @@ class ReservationConfirmed(ReservationStatusType):
     See https://schema.org/ReservationConfirmed.
 
     """
-
-    locals().update({"@type": Field("ReservationConfirmed", const=True)})
-
+    type_: str = Field("ReservationConfirmed", const=True, alias='@type')
+    
 
 ReservationConfirmed.update_forward_refs()

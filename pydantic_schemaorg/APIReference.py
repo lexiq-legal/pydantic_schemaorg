@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.TechArticle import TechArticle
 
 
@@ -9,7 +9,7 @@ class APIReference(TechArticle):
     See https://schema.org/APIReference.
 
     """
-
+    type_: str = Field("APIReference", const=True, alias='@type')
     assemblyVersion: Optional[Union[List[str], str]] = Field(
         None,
         description="Associated product/technology version. e.g., .NET Framework 4.5.",
@@ -30,7 +30,6 @@ class APIReference(TechArticle):
         None,
         description="Type of app development: phone, Metro style, desktop, XBox, etc.",
     )
-    locals().update({"@type": Field("APIReference", const=True)})
-
+    
 
 APIReference.update_forward_refs()

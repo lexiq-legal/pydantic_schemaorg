@@ -8,8 +8,7 @@ class DemoAlbum(MusicAlbumProductionType):
     See https://schema.org/DemoAlbum.
 
     """
-
-    locals().update({"@type": Field("DemoAlbum", const=True)})
-
+    type_: str = Field("DemoAlbum", const=True, alias='@type')
+    
 
 DemoAlbum.update_forward_refs()

@@ -1,6 +1,6 @@
-from pydantic import Field, StrictBool
+from pydantic import StrictBool, Field
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 
 
@@ -10,7 +10,7 @@ class MedicalOrganization(Organization):
     See https://schema.org/MedicalOrganization.
 
     """
-
+    type_: str = Field("MedicalOrganization", const=True, alias='@type')
     medicalSpecialty: Optional[Union[List[MedicalSpecialty], MedicalSpecialty]] = Field(
         None,
         description="A medical specialty of the provider.",
@@ -24,7 +24,6 @@ class MedicalOrganization(Organization):
         description="Name or unique ID of network. (Networks are often reused across different insurance"
      "plans).",
     )
-    locals().update({"@type": Field("MedicalOrganization", const=True)})
-
+    
 
 MedicalOrganization.update_forward_refs()

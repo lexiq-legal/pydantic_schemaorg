@@ -10,8 +10,7 @@ class AnalysisNewsArticle(NewsArticle):
     See https://schema.org/AnalysisNewsArticle.
 
     """
-
-    locals().update({"@type": Field("AnalysisNewsArticle", const=True)})
-
+    type_: str = Field("AnalysisNewsArticle", const=True, alias='@type')
+    
 
 AnalysisNewsArticle.update_forward_refs()

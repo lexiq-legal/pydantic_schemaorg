@@ -10,8 +10,7 @@ class MaximumDoseSchedule(DoseSchedule):
     See https://schema.org/MaximumDoseSchedule.
 
     """
-
-    locals().update({"@type": Field("MaximumDoseSchedule", const=True)})
-
+    type_: str = Field("MaximumDoseSchedule", const=True, alias='@type')
+    
 
 MaximumDoseSchedule.update_forward_refs()

@@ -10,8 +10,7 @@ class UserPageVisits(UserInteraction):
     See https://schema.org/UserPageVisits.
 
     """
-
-    locals().update({"@type": Field("UserPageVisits", const=True)})
-
+    type_: str = Field("UserPageVisits", const=True, alias='@type')
+    
 
 UserPageVisits.update_forward_refs()

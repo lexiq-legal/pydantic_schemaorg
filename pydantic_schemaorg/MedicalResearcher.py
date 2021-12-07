@@ -8,8 +8,7 @@ class MedicalResearcher(MedicalAudienceType):
     See https://schema.org/MedicalResearcher.
 
     """
-
-    locals().update({"@type": Field("MedicalResearcher", const=True)})
-
+    type_: str = Field("MedicalResearcher", const=True, alias='@type')
+    
 
 MedicalResearcher.update_forward_refs()

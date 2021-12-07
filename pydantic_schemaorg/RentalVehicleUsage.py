@@ -8,8 +8,7 @@ class RentalVehicleUsage(CarUsageType):
     See https://schema.org/RentalVehicleUsage.
 
     """
-
-    locals().update({"@type": Field("RentalVehicleUsage", const=True)})
-
+    type_: str = Field("RentalVehicleUsage", const=True, alias='@type')
+    
 
 RentalVehicleUsage.update_forward_refs()

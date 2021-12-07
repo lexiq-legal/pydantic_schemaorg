@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.VideoObject import VideoObject
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.MusicGroup import MusicGroup
@@ -13,7 +13,7 @@ class MovieSeries(CreativeWorkSeries):
     See https://schema.org/MovieSeries.
 
     """
-
+    type_: str = Field("MovieSeries", const=True, alias='@type')
     actors: Optional[Union[List[Person], Person]] = Field(
         None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
@@ -43,11 +43,10 @@ class MovieSeries(CreativeWorkSeries):
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    musicBy: Optional[Union[List[Union[Person, MusicGroup]], Union[Person, MusicGroup]]] = Field(
+    musicBy: Optional[Union[List[Union[MusicGroup, Person]], Union[MusicGroup, Person]]] = Field(
         None,
         description="The composer of the soundtrack.",
     )
-    locals().update({"@type": Field("MovieSeries", const=True)})
-
+    
 
 MovieSeries.update_forward_refs()

@@ -8,8 +8,7 @@ class AutoDealer(AutomotiveBusiness):
     See https://schema.org/AutoDealer.
 
     """
-
-    locals().update({"@type": Field("AutoDealer", const=True)})
-
+    type_: str = Field("AutoDealer", const=True, alias='@type')
+    
 
 AutoDealer.update_forward_refs()

@@ -9,8 +9,7 @@ class Downpayment(PriceComponentTypeEnumeration):
     See https://schema.org/Downpayment.
 
     """
-
-    locals().update({"@type": Field("Downpayment", const=True)})
-
+    type_: str = Field("Downpayment", const=True, alias='@type')
+    
 
 Downpayment.update_forward_refs()

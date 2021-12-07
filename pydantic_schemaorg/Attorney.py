@@ -9,8 +9,7 @@ class Attorney(LegalService):
     See https://schema.org/Attorney.
 
     """
-
-    locals().update({"@type": Field("Attorney", const=True)})
-
+    type_: str = Field("Attorney", const=True, alias='@type')
+    
 
 Attorney.update_forward_refs()

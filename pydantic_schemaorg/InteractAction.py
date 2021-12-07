@@ -8,8 +8,7 @@ class InteractAction(Action):
     See https://schema.org/InteractAction.
 
     """
-
-    locals().update({"@type": Field("InteractAction", const=True)})
-
+    type_: str = Field("InteractAction", const=True, alias='@type')
+    
 
 InteractAction.update_forward_refs()

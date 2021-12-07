@@ -9,8 +9,7 @@ class OTC(DrugPrescriptionStatus):
     See https://schema.org/OTC.
 
     """
-
-    locals().update({"@type": Field("OTC", const=True)})
-
+    type_: str = Field("OTC", const=True, alias='@type')
+    
 
 OTC.update_forward_refs()

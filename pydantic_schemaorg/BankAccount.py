@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.FinancialProduct import FinancialProduct
 
 
@@ -10,7 +10,7 @@ class BankAccount(FinancialProduct):
     See https://schema.org/BankAccount.
 
     """
-
+    type_: str = Field("BankAccount", const=True, alias='@type')
     accountMinimumInflow: Any = Field(
         None,
         description="A minimum amount that has to be paid in every month.",
@@ -25,7 +25,6 @@ class BankAccount(FinancialProduct):
      "zero. An overdraft allows the individual to continue withdrawing money even if the account"
      "has no funds in it. Basically the bank allows people to borrow a set amount of money.",
     )
-    locals().update({"@type": Field("BankAccount", const=True)})
-
+    
 
 BankAccount.update_forward_refs()

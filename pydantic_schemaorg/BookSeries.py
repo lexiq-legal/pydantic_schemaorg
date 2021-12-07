@@ -8,8 +8,7 @@ class BookSeries(CreativeWorkSeries):
     See https://schema.org/BookSeries.
 
     """
-
-    locals().update({"@type": Field("BookSeries", const=True)})
-
+    type_: str = Field("BookSeries", const=True, alias='@type')
+    
 
 BookSeries.update_forward_refs()

@@ -10,8 +10,7 @@ class Nursing(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Nursing.
 
     """
-
-    locals().update({"@type": Field("Nursing", const=True)})
-
+    type_: str = Field("Nursing", const=True, alias='@type')
+    
 
 Nursing.update_forward_refs()

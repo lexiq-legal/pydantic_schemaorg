@@ -10,8 +10,7 @@ class UserTweets(UserInteraction):
     See https://schema.org/UserTweets.
 
     """
-
-    locals().update({"@type": Field("UserTweets", const=True)})
-
+    type_: str = Field("UserTweets", const=True, alias='@type')
+    
 
 UserTweets.update_forward_refs()

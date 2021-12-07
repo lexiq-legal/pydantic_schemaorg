@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CategoryCode import CategoryCode
 from pydantic_schemaorg.EducationalOccupationalProgram import EducationalOccupationalProgram
 
@@ -13,7 +13,7 @@ class WorkBasedProgram(EducationalOccupationalProgram):
     See https://schema.org/WorkBasedProgram.
 
     """
-
+    type_: str = Field("WorkBasedProgram", const=True, alias='@type')
     trainingSalary: Any = Field(
         None,
         description="The estimated salary earned while in the program.",
@@ -27,7 +27,6 @@ class WorkBasedProgram(EducationalOccupationalProgram):
      "be provided. Note: for historical reasons, any textual label and formal code provided"
      "as a literal may be assumed to be from O*NET-SOC.",
     )
-    locals().update({"@type": Field("WorkBasedProgram", const=True)})
-
+    
 
 WorkBasedProgram.update_forward_refs()

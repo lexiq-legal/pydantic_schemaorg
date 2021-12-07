@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.DigitalDocumentPermissionType import DigitalDocumentPermissionType
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Audience import Audience
@@ -14,7 +14,7 @@ class DigitalDocumentPermission(Intangible):
     See https://schema.org/DigitalDocumentPermission.
 
     """
-
+    type_: str = Field("DigitalDocumentPermission", const=True, alias='@type')
     permissionType: Optional[Union[List[DigitalDocumentPermissionType], DigitalDocumentPermissionType]] = Field(
         None,
         description="The type of permission granted the person, organization, or audience.",
@@ -23,7 +23,6 @@ class DigitalDocumentPermission(Intangible):
         None,
         description="The person, organization, contact point, or audience that has been granted this permission.",
     )
-    locals().update({"@type": Field("DigitalDocumentPermission", const=True)})
-
+    
 
 DigitalDocumentPermission.update_forward_refs()

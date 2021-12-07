@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -10,7 +10,7 @@ class PublicationVolume(CreativeWork):
     See https://schema.org/PublicationVolume.
 
     """
-
+    type_: str = Field("PublicationVolume", const=True, alias='@type')
     pageStart: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="The page on which the work starts; for example \"135\" or \"xiii\".",
@@ -28,7 +28,6 @@ class PublicationVolume(CreativeWork):
         None,
         description="The page on which the work ends; for example \"138\" or \"xvi\".",
     )
-    locals().update({"@type": Field("PublicationVolume", const=True)})
-
+    
 
 PublicationVolume.update_forward_refs()

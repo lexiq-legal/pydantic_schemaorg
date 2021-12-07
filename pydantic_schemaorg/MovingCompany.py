@@ -8,8 +8,7 @@ class MovingCompany(HomeAndConstructionBusiness):
     See https://schema.org/MovingCompany.
 
     """
-
-    locals().update({"@type": Field("MovingCompany", const=True)})
-
+    type_: str = Field("MovingCompany", const=True, alias='@type')
+    
 
 MovingCompany.update_forward_refs()

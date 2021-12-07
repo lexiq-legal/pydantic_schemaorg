@@ -8,8 +8,7 @@ class ReturnAtKiosk(ReturnMethodEnumeration):
     See https://schema.org/ReturnAtKiosk.
 
     """
-
-    locals().update({"@type": Field("ReturnAtKiosk", const=True)})
-
+    type_: str = Field("ReturnAtKiosk", const=True, alias='@type')
+    
 
 ReturnAtKiosk.update_forward_refs()

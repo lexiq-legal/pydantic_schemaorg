@@ -10,8 +10,7 @@ class Periodical(CreativeWorkSeries):
     See https://schema.org/Periodical.
 
     """
-
-    locals().update({"@type": Field("Periodical", const=True)})
-
+    type_: str = Field("Periodical", const=True, alias='@type')
+    
 
 Periodical.update_forward_refs()

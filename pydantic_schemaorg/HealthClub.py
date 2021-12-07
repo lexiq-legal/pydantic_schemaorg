@@ -9,8 +9,7 @@ class HealthClub(SportsActivityLocation, HealthAndBeautyBusiness):
     See https://schema.org/HealthClub.
 
     """
-
-    locals().update({"@type": Field("HealthClub", const=True)})
-
+    type_: str = Field("HealthClub", const=True, alias='@type')
+    
 
 HealthClub.update_forward_refs()

@@ -1,10 +1,10 @@
 from pydantic import Field
-from pydantic_schemaorg.Offer import Offer
 from pydantic_schemaorg.Demand import Demand
-from typing import Any, Union, List, Optional
+from pydantic_schemaorg.Offer import Offer
+from typing import Any, Optional, Union, List
 from datetime import datetime, time
-from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.ItemList import ItemList
+from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Intangible import Intangible
@@ -16,8 +16,8 @@ class Trip(Intangible):
     See https://schema.org/Trip.
 
     """
-
-    offers: Optional[Union[List[Union[Offer, Demand]], Union[Offer, Demand]]] = Field(
+    type_: str = Field("Trip", const=True, alias='@type')
+    offers: Optional[Union[List[Union[Demand, Offer]], Union[Demand, Offer]]] = Field(
         None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -30,7 +30,7 @@ class Trip(Intangible):
         None,
         description="The expected departure time.",
     )
-    itinerary: Optional[Union[List[Union[Place, ItemList]], Union[Place, ItemList]]] = Field(
+    itinerary: Optional[Union[List[Union[ItemList, Place]], Union[ItemList, Place]]] = Field(
         None,
         description="Destination(s) ( [[Place]] ) that make up a trip. For a trip where destination order is"
      "important use [[ItemList]] to specify that order (see examples).",
@@ -55,7 +55,6 @@ class Trip(Intangible):
         description="Identifies that this [[Trip]] is a subTrip of another Trip. For example Day 1, Day 2, etc."
      "of a multi-day trip.",
     )
-    locals().update({"@type": Field("Trip", const=True)})
-
+    
 
 Trip.update_forward_refs()

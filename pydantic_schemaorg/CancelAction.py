@@ -9,8 +9,7 @@ class CancelAction(PlanAction):
     See https://schema.org/CancelAction.
 
     """
-
-    locals().update({"@type": Field("CancelAction", const=True)})
-
+    type_: str = Field("CancelAction", const=True, alias='@type')
+    
 
 CancelAction.update_forward_refs()

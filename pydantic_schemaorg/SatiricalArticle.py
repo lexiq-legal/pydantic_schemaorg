@@ -10,8 +10,7 @@ class SatiricalArticle(Article):
     See https://schema.org/SatiricalArticle.
 
     """
-
-    locals().update({"@type": Field("SatiricalArticle", const=True)})
-
+    type_: str = Field("SatiricalArticle", const=True, alias='@type')
+    
 
 SatiricalArticle.update_forward_refs()

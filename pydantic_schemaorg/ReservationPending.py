@@ -8,8 +8,7 @@ class ReservationPending(ReservationStatusType):
     See https://schema.org/ReservationPending.
 
     """
-
-    locals().update({"@type": Field("ReservationPending", const=True)})
-
+    type_: str = Field("ReservationPending", const=True, alias='@type')
+    
 
 ReservationPending.update_forward_refs()

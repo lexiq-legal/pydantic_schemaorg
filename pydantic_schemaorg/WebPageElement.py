@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -9,7 +9,7 @@ class WebPageElement(CreativeWork):
     See https://schema.org/WebPageElement.
 
     """
-
+    type_: str = Field("WebPageElement", const=True, alias='@type')
     xpath: Optional[Union[List[str], str]] = Field(
         None,
         description="An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter"
@@ -21,7 +21,6 @@ class WebPageElement(CreativeWork):
      "latter case, multiple matches within a page can constitute a single conceptual \"Web"
      "page element\".",
     )
-    locals().update({"@type": Field("WebPageElement", const=True)})
-
+    
 
 WebPageElement.update_forward_refs()

@@ -8,8 +8,7 @@ class TireShop(Store):
     See https://schema.org/TireShop.
 
     """
-
-    locals().update({"@type": Field("TireShop", const=True)})
-
+    type_: str = Field("TireShop", const=True, alias='@type')
+    
 
 TireShop.update_forward_refs()

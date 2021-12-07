@@ -8,8 +8,7 @@ class ReservationStatusType(StatusEnumeration):
     See https://schema.org/ReservationStatusType.
 
     """
-
-    locals().update({"@type": Field("ReservationStatusType", const=True)})
-
+    type_: str = Field("ReservationStatusType", const=True, alias='@type')
+    
 
 ReservationStatusType.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Service import Service
 
 
@@ -12,7 +12,7 @@ class FinancialProduct(Service):
     See https://schema.org/FinancialProduct.
 
     """
-
+    type_: str = Field("FinancialProduct", const=True, alias='@type')
     annualPercentageRate: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
         None,
         description="The annual rate that is charged for borrowing (or made by investing), expressed as a single"
@@ -29,7 +29,6 @@ class FinancialProduct(Service):
         description="The interest rate, charged or paid, applicable to the financial product. Note: This"
      "is different from the calculated annualPercentageRate.",
     )
-    locals().update({"@type": Field("FinancialProduct", const=True)})
-
+    
 
 FinancialProduct.update_forward_refs()

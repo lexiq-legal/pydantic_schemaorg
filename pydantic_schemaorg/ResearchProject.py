@@ -8,8 +8,7 @@ class ResearchProject(Project):
     See https://schema.org/ResearchProject.
 
     """
-
-    locals().update({"@type": Field("ResearchProject", const=True)})
-
+    type_: str = Field("ResearchProject", const=True, alias='@type')
+    
 
 ResearchProject.update_forward_refs()

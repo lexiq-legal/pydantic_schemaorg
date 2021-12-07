@@ -8,8 +8,7 @@ class ReimbursementCap(DrugCostCategory):
     See https://schema.org/ReimbursementCap.
 
     """
-
-    locals().update({"@type": Field("ReimbursementCap", const=True)})
-
+    type_: str = Field("ReimbursementCap", const=True, alias='@type')
+    
 
 ReimbursementCap.update_forward_refs()

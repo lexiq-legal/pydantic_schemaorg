@@ -8,8 +8,7 @@ class GroceryStore(Store):
     See https://schema.org/GroceryStore.
 
     """
-
-    locals().update({"@type": Field("GroceryStore", const=True)})
-
+    type_: str = Field("GroceryStore", const=True, alias='@type')
+    
 
 GroceryStore.update_forward_refs()

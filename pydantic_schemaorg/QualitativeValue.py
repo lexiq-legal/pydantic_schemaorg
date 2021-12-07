@@ -1,10 +1,10 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.PropertyValue import PropertyValue
-from pydantic_schemaorg.Enumeration import Enumeration
 from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
-from pydantic_schemaorg.StructuredValue import StructuredValue
+from pydantic_schemaorg.Enumeration import Enumeration
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
+from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
 class QualitativeValue(Enumeration):
@@ -14,7 +14,7 @@ class QualitativeValue(Enumeration):
     See https://schema.org/QualitativeValue.
 
     """
-
+    type_: str = Field("QualitativeValue", const=True, alias='@type')
     lesser: Any = Field(
         None,
         description="This ordering relation for qualitative values indicates that the subject is lesser"
@@ -54,12 +54,11 @@ class QualitativeValue(Enumeration):
      "https://schema.org/gtin13, ...) will typically expect such data to be provided using"
      "those properties, rather than using the generic property/value mechanism.",
     )
-    valueReference: Union[List[Union[str, Enumeration, MeasurementTypeEnumeration, PropertyValue, StructuredValue, DefinedTerm, Any]], Union[str, Enumeration, MeasurementTypeEnumeration, PropertyValue, StructuredValue, DefinedTerm, Any]] = Field(
+    valueReference: Union[List[Union[str, MeasurementTypeEnumeration, PropertyValue, Enumeration, DefinedTerm, StructuredValue, Any]], Union[str, MeasurementTypeEnumeration, PropertyValue, Enumeration, DefinedTerm, StructuredValue, Any]] = Field(
         None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",
     )
-    locals().update({"@type": Field("QualitativeValue", const=True)})
-
+    
 
 QualitativeValue.update_forward_refs()

@@ -8,8 +8,7 @@ class CorrectionComment(Comment):
     See https://schema.org/CorrectionComment.
 
     """
-
-    locals().update({"@type": Field("CorrectionComment", const=True)})
-
+    type_: str = Field("CorrectionComment", const=True, alias='@type')
+    
 
 CorrectionComment.update_forward_refs()

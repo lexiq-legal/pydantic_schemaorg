@@ -1,7 +1,7 @@
 from pydantic import Field
-from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.ItemList import ItemList
-from typing import Any, Union, List, Optional
+from pydantic_schemaorg.CreativeWork import CreativeWork
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.NutritionInformation import NutritionInformation
 from pydantic_schemaorg.RestrictedDiet import RestrictedDiet
@@ -17,8 +17,8 @@ class Recipe(HowTo):
     See https://schema.org/Recipe.
 
     """
-
-    recipeInstructions: Optional[Union[List[Union[str, CreativeWork, ItemList]], Union[str, CreativeWork, ItemList]]] = Field(
+    type_: str = Field("Recipe", const=True, alias='@type')
+    recipeInstructions: Optional[Union[List[Union[str, ItemList, CreativeWork]], Union[str, ItemList, CreativeWork]]] = Field(
         None,
         description="A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered"
      "list with HowToStep and/or HowToSection items.",
@@ -61,7 +61,6 @@ class Recipe(HowTo):
         None,
         description="The method of cooking, such as Frying, Steaming, ...",
     )
-    locals().update({"@type": Field("Recipe", const=True)})
-
+    
 
 Recipe.update_forward_refs()

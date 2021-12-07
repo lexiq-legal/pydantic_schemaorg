@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Comment import Comment
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CommunicateAction import CommunicateAction
 
 
@@ -11,12 +11,11 @@ class ReplyAction(CommunicateAction):
     See https://schema.org/ReplyAction.
 
     """
-
+    type_: str = Field("ReplyAction", const=True, alias='@type')
     resultComment: Optional[Union[List[Comment], Comment]] = Field(
         None,
         description="A sub property of result. The Comment created or sent as a result of this action.",
     )
-    locals().update({"@type": Field("ReplyAction", const=True)})
-
+    
 
 ReplyAction.update_forward_refs()

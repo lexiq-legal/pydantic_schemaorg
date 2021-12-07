@@ -9,8 +9,7 @@ class MeasurementTypeEnumeration(Enumeration):
     See https://schema.org/MeasurementTypeEnumeration.
 
     """
-
-    locals().update({"@type": Field("MeasurementTypeEnumeration", const=True)})
-
+    type_: str = Field("MeasurementTypeEnumeration", const=True, alias='@type')
+    
 
 MeasurementTypeEnumeration.update_forward_refs()

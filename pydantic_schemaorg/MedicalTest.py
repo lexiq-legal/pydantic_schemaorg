@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
@@ -10,7 +10,7 @@ class MedicalTest(MedicalEntity):
     See https://schema.org/MedicalTest.
 
     """
-
+    type_: str = Field("MedicalTest", const=True, alias='@type')
     usesDevice: Any = Field(
         None,
         description="Device used to perform the test.",
@@ -31,7 +31,6 @@ class MedicalTest(MedicalEntity):
         None,
         description="A condition the test is used to diagnose.",
     )
-    locals().update({"@type": Field("MedicalTest", const=True)})
-
+    
 
 MedicalTest.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.PropertyValue import PropertyValue
 from pydantic_schemaorg.Thing import Thing
 
@@ -11,7 +11,7 @@ class Taxon(Thing):
     See https://schema.org/Taxon.
 
     """
-
+    type_: str = Field("Taxon", const=True, alias='@type')
     hasDefinedTerm: Optional[Union[List[DefinedTerm], DefinedTerm]] = Field(
         None,
         description="A Defined Term contained in this term set.",
@@ -29,7 +29,6 @@ class Taxon(Thing):
         description="The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary"
      "– (typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs).",
     )
-    locals().update({"@type": Field("Taxon", const=True)})
-
+    
 
 Taxon.update_forward_refs()

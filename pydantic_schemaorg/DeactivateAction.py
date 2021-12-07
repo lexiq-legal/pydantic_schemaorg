@@ -9,8 +9,7 @@ class DeactivateAction(ControlAction):
     See https://schema.org/DeactivateAction.
 
     """
-
-    locals().update({"@type": Field("DeactivateAction", const=True)})
-
+    type_: str = Field("DeactivateAction", const=True, alias='@type')
+    
 
 DeactivateAction.update_forward_refs()

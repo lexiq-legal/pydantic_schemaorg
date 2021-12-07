@@ -8,8 +8,7 @@ class Fungus(InfectiousAgentClass):
     See https://schema.org/Fungus.
 
     """
-
-    locals().update({"@type": Field("Fungus", const=True)})
-
+    type_: str = Field("Fungus", const=True, alias='@type')
+    
 
 Fungus.update_forward_refs()

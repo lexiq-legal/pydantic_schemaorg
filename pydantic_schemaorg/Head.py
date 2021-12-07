@@ -8,8 +8,7 @@ class Head(PhysicalExam):
     See https://schema.org/Head.
 
     """
-
-    locals().update({"@type": Field("Head", const=True)})
-
+    type_: str = Field("Head", const=True, alias='@type')
+    
 
 Head.update_forward_refs()

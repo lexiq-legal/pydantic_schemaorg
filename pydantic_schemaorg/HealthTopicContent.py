@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.HealthAspectEnumeration import HealthAspectEnumeration
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.WebContent import WebContent
 
 
@@ -15,14 +15,13 @@ class HealthTopicContent(WebContent):
     See https://schema.org/HealthTopicContent.
 
     """
-
+    type_: str = Field("HealthTopicContent", const=True, alias='@type')
     hasHealthAspect: Optional[Union[List[HealthAspectEnumeration], HealthAspectEnumeration]] = Field(
         None,
         description="Indicates the aspect or aspects specifically addressed in some [[HealthTopicContent]]."
      "For example, that the content is an overview, or that it talks about treatment, self-care,"
      "treatments or their side-effects.",
     )
-    locals().update({"@type": Field("HealthTopicContent", const=True)})
-
+    
 
 HealthTopicContent.update_forward_refs()

@@ -1,9 +1,9 @@
-from pydantic import Field, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.RecommendedDoseSchedule import RecommendedDoseSchedule
 from pydantic_schemaorg.Organization import Organization
-from pydantic_schemaorg.DrugLegalStatus import DrugLegalStatus
 from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
+from pydantic_schemaorg.DrugLegalStatus import DrugLegalStatus
 from pydantic_schemaorg.Substance import Substance
 
 
@@ -15,7 +15,7 @@ class DietarySupplement(Substance):
     See https://schema.org/DietarySupplement.
 
     """
-
+    type_: str = Field("DietarySupplement", const=True, alias='@type')
     safetyConsideration: Optional[Union[List[str], str]] = Field(
         None,
         description="Any potential safety concern associated with the supplement. May include interactions"
@@ -58,7 +58,7 @@ class DietarySupplement(Substance):
         description="The specific biochemical interaction through which this drug or supplement produces"
      "its pharmacological effect.",
     )
-    legalStatus: Optional[Union[List[Union[str, DrugLegalStatus, MedicalEnumeration]], Union[str, DrugLegalStatus, MedicalEnumeration]]] = Field(
+    legalStatus: Optional[Union[List[Union[str, MedicalEnumeration, DrugLegalStatus]], Union[str, MedicalEnumeration, DrugLegalStatus]]] = Field(
         None,
         description="The drug or supplement's legal status, including any controlled substance schedules"
      "that apply.",
@@ -67,7 +67,6 @@ class DietarySupplement(Substance):
         None,
         description="True if this item's name is a proprietary/brand name (vs. generic name).",
     )
-    locals().update({"@type": Field("DietarySupplement", const=True)})
-
+    
 
 DietarySupplement.update_forward_refs()

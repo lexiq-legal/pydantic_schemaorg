@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -9,12 +9,11 @@ class Collection(CreativeWork):
     See https://schema.org/Collection.
 
     """
-
+    type_: str = Field("Collection", const=True, alias='@type')
     collectionSize: Optional[Union[List[int], int]] = Field(
         None,
         description="The number of items in the [[Collection]].",
     )
-    locals().update({"@type": Field("Collection", const=True)})
-
+    
 
 Collection.update_forward_refs()

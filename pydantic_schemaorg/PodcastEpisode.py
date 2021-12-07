@@ -8,8 +8,7 @@ class PodcastEpisode(Episode):
     See https://schema.org/PodcastEpisode.
 
     """
-
-    locals().update({"@type": Field("PodcastEpisode", const=True)})
-
+    type_: str = Field("PodcastEpisode", const=True, alias='@type')
+    
 
 PodcastEpisode.update_forward_refs()

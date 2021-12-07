@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.BedDetails import BedDetails
 from pydantic_schemaorg.Accommodation import Accommodation
 
@@ -16,7 +16,7 @@ class Suite(Accommodation):
     See https://schema.org/Suite.
 
     """
-
+    type_: str = Field("Suite", const=True, alias='@type')
     numberOfRooms: Optional[Union[List[Union[Decimal, QuantitativeValue]], Union[Decimal, QuantitativeValue]]] = Field(
         None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
@@ -37,7 +37,6 @@ class Suite(Accommodation):
      "the permitted usage as per the contractual agreement (e.g. a double room used by a single"
      "person). Typical unit code(s): C62 for person",
     )
-    locals().update({"@type": Field("Suite", const=True)})
-
+    
 
 Suite.update_forward_refs()

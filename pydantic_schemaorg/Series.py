@@ -9,8 +9,7 @@ class Series(Intangible):
     See https://schema.org/Series.
 
     """
-
-    locals().update({"@type": Field("Series", const=True)})
-
+    type_: str = Field("Series", const=True, alias='@type')
+    
 
 Series.update_forward_refs()

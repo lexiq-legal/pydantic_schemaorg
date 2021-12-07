@@ -8,8 +8,7 @@ class Bone(AnatomicalStructure):
     See https://schema.org/Bone.
 
     """
-
-    locals().update({"@type": Field("Bone", const=True)})
-
+    type_: str = Field("Bone", const=True, alias='@type')
+    
 
 Bone.update_forward_refs()

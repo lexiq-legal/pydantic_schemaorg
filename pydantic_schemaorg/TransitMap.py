@@ -8,8 +8,7 @@ class TransitMap(MapCategoryType):
     See https://schema.org/TransitMap.
 
     """
-
-    locals().update({"@type": Field("TransitMap", const=True)})
-
+    type_: str = Field("TransitMap", const=True, alias='@type')
+    
 
 TransitMap.update_forward_refs()

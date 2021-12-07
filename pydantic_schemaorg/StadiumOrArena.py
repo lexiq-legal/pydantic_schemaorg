@@ -9,8 +9,7 @@ class StadiumOrArena(SportsActivityLocation, CivicStructure):
     See https://schema.org/StadiumOrArena.
 
     """
-
-    locals().update({"@type": Field("StadiumOrArena", const=True)})
-
+    type_: str = Field("StadiumOrArena", const=True, alias='@type')
+    
 
 StadiumOrArena.update_forward_refs()

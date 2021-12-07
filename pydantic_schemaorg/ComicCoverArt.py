@@ -9,8 +9,7 @@ class ComicCoverArt(CoverArt, ComicStory):
     See https://schema.org/ComicCoverArt.
 
     """
-
-    locals().update({"@type": Field("ComicCoverArt", const=True)})
-
+    type_: str = Field("ComicCoverArt", const=True, alias='@type')
+    
 
 ComicCoverArt.update_forward_refs()

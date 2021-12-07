@@ -8,8 +8,7 @@ class LowSaltDiet(RestrictedDiet):
     See https://schema.org/LowSaltDiet.
 
     """
-
-    locals().update({"@type": Field("LowSaltDiet", const=True)})
-
+    type_: str = Field("LowSaltDiet", const=True, alias='@type')
+    
 
 LowSaltDiet.update_forward_refs()

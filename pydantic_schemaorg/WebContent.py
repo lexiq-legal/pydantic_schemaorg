@@ -13,8 +13,7 @@ class WebContent(CreativeWork):
     See https://schema.org/WebContent.
 
     """
-
-    locals().update({"@type": Field("WebContent", const=True)})
-
+    type_: str = Field("WebContent", const=True, alias='@type')
+    
 
 WebContent.update_forward_refs()

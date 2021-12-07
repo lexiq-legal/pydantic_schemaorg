@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.RealEstateAgent import RealEstateAgent
 from pydantic_schemaorg.TradeAction import TradeAction
 
@@ -14,7 +14,7 @@ class RentAction(TradeAction):
     See https://schema.org/RentAction.
 
     """
-
+    type_: str = Field("RentAction", const=True, alias='@type')
     landlord: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
         None,
         description="A sub property of participant. The owner of the real estate property.",
@@ -23,7 +23,6 @@ class RentAction(TradeAction):
         None,
         description="A sub property of participant. The real estate agent involved in the action.",
     )
-    locals().update({"@type": Field("RentAction", const=True)})
-
+    
 
 RentAction.update_forward_refs()

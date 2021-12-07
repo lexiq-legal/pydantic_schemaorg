@@ -12,8 +12,7 @@ class AudioObjectSnapshot(AudioObject):
     See https://schema.org/AudioObjectSnapshot.
 
     """
-
-    locals().update({"@type": Field("AudioObjectSnapshot", const=True)})
-
+    type_: str = Field("AudioObjectSnapshot", const=True, alias='@type')
+    
 
 AudioObjectSnapshot.update_forward_refs()

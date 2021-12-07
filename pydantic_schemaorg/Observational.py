@@ -8,8 +8,7 @@ class Observational(MedicalObservationalStudyDesign):
     See https://schema.org/Observational.
 
     """
-
-    locals().update({"@type": Field("Observational", const=True)})
-
+    type_: str = Field("Observational", const=True, alias='@type')
+    
 
 Observational.update_forward_refs()

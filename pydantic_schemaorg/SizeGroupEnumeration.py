@@ -8,8 +8,7 @@ class SizeGroupEnumeration(Enumeration):
     See https://schema.org/SizeGroupEnumeration.
 
     """
-
-    locals().update({"@type": Field("SizeGroupEnumeration", const=True)})
-
+    type_: str = Field("SizeGroupEnumeration", const=True, alias='@type')
+    
 
 SizeGroupEnumeration.update_forward_refs()

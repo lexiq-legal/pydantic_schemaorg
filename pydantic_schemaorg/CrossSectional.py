@@ -9,8 +9,7 @@ class CrossSectional(MedicalObservationalStudyDesign):
     See https://schema.org/CrossSectional.
 
     """
-
-    locals().update({"@type": Field("CrossSectional", const=True)})
-
+    type_: str = Field("CrossSectional", const=True, alias='@type')
+    
 
 CrossSectional.update_forward_refs()

@@ -8,8 +8,7 @@ class DVDFormat(MusicReleaseFormatType):
     See https://schema.org/DVDFormat.
 
     """
-
-    locals().update({"@type": Field("DVDFormat", const=True)})
-
+    type_: str = Field("DVDFormat", const=True, alias='@type')
+    
 
 DVDFormat.update_forward_refs()

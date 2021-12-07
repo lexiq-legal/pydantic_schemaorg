@@ -8,8 +8,7 @@ class ProfilePage(WebPage):
     See https://schema.org/ProfilePage.
 
     """
-
-    locals().update({"@type": Field("ProfilePage", const=True)})
-
+    type_: str = Field("ProfilePage", const=True, alias='@type')
+    
 
 ProfilePage.update_forward_refs()

@@ -8,8 +8,7 @@ class PresentationDigitalDocument(DigitalDocument):
     See https://schema.org/PresentationDigitalDocument.
 
     """
-
-    locals().update({"@type": Field("PresentationDigitalDocument", const=True)})
-
+    type_: str = Field("PresentationDigitalDocument", const=True, alias='@type')
+    
 
 PresentationDigitalDocument.update_forward_refs()

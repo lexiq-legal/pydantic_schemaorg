@@ -8,8 +8,7 @@ class RemixAlbum(MusicAlbumProductionType):
     See https://schema.org/RemixAlbum.
 
     """
-
-    locals().update({"@type": Field("RemixAlbum", const=True)})
-
+    type_: str = Field("RemixAlbum", const=True, alias='@type')
+    
 
 RemixAlbum.update_forward_refs()

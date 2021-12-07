@@ -1,5 +1,5 @@
-from pydantic import Field, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.LoanOrCredit import LoanOrCredit
 
 
@@ -10,7 +10,7 @@ class MortgageLoan(LoanOrCredit):
     See https://schema.org/MortgageLoan.
 
     """
-
+    type_: str = Field("MortgageLoan", const=True, alias='@type')
     domiciledMortgage: Optional[Union[List[StrictBool], StrictBool]] = Field(
         None,
         description="Whether borrower is a resident of the jurisdiction where the property is located.",
@@ -19,7 +19,6 @@ class MortgageLoan(LoanOrCredit):
         None,
         description="Amount of mortgage mandate that can be converted into a proper mortgage at a later stage.",
     )
-    locals().update({"@type": Field("MortgageLoan", const=True)})
-
+    
 
 MortgageLoan.update_forward_refs()

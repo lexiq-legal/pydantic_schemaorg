@@ -8,8 +8,7 @@ class LandmarksOrHistoricalBuildings(Place):
     See https://schema.org/LandmarksOrHistoricalBuildings.
 
     """
-
-    locals().update({"@type": Field("LandmarksOrHistoricalBuildings", const=True)})
-
+    type_: str = Field("LandmarksOrHistoricalBuildings", const=True, alias='@type')
+    
 
 LandmarksOrHistoricalBuildings.update_forward_refs()

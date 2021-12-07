@@ -1,7 +1,7 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Product import Product
-from datetime import date, datetime
+from datetime import datetime, date
 from pydantic_schemaorg.PostalAddress import PostalAddress
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
 from pydantic_schemaorg.Organization import Organization
@@ -17,7 +17,7 @@ class ParcelDelivery(Intangible):
     See https://schema.org/ParcelDelivery.
 
     """
-
+    type_: str = Field("ParcelDelivery", const=True, alias='@type')
     trackingNumber: Optional[Union[List[str], str]] = Field(
         None,
         description="Shipper tracking number.",
@@ -69,7 +69,6 @@ class ParcelDelivery(Intangible):
         None,
         description="The overall order the items in this delivery were included in.",
     )
-    locals().update({"@type": Field("ParcelDelivery", const=True)})
-
+    
 
 ParcelDelivery.update_forward_refs()

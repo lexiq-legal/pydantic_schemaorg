@@ -8,8 +8,7 @@ class FoodEvent(Event):
     See https://schema.org/FoodEvent.
 
     """
-
-    locals().update({"@type": Field("FoodEvent", const=True)})
-
+    type_: str = Field("FoodEvent", const=True, alias='@type')
+    
 
 FoodEvent.update_forward_refs()

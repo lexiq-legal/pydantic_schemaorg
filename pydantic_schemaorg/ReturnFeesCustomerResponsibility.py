@@ -8,8 +8,7 @@ class ReturnFeesCustomerResponsibility(ReturnFeesEnumeration):
     See https://schema.org/ReturnFeesCustomerResponsibility.
 
     """
-
-    locals().update({"@type": Field("ReturnFeesCustomerResponsibility", const=True)})
-
+    type_: str = Field("ReturnFeesCustomerResponsibility", const=True, alias='@type')
+    
 
 ReturnFeesCustomerResponsibility.update_forward_refs()

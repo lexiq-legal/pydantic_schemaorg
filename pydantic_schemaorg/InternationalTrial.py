@@ -8,8 +8,7 @@ class InternationalTrial(MedicalTrialDesign):
     See https://schema.org/InternationalTrial.
 
     """
-
-    locals().update({"@type": Field("InternationalTrial", const=True)})
-
+    type_: str = Field("InternationalTrial", const=True, alias='@type')
+    
 
 InternationalTrial.update_forward_refs()

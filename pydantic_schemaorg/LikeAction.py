@@ -9,8 +9,7 @@ class LikeAction(ReactAction):
     See https://schema.org/LikeAction.
 
     """
-
-    locals().update({"@type": Field("LikeAction", const=True)})
-
+    type_: str = Field("LikeAction", const=True, alias='@type')
+    
 
 LikeAction.update_forward_refs()

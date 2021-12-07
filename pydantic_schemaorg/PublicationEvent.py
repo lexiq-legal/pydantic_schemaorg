@@ -1,7 +1,7 @@
-from pydantic import Field, StrictBool
+from pydantic import StrictBool, Field
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Event import Event
 
 
@@ -13,7 +13,7 @@ class PublicationEvent(Event):
     See https://schema.org/PublicationEvent.
 
     """
-
+    type_: str = Field("PublicationEvent", const=True, alias='@type')
     publishedBy: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
         None,
         description="An agent associated with the publication event.",
@@ -26,7 +26,6 @@ class PublicationEvent(Event):
         None,
         description="A flag to signal that the item, event, or place is accessible for free.",
     )
-    locals().update({"@type": Field("PublicationEvent", const=True)})
-
+    
 
 PublicationEvent.update_forward_refs()

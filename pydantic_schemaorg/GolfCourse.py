@@ -8,8 +8,7 @@ class GolfCourse(SportsActivityLocation):
     See https://schema.org/GolfCourse.
 
     """
-
-    locals().update({"@type": Field("GolfCourse", const=True)})
-
+    type_: str = Field("GolfCourse", const=True, alias='@type')
+    
 
 GolfCourse.update_forward_refs()

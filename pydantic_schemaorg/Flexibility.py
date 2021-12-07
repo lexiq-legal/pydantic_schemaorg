@@ -8,8 +8,7 @@ class Flexibility(PhysicalActivityCategory):
     See https://schema.org/Flexibility.
 
     """
-
-    locals().update({"@type": Field("Flexibility", const=True)})
-
+    type_: str = Field("Flexibility", const=True, alias='@type')
+    
 
 Flexibility.update_forward_refs()

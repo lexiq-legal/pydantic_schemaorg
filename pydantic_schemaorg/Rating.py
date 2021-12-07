@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Intangible import Intangible
@@ -12,7 +12,7 @@ class Rating(Intangible):
     See https://schema.org/Rating.
 
     """
-
+    type_: str = Field("Rating", const=True, alias='@type')
     worstRating: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.",
@@ -44,7 +44,6 @@ class Rating(Intangible):
         None,
         description="The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.",
     )
-    locals().update({"@type": Field("Rating", const=True)})
-
+    
 
 Rating.update_forward_refs()

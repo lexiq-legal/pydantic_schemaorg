@@ -8,8 +8,7 @@ class WritePermission(DigitalDocumentPermissionType):
     See https://schema.org/WritePermission.
 
     """
-
-    locals().update({"@type": Field("WritePermission", const=True)})
-
+    type_: str = Field("WritePermission", const=True, alias='@type')
+    
 
 WritePermission.update_forward_refs()

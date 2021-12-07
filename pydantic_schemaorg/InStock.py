@@ -8,8 +8,7 @@ class InStock(ItemAvailability):
     See https://schema.org/InStock.
 
     """
-
-    locals().update({"@type": Field("InStock", const=True)})
-
+    type_: str = Field("InStock", const=True, alias='@type')
+    
 
 InStock.update_forward_refs()

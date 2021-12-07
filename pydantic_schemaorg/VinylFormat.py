@@ -8,8 +8,7 @@ class VinylFormat(MusicReleaseFormatType):
     See https://schema.org/VinylFormat.
 
     """
-
-    locals().update({"@type": Field("VinylFormat", const=True)})
-
+    type_: str = Field("VinylFormat", const=True, alias='@type')
+    
 
 VinylFormat.update_forward_refs()

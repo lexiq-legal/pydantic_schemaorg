@@ -8,8 +8,7 @@ class WPFooter(WebPageElement):
     See https://schema.org/WPFooter.
 
     """
-
-    locals().update({"@type": Field("WPFooter", const=True)})
-
+    type_: str = Field("WPFooter", const=True, alias='@type')
+    
 
 WPFooter.update_forward_refs()

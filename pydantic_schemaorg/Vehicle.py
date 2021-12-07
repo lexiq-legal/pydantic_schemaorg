@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.QualitativeValue import QualitativeValue
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from decimal import Decimal
 from pydantic_schemaorg.CarUsageType import CarUsageType
@@ -17,7 +17,7 @@ class Vehicle(Product):
     See https://schema.org/Vehicle.
 
     """
-
+    type_: str = Field("Vehicle", const=True, alias='@type')
     meetsEmissionStandard: Optional[Union[List[Union[AnyUrl, str, QualitativeValue]], Union[AnyUrl, str, QualitativeValue]]] = Field(
         None,
         description="Indicates that the vehicle meets the respective emission standard.",
@@ -246,7 +246,6 @@ class Vehicle(Product):
         None,
         description="The date the item e.g. vehicle was purchased by the current owner.",
     )
-    locals().update({"@type": Field("Vehicle", const=True)})
-
+    
 
 Vehicle.update_forward_refs()

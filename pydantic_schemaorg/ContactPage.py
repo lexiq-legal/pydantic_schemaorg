@@ -8,8 +8,7 @@ class ContactPage(WebPage):
     See https://schema.org/ContactPage.
 
     """
-
-    locals().update({"@type": Field("ContactPage", const=True)})
-
+    type_: str = Field("ContactPage", const=True, alias='@type')
+    
 
 ContactPage.update_forward_refs()

@@ -8,8 +8,7 @@ class SchoolDistrict(AdministrativeArea):
     See https://schema.org/SchoolDistrict.
 
     """
-
-    locals().update({"@type": Field("SchoolDistrict", const=True)})
-
+    type_: str = Field("SchoolDistrict", const=True, alias='@type')
+    
 
 SchoolDistrict.update_forward_refs()

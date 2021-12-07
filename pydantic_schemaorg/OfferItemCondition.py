@@ -8,8 +8,7 @@ class OfferItemCondition(Enumeration):
     See https://schema.org/OfferItemCondition.
 
     """
-
-    locals().update({"@type": Field("OfferItemCondition", const=True)})
-
+    type_: str = Field("OfferItemCondition", const=True, alias='@type')
+    
 
 OfferItemCondition.update_forward_refs()

@@ -8,8 +8,7 @@ class ZoneBoardingPolicy(BoardingPolicyType):
     See https://schema.org/ZoneBoardingPolicy.
 
     """
-
-    locals().update({"@type": Field("ZoneBoardingPolicy", const=True)})
-
+    type_: str = Field("ZoneBoardingPolicy", const=True, alias='@type')
+    
 
 ZoneBoardingPolicy.update_forward_refs()

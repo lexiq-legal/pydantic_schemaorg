@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.Country import Country
 from pydantic_schemaorg.Organization import Organization
@@ -13,7 +13,7 @@ class Movie(CreativeWork):
     See https://schema.org/Movie.
 
     """
-
+    type_: str = Field("Movie", const=True, alias='@type')
     actors: Optional[Union[List[Person], Person]] = Field(
         None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
@@ -75,7 +75,6 @@ class Movie(CreativeWork):
         None,
         description="The composer of the soundtrack.",
     )
-    locals().update({"@type": Field("Movie", const=True)})
-
+    
 
 Movie.update_forward_refs()

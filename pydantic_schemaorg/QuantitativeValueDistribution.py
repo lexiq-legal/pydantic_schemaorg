@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -10,7 +10,7 @@ class QuantitativeValueDistribution(StructuredValue):
     See https://schema.org/QuantitativeValueDistribution.
 
     """
-
+    type_: str = Field("QuantitativeValueDistribution", const=True, alias='@type')
     percentile75: Optional[Union[List[Decimal], Decimal]] = Field(
         None,
         description="The 75th percentile value.",
@@ -35,7 +35,6 @@ class QuantitativeValueDistribution(StructuredValue):
         None,
         description="The median value.",
     )
-    locals().update({"@type": Field("QuantitativeValueDistribution", const=True)})
-
+    
 
 QuantitativeValueDistribution.update_forward_refs()

@@ -8,8 +8,7 @@ class AboutPage(WebPage):
     See https://schema.org/AboutPage.
 
     """
-
-    locals().update({"@type": Field("AboutPage", const=True)})
-
+    type_: str = Field("AboutPage", const=True, alias='@type')
+    
 
 AboutPage.update_forward_refs()

@@ -1,18 +1,18 @@
 from pydantic import Field
 from pydantic_schemaorg.Country import Country
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.TVSeries import TVSeries
-from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.CreativeWorkSeason import CreativeWorkSeason
+from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
-class TVSeason(CreativeWork, CreativeWorkSeason):
+class TVSeason(CreativeWorkSeason, CreativeWork):
     """Season dedicated to TV broadcast and associated online delivery.
 
     See https://schema.org/TVSeason.
 
     """
-
+    type_: str = Field("TVSeason", const=True, alias='@type')
     countryOfOrigin: Optional[Union[List[Country], Country]] = Field(
         None,
         description="The country of origin of something, including products as well as creative works such"
@@ -27,7 +27,6 @@ class TVSeason(CreativeWork, CreativeWorkSeason):
         None,
         description="The TV series to which this episode or season belongs.",
     )
-    locals().update({"@type": Field("TVSeason", const=True)})
-
+    
 
 TVSeason.update_forward_refs()

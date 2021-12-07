@@ -22,8 +22,7 @@ class SatireOrParodyContent(MediaManipulationRatingEnumeration):
     See https://schema.org/SatireOrParodyContent.
 
     """
-
-    locals().update({"@type": Field("SatireOrParodyContent", const=True)})
-
+    type_: str = Field("SatireOrParodyContent", const=True, alias='@type')
+    
 
 SatireOrParodyContent.update_forward_refs()

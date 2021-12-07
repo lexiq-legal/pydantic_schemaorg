@@ -17,8 +17,7 @@ class OriginalMediaContent(MediaManipulationRatingEnumeration):
     See https://schema.org/OriginalMediaContent.
 
     """
-
-    locals().update({"@type": Field("OriginalMediaContent", const=True)})
-
+    type_: str = Field("OriginalMediaContent", const=True, alias='@type')
+    
 
 OriginalMediaContent.update_forward_refs()

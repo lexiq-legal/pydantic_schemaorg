@@ -1,16 +1,16 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
-from pydantic_schemaorg.MedicalIntangible import MedicalIntangible
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CategoryCode import CategoryCode
+from pydantic_schemaorg.MedicalIntangible import MedicalIntangible
 
 
-class MedicalCode(MedicalIntangible, CategoryCode):
+class MedicalCode(CategoryCode, MedicalIntangible):
     """A code for a medical entity.
 
     See https://schema.org/MedicalCode.
 
     """
-
+    type_: str = Field("MedicalCode", const=True, alias='@type')
     codeValue: Optional[Union[List[str], str]] = Field(
         None,
         description="A short textual code that uniquely identifies the value.",
@@ -19,7 +19,6 @@ class MedicalCode(MedicalIntangible, CategoryCode):
         None,
         description="The coding system, e.g. 'ICD-10'.",
     )
-    locals().update({"@type": Field("MedicalCode", const=True)})
-
+    
 
 MedicalCode.update_forward_refs()

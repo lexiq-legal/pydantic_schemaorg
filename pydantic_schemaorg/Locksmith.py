@@ -8,8 +8,7 @@ class Locksmith(HomeAndConstructionBusiness):
     See https://schema.org/Locksmith.
 
     """
-
-    locals().update({"@type": Field("Locksmith", const=True)})
-
+    type_: str = Field("Locksmith", const=True, alias='@type')
+    
 
 Locksmith.update_forward_refs()

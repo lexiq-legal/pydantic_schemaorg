@@ -9,8 +9,7 @@ class Intangible(Thing):
     See https://schema.org/Intangible.
 
     """
-
-    locals().update({"@type": Field("Intangible", const=True)})
-
+    type_: str = Field("Intangible", const=True, alias='@type')
+    
 
 Intangible.update_forward_refs()

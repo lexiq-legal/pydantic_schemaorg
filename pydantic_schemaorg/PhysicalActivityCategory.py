@@ -8,8 +8,7 @@ class PhysicalActivityCategory(Enumeration):
     See https://schema.org/PhysicalActivityCategory.
 
     """
-
-    locals().update({"@type": Field("PhysicalActivityCategory", const=True)})
-
+    type_: str = Field("PhysicalActivityCategory", const=True, alias='@type')
+    
 
 PhysicalActivityCategory.update_forward_refs()

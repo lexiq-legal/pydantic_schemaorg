@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Audience import Audience
 
 
@@ -9,12 +9,11 @@ class EducationalAudience(Audience):
     See https://schema.org/EducationalAudience.
 
     """
-
+    type_: str = Field("EducationalAudience", const=True, alias='@type')
     educationalRole: Optional[Union[List[str], str]] = Field(
         None,
         description="An educationalRole of an EducationalAudience.",
     )
-    locals().update({"@type": Field("EducationalAudience", const=True)})
-
+    
 
 EducationalAudience.update_forward_refs()

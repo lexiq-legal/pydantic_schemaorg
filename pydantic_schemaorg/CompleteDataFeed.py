@@ -15,8 +15,7 @@ class CompleteDataFeed(DataFeed):
     See https://schema.org/CompleteDataFeed.
 
     """
-
-    locals().update({"@type": Field("CompleteDataFeed", const=True)})
-
+    type_: str = Field("CompleteDataFeed", const=True, alias='@type')
+    
 
 CompleteDataFeed.update_forward_refs()

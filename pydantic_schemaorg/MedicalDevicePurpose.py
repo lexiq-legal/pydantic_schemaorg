@@ -8,8 +8,7 @@ class MedicalDevicePurpose(MedicalEnumeration):
     See https://schema.org/MedicalDevicePurpose.
 
     """
-
-    locals().update({"@type": Field("MedicalDevicePurpose", const=True)})
-
+    type_: str = Field("MedicalDevicePurpose", const=True, alias='@type')
+    
 
 MedicalDevicePurpose.update_forward_refs()

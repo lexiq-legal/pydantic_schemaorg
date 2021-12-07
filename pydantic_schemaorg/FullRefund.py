@@ -8,8 +8,7 @@ class FullRefund(RefundTypeEnumeration):
     See https://schema.org/FullRefund.
 
     """
-
-    locals().update({"@type": Field("FullRefund", const=True)})
-
+    type_: str = Field("FullRefund", const=True, alias='@type')
+    
 
 FullRefund.update_forward_refs()

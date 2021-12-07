@@ -8,8 +8,7 @@ class ParentalSupport(GovernmentBenefitsType):
     See https://schema.org/ParentalSupport.
 
     """
-
-    locals().update({"@type": Field("ParentalSupport", const=True)})
-
+    type_: str = Field("ParentalSupport", const=True, alias='@type')
+    
 
 ParentalSupport.update_forward_refs()

@@ -8,8 +8,7 @@ class StoreCreditRefund(RefundTypeEnumeration):
     See https://schema.org/StoreCreditRefund.
 
     """
-
-    locals().update({"@type": Field("StoreCreditRefund", const=True)})
-
+    type_: str = Field("StoreCreditRefund", const=True, alias='@type')
+    
 
 StoreCreditRefund.update_forward_refs()

@@ -8,8 +8,7 @@ class EmailMessage(Message):
     See https://schema.org/EmailMessage.
 
     """
-
-    locals().update({"@type": Field("EmailMessage", const=True)})
-
+    type_: str = Field("EmailMessage", const=True, alias='@type')
+    
 
 EmailMessage.update_forward_refs()

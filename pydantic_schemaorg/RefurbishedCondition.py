@@ -8,8 +8,7 @@ class RefurbishedCondition(OfferItemCondition):
     See https://schema.org/RefurbishedCondition.
 
     """
-
-    locals().update({"@type": Field("RefurbishedCondition", const=True)})
-
+    type_: str = Field("RefurbishedCondition", const=True, alias='@type')
+    
 
 RefurbishedCondition.update_forward_refs()

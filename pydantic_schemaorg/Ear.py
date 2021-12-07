@@ -8,8 +8,7 @@ class Ear(PhysicalExam):
     See https://schema.org/Ear.
 
     """
-
-    locals().update({"@type": Field("Ear", const=True)})
-
+    type_: str = Field("Ear", const=True, alias='@type')
+    
 
 Ear.update_forward_refs()

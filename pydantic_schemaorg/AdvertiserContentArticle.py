@@ -10,8 +10,7 @@ class AdvertiserContentArticle(Article):
     See https://schema.org/AdvertiserContentArticle.
 
     """
-
-    locals().update({"@type": Field("AdvertiserContentArticle", const=True)})
-
+    type_: str = Field("AdvertiserContentArticle", const=True, alias='@type')
+    
 
 AdvertiserContentArticle.update_forward_refs()

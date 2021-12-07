@@ -8,8 +8,7 @@ class NGO(Organization):
     See https://schema.org/NGO.
 
     """
-
-    locals().update({"@type": Field("NGO", const=True)})
-
+    type_: str = Field("NGO", const=True, alias='@type')
+    
 
 NGO.update_forward_refs()

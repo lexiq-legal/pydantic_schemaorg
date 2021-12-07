@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Audience import Audience
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Event import Event
 from pydantic_schemaorg.Action import Action
 
@@ -16,7 +16,7 @@ class PlayAction(Action):
     See https://schema.org/PlayAction.
 
     """
-
+    type_: str = Field("PlayAction", const=True, alias='@type')
     audience: Optional[Union[List[Audience], Audience]] = Field(
         None,
         description="An intended audience, i.e. a group for whom something was created.",
@@ -25,7 +25,6 @@ class PlayAction(Action):
         None,
         description="Upcoming or past event associated with this place, organization, or action.",
     )
-    locals().update({"@type": Field("PlayAction", const=True)})
-
+    
 
 PlayAction.update_forward_refs()

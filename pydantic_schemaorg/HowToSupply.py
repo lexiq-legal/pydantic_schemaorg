@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.HowToItem import HowToItem
 
 
@@ -9,12 +9,11 @@ class HowToSupply(HowToItem):
     See https://schema.org/HowToSupply.
 
     """
-
+    type_: str = Field("HowToSupply", const=True, alias='@type')
     estimatedCost: Union[List[Union[str, Any]], Union[str, Any]] = Field(
         None,
         description="The estimated cost of the supply or supplies consumed when performing instructions.",
     )
-    locals().update({"@type": Field("HowToSupply", const=True)})
-
+    
 
 HowToSupply.update_forward_refs()

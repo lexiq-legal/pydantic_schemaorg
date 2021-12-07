@@ -8,8 +8,7 @@ class OrderStatus(StatusEnumeration):
     See https://schema.org/OrderStatus.
 
     """
-
-    locals().update({"@type": Field("OrderStatus", const=True)})
-
+    type_: str = Field("OrderStatus", const=True, alias='@type')
+    
 
 OrderStatus.update_forward_refs()

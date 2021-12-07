@@ -8,8 +8,7 @@ class Hardcover(BookFormatType):
     See https://schema.org/Hardcover.
 
     """
-
-    locals().update({"@type": Field("Hardcover", const=True)})
-
+    type_: str = Field("Hardcover", const=True, alias='@type')
+    
 
 Hardcover.update_forward_refs()

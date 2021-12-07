@@ -8,8 +8,7 @@ class LegalForceStatus(StatusEnumeration):
     See https://schema.org/LegalForceStatus.
 
     """
-
-    locals().update({"@type": Field("LegalForceStatus", const=True)})
-
+    type_: str = Field("LegalForceStatus", const=True, alias='@type')
+    
 
 LegalForceStatus.update_forward_refs()

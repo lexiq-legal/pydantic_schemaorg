@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QuantitativeValueDistribution import QuantitativeValueDistribution
 
 
@@ -9,7 +9,7 @@ class MonetaryAmountDistribution(QuantitativeValueDistribution):
     See https://schema.org/MonetaryAmountDistribution.
 
     """
-
+    type_: str = Field("MonetaryAmountDistribution", const=True, alias='@type')
     currency: Optional[Union[List[str], str]] = Field(
         None,
         description="The currency in which the monetary amount is expressed. Use standard formats: [ISO 4217"
@@ -18,7 +18,6 @@ class MonetaryAmountDistribution(QuantitativeValueDistribution):
      "e.g. \"BTC\"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system)"
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
-    locals().update({"@type": Field("MonetaryAmountDistribution", const=True)})
-
+    
 
 MonetaryAmountDistribution.update_forward_refs()

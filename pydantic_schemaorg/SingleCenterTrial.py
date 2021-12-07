@@ -8,8 +8,7 @@ class SingleCenterTrial(MedicalTrialDesign):
     See https://schema.org/SingleCenterTrial.
 
     """
-
-    locals().update({"@type": Field("SingleCenterTrial", const=True)})
-
+    type_: str = Field("SingleCenterTrial", const=True, alias='@type')
+    
 
 SingleCenterTrial.update_forward_refs()

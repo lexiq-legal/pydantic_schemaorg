@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Language import Language
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreateAction import CreateAction
 
 
@@ -10,7 +10,7 @@ class WriteAction(CreateAction):
     See https://schema.org/WriteAction.
 
     """
-
+    type_: str = Field("WriteAction", const=True, alias='@type')
     language: Optional[Union[List[Language], Language]] = Field(
         None,
         description="A sub property of instrument. The language used on this action.",
@@ -21,7 +21,6 @@ class WriteAction(CreateAction):
      "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
      "[[availableLanguage]].",
     )
-    locals().update({"@type": Field("WriteAction", const=True)})
-
+    
 
 WriteAction.update_forward_refs()

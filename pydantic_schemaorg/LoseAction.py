@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.AchieveAction import AchieveAction
 
 
@@ -10,12 +10,11 @@ class LoseAction(AchieveAction):
     See https://schema.org/LoseAction.
 
     """
-
+    type_: str = Field("LoseAction", const=True, alias='@type')
     winner: Optional[Union[List[Person], Person]] = Field(
         None,
         description="A sub property of participant. The winner of the action.",
     )
-    locals().update({"@type": Field("LoseAction", const=True)})
-
+    
 
 LoseAction.update_forward_refs()

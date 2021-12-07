@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.ExercisePlan import ExercisePlan
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.SportsActivityLocation import SportsActivityLocation
@@ -14,7 +14,7 @@ class ExerciseAction(PlayAction):
     See https://schema.org/ExerciseAction.
 
     """
-
+    type_: str = Field("ExerciseAction", const=True, alias='@type')
     exercisePlan: Optional[Union[List[ExercisePlan], ExercisePlan]] = Field(
         None,
         description="A sub property of instrument. The exercise plan used on this action.",
@@ -69,7 +69,6 @@ class ExerciseAction(PlayAction):
         None,
         description="A sub property of participant. The sports team that participated on this action.",
     )
-    locals().update({"@type": Field("ExerciseAction", const=True)})
-
+    
 
 ExerciseAction.update_forward_refs()

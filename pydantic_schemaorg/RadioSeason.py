@@ -8,8 +8,7 @@ class RadioSeason(CreativeWorkSeason):
     See https://schema.org/RadioSeason.
 
     """
-
-    locals().update({"@type": Field("RadioSeason", const=True)})
-
+    type_: str = Field("RadioSeason", const=True, alias='@type')
+    
 
 RadioSeason.update_forward_refs()

@@ -9,8 +9,7 @@ class ReservationHold(ReservationStatusType):
     See https://schema.org/ReservationHold.
 
     """
-
-    locals().update({"@type": Field("ReservationHold", const=True)})
-
+    type_: str = Field("ReservationHold", const=True, alias='@type')
+    
 
 ReservationHold.update_forward_refs()

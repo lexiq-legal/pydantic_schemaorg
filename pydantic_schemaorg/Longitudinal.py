@@ -11,8 +11,7 @@ class Longitudinal(MedicalObservationalStudyDesign):
     See https://schema.org/Longitudinal.
 
     """
-
-    locals().update({"@type": Field("Longitudinal", const=True)})
-
+    type_: str = Field("Longitudinal", const=True, alias='@type')
+    
 
 Longitudinal.update_forward_refs()

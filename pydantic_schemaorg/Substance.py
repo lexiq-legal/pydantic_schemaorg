@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
 
@@ -10,7 +10,7 @@ class Substance(MedicalEntity):
     See https://schema.org/Substance.
 
     """
-
+    type_: str = Field("Substance", const=True, alias='@type')
     activeIngredient: Optional[Union[List[str], str]] = Field(
         None,
         description="An active ingredient, typically chemical compounds and/or biologic substances.",
@@ -20,7 +20,6 @@ class Substance(MedicalEntity):
         description="Recommended intake of this supplement for a given population as defined by a specific"
      "recommending authority.",
     )
-    locals().update({"@type": Field("Substance", const=True)})
-
+    
 
 Substance.update_forward_refs()

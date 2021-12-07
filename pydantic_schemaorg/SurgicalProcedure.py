@@ -9,8 +9,7 @@ class SurgicalProcedure(MedicalProcedure):
     See https://schema.org/SurgicalProcedure.
 
     """
-
-    locals().update({"@type": Field("SurgicalProcedure", const=True)})
-
+    type_: str = Field("SurgicalProcedure", const=True, alias='@type')
+    
 
 SurgicalProcedure.update_forward_refs()

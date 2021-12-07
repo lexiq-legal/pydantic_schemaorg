@@ -8,8 +8,7 @@ class Restaurant(FoodEstablishment):
     See https://schema.org/Restaurant.
 
     """
-
-    locals().update({"@type": Field("Restaurant", const=True)})
-
+    type_: str = Field("Restaurant", const=True, alias='@type')
+    
 
 Restaurant.update_forward_refs()

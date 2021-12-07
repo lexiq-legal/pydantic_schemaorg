@@ -1,9 +1,9 @@
 from pydantic import Field, AnyUrl
-from datetime import date, datetime
-from typing import Any, Union, List, Optional
+from datetime import datetime, date
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Duration import Duration
-from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.PaymentStatusType import PaymentStatusType
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
@@ -19,7 +19,7 @@ class Invoice(Intangible):
     See https://schema.org/Invoice.
 
     """
-
+    type_: str = Field("Invoice", const=True, alias='@type')
     paymentDue: Optional[Union[List[datetime], datetime]] = Field(
         None,
         description="The date that payment is due.",
@@ -36,7 +36,7 @@ class Invoice(Intangible):
         None,
         description="The time interval used to compute the invoice.",
     )
-    category: Optional[Union[List[Union[AnyUrl, str, Thing, PhysicalActivityCategory]], Union[AnyUrl, str, Thing, PhysicalActivityCategory]]] = Field(
+    category: Optional[Union[List[Union[AnyUrl, str, PhysicalActivityCategory, Thing]], Union[AnyUrl, str, PhysicalActivityCategory, Thing]]] = Field(
         None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -91,7 +91,6 @@ class Invoice(Intangible):
      "If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms"
      "are preferred.",
     )
-    locals().update({"@type": Field("Invoice", const=True)})
-
+    
 
 Invoice.update_forward_refs()

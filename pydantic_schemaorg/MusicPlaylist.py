@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -9,7 +9,7 @@ class MusicPlaylist(CreativeWork):
     See https://schema.org/MusicPlaylist.
 
     """
-
+    type_: str = Field("MusicPlaylist", const=True, alias='@type')
     numTracks: Optional[Union[List[int], int]] = Field(
         None,
         description="The number of tracks in this album or playlist.",
@@ -23,7 +23,6 @@ class MusicPlaylist(CreativeWork):
         description="A music recording (track)&#x2014;usually a single song. If an ItemList is given, the"
      "list should contain items of type MusicRecording.",
     )
-    locals().update({"@type": Field("MusicPlaylist", const=True)})
-
+    
 
 MusicPlaylist.update_forward_refs()

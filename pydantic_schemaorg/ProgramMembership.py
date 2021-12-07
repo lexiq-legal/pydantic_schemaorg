@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from decimal import Decimal
 from pydantic_schemaorg.Organization import Organization
@@ -14,7 +14,7 @@ class ProgramMembership(Intangible):
     See https://schema.org/ProgramMembership.
 
     """
-
+    type_: str = Field("ProgramMembership", const=True, alias='@type')
     membershipNumber: Optional[Union[List[str], str]] = Field(
         None,
         description="A unique identifier for the membership.",
@@ -41,7 +41,6 @@ class ProgramMembership(Intangible):
         None,
         description="The organization (airline, travelers' club, etc.) the membership is made with.",
     )
-    locals().update({"@type": Field("ProgramMembership", const=True)})
-
+    
 
 ProgramMembership.update_forward_refs()

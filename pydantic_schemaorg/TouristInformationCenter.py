@@ -8,8 +8,7 @@ class TouristInformationCenter(LocalBusiness):
     See https://schema.org/TouristInformationCenter.
 
     """
-
-    locals().update({"@type": Field("TouristInformationCenter", const=True)})
-
+    type_: str = Field("TouristInformationCenter", const=True, alias='@type')
+    
 
 TouristInformationCenter.update_forward_refs()

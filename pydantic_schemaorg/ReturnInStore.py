@@ -8,8 +8,7 @@ class ReturnInStore(ReturnMethodEnumeration):
     See https://schema.org/ReturnInStore.
 
     """
-
-    locals().update({"@type": Field("ReturnInStore", const=True)})
-
+    type_: str = Field("ReturnInStore", const=True, alias='@type')
+    
 
 ReturnInStore.update_forward_refs()

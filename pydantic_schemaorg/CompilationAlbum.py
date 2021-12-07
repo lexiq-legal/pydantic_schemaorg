@@ -8,8 +8,7 @@ class CompilationAlbum(MusicAlbumProductionType):
     See https://schema.org/CompilationAlbum.
 
     """
-
-    locals().update({"@type": Field("CompilationAlbum", const=True)})
-
+    type_: str = Field("CompilationAlbum", const=True, alias='@type')
+    
 
 CompilationAlbum.update_forward_refs()

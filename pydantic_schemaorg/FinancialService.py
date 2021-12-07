@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 
@@ -9,13 +9,12 @@ class FinancialService(LocalBusiness):
     See https://schema.org/FinancialService.
 
     """
-
+    type_: str = Field("FinancialService", const=True, alias='@type')
     feesAndCommissionsSpecification: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="Description of fees, commissions, and other terms applied either to a class of financial"
      "product, or by a financial service organization.",
     )
-    locals().update({"@type": Field("FinancialService", const=True)})
-
+    
 
 FinancialService.update_forward_refs()

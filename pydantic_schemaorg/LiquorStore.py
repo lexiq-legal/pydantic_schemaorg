@@ -8,8 +8,7 @@ class LiquorStore(Store):
     See https://schema.org/LiquorStore.
 
     """
-
-    locals().update({"@type": Field("LiquorStore", const=True)})
-
+    type_: str = Field("LiquorStore", const=True, alias='@type')
+    
 
 LiquorStore.update_forward_refs()

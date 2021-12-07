@@ -10,8 +10,7 @@ class Otolaryngologic(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Otolaryngologic.
 
     """
-
-    locals().update({"@type": Field("Otolaryngologic", const=True)})
-
+    type_: str = Field("Otolaryngologic", const=True, alias='@type')
+    
 
 Otolaryngologic.update_forward_refs()

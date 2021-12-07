@@ -8,8 +8,7 @@ class GraphicNovel(BookFormatType):
     See https://schema.org/GraphicNovel.
 
     """
-
-    locals().update({"@type": Field("GraphicNovel", const=True)})
-
+    type_: str = Field("GraphicNovel", const=True, alias='@type')
+    
 
 GraphicNovel.update_forward_refs()

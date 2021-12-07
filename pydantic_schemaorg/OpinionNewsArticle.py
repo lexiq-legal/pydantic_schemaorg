@@ -11,8 +11,7 @@ class OpinionNewsArticle(NewsArticle):
     See https://schema.org/OpinionNewsArticle.
 
     """
-
-    locals().update({"@type": Field("OpinionNewsArticle", const=True)})
-
+    type_: str = Field("OpinionNewsArticle", const=True, alias='@type')
+    
 
 OpinionNewsArticle.update_forward_refs()

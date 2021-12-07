@@ -8,8 +8,7 @@ class ReturnMethodEnumeration(Enumeration):
     See https://schema.org/ReturnMethodEnumeration.
 
     """
-
-    locals().update({"@type": Field("ReturnMethodEnumeration", const=True)})
-
+    type_: str = Field("ReturnMethodEnumeration", const=True, alias='@type')
+    
 
 ReturnMethodEnumeration.update_forward_refs()

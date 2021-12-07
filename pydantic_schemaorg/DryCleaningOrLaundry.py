@@ -8,8 +8,7 @@ class DryCleaningOrLaundry(LocalBusiness):
     See https://schema.org/DryCleaningOrLaundry.
 
     """
-
-    locals().update({"@type": Field("DryCleaningOrLaundry", const=True)})
-
+    type_: str = Field("DryCleaningOrLaundry", const=True, alias='@type')
+    
 
 DryCleaningOrLaundry.update_forward_refs()

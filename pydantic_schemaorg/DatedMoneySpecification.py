@@ -1,7 +1,7 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Union, List, Optional
-from datetime import date, datetime
+from typing import Any, Optional, Union, List
+from datetime import datetime, date
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -14,7 +14,7 @@ class DatedMoneySpecification(StructuredValue):
     See https://schema.org/DatedMoneySpecification.
 
     """
-
+    type_: str = Field("DatedMoneySpecification", const=True, alias='@type')
     amount: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
         None,
         description="The amount of money.",
@@ -35,7 +35,6 @@ class DatedMoneySpecification(StructuredValue):
      "e.g. \"BTC\"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system)"
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
-    locals().update({"@type": Field("DatedMoneySpecification", const=True)})
-
+    
 
 DatedMoneySpecification.update_forward_refs()

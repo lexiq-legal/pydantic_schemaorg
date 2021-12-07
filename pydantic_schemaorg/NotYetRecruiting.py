@@ -8,8 +8,7 @@ class NotYetRecruiting(MedicalStudyStatus):
     See https://schema.org/NotYetRecruiting.
 
     """
-
-    locals().update({"@type": Field("NotYetRecruiting", const=True)})
-
+    type_: str = Field("NotYetRecruiting", const=True, alias='@type')
+    
 
 NotYetRecruiting.update_forward_refs()

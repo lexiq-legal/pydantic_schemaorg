@@ -8,8 +8,7 @@ class Hackathon(Event):
     See https://schema.org/Hackathon.
 
     """
-
-    locals().update({"@type": Field("Hackathon", const=True)})
-
+    type_: str = Field("Hackathon", const=True, alias='@type')
+    
 
 Hackathon.update_forward_refs()

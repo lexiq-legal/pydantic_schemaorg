@@ -1,5 +1,5 @@
-from pydantic import Field, AnyUrl, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field, AnyUrl
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 
@@ -9,7 +9,7 @@ class FoodEstablishment(LocalBusiness):
     See https://schema.org/FoodEstablishment.
 
     """
-
+    type_: str = Field("FoodEstablishment", const=True, alias='@type')
     menu: Union[List[Union[AnyUrl, str, Any]], Union[AnyUrl, str, Any]] = Field(
         None,
         description="Either the actual menu as a structured representation, as text, or a URL of the menu.",
@@ -20,7 +20,7 @@ class FoodEstablishment(LocalBusiness):
      "associations or standards bodies. Use the author property to indicate the rating organization,"
      "e.g. as an Organization with name such as (e.g. HOTREC, DEHOGA, WHR, or Hotelstars).",
     )
-    acceptsReservations: Optional[Union[List[Union[AnyUrl, str, StrictBool]], Union[AnyUrl, str, StrictBool]]] = Field(
+    acceptsReservations: Optional[Union[List[Union[AnyUrl, StrictBool, str]], Union[AnyUrl, StrictBool, str]]] = Field(
         None,
         description="Indicates whether a FoodEstablishment accepts reservations. Values can be Boolean,"
      "an URL at which reservations can be made or (for backwards compatibility) the strings"
@@ -34,7 +34,6 @@ class FoodEstablishment(LocalBusiness):
         None,
         description="The cuisine of the restaurant.",
     )
-    locals().update({"@type": Field("FoodEstablishment", const=True)})
-
+    
 
 FoodEstablishment.update_forward_refs()

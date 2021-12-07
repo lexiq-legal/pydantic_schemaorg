@@ -8,8 +8,7 @@ class TextDigitalDocument(DigitalDocument):
     See https://schema.org/TextDigitalDocument.
 
     """
-
-    locals().update({"@type": Field("TextDigitalDocument", const=True)})
-
+    type_: str = Field("TextDigitalDocument", const=True, alias='@type')
+    
 
 TextDigitalDocument.update_forward_refs()

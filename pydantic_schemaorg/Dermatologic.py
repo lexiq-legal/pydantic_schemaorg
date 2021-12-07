@@ -8,8 +8,7 @@ class Dermatologic(MedicalSpecialty):
     See https://schema.org/Dermatologic.
 
     """
-
-    locals().update({"@type": Field("Dermatologic", const=True)})
-
+    type_: str = Field("Dermatologic", const=True, alias='@type')
+    
 
 Dermatologic.update_forward_refs()

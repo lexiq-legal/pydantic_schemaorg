@@ -9,8 +9,7 @@ class RVPark(CivicStructure):
     See https://schema.org/RVPark.
 
     """
-
-    locals().update({"@type": Field("RVPark", const=True)})
-
+    type_: str = Field("RVPark", const=True, alias='@type')
+    
 
 RVPark.update_forward_refs()

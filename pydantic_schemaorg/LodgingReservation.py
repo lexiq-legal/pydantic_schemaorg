@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from datetime import datetime, time
 from pydantic_schemaorg.QualitativeValue import QualitativeValue
@@ -14,7 +14,7 @@ class LodgingReservation(Reservation):
     See https://schema.org/LodgingReservation.
 
     """
-
+    type_: str = Field("LodgingReservation", const=True, alias='@type')
     lodgingUnitDescription: Optional[Union[List[str], str]] = Field(
         None,
         description="A full description of the lodging unit.",
@@ -39,7 +39,6 @@ class LodgingReservation(Reservation):
         None,
         description="Textual description of the unit type (including suite vs. room, size of bed, etc.).",
     )
-    locals().update({"@type": Field("LodgingReservation", const=True)})
-
+    
 
 LodgingReservation.update_forward_refs()

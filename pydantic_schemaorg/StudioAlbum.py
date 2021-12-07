@@ -8,8 +8,7 @@ class StudioAlbum(MusicAlbumProductionType):
     See https://schema.org/StudioAlbum.
 
     """
-
-    locals().update({"@type": Field("StudioAlbum", const=True)})
-
+    type_: str = Field("StudioAlbum", const=True, alias='@type')
+    
 
 StudioAlbum.update_forward_refs()

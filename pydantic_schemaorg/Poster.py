@@ -9,8 +9,7 @@ class Poster(CreativeWork):
     See https://schema.org/Poster.
 
     """
-
-    locals().update({"@type": Field("Poster", const=True)})
-
+    type_: str = Field("Poster", const=True, alias='@type')
+    
 
 Poster.update_forward_refs()

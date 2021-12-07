@@ -8,8 +8,7 @@ class BookFormatType(Enumeration):
     See https://schema.org/BookFormatType.
 
     """
-
-    locals().update({"@type": Field("BookFormatType", const=True)})
-
+    type_: str = Field("BookFormatType", const=True, alias='@type')
+    
 
 BookFormatType.update_forward_refs()

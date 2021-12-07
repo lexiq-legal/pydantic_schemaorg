@@ -8,8 +8,7 @@ class OrderInTransit(OrderStatus):
     See https://schema.org/OrderInTransit.
 
     """
-
-    locals().update({"@type": Field("OrderInTransit", const=True)})
-
+    type_: str = Field("OrderInTransit", const=True, alias='@type')
+    
 
 OrderInTransit.update_forward_refs()

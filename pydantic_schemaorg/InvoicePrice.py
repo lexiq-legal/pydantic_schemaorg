@@ -8,8 +8,7 @@ class InvoicePrice(PriceTypeEnumeration):
     See https://schema.org/InvoicePrice.
 
     """
-
-    locals().update({"@type": Field("InvoicePrice", const=True)})
-
+    type_: str = Field("InvoicePrice", const=True, alias='@type')
+    
 
 InvoicePrice.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.StructuredValue import StructuredValue
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
 from pydantic_schemaorg.AlignmentObject import AlignmentObject
 from pydantic_schemaorg.CreativeWork import CreativeWork
@@ -17,7 +17,7 @@ class Course(CreativeWork, LearningResource):
     See https://schema.org/Course.
 
     """
-
+    type_: str = Field("Course", const=True, alias='@type')
     numberOfCredits: Optional[Union[List[Union[int, StructuredValue]], Union[int, StructuredValue]]] = Field(
         None,
         description="The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.",
@@ -47,7 +47,6 @@ class Course(CreativeWork, LearningResource):
         description="A description of the qualification, award, certificate, diploma or other occupational"
      "credential awarded as a consequence of successful completion of this course or program.",
     )
-    locals().update({"@type": Field("Course", const=True)})
-
+    
 
 Course.update_forward_refs()

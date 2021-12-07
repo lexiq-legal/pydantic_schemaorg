@@ -8,8 +8,7 @@ class LaserDiscFormat(MusicReleaseFormatType):
     See https://schema.org/LaserDiscFormat.
 
     """
-
-    locals().update({"@type": Field("LaserDiscFormat", const=True)})
-
+    type_: str = Field("LaserDiscFormat", const=True, alias='@type')
+    
 
 LaserDiscFormat.update_forward_refs()

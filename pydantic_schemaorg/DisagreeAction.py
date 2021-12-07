@@ -9,8 +9,7 @@ class DisagreeAction(ReactAction):
     See https://schema.org/DisagreeAction.
 
     """
-
-    locals().update({"@type": Field("DisagreeAction", const=True)})
-
+    type_: str = Field("DisagreeAction", const=True, alias='@type')
+    
 
 DisagreeAction.update_forward_refs()

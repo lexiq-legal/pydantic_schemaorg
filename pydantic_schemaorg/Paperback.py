@@ -8,8 +8,7 @@ class Paperback(BookFormatType):
     See https://schema.org/Paperback.
 
     """
-
-    locals().update({"@type": Field("Paperback", const=True)})
-
+    type_: str = Field("Paperback", const=True, alias='@type')
+    
 
 Paperback.update_forward_refs()

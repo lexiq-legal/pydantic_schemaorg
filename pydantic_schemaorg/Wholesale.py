@@ -8,8 +8,7 @@ class Wholesale(DrugCostCategory):
     See https://schema.org/Wholesale.
 
     """
-
-    locals().update({"@type": Field("Wholesale", const=True)})
-
+    type_: str = Field("Wholesale", const=True, alias='@type')
+    
 
 Wholesale.update_forward_refs()

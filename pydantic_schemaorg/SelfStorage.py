@@ -8,8 +8,7 @@ class SelfStorage(LocalBusiness):
     See https://schema.org/SelfStorage.
 
     """
-
-    locals().update({"@type": Field("SelfStorage", const=True)})
-
+    type_: str = Field("SelfStorage", const=True, alias='@type')
+    
 
 SelfStorage.update_forward_refs()

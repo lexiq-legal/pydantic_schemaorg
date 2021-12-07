@@ -8,8 +8,7 @@ class DrivingSchoolVehicleUsage(CarUsageType):
     See https://schema.org/DrivingSchoolVehicleUsage.
 
     """
-
-    locals().update({"@type": Field("DrivingSchoolVehicleUsage", const=True)})
-
+    type_: str = Field("DrivingSchoolVehicleUsage", const=True, alias='@type')
+    
 
 DrivingSchoolVehicleUsage.update_forward_refs()

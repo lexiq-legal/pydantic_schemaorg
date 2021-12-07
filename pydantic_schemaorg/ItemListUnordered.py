@@ -8,8 +8,7 @@ class ItemListUnordered(ItemListOrderType):
     See https://schema.org/ItemListUnordered.
 
     """
-
-    locals().update({"@type": Field("ItemListUnordered", const=True)})
-
+    type_: str = Field("ItemListUnordered", const=True, alias='@type')
+    
 
 ItemListUnordered.update_forward_refs()

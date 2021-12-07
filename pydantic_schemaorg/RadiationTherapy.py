@@ -8,8 +8,7 @@ class RadiationTherapy(MedicalTherapy):
     See https://schema.org/RadiationTherapy.
 
     """
-
-    locals().update({"@type": Field("RadiationTherapy", const=True)})
-
+    type_: str = Field("RadiationTherapy", const=True, alias='@type')
+    
 
 RadiationTherapy.update_forward_refs()

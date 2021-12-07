@@ -8,8 +8,7 @@ class TattooParlor(HealthAndBeautyBusiness):
     See https://schema.org/TattooParlor.
 
     """
-
-    locals().update({"@type": Field("TattooParlor", const=True)})
-
+    type_: str = Field("TattooParlor", const=True, alias='@type')
+    
 
 TattooParlor.update_forward_refs()

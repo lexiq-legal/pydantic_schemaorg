@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.MusicRecording import MusicRecording
 from pydantic_schemaorg.Event import Event
@@ -13,7 +13,7 @@ class MusicComposition(CreativeWork):
     See https://schema.org/MusicComposition.
 
     """
-
+    type_: str = Field("MusicComposition", const=True, alias='@type')
     composer: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
         None,
         description="The person or organization who wrote a composition, or who is the composer of a work performed"
@@ -55,7 +55,6 @@ class MusicComposition(CreativeWork):
         None,
         description="The type of composition (e.g. overture, sonata, symphony, etc.).",
     )
-    locals().update({"@type": Field("MusicComposition", const=True)})
-
+    
 
 MusicComposition.update_forward_refs()

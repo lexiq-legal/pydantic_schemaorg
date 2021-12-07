@@ -8,8 +8,7 @@ class Eye(PhysicalExam):
     See https://schema.org/Eye.
 
     """
-
-    locals().update({"@type": Field("Eye", const=True)})
-
+    type_: str = Field("Eye", const=True, alias='@type')
+    
 
 Eye.update_forward_refs()

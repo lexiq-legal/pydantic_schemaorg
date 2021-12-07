@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -10,7 +10,7 @@ class Review(CreativeWork):
     See https://schema.org/Review.
 
     """
-
+    type_: str = Field("Review", const=True, alias='@type')
     associatedMediaReview: Any = Field(
         None,
         description="An associated [[MediaReview]], related by specific common content, topic or claim."
@@ -59,7 +59,6 @@ class Review(CreativeWork):
         None,
         description="The item that is being reviewed/rated.",
     )
-    locals().update({"@type": Field("Review", const=True)})
-
+    
 
 Review.update_forward_refs()

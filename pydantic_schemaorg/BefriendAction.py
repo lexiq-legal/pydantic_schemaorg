@@ -10,8 +10,7 @@ class BefriendAction(InteractAction):
     See https://schema.org/BefriendAction.
 
     """
-
-    locals().update({"@type": Field("BefriendAction", const=True)})
-
+    type_: str = Field("BefriendAction", const=True, alias='@type')
+    
 
 BefriendAction.update_forward_refs()

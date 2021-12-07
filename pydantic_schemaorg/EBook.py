@@ -8,8 +8,7 @@ class EBook(BookFormatType):
     See https://schema.org/EBook.
 
     """
-
-    locals().update({"@type": Field("EBook", const=True)})
-
+    type_: str = Field("EBook", const=True, alias='@type')
+    
 
 EBook.update_forward_refs()

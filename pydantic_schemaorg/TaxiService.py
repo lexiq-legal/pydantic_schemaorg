@@ -9,8 +9,7 @@ class TaxiService(Service):
     See https://schema.org/TaxiService.
 
     """
-
-    locals().update({"@type": Field("TaxiService", const=True)})
-
+    type_: str = Field("TaxiService", const=True, alias='@type')
+    
 
 TaxiService.update_forward_refs()

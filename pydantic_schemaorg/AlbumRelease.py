@@ -8,8 +8,7 @@ class AlbumRelease(MusicAlbumReleaseType):
     See https://schema.org/AlbumRelease.
 
     """
-
-    locals().update({"@type": Field("AlbumRelease", const=True)})
-
+    type_: str = Field("AlbumRelease", const=True, alias='@type')
+    
 
 AlbumRelease.update_forward_refs()

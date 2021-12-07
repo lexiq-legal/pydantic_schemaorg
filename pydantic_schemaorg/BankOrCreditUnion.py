@@ -8,8 +8,7 @@ class BankOrCreditUnion(FinancialService):
     See https://schema.org/BankOrCreditUnion.
 
     """
-
-    locals().update({"@type": Field("BankOrCreditUnion", const=True)})
-
+    type_: str = Field("BankOrCreditUnion", const=True, alias='@type')
+    
 
 BankOrCreditUnion.update_forward_refs()

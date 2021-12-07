@@ -8,8 +8,7 @@ class SportsActivityLocation(LocalBusiness):
     See https://schema.org/SportsActivityLocation.
 
     """
-
-    locals().update({"@type": Field("SportsActivityLocation", const=True)})
-
+    type_: str = Field("SportsActivityLocation", const=True, alias='@type')
+    
 
 SportsActivityLocation.update_forward_refs()

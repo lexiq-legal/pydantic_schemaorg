@@ -8,8 +8,7 @@ class AssignAction(AllocateAction):
     See https://schema.org/AssignAction.
 
     """
-
-    locals().update({"@type": Field("AssignAction", const=True)})
-
+    type_: str = Field("AssignAction", const=True, alias='@type')
+    
 
 AssignAction.update_forward_refs()

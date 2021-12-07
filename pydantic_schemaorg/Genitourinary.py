@@ -8,8 +8,7 @@ class Genitourinary(PhysicalExam):
     See https://schema.org/Genitourinary.
 
     """
-
-    locals().update({"@type": Field("Genitourinary", const=True)})
-
+    type_: str = Field("Genitourinary", const=True, alias='@type')
+    
 
 Genitourinary.update_forward_refs()

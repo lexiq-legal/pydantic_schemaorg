@@ -13,8 +13,7 @@ class RegisterAction(InteractAction):
     See https://schema.org/RegisterAction.
 
     """
-
-    locals().update({"@type": Field("RegisterAction", const=True)})
-
+    type_: str = Field("RegisterAction", const=True, alias='@type')
+    
 
 RegisterAction.update_forward_refs()

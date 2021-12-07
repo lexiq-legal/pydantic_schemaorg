@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.PriceTypeEnumeration import PriceTypeEnumeration
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.PriceComponentTypeEnumeration import PriceComponentTypeEnumeration
@@ -13,7 +13,7 @@ class UnitPriceSpecification(PriceSpecification):
     See https://schema.org/UnitPriceSpecification.
 
     """
-
+    type_: str = Field("UnitPriceSpecification", const=True, alias='@type')
     billingStart: Optional[Union[List[Decimal], Decimal]] = Field(
         None,
         description="Specifies after how much time this price (or price component) becomes valid and billing"
@@ -62,7 +62,6 @@ class UnitPriceSpecification(PriceSpecification):
         description="Identifies a price component (for example, a line item on an invoice), part of the total"
      "price for an offer.",
     )
-    locals().update({"@type": Field("UnitPriceSpecification", const=True)})
-
+    
 
 UnitPriceSpecification.update_forward_refs()

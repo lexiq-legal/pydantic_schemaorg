@@ -8,8 +8,7 @@ class Bakery(FoodEstablishment):
     See https://schema.org/Bakery.
 
     """
-
-    locals().update({"@type": Field("Bakery", const=True)})
-
+    type_: str = Field("Bakery", const=True, alias='@type')
+    
 
 Bakery.update_forward_refs()

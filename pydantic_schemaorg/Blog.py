@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -11,7 +11,7 @@ class Blog(CreativeWork):
     See https://schema.org/Blog.
 
     """
-
+    type_: str = Field("Blog", const=True, alias='@type')
     blogPosts: Any = Field(
         None,
         description="Indicates a post that is part of a [[Blog]]. Note that historically, what we term a \"Blog\""
@@ -28,7 +28,6 @@ class Blog(CreativeWork):
      "You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L)"
      "for, this serial publication.",
     )
-    locals().update({"@type": Field("Blog", const=True)})
-
+    
 
 Blog.update_forward_refs()

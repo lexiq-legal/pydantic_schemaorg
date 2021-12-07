@@ -8,8 +8,7 @@ class SinglePlayer(GamePlayMode):
     See https://schema.org/SinglePlayer.
 
     """
-
-    locals().update({"@type": Field("SinglePlayer", const=True)})
-
+    type_: str = Field("SinglePlayer", const=True, alias='@type')
+    
 
 SinglePlayer.update_forward_refs()

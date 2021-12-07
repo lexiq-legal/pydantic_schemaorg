@@ -8,8 +8,7 @@ class Neck(PhysicalExam):
     See https://schema.org/Neck.
 
     """
-
-    locals().update({"@type": Field("Neck", const=True)})
-
+    type_: str = Field("Neck", const=True, alias='@type')
+    
 
 Neck.update_forward_refs()

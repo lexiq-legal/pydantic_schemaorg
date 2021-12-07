@@ -8,8 +8,7 @@ class Subscription(PriceComponentTypeEnumeration):
     See https://schema.org/Subscription.
 
     """
-
-    locals().update({"@type": Field("Subscription", const=True)})
-
+    type_: str = Field("Subscription", const=True, alias='@type')
+    
 
 Subscription.update_forward_refs()

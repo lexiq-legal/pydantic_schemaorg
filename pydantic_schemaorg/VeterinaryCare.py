@@ -8,8 +8,7 @@ class VeterinaryCare(MedicalOrganization):
     See https://schema.org/VeterinaryCare.
 
     """
-
-    locals().update({"@type": Field("VeterinaryCare", const=True)})
-
+    type_: str = Field("VeterinaryCare", const=True, alias='@type')
+    
 
 VeterinaryCare.update_forward_refs()

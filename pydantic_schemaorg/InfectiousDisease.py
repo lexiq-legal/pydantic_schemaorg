@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalCondition import MedicalCondition
 
 
@@ -12,7 +12,7 @@ class InfectiousDisease(MedicalCondition):
     See https://schema.org/InfectiousDisease.
 
     """
-
+    type_: str = Field("InfectiousDisease", const=True, alias='@type')
     transmissionMethod: Optional[Union[List[str], str]] = Field(
         None,
         description="How the disease spreads, either as a route or vector, for example 'direct contact', 'Aedes"
@@ -26,7 +26,6 @@ class InfectiousDisease(MedicalCondition):
         None,
         description="The class of infectious agent (bacteria, prion, etc.) that causes the disease.",
     )
-    locals().update({"@type": Field("InfectiousDisease", const=True)})
-
+    
 
 InfectiousDisease.update_forward_refs()

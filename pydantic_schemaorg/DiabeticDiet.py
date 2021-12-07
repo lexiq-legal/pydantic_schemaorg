@@ -8,8 +8,7 @@ class DiabeticDiet(RestrictedDiet):
     See https://schema.org/DiabeticDiet.
 
     """
-
-    locals().update({"@type": Field("DiabeticDiet", const=True)})
-
+    type_: str = Field("DiabeticDiet", const=True, alias='@type')
+    
 
 DiabeticDiet.update_forward_refs()

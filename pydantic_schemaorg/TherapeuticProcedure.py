@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 from pydantic_schemaorg.MedicalProcedure import MedicalProcedure
 
@@ -11,7 +11,7 @@ class TherapeuticProcedure(MedicalProcedure):
     See https://schema.org/TherapeuticProcedure.
 
     """
-
+    type_: str = Field("TherapeuticProcedure", const=True, alias='@type')
     doseSchedule: Any = Field(
         None,
         description="A dosing schedule for the drug for a given population, either observed, recommended,"
@@ -28,7 +28,6 @@ class TherapeuticProcedure(MedicalProcedure):
         None,
         description="Specifying a drug or medicine used in a medication procedure.",
     )
-    locals().update({"@type": Field("TherapeuticProcedure", const=True)})
-
+    
 
 TherapeuticProcedure.update_forward_refs()

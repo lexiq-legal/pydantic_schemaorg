@@ -8,8 +8,7 @@ class Discontinued(ItemAvailability):
     See https://schema.org/Discontinued.
 
     """
-
-    locals().update({"@type": Field("Discontinued", const=True)})
-
+    type_: str = Field("Discontinued", const=True, alias='@type')
+    
 
 Discontinued.update_forward_refs()

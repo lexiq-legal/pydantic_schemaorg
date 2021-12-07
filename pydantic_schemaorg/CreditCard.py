@@ -13,8 +13,7 @@ class CreditCard(LoanOrCredit, PaymentCard):
     See https://schema.org/CreditCard.
 
     """
-
-    locals().update({"@type": Field("CreditCard", const=True)})
-
+    type_: str = Field("CreditCard", const=True, alias='@type')
+    
 
 CreditCard.update_forward_refs()

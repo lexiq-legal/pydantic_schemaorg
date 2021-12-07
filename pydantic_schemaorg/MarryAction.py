@@ -8,8 +8,7 @@ class MarryAction(InteractAction):
     See https://schema.org/MarryAction.
 
     """
-
-    locals().update({"@type": Field("MarryAction", const=True)})
-
+    type_: str = Field("MarryAction", const=True, alias='@type')
+    
 
 MarryAction.update_forward_refs()

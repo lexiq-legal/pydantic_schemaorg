@@ -8,8 +8,7 @@ class PerformingArtsTheater(CivicStructure):
     See https://schema.org/PerformingArtsTheater.
 
     """
-
-    locals().update({"@type": Field("PerformingArtsTheater", const=True)})
-
+    type_: str = Field("PerformingArtsTheater", const=True, alias='@type')
+    
 
 PerformingArtsTheater.update_forward_refs()

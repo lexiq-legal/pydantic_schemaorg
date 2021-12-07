@@ -8,8 +8,7 @@ class VisualArtsEvent(Event):
     See https://schema.org/VisualArtsEvent.
 
     """
-
-    locals().update({"@type": Field("VisualArtsEvent", const=True)})
-
+    type_: str = Field("VisualArtsEvent", const=True, alias='@type')
+    
 
 VisualArtsEvent.update_forward_refs()

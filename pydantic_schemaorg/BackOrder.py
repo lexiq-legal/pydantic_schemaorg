@@ -8,8 +8,7 @@ class BackOrder(ItemAvailability):
     See https://schema.org/BackOrder.
 
     """
-
-    locals().update({"@type": Field("BackOrder", const=True)})
-
+    type_: str = Field("BackOrder", const=True, alias='@type')
+    
 
 BackOrder.update_forward_refs()

@@ -14,8 +14,7 @@ class CheckOutAction(CommunicateAction):
     See https://schema.org/CheckOutAction.
 
     """
-
-    locals().update({"@type": Field("CheckOutAction", const=True)})
-
+    type_: str = Field("CheckOutAction", const=True, alias='@type')
+    
 
 CheckOutAction.update_forward_refs()

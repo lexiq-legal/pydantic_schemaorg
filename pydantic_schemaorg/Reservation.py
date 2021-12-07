@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from datetime import datetime
 from decimal import Decimal
@@ -16,7 +16,7 @@ class Reservation(Intangible):
     See https://schema.org/Reservation.
 
     """
-
+    type_: str = Field("Reservation", const=True, alias='@type')
     reservationId: Optional[Union[List[str], str]] = Field(
         None,
         description="A unique identifier for the reservation.",
@@ -83,7 +83,6 @@ class Reservation(Intangible):
         None,
         description="A ticket associated with the reservation.",
     )
-    locals().update({"@type": Field("Reservation", const=True)})
-
+    
 
 Reservation.update_forward_refs()

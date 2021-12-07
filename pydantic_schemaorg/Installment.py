@@ -8,8 +8,7 @@ class Installment(PriceComponentTypeEnumeration):
     See https://schema.org/Installment.
 
     """
-
-    locals().update({"@type": Field("Installment", const=True)})
-
+    type_: str = Field("Installment", const=True, alias='@type')
+    
 
 Installment.update_forward_refs()

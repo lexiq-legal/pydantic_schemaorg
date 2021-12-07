@@ -10,8 +10,7 @@ class Podiatric(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Podiatric.
 
     """
-
-    locals().update({"@type": Field("Podiatric", const=True)})
-
+    type_: str = Field("Podiatric", const=True, alias='@type')
+    
 
 Podiatric.update_forward_refs()

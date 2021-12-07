@@ -8,8 +8,7 @@ class Festival(Event):
     See https://schema.org/Festival.
 
     """
-
-    locals().update({"@type": Field("Festival", const=True)})
-
+    type_: str = Field("Festival", const=True, alias='@type')
+    
 
 Festival.update_forward_refs()

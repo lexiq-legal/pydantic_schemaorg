@@ -8,8 +8,7 @@ class ReservationCancelled(ReservationStatusType):
     See https://schema.org/ReservationCancelled.
 
     """
-
-    locals().update({"@type": Field("ReservationCancelled", const=True)})
-
+    type_: str = Field("ReservationCancelled", const=True, alias='@type')
+    
 
 ReservationCancelled.update_forward_refs()

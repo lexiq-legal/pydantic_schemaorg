@@ -8,8 +8,7 @@ class ReturnLabelInBox(ReturnLabelSourceEnumeration):
     See https://schema.org/ReturnLabelInBox.
 
     """
-
-    locals().update({"@type": Field("ReturnLabelInBox", const=True)})
-
+    type_: str = Field("ReturnLabelInBox", const=True, alias='@type')
+    
 
 ReturnLabelInBox.update_forward_refs()

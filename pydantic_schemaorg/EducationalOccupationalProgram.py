@@ -1,8 +1,8 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Demand import Demand
 from pydantic_schemaorg.StructuredValue import StructuredValue
-from datetime import date, datetime
+from datetime import datetime, date
 from pydantic_schemaorg.AlignmentObject import AlignmentObject
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from decimal import Decimal
@@ -23,7 +23,7 @@ class EducationalOccupationalProgram(Intangible):
     See https://schema.org/EducationalOccupationalProgram.
 
     """
-
+    type_: str = Field("EducationalOccupationalProgram", const=True, alias='@type')
     timeToComplete: Any = Field(
         None,
         description="The expected length of time to complete the program if attending full-time.",
@@ -149,7 +149,6 @@ class EducationalOccupationalProgram(Intangible):
      "or optional; no guarantee is implied about whether the course will be available to everyone"
      "on the program.",
     )
-    locals().update({"@type": Field("EducationalOccupationalProgram", const=True)})
-
+    
 
 EducationalOccupationalProgram.update_forward_refs()

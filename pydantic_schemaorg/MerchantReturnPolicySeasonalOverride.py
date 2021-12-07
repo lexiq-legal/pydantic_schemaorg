@@ -1,6 +1,6 @@
 from pydantic import Field
-from datetime import date, datetime
-from typing import Any, Union, List, Optional
+from datetime import datetime, date
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MerchantReturnEnumeration import MerchantReturnEnumeration
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -11,7 +11,7 @@ class MerchantReturnPolicySeasonalOverride(Intangible):
     See https://schema.org/MerchantReturnPolicySeasonalOverride.
 
     """
-
+    type_: str = Field("MerchantReturnPolicySeasonalOverride", const=True, alias='@type')
     merchantReturnDays: Optional[Union[List[Union[datetime, int, date]], Union[datetime, int, date]]] = Field(
         None,
         description="Specifies either a fixed return date or the number of days (from the delivery date) that"
@@ -30,7 +30,6 @@ class MerchantReturnPolicySeasonalOverride(Intangible):
         None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    locals().update({"@type": Field("MerchantReturnPolicySeasonalOverride", const=True)})
-
+    
 
 MerchantReturnPolicySeasonalOverride.update_forward_refs()

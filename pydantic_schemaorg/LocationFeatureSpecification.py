@@ -1,6 +1,6 @@
 from pydantic import Field
-from datetime import date, datetime
-from typing import Any, Union, List, Optional
+from datetime import datetime, date
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.PropertyValue import PropertyValue
 
 
@@ -11,7 +11,7 @@ class LocationFeatureSpecification(PropertyValue):
     See https://schema.org/LocationFeatureSpecification.
 
     """
-
+    type_: str = Field("LocationFeatureSpecification", const=True, alias='@type')
     validFrom: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
         None,
         description="The date when the item becomes valid.",
@@ -25,7 +25,6 @@ class LocationFeatureSpecification(PropertyValue):
         None,
         description="The hours during which this service or contact is available.",
     )
-    locals().update({"@type": Field("LocationFeatureSpecification", const=True)})
-
+    
 
 LocationFeatureSpecification.update_forward_refs()

@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Person import Person
 from decimal import Decimal
 from pydantic_schemaorg.CreativeWorkSeries import CreativeWorkSeries
@@ -12,7 +12,7 @@ class Clip(CreativeWork):
     See https://schema.org/Clip.
 
     """
-
+    type_: str = Field("Clip", const=True, alias='@type')
     partOfSeason: Any = Field(
         None,
         description="The season to which this episode belongs.",
@@ -62,7 +62,6 @@ class Clip(CreativeWork):
         None,
         description="The composer of the soundtrack.",
     )
-    locals().update({"@type": Field("Clip", const=True)})
-
+    
 
 Clip.update_forward_refs()

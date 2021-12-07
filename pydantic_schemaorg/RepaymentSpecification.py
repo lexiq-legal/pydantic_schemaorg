@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from decimal import Decimal
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -10,7 +10,7 @@ class RepaymentSpecification(StructuredValue):
     See https://schema.org/RepaymentSpecification.
 
     """
-
+    type_: str = Field("RepaymentSpecification", const=True, alias='@type')
     loanPaymentAmount: Any = Field(
         None,
         description="The amount of money to pay in a single payment.",
@@ -35,7 +35,6 @@ class RepaymentSpecification(StructuredValue):
         description="a type of payment made in cash during the onset of the purchase of an expensive good/service."
      "The payment typically represents only a percentage of the full purchase price.",
     )
-    locals().update({"@type": Field("RepaymentSpecification", const=True)})
-
+    
 
 RepaymentSpecification.update_forward_refs()

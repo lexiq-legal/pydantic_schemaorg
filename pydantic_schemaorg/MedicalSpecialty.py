@@ -11,8 +11,7 @@ class MedicalSpecialty(MedicalEnumeration, Specialty):
     See https://schema.org/MedicalSpecialty.
 
     """
-
-    locals().update({"@type": Field("MedicalSpecialty", const=True)})
-
+    type_: str = Field("MedicalSpecialty", const=True, alias='@type')
+    
 
 MedicalSpecialty.update_forward_refs()

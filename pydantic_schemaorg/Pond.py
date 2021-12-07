@@ -8,8 +8,7 @@ class Pond(BodyOfWater):
     See https://schema.org/Pond.
 
     """
-
-    locals().update({"@type": Field("Pond", const=True)})
-
+    type_: str = Field("Pond", const=True, alias='@type')
+    
 
 Pond.update_forward_refs()

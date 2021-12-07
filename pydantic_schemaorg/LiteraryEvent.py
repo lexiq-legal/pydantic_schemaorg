@@ -8,8 +8,7 @@ class LiteraryEvent(Event):
     See https://schema.org/LiteraryEvent.
 
     """
-
-    locals().update({"@type": Field("LiteraryEvent", const=True)})
-
+    type_: str = Field("LiteraryEvent", const=True, alias='@type')
+    
 
 LiteraryEvent.update_forward_refs()

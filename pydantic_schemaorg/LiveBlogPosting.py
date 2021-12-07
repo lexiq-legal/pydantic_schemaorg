@@ -1,6 +1,6 @@
 from pydantic import Field
 from datetime import datetime
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.BlogPosting import BlogPosting
 
 
@@ -11,7 +11,7 @@ class LiveBlogPosting(BlogPosting):
     See https://schema.org/LiveBlogPosting.
 
     """
-
+    type_: str = Field("LiveBlogPosting", const=True, alias='@type')
     coverageEndTime: Optional[Union[List[datetime], datetime]] = Field(
         None,
         description="The time when the live blog will stop covering the Event. Note that coverage may continue"
@@ -27,7 +27,6 @@ class LiveBlogPosting(BlogPosting):
      "before the Event's start time. The LiveBlogPosting may also be created before coverage"
      "begins.",
     )
-    locals().update({"@type": Field("LiveBlogPosting", const=True)})
-
+    
 
 LiveBlogPosting.update_forward_refs()

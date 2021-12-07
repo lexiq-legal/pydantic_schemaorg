@@ -1,8 +1,8 @@
-from pydantic import Field, AnyUrl, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field, AnyUrl
+from typing import Any, Optional, Union, List
 from decimal import Decimal
-from pydantic_schemaorg.Enumeration import Enumeration
 from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
+from pydantic_schemaorg.Enumeration import Enumeration
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -17,7 +17,7 @@ class PropertyValue(StructuredValue):
     See https://schema.org/PropertyValue.
 
     """
-
+    type_: str = Field("PropertyValue", const=True, alias='@type')
     measurementTechnique: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),"
@@ -41,7 +41,7 @@ class PropertyValue(StructuredValue):
         description="A string or text indicating the unit of measurement. Useful if you cannot provide a standard"
      "unit code for <a href='unitCode'>unitCode</a>.",
     )
-    value: Union[List[Union[Decimal, str, StrictBool, Any]], Union[Decimal, str, StrictBool, Any]] = Field(
+    value: Union[List[Union[Decimal, StrictBool, str, Any]], Union[Decimal, StrictBool, str, Any]] = Field(
         None,
         description="The value of the quantitative value or property value node. * For [[QuantitativeValue]]"
      "and [[MonetaryAmount]], the recommended type for values is 'Number'. * For [[PropertyValue]],"
@@ -70,12 +70,11 @@ class PropertyValue(StructuredValue):
         None,
         description="The upper value of some characteristic or property.",
     )
-    valueReference: Union[List[Union[str, Enumeration, MeasurementTypeEnumeration, DefinedTerm, Any]], Union[str, Enumeration, MeasurementTypeEnumeration, DefinedTerm, Any]] = Field(
+    valueReference: Union[List[Union[str, MeasurementTypeEnumeration, Enumeration, DefinedTerm, Any]], Union[str, MeasurementTypeEnumeration, Enumeration, DefinedTerm, Any]] = Field(
         None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",
     )
-    locals().update({"@type": Field("PropertyValue", const=True)})
-
+    
 
 PropertyValue.update_forward_refs()

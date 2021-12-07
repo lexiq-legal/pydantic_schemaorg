@@ -9,8 +9,7 @@ class Surgical(MedicalSpecialty):
     See https://schema.org/Surgical.
 
     """
-
-    locals().update({"@type": Field("Surgical", const=True)})
-
+    type_: str = Field("Surgical", const=True, alias='@type')
+    
 
 Surgical.update_forward_refs()

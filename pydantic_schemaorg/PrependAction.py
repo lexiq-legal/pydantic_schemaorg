@@ -8,8 +8,7 @@ class PrependAction(InsertAction):
     See https://schema.org/PrependAction.
 
     """
-
-    locals().update({"@type": Field("PrependAction", const=True)})
-
+    type_: str = Field("PrependAction", const=True, alias='@type')
+    
 
 PrependAction.update_forward_refs()

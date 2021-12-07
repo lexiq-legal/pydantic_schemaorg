@@ -8,8 +8,7 @@ class OutletStore(Store):
     See https://schema.org/OutletStore.
 
     """
-
-    locals().update({"@type": Field("OutletStore", const=True)})
-
+    type_: str = Field("OutletStore", const=True, alias='@type')
+    
 
 OutletStore.update_forward_refs()

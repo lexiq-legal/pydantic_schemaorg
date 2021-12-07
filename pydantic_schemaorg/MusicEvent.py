@@ -8,8 +8,7 @@ class MusicEvent(Event):
     See https://schema.org/MusicEvent.
 
     """
-
-    locals().update({"@type": Field("MusicEvent", const=True)})
-
+    type_: str = Field("MusicEvent", const=True, alias='@type')
+    
 
 MusicEvent.update_forward_refs()

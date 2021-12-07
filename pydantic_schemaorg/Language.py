@@ -12,8 +12,7 @@ class Language(Intangible):
     See https://schema.org/Language.
 
     """
-
-    locals().update({"@type": Field("Language", const=True)})
-
+    type_: str = Field("Language", const=True, alias='@type')
+    
 
 Language.update_forward_refs()

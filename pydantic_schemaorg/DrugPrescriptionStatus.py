@@ -8,8 +8,7 @@ class DrugPrescriptionStatus(MedicalEnumeration):
     See https://schema.org/DrugPrescriptionStatus.
 
     """
-
-    locals().update({"@type": Field("DrugPrescriptionStatus", const=True)})
-
+    type_: str = Field("DrugPrescriptionStatus", const=True, alias='@type')
+    
 
 DrugPrescriptionStatus.update_forward_refs()

@@ -8,8 +8,7 @@ class Barcode(ImageObject):
     See https://schema.org/Barcode.
 
     """
-
-    locals().update({"@type": Field("Barcode", const=True)})
-
+    type_: str = Field("Barcode", const=True, alias='@type')
+    
 
 Barcode.update_forward_refs()

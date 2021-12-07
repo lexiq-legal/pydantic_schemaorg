@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -11,13 +11,12 @@ class MediaReviewItem(CreativeWork):
     See https://schema.org/MediaReviewItem.
 
     """
-
+    type_: str = Field("MediaReviewItem", const=True, alias='@type')
     mediaItemAppearance: Any = Field(
         None,
         description="In the context of a [[MediaReview]], indicates specific media item(s) that are grouped"
      "using a [[MediaReviewItem]].",
     )
-    locals().update({"@type": Field("MediaReviewItem", const=True)})
-
+    
 
 MediaReviewItem.update_forward_refs()

@@ -8,8 +8,7 @@ class ReportedDoseSchedule(DoseSchedule):
     See https://schema.org/ReportedDoseSchedule.
 
     """
-
-    locals().update({"@type": Field("ReportedDoseSchedule", const=True)})
-
+    type_: str = Field("ReportedDoseSchedule", const=True, alias='@type')
+    
 
 ReportedDoseSchedule.update_forward_refs()

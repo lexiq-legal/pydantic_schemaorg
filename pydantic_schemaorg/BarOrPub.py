@@ -8,8 +8,7 @@ class BarOrPub(FoodEstablishment):
     See https://schema.org/BarOrPub.
 
     """
-
-    locals().update({"@type": Field("BarOrPub", const=True)})
-
+    type_: str = Field("BarOrPub", const=True, alias='@type')
+    
 
 BarOrPub.update_forward_refs()

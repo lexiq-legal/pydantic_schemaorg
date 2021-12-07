@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Duration import Duration
@@ -15,7 +15,7 @@ class Flight(Trip):
     See https://schema.org/Flight.
 
     """
-
+    type_: str = Field("Flight", const=True, alias='@type')
     boardingPolicy: Any = Field(
         None,
         description="The type of boarding policy used by the airline (e.g. zone-based or group-based).",
@@ -78,7 +78,6 @@ class Flight(Trip):
         None,
         description="The airport where the flight terminates.",
     )
-    locals().update({"@type": Field("Flight", const=True)})
-
+    
 
 Flight.update_forward_refs()

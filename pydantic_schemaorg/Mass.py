@@ -9,8 +9,7 @@ class Mass(Quantity):
     See https://schema.org/Mass.
 
     """
-
-    locals().update({"@type": Field("Mass", const=True)})
-
+    type_: str = Field("Mass", const=True, alias='@type')
+    
 
 Mass.update_forward_refs()

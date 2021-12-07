@@ -8,8 +8,7 @@ class KosherDiet(RestrictedDiet):
     See https://schema.org/KosherDiet.
 
     """
-
-    locals().update({"@type": Field("KosherDiet", const=True)})
-
+    type_: str = Field("KosherDiet", const=True, alias='@type')
+    
 
 KosherDiet.update_forward_refs()

@@ -9,8 +9,7 @@ class AchieveAction(Action):
     See https://schema.org/AchieveAction.
 
     """
-
-    locals().update({"@type": Field("AchieveAction", const=True)})
-
+    type_: str = Field("AchieveAction", const=True, alias='@type')
+    
 
 AchieveAction.update_forward_refs()

@@ -8,8 +8,7 @@ class ReturnByMail(ReturnMethodEnumeration):
     See https://schema.org/ReturnByMail.
 
     """
-
-    locals().update({"@type": Field("ReturnByMail", const=True)})
-
+    type_: str = Field("ReturnByMail", const=True, alias='@type')
+    
 
 ReturnByMail.update_forward_refs()

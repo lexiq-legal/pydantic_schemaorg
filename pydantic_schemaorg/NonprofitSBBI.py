@@ -9,8 +9,7 @@ class NonprofitSBBI(NLNonprofitType):
     See https://schema.org/NonprofitSBBI.
 
     """
-
-    locals().update({"@type": Field("NonprofitSBBI", const=True)})
-
+    type_: str = Field("NonprofitSBBI", const=True, alias='@type')
+    
 
 NonprofitSBBI.update_forward_refs()

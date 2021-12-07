@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.PropertyValue import PropertyValue
 from pydantic_schemaorg.Thing import Thing
@@ -12,7 +12,7 @@ class BioChemEntity(Thing):
     See https://schema.org/BioChemEntity.
 
     """
-
+    type_: str = Field("BioChemEntity", const=True, alias='@type')
     bioChemSimilarity: Any = Field(
         None,
         description="A similar BioChemEntity, e.g., obtained by fingerprint similarity algorithms.",
@@ -67,7 +67,6 @@ class BioChemEntity(Thing):
         description="Subcellular location where this BioChemEntity is located; please use PropertyValue"
      "if you want to include any evidence.",
     )
-    locals().update({"@type": Field("BioChemEntity", const=True)})
-
+    
 
 BioChemEntity.update_forward_refs()

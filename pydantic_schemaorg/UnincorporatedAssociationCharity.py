@@ -9,8 +9,7 @@ class UnincorporatedAssociationCharity(UKNonprofitType):
     See https://schema.org/UnincorporatedAssociationCharity.
 
     """
-
-    locals().update({"@type": Field("UnincorporatedAssociationCharity", const=True)})
-
+    type_: str = Field("UnincorporatedAssociationCharity", const=True, alias='@type')
+    
 
 UnincorporatedAssociationCharity.update_forward_refs()

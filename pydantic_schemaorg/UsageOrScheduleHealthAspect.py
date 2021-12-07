@@ -8,8 +8,7 @@ class UsageOrScheduleHealthAspect(HealthAspectEnumeration):
     See https://schema.org/UsageOrScheduleHealthAspect.
 
     """
-
-    locals().update({"@type": Field("UsageOrScheduleHealthAspect", const=True)})
-
+    type_: str = Field("UsageOrScheduleHealthAspect", const=True, alias='@type')
+    
 
 UsageOrScheduleHealthAspect.update_forward_refs()

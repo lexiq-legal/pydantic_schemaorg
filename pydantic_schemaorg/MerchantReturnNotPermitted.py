@@ -8,8 +8,7 @@ class MerchantReturnNotPermitted(MerchantReturnEnumeration):
     See https://schema.org/MerchantReturnNotPermitted.
 
     """
-
-    locals().update({"@type": Field("MerchantReturnNotPermitted", const=True)})
-
+    type_: str = Field("MerchantReturnNotPermitted", const=True, alias='@type')
+    
 
 MerchantReturnNotPermitted.update_forward_refs()

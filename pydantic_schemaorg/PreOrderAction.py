@@ -8,8 +8,7 @@ class PreOrderAction(TradeAction):
     See https://schema.org/PreOrderAction.
 
     """
-
-    locals().update({"@type": Field("PreOrderAction", const=True)})
-
+    type_: str = Field("PreOrderAction", const=True, alias='@type')
+    
 
 PreOrderAction.update_forward_refs()

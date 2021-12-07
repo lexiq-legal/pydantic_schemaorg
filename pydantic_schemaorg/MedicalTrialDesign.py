@@ -8,8 +8,7 @@ class MedicalTrialDesign(MedicalEnumeration):
     See https://schema.org/MedicalTrialDesign.
 
     """
-
-    locals().update({"@type": Field("MedicalTrialDesign", const=True)})
-
+    type_: str = Field("MedicalTrialDesign", const=True, alias='@type')
+    
 
 MedicalTrialDesign.update_forward_refs()

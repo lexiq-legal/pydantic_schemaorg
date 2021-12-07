@@ -8,8 +8,7 @@ class Zoo(CivicStructure):
     See https://schema.org/Zoo.
 
     """
-
-    locals().update({"@type": Field("Zoo", const=True)})
-
+    type_: str = Field("Zoo", const=True, alias='@type')
+    
 
 Zoo.update_forward_refs()

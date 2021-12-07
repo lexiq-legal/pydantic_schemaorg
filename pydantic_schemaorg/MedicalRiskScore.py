@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalRiskEstimator import MedicalRiskEstimator
 
 
@@ -10,12 +10,11 @@ class MedicalRiskScore(MedicalRiskEstimator):
     See https://schema.org/MedicalRiskScore.
 
     """
-
+    type_: str = Field("MedicalRiskScore", const=True, alias='@type')
     algorithm: Optional[Union[List[str], str]] = Field(
         None,
         description="The algorithm or rules to follow to compute the score.",
     )
-    locals().update({"@type": Field("MedicalRiskScore", const=True)})
-
+    
 
 MedicalRiskScore.update_forward_refs()

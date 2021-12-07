@@ -9,8 +9,7 @@ class Vessel(AnatomicalStructure):
     See https://schema.org/Vessel.
 
     """
-
-    locals().update({"@type": Field("Vessel", const=True)})
-
+    type_: str = Field("Vessel", const=True, alias='@type')
+    
 
 Vessel.update_forward_refs()

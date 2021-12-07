@@ -8,8 +8,7 @@ class NoninvasiveProcedure(MedicalProcedureType):
     See https://schema.org/NoninvasiveProcedure.
 
     """
-
-    locals().update({"@type": Field("NoninvasiveProcedure", const=True)})
-
+    type_: str = Field("NoninvasiveProcedure", const=True, alias='@type')
+    
 
 NoninvasiveProcedure.update_forward_refs()

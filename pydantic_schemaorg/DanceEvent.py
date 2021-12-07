@@ -8,8 +8,7 @@ class DanceEvent(Event):
     See https://schema.org/DanceEvent.
 
     """
-
-    locals().update({"@type": Field("DanceEvent", const=True)})
-
+    type_: str = Field("DanceEvent", const=True, alias='@type')
+    
 
 DanceEvent.update_forward_refs()

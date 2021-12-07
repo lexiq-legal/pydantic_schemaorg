@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.CreativeWork import CreativeWork
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 
@@ -20,7 +20,7 @@ class Claim(CreativeWork):
     See https://schema.org/Claim.
 
     """
-
+    type_: str = Field("Claim", const=True, alias='@type')
     firstAppearance: Optional[Union[List[CreativeWork], CreativeWork]] = Field(
         None,
         description="Indicates the first known occurence of a [[Claim]] in some [[CreativeWork]].",
@@ -34,7 +34,6 @@ class Claim(CreativeWork):
         None,
         description="Indicates an occurence of a [[Claim]] in some [[CreativeWork]].",
     )
-    locals().update({"@type": Field("Claim", const=True)})
-
+    
 
 Claim.update_forward_refs()

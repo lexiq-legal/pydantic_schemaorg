@@ -9,8 +9,7 @@ class RejectAction(AllocateAction):
     See https://schema.org/RejectAction.
 
     """
-
-    locals().update({"@type": Field("RejectAction", const=True)})
-
+    type_: str = Field("RejectAction", const=True, alias='@type')
+    
 
 RejectAction.update_forward_refs()

@@ -9,8 +9,7 @@ class PreventionHealthAspect(HealthAspectEnumeration):
     See https://schema.org/PreventionHealthAspect.
 
     """
-
-    locals().update({"@type": Field("PreventionHealthAspect", const=True)})
-
+    type_: str = Field("PreventionHealthAspect", const=True, alias='@type')
+    
 
 PreventionHealthAspect.update_forward_refs()

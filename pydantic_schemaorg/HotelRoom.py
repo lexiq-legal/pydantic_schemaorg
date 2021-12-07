@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.BedDetails import BedDetails
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.Room import Room
 
@@ -12,7 +12,7 @@ class HotelRoom(Room):
     See https://schema.org/HotelRoom.
 
     """
-
+    type_: str = Field("HotelRoom", const=True, alias='@type')
     bed: Union[List[Union[str, BedDetails, Any]], Union[str, BedDetails, Any]] = Field(
         None,
         description="The type of bed or beds included in the accommodation. For the single case of just one bed"
@@ -27,7 +27,6 @@ class HotelRoom(Room):
      "the permitted usage as per the contractual agreement (e.g. a double room used by a single"
      "person). Typical unit code(s): C62 for person",
     )
-    locals().update({"@type": Field("HotelRoom", const=True)})
-
+    
 
 HotelRoom.update_forward_refs()

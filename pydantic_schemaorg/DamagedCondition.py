@@ -8,8 +8,7 @@ class DamagedCondition(OfferItemCondition):
     See https://schema.org/DamagedCondition.
 
     """
-
-    locals().update({"@type": Field("DamagedCondition", const=True)})
-
+    type_: str = Field("DamagedCondition", const=True, alias='@type')
+    
 
 DamagedCondition.update_forward_refs()

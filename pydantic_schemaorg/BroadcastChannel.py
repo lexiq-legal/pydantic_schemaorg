@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -9,7 +9,7 @@ class BroadcastChannel(Intangible):
     See https://schema.org/BroadcastChannel.
 
     """
-
+    type_: str = Field("BroadcastChannel", const=True, alias='@type')
     broadcastChannelId: Optional[Union[List[str], str]] = Field(
         None,
         description="The unique address by which the BroadcastService can be identified in a provider lineup."
@@ -37,7 +37,6 @@ class BroadcastChannel(Intangible):
         None,
         description="The CableOrSatelliteService offering the channel.",
     )
-    locals().update({"@type": Field("BroadcastChannel", const=True)})
-
+    
 
 BroadcastChannel.update_forward_refs()

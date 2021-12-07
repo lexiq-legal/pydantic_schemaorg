@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 from pydantic_schemaorg.MedicalContraindication import MedicalContraindication
 
@@ -10,7 +10,7 @@ class MedicalDevice(MedicalEntity):
     See https://schema.org/MedicalDevice.
 
     """
-
+    type_: str = Field("MedicalDevice", const=True, alias='@type')
     postOp: Optional[Union[List[str], str]] = Field(
         None,
         description="A description of the postoperative procedures, care, and/or followups for this device.",
@@ -44,7 +44,6 @@ class MedicalDevice(MedicalEntity):
         None,
         description="A contraindication for this therapy.",
     )
-    locals().update({"@type": Field("MedicalDevice", const=True)})
-
+    
 
 MedicalDevice.update_forward_refs()

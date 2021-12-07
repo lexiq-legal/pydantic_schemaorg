@@ -8,8 +8,7 @@ class HalalDiet(RestrictedDiet):
     See https://schema.org/HalalDiet.
 
     """
-
-    locals().update({"@type": Field("HalalDiet", const=True)})
-
+    type_: str = Field("HalalDiet", const=True, alias='@type')
+    
 
 HalalDiet.update_forward_refs()

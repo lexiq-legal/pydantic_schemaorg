@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.SoftwareApplication import SoftwareApplication
 
 
@@ -10,13 +10,12 @@ class MobileApplication(SoftwareApplication):
     See https://schema.org/MobileApplication.
 
     """
-
+    type_: str = Field("MobileApplication", const=True, alias='@type')
     carrierRequirements: Optional[Union[List[str], str]] = Field(
         None,
         description="Specifies specific carrier(s) requirements for the application (e.g. an application"
      "may only work on a specific carrier network).",
     )
-    locals().update({"@type": Field("MobileApplication", const=True)})
-
+    
 
 MobileApplication.update_forward_refs()

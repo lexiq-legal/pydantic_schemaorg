@@ -8,8 +8,7 @@ class OnlineEventAttendanceMode(EventAttendanceModeEnumeration):
     See https://schema.org/OnlineEventAttendanceMode.
 
     """
-
-    locals().update({"@type": Field("OnlineEventAttendanceMode", const=True)})
-
+    type_: str = Field("OnlineEventAttendanceMode", const=True, alias='@type')
+    
 
 OnlineEventAttendanceMode.update_forward_refs()

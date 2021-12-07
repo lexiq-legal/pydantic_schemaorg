@@ -16,8 +16,7 @@ class BusinessFunction(Enumeration):
     See https://schema.org/BusinessFunction.
 
     """
-
-    locals().update({"@type": Field("BusinessFunction", const=True)})
-
+    type_: str = Field("BusinessFunction", const=True, alias='@type')
+    
 
 BusinessFunction.update_forward_refs()

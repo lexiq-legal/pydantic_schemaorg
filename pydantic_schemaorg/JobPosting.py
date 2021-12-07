@@ -1,12 +1,12 @@
-from pydantic import Field, AnyUrl, StrictBool
+from pydantic import StrictBool, Field, AnyUrl
 from pydantic_schemaorg.OccupationalExperienceRequirements import OccupationalExperienceRequirements
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
 from decimal import Decimal
 from pydantic_schemaorg.Place import Place
-from datetime import date, datetime
+from datetime import datetime, date
 from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
 from pydantic_schemaorg.PriceSpecification import PriceSpecification
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
@@ -20,7 +20,7 @@ class JobPosting(Intangible):
     See https://schema.org/JobPosting.
 
     """
-
+    type_: str = Field("JobPosting", const=True, alias='@type')
     experienceRequirements: Optional[Union[List[Union[str, OccupationalExperienceRequirements]], Union[str, OccupationalExperienceRequirements]]] = Field(
         None,
         description="Description of skills and experience needed for the position or Occupation.",
@@ -201,7 +201,6 @@ class JobPosting(Intangible):
         description="The legal requirements such as citizenship, visa and other documentation required"
      "for an applicant to this job.",
     )
-    locals().update({"@type": Field("JobPosting", const=True)})
-
+    
 
 JobPosting.update_forward_refs()

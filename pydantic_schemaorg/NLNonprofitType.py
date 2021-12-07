@@ -8,8 +8,7 @@ class NLNonprofitType(NonprofitType):
     See https://schema.org/NLNonprofitType.
 
     """
-
-    locals().update({"@type": Field("NLNonprofitType", const=True)})
-
+    type_: str = Field("NLNonprofitType", const=True, alias='@type')
+    
 
 NLNonprofitType.update_forward_refs()

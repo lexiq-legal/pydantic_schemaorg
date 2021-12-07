@@ -8,8 +8,7 @@ class Retail(DrugCostCategory):
     See https://schema.org/Retail.
 
     """
-
-    locals().update({"@type": Field("Retail", const=True)})
-
+    type_: str = Field("Retail", const=True, alias='@type')
+    
 
 Retail.update_forward_refs()

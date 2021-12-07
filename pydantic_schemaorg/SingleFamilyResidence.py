@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from decimal import Decimal
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.House import House
 
 
@@ -11,7 +11,7 @@ class SingleFamilyResidence(House):
     See https://schema.org/SingleFamilyResidence.
 
     """
-
+    type_: str = Field("SingleFamilyResidence", const=True, alias='@type')
     numberOfRooms: Optional[Union[List[Union[Decimal, QuantitativeValue]], Union[Decimal, QuantitativeValue]]] = Field(
         None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
@@ -25,7 +25,6 @@ class SingleFamilyResidence(House):
      "the permitted usage as per the contractual agreement (e.g. a double room used by a single"
      "person). Typical unit code(s): C62 for person",
     )
-    locals().update({"@type": Field("SingleFamilyResidence", const=True)})
-
+    
 
 SingleFamilyResidence.update_forward_refs()

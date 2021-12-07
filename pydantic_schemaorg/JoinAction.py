@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -13,12 +13,11 @@ class JoinAction(InteractAction):
     See https://schema.org/JoinAction.
 
     """
-
+    type_: str = Field("JoinAction", const=True, alias='@type')
     event: Any = Field(
         None,
         description="Upcoming or past event associated with this place, organization, or action.",
     )
-    locals().update({"@type": Field("JoinAction", const=True)})
-
+    
 
 JoinAction.update_forward_refs()

@@ -8,8 +8,7 @@ class WearableMeasurementOutsideLeg(WearableMeasurementTypeEnumeration):
     See https://schema.org/WearableMeasurementOutsideLeg.
 
     """
-
-    locals().update({"@type": Field("WearableMeasurementOutsideLeg", const=True)})
-
+    type_: str = Field("WearableMeasurementOutsideLeg", const=True, alias='@type')
+    
 
 WearableMeasurementOutsideLeg.update_forward_refs()

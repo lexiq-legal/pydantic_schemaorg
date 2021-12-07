@@ -8,8 +8,7 @@ class DiscoverAction(FindAction):
     See https://schema.org/DiscoverAction.
 
     """
-
-    locals().update({"@type": Field("DiscoverAction", const=True)})
-
+    type_: str = Field("DiscoverAction", const=True, alias='@type')
+    
 
 DiscoverAction.update_forward_refs()

@@ -8,8 +8,7 @@ class ReturnLabelSourceEnumeration(Enumeration):
     See https://schema.org/ReturnLabelSourceEnumeration.
 
     """
-
-    locals().update({"@type": Field("ReturnLabelSourceEnumeration", const=True)})
-
+    type_: str = Field("ReturnLabelSourceEnumeration", const=True, alias='@type')
+    
 
 ReturnLabelSourceEnumeration.update_forward_refs()

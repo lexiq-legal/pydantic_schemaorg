@@ -8,8 +8,7 @@ class ReturnLabelDownloadAndPrint(ReturnLabelSourceEnumeration):
     See https://schema.org/ReturnLabelDownloadAndPrint.
 
     """
-
-    locals().update({"@type": Field("ReturnLabelDownloadAndPrint", const=True)})
-
+    type_: str = Field("ReturnLabelDownloadAndPrint", const=True, alias='@type')
+    
 
 ReturnLabelDownloadAndPrint.update_forward_refs()

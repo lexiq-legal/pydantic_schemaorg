@@ -8,8 +8,7 @@ class SRP(PriceTypeEnumeration):
     See https://schema.org/SRP.
 
     """
-
-    locals().update({"@type": Field("SRP", const=True)})
-
+    type_: str = Field("SRP", const=True, alias='@type')
+    
 
 SRP.update_forward_refs()

@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -9,7 +9,7 @@ class SoftwareApplication(CreativeWork):
     See https://schema.org/SoftwareApplication.
 
     """
-
+    type_: str = Field("SoftwareApplication", const=True, alias='@type')
     applicationSubCategory: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="Subcategory of the application, e.g. 'Arcade Game'.",
@@ -117,7 +117,6 @@ class SoftwareApplication(CreativeWork):
         description="Countries for which the application is supported. You can also provide the two-letter"
      "ISO 3166-1 alpha-2 country code.",
     )
-    locals().update({"@type": Field("SoftwareApplication", const=True)})
-
+    
 
 SoftwareApplication.update_forward_refs()

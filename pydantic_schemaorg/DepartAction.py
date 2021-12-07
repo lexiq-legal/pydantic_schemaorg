@@ -9,8 +9,7 @@ class DepartAction(MoveAction):
     See https://schema.org/DepartAction.
 
     """
-
-    locals().update({"@type": Field("DepartAction", const=True)})
-
+    type_: str = Field("DepartAction", const=True, alias='@type')
+    
 
 DepartAction.update_forward_refs()

@@ -10,8 +10,7 @@ class PalliativeProcedure(MedicalTherapy, MedicalProcedure):
     See https://schema.org/PalliativeProcedure.
 
     """
-
-    locals().update({"@type": Field("PalliativeProcedure", const=True)})
-
+    type_: str = Field("PalliativeProcedure", const=True, alias='@type')
+    
 
 PalliativeProcedure.update_forward_refs()

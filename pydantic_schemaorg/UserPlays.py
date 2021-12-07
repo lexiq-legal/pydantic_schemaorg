@@ -10,8 +10,7 @@ class UserPlays(UserInteraction):
     See https://schema.org/UserPlays.
 
     """
-
-    locals().update({"@type": Field("UserPlays", const=True)})
-
+    type_: str = Field("UserPlays", const=True, alias='@type')
+    
 
 UserPlays.update_forward_refs()

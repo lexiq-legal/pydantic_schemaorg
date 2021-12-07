@@ -10,8 +10,7 @@ class Play(CreativeWork):
     See https://schema.org/Play.
 
     """
-
-    locals().update({"@type": Field("Play", const=True)})
-
+    type_: str = Field("Play", const=True, alias='@type')
+    
 
 Play.update_forward_refs()

@@ -9,8 +9,7 @@ class DistanceFee(PriceComponentTypeEnumeration):
     See https://schema.org/DistanceFee.
 
     """
-
-    locals().update({"@type": Field("DistanceFee", const=True)})
-
+    type_: str = Field("DistanceFee", const=True, alias='@type')
+    
 
 DistanceFee.update_forward_refs()

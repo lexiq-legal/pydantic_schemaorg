@@ -8,8 +8,7 @@ class CardiovascularExam(PhysicalExam):
     See https://schema.org/CardiovascularExam.
 
     """
-
-    locals().update({"@type": Field("CardiovascularExam", const=True)})
-
+    type_: str = Field("CardiovascularExam", const=True, alias='@type')
+    
 
 CardiovascularExam.update_forward_refs()

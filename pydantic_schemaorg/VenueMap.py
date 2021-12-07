@@ -8,8 +8,7 @@ class VenueMap(MapCategoryType):
     See https://schema.org/VenueMap.
 
     """
-
-    locals().update({"@type": Field("VenueMap", const=True)})
-
+    type_: str = Field("VenueMap", const=True, alias='@type')
+    
 
 VenueMap.update_forward_refs()

@@ -1,7 +1,7 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from datetime import date
 from pydantic_schemaorg.LegalForceStatus import LegalForceStatus
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
@@ -16,7 +16,7 @@ class Legislation(CreativeWork):
     See https://schema.org/Legislation.
 
     """
-
+    type_: str = Field("Legislation", const=True, alias='@type')
     legislationPassedBy: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
         None,
         description="The person or organization that originally passed or made the law : typically parliament"
@@ -99,7 +99,6 @@ class Legislation(CreativeWork):
      ": when looking at the law on the 2016-04-07 (= dateVersion), I get the consolidation of"
      "2015-04-12 of the \"National Insurance Contributions Act 2015\")",
     )
-    locals().update({"@type": Field("Legislation", const=True)})
-
+    
 
 Legislation.update_forward_refs()

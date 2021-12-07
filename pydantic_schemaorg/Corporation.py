@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 
 
@@ -9,7 +9,7 @@ class Corporation(Organization):
     See https://schema.org/Corporation.
 
     """
-
+    type_: str = Field("Corporation", const=True, alias='@type')
     tickerSymbol: Optional[Union[List[str], str]] = Field(
         None,
         description="The exchange traded instrument associated with a Corporation object. The tickerSymbol"
@@ -17,7 +17,6 @@ class Corporation(Organization):
      "the exchange component of the tickerSymbol attribute, we recommend using the controlled"
      "vocabulary of Market Identifier Codes (MIC) specified in ISO15022.",
     )
-    locals().update({"@type": Field("Corporation", const=True)})
-
+    
 
 Corporation.update_forward_refs()

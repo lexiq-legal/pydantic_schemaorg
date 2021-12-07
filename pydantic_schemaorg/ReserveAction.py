@@ -10,8 +10,7 @@ class ReserveAction(PlanAction):
     See https://schema.org/ReserveAction.
 
     """
-
-    locals().update({"@type": Field("ReserveAction", const=True)})
-
+    type_: str = Field("ReserveAction", const=True, alias='@type')
+    
 
 ReserveAction.update_forward_refs()

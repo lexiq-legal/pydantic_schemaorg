@@ -8,8 +8,7 @@ class GovernmentPermit(Permit):
     See https://schema.org/GovernmentPermit.
 
     """
-
-    locals().update({"@type": Field("GovernmentPermit", const=True)})
-
+    type_: str = Field("GovernmentPermit", const=True, alias='@type')
+    
 
 GovernmentPermit.update_forward_refs()

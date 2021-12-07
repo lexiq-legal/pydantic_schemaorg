@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Trip import Trip
 
 
@@ -9,7 +9,7 @@ class BoatTrip(Trip):
     See https://schema.org/BoatTrip.
 
     """
-
+    type_: str = Field("BoatTrip", const=True, alias='@type')
     arrivalBoatTerminal: Any = Field(
         None,
         description="The terminal or port from which the boat arrives.",
@@ -18,7 +18,6 @@ class BoatTrip(Trip):
         None,
         description="The terminal or port from which the boat departs.",
     )
-    locals().update({"@type": Field("BoatTrip", const=True)})
-
+    
 
 BoatTrip.update_forward_refs()

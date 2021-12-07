@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicineSystem import MedicineSystem
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
@@ -13,7 +13,7 @@ class MedicalEntity(Thing):
     See https://schema.org/MedicalEntity.
 
     """
-
+    type_: str = Field("MedicalEntity", const=True, alias='@type')
     medicineSystem: Optional[Union[List[MedicineSystem], MedicineSystem]] = Field(
         None,
         description="The system of medicine that includes this MedicalEntity, for example 'evidence-based',"
@@ -46,7 +46,6 @@ class MedicalEntity(Thing):
         description="The drug or supplement's legal status, including any controlled substance schedules"
      "that apply.",
     )
-    locals().update({"@type": Field("MedicalEntity", const=True)})
-
+    
 
 MedicalEntity.update_forward_refs()

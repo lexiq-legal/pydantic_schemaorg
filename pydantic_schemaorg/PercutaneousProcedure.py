@@ -10,8 +10,7 @@ class PercutaneousProcedure(MedicalProcedureType):
     See https://schema.org/PercutaneousProcedure.
 
     """
-
-    locals().update({"@type": Field("PercutaneousProcedure", const=True)})
-
+    type_: str = Field("PercutaneousProcedure", const=True, alias='@type')
+    
 
 PercutaneousProcedure.update_forward_refs()

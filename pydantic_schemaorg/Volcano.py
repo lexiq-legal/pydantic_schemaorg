@@ -8,8 +8,7 @@ class Volcano(Landform):
     See https://schema.org/Volcano.
 
     """
-
-    locals().update({"@type": Field("Volcano", const=True)})
-
+    type_: str = Field("Volcano", const=True, alias='@type')
+    
 
 Volcano.update_forward_refs()

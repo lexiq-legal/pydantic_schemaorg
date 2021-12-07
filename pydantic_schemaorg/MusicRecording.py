@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MusicPlaylist import MusicPlaylist
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.MusicAlbum import MusicAlbum
 from pydantic_schemaorg.CreativeWork import CreativeWork
@@ -12,7 +12,7 @@ class MusicRecording(CreativeWork):
     See https://schema.org/MusicRecording.
 
     """
-
+    type_: str = Field("MusicRecording", const=True, alias='@type')
     inPlaylist: Optional[Union[List[MusicPlaylist], MusicPlaylist]] = Field(
         None,
         description="The playlist to which this recording belongs.",
@@ -37,7 +37,6 @@ class MusicRecording(CreativeWork):
         None,
         description="The International Standard Recording Code for the recording.",
     )
-    locals().update({"@type": Field("MusicRecording", const=True)})
-
+    
 
 MusicRecording.update_forward_refs()

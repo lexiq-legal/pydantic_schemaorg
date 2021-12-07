@@ -8,8 +8,7 @@ class AddAction(UpdateAction):
     See https://schema.org/AddAction.
 
     """
-
-    locals().update({"@type": Field("AddAction", const=True)})
-
+    type_: str = Field("AddAction", const=True, alias='@type')
+    
 
 AddAction.update_forward_refs()

@@ -8,8 +8,7 @@ class RadioEpisode(Episode):
     See https://schema.org/RadioEpisode.
 
     """
-
-    locals().update({"@type": Field("RadioEpisode", const=True)})
-
+    type_: str = Field("RadioEpisode", const=True, alias='@type')
+    
 
 RadioEpisode.update_forward_refs()

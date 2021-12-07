@@ -9,8 +9,7 @@ class Ligament(AnatomicalStructure):
     See https://schema.org/Ligament.
 
     """
-
-    locals().update({"@type": Field("Ligament", const=True)})
-
+    type_: str = Field("Ligament", const=True, alias='@type')
+    
 
 Ligament.update_forward_refs()

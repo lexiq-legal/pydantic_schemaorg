@@ -9,8 +9,7 @@ class FireStation(CivicStructure, EmergencyService):
     See https://schema.org/FireStation.
 
     """
-
-    locals().update({"@type": Field("FireStation", const=True)})
-
+    type_: str = Field("FireStation", const=True, alias='@type')
+    
 
 FireStation.update_forward_refs()

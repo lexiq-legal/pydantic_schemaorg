@@ -9,8 +9,7 @@ class DrawAction(CreateAction):
     See https://schema.org/DrawAction.
 
     """
-
-    locals().update({"@type": Field("DrawAction", const=True)})
-
+    type_: str = Field("DrawAction", const=True, alias='@type')
+    
 
 DrawAction.update_forward_refs()

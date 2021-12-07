@@ -1,7 +1,7 @@
 from pydantic import Field, AnyUrl
-from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
-from typing import Any, Union, List, Optional
+from pydantic_schemaorg.Thing import Thing
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Review import Review
 
 
@@ -15,13 +15,12 @@ class Recommendation(Review):
     See https://schema.org/Recommendation.
 
     """
-
-    category: Optional[Union[List[Union[AnyUrl, str, Thing, PhysicalActivityCategory]], Union[AnyUrl, str, Thing, PhysicalActivityCategory]]] = Field(
+    type_: str = Field("Recommendation", const=True, alias='@type')
+    category: Optional[Union[List[Union[AnyUrl, str, PhysicalActivityCategory, Thing]], Union[AnyUrl, str, PhysicalActivityCategory, Thing]]] = Field(
         None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
     )
-    locals().update({"@type": Field("Recommendation", const=True)})
-
+    
 
 Recommendation.update_forward_refs()

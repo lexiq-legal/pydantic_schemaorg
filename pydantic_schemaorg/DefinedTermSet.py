@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -11,12 +11,11 @@ class DefinedTermSet(CreativeWork):
     See https://schema.org/DefinedTermSet.
 
     """
-
+    type_: str = Field("DefinedTermSet", const=True, alias='@type')
     hasDefinedTerm: Optional[Union[List[DefinedTerm], DefinedTerm]] = Field(
         None,
         description="A Defined Term contained in this term set.",
     )
-    locals().update({"@type": Field("DefinedTermSet", const=True)})
-
+    
 
 DefinedTermSet.update_forward_refs()

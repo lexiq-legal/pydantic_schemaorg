@@ -9,8 +9,7 @@ class StrengthTraining(PhysicalActivityCategory):
     See https://schema.org/StrengthTraining.
 
     """
-
-    locals().update({"@type": Field("StrengthTraining", const=True)})
-
+    type_: str = Field("StrengthTraining", const=True, alias='@type')
+    
 
 StrengthTraining.update_forward_refs()

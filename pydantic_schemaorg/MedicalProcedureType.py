@@ -8,8 +8,7 @@ class MedicalProcedureType(MedicalEnumeration):
     See https://schema.org/MedicalProcedureType.
 
     """
-
-    locals().update({"@type": Field("MedicalProcedureType", const=True)})
-
+    type_: str = Field("MedicalProcedureType", const=True, alias='@type')
+    
 
 MedicalProcedureType.update_forward_refs()

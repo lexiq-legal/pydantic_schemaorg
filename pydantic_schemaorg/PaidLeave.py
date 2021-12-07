@@ -8,8 +8,7 @@ class PaidLeave(GovernmentBenefitsType):
     See https://schema.org/PaidLeave.
 
     """
-
-    locals().update({"@type": Field("PaidLeave", const=True)})
-
+    type_: str = Field("PaidLeave", const=True, alias='@type')
+    
 
 PaidLeave.update_forward_refs()

@@ -9,8 +9,7 @@ class SeeDoctorHealthAspect(HealthAspectEnumeration):
     See https://schema.org/SeeDoctorHealthAspect.
 
     """
-
-    locals().update({"@type": Field("SeeDoctorHealthAspect", const=True)})
-
+    type_: str = Field("SeeDoctorHealthAspect", const=True, alias='@type')
+    
 
 SeeDoctorHealthAspect.update_forward_refs()

@@ -8,8 +8,7 @@ class Online(GameServerStatus):
     See https://schema.org/Online.
 
     """
-
-    locals().update({"@type": Field("Online", const=True)})
-
+    type_: str = Field("Online", const=True, alias='@type')
+    
 
 Online.update_forward_refs()

@@ -8,8 +8,7 @@ class WatchAction(ConsumeAction):
     See https://schema.org/WatchAction.
 
     """
-
-    locals().update({"@type": Field("WatchAction", const=True)})
-
+    type_: str = Field("WatchAction", const=True, alias='@type')
+    
 
 WatchAction.update_forward_refs()

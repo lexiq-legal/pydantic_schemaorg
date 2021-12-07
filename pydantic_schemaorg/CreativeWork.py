@@ -1,7 +1,7 @@
-from pydantic import Field, AnyUrl, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field, AnyUrl
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Thing import Thing
-from datetime import date, datetime
+from datetime import datetime, date
 from pydantic_schemaorg.Organization import Organization
 from decimal import Decimal
 
@@ -13,7 +13,7 @@ class CreativeWork(Thing):
     See https://schema.org/CreativeWork.
 
     """
-
+    type_: str = Field("CreativeWork", const=True, alias='@type')
     pattern: Union[List[Union[str, Any]], Union[str, Any]] = Field(
         None,
         description="A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'."
@@ -614,7 +614,6 @@ class CreativeWork(Thing):
      "This is most applicable to works published in Web sites with commenting system; additional"
      "comments may exist elsewhere.",
     )
-    locals().update({"@type": Field("CreativeWork", const=True)})
-
+    
 
 CreativeWork.update_forward_refs()

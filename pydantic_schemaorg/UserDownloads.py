@@ -10,8 +10,7 @@ class UserDownloads(UserInteraction):
     See https://schema.org/UserDownloads.
 
     """
-
-    locals().update({"@type": Field("UserDownloads", const=True)})
-
+    type_: str = Field("UserDownloads", const=True, alias='@type')
+    
 
 UserDownloads.update_forward_refs()

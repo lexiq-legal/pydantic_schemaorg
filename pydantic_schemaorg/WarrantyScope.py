@@ -10,8 +10,7 @@ class WarrantyScope(Enumeration):
     See https://schema.org/WarrantyScope.
 
     """
-
-    locals().update({"@type": Field("WarrantyScope", const=True)})
-
+    type_: str = Field("WarrantyScope", const=True, alias='@type')
+    
 
 WarrantyScope.update_forward_refs()

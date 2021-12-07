@@ -8,8 +8,7 @@ class OneTimePayments(GovernmentBenefitsType):
     See https://schema.org/OneTimePayments.
 
     """
-
-    locals().update({"@type": Field("OneTimePayments", const=True)})
-
+    type_: str = Field("OneTimePayments", const=True, alias='@type')
+    
 
 OneTimePayments.update_forward_refs()

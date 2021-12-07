@@ -9,8 +9,7 @@ class MedicalIntangible(MedicalEntity):
     See https://schema.org/MedicalIntangible.
 
     """
-
-    locals().update({"@type": Field("MedicalIntangible", const=True)})
-
+    type_: str = Field("MedicalIntangible", const=True, alias='@type')
+    
 
 MedicalIntangible.update_forward_refs()

@@ -12,8 +12,7 @@ class HowToTip(CreativeWork, ListItem):
     See https://schema.org/HowToTip.
 
     """
-
-    locals().update({"@type": Field("HowToTip", const=True)})
-
+    type_: str = Field("HowToTip", const=True, alias='@type')
+    
 
 HowToTip.update_forward_refs()

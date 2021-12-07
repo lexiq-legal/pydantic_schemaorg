@@ -9,8 +9,7 @@ class Chiropractic(MedicineSystem):
     See https://schema.org/Chiropractic.
 
     """
-
-    locals().update({"@type": Field("Chiropractic", const=True)})
-
+    type_: str = Field("Chiropractic", const=True, alias='@type')
+    
 
 Chiropractic.update_forward_refs()

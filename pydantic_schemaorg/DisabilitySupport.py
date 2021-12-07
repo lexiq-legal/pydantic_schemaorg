@@ -8,8 +8,7 @@ class DisabilitySupport(GovernmentBenefitsType):
     See https://schema.org/DisabilitySupport.
 
     """
-
-    locals().update({"@type": Field("DisabilitySupport", const=True)})
-
+    type_: str = Field("DisabilitySupport", const=True, alias='@type')
+    
 
 DisabilitySupport.update_forward_refs()

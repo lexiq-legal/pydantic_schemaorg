@@ -8,8 +8,7 @@ class HearingImpairedSupported(ContactPointOption):
     See https://schema.org/HearingImpairedSupported.
 
     """
-
-    locals().update({"@type": Field("HearingImpairedSupported", const=True)})
-
+    type_: str = Field("HearingImpairedSupported", const=True, alias='@type')
+    
 
 HearingImpairedSupported.update_forward_refs()

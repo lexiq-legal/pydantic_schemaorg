@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MenuSection import MenuSection
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MenuItem import MenuItem
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -11,7 +11,7 @@ class Menu(CreativeWork):
     See https://schema.org/Menu.
 
     """
-
+    type_: str = Field("Menu", const=True, alias='@type')
     hasMenuSection: Optional[Union[List[MenuSection], MenuSection]] = Field(
         None,
         description="A subgrouping of the menu (by dishes, course, serving time period, etc.).",
@@ -20,7 +20,6 @@ class Menu(CreativeWork):
         None,
         description="A food or drink item contained in a menu or menu section.",
     )
-    locals().update({"@type": Field("Menu", const=True)})
-
+    
 
 Menu.update_forward_refs()

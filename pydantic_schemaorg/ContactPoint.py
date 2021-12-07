@@ -1,7 +1,7 @@
 from pydantic import Field
-from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
-from typing import Any, Union, List, Optional
+from pydantic_schemaorg.Place import Place
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.ContactPointOption import ContactPointOption
 from pydantic_schemaorg.Product import Product
 from pydantic_schemaorg.StructuredValue import StructuredValue
@@ -13,8 +13,8 @@ class ContactPoint(StructuredValue):
     See https://schema.org/ContactPoint.
 
     """
-
-    areaServed: Union[List[Union[str, Place, AdministrativeArea, Any]], Union[str, Place, AdministrativeArea, Any]] = Field(
+    type_: str = Field("ContactPoint", const=True, alias='@type')
+    areaServed: Union[List[Union[str, AdministrativeArea, Place, Any]], Union[str, AdministrativeArea, Place, Any]] = Field(
         None,
         description="The geographic area where a service or offered item is provided.",
     )
@@ -61,7 +61,6 @@ class ContactPoint(StructuredValue):
      "for a particular product line). This can be a specific product or product line (e.g. \"iPhone\")"
      "or a general category of products or services (e.g. \"smartphones\").",
     )
-    locals().update({"@type": Field("ContactPoint", const=True)})
-
+    
 
 ContactPoint.update_forward_refs()

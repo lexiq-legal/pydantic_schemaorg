@@ -8,8 +8,7 @@ class ReturnFeesEnumeration(Enumeration):
     See https://schema.org/ReturnFeesEnumeration.
 
     """
-
-    locals().update({"@type": Field("ReturnFeesEnumeration", const=True)})
-
+    type_: str = Field("ReturnFeesEnumeration", const=True, alias='@type')
+    
 
 ReturnFeesEnumeration.update_forward_refs()

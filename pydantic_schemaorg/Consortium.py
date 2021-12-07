@@ -8,8 +8,7 @@ class Consortium(Organization):
     See https://schema.org/Consortium.
 
     """
-
-    locals().update({"@type": Field("Consortium", const=True)})
-
+    type_: str = Field("Consortium", const=True, alias='@type')
+    
 
 Consortium.update_forward_refs()

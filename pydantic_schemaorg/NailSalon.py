@@ -8,8 +8,7 @@ class NailSalon(HealthAndBeautyBusiness):
     See https://schema.org/NailSalon.
 
     """
-
-    locals().update({"@type": Field("NailSalon", const=True)})
-
+    type_: str = Field("NailSalon", const=True, alias='@type')
+    
 
 NailSalon.update_forward_refs()

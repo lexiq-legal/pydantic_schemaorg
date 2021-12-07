@@ -8,8 +8,7 @@ class ScholarlyArticle(Article):
     See https://schema.org/ScholarlyArticle.
 
     """
-
-    locals().update({"@type": Field("ScholarlyArticle", const=True)})
-
+    type_: str = Field("ScholarlyArticle", const=True, alias='@type')
+    
 
 ScholarlyArticle.update_forward_refs()

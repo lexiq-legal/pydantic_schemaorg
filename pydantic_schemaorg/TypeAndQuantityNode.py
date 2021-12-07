@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Service import Service
 from pydantic_schemaorg.Product import Product
 from decimal import Decimal
@@ -13,7 +13,7 @@ class TypeAndQuantityNode(StructuredValue):
     See https://schema.org/TypeAndQuantityNode.
 
     """
-
+    type_: str = Field("TypeAndQuantityNode", const=True, alias='@type')
     businessFunction: Any = Field(
         None,
         description="The business function (e.g. sell, lease, repair, dispose) of the offer or component"
@@ -37,7 +37,6 @@ class TypeAndQuantityNode(StructuredValue):
         None,
         description="The quantity of the goods included in the offer.",
     )
-    locals().update({"@type": Field("TypeAndQuantityNode", const=True)})
-
+    
 
 TypeAndQuantityNode.update_forward_refs()

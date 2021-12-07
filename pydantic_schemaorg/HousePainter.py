@@ -8,8 +8,7 @@ class HousePainter(HomeAndConstructionBusiness):
     See https://schema.org/HousePainter.
 
     """
-
-    locals().update({"@type": Field("HousePainter", const=True)})
-
+    type_: str = Field("HousePainter", const=True, alias='@type')
+    
 
 HousePainter.update_forward_refs()

@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.MediaObject import MediaObject
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.ListItem import ListItem
@@ -12,7 +12,7 @@ class HowToDirection(CreativeWork, ListItem):
     See https://schema.org/HowToDirection.
 
     """
-
+    type_: str = Field("HowToDirection", const=True, alias='@type')
     duringMedia: Optional[Union[List[Union[AnyUrl, MediaObject]], Union[AnyUrl, MediaObject]]] = Field(
         None,
         description="A media object representing the circumstances while performing this direction.",
@@ -49,7 +49,6 @@ class HowToDirection(CreativeWork, ListItem):
         None,
         description="A sub-property of instrument. A supply consumed when performing instructions or a direction.",
     )
-    locals().update({"@type": Field("HowToDirection", const=True)})
-
+    
 
 HowToDirection.update_forward_refs()

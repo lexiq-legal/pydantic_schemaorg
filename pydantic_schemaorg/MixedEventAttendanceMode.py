@@ -9,8 +9,7 @@ class MixedEventAttendanceMode(EventAttendanceModeEnumeration):
     See https://schema.org/MixedEventAttendanceMode.
 
     """
-
-    locals().update({"@type": Field("MixedEventAttendanceMode", const=True)})
-
+    type_: str = Field("MixedEventAttendanceMode", const=True, alias='@type')
+    
 
 MixedEventAttendanceMode.update_forward_refs()

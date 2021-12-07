@@ -8,8 +8,7 @@ class AllWheelDriveConfiguration(DriveWheelConfigurationValue):
     See https://schema.org/AllWheelDriveConfiguration.
 
     """
-
-    locals().update({"@type": Field("AllWheelDriveConfiguration", const=True)})
-
+    type_: str = Field("AllWheelDriveConfiguration", const=True, alias='@type')
+    
 
 AllWheelDriveConfiguration.update_forward_refs()

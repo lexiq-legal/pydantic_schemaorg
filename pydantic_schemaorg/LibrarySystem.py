@@ -8,8 +8,7 @@ class LibrarySystem(Organization):
     See https://schema.org/LibrarySystem.
 
     """
-
-    locals().update({"@type": Field("LibrarySystem", const=True)})
-
+    type_: str = Field("LibrarySystem", const=True, alias='@type')
+    
 
 LibrarySystem.update_forward_refs()

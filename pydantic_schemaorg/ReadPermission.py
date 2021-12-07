@@ -8,8 +8,7 @@ class ReadPermission(DigitalDocumentPermissionType):
     See https://schema.org/ReadPermission.
 
     """
-
-    locals().update({"@type": Field("ReadPermission", const=True)})
-
+    type_: str = Field("ReadPermission", const=True, alias='@type')
+    
 
 ReadPermission.update_forward_refs()

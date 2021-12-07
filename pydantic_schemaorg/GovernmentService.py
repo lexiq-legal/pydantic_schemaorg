@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Service import Service
 
@@ -12,7 +12,7 @@ class GovernmentService(Service):
     See https://schema.org/GovernmentService.
 
     """
-
+    type_: str = Field("GovernmentService", const=True, alias='@type')
     jurisdiction: Optional[Union[List[Union[str, AdministrativeArea]], Union[str, AdministrativeArea]]] = Field(
         None,
         description="Indicates a legal jurisdiction, e.g. of some legislation, or where some government"
@@ -24,7 +24,6 @@ class GovernmentService(Service):
      "of services that are provided by an organization, but operated by another organization"
      "like a subcontractor.",
     )
-    locals().update({"@type": Field("GovernmentService", const=True)})
-
+    
 
 GovernmentService.update_forward_refs()

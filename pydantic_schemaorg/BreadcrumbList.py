@@ -15,8 +15,7 @@ class BreadcrumbList(ItemList):
     See https://schema.org/BreadcrumbList.
 
     """
-
-    locals().update({"@type": Field("BreadcrumbList", const=True)})
-
+    type_: str = Field("BreadcrumbList", const=True, alias='@type')
+    
 
 BreadcrumbList.update_forward_refs()

@@ -8,8 +8,7 @@ class ChildrensEvent(Event):
     See https://schema.org/ChildrensEvent.
 
     """
-
-    locals().update({"@type": Field("ChildrensEvent", const=True)})
-
+    type_: str = Field("ChildrensEvent", const=True, alias='@type')
+    
 
 ChildrensEvent.update_forward_refs()

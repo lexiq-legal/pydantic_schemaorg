@@ -8,8 +8,7 @@ class RiverBodyOfWater(BodyOfWater):
     See https://schema.org/RiverBodyOfWater.
 
     """
-
-    locals().update({"@type": Field("RiverBodyOfWater", const=True)})
-
+    type_: str = Field("RiverBodyOfWater", const=True, alias='@type')
+    
 
 RiverBodyOfWater.update_forward_refs()

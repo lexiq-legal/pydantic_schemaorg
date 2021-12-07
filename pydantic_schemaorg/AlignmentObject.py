@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -12,7 +12,7 @@ class AlignmentObject(Intangible):
     See https://schema.org/AlignmentObject.
 
     """
-
+    type_: str = Field("AlignmentObject", const=True, alias='@type')
     alignmentType: Optional[Union[List[str], str]] = Field(
         None,
         description="A category of alignment between the learning resource and the framework node. Recommended"
@@ -34,7 +34,6 @@ class AlignmentObject(Intangible):
         None,
         description="The name of a node in an established educational framework.",
     )
-    locals().update({"@type": Field("AlignmentObject", const=True)})
-
+    
 
 AlignmentObject.update_forward_refs()

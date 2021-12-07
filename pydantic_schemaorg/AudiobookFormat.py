@@ -10,8 +10,7 @@ class AudiobookFormat(BookFormatType):
     See https://schema.org/AudiobookFormat.
 
     """
-
-    locals().update({"@type": Field("AudiobookFormat", const=True)})
-
+    type_: str = Field("AudiobookFormat", const=True, alias='@type')
+    
 
 AudiobookFormat.update_forward_refs()

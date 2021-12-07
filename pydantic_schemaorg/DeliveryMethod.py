@@ -15,8 +15,7 @@ class DeliveryMethod(Enumeration):
     See https://schema.org/DeliveryMethod.
 
     """
-
-    locals().update({"@type": Field("DeliveryMethod", const=True)})
-
+    type_: str = Field("DeliveryMethod", const=True, alias='@type')
+    
 
 DeliveryMethod.update_forward_refs()

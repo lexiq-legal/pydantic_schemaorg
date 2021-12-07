@@ -14,8 +14,7 @@ class CaseSeries(MedicalObservationalStudyDesign):
     See https://schema.org/CaseSeries.
 
     """
-
-    locals().update({"@type": Field("CaseSeries", const=True)})
-
+    type_: str = Field("CaseSeries", const=True, alias='@type')
+    
 
 CaseSeries.update_forward_refs()

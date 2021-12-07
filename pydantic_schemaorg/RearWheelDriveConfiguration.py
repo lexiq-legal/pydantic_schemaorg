@@ -8,8 +8,7 @@ class RearWheelDriveConfiguration(DriveWheelConfigurationValue):
     See https://schema.org/RearWheelDriveConfiguration.
 
     """
-
-    locals().update({"@type": Field("RearWheelDriveConfiguration", const=True)})
-
+    type_: str = Field("RearWheelDriveConfiguration", const=True, alias='@type')
+    
 
 RearWheelDriveConfiguration.update_forward_refs()

@@ -8,8 +8,7 @@ class LowLactoseDiet(RestrictedDiet):
     See https://schema.org/LowLactoseDiet.
 
     """
-
-    locals().update({"@type": Field("LowLactoseDiet", const=True)})
-
+    type_: str = Field("LowLactoseDiet", const=True, alias='@type')
+    
 
 LowLactoseDiet.update_forward_refs()

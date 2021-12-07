@@ -8,8 +8,7 @@ class GenderType(Enumeration):
     See https://schema.org/GenderType.
 
     """
-
-    locals().update({"@type": Field("GenderType", const=True)})
-
+    type_: str = Field("GenderType", const=True, alias='@type')
+    
 
 GenderType.update_forward_refs()

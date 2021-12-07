@@ -8,8 +8,7 @@ class Table(WebPageElement):
     See https://schema.org/Table.
 
     """
-
-    locals().update({"@type": Field("Table", const=True)})
-
+    type_: str = Field("Table", const=True, alias='@type')
+    
 
 Table.update_forward_refs()

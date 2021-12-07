@@ -12,8 +12,7 @@ class Resort(LodgingBusiness):
     See https://schema.org/Resort.
 
     """
-
-    locals().update({"@type": Field("Resort", const=True)})
-
+    type_: str = Field("Resort", const=True, alias='@type')
+    
 
 Resort.update_forward_refs()

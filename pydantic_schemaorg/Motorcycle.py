@@ -8,8 +8,7 @@ class Motorcycle(Vehicle):
     See https://schema.org/Motorcycle.
 
     """
-
-    locals().update({"@type": Field("Motorcycle", const=True)})
-
+    type_: str = Field("Motorcycle", const=True, alias='@type')
+    
 
 Motorcycle.update_forward_refs()

@@ -1,5 +1,5 @@
-from pydantic import Field, StrictBool
-from typing import Any, Union, List, Optional
+from pydantic import StrictBool, Field
+from typing import Any, Optional, Union, List
 from decimal import Decimal
 from datetime import datetime, time
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
@@ -11,7 +11,7 @@ class LodgingBusiness(LocalBusiness):
     See https://schema.org/LodgingBusiness.
 
     """
-
+    type_: str = Field("LodgingBusiness", const=True, alias='@type')
     amenityFeature: Any = Field(
         None,
         description="An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic"
@@ -34,7 +34,7 @@ class LodgingBusiness(LocalBusiness):
         None,
         description="The earliest someone may check into a lodging establishment.",
     )
-    petsAllowed: Optional[Union[List[Union[str, StrictBool]], Union[str, StrictBool]]] = Field(
+    petsAllowed: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Indicates whether pets are allowed to enter the accommodation or lodging business."
      "More detailed information can be put in a text value.",
@@ -53,7 +53,6 @@ class LodgingBusiness(LocalBusiness):
         None,
         description="The latest someone may check out of a lodging establishment.",
     )
-    locals().update({"@type": Field("LodgingBusiness", const=True)})
-
+    
 
 LodgingBusiness.update_forward_refs()

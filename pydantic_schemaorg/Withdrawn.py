@@ -8,8 +8,7 @@ class Withdrawn(MedicalStudyStatus):
     See https://schema.org/Withdrawn.
 
     """
-
-    locals().update({"@type": Field("Withdrawn", const=True)})
-
+    type_: str = Field("Withdrawn", const=True, alias='@type')
+    
 
 Withdrawn.update_forward_refs()

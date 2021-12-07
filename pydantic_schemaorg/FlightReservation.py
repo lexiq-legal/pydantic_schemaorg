@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.QualitativeValue import QualitativeValue
 from pydantic_schemaorg.Reservation import Reservation
 
@@ -12,7 +12,7 @@ class FlightReservation(Reservation):
     See https://schema.org/FlightReservation.
 
     """
-
+    type_: str = Field("FlightReservation", const=True, alias='@type')
     passengerSequenceNumber: Optional[Union[List[str], str]] = Field(
         None,
         description="The passenger's sequence number as assigned by the airline.",
@@ -30,7 +30,6 @@ class FlightReservation(Reservation):
         None,
         description="The airline-specific indicator of boarding order / preference.",
     )
-    locals().update({"@type": Field("FlightReservation", const=True)})
-
+    
 
 FlightReservation.update_forward_refs()

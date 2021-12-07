@@ -8,8 +8,7 @@ class Plumber(HomeAndConstructionBusiness):
     See https://schema.org/Plumber.
 
     """
-
-    locals().update({"@type": Field("Plumber", const=True)})
-
+    type_: str = Field("Plumber", const=True, alias='@type')
+    
 
 Plumber.update_forward_refs()

@@ -10,8 +10,7 @@ class Gynecologic(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Gynecologic.
 
     """
-
-    locals().update({"@type": Field("Gynecologic", const=True)})
-
+    type_: str = Field("Gynecologic", const=True, alias='@type')
+    
 
 Gynecologic.update_forward_refs()

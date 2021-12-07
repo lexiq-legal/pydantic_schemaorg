@@ -9,8 +9,7 @@ class BrokerageAccount(InvestmentOrDeposit):
     See https://schema.org/BrokerageAccount.
 
     """
-
-    locals().update({"@type": Field("BrokerageAccount", const=True)})
-
+    type_: str = Field("BrokerageAccount", const=True, alias='@type')
+    
 
 BrokerageAccount.update_forward_refs()

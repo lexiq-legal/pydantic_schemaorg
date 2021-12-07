@@ -1,6 +1,6 @@
 from pydantic import Field, AnyUrl
 from pydantic_schemaorg.DataCatalog import DataCatalog
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from datetime import datetime
 from pydantic_schemaorg.DataDownload import DataDownload
 from pydantic_schemaorg.PropertyValue import PropertyValue
@@ -13,7 +13,7 @@ class Dataset(CreativeWork):
     See https://schema.org/Dataset.
 
     """
-
+    type_: str = Field("Dataset", const=True, alias='@type')
     includedDataCatalog: Optional[Union[List[DataCatalog], DataCatalog]] = Field(
         None,
         description="A data catalog which contains this dataset (this property was previously 'catalog',"
@@ -62,7 +62,6 @@ class Dataset(CreativeWork):
      "that are measured in some dataset, either described as text or as pairs of identifier"
      "and description using PropertyValue.",
     )
-    locals().update({"@type": Field("Dataset", const=True)})
-
+    
 
 Dataset.update_forward_refs()

@@ -8,8 +8,7 @@ class JewelryStore(Store):
     See https://schema.org/JewelryStore.
 
     """
-
-    locals().update({"@type": Field("JewelryStore", const=True)})
-
+    type_: str = Field("JewelryStore", const=True, alias='@type')
+    
 
 JewelryStore.update_forward_refs()

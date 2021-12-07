@@ -8,8 +8,7 @@ class AutoWash(AutomotiveBusiness):
     See https://schema.org/AutoWash.
 
     """
-
-    locals().update({"@type": Field("AutoWash", const=True)})
-
+    type_: str = Field("AutoWash", const=True, alias='@type')
+    
 
 AutoWash.update_forward_refs()

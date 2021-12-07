@@ -8,8 +8,7 @@ class MusicVenue(CivicStructure):
     See https://schema.org/MusicVenue.
 
     """
-
-    locals().update({"@type": Field("MusicVenue", const=True)})
-
+    type_: str = Field("MusicVenue", const=True, alias='@type')
+    
 
 MusicVenue.update_forward_refs()

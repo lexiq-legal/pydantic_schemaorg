@@ -9,8 +9,7 @@ class InvestmentFund(InvestmentOrDeposit):
     See https://schema.org/InvestmentFund.
 
     """
-
-    locals().update({"@type": Field("InvestmentFund", const=True)})
-
+    type_: str = Field("InvestmentFund", const=True, alias='@type')
+    
 
 InvestmentFund.update_forward_refs()

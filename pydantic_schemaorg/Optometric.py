@@ -9,8 +9,7 @@ class Optometric(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Optometric.
 
     """
-
-    locals().update({"@type": Field("Optometric", const=True)})
-
+    type_: str = Field("Optometric", const=True, alias='@type')
+    
 
 Optometric.update_forward_refs()

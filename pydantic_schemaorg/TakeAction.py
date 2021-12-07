@@ -10,8 +10,7 @@ class TakeAction(TransferAction):
     See https://schema.org/TakeAction.
 
     """
-
-    locals().update({"@type": Field("TakeAction", const=True)})
-
+    type_: str = Field("TakeAction", const=True, alias='@type')
+    
 
 TakeAction.update_forward_refs()

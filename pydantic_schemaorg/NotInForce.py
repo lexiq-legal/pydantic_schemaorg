@@ -8,8 +8,7 @@ class NotInForce(LegalForceStatus):
     See https://schema.org/NotInForce.
 
     """
-
-    locals().update({"@type": Field("NotInForce", const=True)})
-
+    type_: str = Field("NotInForce", const=True, alias='@type')
+    
 
 NotInForce.update_forward_refs()

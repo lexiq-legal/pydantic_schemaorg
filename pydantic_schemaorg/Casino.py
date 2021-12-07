@@ -8,8 +8,7 @@ class Casino(EntertainmentBusiness):
     See https://schema.org/Casino.
 
     """
-
-    locals().update({"@type": Field("Casino", const=True)})
-
+    type_: str = Field("Casino", const=True, alias='@type')
+    
 
 Casino.update_forward_refs()

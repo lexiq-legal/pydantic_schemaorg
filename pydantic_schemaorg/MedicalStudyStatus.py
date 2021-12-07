@@ -8,8 +8,7 @@ class MedicalStudyStatus(MedicalEnumeration):
     See https://schema.org/MedicalStudyStatus.
 
     """
-
-    locals().update({"@type": Field("MedicalStudyStatus", const=True)})
-
+    type_: str = Field("MedicalStudyStatus", const=True, alias='@type')
+    
 
 MedicalStudyStatus.update_forward_refs()

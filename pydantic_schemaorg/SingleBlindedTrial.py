@@ -9,8 +9,7 @@ class SingleBlindedTrial(MedicalTrialDesign):
     See https://schema.org/SingleBlindedTrial.
 
     """
-
-    locals().update({"@type": Field("SingleBlindedTrial", const=True)})
-
+    type_: str = Field("SingleBlindedTrial", const=True, alias='@type')
+    
 
 SingleBlindedTrial.update_forward_refs()

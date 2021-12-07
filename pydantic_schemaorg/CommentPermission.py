@@ -8,8 +8,7 @@ class CommentPermission(DigitalDocumentPermissionType):
     See https://schema.org/CommentPermission.
 
     """
-
-    locals().update({"@type": Field("CommentPermission", const=True)})
-
+    type_: str = Field("CommentPermission", const=True, alias='@type')
+    
 
 CommentPermission.update_forward_refs()

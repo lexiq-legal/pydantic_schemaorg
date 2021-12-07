@@ -8,8 +8,7 @@ class BoatTerminal(CivicStructure):
     See https://schema.org/BoatTerminal.
 
     """
-
-    locals().update({"@type": Field("BoatTerminal", const=True)})
-
+    type_: str = Field("BoatTerminal", const=True, alias='@type')
+    
 
 BoatTerminal.update_forward_refs()

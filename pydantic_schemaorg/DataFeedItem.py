@@ -1,6 +1,6 @@
 from pydantic import Field
-from datetime import date, datetime
-from typing import Any, Union, List, Optional
+from datetime import datetime, date
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -11,7 +11,7 @@ class DataFeedItem(Intangible):
     See https://schema.org/DataFeedItem.
 
     """
-
+    type_: str = Field("DataFeedItem", const=True, alias='@type')
     dateDeleted: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
         None,
         description="The datetime the item was removed from the DataFeed.",
@@ -29,7 +29,6 @@ class DataFeedItem(Intangible):
         None,
         description="The date on which the CreativeWork was created or the item was added to a DataFeed.",
     )
-    locals().update({"@type": Field("DataFeedItem", const=True)})
-
+    
 
 DataFeedItem.update_forward_refs()

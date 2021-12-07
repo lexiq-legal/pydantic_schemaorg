@@ -8,8 +8,7 @@ class WearableSizeGroupShort(WearableSizeGroupEnumeration):
     See https://schema.org/WearableSizeGroupShort.
 
     """
-
-    locals().update({"@type": Field("WearableSizeGroupShort", const=True)})
-
+    type_: str = Field("WearableSizeGroupShort", const=True, alias='@type')
+    
 
 WearableSizeGroupShort.update_forward_refs()

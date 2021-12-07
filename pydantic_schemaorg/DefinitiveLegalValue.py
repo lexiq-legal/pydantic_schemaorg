@@ -10,8 +10,7 @@ class DefinitiveLegalValue(LegalValueLevel):
     See https://schema.org/DefinitiveLegalValue.
 
     """
-
-    locals().update({"@type": Field("DefinitiveLegalValue", const=True)})
-
+    type_: str = Field("DefinitiveLegalValue", const=True, alias='@type')
+    
 
 DefinitiveLegalValue.update_forward_refs()

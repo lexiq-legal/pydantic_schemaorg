@@ -8,8 +8,7 @@ class Playground(CivicStructure):
     See https://schema.org/Playground.
 
     """
-
-    locals().update({"@type": Field("Playground", const=True)})
-
+    type_: str = Field("Playground", const=True, alias='@type')
+    
 
 Playground.update_forward_refs()

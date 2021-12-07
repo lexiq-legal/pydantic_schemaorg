@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.SoftwareApplication import SoftwareApplication
 
 
@@ -9,13 +9,12 @@ class WebApplication(SoftwareApplication):
     See https://schema.org/WebApplication.
 
     """
-
+    type_: str = Field("WebApplication", const=True, alias='@type')
     browserRequirements: Optional[Union[List[str], str]] = Field(
         None,
         description="Specifies browser requirements in human-readable text. For example, 'requires HTML5"
      "support'.",
     )
-    locals().update({"@type": Field("WebApplication", const=True)})
-
+    
 
 WebApplication.update_forward_refs()

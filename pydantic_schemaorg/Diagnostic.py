@@ -8,8 +8,7 @@ class Diagnostic(MedicalDevicePurpose):
     See https://schema.org/Diagnostic.
 
     """
-
-    locals().update({"@type": Field("Diagnostic", const=True)})
-
+    type_: str = Field("Diagnostic", const=True, alias='@type')
+    
 
 Diagnostic.update_forward_refs()

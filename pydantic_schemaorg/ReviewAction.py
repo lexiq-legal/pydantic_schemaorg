@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Review import Review
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.AssessAction import AssessAction
 
 
@@ -11,12 +11,11 @@ class ReviewAction(AssessAction):
     See https://schema.org/ReviewAction.
 
     """
-
+    type_: str = Field("ReviewAction", const=True, alias='@type')
     resultReview: Optional[Union[List[Review], Review]] = Field(
         None,
         description="A sub property of result. The review that resulted in the performing of the action.",
     )
-    locals().update({"@type": Field("ReviewAction", const=True)})
-
+    
 
 ReviewAction.update_forward_refs()

@@ -1,5 +1,5 @@
 from pydantic import Field, AnyUrl
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -13,7 +13,7 @@ class DefinedTerm(Intangible):
     See https://schema.org/DefinedTerm.
 
     """
-
+    type_: str = Field("DefinedTerm", const=True, alias='@type')
     termCode: Optional[Union[List[str], str]] = Field(
         None,
         description="A code that identifies this [[DefinedTerm]] within a [[DefinedTermSet]]",
@@ -22,7 +22,6 @@ class DefinedTerm(Intangible):
         None,
         description="A [[DefinedTermSet]] that contains this term.",
     )
-    locals().update({"@type": Field("DefinedTerm", const=True)})
-
+    
 
 DefinedTerm.update_forward_refs()

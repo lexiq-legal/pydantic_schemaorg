@@ -10,8 +10,7 @@ class Obstetric(MedicalBusiness, MedicalSpecialty):
     See https://schema.org/Obstetric.
 
     """
-
-    locals().update({"@type": Field("Obstetric", const=True)})
-
+    type_: str = Field("Obstetric", const=True, alias='@type')
+    
 
 Obstetric.update_forward_refs()

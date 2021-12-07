@@ -11,8 +11,7 @@ class OfferForLease(Offer):
     See https://schema.org/OfferForLease.
 
     """
-
-    locals().update({"@type": Field("OfferForLease", const=True)})
-
+    type_: str = Field("OfferForLease", const=True, alias='@type')
+    
 
 OfferForLease.update_forward_refs()

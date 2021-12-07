@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.LodgingBusiness import LodgingBusiness
 from pydantic_schemaorg.CivicStructure import CivicStructure
+from pydantic_schemaorg.LodgingBusiness import LodgingBusiness
 
 
-class Campground(LodgingBusiness, CivicStructure):
+class Campground(CivicStructure, LodgingBusiness):
     """A camping site, campsite, or [[Campground]] is a place used for overnight stay in the"
      "outdoors, typically containing individual [[CampingPitch]] locations. In British"
      "English a campsite is an area, usually divided into a number of pitches, where people"
@@ -18,8 +18,7 @@ class Campground(LodgingBusiness, CivicStructure):
     See https://schema.org/Campground.
 
     """
-
-    locals().update({"@type": Field("Campground", const=True)})
-
+    type_: str = Field("Campground", const=True, alias='@type')
+    
 
 Campground.update_forward_refs()

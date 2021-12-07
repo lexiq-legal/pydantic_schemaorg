@@ -8,8 +8,7 @@ class WearableMeasurementSleeve(WearableMeasurementTypeEnumeration):
     See https://schema.org/WearableMeasurementSleeve.
 
     """
-
-    locals().update({"@type": Field("WearableMeasurementSleeve", const=True)})
-
+    type_: str = Field("WearableMeasurementSleeve", const=True, alias='@type')
+    
 
 WearableMeasurementSleeve.update_forward_refs()

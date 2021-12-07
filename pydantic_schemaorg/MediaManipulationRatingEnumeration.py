@@ -13,8 +13,7 @@ class MediaManipulationRatingEnumeration(Enumeration):
     See https://schema.org/MediaManipulationRatingEnumeration.
 
     """
-
-    locals().update({"@type": Field("MediaManipulationRatingEnumeration", const=True)})
-
+    type_: str = Field("MediaManipulationRatingEnumeration", const=True, alias='@type')
+    
 
 MediaManipulationRatingEnumeration.update_forward_refs()

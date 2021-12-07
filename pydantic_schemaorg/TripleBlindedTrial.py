@@ -10,8 +10,7 @@ class TripleBlindedTrial(MedicalTrialDesign):
     See https://schema.org/TripleBlindedTrial.
 
     """
-
-    locals().update({"@type": Field("TripleBlindedTrial", const=True)})
-
+    type_: str = Field("TripleBlindedTrial", const=True, alias='@type')
+    
 
 TripleBlindedTrial.update_forward_refs()

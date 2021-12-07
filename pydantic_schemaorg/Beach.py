@@ -8,8 +8,7 @@ class Beach(CivicStructure):
     See https://schema.org/Beach.
 
     """
-
-    locals().update({"@type": Field("Beach", const=True)})
-
+    type_: str = Field("Beach", const=True, alias='@type')
+    
 
 Beach.update_forward_refs()

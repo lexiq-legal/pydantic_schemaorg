@@ -8,8 +8,7 @@ class GamePlayMode(Enumeration):
     See https://schema.org/GamePlayMode.
 
     """
-
-    locals().update({"@type": Field("GamePlayMode", const=True)})
-
+    type_: str = Field("GamePlayMode", const=True, alias='@type')
+    
 
 GamePlayMode.update_forward_refs()

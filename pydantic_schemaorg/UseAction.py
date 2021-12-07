@@ -8,8 +8,7 @@ class UseAction(ConsumeAction):
     See https://schema.org/UseAction.
 
     """
-
-    locals().update({"@type": Field("UseAction", const=True)})
-
+    type_: str = Field("UseAction", const=True, alias='@type')
+    
 
 UseAction.update_forward_refs()

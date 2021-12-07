@@ -8,8 +8,7 @@ class DigitalAudioTapeFormat(MusicReleaseFormatType):
     See https://schema.org/DigitalAudioTapeFormat.
 
     """
-
-    locals().update({"@type": Field("DigitalAudioTapeFormat", const=True)})
-
+    type_: str = Field("DigitalAudioTapeFormat", const=True, alias='@type')
+    
 
 DigitalAudioTapeFormat.update_forward_refs()

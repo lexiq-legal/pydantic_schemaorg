@@ -8,8 +8,7 @@ class Florist(Store):
     See https://schema.org/Florist.
 
     """
-
-    locals().update({"@type": Field("Florist", const=True)})
-
+    type_: str = Field("Florist", const=True, alias='@type')
+    
 
 Florist.update_forward_refs()

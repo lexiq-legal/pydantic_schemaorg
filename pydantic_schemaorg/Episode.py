@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.CreativeWorkSeries import CreativeWorkSeries
@@ -12,7 +12,7 @@ class Episode(CreativeWork):
     See https://schema.org/Episode.
 
     """
-
+    type_: str = Field("Episode", const=True, alias='@type')
     partOfSeason: Any = Field(
         None,
         description="The season to which this episode belongs.",
@@ -62,7 +62,6 @@ class Episode(CreativeWork):
         None,
         description="The composer of the soundtrack.",
     )
-    locals().update({"@type": Field("Episode", const=True)})
-
+    
 
 Episode.update_forward_refs()

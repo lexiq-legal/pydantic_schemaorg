@@ -8,8 +8,7 @@ class ContactPointOption(Enumeration):
     See https://schema.org/ContactPointOption.
 
     """
-
-    locals().update({"@type": Field("ContactPointOption", const=True)})
-
+    type_: str = Field("ContactPointOption", const=True, alias='@type')
+    
 
 ContactPointOption.update_forward_refs()

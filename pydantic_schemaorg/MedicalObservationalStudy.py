@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Union, List, Optional
+from typing import Any, Optional, Union, List
 from pydantic_schemaorg.MedicalStudy import MedicalStudy
 
 
@@ -15,12 +15,11 @@ class MedicalObservationalStudy(MedicalStudy):
     See https://schema.org/MedicalObservationalStudy.
 
     """
-
+    type_: str = Field("MedicalObservationalStudy", const=True, alias='@type')
     studyDesign: Any = Field(
         None,
         description="Specifics about the observational study design (enumerated).",
     )
-    locals().update({"@type": Field("MedicalObservationalStudy", const=True)})
-
+    
 
 MedicalObservationalStudy.update_forward_refs()

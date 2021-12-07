@@ -9,8 +9,7 @@ class OpenTrial(MedicalTrialDesign):
     See https://schema.org/OpenTrial.
 
     """
-
-    locals().update({"@type": Field("OpenTrial", const=True)})
-
+    type_: str = Field("OpenTrial", const=True, alias='@type')
+    
 
 OpenTrial.update_forward_refs()
