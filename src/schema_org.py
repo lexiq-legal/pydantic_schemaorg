@@ -57,7 +57,8 @@ class SchemaOrg:
         imports = self._get_default_imports()
         for key, field in self._fields_for_model(name):
             field_parent_types = self._get_including_types(field)
-            field_types = [type_name for type_name in field_parent_types if type_name in self.pydantic_classes]
+
+            field_types = [type_name for type_name in field_parent_types]
             pydantic_types = ()
             for field_type in sorted(field_types, key=lambda ft: self._type_specificity.get(ft, 0),
                                      reverse=True):
@@ -80,7 +81,7 @@ class SchemaOrg:
             if not pydantic_types:
                 continue
             elif len(pydantic_types) > 1:
-                imports.update({'typing': {'List', 'Union', 'Any', 'Optional'}})
+                imports.update({'typing': {'List', 'Union', 'Optional'}})
                 optional = pydantic_types[-1] != "Any"
                 pydantic_types = f"Union[List[Union[{type_tuple}]], Union[{type_tuple}]]"
                 if optional:
