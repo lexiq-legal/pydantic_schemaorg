@@ -1,5 +1,7 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.ActionAccessSpecification import ActionAccessSpecification
+from typing import List, Optional, Union
+from pydantic_schemaorg.Offer import Offer
 from pydantic_schemaorg.Action import Action
 
 
@@ -10,12 +12,12 @@ class ConsumeAction(Action):
 
     """
     type_: str = Field("ConsumeAction", const=True, alias='@type')
-    actionAccessibilityRequirement: Any = Field(
+    actionAccessibilityRequirement: Optional[Union[List[Union[ActionAccessSpecification, str]], Union[ActionAccessSpecification, str]]] = Field(
         None,
         description="A set of requirements that a must be fulfilled in order to perform an Action. If more than"
      "one value is specied, fulfilling one set of requirements will allow the Action to be performed.",
     )
-    expectsAcceptanceOf: Any = Field(
+    expectsAcceptanceOf: Optional[Union[List[Union[Offer, str]], Union[Offer, str]]] = Field(
         None,
         description="An Offer which must be accepted before the user can perform the Action. For example, the"
      "user may need to buy a movie before being able to watch it.",

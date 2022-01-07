@@ -1,5 +1,6 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Union
+from pydantic_schemaorg.ComputerLanguage import ComputerLanguage
 from pydantic_schemaorg.SoftwareApplication import SoftwareApplication
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -12,7 +13,7 @@ class SoftwareSourceCode(CreativeWork):
 
     """
     type_: str = Field("SoftwareSourceCode", const=True, alias='@type')
-    codeRepository: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    codeRepository: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="Link to the repository where the un-compiled, human readable code and related code is"
      "located (SVN, github, CodePlex).",
@@ -22,7 +23,7 @@ class SoftwareSourceCode(CreativeWork):
         description="Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3,"
      ".Net Framework 3.0).",
     )
-    programmingLanguage: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    programmingLanguage: Optional[Union[List[Union[str, ComputerLanguage]], Union[str, ComputerLanguage]]] = Field(
         None,
         description="The computer programming language.",
     )
@@ -41,7 +42,7 @@ class SoftwareSourceCode(CreativeWork):
         description="What type of code sample: full (compile ready) solution, code snippet, inline code,"
      "scripts, template.",
     )
-    targetProduct: Optional[Union[List[SoftwareApplication], SoftwareApplication]] = Field(
+    targetProduct: Optional[Union[List[Union[SoftwareApplication, str]], Union[SoftwareApplication, str]]] = Field(
         None,
         description="Target Operating System / Product to which the code applies. If applies to several versions,"
      "just the product name can be used.",

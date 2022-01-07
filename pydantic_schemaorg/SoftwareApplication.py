@@ -1,6 +1,8 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Any, Union
+from pydantic_schemaorg.ImageObject import ImageObject
 from pydantic_schemaorg.CreativeWork import CreativeWork
+from pydantic_schemaorg.DataFeed import DataFeed
 
 
 class SoftwareApplication(CreativeWork):
@@ -18,11 +20,11 @@ class SoftwareApplication(CreativeWork):
         None,
         description="Processor architecture required to run the application (e.g. IA64).",
     )
-    installUrl: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    installUrl: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="URL at which the app may be installed, if different from the URL of the item.",
     )
-    screenshot: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    screenshot: Optional[Union[List[Union[AnyUrl, ImageObject, str]], Union[AnyUrl, ImageObject, str]]] = Field(
         None,
         description="A link to a screenshot image of the app.",
     )
@@ -35,7 +37,7 @@ class SoftwareApplication(CreativeWork):
         None,
         description="Operating systems supported (Windows 7, OSX 10.6, Android 1.6).",
     )
-    softwareAddOn: Any = Field(
+    softwareAddOn: Optional[Union[List[Union['SoftwareApplication', str]], Union['SoftwareApplication', str]]] = Field(
         None,
         description="Additional content for a software application.",
     )
@@ -59,7 +61,7 @@ class SoftwareApplication(CreativeWork):
      "and shared libraries that are not included in the application distribution package,"
      "but required to run the application (Examples: DirectX, Java or .NET runtime).",
     )
-    softwareHelp: Optional[Union[List[CreativeWork], CreativeWork]] = Field(
+    softwareHelp: Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]] = Field(
         None,
         description="Software application help.",
     )
@@ -81,7 +83,7 @@ class SoftwareApplication(CreativeWork):
         None,
         description="Description of what changed in this version.",
     )
-    downloadUrl: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    downloadUrl: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="If the file can be downloaded, URL to download the binary.",
     )
@@ -91,7 +93,7 @@ class SoftwareApplication(CreativeWork):
      "and shared libraries that are not included in the application distribution package,"
      "but required to run the application (Examples: DirectX, Java or .NET runtime).",
     )
-    supportingData: Any = Field(
+    supportingData: Optional[Union[List[Union[DataFeed, str]], Union[DataFeed, str]]] = Field(
         None,
         description="Supporting data for a SoftwareApplication.",
     )

@@ -1,9 +1,12 @@
-from pydantic import Field, AnyUrl
+from pydantic import AnyUrl, Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.VideoObject import VideoObject
 from pydantic_schemaorg.Duration import Duration
+from pydantic_schemaorg.Language import Language
 from pydantic_schemaorg.Country import Country
 from pydantic_schemaorg.Organization import Organization
+from pydantic_schemaorg.MusicGroup import MusicGroup
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -14,24 +17,24 @@ class Movie(CreativeWork):
 
     """
     type_: str = Field("Movie", const=True, alias='@type')
-    actors: Optional[Union[List[Person], Person]] = Field(
+    actors: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
      "items or with a series, episode, clip.",
     )
-    trailer: Any = Field(
+    trailer: Optional[Union[List[Union[VideoObject, str]], Union[VideoObject, str]]] = Field(
         None,
         description="The trailer of a movie or tv/radio series, season, episode, etc.",
     )
-    duration: Optional[Union[List[Duration], Duration]] = Field(
+    duration: Optional[Union[List[Union[Duration, str]], Union[Duration, str]]] = Field(
         None,
         description="The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).",
     )
-    subtitleLanguage: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    subtitleLanguage: Optional[Union[List[Union[str, Language]], Union[str, Language]]] = Field(
         None,
         description="Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
     )
-    countryOfOrigin: Optional[Union[List[Country], Country]] = Field(
+    countryOfOrigin: Optional[Union[List[Union[Country, str]], Union[Country, str]]] = Field(
         None,
         description="The country of origin of something, including products as well as creative works such"
      "as movie and TV content. In the case of TV and movie, this would be the country of the principle"
@@ -41,12 +44,12 @@ class Movie(CreativeWork):
      "case of products, the country of origin of the product. The exact interpretation of this"
      "may vary by context and product type, and cannot be fully enumerated here.",
     )
-    director: Optional[Union[List[Person], Person]] = Field(
+    director: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors"
      "can be associated with individual items or with a series, episode, clip.",
     )
-    productionCompany: Optional[Union[List[Organization], Organization]] = Field(
+    productionCompany: Optional[Union[List[Union[Organization, str]], Union[Organization, str]]] = Field(
         None,
         description="The production company or studio responsible for the item e.g. series, video game, episode"
      "etc.",
@@ -61,17 +64,17 @@ class Movie(CreativeWork):
      "their multiple expressions, it is possible to use [[titleEIDR]] alone (for a general"
      "description), or alongside [[editEIDR]] for a more edit-specific description.",
     )
-    actor: Optional[Union[List[Person], Person]] = Field(
+    actor: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    directors: Optional[Union[List[Person], Person]] = Field(
+    directors: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    musicBy: Union[List[Union[Person, Any]], Union[Person, Any]] = Field(
+    musicBy: Optional[Union[List[Union[MusicGroup, Person, str]], Union[MusicGroup, Person, str]]] = Field(
         None,
         description="The composer of the soundtrack.",
     )

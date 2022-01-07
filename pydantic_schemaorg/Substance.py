@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.MaximumDoseSchedule import MaximumDoseSchedule
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
 
@@ -15,7 +16,7 @@ class Substance(MedicalEntity):
         None,
         description="An active ingredient, typically chemical compounds and/or biologic substances.",
     )
-    maximumIntake: Any = Field(
+    maximumIntake: Optional[Union[List[Union[MaximumDoseSchedule, str]], Union[MaximumDoseSchedule, str]]] = Field(
         None,
         description="Recommended intake of this supplement for a given population as defined by a specific"
      "recommending authority.",

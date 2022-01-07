@@ -1,7 +1,8 @@
 from pydantic import Field
 from pydantic_schemaorg.Vessel import Vessel
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
+from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
 
 
 class LymphaticVessel(Vessel):
@@ -12,15 +13,15 @@ class LymphaticVessel(Vessel):
 
     """
     type_: str = Field("LymphaticVessel", const=True, alias='@type')
-    originatesFrom: Optional[Union[List[Vessel], Vessel]] = Field(
+    originatesFrom: Optional[Union[List[Union[Vessel, str]], Union[Vessel, str]]] = Field(
         None,
         description="The vasculature the lymphatic structure originates, or afferents, from.",
     )
-    runsTo: Optional[Union[List[Vessel], Vessel]] = Field(
+    runsTo: Optional[Union[List[Union[Vessel, str]], Union[Vessel, str]]] = Field(
         None,
         description="The vasculature the lymphatic structure runs, or efferents, to.",
     )
-    regionDrained: Union[List[Union[AnatomicalStructure, Any]], Union[AnatomicalStructure, Any]] = Field(
+    regionDrained: Optional[Union[List[Union[AnatomicalStructure, AnatomicalSystem, str]], Union[AnatomicalStructure, AnatomicalSystem, str]]] = Field(
         None,
         description="The anatomical or organ system drained by this vessel; generally refers to a specific"
      "part of an organ.",

@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.TransferAction import TransferAction
 
 
@@ -12,7 +12,7 @@ class LendAction(TransferAction):
 
     """
     type_: str = Field("LendAction", const=True, alias='@type')
-    borrower: Optional[Union[List[Person], Person]] = Field(
+    borrower: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A sub property of participant. The person that borrows the object being lent.",
     )

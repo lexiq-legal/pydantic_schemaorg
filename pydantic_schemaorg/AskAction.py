@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Question import Question
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.CommunicateAction import CommunicateAction
 
 
@@ -12,7 +12,7 @@ class AskAction(CommunicateAction):
 
     """
     type_: str = Field("AskAction", const=True, alias='@type')
-    question: Optional[Union[List[Question], Question]] = Field(
+    question: Optional[Union[List[Union[Question, str]], Union[Question, str]]] = Field(
         None,
         description="A sub property of object. A question.",
     )

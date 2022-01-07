@@ -1,8 +1,8 @@
 from pydantic import Field
-from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Audience import Audience
+from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
 from pydantic_schemaorg.TransferAction import TransferAction
 
@@ -18,11 +18,11 @@ class ReceiveAction(TransferAction):
 
     """
     type_: str = Field("ReceiveAction", const=True, alias='@type')
-    sender: Optional[Union[List[Union[Organization, Audience, Person]], Union[Organization, Audience, Person]]] = Field(
+    sender: Optional[Union[List[Union[Audience, Organization, Person, str]], Union[Audience, Organization, Person, str]]] = Field(
         None,
         description="A sub property of participant. The participant who is at the sending end of the action.",
     )
-    deliveryMethod: Optional[Union[List[DeliveryMethod], DeliveryMethod]] = Field(
+    deliveryMethod: Optional[Union[List[Union[DeliveryMethod, str]], Union[DeliveryMethod, str]]] = Field(
         None,
         description="A sub property of instrument. The method of delivery.",
     )

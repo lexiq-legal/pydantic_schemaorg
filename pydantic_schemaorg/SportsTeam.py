@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.GenderType import GenderType
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.SportsOrganization import SportsOrganization
 
@@ -21,11 +21,11 @@ class SportsTeam(SportsOrganization):
      "of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities."
      "A mixed-gender [[SportsTeam]] can be indicated with a text value of \"Mixed\".",
     )
-    athlete: Optional[Union[List[Person], Person]] = Field(
+    athlete: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A person that acts as performing member of a sports team; a player as opposed to a coach.",
     )
-    coach: Optional[Union[List[Person], Person]] = Field(
+    coach: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A person that acts in a coaching role for a sports team.",
     )

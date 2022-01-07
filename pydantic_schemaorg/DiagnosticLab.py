@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalTest import MedicalTest
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.MedicalOrganization import MedicalOrganization
 
 
@@ -11,7 +11,7 @@ class DiagnosticLab(MedicalOrganization):
 
     """
     type_: str = Field("DiagnosticLab", const=True, alias='@type')
-    availableTest: Optional[Union[List[MedicalTest], MedicalTest]] = Field(
+    availableTest: Optional[Union[List[Union[MedicalTest, str]], Union[MedicalTest, str]]] = Field(
         None,
         description="A diagnostic test or procedure offered by this lab.",
     )

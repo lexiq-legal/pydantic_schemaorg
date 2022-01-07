@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -11,7 +11,7 @@ class OccupationalExperienceRequirements(Intangible):
 
     """
     type_: str = Field("OccupationalExperienceRequirements", const=True, alias='@type')
-    monthsOfExperience: Optional[Union[List[Decimal], Decimal]] = Field(
+    monthsOfExperience: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="Indicates the minimal number of months of experience required for a position.",
     )

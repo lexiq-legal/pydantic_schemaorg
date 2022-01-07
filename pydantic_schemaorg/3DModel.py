@@ -1,5 +1,5 @@
 from pydantic import StrictBool, Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.MediaObject import MediaObject
 
 
@@ -16,7 +16,7 @@ class _3DModel(MediaObject):
 
     """
     type_: str = Field("3DModel", const=True, alias='@type')
-    isResizable: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    isResizable: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Whether the 3DModel allows resizing. For example, room layout applications often do"
      "not allow 3DModel elements to be resized to reflect reality.",

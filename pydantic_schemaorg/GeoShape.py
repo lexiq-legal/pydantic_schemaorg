@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from decimal import Decimal
 from pydantic_schemaorg.PostalAddress import PostalAddress
 from pydantic_schemaorg.Country import Country

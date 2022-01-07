@@ -1,7 +1,8 @@
 from pydantic import StrictBool, Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from decimal import Decimal
 from datetime import datetime, date
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -14,12 +15,12 @@ class PriceSpecification(StructuredValue):
 
     """
     type_: str = Field("PriceSpecification", const=True, alias='@type')
-    valueAddedTaxIncluded: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    valueAddedTaxIncluded: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Specifies whether the applicable value-added tax (VAT) is included in the price specification"
      "or not.",
     )
-    eligibleTransactionVolume: Any = Field(
+    eligibleTransactionVolume: Optional[Union[List[Union['PriceSpecification', str]], Union['PriceSpecification', str]]] = Field(
         None,
         description="The transaction volume, in a monetary unit, for which the offer or price specification"
      "is valid, e.g. for indicating a minimal purchasing volume, to express free shipping"
@@ -51,24 +52,24 @@ class PriceSpecification(StructuredValue):
      "0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially"
      "similiar Unicode symbols.",
     )
-    maxPrice: Optional[Union[List[Decimal], Decimal]] = Field(
+    maxPrice: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The highest price if the price is a range.",
     )
-    minPrice: Optional[Union[List[Decimal], Decimal]] = Field(
+    minPrice: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The lowest price if the price is a range.",
     )
-    validFrom: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    validFrom: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The date when the item becomes valid.",
     )
-    validThrough: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    validThrough: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The date after when the item is not valid. For example the end of an offer, salary period,"
      "or a period of opening hours.",
     )
-    eligibleQuantity: Any = Field(
+    eligibleQuantity: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The interval and unit of measurement of ordering quantities for which the offer or price"
      "specification is valid. This allows e.g. specifying that a certain freight charge is"

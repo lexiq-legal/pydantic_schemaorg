@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from datetime import datetime
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
 from pydantic_schemaorg.Event import Event
@@ -16,15 +16,15 @@ class DeliveryEvent(Event):
         None,
         description="Password, PIN, or access code needed for delivery (e.g. from a locker).",
     )
-    availableThrough: Optional[Union[List[datetime], datetime]] = Field(
+    availableThrough: Optional[Union[List[Union[datetime, str]], Union[datetime, str]]] = Field(
         None,
         description="After this date, the item will no longer be available for pickup.",
     )
-    hasDeliveryMethod: Optional[Union[List[DeliveryMethod], DeliveryMethod]] = Field(
+    hasDeliveryMethod: Optional[Union[List[Union[DeliveryMethod, str]], Union[DeliveryMethod, str]]] = Field(
         None,
         description="Method used for delivery or shipping.",
     )
-    availableFrom: Optional[Union[List[datetime], datetime]] = Field(
+    availableFrom: Optional[Union[List[Union[datetime, str]], Union[datetime, str]]] = Field(
         None,
         description="When the item is available for pickup from the store, locker, etc.",
     )

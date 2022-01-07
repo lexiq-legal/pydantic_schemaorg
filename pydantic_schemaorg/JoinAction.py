@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.Event import Event
+from typing import List, Optional, Union
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -14,7 +15,7 @@ class JoinAction(InteractAction):
 
     """
     type_: str = Field("JoinAction", const=True, alias='@type')
-    event: Any = Field(
+    event: Optional[Union[List[Union[Event, str]], Union[Event, str]]] = Field(
         None,
         description="Upcoming or past event associated with this place, organization, or action.",
     )

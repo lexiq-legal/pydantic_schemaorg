@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.GameServerStatus import GameServerStatus
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.VideoGame import VideoGame
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -12,15 +12,15 @@ class GameServer(Intangible):
 
     """
     type_: str = Field("GameServer", const=True, alias='@type')
-    serverStatus: Optional[Union[List[GameServerStatus], GameServerStatus]] = Field(
+    serverStatus: Optional[Union[List[Union[GameServerStatus, str]], Union[GameServerStatus, str]]] = Field(
         None,
         description="Status of a game server.",
     )
-    playersOnline: Optional[Union[List[int], int]] = Field(
+    playersOnline: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="Number of players on the server.",
     )
-    game: Optional[Union[List[VideoGame], VideoGame]] = Field(
+    game: Optional[Union[List[Union[VideoGame, str]], Union[VideoGame, str]]] = Field(
         None,
         description="Video game which is played on this server.",
     )

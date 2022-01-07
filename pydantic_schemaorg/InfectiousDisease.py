@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.InfectiousAgentClass import InfectiousAgentClass
 from pydantic_schemaorg.MedicalCondition import MedicalCondition
 
 
@@ -22,7 +23,7 @@ class InfectiousDisease(MedicalCondition):
         None,
         description="The actual infectious agent, such as a specific bacterium.",
     )
-    infectiousAgentClass: Any = Field(
+    infectiousAgentClass: Optional[Union[List[Union[InfectiousAgentClass, str]], Union[InfectiousAgentClass, str]]] = Field(
         None,
         description="The class of infectious agent (bacteria, prion, etc.) that causes the disease.",
     )

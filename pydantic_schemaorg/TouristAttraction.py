@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.Language import Language
+from typing import List, Optional, Union
 from pydantic_schemaorg.Audience import Audience
 from pydantic_schemaorg.Place import Place
 
@@ -15,7 +16,7 @@ class TouristAttraction(Place):
 
     """
     type_: str = Field("TouristAttraction", const=True, alias='@type')
-    availableLanguage: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    availableLanguage: Optional[Union[List[Union[str, Language]], Union[str, Language]]] = Field(
         None,
         description="A language someone may use with or at the item, service or place. Please use one of the language"
      "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"

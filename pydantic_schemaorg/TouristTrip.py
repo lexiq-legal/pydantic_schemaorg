@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Audience import Audience
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Trip import Trip
 
 

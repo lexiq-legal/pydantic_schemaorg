@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MediaObject import MediaObject
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.HyperTocEntry import HyperTocEntry
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -16,11 +16,11 @@ class HyperToc(CreativeWork):
 
     """
     type_: str = Field("HyperToc", const=True, alias='@type')
-    associatedMedia: Optional[Union[List[MediaObject], MediaObject]] = Field(
+    associatedMedia: Optional[Union[List[Union[MediaObject, str]], Union[MediaObject, str]]] = Field(
         None,
         description="A media object that encodes this CreativeWork. This property is a synonym for encoding.",
     )
-    tocEntry: Optional[Union[List[HyperTocEntry], HyperTocEntry]] = Field(
+    tocEntry: Optional[Union[List[Union[HyperTocEntry, str]], Union[HyperTocEntry, str]]] = Field(
         None,
         description="Indicates a [[HyperTocEntry]] in a [[HyperToc]].",
     )

@@ -1,6 +1,7 @@
 from pydantic import StrictBool, Field
 from pydantic_schemaorg.DefinedRegion import DefinedRegion
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
+from pydantic_schemaorg.ShippingDeliveryTime import ShippingDeliveryTime
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -14,12 +15,12 @@ class DeliveryTimeSettings(StructuredValue):
 
     """
     type_: str = Field("DeliveryTimeSettings", const=True, alias='@type')
-    shippingDestination: Optional[Union[List[DefinedRegion], DefinedRegion]] = Field(
+    shippingDestination: Optional[Union[List[Union[DefinedRegion, str]], Union[DefinedRegion, str]]] = Field(
         None,
         description="indicates (possibly multiple) shipping destinations. These can be defined in several"
      "ways e.g. postalCode ranges.",
     )
-    isUnlabelledFallback: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    isUnlabelledFallback: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="This can be marked 'true' to indicate that some published [[DeliveryTimeSettings]]"
      "or [[ShippingRateSettings]] are intended to apply to all [[OfferShippingDetails]]"
@@ -28,7 +29,7 @@ class DeliveryTimeSettings(StructuredValue):
      "(for [[DeliveryTimeSettings]]) or shippingLabel (for [[ShippingRateSettings]]),"
      "since this property is for use with unlabelled settings.",
     )
-    deliveryTime: Any = Field(
+    deliveryTime: Optional[Union[List[Union[ShippingDeliveryTime, str]], Union[ShippingDeliveryTime, str]]] = Field(
         None,
         description="The total delay between the receipt of the order and the goods reaching the final customer.",
     )

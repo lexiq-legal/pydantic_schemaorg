@@ -1,6 +1,19 @@
-from pydantic import StrictBool, Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, StrictBool, Field
+from pydantic_schemaorg.GeoCoordinates import GeoCoordinates
+from pydantic_schemaorg.GeoShape import GeoShape
+from typing import List, Optional, Any, Union
+from pydantic_schemaorg.GeospatialGeometry import GeospatialGeometry
+from pydantic_schemaorg.OpeningHoursSpecification import OpeningHoursSpecification
+from pydantic_schemaorg.ImageObject import ImageObject
+from pydantic_schemaorg.Photograph import Photograph
+from pydantic_schemaorg.AggregateRating import AggregateRating
 from decimal import Decimal
+from pydantic_schemaorg.LocationFeatureSpecification import LocationFeatureSpecification
+from pydantic_schemaorg.PostalAddress import PostalAddress
+from pydantic_schemaorg.Event import Event
+from pydantic_schemaorg.Review import Review
+from pydantic_schemaorg.PropertyValue import PropertyValue
+from pydantic_schemaorg.Map import Map
 from pydantic_schemaorg.Thing import Thing
 
 
@@ -11,11 +24,11 @@ class Place(Thing):
 
     """
     type_: str = Field("Place", const=True, alias='@type')
-    geo: Any = Field(
+    geo: Optional[Union[List[Union[GeoCoordinates, GeoShape, str]], Union[GeoCoordinates, GeoShape, str]]] = Field(
         None,
         description="The geo coordinates of the place.",
     )
-    geoEquals: Any = Field(
+    geoEquals: Optional[Union[List[Union[GeospatialGeometry, 'Place', str]], Union[GeospatialGeometry, 'Place', str]]] = Field(
         None,
         description="Represents spatial relations in which two geometries (or the places they represent)"
      "are topologically equal, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM)."
@@ -23,24 +36,24 @@ class Place(Thing):
      "the interior or boundary of one geometry intersects the exterior of the other\" (a symmetric"
      "relationship)",
     )
-    publicAccess: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    publicAccess: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="A flag to signal that the [[Place]] is open to public visitors. If this property is omitted"
      "there is no assumed default boolean value",
     )
-    geoDisjoint: Any = Field(
+    geoDisjoint: Optional[Union[List[Union[GeospatialGeometry, 'Place', str]], Union[GeospatialGeometry, 'Place', str]]] = Field(
         None,
         description="Represents spatial relations in which two geometries (or the places they represent)"
      "are topologically disjoint: they have no point in common. They form a set of disconnected"
      "geometries.\" (a symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM))",
     )
-    geoTouches: Any = Field(
+    geoTouches: Optional[Union[List[Union[GeospatialGeometry, 'Place', str]], Union[GeospatialGeometry, 'Place', str]]] = Field(
         None,
         description="Represents spatial relations in which two geometries (or the places they represent)"
      "touch: they have at least one boundary point in common, but no interior points.\" (a symmetric"
      "relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM) )",
     )
-    specialOpeningHoursSpecification: Any = Field(
+    specialOpeningHoursSpecification: Optional[Union[List[Union[OpeningHoursSpecification, str]], Union[OpeningHoursSpecification, str]]] = Field(
         None,
         description="The special opening hours of a certain place. Use this to explicitly override general"
      "opening hours brought in scope by [[openingHoursSpecification]] or [[openingHours]].",
@@ -51,26 +64,26 @@ class Place(Thing):
      "to as International Location Number or ILN) of the respective organization, person,"
      "or place. The GLN is a 13-digit number used to identify parties and physical locations.",
     )
-    hasDriveThroughService: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    hasDriveThroughService: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Indicates whether some facility (e.g. [[FoodEstablishment]], [[CovidTestingFacility]])"
      "offers a service that can be used by driving through in a car. In the case of [[CovidTestingFacility]]"
      "such facilities could potentially help with social distancing from other potentially-infected"
      "users.",
     )
-    maximumAttendeeCapacity: Optional[Union[List[int], int]] = Field(
+    maximumAttendeeCapacity: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="The total number of individuals that may attend an event or venue.",
     )
-    photo: Any = Field(
+    photo: Optional[Union[List[Union[ImageObject, Photograph, str]], Union[ImageObject, Photograph, str]]] = Field(
         None,
         description="A photograph of this place.",
     )
-    aggregateRating: Any = Field(
+    aggregateRating: Optional[Union[List[Union[AggregateRating, str]], Union[AggregateRating, str]]] = Field(
         None,
         description="The overall rating, based on a collection of reviews or ratings, of the item.",
     )
-    containedIn: Any = Field(
+    containedIn: Optional[Union[List[Union['Place', str]], Union['Place', str]]] = Field(
         None,
         description="The basic containment relation between a place and one that contains it.",
     )
@@ -83,24 +96,24 @@ class Place(Thing):
         None,
         description="The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).",
     )
-    smokingAllowed: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    smokingAllowed: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Indicates whether it is allowed to smoke in the place, e.g. in the restaurant, hotel or"
      "hotel room.",
     )
-    amenityFeature: Any = Field(
+    amenityFeature: Optional[Union[List[Union[LocationFeatureSpecification, str]], Union[LocationFeatureSpecification, str]]] = Field(
         None,
         description="An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic"
      "property does not make a statement about whether the feature is included in an offer for"
      "the main accommodation or available at extra costs.",
     )
-    geoCovers: Any = Field(
+    geoCovers: Optional[Union[List[Union[GeospatialGeometry, 'Place', str]], Union[GeospatialGeometry, 'Place', str]]] = Field(
         None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a covering geometry to a covered geometry. \"Every point of b is a point of (the interior"
      "or boundary of) a\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
-    containsPlace: Any = Field(
+    containsPlace: Optional[Union[List[Union['Place', str]], Union['Place', str]]] = Field(
         None,
         description="The basic containment relation between a place and another that it contains.",
     )
@@ -108,7 +121,7 @@ class Place(Thing):
         None,
         description="A slogan or motto associated with the item.",
     )
-    containedInPlace: Any = Field(
+    containedInPlace: Optional[Union[List[Union['Place', str]], Union['Place', str]]] = Field(
         None,
         description="The basic containment relation between a place and one that contains it.",
     )
@@ -119,46 +132,46 @@ class Place(Thing):
      "URLs. For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047"
      "the code \"3047\" is a branchCode for a particular branch.",
     )
-    geoContains: Any = Field(
+    geoContains: Optional[Union[List[Union[GeospatialGeometry, 'Place', str]], Union[GeospatialGeometry, 'Place', str]]] = Field(
         None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a containing geometry to a contained geometry. \"a contains b iff no points of b lie in"
      "the exterior of a, and at least one point of the interior of b lies in the interior of a\"."
      "As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
-    tourBookingPage: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    tourBookingPage: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]]"
      "or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.",
     )
-    geoCoveredBy: Any = Field(
+    geoCoveredBy: Optional[Union[List[Union[GeospatialGeometry, 'Place', str]], Union[GeospatialGeometry, 'Place', str]]] = Field(
         None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
-    photos: Any = Field(
+    photos: Optional[Union[List[Union[Photograph, ImageObject, str]], Union[Photograph, ImageObject, str]]] = Field(
         None,
         description="Photographs of this place.",
     )
-    geoCrosses: Any = Field(
+    geoCrosses: Optional[Union[List[Union[GeospatialGeometry, 'Place', str]], Union[GeospatialGeometry, 'Place', str]]] = Field(
         None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a geometry to another that crosses it: \"a crosses b: they have some but not all interior"
      "points in common, and the dimension of the intersection is less than that of at least one"
      "of them\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
-    geoWithin: Any = Field(
+    geoWithin: Optional[Union[List[Union[GeospatialGeometry, 'Place', str]], Union[GeospatialGeometry, 'Place', str]]] = Field(
         None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined"
      "in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
-    geoIntersects: Any = Field(
+    geoIntersects: Optional[Union[List[Union[GeospatialGeometry, 'Place', str]], Union[GeospatialGeometry, 'Place', str]]] = Field(
         None,
         description="Represents spatial relations in which two geometries (or the places they represent)"
      "have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
-    logo: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    logo: Optional[Union[List[Union[AnyUrl, ImageObject, str]], Union[AnyUrl, ImageObject, str]]] = Field(
         None,
         description="An associated logo.",
     )
@@ -166,25 +179,25 @@ class Place(Thing):
         None,
         description="The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).",
     )
-    address: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    address: Optional[Union[List[Union[str, PostalAddress]], Union[str, PostalAddress]]] = Field(
         None,
         description="Physical address of the item.",
     )
-    maps: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    maps: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="A URL to a map of the place.",
     )
-    events: Any = Field(
+    events: Optional[Union[List[Union[Event, str]], Union[Event, str]]] = Field(
         None,
         description="Upcoming or past events associated with this place or organization.",
     )
-    geoOverlaps: Any = Field(
+    geoOverlaps: Optional[Union[List[Union[GeospatialGeometry, 'Place', str]], Union[GeospatialGeometry, 'Place', str]]] = Field(
         None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a geometry to another that geospatially overlaps it, i.e. they have some but not all points"
      "in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
-    reviews: Any = Field(
+    reviews: Optional[Union[List[Union[Review, str]], Union[Review, str]]] = Field(
         None,
         description="Review of the item.",
     )
@@ -192,19 +205,19 @@ class Place(Thing):
         None,
         description="The telephone number.",
     )
-    openingHoursSpecification: Any = Field(
+    openingHoursSpecification: Optional[Union[List[Union[OpeningHoursSpecification, str]], Union[OpeningHoursSpecification, str]]] = Field(
         None,
         description="The opening hours of a certain place.",
     )
-    review: Any = Field(
+    review: Optional[Union[List[Union[Review, str]], Union[Review, str]]] = Field(
         None,
         description="A review of the item.",
     )
-    map: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    map: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="A URL to a map of the place.",
     )
-    additionalProperty: Any = Field(
+    additionalProperty: Optional[Union[List[Union[PropertyValue, str]], Union[PropertyValue, str]]] = Field(
         None,
         description="A property-value pair representing an additional characteristics of the entitity,"
      "e.g. a product feature or another characteristic for which there is no matching property"
@@ -213,15 +226,15 @@ class Place(Thing):
      "https://schema.org/gtin13, ...) will typically expect such data to be provided using"
      "those properties, rather than using the generic property/value mechanism.",
     )
-    isAccessibleForFree: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    isAccessibleForFree: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="A flag to signal that the item, event, or place is accessible for free.",
     )
-    event: Any = Field(
+    event: Optional[Union[List[Union[Event, str]], Union[Event, str]]] = Field(
         None,
         description="Upcoming or past event associated with this place, organization, or action.",
     )
-    hasMap: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    hasMap: Optional[Union[List[Union[AnyUrl, Map, str]], Union[AnyUrl, Map, str]]] = Field(
         None,
         description="A URL to a map of the place.",
     )

@@ -1,5 +1,7 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.BoardingPolicyType import BoardingPolicyType
+from typing import List, Optional, Union
+from pydantic_schemaorg.Distance import Distance
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Duration import Duration
@@ -16,11 +18,11 @@ class Flight(Trip):
 
     """
     type_: str = Field("Flight", const=True, alias='@type')
-    boardingPolicy: Any = Field(
+    boardingPolicy: Optional[Union[List[Union[BoardingPolicyType, str]], Union[BoardingPolicyType, str]]] = Field(
         None,
         description="The type of boarding policy used by the airline (e.g. zone-based or group-based).",
     )
-    flightDistance: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    flightDistance: Optional[Union[List[Union[str, Distance]], Union[str, Distance]]] = Field(
         None,
         description="The distance of the flight.",
     )
@@ -33,7 +35,7 @@ class Flight(Trip):
         description="The unique identifier for a flight including the airline IATA code. For example, if describing"
      "United flight 110, where the IATA code for United is 'UA', the flightNumber is 'UA110'.",
     )
-    seller: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    seller: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="An entity which offers (sells / leases / lends / loans) the services / goods. A seller may"
      "also be a provider.",
@@ -46,7 +48,7 @@ class Flight(Trip):
         None,
         description="The kind of aircraft (e.g., \"Boeing 747\").",
     )
-    carrier: Optional[Union[List[Organization], Organization]] = Field(
+    carrier: Optional[Union[List[Union[Organization, str]], Union[Organization, str]]] = Field(
         None,
         description="'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights.",
     )
@@ -54,7 +56,7 @@ class Flight(Trip):
         None,
         description="Identifier of the flight's arrival terminal.",
     )
-    webCheckinTime: Optional[Union[List[datetime], datetime]] = Field(
+    webCheckinTime: Optional[Union[List[Union[datetime, str]], Union[datetime, str]]] = Field(
         None,
         description="The time when a passenger can check into the flight online.",
     )
@@ -62,7 +64,7 @@ class Flight(Trip):
         None,
         description="Identifier of the flight's departure terminal.",
     )
-    departureAirport: Optional[Union[List[Airport], Airport]] = Field(
+    departureAirport: Optional[Union[List[Union[Airport, str]], Union[Airport, str]]] = Field(
         None,
         description="The airport where the flight originates.",
     )
@@ -74,7 +76,7 @@ class Flight(Trip):
         None,
         description="Identifier of the flight's arrival gate.",
     )
-    arrivalAirport: Optional[Union[List[Airport], Airport]] = Field(
+    arrivalAirport: Optional[Union[List[Union[Airport, str]], Union[Airport, str]]] = Field(
         None,
         description="The airport where the flight terminates.",
     )

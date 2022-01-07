@@ -1,6 +1,6 @@
-from pydantic import Field, AnyUrl
+from pydantic import AnyUrl, Field
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.PropertyValue import PropertyValue
 from pydantic_schemaorg.Thing import Thing
 
@@ -12,15 +12,15 @@ class Taxon(Thing):
 
     """
     type_: str = Field("Taxon", const=True, alias='@type')
-    hasDefinedTerm: Optional[Union[List[DefinedTerm], DefinedTerm]] = Field(
+    hasDefinedTerm: Optional[Union[List[Union[DefinedTerm, str]], Union[DefinedTerm, str]]] = Field(
         None,
         description="A Defined Term contained in this term set.",
     )
-    childTaxon: Union[List[Union[AnyUrl, str, Any]], Union[AnyUrl, str, Any]] = Field(
+    childTaxon: Optional[Union[List[Union[AnyUrl, str, 'Taxon']], Union[AnyUrl, str, 'Taxon']]] = Field(
         None,
         description="Closest child taxa of the taxon in question.",
     )
-    parentTaxon: Union[List[Union[AnyUrl, str, Any]], Union[AnyUrl, str, Any]] = Field(
+    parentTaxon: Optional[Union[List[Union[AnyUrl, str, 'Taxon']], Union[AnyUrl, str, 'Taxon']]] = Field(
         None,
         description="Closest parent taxon of the taxon in question.",
     )

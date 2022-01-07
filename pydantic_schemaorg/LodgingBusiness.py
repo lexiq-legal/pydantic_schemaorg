@@ -1,7 +1,12 @@
 from pydantic import StrictBool, Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.LocationFeatureSpecification import LocationFeatureSpecification
+from typing import List, Optional, Union
 from decimal import Decimal
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from pydantic_schemaorg.Rating import Rating
 from datetime import datetime, time
+from pydantic_schemaorg.Audience import Audience
+from pydantic_schemaorg.Language import Language
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 
@@ -12,44 +17,44 @@ class LodgingBusiness(LocalBusiness):
 
     """
     type_: str = Field("LodgingBusiness", const=True, alias='@type')
-    amenityFeature: Any = Field(
+    amenityFeature: Optional[Union[List[Union[LocationFeatureSpecification, str]], Union[LocationFeatureSpecification, str]]] = Field(
         None,
         description="An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic"
      "property does not make a statement about whether the feature is included in an offer for"
      "the main accommodation or available at extra costs.",
     )
-    numberOfRooms: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
+    numberOfRooms: Optional[Union[List[Union[Decimal, QuantitativeValue, str]], Union[Decimal, QuantitativeValue, str]]] = Field(
         None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
      "business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be"
      "put in the unitText property of the QuantitativeValue.",
     )
-    starRating: Any = Field(
+    starRating: Optional[Union[List[Union[Rating, str]], Union[Rating, str]]] = Field(
         None,
         description="An official rating for a lodging business or food establishment, e.g. from national"
      "associations or standards bodies. Use the author property to indicate the rating organization,"
      "e.g. as an Organization with name such as (e.g. HOTREC, DEHOGA, WHR, or Hotelstars).",
     )
-    checkinTime: Optional[Union[List[Union[datetime, time]], Union[datetime, time]]] = Field(
+    checkinTime: Optional[Union[List[Union[datetime, time, str]], Union[datetime, time, str]]] = Field(
         None,
         description="The earliest someone may check into a lodging establishment.",
     )
-    petsAllowed: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
+    petsAllowed: Optional[Union[List[Union[str, StrictBool]], Union[str, StrictBool]]] = Field(
         None,
         description="Indicates whether pets are allowed to enter the accommodation or lodging business."
      "More detailed information can be put in a text value.",
     )
-    audience: Any = Field(
+    audience: Optional[Union[List[Union[Audience, str]], Union[Audience, str]]] = Field(
         None,
         description="An intended audience, i.e. a group for whom something was created.",
     )
-    availableLanguage: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    availableLanguage: Optional[Union[List[Union[str, Language]], Union[str, Language]]] = Field(
         None,
         description="A language someone may use with or at the item, service or place. Please use one of the language"
      "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
      "[[inLanguage]]",
     )
-    checkoutTime: Optional[Union[List[Union[datetime, time]], Union[datetime, time]]] = Field(
+    checkoutTime: Optional[Union[List[Union[datetime, time, str]], Union[datetime, time, str]]] = Field(
         None,
         description="The latest someone may check out of a lodging establishment.",
     )

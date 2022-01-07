@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Place import Place
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.AddAction import AddAction
 
 
@@ -11,7 +11,7 @@ class InsertAction(AddAction):
 
     """
     type_: str = Field("InsertAction", const=True, alias='@type')
-    toLocation: Optional[Union[List[Place], Place]] = Field(
+    toLocation: Optional[Union[List[Union[Place, str]], Union[Place, str]]] = Field(
         None,
         description="A sub property of location. The final location of the object or the agent after the action.",
     )

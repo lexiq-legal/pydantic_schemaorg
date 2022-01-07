@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.BioChemEntity import BioChemEntity
 
@@ -17,11 +17,11 @@ class ChemicalSubstance(BioChemEntity):
         description="The chemical composition describes the identity and relative ratio of the chemical"
      "elements that make up the substance.",
     )
-    chemicalRole: Optional[Union[List[DefinedTerm], DefinedTerm]] = Field(
+    chemicalRole: Optional[Union[List[Union[DefinedTerm, str]], Union[DefinedTerm, str]]] = Field(
         None,
         description="A role played by the BioChemEntity within a chemical context.",
     )
-    potentialUse: Optional[Union[List[DefinedTerm], DefinedTerm]] = Field(
+    potentialUse: Optional[Union[List[Union[DefinedTerm, str]], Union[DefinedTerm, str]]] = Field(
         None,
         description="Intended use of the BioChemEntity by humans.",
     )

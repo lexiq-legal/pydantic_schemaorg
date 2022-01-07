@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Intangible import Intangible
@@ -17,7 +17,7 @@ class Rating(Intangible):
         None,
         description="The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.",
     )
-    author: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    author: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="The author of this content or rating. Please note that author is special in that HTML 5"
      "provides a special mechanism for indicating authorship via the rel tag. That is equivalent"

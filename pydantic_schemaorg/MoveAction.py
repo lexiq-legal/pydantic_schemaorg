@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Place import Place
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Action import Action
 
 
@@ -13,12 +13,12 @@ class MoveAction(Action):
 
     """
     type_: str = Field("MoveAction", const=True, alias='@type')
-    fromLocation: Optional[Union[List[Place], Place]] = Field(
+    fromLocation: Optional[Union[List[Union[Place, str]], Union[Place, str]]] = Field(
         None,
         description="A sub property of location. The original location of the object or the agent before the"
      "action.",
     )
-    toLocation: Optional[Union[List[Place], Place]] = Field(
+    toLocation: Optional[Union[List[Union[Place, str]], Union[Place, str]]] = Field(
         None,
         description="A sub property of location. The final location of the object or the agent after the action.",
     )

@@ -1,8 +1,8 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.BioChemEntity import BioChemEntity
-from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
+from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
 
 
@@ -21,15 +21,15 @@ class Gene(BioChemEntity):
         description="A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of"
      "a Gene or an amino acid sequence of a Protein.",
     )
-    encodesBioChemEntity: Optional[Union[List[BioChemEntity], BioChemEntity]] = Field(
+    encodesBioChemEntity: Optional[Union[List[Union[BioChemEntity, str]], Union[BioChemEntity, str]]] = Field(
         None,
         description="Another BioChemEntity encoded by this one.",
     )
-    alternativeOf: Any = Field(
+    alternativeOf: Optional[Union[List[Union['Gene', str]], Union['Gene', str]]] = Field(
         None,
         description="Another gene which is a variation of this one.",
     )
-    expressedIn: Optional[Union[List[Union[AnatomicalStructure, DefinedTerm, BioChemEntity, AnatomicalSystem]], Union[AnatomicalStructure, DefinedTerm, BioChemEntity, AnatomicalSystem]]] = Field(
+    expressedIn: Optional[Union[List[Union[BioChemEntity, DefinedTerm, AnatomicalStructure, AnatomicalSystem, str]], Union[BioChemEntity, DefinedTerm, AnatomicalStructure, AnatomicalSystem, str]]] = Field(
         None,
         description="Tissue, organ, biological sample, etc in which activity of this gene has been observed"
      "experimentally. For example brain, digestive system.",

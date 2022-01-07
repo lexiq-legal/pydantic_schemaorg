@@ -1,6 +1,7 @@
 from pydantic import Field
 from datetime import datetime, date
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.OpeningHoursSpecification import OpeningHoursSpecification
 from pydantic_schemaorg.PropertyValue import PropertyValue
 
 
@@ -12,16 +13,16 @@ class LocationFeatureSpecification(PropertyValue):
 
     """
     type_: str = Field("LocationFeatureSpecification", const=True, alias='@type')
-    validFrom: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    validFrom: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The date when the item becomes valid.",
     )
-    validThrough: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    validThrough: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The date after when the item is not valid. For example the end of an offer, salary period,"
      "or a period of opening hours.",
     )
-    hoursAvailable: Any = Field(
+    hoursAvailable: Optional[Union[List[Union[OpeningHoursSpecification, str]], Union[OpeningHoursSpecification, str]]] = Field(
         None,
         description="The hours during which this service or contact is available.",
     )

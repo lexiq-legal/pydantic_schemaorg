@@ -1,6 +1,6 @@
 from pydantic import Field
 from datetime import datetime
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.OrganizeAction import OrganizeAction
 
 
@@ -12,7 +12,7 @@ class PlanAction(OrganizeAction):
 
     """
     type_: str = Field("PlanAction", const=True, alias='@type')
-    scheduledTime: Optional[Union[List[datetime], datetime]] = Field(
+    scheduledTime: Optional[Union[List[Union[datetime, str]], Union[datetime, str]]] = Field(
         None,
         description="The time the object is scheduled to.",
     )

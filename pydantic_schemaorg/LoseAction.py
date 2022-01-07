@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.AchieveAction import AchieveAction
 
 
@@ -11,7 +11,7 @@ class LoseAction(AchieveAction):
 
     """
     type_: str = Field("LoseAction", const=True, alias='@type')
-    winner: Optional[Union[List[Person], Person]] = Field(
+    winner: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A sub property of participant. The winner of the action.",
     )

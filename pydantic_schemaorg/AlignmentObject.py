@@ -1,5 +1,5 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -18,7 +18,7 @@ class AlignmentObject(Intangible):
         description="A category of alignment between the learning resource and the framework node. Recommended"
      "values include: 'requires', 'textComplexity', 'readingLevel', and 'educationalSubject'.",
     )
-    targetUrl: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    targetUrl: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="The URL of a node in an established educational framework.",
     )

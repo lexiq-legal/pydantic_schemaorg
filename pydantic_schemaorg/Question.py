@@ -1,5 +1,7 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.Answer import Answer
+from pydantic_schemaorg.ItemList import ItemList
 from pydantic_schemaorg.Comment import Comment
 
 
@@ -17,16 +19,16 @@ class Question(Comment):
      "the format of question being given. Example: \"Multiple choice\", \"Open ended\","
      "\"Flashcard\".",
     )
-    answerCount: Optional[Union[List[int], int]] = Field(
+    answerCount: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="The number of answers this question has received.",
     )
-    suggestedAnswer: Any = Field(
+    suggestedAnswer: Optional[Union[List[Union[Answer, ItemList, str]], Union[Answer, ItemList, str]]] = Field(
         None,
         description="An answer (possibly one of several, possibly incorrect) to a Question, e.g. on a Question/Answer"
      "site.",
     )
-    acceptedAnswer: Any = Field(
+    acceptedAnswer: Optional[Union[List[Union[ItemList, Answer, str]], Union[ItemList, Answer, str]]] = Field(
         None,
         description="The answer(s) that has been accepted as best, typically on a Question/Answer site. Sites"
      "vary in their selection mechanisms, e.g. drawing on community opinion and/or the view"

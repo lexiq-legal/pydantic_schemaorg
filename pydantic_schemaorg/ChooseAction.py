@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Thing import Thing
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.AssessAction import AssessAction
 
 

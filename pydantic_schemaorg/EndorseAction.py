@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.ReactAction import ReactAction
 
 
@@ -12,7 +12,7 @@ class EndorseAction(ReactAction):
 
     """
     type_: str = Field("EndorseAction", const=True, alias='@type')
-    endorsee: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    endorsee: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="A sub property of participant. The person/organization being supported.",
     )

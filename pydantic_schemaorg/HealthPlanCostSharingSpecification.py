@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.PriceSpecification import PriceSpecification
 from decimal import Decimal
 from pydantic_schemaorg.Intangible import Intangible
@@ -21,7 +21,7 @@ class HealthPlanCostSharingSpecification(Intangible):
         None,
         description="The category or type of pharmacy associated with this cost sharing.",
     )
-    healthPlanCopay: Optional[Union[List[PriceSpecification], PriceSpecification]] = Field(
+    healthPlanCopay: Optional[Union[List[Union[PriceSpecification, str]], Union[PriceSpecification, str]]] = Field(
         None,
         description="Whether The copay amount.",
     )
@@ -29,7 +29,7 @@ class HealthPlanCostSharingSpecification(Intangible):
         None,
         description="Whether the copay is before or after deductible, etc. TODO: Is this a closed set?",
     )
-    healthPlanCoinsuranceRate: Optional[Union[List[Decimal], Decimal]] = Field(
+    healthPlanCoinsuranceRate: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="Whether The rate of coinsurance expressed as a number between 0.0 and 1.0.",
     )

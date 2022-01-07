@@ -1,6 +1,8 @@
-from pydantic import StrictBool, Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, StrictBool, Field
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.DefinedRegion import DefinedRegion
+from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
+from pydantic_schemaorg.ShippingDeliveryTime import ShippingDeliveryTime
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -21,26 +23,26 @@ class OfferShippingDetails(StructuredValue):
         description="Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within"
      "the context of a [[shippingSettingsLink]] cross-reference).",
     )
-    doesNotShip: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    doesNotShip: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Indicates when shipping to a particular [[shippingDestination]] is not available.",
     )
-    shippingDestination: Optional[Union[List[DefinedRegion], DefinedRegion]] = Field(
+    shippingDestination: Optional[Union[List[Union[DefinedRegion, str]], Union[DefinedRegion, str]]] = Field(
         None,
         description="indicates (possibly multiple) shipping destinations. These can be defined in several"
      "ways e.g. postalCode ranges.",
     )
-    shippingRate: Any = Field(
+    shippingRate: Optional[Union[List[Union[MonetaryAmount, str]], Union[MonetaryAmount, str]]] = Field(
         None,
         description="The shipping rate is the cost of shipping to the specified destination. Typically, the"
      "maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.",
     )
-    shippingSettingsLink: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    shippingSettingsLink: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="Link to a page containing [[ShippingRateSettings]] and [[DeliveryTimeSettings]]"
      "details.",
     )
-    deliveryTime: Any = Field(
+    deliveryTime: Optional[Union[List[Union[ShippingDeliveryTime, str]], Union[ShippingDeliveryTime, str]]] = Field(
         None,
         description="The total delay between the receipt of the order and the goods reaching the final customer.",
     )

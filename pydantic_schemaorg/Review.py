@@ -1,5 +1,9 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.ItemList import ItemList
+from pydantic_schemaorg.WebContent import WebContent
+from pydantic_schemaorg.ListItem import ListItem
+from pydantic_schemaorg.Rating import Rating
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -11,7 +15,7 @@ class Review(CreativeWork):
 
     """
     type_: str = Field("Review", const=True, alias='@type')
-    associatedMediaReview: Any = Field(
+    associatedMediaReview: Optional[Union[List[Union['Review', str]], Union['Review', str]]] = Field(
         None,
         description="An associated [[MediaReview]], related by specific common content, topic or claim."
      "The expectation is that this property would be most typically used in cases where a single"
@@ -19,7 +23,7 @@ class Review(CreativeWork):
      "would commonly be used on a [[ClaimReview]], while [[relatedClaimReview]] would be"
      "used on [[MediaReview]].",
     )
-    positiveNotes: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    positiveNotes: Optional[Union[List[Union[str, ItemList, WebContent, ListItem]], Union[str, ItemList, WebContent, ListItem]]] = Field(
         None,
         description="Indicates, in the context of a [[Review]] (e.g. framed as 'pro' vs 'con' considerations),"
      "positive considerations - either as unstructured text, or a list.",
@@ -28,13 +32,13 @@ class Review(CreativeWork):
         None,
         description="This Review or Rating is relevant to this part or facet of the itemReviewed.",
     )
-    reviewRating: Any = Field(
+    reviewRating: Optional[Union[List[Union[Rating, str]], Union[Rating, str]]] = Field(
         None,
         description="The rating given in this review. Note that reviews can themselves be rated. The ```reviewRating```"
      "applies to rating given by the review. The [[aggregateRating]] property applies to"
      "the review itself, as a creative work.",
     )
-    associatedClaimReview: Any = Field(
+    associatedClaimReview: Optional[Union[List[Union['Review', str]], Union['Review', str]]] = Field(
         None,
         description="An associated [[ClaimReview]], related by specific common content, topic or claim."
      "The expectation is that this property would be most typically used in cases where a single"
@@ -42,7 +46,7 @@ class Review(CreativeWork):
      "would commonly be used on a [[ClaimReview]], while [[relatedClaimReview]] would be"
      "used on [[MediaReview]].",
     )
-    associatedReview: Any = Field(
+    associatedReview: Optional[Union[List[Union['Review', str]], Union['Review', str]]] = Field(
         None,
         description="An associated [[Review]].",
     )
@@ -50,12 +54,12 @@ class Review(CreativeWork):
         None,
         description="The actual body of the review.",
     )
-    negativeNotes: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    negativeNotes: Optional[Union[List[Union[str, ItemList, WebContent, ListItem]], Union[str, ItemList, WebContent, ListItem]]] = Field(
         None,
         description="Indicates, in the context of a [[Review]] (e.g. framed as 'pro' vs 'con' considerations),"
      "negative considerations - either as unstructured text, or a list.",
     )
-    itemReviewed: Optional[Union[List[Thing], Thing]] = Field(
+    itemReviewed: Optional[Union[List[Union[Thing, str]], Union[Thing, str]]] = Field(
         None,
         description="The item that is being reviewed/rated.",
     )

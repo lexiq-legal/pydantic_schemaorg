@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MapCategoryType import MapCategoryType
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -11,7 +11,7 @@ class Map(CreativeWork):
 
     """
     type_: str = Field("Map", const=True, alias='@type')
-    mapType: Optional[Union[List[MapCategoryType], MapCategoryType]] = Field(
+    mapType: Optional[Union[List[Union[MapCategoryType, str]], Union[MapCategoryType, str]]] = Field(
         None,
         description="Indicates the kind of Map, from the MapCategoryType Enumeration.",
     )

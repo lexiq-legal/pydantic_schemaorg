@@ -1,12 +1,28 @@
-from pydantic import Field, AnyUrl
+from pydantic import AnyUrl, Field
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from pydantic_schemaorg.Demand import Demand
+from pydantic_schemaorg.Offer import Offer
+from pydantic_schemaorg.ProductModel import ProductModel
+from pydantic_schemaorg.Distance import Distance
 from datetime import date
+from pydantic_schemaorg.AggregateRating import AggregateRating
+from pydantic_schemaorg.Country import Country
 from pydantic_schemaorg.Organization import Organization
-from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+from pydantic_schemaorg.Brand import Brand
 from pydantic_schemaorg.Thing import Thing
+from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+from pydantic_schemaorg.MerchantReturnPolicy import MerchantReturnPolicy
+from pydantic_schemaorg.EnergyConsumptionDetails import EnergyConsumptionDetails
+from pydantic_schemaorg.Service import Service
+from pydantic_schemaorg.SizeSpecification import SizeSpecification
+from pydantic_schemaorg.ImageObject import ImageObject
 from pydantic_schemaorg.Audience import Audience
 from pydantic_schemaorg.Review import Review
+from pydantic_schemaorg.OfferItemCondition import OfferItemCondition
+from pydantic_schemaorg.PropertyValue import PropertyValue
+from pydantic_schemaorg.ProductGroup import ProductGroup
 
 
 class Product(Thing):
@@ -23,13 +39,13 @@ class Product(Thing):
      "Values are typically expressed as text, although links to controlled value schemes"
      "are also supported.",
     )
-    hasMeasurement: Any = Field(
+    hasMeasurement: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="A product measurement, for example the inseam of pants, the wheel size of a bicycle, or"
      "the gauge of a screw. Usually an exact measurement, but can also be a range of measurements"
      "for adjustable products, for example belts and ski bindings.",
     )
-    offers: Any = Field(
+    offers: Optional[Union[List[Union[Demand, Offer, str]], Union[Demand, Offer, str]]] = Field(
         None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -42,7 +58,7 @@ class Product(Thing):
         None,
         description="The color of the product.",
     )
-    isAccessoryOrSparePartFor: Any = Field(
+    isAccessoryOrSparePartFor: Optional[Union[List[Union['Product', str]], Union['Product', str]]] = Field(
         None,
         description="A pointer to another product (or multiple products) for which this product is an accessory"
      "or spare part.",
@@ -52,18 +68,18 @@ class Product(Thing):
         description="The product identifier, such as ISBN. For example: ``` meta itemprop=\"productID\""
      "content=\"isbn:123-456-789\" ```.",
     )
-    model: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    model: Optional[Union[List[Union[str, ProductModel]], Union[str, ProductModel]]] = Field(
         None,
         description="The model of the product. Use with the URL of a ProductModel or a textual representation"
      "of the model identifier. The URL of the ProductModel can be from an external source. It"
      "is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14"
      "and mpn properties.",
     )
-    depth: Any = Field(
+    depth: Optional[Union[List[Union[Distance, QuantitativeValue, str]], Union[Distance, QuantitativeValue, str]]] = Field(
         None,
         description="The depth of the item.",
     )
-    weight: Any = Field(
+    weight: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The weight of the product or person.",
     )
@@ -74,11 +90,11 @@ class Product(Thing):
      "a GTIN-13 code by simply adding a preceding zero. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin)"
      "for more details.",
     )
-    productionDate: Optional[Union[List[date], date]] = Field(
+    productionDate: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="The date of production of the item, e.g. vehicle.",
     )
-    aggregateRating: Any = Field(
+    aggregateRating: Optional[Union[List[Union[AggregateRating, str]], Union[AggregateRating, str]]] = Field(
         None,
         description="The overall rating, based on a collection of reviews or ratings, of the item.",
     )
@@ -97,7 +113,7 @@ class Product(Thing):
         description="Indicates the [NATO stock number](https://en.wikipedia.org/wiki/NATO_Stock_Number)"
      "(nsn) of a [[Product]].",
     )
-    countryOfOrigin: Any = Field(
+    countryOfOrigin: Optional[Union[List[Union[Country, str]], Union[Country, str]]] = Field(
         None,
         description="The country of origin of something, including products as well as creative works such"
      "as movie and TV content. In the case of TV and movie, this would be the country of the principle"
@@ -107,25 +123,25 @@ class Product(Thing):
      "case of products, the country of origin of the product. The exact interpretation of this"
      "may vary by context and product type, and cannot be fully enumerated here.",
     )
-    manufacturer: Optional[Union[List[Organization], Organization]] = Field(
+    manufacturer: Optional[Union[List[Union[Organization, str]], Union[Organization, str]]] = Field(
         None,
         description="The manufacturer of the product.",
     )
-    brand: Union[List[Union[Organization, Any]], Union[Organization, Any]] = Field(
+    brand: Optional[Union[List[Union[Organization, Brand, str]], Union[Organization, Brand, str]]] = Field(
         None,
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
     )
-    category: Optional[Union[List[Union[AnyUrl, str, PhysicalActivityCategory, Thing]], Union[AnyUrl, str, PhysicalActivityCategory, Thing]]] = Field(
+    category: Optional[Union[List[Union[AnyUrl, str, Thing, PhysicalActivityCategory]], Union[AnyUrl, str, Thing, PhysicalActivityCategory]]] = Field(
         None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
     )
-    hasMerchantReturnPolicy: Any = Field(
+    hasMerchantReturnPolicy: Optional[Union[List[Union[MerchantReturnPolicy, str]], Union[MerchantReturnPolicy, str]]] = Field(
         None,
         description="Specifies a MerchantReturnPolicy that may be applicable.",
     )
-    hasEnergyConsumptionDetails: Any = Field(
+    hasEnergyConsumptionDetails: Optional[Union[List[Union[EnergyConsumptionDetails, str]], Union[EnergyConsumptionDetails, str]]] = Field(
         None,
         description="Defines the energy efficiency Category (also known as \"class\" or \"rating\") for"
      "a product according to an international energy efficiency standard.",
@@ -134,27 +150,27 @@ class Product(Thing):
         None,
         description="A slogan or motto associated with the item.",
     )
-    isSimilarTo: Any = Field(
+    isSimilarTo: Optional[Union[List[Union['Product', Service, str]], Union['Product', Service, str]]] = Field(
         None,
         description="A pointer to another, functionally similar product (or multiple products).",
     )
-    height: Any = Field(
+    height: Optional[Union[List[Union[Distance, QuantitativeValue, str]], Union[Distance, QuantitativeValue, str]]] = Field(
         None,
         description="The height of the item.",
     )
-    size: Union[List[Union[str, DefinedTerm, Any]], Union[str, DefinedTerm, Any]] = Field(
+    size: Optional[Union[List[Union[str, SizeSpecification, DefinedTerm, QuantitativeValue]], Union[str, SizeSpecification, DefinedTerm, QuantitativeValue]]] = Field(
         None,
         description="A standardized size of a product or creative work, specified either through a simple"
      "textual string (for example 'XL', '32Wx34L'), a QuantitativeValue with a unitCode,"
      "or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]],"
      "[[height]], [[depth]] and [[weight]] properties may be more applicable.",
     )
-    releaseDate: Optional[Union[List[date], date]] = Field(
+    releaseDate: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="The release date of a product or product model. This can be used to distinguish the exact"
      "variant of a product.",
     )
-    logo: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    logo: Optional[Union[List[Union[AnyUrl, ImageObject, str]], Union[AnyUrl, ImageObject, str]]] = Field(
         None,
         description="An associated logo.",
     )
@@ -178,11 +194,11 @@ class Product(Thing):
      "and Check Digit used to identify trade items. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin)"
      "for more details.",
     )
-    width: Any = Field(
+    width: Optional[Union[List[Union[Distance, QuantitativeValue, str]], Union[Distance, QuantitativeValue, str]]] = Field(
         None,
         description="The width of the item.",
     )
-    audience: Optional[Union[List[Audience], Audience]] = Field(
+    audience: Optional[Union[List[Union[Audience, str]], Union[Audience, str]]] = Field(
         None,
         description="An intended audience, i.e. a group for whom something was created.",
     )
@@ -191,11 +207,11 @@ class Product(Thing):
         description="The GTIN-14 code of the product, or the product to which the offer refers. See [GS1 GTIN"
      "Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.",
     )
-    material: Union[List[Union[AnyUrl, str, Any]], Union[AnyUrl, str, Any]] = Field(
+    material: Optional[Union[List[Union[AnyUrl, str, 'Product']], Union[AnyUrl, str, 'Product']]] = Field(
         None,
         description="A material that something is made from, e.g. leather, wool, cotton, paper.",
     )
-    isRelatedTo: Any = Field(
+    isRelatedTo: Optional[Union[List[Union['Product', Service, str]], Union['Product', Service, str]]] = Field(
         None,
         description="A pointer to another, somehow related product (or multiple products).",
     )
@@ -203,7 +219,7 @@ class Product(Thing):
         None,
         description="Indicates the [[productGroupID]] for a [[ProductGroup]] that this product [[isVariantOf]].",
     )
-    reviews: Optional[Union[List[Review], Review]] = Field(
+    reviews: Optional[Union[List[Union[Review, str]], Union[Review, str]]] = Field(
         None,
         description="Review of the item.",
     )
@@ -212,7 +228,7 @@ class Product(Thing):
         description="The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service,"
      "or the product to which the offer refers.",
     )
-    isConsumableFor: Any = Field(
+    isConsumableFor: Optional[Union[List[Union['Product', str]], Union['Product', str]]] = Field(
         None,
         description="A pointer to another product (or multiple products) for which this product is a consumable.",
     )
@@ -229,17 +245,17 @@ class Product(Thing):
      "and [Wikipedia](https://en.wikipedia.org/wiki/Global_Trade_Item_Number) for"
      "more details. Left-padding of the gtin values is not required or encouraged.",
     )
-    review: Optional[Union[List[Review], Review]] = Field(
+    review: Optional[Union[List[Union[Review, str]], Union[Review, str]]] = Field(
         None,
         description="A review of the item.",
     )
-    itemCondition: Any = Field(
+    itemCondition: Optional[Union[List[Union[OfferItemCondition, str]], Union[OfferItemCondition, str]]] = Field(
         None,
         description="A predefined value from OfferItemCondition specifying the condition of the product"
      "or service, or the products or services included in the offer. Also used for product return"
      "policies to specify the condition of products accepted for returns.",
     )
-    additionalProperty: Any = Field(
+    additionalProperty: Optional[Union[List[Union[PropertyValue, str]], Union[PropertyValue, str]]] = Field(
         None,
         description="A property-value pair representing an additional characteristics of the entitity,"
      "e.g. a product feature or another characteristic for which there is no matching property"
@@ -248,7 +264,7 @@ class Product(Thing):
      "https://schema.org/gtin13, ...) will typically expect such data to be provided using"
      "those properties, rather than using the generic property/value mechanism.",
     )
-    isVariantOf: Any = Field(
+    isVariantOf: Optional[Union[List[Union[ProductGroup, ProductModel, str]], Union[ProductGroup, ProductModel, str]]] = Field(
         None,
         description="Indicates the kind of product that this is a variant of. In the case of [[ProductModel]],"
      "this is a pointer (from a ProductModel) to a base product from which this product is a variant."
@@ -263,7 +279,7 @@ class Product(Thing):
         None,
         description="The place where the product was assembled.",
     )
-    purchaseDate: Optional[Union[List[date], date]] = Field(
+    purchaseDate: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="The date the item e.g. vehicle was purchased by the current owner.",
     )

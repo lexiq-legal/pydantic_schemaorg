@@ -1,7 +1,8 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
 from decimal import Decimal
+from pydantic_schemaorg.MaximumDoseSchedule import MaximumDoseSchedule
 from pydantic_schemaorg.MedicalIntangible import MedicalIntangible
 
 
@@ -16,7 +17,7 @@ class DrugStrength(MedicalIntangible):
         None,
         description="An active ingredient, typically chemical compounds and/or biologic substances.",
     )
-    availableIn: Optional[Union[List[AdministrativeArea], AdministrativeArea]] = Field(
+    availableIn: Optional[Union[List[Union[AdministrativeArea, str]], Union[AdministrativeArea, str]]] = Field(
         None,
         description="The location in which the strength is available.",
     )
@@ -24,11 +25,11 @@ class DrugStrength(MedicalIntangible):
         None,
         description="The units of an active ingredient's strength, e.g. mg.",
     )
-    strengthValue: Optional[Union[List[Decimal], Decimal]] = Field(
+    strengthValue: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The value of an active ingredient's strength, e.g. 325.",
     )
-    maximumIntake: Any = Field(
+    maximumIntake: Optional[Union[List[Union[MaximumDoseSchedule, str]], Union[MaximumDoseSchedule, str]]] = Field(
         None,
         description="Recommended intake of this supplement for a given population as defined by a specific"
      "recommending authority.",

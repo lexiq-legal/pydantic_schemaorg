@@ -1,5 +1,5 @@
 from pydantic import StrictBool, Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from decimal import Decimal
 from pydantic_schemaorg.Thing import Thing
 from pydantic_schemaorg.Intangible import Intangible
@@ -12,20 +12,20 @@ class PropertyValueSpecification(Intangible):
 
     """
     type_: str = Field("PropertyValueSpecification", const=True, alias='@type')
-    multipleValues: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    multipleValues: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Whether multiple values are allowed for the property. Default is false.",
     )
-    valueMaxLength: Optional[Union[List[Decimal], Decimal]] = Field(
+    valueMaxLength: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="Specifies the allowed range for number of characters in a literal value.",
     )
-    readonlyValue: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    readonlyValue: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Whether or not a property is mutable. Default is false. Specifying this for a property"
      "that also has a value makes it act similar to a \"hidden\" input in an HTML form.",
     )
-    valueMinLength: Optional[Union[List[Decimal], Decimal]] = Field(
+    valueMinLength: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="Specifies the minimum allowed range for number of characters in a literal value.",
     )
@@ -33,11 +33,11 @@ class PropertyValueSpecification(Intangible):
         None,
         description="Specifies a regular expression for testing literal values according to the HTML spec.",
     )
-    valueRequired: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    valueRequired: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Whether the property must be filled in to complete the action. Default is false.",
     )
-    minValue: Optional[Union[List[Decimal], Decimal]] = Field(
+    minValue: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The lower value of some characteristic or property.",
     )
@@ -46,12 +46,12 @@ class PropertyValueSpecification(Intangible):
         description="Indicates the name of the PropertyValueSpecification to be used in URL templates and"
      "form encoding in a manner analogous to HTML's input@name.",
     )
-    stepValue: Optional[Union[List[Decimal], Decimal]] = Field(
+    stepValue: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The stepValue attribute indicates the granularity that is expected (and required)"
      "of the value in a PropertyValueSpecification.",
     )
-    maxValue: Optional[Union[List[Decimal], Decimal]] = Field(
+    maxValue: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The upper value of some characteristic or property.",
     )

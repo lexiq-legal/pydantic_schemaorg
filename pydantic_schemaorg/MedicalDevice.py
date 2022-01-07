@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 from pydantic_schemaorg.MedicalContraindication import MedicalContraindication
 
@@ -20,7 +20,7 @@ class MedicalDevice(MedicalEntity):
         description="A description of the workup, testing, and other preparations required before implanting"
      "this device.",
     )
-    seriousAdverseOutcome: Optional[Union[List[MedicalEntity], MedicalEntity]] = Field(
+    seriousAdverseOutcome: Optional[Union[List[Union[MedicalEntity, str]], Union[MedicalEntity, str]]] = Field(
         None,
         description="A possible serious complication and/or serious side effect of this therapy. Serious"
      "adverse outcomes include those that are life-threatening; result in death, disability,"
@@ -33,7 +33,7 @@ class MedicalDevice(MedicalEntity):
         description="A description of the procedure involved in setting up, using, and/or installing the"
      "device.",
     )
-    adverseOutcome: Optional[Union[List[MedicalEntity], MedicalEntity]] = Field(
+    adverseOutcome: Optional[Union[List[Union[MedicalEntity, str]], Union[MedicalEntity, str]]] = Field(
         None,
         description="A possible complication and/or side effect of this therapy. If it is known that an adverse"
      "outcome is serious (resulting in death, disability, or permanent damage; requiring"

@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.MedicalObservationalStudyDesign import MedicalObservationalStudyDesign
+from typing import List, Optional, Union
 from pydantic_schemaorg.MedicalStudy import MedicalStudy
 
 
@@ -16,7 +17,7 @@ class MedicalObservationalStudy(MedicalStudy):
 
     """
     type_: str = Field("MedicalObservationalStudy", const=True, alias='@type')
-    studyDesign: Any = Field(
+    studyDesign: Optional[Union[List[Union[MedicalObservationalStudyDesign, str]], Union[MedicalObservationalStudyDesign, str]]] = Field(
         None,
         description="Specifics about the observational study design (enumerated).",
     )

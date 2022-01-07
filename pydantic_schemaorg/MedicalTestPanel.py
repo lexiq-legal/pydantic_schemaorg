@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalTest import MedicalTest
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 
 
 class MedicalTestPanel(MedicalTest):
@@ -10,7 +10,7 @@ class MedicalTestPanel(MedicalTest):
 
     """
     type_: str = Field("MedicalTestPanel", const=True, alias='@type')
-    subTest: Optional[Union[List[MedicalTest], MedicalTest]] = Field(
+    subTest: Optional[Union[List[Union[MedicalTest, str]], Union[MedicalTest, str]]] = Field(
         None,
         description="A component test of the panel.",
     )

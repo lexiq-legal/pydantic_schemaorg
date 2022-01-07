@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Role import Role
 
 
@@ -11,7 +11,7 @@ class OrganizationRole(Role):
 
     """
     type_: str = Field("OrganizationRole", const=True, alias='@type')
-    numberedPosition: Optional[Union[List[Decimal], Decimal]] = Field(
+    numberedPosition: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="A number associated with a role in an organization, for example, the number on an athlete's"
      "jersey.",

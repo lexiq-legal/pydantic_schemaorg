@@ -1,6 +1,6 @@
-from pydantic import Field, AnyUrl
+from pydantic import AnyUrl, Field
 from pydantic_schemaorg.DataCatalog import DataCatalog
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from datetime import datetime
 from pydantic_schemaorg.DataDownload import DataDownload
 from pydantic_schemaorg.PropertyValue import PropertyValue
@@ -14,12 +14,12 @@ class Dataset(CreativeWork):
 
     """
     type_: str = Field("Dataset", const=True, alias='@type')
-    includedDataCatalog: Optional[Union[List[DataCatalog], DataCatalog]] = Field(
+    includedDataCatalog: Optional[Union[List[Union[DataCatalog, str]], Union[DataCatalog, str]]] = Field(
         None,
         description="A data catalog which contains this dataset (this property was previously 'catalog',"
      "preferred name is now 'includedInDataCatalog').",
     )
-    datasetTimeInterval: Optional[Union[List[datetime], datetime]] = Field(
+    datasetTimeInterval: Optional[Union[List[Union[datetime, str]], Union[datetime, str]]] = Field(
         None,
         description="The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the"
      "year 2011 (in ISO 8601 time interval format).",
@@ -38,15 +38,15 @@ class Dataset(CreativeWork):
      "several [[variableMeasured]] properties recorded for some given data object, use"
      "a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].",
     )
-    catalog: Optional[Union[List[DataCatalog], DataCatalog]] = Field(
+    catalog: Optional[Union[List[Union[DataCatalog, str]], Union[DataCatalog, str]]] = Field(
         None,
         description="A data catalog which contains this dataset.",
     )
-    distribution: Optional[Union[List[DataDownload], DataDownload]] = Field(
+    distribution: Optional[Union[List[Union[DataDownload, str]], Union[DataDownload, str]]] = Field(
         None,
         description="A downloadable form of this dataset, at a specific location, in a specific format.",
     )
-    includedInDataCatalog: Optional[Union[List[DataCatalog], DataCatalog]] = Field(
+    includedInDataCatalog: Optional[Union[List[Union[DataCatalog, str]], Union[DataCatalog, str]]] = Field(
         None,
         description="A data catalog which contains this dataset.",
     )

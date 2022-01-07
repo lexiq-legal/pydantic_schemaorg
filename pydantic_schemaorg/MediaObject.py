@@ -1,10 +1,16 @@
-from pydantic import StrictBool, Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field, StrictBool
+from typing import List, Optional, Union
+from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Place import Place
+from pydantic_schemaorg.MediaSubscription import MediaSubscription
 from datetime import datetime, time, date
+from pydantic_schemaorg.Distance import Distance
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.NewsArticle import NewsArticle
+from pydantic_schemaorg.Claim import Claim
+from pydantic_schemaorg.GeoShape import GeoShape
 
 
 class MediaObject(CreativeWork):
@@ -21,38 +27,38 @@ class MediaObject(CreativeWork):
         None,
         description="The bitrate of the media object.",
     )
-    contentUrl: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    contentUrl: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="Actual bytes of the media object, for example the image file or video file.",
     )
-    duration: Any = Field(
+    duration: Optional[Union[List[Union[Duration, str]], Union[Duration, str]]] = Field(
         None,
         description="The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).",
     )
-    productionCompany: Optional[Union[List[Organization], Organization]] = Field(
+    productionCompany: Optional[Union[List[Union[Organization, str]], Union[Organization, str]]] = Field(
         None,
         description="The production company or studio responsible for the item e.g. series, video game, episode"
      "etc.",
     )
-    regionsAllowed: Optional[Union[List[Place], Place]] = Field(
+    regionsAllowed: Optional[Union[List[Union[Place, str]], Union[Place, str]]] = Field(
         None,
         description="The regions where the media is allowed. If not specified, then it's assumed to be allowed"
      "everywhere. Specify the countries in [ISO 3166 format](http://en.wikipedia.org/wiki/ISO_3166).",
     )
-    requiresSubscription: Union[List[Union[StrictBool, Any]], Union[StrictBool, Any]] = Field(
+    requiresSubscription: Optional[Union[List[Union[StrictBool, MediaSubscription, str]], Union[StrictBool, MediaSubscription, str]]] = Field(
         None,
         description="Indicates if use of the media require a subscription (either paid or free). Allowed values"
      "are ```true``` or ```false``` (note that an earlier version had 'yes', 'no').",
     )
-    uploadDate: Optional[Union[List[date], date]] = Field(
+    uploadDate: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="Date when this media object was uploaded to this site.",
     )
-    height: Any = Field(
+    height: Optional[Union[List[Union[Distance, QuantitativeValue, str]], Union[Distance, QuantitativeValue, str]]] = Field(
         None,
         description="The height of the item.",
     )
-    endTime: Optional[Union[List[Union[datetime, time]], Union[datetime, time]]] = Field(
+    endTime: Optional[Union[List[Union[datetime, time, str]], Union[datetime, time, str]]] = Field(
         None,
         description="The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation),"
      "the time that it is expected to end. For actions that span a period of time, when the action"
@@ -66,19 +72,19 @@ class MediaObject(CreativeWork):
         description="The [SHA-2](https://en.wikipedia.org/wiki/SHA-2) SHA256 hash of the content of"
      "the item. For example, a zero-length input has value 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'",
     )
-    encodesCreativeWork: Optional[Union[List[CreativeWork], CreativeWork]] = Field(
+    encodesCreativeWork: Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]] = Field(
         None,
         description="The CreativeWork encoded by this media object.",
     )
-    associatedArticle: Optional[Union[List[NewsArticle], NewsArticle]] = Field(
+    associatedArticle: Optional[Union[List[Union[NewsArticle, str]], Union[NewsArticle, str]]] = Field(
         None,
         description="A NewsArticle associated with the Media Object.",
     )
-    width: Any = Field(
+    width: Optional[Union[List[Union[Distance, QuantitativeValue, str]], Union[Distance, QuantitativeValue, str]]] = Field(
         None,
         description="The width of the item.",
     )
-    embedUrl: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    embedUrl: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="A URL pointing to a player for a specific video. In general, this is the information in"
      "the ```src``` element of an ```embed``` tag and should not be the same as the content of"
@@ -94,13 +100,13 @@ class MediaObject(CreativeWork):
      "information. Unregistered or niche encoding and file formats can be indicated instead"
      "via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry.",
     )
-    interpretedAsClaim: Any = Field(
+    interpretedAsClaim: Optional[Union[List[Union[Claim, str]], Union[Claim, str]]] = Field(
         None,
         description="Used to indicate a specific claim contained, implied, translated or refined from the"
      "content of a [[MediaObject]] or other [[CreativeWork]]. The interpreting party can"
      "be indicated using [[claimInterpreter]].",
     )
-    startTime: Optional[Union[List[Union[datetime, time]], Union[datetime, time]]] = Field(
+    startTime: Optional[Union[List[Union[datetime, time, str]], Union[datetime, time, str]]] = Field(
         None,
         description="The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation),"
      "the time that it is expected to start. For actions that span a period of time, when the action"
@@ -117,7 +123,7 @@ class MediaObject(CreativeWork):
         None,
         description="Player type required&#x2014;for example, Flash or Silverlight.",
     )
-    ineligibleRegion: Union[List[Union[str, Place, Any]], Union[str, Place, Any]] = Field(
+    ineligibleRegion: Optional[Union[List[Union[str, GeoShape, Place]], Union[str, GeoShape, Place]]] = Field(
         None,
         description="The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for"
      "the geo-political region(s) for which the offer or delivery charge specification is"

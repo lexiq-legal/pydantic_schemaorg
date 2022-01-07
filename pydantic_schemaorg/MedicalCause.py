@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 
 
 class MedicalCause(MedicalEntity):
@@ -22,7 +22,7 @@ class MedicalCause(MedicalEntity):
 
     """
     type_: str = Field("MedicalCause", const=True, alias='@type')
-    causeOf: Optional[Union[List[MedicalEntity], MedicalEntity]] = Field(
+    causeOf: Optional[Union[List[Union[MedicalEntity, str]], Union[MedicalEntity, str]]] = Field(
         None,
         description="The condition, complication, symptom, sign, etc. caused.",
     )

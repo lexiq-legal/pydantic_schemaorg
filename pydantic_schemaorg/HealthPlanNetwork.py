@@ -1,5 +1,5 @@
 from pydantic import StrictBool, Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -19,7 +19,7 @@ class HealthPlanNetwork(Intangible):
         description="Name or unique ID of network. (Networks are often reused across different insurance"
      "plans).",
     )
-    healthPlanCostSharing: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    healthPlanCostSharing: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Whether The costs to the patient for services under this network or formulary.",
     )

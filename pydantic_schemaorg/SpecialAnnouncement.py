@@ -1,12 +1,13 @@
-from pydantic import Field, AnyUrl
-from pydantic_schemaorg.LocalBusiness import LocalBusiness
+from pydantic import AnyUrl, Field
 from pydantic_schemaorg.CivicStructure import CivicStructure
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.LocalBusiness import LocalBusiness
+from typing import List, Optional, Union
 from pydantic_schemaorg.WebContent import WebContent
-from pydantic_schemaorg.Dataset import Dataset
+from pydantic_schemaorg.GovernmentService import GovernmentService
 from pydantic_schemaorg.Observation import Observation
-from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+from pydantic_schemaorg.Dataset import Dataset
 from pydantic_schemaorg.Thing import Thing
+from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
 from datetime import datetime, date
 from pydantic_schemaorg.DataFeed import DataFeed
 from pydantic_schemaorg.CreativeWork import CreativeWork
@@ -64,66 +65,66 @@ class SpecialAnnouncement(CreativeWork):
 
     """
     type_: str = Field("SpecialAnnouncement", const=True, alias='@type')
-    announcementLocation: Optional[Union[List[Union[LocalBusiness, CivicStructure]], Union[LocalBusiness, CivicStructure]]] = Field(
+    announcementLocation: Optional[Union[List[Union[CivicStructure, LocalBusiness, str]], Union[CivicStructure, LocalBusiness, str]]] = Field(
         None,
         description="Indicates a specific [[CivicStructure]] or [[LocalBusiness]] associated with the"
      "SpecialAnnouncement. For example, a specific testing facility or business with special"
      "opening hours. For a larger geographic region like a quarantine of an entire region,"
      "use [[spatialCoverage]].",
     )
-    quarantineGuidelines: Optional[Union[List[Union[AnyUrl, WebContent]], Union[AnyUrl, WebContent]]] = Field(
+    quarantineGuidelines: Optional[Union[List[Union[AnyUrl, WebContent, str]], Union[AnyUrl, WebContent, str]]] = Field(
         None,
         description="Guidelines about quarantine rules, e.g. in the context of a pandemic.",
     )
-    governmentBenefitsInfo: Any = Field(
+    governmentBenefitsInfo: Optional[Union[List[Union[GovernmentService, str]], Union[GovernmentService, str]]] = Field(
         None,
         description="governmentBenefitsInfo provides information about government benefits associated"
      "with a SpecialAnnouncement.",
     )
-    diseaseSpreadStatistics: Optional[Union[List[Union[AnyUrl, Dataset, Observation, WebContent]], Union[AnyUrl, Dataset, Observation, WebContent]]] = Field(
+    diseaseSpreadStatistics: Optional[Union[List[Union[AnyUrl, Observation, WebContent, Dataset, str]], Union[AnyUrl, Observation, WebContent, Dataset, str]]] = Field(
         None,
         description="Statistical information about the spread of a disease, either as [[WebContent]], or"
      "described directly as a [[Dataset]], or the specific [[Observation]]s in the dataset."
      "When a [[WebContent]] URL is provided, the page indicated might also contain more such"
      "markup.",
     )
-    travelBans: Optional[Union[List[Union[AnyUrl, WebContent]], Union[AnyUrl, WebContent]]] = Field(
+    travelBans: Optional[Union[List[Union[AnyUrl, WebContent, str]], Union[AnyUrl, WebContent, str]]] = Field(
         None,
         description="Information about travel bans, e.g. in the context of a pandemic.",
     )
-    category: Optional[Union[List[Union[AnyUrl, str, PhysicalActivityCategory, Thing]], Union[AnyUrl, str, PhysicalActivityCategory, Thing]]] = Field(
+    category: Optional[Union[List[Union[AnyUrl, str, Thing, PhysicalActivityCategory]], Union[AnyUrl, str, Thing, PhysicalActivityCategory]]] = Field(
         None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
     )
-    schoolClosuresInfo: Optional[Union[List[Union[AnyUrl, WebContent]], Union[AnyUrl, WebContent]]] = Field(
+    schoolClosuresInfo: Optional[Union[List[Union[AnyUrl, WebContent, str]], Union[AnyUrl, WebContent, str]]] = Field(
         None,
         description="Information about school closures.",
     )
-    datePosted: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    datePosted: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="Publication date of an online listing.",
     )
-    webFeed: Optional[Union[List[Union[AnyUrl, DataFeed]], Union[AnyUrl, DataFeed]]] = Field(
+    webFeed: Optional[Union[List[Union[AnyUrl, DataFeed, str]], Union[AnyUrl, DataFeed, str]]] = Field(
         None,
         description="The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped"
      "updates. This is usually RSS or Atom.",
     )
-    gettingTestedInfo: Optional[Union[List[Union[AnyUrl, WebContent]], Union[AnyUrl, WebContent]]] = Field(
+    gettingTestedInfo: Optional[Union[List[Union[AnyUrl, WebContent, str]], Union[AnyUrl, WebContent, str]]] = Field(
         None,
         description="Information about getting tested (for a [[MedicalCondition]]), e.g. in the context"
      "of a pandemic.",
     )
-    newsUpdatesAndGuidelines: Optional[Union[List[Union[AnyUrl, WebContent]], Union[AnyUrl, WebContent]]] = Field(
+    newsUpdatesAndGuidelines: Optional[Union[List[Union[AnyUrl, WebContent, str]], Union[AnyUrl, WebContent, str]]] = Field(
         None,
         description="Indicates a page with news updates and guidelines. This could often be (but is not required"
      "to be) the main page containing [[SpecialAnnouncement]] markup on a site.",
     )
-    publicTransportClosuresInfo: Optional[Union[List[Union[AnyUrl, WebContent]], Union[AnyUrl, WebContent]]] = Field(
+    publicTransportClosuresInfo: Optional[Union[List[Union[AnyUrl, WebContent, str]], Union[AnyUrl, WebContent, str]]] = Field(
         None,
         description="Information about public transport closures.",
     )
-    diseasePreventionInfo: Optional[Union[List[Union[AnyUrl, WebContent]], Union[AnyUrl, WebContent]]] = Field(
+    diseasePreventionInfo: Optional[Union[List[Union[AnyUrl, WebContent, str]], Union[AnyUrl, WebContent, str]]] = Field(
         None,
         description="Information about disease prevention.",
     )

@@ -1,6 +1,7 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
+from typing import List, Optional, Any, Union
 from datetime import datetime, date
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -15,15 +16,15 @@ class DatedMoneySpecification(StructuredValue):
 
     """
     type_: str = Field("DatedMoneySpecification", const=True, alias='@type')
-    amount: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
+    amount: Optional[Union[List[Union[Decimal, MonetaryAmount, str]], Union[Decimal, MonetaryAmount, str]]] = Field(
         None,
         description="The amount of money.",
     )
-    endDate: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    endDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    startDate: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    startDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )

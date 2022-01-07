@@ -1,5 +1,5 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Union
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Event import Event
 
@@ -19,7 +19,7 @@ class CourseInstance(Event):
      "per week or per month, and may be broken down by type. For example, \"2 hours of lectures,"
      "1 hour of lab work and 3 hours of independent study per week\".",
     )
-    instructor: Optional[Union[List[Person], Person]] = Field(
+    instructor: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A person assigned to instruct or provide instructional assistance for the [[CourseInstance]].",
     )

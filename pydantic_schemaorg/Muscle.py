@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Nerve import Nerve
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Vessel import Vessel
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 
@@ -13,7 +13,7 @@ class Muscle(AnatomicalStructure):
 
     """
     type_: str = Field("Muscle", const=True, alias='@type')
-    nerve: Optional[Union[List[Nerve], Nerve]] = Field(
+    nerve: Optional[Union[List[Union[Nerve, str]], Union[Nerve, str]]] = Field(
         None,
         description="The underlying innervation associated with the muscle.",
     )
@@ -21,15 +21,15 @@ class Muscle(AnatomicalStructure):
         None,
         description="The movement the muscle generates.",
     )
-    antagonist: Any = Field(
+    antagonist: Optional[Union[List[Union['Muscle', str]], Union['Muscle', str]]] = Field(
         None,
         description="The muscle whose action counteracts the specified muscle.",
     )
-    bloodSupply: Optional[Union[List[Vessel], Vessel]] = Field(
+    bloodSupply: Optional[Union[List[Union[Vessel, str]], Union[Vessel, str]]] = Field(
         None,
         description="The blood vessel that carries blood from the heart to the muscle.",
     )
-    insertion: Optional[Union[List[AnatomicalStructure], AnatomicalStructure]] = Field(
+    insertion: Optional[Union[List[Union[AnatomicalStructure, str]], Union[AnatomicalStructure, str]]] = Field(
         None,
         description="The place of attachment of a muscle, or what the muscle moves.",
     )

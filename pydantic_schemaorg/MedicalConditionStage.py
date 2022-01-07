@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.MedicalIntangible import MedicalIntangible
 
 
@@ -11,7 +11,7 @@ class MedicalConditionStage(MedicalIntangible):
 
     """
     type_: str = Field("MedicalConditionStage", const=True, alias='@type')
-    stageAsNumber: Optional[Union[List[Decimal], Decimal]] = Field(
+    stageAsNumber: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The stage represented as a number, e.g. 3.",
     )

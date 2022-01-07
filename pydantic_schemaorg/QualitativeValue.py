@@ -1,9 +1,10 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.PropertyValue import PropertyValue
-from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
 from pydantic_schemaorg.Enumeration import Enumeration
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -15,37 +16,37 @@ class QualitativeValue(Enumeration):
 
     """
     type_: str = Field("QualitativeValue", const=True, alias='@type')
-    lesser: Any = Field(
+    lesser: Optional[Union[List[Union['QualitativeValue', str]], Union['QualitativeValue', str]]] = Field(
         None,
         description="This ordering relation for qualitative values indicates that the subject is lesser"
      "than the object.",
     )
-    nonEqual: Any = Field(
+    nonEqual: Optional[Union[List[Union['QualitativeValue', str]], Union['QualitativeValue', str]]] = Field(
         None,
         description="This ordering relation for qualitative values indicates that the subject is not equal"
      "to the object.",
     )
-    equal: Any = Field(
+    equal: Optional[Union[List[Union['QualitativeValue', str]], Union['QualitativeValue', str]]] = Field(
         None,
         description="This ordering relation for qualitative values indicates that the subject is equal to"
      "the object.",
     )
-    lesserOrEqual: Any = Field(
+    lesserOrEqual: Optional[Union[List[Union['QualitativeValue', str]], Union['QualitativeValue', str]]] = Field(
         None,
         description="This ordering relation for qualitative values indicates that the subject is lesser"
      "than or equal to the object.",
     )
-    greaterOrEqual: Any = Field(
+    greaterOrEqual: Optional[Union[List[Union['QualitativeValue', str]], Union['QualitativeValue', str]]] = Field(
         None,
         description="This ordering relation for qualitative values indicates that the subject is greater"
      "than or equal to the object.",
     )
-    greater: Any = Field(
+    greater: Optional[Union[List[Union['QualitativeValue', str]], Union['QualitativeValue', str]]] = Field(
         None,
         description="This ordering relation for qualitative values indicates that the subject is greater"
      "than the object.",
     )
-    additionalProperty: Optional[Union[List[PropertyValue], PropertyValue]] = Field(
+    additionalProperty: Optional[Union[List[Union[PropertyValue, str]], Union[PropertyValue, str]]] = Field(
         None,
         description="A property-value pair representing an additional characteristics of the entitity,"
      "e.g. a product feature or another characteristic for which there is no matching property"
@@ -54,7 +55,7 @@ class QualitativeValue(Enumeration):
      "https://schema.org/gtin13, ...) will typically expect such data to be provided using"
      "those properties, rather than using the generic property/value mechanism.",
     )
-    valueReference: Union[List[Union[str, MeasurementTypeEnumeration, PropertyValue, Enumeration, DefinedTerm, StructuredValue, Any]], Union[str, MeasurementTypeEnumeration, PropertyValue, Enumeration, DefinedTerm, StructuredValue, Any]] = Field(
+    valueReference: Optional[Union[List[Union[str, Enumeration, PropertyValue, DefinedTerm, QuantitativeValue, MeasurementTypeEnumeration, 'QualitativeValue', StructuredValue]], Union[str, Enumeration, PropertyValue, DefinedTerm, QuantitativeValue, MeasurementTypeEnumeration, 'QualitativeValue', StructuredValue]]] = Field(
         None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",

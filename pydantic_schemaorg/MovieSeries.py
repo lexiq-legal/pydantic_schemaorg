@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.VideoObject import VideoObject
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.MusicGroup import MusicGroup
@@ -14,36 +14,36 @@ class MovieSeries(CreativeWorkSeries):
 
     """
     type_: str = Field("MovieSeries", const=True, alias='@type')
-    actors: Optional[Union[List[Person], Person]] = Field(
+    actors: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
      "items or with a series, episode, clip.",
     )
-    trailer: Optional[Union[List[VideoObject], VideoObject]] = Field(
+    trailer: Optional[Union[List[Union[VideoObject, str]], Union[VideoObject, str]]] = Field(
         None,
         description="The trailer of a movie or tv/radio series, season, episode, etc.",
     )
-    director: Optional[Union[List[Person], Person]] = Field(
+    director: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors"
      "can be associated with individual items or with a series, episode, clip.",
     )
-    productionCompany: Optional[Union[List[Organization], Organization]] = Field(
+    productionCompany: Optional[Union[List[Union[Organization, str]], Union[Organization, str]]] = Field(
         None,
         description="The production company or studio responsible for the item e.g. series, video game, episode"
      "etc.",
     )
-    actor: Optional[Union[List[Person], Person]] = Field(
+    actor: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    directors: Optional[Union[List[Person], Person]] = Field(
+    directors: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    musicBy: Optional[Union[List[Union[MusicGroup, Person]], Union[MusicGroup, Person]]] = Field(
+    musicBy: Optional[Union[List[Union[MusicGroup, Person, str]], Union[MusicGroup, Person, str]]] = Field(
         None,
         description="The composer of the soundtrack.",
     )

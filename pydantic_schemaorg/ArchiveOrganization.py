@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.ArchiveComponent import ArchiveComponent
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 
@@ -12,7 +12,7 @@ class ArchiveOrganization(LocalBusiness):
 
     """
     type_: str = Field("ArchiveOrganization", const=True, alias='@type')
-    archiveHeld: Optional[Union[List[ArchiveComponent], ArchiveComponent]] = Field(
+    archiveHeld: Optional[Union[List[Union[ArchiveComponent, str]], Union[ArchiveComponent, str]]] = Field(
         None,
         description="Collection, [fonds](https://en.wikipedia.org/wiki/Fonds), or item held, kept"
      "or maintained by an [[ArchiveOrganization]].",

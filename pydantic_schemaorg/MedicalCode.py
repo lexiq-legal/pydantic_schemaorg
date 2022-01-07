@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.CategoryCode import CategoryCode
 from pydantic_schemaorg.MedicalIntangible import MedicalIntangible
 

@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
+from typing import List, Optional, Union
 from pydantic_schemaorg.CategoryCode import CategoryCode
 from pydantic_schemaorg.EducationalOccupationalProgram import EducationalOccupationalProgram
 
@@ -14,7 +15,7 @@ class WorkBasedProgram(EducationalOccupationalProgram):
 
     """
     type_: str = Field("WorkBasedProgram", const=True, alias='@type')
-    trainingSalary: Any = Field(
+    trainingSalary: Optional[Union[List[Union[MonetaryAmountDistribution, str]], Union[MonetaryAmountDistribution, str]]] = Field(
         None,
         description="The estimated salary earned while in the program.",
     )

@@ -1,5 +1,7 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Union
+from pydantic_schemaorg.Distance import Distance
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -15,7 +17,7 @@ class VisualArtwork(CreativeWork):
         None,
         description="The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc.",
     )
-    depth: Any = Field(
+    depth: Optional[Union[List[Union[Distance, QuantitativeValue, str]], Union[Distance, QuantitativeValue, str]]] = Field(
         None,
         description="The depth of the item.",
     )
@@ -25,11 +27,11 @@ class VisualArtwork(CreativeWork):
      "a limited edition of 20 prints, 'artEdition' refers to the total number of copies (in"
      "this example \"20\").",
     )
-    colorist: Optional[Union[List[Person], Person]] = Field(
+    colorist: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="The individual who adds color to inked drawings.",
     )
-    height: Any = Field(
+    height: Optional[Union[List[Union[Distance, QuantitativeValue, str]], Union[Distance, QuantitativeValue, str]]] = Field(
         None,
         description="The height of the item.",
     )
@@ -38,16 +40,16 @@ class VisualArtwork(CreativeWork):
         description="The material used. (e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype,"
      "Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc.)",
     )
-    artist: Optional[Union[List[Person], Person]] = Field(
+    artist: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="The primary artist for a work in a medium other than pencils or digital line art--for example,"
      "if the primary artwork is done in watercolors or digital paints.",
     )
-    width: Any = Field(
+    width: Optional[Union[List[Union[Distance, QuantitativeValue, str]], Union[Distance, QuantitativeValue, str]]] = Field(
         None,
         description="The width of the item.",
     )
-    letterer: Optional[Union[List[Person], Person]] = Field(
+    letterer: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="The individual who adds lettering, including speech balloons and sound effects, to"
      "artwork.",
@@ -60,11 +62,11 @@ class VisualArtwork(CreativeWork):
         None,
         description="A material used as a surface in some artwork, e.g. Canvas, Paper, Wood, Board, etc.",
     )
-    penciler: Optional[Union[List[Person], Person]] = Field(
+    penciler: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="The individual who draws the primary narrative artwork.",
     )
-    inker: Optional[Union[List[Person], Person]] = Field(
+    inker: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="The individual who traces over the pencil drawings in ink after pencils are complete.",
     )

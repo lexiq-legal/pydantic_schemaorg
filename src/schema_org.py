@@ -52,6 +52,7 @@ class SchemaOrg:
                         field.get("@type") == "rdf:Property" and
                         f"schema:{name}" in self._to_set(field.get("schema:domainIncludes")))]
 
+    # TODO: refactor this ugly code
     def extract_fields(self, name: str):
         fields: List[PydanticField] = []
         imports = self._get_default_imports()
@@ -64,16 +65,17 @@ class SchemaOrg:
                                      reverse=True):
                 if field_type in data_type_map:
                     pydantic_types += (data_type_map[field_type][0],)
+                    if data_type_map[field_type][1]:
+                        if data_type_map[field_type][1] not in imports.keys():
+                            imports[data_type_map[field_type][1]] = set()
+                        imports[data_type_map[field_type][1]].add(data_type_map[field_type][2])
                 else:
-                    # this must be a generated class
-                    imports.update({f'{PACKAGE_NAME}.{field_type}': {field_type}})
-                    pydantic_types += (field_type,)
+                    if name != field_type:
+                        imports.update({f'{PACKAGE_NAME}.{field_type}': {field_type}})
+                        pydantic_types += (field_type,)
+                    else: #if type is self-reference
+                        pydantic_types += (f'\'{field_type}\'', )
 
-            for field_type in field_types:
-                if field_type in data_type_map.keys() and data_type_map[field_type][1]:
-                    if data_type_map[field_type][1] and data_type_map[field_type][1] not in imports.keys():
-                        imports[data_type_map[field_type][1]] = set()
-                    imports[data_type_map[field_type][1]].add(data_type_map[field_type][2])
             if field_parent_types != field_types:
                 pydantic_types = pydantic_types + ("Any",)
 

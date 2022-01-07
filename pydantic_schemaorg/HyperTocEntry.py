@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.MediaObject import MediaObject
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -22,12 +22,12 @@ class HyperTocEntry(CreativeWork):
         description="Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of"
      "a media object, represented as a [[HyperTocEntry]].",
     )
-    tocContinuation: Any = Field(
+    tocContinuation: Optional[Union[List[Union['HyperTocEntry', str]], Union['HyperTocEntry', str]]] = Field(
         None,
         description="A [[HyperTocEntry]] can have a [[tocContinuation]] indicated, which is another [[HyperTocEntry]]"
      "that would be the default next item to play or render.",
     )
-    associatedMedia: Optional[Union[List[MediaObject], MediaObject]] = Field(
+    associatedMedia: Optional[Union[List[Union[MediaObject, str]], Union[MediaObject, str]]] = Field(
         None,
         description="A media object that encodes this CreativeWork. This property is a synonym for encoding.",
     )

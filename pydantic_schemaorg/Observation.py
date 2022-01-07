@@ -1,7 +1,9 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.Property import Property
+from typing import List, Optional, Union
 from datetime import datetime
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from pydantic_schemaorg.StatisticalPopulation import StatisticalPopulation
 from pydantic_schemaorg.DataType import DataType
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -20,25 +22,25 @@ class Observation(Intangible):
 
     """
     type_: str = Field("Observation", const=True, alias='@type')
-    measuredProperty: Any = Field(
+    measuredProperty: Optional[Union[List[Union[Property, str]], Union[Property, str]]] = Field(
         None,
         description="The measuredProperty of an [[Observation]], either a schema.org property, a property"
      "from other RDF-compatible systems e.g. W3C RDF Data Cube, or schema.org extensions"
      "such as [GS1's](https://www.gs1.org/voc/?show=properties).",
     )
-    observationDate: Optional[Union[List[datetime], datetime]] = Field(
+    observationDate: Optional[Union[List[Union[datetime, str]], Union[datetime, str]]] = Field(
         None,
         description="The observationDate of an [[Observation]].",
     )
-    marginOfError: Optional[Union[List[QuantitativeValue], QuantitativeValue]] = Field(
+    marginOfError: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="A marginOfError for an [[Observation]].",
     )
-    observedNode: Any = Field(
+    observedNode: Optional[Union[List[Union[StatisticalPopulation, str]], Union[StatisticalPopulation, str]]] = Field(
         None,
         description="The observedNode of an [[Observation]], often a [[StatisticalPopulation]].",
     )
-    measuredValue: Optional[Union[List[DataType], DataType]] = Field(
+    measuredValue: Optional[Union[List[Union[DataType, str]], Union[DataType, str]]] = Field(
         None,
         description="The measuredValue of an [[Observation]].",
     )

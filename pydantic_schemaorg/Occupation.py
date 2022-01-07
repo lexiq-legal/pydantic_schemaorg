@@ -1,9 +1,10 @@
 from pydantic import Field
 from pydantic_schemaorg.OccupationalExperienceRequirements import OccupationalExperienceRequirements
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
 from decimal import Decimal
+from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
+from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
 from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
 from pydantic_schemaorg.CategoryCode import CategoryCode
@@ -26,14 +27,14 @@ class Occupation(Intangible):
         description="A statement of knowledge, skill, ability, task or any other assertion expressing a competency"
      "that is desired or required to fulfill this role or to work in this occupation.",
     )
-    estimatedSalary: Union[List[Union[Decimal, MonetaryAmountDistribution, Any]], Union[Decimal, MonetaryAmountDistribution, Any]] = Field(
+    estimatedSalary: Optional[Union[List[Union[Decimal, MonetaryAmount, MonetaryAmountDistribution, str]], Union[Decimal, MonetaryAmount, MonetaryAmountDistribution, str]]] = Field(
         None,
         description="An estimated salary for a job posting or occupation, based on a variety of variables including,"
      "but not limited to industry, job title, and location. Estimated salaries are often computed"
      "by outside organizations rather than the hiring organization, who may not have committed"
      "to the estimated value.",
     )
-    occupationLocation: Optional[Union[List[AdministrativeArea], AdministrativeArea]] = Field(
+    occupationLocation: Optional[Union[List[Union[AdministrativeArea, str]], Union[AdministrativeArea, str]]] = Field(
         None,
         description="The region/country for which this occupational description is appropriate. Note that"
      "educational requirements and qualifications can vary between jurisdictions.",

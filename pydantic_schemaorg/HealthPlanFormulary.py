@@ -1,5 +1,5 @@
 from pydantic import StrictBool, Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -11,7 +11,7 @@ class HealthPlanFormulary(Intangible):
 
     """
     type_: str = Field("HealthPlanFormulary", const=True, alias='@type')
-    offersPrescriptionByMail: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    offersPrescriptionByMail: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Whether prescriptions can be delivered by mail.",
     )
@@ -19,7 +19,7 @@ class HealthPlanFormulary(Intangible):
         None,
         description="The tier(s) of drugs offered by this formulary or insurance plan.",
     )
-    healthPlanCostSharing: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    healthPlanCostSharing: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Whether The costs to the patient for services under this network or formulary.",
     )

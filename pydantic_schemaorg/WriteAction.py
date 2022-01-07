@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Language import Language
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.CreateAction import CreateAction
 
 
@@ -11,7 +11,7 @@ class WriteAction(CreateAction):
 
     """
     type_: str = Field("WriteAction", const=True, alias='@type')
-    language: Optional[Union[List[Language], Language]] = Field(
+    language: Optional[Union[List[Union[Language, str]], Union[Language, str]]] = Field(
         None,
         description="A sub property of instrument. The language used on this action.",
     )

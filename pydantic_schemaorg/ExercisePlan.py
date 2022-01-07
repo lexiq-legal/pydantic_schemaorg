@@ -1,12 +1,14 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from typing import List, Optional, Union
 from pydantic_schemaorg.Energy import Energy
-from pydantic_schemaorg.CreativeWork import CreativeWork
+from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.PhysicalActivity import PhysicalActivity
+from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
-class ExercisePlan(CreativeWork, PhysicalActivity):
+class ExercisePlan(PhysicalActivity, CreativeWork):
     """Fitness-related activity designed for a specific health-related purpose, including"
      "defined exercise routines as well as activity prescribed by a clinician.
 
@@ -14,20 +16,20 @@ class ExercisePlan(CreativeWork, PhysicalActivity):
 
     """
     type_: str = Field("ExercisePlan", const=True, alias='@type')
-    repetitions: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
+    repetitions: Optional[Union[List[Union[Decimal, QuantitativeValue, str]], Union[Decimal, QuantitativeValue, str]]] = Field(
         None,
         description="Number of times one should repeat the activity.",
     )
-    restPeriods: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    restPeriods: Optional[Union[List[Union[str, QuantitativeValue]], Union[str, QuantitativeValue]]] = Field(
         None,
         description="How often one should break from the activity.",
     )
-    intensity: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    intensity: Optional[Union[List[Union[str, QuantitativeValue]], Union[str, QuantitativeValue]]] = Field(
         None,
         description="Quantitative measure gauging the degree of force involved in the exercise, for example,"
      "heartbeats per minute. May include the velocity of the movement.",
     )
-    workload: Union[List[Union[Energy, Any]], Union[Energy, Any]] = Field(
+    workload: Optional[Union[List[Union[Energy, QuantitativeValue, str]], Union[Energy, QuantitativeValue, str]]] = Field(
         None,
         description="Quantitative measure of the physiologic output of the exercise; also referred to as"
      "energy expenditure.",
@@ -43,11 +45,11 @@ class ExercisePlan(CreativeWork, PhysicalActivity):
         description="Type(s) of exercise or activity, such as strength training, flexibility training,"
      "aerobics, cardiac rehabilitation, etc.",
     )
-    activityDuration: Any = Field(
+    activityDuration: Optional[Union[List[Union[Duration, QuantitativeValue, str]], Union[Duration, QuantitativeValue, str]]] = Field(
         None,
         description="Length of time to engage in the activity.",
     )
-    activityFrequency: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    activityFrequency: Optional[Union[List[Union[str, QuantitativeValue]], Union[str, QuantitativeValue]]] = Field(
         None,
         description="How often one should engage in the activity.",
     )

@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from typing import List, Optional, Union
 from pydantic_schemaorg.Audience import Audience
 
 
@@ -11,15 +12,15 @@ class BusinessAudience(Audience):
 
     """
     type_: str = Field("BusinessAudience", const=True, alias='@type')
-    yearsInOperation: Any = Field(
+    yearsInOperation: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The age of the business.",
     )
-    numberOfEmployees: Any = Field(
+    numberOfEmployees: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The number of employees in an organization e.g. business.",
     )
-    yearlyRevenue: Any = Field(
+    yearlyRevenue: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The size of the business in annual revenue.",
     )

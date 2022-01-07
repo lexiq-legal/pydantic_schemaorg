@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Vessel import Vessel
 
 
@@ -11,11 +11,11 @@ class Artery(Vessel):
 
     """
     type_: str = Field("Artery", const=True, alias='@type')
-    supplyTo: Optional[Union[List[AnatomicalStructure], AnatomicalStructure]] = Field(
+    supplyTo: Optional[Union[List[Union[AnatomicalStructure, str]], Union[AnatomicalStructure, str]]] = Field(
         None,
         description="The area to which the artery supplies blood.",
     )
-    arterialBranch: Optional[Union[List[AnatomicalStructure], AnatomicalStructure]] = Field(
+    arterialBranch: Optional[Union[List[Union[AnatomicalStructure, str]], Union[AnatomicalStructure, str]]] = Field(
         None,
         description="The branches that comprise the arterial structure.",
     )

@@ -1,5 +1,6 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Union
+from pydantic_schemaorg.DefinedTermSet import DefinedTermSet
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -18,7 +19,7 @@ class DefinedTerm(Intangible):
         None,
         description="A code that identifies this [[DefinedTerm]] within a [[DefinedTermSet]]",
     )
-    inDefinedTermSet: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    inDefinedTermSet: Optional[Union[List[Union[AnyUrl, DefinedTermSet, str]], Union[AnyUrl, DefinedTermSet, str]]] = Field(
         None,
         description="A [[DefinedTermSet]] that contains this term.",
     )

@@ -1,10 +1,12 @@
-from pydantic import StrictBool, Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field, StrictBool
+from typing import List, Optional, Union
 from decimal import Decimal
-from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
+from pydantic_schemaorg.StructuredValue import StructuredValue
 from pydantic_schemaorg.Enumeration import Enumeration
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from pydantic_schemaorg.StructuredValue import StructuredValue
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
+from pydantic_schemaorg.QualitativeValue import QualitativeValue
 
 
 class PropertyValue(StructuredValue):
@@ -32,7 +34,7 @@ class PropertyValue(StructuredValue):
      "several [[variableMeasured]] properties recorded for some given data object, use"
      "a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].",
     )
-    minValue: Optional[Union[List[Decimal], Decimal]] = Field(
+    minValue: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The lower value of some characteristic or property.",
     )
@@ -41,7 +43,7 @@ class PropertyValue(StructuredValue):
         description="A string or text indicating the unit of measurement. Useful if you cannot provide a standard"
      "unit code for <a href='unitCode'>unitCode</a>.",
     )
-    value: Union[List[Union[Decimal, StrictBool, str, Any]], Union[Decimal, StrictBool, str, Any]] = Field(
+    value: Optional[Union[List[Union[Decimal, str, StrictBool, StructuredValue]], Union[Decimal, str, StrictBool, StructuredValue]]] = Field(
         None,
         description="The value of the quantitative value or property value node. * For [[QuantitativeValue]]"
      "and [[MonetaryAmount]], the recommended type for values is 'Number'. * For [[PropertyValue]],"
@@ -66,11 +68,11 @@ class PropertyValue(StructuredValue):
         description="The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL."
      "Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.",
     )
-    maxValue: Optional[Union[List[Decimal], Decimal]] = Field(
+    maxValue: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The upper value of some characteristic or property.",
     )
-    valueReference: Union[List[Union[str, MeasurementTypeEnumeration, Enumeration, DefinedTerm, Any]], Union[str, MeasurementTypeEnumeration, Enumeration, DefinedTerm, Any]] = Field(
+    valueReference: Optional[Union[List[Union[str, Enumeration, 'PropertyValue', DefinedTerm, QuantitativeValue, MeasurementTypeEnumeration, QualitativeValue, StructuredValue]], Union[str, Enumeration, 'PropertyValue', DefinedTerm, QuantitativeValue, MeasurementTypeEnumeration, QualitativeValue, StructuredValue]]] = Field(
         None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",

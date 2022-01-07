@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.Distance import Distance
+from typing import List, Optional, Union
 from pydantic_schemaorg.MoveAction import MoveAction
 
 
@@ -11,7 +12,7 @@ class TravelAction(MoveAction):
 
     """
     type_: str = Field("TravelAction", const=True, alias='@type')
-    distance: Any = Field(
+    distance: Optional[Union[List[Union[Distance, str]], Union[Distance, str]]] = Field(
         None,
         description="The distance travelled, e.g. exercising or travelling.",
     )

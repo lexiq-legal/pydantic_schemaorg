@@ -1,7 +1,8 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
-from pydantic_schemaorg.Service import Service
+from pydantic_schemaorg.ParcelDelivery import ParcelDelivery
+from typing import List, Optional, Union
 from pydantic_schemaorg.Product import Product
+from pydantic_schemaorg.Service import Service
 from decimal import Decimal
 from pydantic_schemaorg.OrderStatus import OrderStatus
 from pydantic_schemaorg.Intangible import Intangible
@@ -15,15 +16,15 @@ class OrderItem(Intangible):
 
     """
     type_: str = Field("OrderItem", const=True, alias='@type')
-    orderDelivery: Any = Field(
+    orderDelivery: Optional[Union[List[Union[ParcelDelivery, str]], Union[ParcelDelivery, str]]] = Field(
         None,
         description="The delivery of the parcel related to this order or order item.",
     )
-    orderedItem: Union[List[Union[Service, Product, Any]], Union[Service, Product, Any]] = Field(
+    orderedItem: Optional[Union[List[Union[Product, 'OrderItem', Service, str]], Union[Product, 'OrderItem', Service, str]]] = Field(
         None,
         description="The item ordered.",
     )
-    orderQuantity: Optional[Union[List[Decimal], Decimal]] = Field(
+    orderQuantity: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The number of the item ordered. If the property is not set, assume the quantity is one.",
     )
@@ -31,7 +32,7 @@ class OrderItem(Intangible):
         None,
         description="The identifier of the order item.",
     )
-    orderItemStatus: Optional[Union[List[OrderStatus], OrderStatus]] = Field(
+    orderItemStatus: Optional[Union[List[Union[OrderStatus, str]], Union[OrderStatus, str]]] = Field(
         None,
         description="The current status of the order item.",
     )

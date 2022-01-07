@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.MedicalEvidenceLevel import MedicalEvidenceLevel
 from datetime import date
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
@@ -21,15 +21,15 @@ class MedicalGuideline(MedicalEntity):
         None,
         description="Source of the data used to formulate the guidance, e.g. RCT, consensus opinion, etc.",
     )
-    evidenceLevel: Optional[Union[List[MedicalEvidenceLevel], MedicalEvidenceLevel]] = Field(
+    evidenceLevel: Optional[Union[List[Union[MedicalEvidenceLevel, str]], Union[MedicalEvidenceLevel, str]]] = Field(
         None,
         description="Strength of evidence of the data used to formulate the guideline (enumerated).",
     )
-    guidelineDate: Optional[Union[List[date], date]] = Field(
+    guidelineDate: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="Date on which this guideline's recommendation was made.",
     )
-    guidelineSubject: Optional[Union[List[MedicalEntity], MedicalEntity]] = Field(
+    guidelineSubject: Optional[Union[List[Union[MedicalEntity, str]], Union[MedicalEntity, str]]] = Field(
         None,
         description="The medical conditions, treatments, etc. that are the subject of the guideline.",
     )

@@ -1,5 +1,6 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from pydantic_schemaorg.AggregateRating import AggregateRating
+from typing import List, Optional, Union
 from pydantic_schemaorg.ImageObject import ImageObject
 from pydantic_schemaorg.Review import Review
 from pydantic_schemaorg.Intangible import Intangible
@@ -13,7 +14,7 @@ class Brand(Intangible):
 
     """
     type_: str = Field("Brand", const=True, alias='@type')
-    aggregateRating: Any = Field(
+    aggregateRating: Optional[Union[List[Union[AggregateRating, str]], Union[AggregateRating, str]]] = Field(
         None,
         description="The overall rating, based on a collection of reviews or ratings, of the item.",
     )
@@ -21,11 +22,11 @@ class Brand(Intangible):
         None,
         description="A slogan or motto associated with the item.",
     )
-    logo: Optional[Union[List[Union[AnyUrl, ImageObject]], Union[AnyUrl, ImageObject]]] = Field(
+    logo: Optional[Union[List[Union[AnyUrl, ImageObject, str]], Union[AnyUrl, ImageObject, str]]] = Field(
         None,
         description="An associated logo.",
     )
-    review: Optional[Union[List[Review], Review]] = Field(
+    review: Optional[Union[List[Union[Review, str]], Union[Review, str]]] = Field(
         None,
         description="A review of the item.",
     )

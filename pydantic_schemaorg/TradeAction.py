@@ -1,6 +1,7 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from decimal import Decimal
+from pydantic_schemaorg.PriceSpecification import PriceSpecification
 from pydantic_schemaorg.Action import Action
 
 
@@ -38,7 +39,7 @@ class TradeAction(Action):
      "0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially"
      "similiar Unicode symbols.",
     )
-    priceSpecification: Any = Field(
+    priceSpecification: Optional[Union[List[Union[PriceSpecification, str]], Union[PriceSpecification, str]]] = Field(
         None,
         description="One or more detailed price specifications, indicating the unit price and delivery or"
      "payment charges.",

@@ -1,10 +1,10 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Place import Place
 
 
-class LocalBusiness(Place, Organization):
+class LocalBusiness(Organization, Place):
     """A particular physical business or branch of an organization. Examples of LocalBusiness"
      "include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a"
      "medical practice, a club, a bowling alley, etc.
@@ -30,7 +30,7 @@ class LocalBusiness(Place, Organization):
      "it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday"
      "through Sunday, all day&lt;/time&gt;</code>.",
     )
-    branchOf: Optional[Union[List[Organization], Organization]] = Field(
+    branchOf: Optional[Union[List[Union[Organization, str]], Union[Organization, str]]] = Field(
         None,
         description="The larger organization that this local business is a branch of, if any. Not to be confused"
      "with (anatomical)[[branch]].",

@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from datetime import datetime, date
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -15,21 +15,21 @@ class CDCPMDRecord(StructuredValue):
 
     """
     type_: str = Field("CDCPMDRecord", const=True, alias='@type')
-    cvdNumVentUse: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumVentUse: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numventuse - MECHANICAL VENTILATORS IN USE: Total number of ventilators in use.",
     )
-    cvdNumTotBeds: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumTotBeds: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numtotbeds - ALL HOSPITAL BEDS: Total number of all Inpatient and outpatient beds, including"
      "all staffed,ICU, licensed, and overflow (surge) beds used for inpatients or outpatients.",
     )
-    cvdNumC19Died: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumC19Died: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numc19died - DEATHS: Patients with suspected or confirmed COVID-19 who died in the hospital,"
      "ED, or any overflow location.",
     )
-    cvdNumC19HOPats: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumC19HOPats: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numc19hopats - HOSPITAL ONSET: Patients hospitalized in an NHSN inpatient care location"
      "with onset of suspected or confirmed COVID-19 14 or more days after hospitalization.",
@@ -40,45 +40,45 @@ class CDCPMDRecord(StructuredValue):
      "to identify the facility. To provide other details, [[healthcareReportingData]]"
      "can be used on a [[Hospital]] entry.",
     )
-    cvdNumC19OverflowPats: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumC19OverflowPats: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numc19overflowpats - ED/OVERFLOW: Patients with suspected or confirmed COVID-19"
      "who are in the ED or any overflow location awaiting an inpatient bed.",
     )
-    cvdNumBeds: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumBeds: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numbeds - HOSPITAL INPATIENT BEDS: Inpatient beds, including all staffed, licensed,"
      "and overflow (surge) beds used for inpatients.",
     )
-    datePosted: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    datePosted: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="Publication date of an online listing.",
     )
-    cvdNumICUBedsOcc: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumICUBedsOcc: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numicubedsocc - ICU BED OCCUPANCY: Total number of staffed inpatient ICU beds that are"
      "occupied.",
     )
-    cvdNumVent: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumVent: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numvent - MECHANICAL VENTILATORS: Total number of ventilators available.",
     )
-    cvdNumC19HospPats: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumC19HospPats: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numc19hosppats - HOSPITALIZED: Patients currently hospitalized in an inpatient care"
      "location who have suspected or confirmed COVID-19.",
     )
-    cvdNumICUBeds: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumICUBeds: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numicubeds - ICU BEDS: Total number of staffed inpatient intensive care unit (ICU) beds.",
     )
-    cvdNumC19OFMechVentPats: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumC19OFMechVentPats: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numc19ofmechventpats - ED/OVERFLOW and VENTILATED: Patients with suspected or confirmed"
      "COVID-19 who are in the ED or any overflow location awaiting an inpatient bed and on a mechanical"
      "ventilator.",
     )
-    cvdNumC19MechVentPats: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumC19MechVentPats: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numc19mechventpats - HOSPITALIZED and VENTILATED: Patients hospitalized in an NHSN"
      "inpatient care location who have suspected or confirmed COVID-19 and are on a mechanical"
@@ -94,7 +94,7 @@ class CDCPMDRecord(StructuredValue):
         None,
         description="collectiondate - Date for which patient counts are reported.",
     )
-    cvdNumBedsOcc: Optional[Union[List[Decimal], Decimal]] = Field(
+    cvdNumBedsOcc: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="numbedsocc - HOSPITAL INPATIENT BED OCCUPANCY: Total number of staffed inpatient beds"
      "that are occupied.",

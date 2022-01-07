@@ -1,7 +1,10 @@
-from pydantic import StrictBool, Field, AnyUrl
+from pydantic import AnyUrl, Field, StrictBool
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from typing import List, Optional, Union
+from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.LocationFeatureSpecification import LocationFeatureSpecification
+from pydantic_schemaorg.FloorPlan import FloorPlan
 from pydantic_schemaorg.Place import Place
 
 
@@ -16,12 +19,12 @@ class Accommodation(Place):
 
     """
     type_: str = Field("Accommodation", const=True, alias='@type')
-    numberOfBedrooms: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
+    numberOfBedrooms: Optional[Union[List[Union[Decimal, QuantitativeValue, str]], Union[Decimal, QuantitativeValue, str]]] = Field(
         None,
         description="The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]]"
      "or [[FloorPlan]].",
     )
-    numberOfBathroomsTotal: Optional[Union[List[int], int]] = Field(
+    numberOfBathroomsTotal: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="The total integer number of bathrooms in a some [[Accommodation]], following real estate"
      "conventions as [documented in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsTotalInteger+Field):"
@@ -32,39 +35,39 @@ class Accommodation(Place):
         None,
         description="Indications regarding the permitted usage of the accommodation.",
     )
-    numberOfPartialBathrooms: Optional[Union[List[Decimal], Decimal]] = Field(
+    numberOfPartialBathrooms: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="Number of partial bathrooms - The total number of half and ¼ bathrooms in an [[Accommodation]]."
      "This corresponds to the [BathroomsPartial field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsPartial+Field).",
     )
-    yearBuilt: Optional[Union[List[Decimal], Decimal]] = Field(
+    yearBuilt: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The year an [[Accommodation]] was constructed. This corresponds to the [YearBuilt"
      "field in RESO](https://ddwiki.reso.org/display/DDW17/YearBuilt+Field).",
     )
-    leaseLength: Any = Field(
+    leaseLength: Optional[Union[List[Union[Duration, QuantitativeValue, str]], Union[Duration, QuantitativeValue, str]]] = Field(
         None,
         description="Length of the lease for some [[Accommodation]], either particular to some [[Offer]]"
      "or in some cases intrinsic to the property.",
     )
-    amenityFeature: Optional[Union[List[LocationFeatureSpecification], LocationFeatureSpecification]] = Field(
+    amenityFeature: Optional[Union[List[Union[LocationFeatureSpecification, str]], Union[LocationFeatureSpecification, str]]] = Field(
         None,
         description="An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic"
      "property does not make a statement about whether the feature is included in an offer for"
      "the main accommodation or available at extra costs.",
     )
-    numberOfRooms: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
+    numberOfRooms: Optional[Union[List[Union[Decimal, QuantitativeValue, str]], Union[Decimal, QuantitativeValue, str]]] = Field(
         None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
      "business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be"
      "put in the unitText property of the QuantitativeValue.",
     )
-    tourBookingPage: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    tourBookingPage: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]]"
      "or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.",
     )
-    petsAllowed: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
+    petsAllowed: Optional[Union[List[Union[str, StrictBool]], Union[str, StrictBool]]] = Field(
         None,
         description="Indicates whether pets are allowed to enter the accommodation or lodging business."
      "More detailed information can be put in a text value.",
@@ -82,16 +85,16 @@ class Accommodation(Place):
      "systems [vary internationally](https://en.wikipedia.org/wiki/Storey#Consecutive_number_floor_designations),"
      "the local system should be used where possible.",
     )
-    floorSize: Any = Field(
+    floorSize: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The size of the accommodation, e.g. in square meter or squarefoot. Typical unit code(s):"
      "MTK for square meter, FTK for square foot, or YDK for square yard",
     )
-    accommodationFloorPlan: Any = Field(
+    accommodationFloorPlan: Optional[Union[List[Union[FloorPlan, str]], Union[FloorPlan, str]]] = Field(
         None,
         description="A floorplan of some [[Accommodation]].",
     )
-    numberOfFullBathrooms: Optional[Union[List[Decimal], Decimal]] = Field(
+    numberOfFullBathrooms: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="Number of full bathrooms - The total number of full and ¾ bathrooms in an [[Accommodation]]."
      "This corresponds to the [BathroomsFull field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsFull+Field).",

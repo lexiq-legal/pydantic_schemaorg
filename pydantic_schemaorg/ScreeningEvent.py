@@ -1,5 +1,7 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.Movie import Movie
+from typing import List, Optional, Any, Union
+from pydantic_schemaorg.Language import Language
 from pydantic_schemaorg.Event import Event
 
 
@@ -10,11 +12,11 @@ class ScreeningEvent(Event):
 
     """
     type_: str = Field("ScreeningEvent", const=True, alias='@type')
-    workPresented: Any = Field(
+    workPresented: Optional[Union[List[Union[Movie, str]], Union[Movie, str]]] = Field(
         None,
         description="The movie presented during this event.",
     )
-    subtitleLanguage: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    subtitleLanguage: Optional[Union[List[Union[str, Language]], Union[str, Language]]] = Field(
         None,
         description="Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
     )

@@ -1,5 +1,9 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.ImageObject import ImageObject
+from typing import List, Optional, Any, Union
+from pydantic_schemaorg.MedicalCondition import MedicalCondition
+from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
+from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
 
@@ -11,20 +15,20 @@ class AnatomicalStructure(MedicalEntity):
 
     """
     type_: str = Field("AnatomicalStructure", const=True, alias='@type')
-    diagram: Any = Field(
+    diagram: Optional[Union[List[Union[ImageObject, str]], Union[ImageObject, str]]] = Field(
         None,
         description="An image containing a diagram that illustrates the structure and/or its component substructures"
      "and/or connections with other structures.",
     )
-    subStructure: Any = Field(
+    subStructure: Optional[Union[List[Union['AnatomicalStructure', str]], Union['AnatomicalStructure', str]]] = Field(
         None,
         description="Component (sub-)structure(s) that comprise this anatomical structure.",
     )
-    connectedTo: Any = Field(
+    connectedTo: Optional[Union[List[Union['AnatomicalStructure', str]], Union['AnatomicalStructure', str]]] = Field(
         None,
         description="Other anatomical structures to which this structure is connected.",
     )
-    relatedCondition: Any = Field(
+    relatedCondition: Optional[Union[List[Union[MedicalCondition, str]], Union[MedicalCondition, str]]] = Field(
         None,
         description="A medical condition associated with this anatomy.",
     )
@@ -32,11 +36,11 @@ class AnatomicalStructure(MedicalEntity):
         None,
         description="Location in the body of the anatomical structure.",
     )
-    relatedTherapy: Any = Field(
+    relatedTherapy: Optional[Union[List[Union[MedicalTherapy, str]], Union[MedicalTherapy, str]]] = Field(
         None,
         description="A medical therapy related to this anatomy.",
     )
-    partOfSystem: Any = Field(
+    partOfSystem: Optional[Union[List[Union[AnatomicalSystem, str]], Union[AnatomicalSystem, str]]] = Field(
         None,
         description="The anatomical or organ system that this structure is part of.",
     )
