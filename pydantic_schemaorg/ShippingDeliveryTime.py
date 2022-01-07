@@ -1,7 +1,8 @@
 from pydantic import Field
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from datetime import time
+from pydantic_schemaorg.OpeningHoursSpecification import OpeningHoursSpecification
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -13,12 +14,12 @@ class ShippingDeliveryTime(StructuredValue):
 
     """
     type_: str = Field("ShippingDeliveryTime", const=True, alias='@type')
-    transitTime: Optional[Union[List[QuantitativeValue], QuantitativeValue]] = Field(
+    transitTime: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The typical delay the order has been sent for delivery and the goods reach the final customer."
      "Typical properties: minValue, maxValue, unitCode (d for DAY).",
     )
-    cutoffTime: Optional[Union[List[time], time]] = Field(
+    cutoffTime: Optional[Union[List[Union[time, str]], Union[time, str]]] = Field(
         None,
         description="Order cutoff time allows merchants to describe the time after which they will no longer"
      "process orders received on that day. For orders processed after cutoff time, one day"
@@ -27,7 +28,7 @@ class ShippingDeliveryTime(StructuredValue):
      "using the ISO-8601 Time format, e.g. \"23:30:00-05:00\" would represent 6:30 pm Eastern"
      "Standard Time (EST) which is 5 hours behind Coordinated Universal Time (UTC).",
     )
-    handlingTime: Optional[Union[List[QuantitativeValue], QuantitativeValue]] = Field(
+    handlingTime: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The typical delay between the receipt of the order and the goods either leaving the warehouse"
      "or being prepared for pickup, in case the delivery method is on site pickup. Typical properties:"
@@ -35,7 +36,7 @@ class ShippingDeliveryTime(StructuredValue):
      "business days (if a unitCode is used, coded as \"d\"), i.e. only counting days when the"
      "business normally operates.",
     )
-    businessDays: Any = Field(
+    businessDays: Optional[Union[List[Union[OpeningHoursSpecification, str]], Union[OpeningHoursSpecification, str]]] = Field(
         None,
         description="Days of the week when the merchant typically operates, indicated via opening hours markup.",
     )

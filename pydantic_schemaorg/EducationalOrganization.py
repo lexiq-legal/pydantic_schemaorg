@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.CivicStructure import CivicStructure
 from pydantic_schemaorg.Organization import Organization
 
@@ -12,7 +12,7 @@ class EducationalOrganization(CivicStructure, Organization):
 
     """
     type_: str = Field("EducationalOrganization", const=True, alias='@type')
-    alumni: Optional[Union[List[Person], Person]] = Field(
+    alumni: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="Alumni of an organization.",
     )

@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
+from typing import List, Optional, Union
 from pydantic_schemaorg.HowToItem import HowToItem
 
 
@@ -10,7 +11,7 @@ class HowToSupply(HowToItem):
 
     """
     type_: str = Field("HowToSupply", const=True, alias='@type')
-    estimatedCost: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    estimatedCost: Optional[Union[List[Union[str, MonetaryAmount]], Union[str, MonetaryAmount]]] = Field(
         None,
         description="The estimated cost of the supply or supplies consumed when performing instructions.",
     )

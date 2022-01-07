@@ -1,5 +1,5 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Union
 from datetime import datetime, date
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -22,7 +22,7 @@ class Role(Intangible):
      "of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer';"
      "or an athlete in a SportsTeam might play in the position named 'Quarterback'.",
     )
-    endDate: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    endDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
@@ -31,7 +31,7 @@ class Role(Intangible):
         description="A position played, performed or filled by a person or organization, as part of an organization."
      "For example, an athlete in a SportsTeam might play in the position named 'Quarterback'.",
     )
-    startDate: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    startDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )

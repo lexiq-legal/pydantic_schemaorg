@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -22,7 +22,7 @@ class FollowAction(InteractAction):
 
     """
     type_: str = Field("FollowAction", const=True, alias='@type')
-    followee: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    followee: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="A sub property of object. The person or organization being followed.",
     )

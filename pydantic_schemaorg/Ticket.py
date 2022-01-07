@@ -1,10 +1,11 @@
-from pydantic import Field, AnyUrl
+from pydantic import AnyUrl, Field
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
-from pydantic_schemaorg.PriceSpecification import PriceSpecification
+from typing import List, Optional, Union
 from decimal import Decimal
+from pydantic_schemaorg.PriceSpecification import PriceSpecification
 from datetime import datetime, date
+from pydantic_schemaorg.Seat import Seat
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -15,7 +16,7 @@ class Ticket(Intangible):
 
     """
     type_: str = Field("Ticket", const=True, alias='@type')
-    underName: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    underName: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="The person or organization the reservation or ticket is for.",
     )
@@ -43,15 +44,15 @@ class Ticket(Intangible):
      "'.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid"
      "using these symbols as a readability separator.",
     )
-    dateIssued: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    dateIssued: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The date the ticket was issued.",
     )
-    ticketedSeat: Any = Field(
+    ticketedSeat: Optional[Union[List[Union[Seat, str]], Union[Seat, str]]] = Field(
         None,
         description="The seat associated with the ticket.",
     )
-    issuedBy: Optional[Union[List[Organization], Organization]] = Field(
+    issuedBy: Optional[Union[List[Union[Organization, str]], Union[Organization, str]]] = Field(
         None,
         description="The organization issuing the ticket or permit.",
     )

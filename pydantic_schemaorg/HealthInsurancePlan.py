@@ -1,7 +1,8 @@
-from pydantic import Field, AnyUrl
+from pydantic import AnyUrl, Field
 from pydantic_schemaorg.ContactPoint import ContactPoint
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.HealthPlanNetwork import HealthPlanNetwork
+from pydantic_schemaorg.HealthPlanFormulary import HealthPlanFormulary
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -12,7 +13,7 @@ class HealthInsurancePlan(Intangible):
 
     """
     type_: str = Field("HealthInsurancePlan", const=True, alias='@type')
-    contactPoint: Optional[Union[List[ContactPoint], ContactPoint]] = Field(
+    contactPoint: Optional[Union[List[Union[ContactPoint, str]], Union[ContactPoint, str]]] = Field(
         None,
         description="A contact point for a person or organization.",
     )
@@ -20,7 +21,7 @@ class HealthInsurancePlan(Intangible):
         None,
         description="TODO.",
     )
-    healthPlanMarketingUrl: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    healthPlanMarketingUrl: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="The URL that goes directly to the plan brochure for the specific standard plan or plan"
      "variation.",
@@ -30,7 +31,7 @@ class HealthInsurancePlan(Intangible):
         description="The standard for interpreting thePlan ID. The preferred is \"HIOS\". See the Centers"
      "for Medicare & Medicaid Services for more details.",
     )
-    benefitsSummaryUrl: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    benefitsSummaryUrl: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="The URL that goes directly to the summary of benefits and coverage for the specific standard"
      "plan or plan variation.",
@@ -40,7 +41,7 @@ class HealthInsurancePlan(Intangible):
         description="The 14-character, HIOS-generated Plan ID number. (Plan IDs must be unique, even across"
      "different markets.)",
     )
-    includesHealthPlanNetwork: Optional[Union[List[HealthPlanNetwork], HealthPlanNetwork]] = Field(
+    includesHealthPlanNetwork: Optional[Union[List[Union[HealthPlanNetwork, str]], Union[HealthPlanNetwork, str]]] = Field(
         None,
         description="Networks covered by this plan.",
     )
@@ -48,7 +49,7 @@ class HealthInsurancePlan(Intangible):
         None,
         description="The tier(s) of drugs offered by this formulary or insurance plan.",
     )
-    includesHealthPlanFormulary: Any = Field(
+    includesHealthPlanFormulary: Optional[Union[List[Union[HealthPlanFormulary, str]], Union[HealthPlanFormulary, str]]] = Field(
         None,
         description="Formularies covered by this plan.",
     )

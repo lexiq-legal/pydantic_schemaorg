@@ -1,12 +1,12 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.LifestyleModification import LifestyleModification
+from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
-class Diet(CreativeWork, LifestyleModification):
+class Diet(LifestyleModification, CreativeWork):
     """A strategy of regulating the intake of food to achieve or maintain a specific health-related"
      "goal.
 
@@ -18,7 +18,7 @@ class Diet(CreativeWork, LifestyleModification):
         None,
         description="Specific physiologic risks associated to the diet plan.",
     )
-    endorsers: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    endorsers: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="People or organizations that endorse the plan.",
     )

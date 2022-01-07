@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.MusicRecording import MusicRecording
 from pydantic_schemaorg.Event import Event
@@ -14,16 +14,16 @@ class MusicComposition(CreativeWork):
 
     """
     type_: str = Field("MusicComposition", const=True, alias='@type')
-    composer: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    composer: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="The person or organization who wrote a composition, or who is the composer of a work performed"
      "at some event.",
     )
-    includedComposition: Any = Field(
+    includedComposition: Optional[Union[List[Union['MusicComposition', str]], Union['MusicComposition', str]]] = Field(
         None,
         description="Smaller compositions included in this work (e.g. a movement in a symphony).",
     )
-    lyrics: Optional[Union[List[CreativeWork], CreativeWork]] = Field(
+    lyrics: Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]] = Field(
         None,
         description="The words in the song.",
     )
@@ -31,11 +31,11 @@ class MusicComposition(CreativeWork):
         None,
         description="The key, mode, or scale this composition uses.",
     )
-    musicArrangement: Any = Field(
+    musicArrangement: Optional[Union[List[Union['MusicComposition', str]], Union['MusicComposition', str]]] = Field(
         None,
         description="An arrangement derived from the composition.",
     )
-    recordedAs: Optional[Union[List[MusicRecording], MusicRecording]] = Field(
+    recordedAs: Optional[Union[List[Union[MusicRecording, str]], Union[MusicRecording, str]]] = Field(
         None,
         description="An audio recording of the work.",
     )
@@ -43,11 +43,11 @@ class MusicComposition(CreativeWork):
         None,
         description="The International Standard Musical Work Code for the composition.",
     )
-    firstPerformance: Optional[Union[List[Event], Event]] = Field(
+    firstPerformance: Optional[Union[List[Union[Event, str]], Union[Event, str]]] = Field(
         None,
         description="The date and place the work was first performed.",
     )
-    lyricist: Optional[Union[List[Person], Person]] = Field(
+    lyricist: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="The person who wrote the words.",
     )

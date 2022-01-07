@@ -1,7 +1,7 @@
 from pydantic import Field
-from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from typing import List, Optional, Union
 from pydantic_schemaorg.ListItem import ListItem
 
 

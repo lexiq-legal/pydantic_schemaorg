@@ -1,5 +1,5 @@
 from pydantic import StrictBool, Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.PropertyValue import PropertyValue
 from pydantic_schemaorg.MediaObject import MediaObject
 
@@ -11,7 +11,7 @@ class ImageObject(MediaObject):
 
     """
     type_: str = Field("ImageObject", const=True, alias='@type')
-    thumbnail: Any = Field(
+    thumbnail: Optional[Union[List[Union['ImageObject', str]], Union['ImageObject', str]]] = Field(
         None,
         description="Thumbnail image for an image or video.",
     )
@@ -19,7 +19,7 @@ class ImageObject(MediaObject):
         None,
         description="Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.",
     )
-    representativeOfPage: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    representativeOfPage: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Indicates whether this image is representative of the content of the page.",
     )

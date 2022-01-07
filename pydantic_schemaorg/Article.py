@@ -1,6 +1,7 @@
-from pydantic import Field, AnyUrl
+from pydantic import AnyUrl, Field
 from pydantic_schemaorg.CreativeWork import CreativeWork
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.SpeakableSpecification import SpeakableSpecification
 
 
 class Article(CreativeWork):
@@ -24,7 +25,7 @@ class Article(CreativeWork):
         description="Articles may belong to one or more 'sections' in a magazine or newspaper, such as Sports,"
      "Lifestyle, etc.",
     )
-    speakable: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    speakable: Optional[Union[List[Union[AnyUrl, SpeakableSpecification, str]], Union[AnyUrl, SpeakableSpecification, str]]] = Field(
         None,
         description="Indicates sections of a Web page that are particularly 'speakable' in the sense of being"
      "highlighted as being especially appropriate for text-to-speech conversion. Other"
@@ -41,7 +42,7 @@ class Article(CreativeWork):
      "to pick out document section(s) as speakable. For this we define a supporting type, [[SpeakableSpecification]]"
      "which is defined to be a possible value of the *speakable* property.",
     )
-    wordCount: Optional[Union[List[int], int]] = Field(
+    wordCount: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="The number of words in the text of the Article.",
     )

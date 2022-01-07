@@ -1,6 +1,6 @@
-from pydantic import Field, AnyUrl
+from pydantic import AnyUrl, Field
 from pydantic_schemaorg.Language import Language
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Country import Country
 from pydantic_schemaorg.TVSeries import TVSeries
 from pydantic_schemaorg.Episode import Episode
@@ -17,7 +17,7 @@ class TVEpisode(Episode):
         None,
         description="Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
     )
-    countryOfOrigin: Optional[Union[List[Country], Country]] = Field(
+    countryOfOrigin: Optional[Union[List[Union[Country, str]], Union[Country, str]]] = Field(
         None,
         description="The country of origin of something, including products as well as creative works such"
      "as movie and TV content. In the case of TV and movie, this would be the country of the principle"
@@ -37,7 +37,7 @@ class TVEpisode(Episode):
      "their multiple expressions, it is possible to use [[titleEIDR]] alone (for a general"
      "description), or alongside [[editEIDR]] for a more edit-specific description.",
     )
-    partOfTVSeries: Optional[Union[List[TVSeries], TVSeries]] = Field(
+    partOfTVSeries: Optional[Union[List[Union[TVSeries, str]], Union[TVSeries, str]]] = Field(
         None,
         description="The TV series to which this episode or season belongs.",
     )

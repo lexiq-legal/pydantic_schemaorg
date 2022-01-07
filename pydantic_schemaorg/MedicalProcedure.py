@@ -1,8 +1,9 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.MedicalProcedureType import MedicalProcedureType
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
-from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
 from pydantic_schemaorg.EventStatusType import EventStatusType
+from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
 
 
 class MedicalProcedure(MedicalEntity):
@@ -13,7 +14,7 @@ class MedicalProcedure(MedicalEntity):
 
     """
     type_: str = Field("MedicalProcedure", const=True, alias='@type')
-    procedureType: Any = Field(
+    procedureType: Optional[Union[List[Union[MedicalProcedureType, str]], Union[MedicalProcedureType, str]]] = Field(
         None,
         description="The type of procedure, for example Surgical, Noninvasive, or Percutaneous.",
     )
@@ -25,7 +26,7 @@ class MedicalProcedure(MedicalEntity):
         None,
         description="Typical preparation that a patient must undergo before having the procedure performed.",
     )
-    status: Optional[Union[List[Union[str, MedicalStudyStatus, EventStatusType]], Union[str, MedicalStudyStatus, EventStatusType]]] = Field(
+    status: Optional[Union[List[Union[str, EventStatusType, MedicalStudyStatus]], Union[str, EventStatusType, MedicalStudyStatus]]] = Field(
         None,
         description="The status of the study (enumerated).",
     )

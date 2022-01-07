@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.SizeSystemEnumeration import SizeSystemEnumeration
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.GenderType import GenderType
 from pydantic_schemaorg.SizeGroupEnumeration import SizeGroupEnumeration
@@ -23,7 +23,7 @@ class SizeSpecification(QualitativeValue):
      "\"GS1\" or \"ISO-EN13402\"), country code (for example \"US\" or \"JP\"), or a measuring"
      "system (for example \"Metric\" or \"Imperial\").",
     )
-    hasMeasurement: Optional[Union[List[QuantitativeValue], QuantitativeValue]] = Field(
+    hasMeasurement: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="A product measurement, for example the inseam of pants, the wheel size of a bicycle, or"
      "the gauge of a screw. Usually an exact measurement, but can also be a range of measurements"
@@ -41,12 +41,12 @@ class SizeSpecification(QualitativeValue):
      "products. Multiple values can be combined, for example \"men's big and tall\", \"petite"
      "maternity\" or \"regular\"",
     )
-    suggestedAge: Optional[Union[List[QuantitativeValue], QuantitativeValue]] = Field(
+    suggestedAge: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The age or age range for the intended audience or person, for example 3-12 months for infants,"
      "1-5 years for toddlers.",
     )
-    suggestedMeasurement: Optional[Union[List[QuantitativeValue], QuantitativeValue]] = Field(
+    suggestedMeasurement: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="A suggested range of body measurements for the intended audience or person, for example"
      "inseam between 32 and 34 inches or height between 170 and 190 cm. Typically found on a size"

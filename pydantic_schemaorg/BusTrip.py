@@ -1,6 +1,7 @@
 from pydantic import Field
+from pydantic_schemaorg.BusStop import BusStop
 from pydantic_schemaorg.BusStation import BusStation
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.Trip import Trip
 
 
@@ -11,11 +12,11 @@ class BusTrip(Trip):
 
     """
     type_: str = Field("BusTrip", const=True, alias='@type')
-    departureBusStop: Union[List[Union[BusStation, Any]], Union[BusStation, Any]] = Field(
+    departureBusStop: Optional[Union[List[Union[BusStop, BusStation, str]], Union[BusStop, BusStation, str]]] = Field(
         None,
         description="The stop or station from which the bus departs.",
     )
-    arrivalBusStop: Union[List[Union[BusStation, Any]], Union[BusStation, Any]] = Field(
+    arrivalBusStop: Optional[Union[List[Union[BusStop, BusStation, str]], Union[BusStop, BusStation, str]]] = Field(
         None,
         description="The stop or station from which the bus arrives.",
     )

@@ -1,7 +1,7 @@
-from pydantic import Field, AnyUrl
+from pydantic import AnyUrl, Field
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from datetime import date
 from pydantic_schemaorg.LegalForceStatus import LegalForceStatus
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
@@ -17,20 +17,20 @@ class Legislation(CreativeWork):
 
     """
     type_: str = Field("Legislation", const=True, alias='@type')
-    legislationPassedBy: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    legislationPassedBy: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="The person or organization that originally passed or made the law : typically parliament"
      "(for primary legislation) or government (for secondary legislation). This indicates"
      "the \"legal author\" of the law, as opposed to its physical author.",
     )
-    legislationConsolidates: Any = Field(
+    legislationConsolidates: Optional[Union[List[Union['Legislation', str]], Union['Legislation', str]]] = Field(
         None,
         description="Indicates another legislation taken into account in this consolidated legislation"
      "(which is usually the product of an editorial process that revises the legislation)."
      "This property should be used multiple times to refer to both the original version or the"
      "previous consolidated version, and to the legislations making the change.",
     )
-    legislationChanges: Any = Field(
+    legislationChanges: Optional[Union[List[Union['Legislation', str]], Union['Legislation', str]]] = Field(
         None,
         description="Another legislation that this legislation changes. This encompasses the notions of"
      "amendment, replacement, correction, repeal, or other types of change. This may be a"
@@ -40,13 +40,13 @@ class Legislation(CreativeWork):
      "of the change. For consolidation relationships, use the <a href=\"/legislationConsolidates\">legislationConsolidates</a>"
      "property.",
     )
-    legislationDate: Optional[Union[List[date], date]] = Field(
+    legislationDate: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="The date of adoption or signature of the legislation. This is the date at which the text"
      "is officially aknowledged to be a legislation, even though it might not even be published"
      "or in force.",
     )
-    legislationLegalForce: Optional[Union[List[LegalForceStatus], LegalForceStatus]] = Field(
+    legislationLegalForce: Optional[Union[List[Union[LegalForceStatus, str]], Union[LegalForceStatus, str]]] = Field(
         None,
         description="Whether the legislation is currently in force, not in force, or partially in force.",
     )
@@ -56,7 +56,7 @@ class Legislation(CreativeWork):
      "the CELEX at EU level or the NOR in France, or a web-based, URL/URI identifier, like an"
      "ELI (European Legislation Identifier) or an URN-Lex.",
     )
-    legislationTransposes: Any = Field(
+    legislationTransposes: Optional[Union[List[Union['Legislation', str]], Union['Legislation', str]]] = Field(
         None,
         description="Indicates that this legislation (or part of legislation) fulfills the objectives set"
      "by another legislation, by passing appropriate implementation measures. Typically,"
@@ -68,7 +68,7 @@ class Legislation(CreativeWork):
         description="Indicates a legal jurisdiction, e.g. of some legislation, or where some government"
      "service is based.",
     )
-    legislationResponsible: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    legislationResponsible: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="An individual or organization that has some kind of responsibility for the legislation."
      "Typically the ministry who is/was in charge of elaborating the legislation, or the adressee"
@@ -84,7 +84,7 @@ class Legislation(CreativeWork):
      "\"decree\", \"regulation\", \"statutory instrument\", \"loi organique\", \"règlement"
      "grand-ducal\", etc., depending on the country.",
     )
-    legislationApplies: Any = Field(
+    legislationApplies: Optional[Union[List[Union['Legislation', str]], Union['Legislation', str]]] = Field(
         None,
         description="Indicates that this legislation (or part of a legislation) somehow transfers another"
      "legislation in a different legislative context. This is an informative link, and it"
@@ -93,7 +93,7 @@ class Legislation(CreativeWork):
      "state \"applies\" the consolidated version of the European Directive implemented"
      "in it.",
     )
-    legislationDateVersion: Optional[Union[List[date], date]] = Field(
+    legislationDateVersion: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="The point-in-time at which the provided description of the legislation is valid (e.g."
      ": when looking at the law on the 2016-04-07 (= dateVersion), I get the consolidation of"

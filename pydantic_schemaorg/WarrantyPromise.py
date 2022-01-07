@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.WarrantyScope import WarrantyScope
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -13,11 +13,11 @@ class WarrantyPromise(StructuredValue):
 
     """
     type_: str = Field("WarrantyPromise", const=True, alias='@type')
-    warrantyScope: Optional[Union[List[WarrantyScope], WarrantyScope]] = Field(
+    warrantyScope: Optional[Union[List[Union[WarrantyScope, str]], Union[WarrantyScope, str]]] = Field(
         None,
         description="The scope of the warranty promise.",
     )
-    durationOfWarranty: Optional[Union[List[QuantitativeValue], QuantitativeValue]] = Field(
+    durationOfWarranty: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The duration of the warranty promise. Common unitCode values are ANN for year, MON for"
      "months, or DAY for days.",

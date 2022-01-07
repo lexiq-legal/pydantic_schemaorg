@@ -1,8 +1,10 @@
 from pydantic import Field
 from pydantic_schemaorg.MusicAlbumProductionType import MusicAlbumProductionType
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.MusicAlbumReleaseType import MusicAlbumReleaseType
+from pydantic_schemaorg.MusicGroup import MusicGroup
 from pydantic_schemaorg.Person import Person
+from pydantic_schemaorg.MusicRelease import MusicRelease
 from pydantic_schemaorg.MusicPlaylist import MusicPlaylist
 
 
@@ -13,20 +15,20 @@ class MusicAlbum(MusicPlaylist):
 
     """
     type_: str = Field("MusicAlbum", const=True, alias='@type')
-    albumProductionType: Optional[Union[List[MusicAlbumProductionType], MusicAlbumProductionType]] = Field(
+    albumProductionType: Optional[Union[List[Union[MusicAlbumProductionType, str]], Union[MusicAlbumProductionType, str]]] = Field(
         None,
         description="Classification of the album by it's type of content: soundtrack, live album, studio"
      "album, etc.",
     )
-    albumReleaseType: Optional[Union[List[MusicAlbumReleaseType], MusicAlbumReleaseType]] = Field(
+    albumReleaseType: Optional[Union[List[Union[MusicAlbumReleaseType, str]], Union[MusicAlbumReleaseType, str]]] = Field(
         None,
         description="The kind of release which this album is: single, EP or album.",
     )
-    byArtist: Union[List[Union[Person, Any]], Union[Person, Any]] = Field(
+    byArtist: Optional[Union[List[Union[MusicGroup, Person, str]], Union[MusicGroup, Person, str]]] = Field(
         None,
         description="The artist that performed this album or recording.",
     )
-    albumRelease: Any = Field(
+    albumRelease: Optional[Union[List[Union[MusicRelease, str]], Union[MusicRelease, str]]] = Field(
         None,
         description="A release of this album.",
     )

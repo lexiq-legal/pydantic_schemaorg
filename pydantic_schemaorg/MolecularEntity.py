@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.BioChemEntity import BioChemEntity
 
@@ -24,7 +25,7 @@ class MolecularEntity(BioChemEntity):
      "using short ASCII strings. Double bond stereochemistry \ indicators may need to be escaped"
      "in the string in formats where the backslash is an escape character.",
     )
-    molecularWeight: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    molecularWeight: Optional[Union[List[Union[str, QuantitativeValue]], Union[str, QuantitativeValue]]] = Field(
         None,
         description="This is the molecular weight of the entity being described, not of the parent. Units should"
      "be included in the form '&lt;Number&gt; &lt;unit&gt;', for example '12 amu' or as '&lt;QuantitativeValue&gt;.",
@@ -38,7 +39,7 @@ class MolecularEntity(BioChemEntity):
         None,
         description="The empirical formula is the simplest whole number ratio of all the atoms in a molecule.",
     )
-    chemicalRole: Optional[Union[List[DefinedTerm], DefinedTerm]] = Field(
+    chemicalRole: Optional[Union[List[Union[DefinedTerm, str]], Union[DefinedTerm, str]]] = Field(
         None,
         description="A role played by the BioChemEntity within a chemical context.",
     )
@@ -46,14 +47,14 @@ class MolecularEntity(BioChemEntity):
         None,
         description="InChIKey is a hashed version of the full InChI (using the SHA-256 algorithm).",
     )
-    monoisotopicMolecularWeight: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    monoisotopicMolecularWeight: Optional[Union[List[Union[str, QuantitativeValue]], Union[str, QuantitativeValue]]] = Field(
         None,
         description="The monoisotopic mass is the sum of the masses of the atoms in a molecule using the unbound,"
      "ground-state, rest mass of the principal (most abundant) isotope for each element instead"
      "of the isotopic average mass. Please include the units the form '&lt;Number&gt; &lt;unit&gt;',"
      "for example '770.230488 g/mol' or as '&lt;QuantitativeValue&gt;.",
     )
-    potentialUse: Optional[Union[List[DefinedTerm], DefinedTerm]] = Field(
+    potentialUse: Optional[Union[List[Union[DefinedTerm, str]], Union[DefinedTerm, str]]] = Field(
         None,
         description="Intended use of the BioChemEntity by humans.",
     )

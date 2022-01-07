@@ -1,6 +1,6 @@
 from pydantic import StrictBool, Field
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.Organization import Organization
 
 
@@ -11,11 +11,11 @@ class MedicalOrganization(Organization):
 
     """
     type_: str = Field("MedicalOrganization", const=True, alias='@type')
-    medicalSpecialty: Optional[Union[List[MedicalSpecialty], MedicalSpecialty]] = Field(
+    medicalSpecialty: Optional[Union[List[Union[MedicalSpecialty, str]], Union[MedicalSpecialty, str]]] = Field(
         None,
         description="A medical specialty of the provider.",
     )
-    isAcceptingNewPatients: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    isAcceptingNewPatients: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Whether the provider is accepting new patients.",
     )

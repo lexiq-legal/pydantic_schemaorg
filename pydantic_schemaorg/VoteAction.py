@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.ChooseAction import ChooseAction
 
 
@@ -11,7 +11,7 @@ class VoteAction(ChooseAction):
 
     """
     type_: str = Field("VoteAction", const=True, alias='@type')
-    candidate: Optional[Union[List[Person], Person]] = Field(
+    candidate: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A sub property of object. The candidate subject of this action.",
     )

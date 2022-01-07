@@ -1,7 +1,9 @@
 from pydantic import Field
 from pydantic_schemaorg.DrugCostCategory import DrugCostCategory
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
+from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
 from decimal import Decimal
+from pydantic_schemaorg.QualitativeValue import QualitativeValue
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
 
@@ -17,7 +19,7 @@ class DrugCost(MedicalEntity):
 
     """
     type_: str = Field("DrugCost", const=True, alias='@type')
-    costCategory: Optional[Union[List[DrugCostCategory], DrugCostCategory]] = Field(
+    costCategory: Optional[Union[List[Union[DrugCostCategory, str]], Union[DrugCostCategory, str]]] = Field(
         None,
         description="The category of cost, such as wholesale, retail, reimbursement cap, etc.",
     )
@@ -25,7 +27,7 @@ class DrugCost(MedicalEntity):
         None,
         description="The unit in which the drug is measured, e.g. '5 mg tablet'.",
     )
-    applicableLocation: Any = Field(
+    applicableLocation: Optional[Union[List[Union[AdministrativeArea, str]], Union[AdministrativeArea, str]]] = Field(
         None,
         description="The location in which the status applies.",
     )
@@ -33,7 +35,7 @@ class DrugCost(MedicalEntity):
         None,
         description="The currency (in 3-letter of the drug cost. See: http://en.wikipedia.org/wiki/ISO_4217.",
     )
-    costPerUnit: Union[List[Union[Decimal, str, Any]], Union[Decimal, str, Any]] = Field(
+    costPerUnit: Optional[Union[List[Union[Decimal, str, QualitativeValue]], Union[Decimal, str, QualitativeValue]]] = Field(
         None,
         description="The cost per unit of the drug.",
     )

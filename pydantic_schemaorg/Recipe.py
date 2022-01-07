@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.ItemList import ItemList
 from pydantic_schemaorg.CreativeWork import CreativeWork
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.Duration import Duration
 from pydantic_schemaorg.NutritionInformation import NutritionInformation
 from pydantic_schemaorg.RestrictedDiet import RestrictedDiet
@@ -23,7 +23,7 @@ class Recipe(HowTo):
         description="A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered"
      "list with HowToStep and/or HowToSection items.",
     )
-    cookTime: Optional[Union[List[Duration], Duration]] = Field(
+    cookTime: Optional[Union[List[Union[Duration, str]], Union[Duration, str]]] = Field(
         None,
         description="The time it takes to actually cook the dish, in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
     )
@@ -35,7 +35,7 @@ class Recipe(HowTo):
         None,
         description="The cuisine of the recipe (for example, French or Ethiopian).",
     )
-    nutrition: Optional[Union[List[NutritionInformation], NutritionInformation]] = Field(
+    nutrition: Optional[Union[List[Union[NutritionInformation, str]], Union[NutritionInformation, str]]] = Field(
         None,
         description="Nutrition information about the recipe or menu item.",
     )
@@ -47,7 +47,7 @@ class Recipe(HowTo):
         None,
         description="The category of the recipe—for example, appetizer, entree, etc.",
     )
-    suitableForDiet: Optional[Union[List[RestrictedDiet], RestrictedDiet]] = Field(
+    suitableForDiet: Optional[Union[List[Union[RestrictedDiet, str]], Union[RestrictedDiet, str]]] = Field(
         None,
         description="Indicates a dietary restriction or guideline for which this recipe or menu item is suitable,"
      "e.g. diabetic, halal etc.",

@@ -1,6 +1,7 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
+from typing import List, Optional, Union
 from pydantic_schemaorg.BankOrCreditUnion import BankOrCreditUnion
 from pydantic_schemaorg.TransferAction import TransferAction
 
@@ -13,7 +14,7 @@ class MoneyTransfer(TransferAction):
 
     """
     type_: str = Field("MoneyTransfer", const=True, alias='@type')
-    amount: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
+    amount: Optional[Union[List[Union[Decimal, MonetaryAmount, str]], Union[Decimal, MonetaryAmount, str]]] = Field(
         None,
         description="The amount of money.",
     )

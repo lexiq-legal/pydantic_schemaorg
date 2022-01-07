@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.MediaObject import MediaObject
+from typing import List, Optional, Union
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -12,7 +13,7 @@ class MediaReviewItem(CreativeWork):
 
     """
     type_: str = Field("MediaReviewItem", const=True, alias='@type')
-    mediaItemAppearance: Any = Field(
+    mediaItemAppearance: Optional[Union[List[Union[MediaObject, str]], Union[MediaObject, str]]] = Field(
         None,
         description="In the context of a [[MediaReview]], indicates specific media item(s) that are grouped"
      "using a [[MediaReviewItem]].",

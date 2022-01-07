@@ -1,5 +1,5 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Union
 from pydantic_schemaorg.Product import Product
 from datetime import datetime, date
 from pydantic_schemaorg.PostalAddress import PostalAddress
@@ -22,50 +22,50 @@ class ParcelDelivery(Intangible):
         None,
         description="Shipper tracking number.",
     )
-    itemShipped: Optional[Union[List[Product], Product]] = Field(
+    itemShipped: Optional[Union[List[Union[Product, str]], Union[Product, str]]] = Field(
         None,
         description="Item(s) being shipped.",
     )
-    trackingUrl: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    trackingUrl: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="Tracking url for the parcel delivery.",
     )
-    expectedArrivalFrom: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    expectedArrivalFrom: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The earliest date the package may arrive.",
     )
-    expectedArrivalUntil: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    expectedArrivalUntil: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The latest date the package may arrive.",
     )
-    deliveryAddress: Optional[Union[List[PostalAddress], PostalAddress]] = Field(
+    deliveryAddress: Optional[Union[List[Union[PostalAddress, str]], Union[PostalAddress, str]]] = Field(
         None,
         description="Destination address.",
     )
-    hasDeliveryMethod: Optional[Union[List[DeliveryMethod], DeliveryMethod]] = Field(
+    hasDeliveryMethod: Optional[Union[List[Union[DeliveryMethod, str]], Union[DeliveryMethod, str]]] = Field(
         None,
         description="Method used for delivery or shipping.",
     )
-    carrier: Optional[Union[List[Organization], Organization]] = Field(
+    carrier: Optional[Union[List[Union[Organization, str]], Union[Organization, str]]] = Field(
         None,
         description="'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights.",
     )
-    originAddress: Optional[Union[List[PostalAddress], PostalAddress]] = Field(
+    originAddress: Optional[Union[List[Union[PostalAddress, str]], Union[PostalAddress, str]]] = Field(
         None,
         description="Shipper's address.",
     )
-    provider: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    provider: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."
      "A provider may also serve as the seller.",
     )
-    deliveryStatus: Optional[Union[List[DeliveryEvent], DeliveryEvent]] = Field(
+    deliveryStatus: Optional[Union[List[Union[DeliveryEvent, str]], Union[DeliveryEvent, str]]] = Field(
         None,
         description="New entry added as the package passes through each leg of its journey (from shipment to"
      "final delivery).",
     )
-    partOfOrder: Optional[Union[List[Order], Order]] = Field(
+    partOfOrder: Optional[Union[List[Union[Order, str]], Union[Order, str]]] = Field(
         None,
         description="The overall order the items in this delivery were included in.",
     )

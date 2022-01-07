@@ -1,8 +1,10 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
-from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Union
 from pydantic_schemaorg.Thing import Thing
+from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+from pydantic_schemaorg.SuperficialAnatomy import SuperficialAnatomy
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
+from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
 from pydantic_schemaorg.LifestyleModification import LifestyleModification
 
 
@@ -19,7 +21,7 @@ class PhysicalActivity(LifestyleModification):
         None,
         description="The characteristics of associated patients, such as age, gender, race etc.",
     )
-    category: Optional[Union[List[Union[AnyUrl, str, PhysicalActivityCategory, Thing]], Union[AnyUrl, str, PhysicalActivityCategory, Thing]]] = Field(
+    category: Optional[Union[List[Union[AnyUrl, str, Thing, PhysicalActivityCategory]], Union[AnyUrl, str, Thing, PhysicalActivityCategory]]] = Field(
         None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -29,7 +31,7 @@ class PhysicalActivity(LifestyleModification):
         description="Changes in the normal mechanical, physical, and biochemical functions that are associated"
      "with this activity or condition.",
     )
-    associatedAnatomy: Union[List[Union[AnatomicalStructure, Any]], Union[AnatomicalStructure, Any]] = Field(
+    associatedAnatomy: Optional[Union[List[Union[SuperficialAnatomy, AnatomicalStructure, AnatomicalSystem, str]], Union[SuperficialAnatomy, AnatomicalStructure, AnatomicalSystem, str]]] = Field(
         None,
         description="The anatomy of the underlying organ system or structures associated with this entity.",
     )

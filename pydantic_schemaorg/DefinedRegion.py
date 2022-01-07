@@ -1,5 +1,7 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
+from pydantic_schemaorg.Country import Country
+from pydantic_schemaorg.PostalCodeRangeSpecification import PostalCodeRangeSpecification
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -25,12 +27,12 @@ class DefinedRegion(StructuredValue):
         description="A defined range of postal codes indicated by a common textual prefix. Used for non-numeric"
      "systems such as UK.",
     )
-    addressCountry: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    addressCountry: Optional[Union[List[Union[str, Country]], Union[str, Country]]] = Field(
         None,
         description="The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2"
      "country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
     )
-    postalCodeRange: Any = Field(
+    postalCodeRange: Optional[Union[List[Union[PostalCodeRangeSpecification, str]], Union[PostalCodeRangeSpecification, str]]] = Field(
         None,
         description="A defined range of postal codes.",
     )

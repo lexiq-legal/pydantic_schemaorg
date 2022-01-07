@@ -1,5 +1,8 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from pydantic_schemaorg.MediaObject import MediaObject
+from pydantic_schemaorg.WebPage import WebPage
+from typing import List, Optional, Any, Union
+from pydantic_schemaorg.MediaManipulationRatingEnumeration import MediaManipulationRatingEnumeration
 from pydantic_schemaorg.Review import Review
 
 
@@ -18,12 +21,12 @@ class MediaReview(Review):
 
     """
     type_: str = Field("MediaReview", const=True, alias='@type')
-    originalMediaLink: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    originalMediaLink: Optional[Union[List[Union[AnyUrl, MediaObject, WebPage, str]], Union[AnyUrl, MediaObject, WebPage, str]]] = Field(
         None,
         description="Link to the page containing an original version of the content, or directly to an online"
      "copy of the original [[MediaObject]] content, e.g. video file.",
     )
-    mediaAuthenticityCategory: Any = Field(
+    mediaAuthenticityCategory: Optional[Union[List[Union[MediaManipulationRatingEnumeration, str]], Union[MediaManipulationRatingEnumeration, str]]] = Field(
         None,
         description="Indicates a MediaManipulationRatingEnumeration classification of a media object"
      "(in the context of how it was published or shared).",

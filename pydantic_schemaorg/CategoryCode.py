@@ -1,5 +1,6 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Union
+from pydantic_schemaorg.CategoryCodeSet import CategoryCodeSet
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 
 
@@ -14,7 +15,7 @@ class CategoryCode(DefinedTerm):
         None,
         description="A short textual code that uniquely identifies the value.",
     )
-    inCodeSet: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    inCodeSet: Optional[Union[List[Union[AnyUrl, CategoryCodeSet, str]], Union[AnyUrl, CategoryCodeSet, str]]] = Field(
         None,
         description="A [[CategoryCodeSet]] that contains this category code.",
     )

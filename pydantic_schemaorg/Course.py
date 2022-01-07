@@ -1,13 +1,14 @@
-from pydantic import Field, AnyUrl
+from pydantic import AnyUrl, Field
 from pydantic_schemaorg.StructuredValue import StructuredValue
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
+from pydantic_schemaorg.CourseInstance import CourseInstance
 from pydantic_schemaorg.AlignmentObject import AlignmentObject
-from pydantic_schemaorg.CreativeWork import CreativeWork
 from pydantic_schemaorg.LearningResource import LearningResource
+from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
-class Course(CreativeWork, LearningResource):
+class Course(LearningResource, CreativeWork):
     """A description of an educational course which may be offered as distinct instances at"
      "which take place at different times or take place at different locations, or be offered"
      "through different media or modes of study. An educational course is a sequence of one"
@@ -18,7 +19,7 @@ class Course(CreativeWork, LearningResource):
 
     """
     type_: str = Field("Course", const=True, alias='@type')
-    numberOfCredits: Optional[Union[List[Union[int, StructuredValue]], Union[int, StructuredValue]]] = Field(
+    numberOfCredits: Optional[Union[List[Union[int, StructuredValue, str]], Union[int, StructuredValue, str]]] = Field(
         None,
         description="The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.",
     )
@@ -31,12 +32,12 @@ class Course(CreativeWork, LearningResource):
         None,
         description="The identifier for the [[Course]] used by the course [[provider]] (e.g. CS101 or 6.001).",
     )
-    hasCourseInstance: Any = Field(
+    hasCourseInstance: Optional[Union[List[Union[CourseInstance, str]], Union[CourseInstance, str]]] = Field(
         None,
         description="An offering of the course at a specific time and place or through specific media or mode"
      "of study or to a specific section of students.",
     )
-    coursePrerequisites: Union[List[Union[str, AlignmentObject, Any]], Union[str, AlignmentObject, Any]] = Field(
+    coursePrerequisites: Optional[Union[List[Union[str, AlignmentObject, 'Course']], Union[str, AlignmentObject, 'Course']]] = Field(
         None,
         description="Requirements for taking the Course. May be completion of another [[Course]] or a textual"
      "description like \"permission of instructor\". Requirements may be a pre-requisite"

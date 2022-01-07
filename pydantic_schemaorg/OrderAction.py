@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.TradeAction import TradeAction
 
 
@@ -11,7 +11,7 @@ class OrderAction(TradeAction):
 
     """
     type_: str = Field("OrderAction", const=True, alias='@type')
-    deliveryMethod: Optional[Union[List[DeliveryMethod], DeliveryMethod]] = Field(
+    deliveryMethod: Optional[Union[List[Union[DeliveryMethod, str]], Union[DeliveryMethod, str]]] = Field(
         None,
         description="A sub property of instrument. The method of delivery.",
     )

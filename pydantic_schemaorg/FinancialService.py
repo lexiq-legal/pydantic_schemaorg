@@ -1,5 +1,5 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Union
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 

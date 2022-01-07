@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.TrainStation import TrainStation
+from typing import List, Optional, Union
 from pydantic_schemaorg.Trip import Trip
 
 
@@ -10,7 +11,7 @@ class TrainTrip(Trip):
 
     """
     type_: str = Field("TrainTrip", const=True, alias='@type')
-    arrivalStation: Any = Field(
+    arrivalStation: Optional[Union[List[Union[TrainStation, str]], Union[TrainStation, str]]] = Field(
         None,
         description="The station where the train trip ends.",
     )
@@ -30,7 +31,7 @@ class TrainTrip(Trip):
         None,
         description="The name of the train (e.g. The Orient Express).",
     )
-    departureStation: Any = Field(
+    departureStation: Optional[Union[List[Union[TrainStation, str]], Union[TrainStation, str]]] = Field(
         None,
         description="The station from which the train departs.",
     )

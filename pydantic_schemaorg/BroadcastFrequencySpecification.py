@@ -1,8 +1,8 @@
 from pydantic import Field
 from pydantic_schemaorg.QualitativeValue import QualitativeValue
-from typing import Any, Optional, Union, List
-from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from typing import List, Optional, Any, Union
 from decimal import Decimal
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -17,7 +17,7 @@ class BroadcastFrequencySpecification(Intangible):
         None,
         description="The modulation (e.g. FM, AM, etc) used by a particular broadcast service.",
     )
-    broadcastFrequencyValue: Optional[Union[List[Union[Decimal, QuantitativeValue]], Union[Decimal, QuantitativeValue]]] = Field(
+    broadcastFrequencyValue: Optional[Union[List[Union[Decimal, QuantitativeValue, str]], Union[Decimal, QuantitativeValue, str]]] = Field(
         None,
         description="The frequency in MHz for a particular broadcast.",
     )

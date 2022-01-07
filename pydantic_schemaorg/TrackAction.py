@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.FindAction import FindAction
 
 
@@ -14,7 +14,7 @@ class TrackAction(FindAction):
 
     """
     type_: str = Field("TrackAction", const=True, alias='@type')
-    deliveryMethod: Optional[Union[List[DeliveryMethod], DeliveryMethod]] = Field(
+    deliveryMethod: Optional[Union[List[Union[DeliveryMethod, str]], Union[DeliveryMethod, str]]] = Field(
         None,
         description="A sub property of instrument. The method of delivery.",
     )

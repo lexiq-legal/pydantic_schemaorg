@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from datetime import datetime, time
 from pydantic_schemaorg.QualitativeValue import QualitativeValue
@@ -19,19 +19,19 @@ class LodgingReservation(Reservation):
         None,
         description="A full description of the lodging unit.",
     )
-    numChildren: Optional[Union[List[Union[int, QuantitativeValue]], Union[int, QuantitativeValue]]] = Field(
+    numChildren: Optional[Union[List[Union[int, QuantitativeValue, str]], Union[int, QuantitativeValue, str]]] = Field(
         None,
         description="The number of children staying in the unit.",
     )
-    checkinTime: Optional[Union[List[Union[datetime, time]], Union[datetime, time]]] = Field(
+    checkinTime: Optional[Union[List[Union[datetime, time, str]], Union[datetime, time, str]]] = Field(
         None,
         description="The earliest someone may check into a lodging establishment.",
     )
-    numAdults: Optional[Union[List[Union[int, QuantitativeValue]], Union[int, QuantitativeValue]]] = Field(
+    numAdults: Optional[Union[List[Union[int, QuantitativeValue, str]], Union[int, QuantitativeValue, str]]] = Field(
         None,
         description="The number of adults staying in the unit.",
     )
-    checkoutTime: Optional[Union[List[Union[datetime, time]], Union[datetime, time]]] = Field(
+    checkoutTime: Optional[Union[List[Union[datetime, time, str]], Union[datetime, time, str]]] = Field(
         None,
         description="The latest someone may check out of a lodging establishment.",
     )

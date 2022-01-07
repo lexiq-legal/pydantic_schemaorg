@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Thing import Thing
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Action import Action
 
 
@@ -11,11 +11,11 @@ class UpdateAction(Action):
 
     """
     type_: str = Field("UpdateAction", const=True, alias='@type')
-    collection: Optional[Union[List[Thing], Thing]] = Field(
+    collection: Optional[Union[List[Union[Thing, str]], Union[Thing, str]]] = Field(
         None,
         description="A sub property of object. The collection target of the action.",
     )
-    targetCollection: Optional[Union[List[Thing], Thing]] = Field(
+    targetCollection: Optional[Union[List[Union[Thing, str]], Union[Thing, str]]] = Field(
         None,
         description="A sub property of object. The collection target of the action.",
     )

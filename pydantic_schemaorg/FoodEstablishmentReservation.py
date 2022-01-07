@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from datetime import datetime, time
 from pydantic_schemaorg.Reservation import Reservation
 
@@ -14,11 +14,11 @@ class FoodEstablishmentReservation(Reservation):
 
     """
     type_: str = Field("FoodEstablishmentReservation", const=True, alias='@type')
-    partySize: Optional[Union[List[Union[int, QuantitativeValue]], Union[int, QuantitativeValue]]] = Field(
+    partySize: Optional[Union[List[Union[int, QuantitativeValue, str]], Union[int, QuantitativeValue, str]]] = Field(
         None,
         description="Number of people the reservation should accommodate.",
     )
-    endTime: Optional[Union[List[Union[datetime, time]], Union[datetime, time]]] = Field(
+    endTime: Optional[Union[List[Union[datetime, time, str]], Union[datetime, time, str]]] = Field(
         None,
         description="The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation),"
      "the time that it is expected to end. For actions that span a period of time, when the action"
@@ -27,7 +27,7 @@ class FoodEstablishmentReservation(Reservation):
      "Event uses startDate/endDate instead of startTime/endTime, even when describing"
      "dates with times. This situation may be clarified in future revisions.",
     )
-    startTime: Optional[Union[List[Union[datetime, time]], Union[datetime, time]]] = Field(
+    startTime: Optional[Union[List[Union[datetime, time, str]], Union[datetime, time, str]]] = Field(
         None,
         description="The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation),"
      "the time that it is expected to start. For actions that span a period of time, when the action"

@@ -9,7 +9,7 @@ from urllib import request
 from constants import data_type_map, PACKAGE_NAME, data_type_specificity
 from jinja import jinja_env
 from schema_org import SchemaOrg
-
+import black
 
 def write_base_class():
     with open(f'{PACKAGE_NAME}/SchemaOrgBase.py', 'w') as model_file:

@@ -1,5 +1,6 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from pydantic_schemaorg.Duration import Duration
+from typing import List, Optional, Union
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
@@ -15,7 +16,7 @@ class EducationalOccupationalCredential(CreativeWork):
 
     """
     type_: str = Field("EducationalOccupationalCredential", const=True, alias='@type')
-    validFor: Any = Field(
+    validFor: Optional[Union[List[Union[Duration, str]], Union[Duration, str]]] = Field(
         None,
         description="The duration of validity of a permit or similar thing.",
     )
@@ -31,12 +32,12 @@ class EducationalOccupationalCredential(CreativeWork):
      "of educational levels include 'beginner', 'intermediate' or 'advanced', and formal"
      "sets of level indicators.",
     )
-    recognizedBy: Optional[Union[List[Organization], Organization]] = Field(
+    recognizedBy: Optional[Union[List[Union[Organization, str]], Union[Organization, str]]] = Field(
         None,
         description="An organization that acknowledges the validity, value or utility of a credential. Note:"
      "recognition may include a process of quality assurance or accreditation.",
     )
-    validIn: Optional[Union[List[AdministrativeArea], AdministrativeArea]] = Field(
+    validIn: Optional[Union[List[Union[AdministrativeArea, str]], Union[AdministrativeArea, str]]] = Field(
         None,
         description="The geographic area where a permit or similar thing is valid.",
     )

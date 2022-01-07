@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Comment import Comment
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.CommunicateAction import CommunicateAction
 
 
@@ -11,7 +11,7 @@ class CommentAction(CommunicateAction):
 
     """
     type_: str = Field("CommentAction", const=True, alias='@type')
-    resultComment: Optional[Union[List[Comment], Comment]] = Field(
+    resultComment: Optional[Union[List[Union[Comment, str]], Union[Comment, str]]] = Field(
         None,
         description="A sub property of result. The Comment created or sent as a result of this action.",
     )

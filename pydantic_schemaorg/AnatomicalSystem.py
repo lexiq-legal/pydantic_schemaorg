@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.MedicalCondition import MedicalCondition
 from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
@@ -17,22 +17,22 @@ class AnatomicalSystem(MedicalEntity):
 
     """
     type_: str = Field("AnatomicalSystem", const=True, alias='@type')
-    comprisedOf: Union[List[Union[AnatomicalStructure, Any]], Union[AnatomicalStructure, Any]] = Field(
+    comprisedOf: Optional[Union[List[Union[AnatomicalStructure, 'AnatomicalSystem', str]], Union[AnatomicalStructure, 'AnatomicalSystem', str]]] = Field(
         None,
         description="Specifying something physically contained by something else. Typically used here"
      "for the underlying anatomical structures, such as organs, that comprise the anatomical"
      "system.",
     )
-    relatedCondition: Optional[Union[List[MedicalCondition], MedicalCondition]] = Field(
+    relatedCondition: Optional[Union[List[Union[MedicalCondition, str]], Union[MedicalCondition, str]]] = Field(
         None,
         description="A medical condition associated with this anatomy.",
     )
-    relatedStructure: Optional[Union[List[AnatomicalStructure], AnatomicalStructure]] = Field(
+    relatedStructure: Optional[Union[List[Union[AnatomicalStructure, str]], Union[AnatomicalStructure, str]]] = Field(
         None,
         description="Related anatomical structure(s) that are not part of the system but relate or connect"
      "to it, such as vascular bundles associated with an organ system.",
     )
-    relatedTherapy: Optional[Union[List[MedicalTherapy], MedicalTherapy]] = Field(
+    relatedTherapy: Optional[Union[List[Union[MedicalTherapy, str]], Union[MedicalTherapy, str]]] = Field(
         None,
         description="A medical therapy related to this anatomy.",
     )

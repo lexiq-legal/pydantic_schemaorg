@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Demand import Demand
 from pydantic_schemaorg.Offer import Offer
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -16,7 +16,7 @@ class AggregateOffer(Offer):
 
     """
     type_: str = Field("AggregateOffer", const=True, alias='@type')
-    offers: Optional[Union[List[Union[Demand, Offer]], Union[Demand, Offer]]] = Field(
+    offers: Optional[Union[List[Union[Demand, Offer, str]], Union[Demand, Offer, str]]] = Field(
         None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -39,7 +39,7 @@ class AggregateOffer(Offer):
      "similiar Unicode symbols. * Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to"
      "indicate a decimal point. Avoid using these symbols as a readability separator.",
     )
-    offerCount: Optional[Union[List[int], int]] = Field(
+    offerCount: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="The number of offers for the product.",
     )

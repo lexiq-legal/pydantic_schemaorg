@@ -1,6 +1,6 @@
 from pydantic import StrictBool, Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from datetime import datetime, date
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -15,15 +15,15 @@ class MonetaryAmount(StructuredValue):
 
     """
     type_: str = Field("MonetaryAmount", const=True, alias='@type')
-    minValue: Optional[Union[List[Decimal], Decimal]] = Field(
+    minValue: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The lower value of some characteristic or property.",
     )
-    validFrom: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    validFrom: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The date when the item becomes valid.",
     )
-    value: Optional[Union[List[Union[Decimal, StrictBool, str, StructuredValue]], Union[Decimal, StrictBool, str, StructuredValue]]] = Field(
+    value: Optional[Union[List[Union[Decimal, str, StrictBool, StructuredValue]], Union[Decimal, str, StrictBool, StructuredValue]]] = Field(
         None,
         description="The value of the quantitative value or property value node. * For [[QuantitativeValue]]"
      "and [[MonetaryAmount]], the recommended type for values is 'Number'. * For [[PropertyValue]],"
@@ -32,12 +32,12 @@ class MonetaryAmount(StructuredValue):
      "similiar Unicode symbols. * Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to"
      "indicate a decimal point. Avoid using these symbols as a readability separator.",
     )
-    validThrough: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    validThrough: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The date after when the item is not valid. For example the end of an offer, salary period,"
      "or a period of opening hours.",
     )
-    maxValue: Optional[Union[List[Decimal], Decimal]] = Field(
+    maxValue: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The upper value of some characteristic or property.",
     )

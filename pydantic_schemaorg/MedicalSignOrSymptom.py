@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.MedicalCondition import MedicalCondition
 
 
@@ -12,7 +12,7 @@ class MedicalSignOrSymptom(MedicalCondition):
 
     """
     type_: str = Field("MedicalSignOrSymptom", const=True, alias='@type')
-    possibleTreatment: Optional[Union[List[MedicalTherapy], MedicalTherapy]] = Field(
+    possibleTreatment: Optional[Union[List[Union[MedicalTherapy, str]], Union[MedicalTherapy, str]]] = Field(
         None,
         description="A possible treatment to address this condition, sign or symptom.",
     )

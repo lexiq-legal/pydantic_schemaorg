@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -15,7 +16,7 @@ class Audience(Intangible):
         description="The target group associated with a given audience (e.g. veterans, car owners, musicians,"
      "etc.).",
     )
-    geographicArea: Any = Field(
+    geographicArea: Optional[Union[List[Union[AdministrativeArea, str]], Union[AdministrativeArea, str]]] = Field(
         None,
         description="The geographic area associated with the audience.",
     )

@@ -1,9 +1,9 @@
 from pydantic import Field
-from pydantic_schemaorg.SportsActivityLocation import SportsActivityLocation
 from pydantic_schemaorg.HealthAndBeautyBusiness import HealthAndBeautyBusiness
+from pydantic_schemaorg.SportsActivityLocation import SportsActivityLocation
 
 
-class HealthClub(SportsActivityLocation, HealthAndBeautyBusiness):
+class HealthClub(HealthAndBeautyBusiness, SportsActivityLocation):
     """A health club.
 
     See https://schema.org/HealthClub.

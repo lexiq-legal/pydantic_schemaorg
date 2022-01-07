@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Country import Country
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.TVSeries import TVSeries
 from pydantic_schemaorg.CreativeWorkSeason import CreativeWorkSeason
 from pydantic_schemaorg.CreativeWork import CreativeWork
@@ -13,7 +13,7 @@ class TVSeason(CreativeWorkSeason, CreativeWork):
 
     """
     type_: str = Field("TVSeason", const=True, alias='@type')
-    countryOfOrigin: Optional[Union[List[Country], Country]] = Field(
+    countryOfOrigin: Optional[Union[List[Union[Country, str]], Union[Country, str]]] = Field(
         None,
         description="The country of origin of something, including products as well as creative works such"
      "as movie and TV content. In the case of TV and movie, this would be the country of the principle"
@@ -23,7 +23,7 @@ class TVSeason(CreativeWorkSeason, CreativeWork):
      "case of products, the country of origin of the product. The exact interpretation of this"
      "may vary by context and product type, and cannot be fully enumerated here.",
     )
-    partOfTVSeries: Optional[Union[List[TVSeries], TVSeries]] = Field(
+    partOfTVSeries: Optional[Union[List[Union[TVSeries, str]], Union[TVSeries, str]]] = Field(
         None,
         description="The TV series to which this episode or season belongs.",
     )

@@ -1,10 +1,15 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from pydantic_schemaorg.Duration import Duration
+from typing import List, Optional, Union
 from pydantic_schemaorg.Demand import Demand
+from pydantic_schemaorg.Offer import Offer
 from pydantic_schemaorg.StructuredValue import StructuredValue
 from datetime import datetime, date
 from pydantic_schemaorg.AlignmentObject import AlignmentObject
+from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
+from pydantic_schemaorg.Course import Course
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
+from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
 from decimal import Decimal
 from pydantic_schemaorg.DayOfWeek import DayOfWeek
 from pydantic_schemaorg.Organization import Organization
@@ -24,11 +29,11 @@ class EducationalOccupationalProgram(Intangible):
 
     """
     type_: str = Field("EducationalOccupationalProgram", const=True, alias='@type')
-    timeToComplete: Any = Field(
+    timeToComplete: Optional[Union[List[Union[Duration, str]], Union[Duration, str]]] = Field(
         None,
         description="The expected length of time to complete the program if attending full-time.",
     )
-    offers: Union[List[Union[Demand, Any]], Union[Demand, Any]] = Field(
+    offers: Optional[Union[List[Union[Demand, Offer, str]], Union[Demand, Offer, str]]] = Field(
         None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -37,21 +42,21 @@ class EducationalOccupationalProgram(Intangible):
      "of common types, it can be used in others. In that case, using a second type, such as Product"
      "or a subtype of Product, can clarify the nature of the offer.",
     )
-    typicalCreditsPerTerm: Optional[Union[List[Union[int, StructuredValue]], Union[int, StructuredValue]]] = Field(
+    typicalCreditsPerTerm: Optional[Union[List[Union[int, StructuredValue, str]], Union[int, StructuredValue, str]]] = Field(
         None,
         description="The number of credits or units a full-time student would be expected to take in 1 term however"
      "'term' is defined by the institution.",
     )
-    applicationStartDate: Optional[Union[List[date], date]] = Field(
+    applicationStartDate: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="The date at which the program begins collecting applications for the next enrollment"
      "cycle.",
     )
-    programPrerequisites: Union[List[Union[str, AlignmentObject, Any]], Union[str, AlignmentObject, Any]] = Field(
+    programPrerequisites: Optional[Union[List[Union[str, AlignmentObject, EducationalOccupationalCredential, Course]], Union[str, AlignmentObject, EducationalOccupationalCredential, Course]]] = Field(
         None,
         description="Prerequisites for enrolling in the program.",
     )
-    numberOfCredits: Optional[Union[List[Union[int, StructuredValue]], Union[int, StructuredValue]]] = Field(
+    numberOfCredits: Optional[Union[List[Union[int, StructuredValue, str]], Union[int, StructuredValue, str]]] = Field(
         None,
         description="The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.",
     )
@@ -68,34 +73,34 @@ class EducationalOccupationalProgram(Intangible):
         description="The type of educational or occupational program. For example, classroom, internship,"
      "alternance, etc..",
     )
-    applicationDeadline: Optional[Union[List[date], date]] = Field(
+    applicationDeadline: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="The date at which the program stops collecting applications for the next enrollment"
      "cycle.",
     )
-    educationalCredentialAwarded: Union[List[Union[AnyUrl, str, Any]], Union[AnyUrl, str, Any]] = Field(
+    educationalCredentialAwarded: Optional[Union[List[Union[AnyUrl, str, EducationalOccupationalCredential]], Union[AnyUrl, str, EducationalOccupationalCredential]]] = Field(
         None,
         description="A description of the qualification, award, certificate, diploma or other educational"
      "credential awarded as a consequence of successful completion of this course or program.",
     )
-    maximumEnrollment: Optional[Union[List[int], int]] = Field(
+    maximumEnrollment: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="The maximum number of students who may be enrolled in the program.",
     )
-    termDuration: Any = Field(
+    termDuration: Optional[Union[List[Union[Duration, str]], Union[Duration, str]]] = Field(
         None,
         description="The amount of time in a term as defined by the institution. A term is a length of time where"
      "students take one or more classes. Semesters and quarters are common units for term.",
     )
-    endDate: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    endDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    trainingSalary: Any = Field(
+    trainingSalary: Optional[Union[List[Union[MonetaryAmountDistribution, str]], Union[MonetaryAmountDistribution, str]]] = Field(
         None,
         description="The estimated salary earned while in the program.",
     )
-    salaryUponCompletion: Any = Field(
+    salaryUponCompletion: Optional[Union[List[Union[MonetaryAmountDistribution, str]], Union[MonetaryAmountDistribution, str]]] = Field(
         None,
         description="The expected salary upon completing the training.",
     )
@@ -103,22 +108,22 @@ class EducationalOccupationalProgram(Intangible):
         None,
         description="The time of day the program normally runs. For example, \"evenings\".",
     )
-    termsPerYear: Optional[Union[List[Decimal], Decimal]] = Field(
+    termsPerYear: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="The number of times terms of study are offered per year. Semesters and quarters are common"
      "units for term. For example, if the student can only take 2 semesters for the program in"
      "one year, then termsPerYear should be 2.",
     )
-    occupationalCredentialAwarded: Union[List[Union[AnyUrl, str, Any]], Union[AnyUrl, str, Any]] = Field(
+    occupationalCredentialAwarded: Optional[Union[List[Union[AnyUrl, str, EducationalOccupationalCredential]], Union[AnyUrl, str, EducationalOccupationalCredential]]] = Field(
         None,
         description="A description of the qualification, award, certificate, diploma or other occupational"
      "credential awarded as a consequence of successful completion of this course or program.",
     )
-    startDate: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    startDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    dayOfWeek: Optional[Union[List[DayOfWeek], DayOfWeek]] = Field(
+    dayOfWeek: Optional[Union[List[Union[DayOfWeek, str]], Union[DayOfWeek, str]]] = Field(
         None,
         description="The day of the week for which these opening hours are valid.",
     )
@@ -127,7 +132,7 @@ class EducationalOccupationalProgram(Intangible):
         description="A financial aid type or program which students may use to pay for tuition or fees associated"
      "with the program.",
     )
-    provider: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    provider: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."
@@ -142,7 +147,7 @@ class EducationalOccupationalProgram(Intangible):
      "be provided. Note: for historical reasons, any textual label and formal code provided"
      "as a literal may be assumed to be from O*NET-SOC.",
     )
-    hasCourse: Any = Field(
+    hasCourse: Optional[Union[List[Union[Course, str]], Union[Course, str]]] = Field(
         None,
         description="A course or class that is one of the learning opportunities that constitute an educational"
      "/ occupational program. No information is implied about whether the course is mandatory"

@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.ProductGroup import ProductGroup
 from pydantic_schemaorg.Product import Product
 
 
@@ -10,15 +11,15 @@ class ProductModel(Product):
 
     """
     type_: str = Field("ProductModel", const=True, alias='@type')
-    predecessorOf: Any = Field(
+    predecessorOf: Optional[Union[List[Union['ProductModel', str]], Union['ProductModel', str]]] = Field(
         None,
         description="A pointer from a previous, often discontinued variant of the product to its newer variant.",
     )
-    successorOf: Any = Field(
+    successorOf: Optional[Union[List[Union['ProductModel', str]], Union['ProductModel', str]]] = Field(
         None,
         description="A pointer from a newer variant of a product to its previous, often discontinued predecessor.",
     )
-    isVariantOf: Any = Field(
+    isVariantOf: Optional[Union[List[Union[ProductGroup, 'ProductModel', str]], Union[ProductGroup, 'ProductModel', str]]] = Field(
         None,
         description="Indicates the kind of product that this is a variant of. In the case of [[ProductModel]],"
      "this is a pointer (from a ProductModel) to a base product from which this product is a variant."

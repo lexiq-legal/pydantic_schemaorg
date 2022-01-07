@@ -1,6 +1,7 @@
-from pydantic import Field, AnyUrl
+from pydantic import AnyUrl, Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from typing import List, Optional, Union
 from pydantic_schemaorg.Service import Service
 
 
@@ -13,7 +14,7 @@ class FinancialProduct(Service):
 
     """
     type_: str = Field("FinancialProduct", const=True, alias='@type')
-    annualPercentageRate: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
+    annualPercentageRate: Optional[Union[List[Union[Decimal, QuantitativeValue, str]], Union[Decimal, QuantitativeValue, str]]] = Field(
         None,
         description="The annual rate that is charged for borrowing (or made by investing), expressed as a single"
      "percentage number that represents the actual yearly cost of funds over the term of a loan."
@@ -24,7 +25,7 @@ class FinancialProduct(Service):
         description="Description of fees, commissions, and other terms applied either to a class of financial"
      "product, or by a financial service organization.",
     )
-    interestRate: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
+    interestRate: Optional[Union[List[Union[Decimal, QuantitativeValue, str]], Union[Decimal, QuantitativeValue, str]]] = Field(
         None,
         description="The interest rate, charged or paid, applicable to the financial product. Note: This"
      "is different from the calculated annualPercentageRate.",

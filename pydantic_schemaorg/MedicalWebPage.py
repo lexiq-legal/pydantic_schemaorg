@@ -1,6 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.MedicalAudienceType import MedicalAudienceType
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.MedicalAudience import MedicalAudience
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.WebPage import WebPage
 
 
@@ -11,7 +12,7 @@ class MedicalWebPage(WebPage):
 
     """
     type_: str = Field("MedicalWebPage", const=True, alias='@type')
-    medicalAudience: Union[List[Union[MedicalAudienceType, Any]], Union[MedicalAudienceType, Any]] = Field(
+    medicalAudience: Optional[Union[List[Union[MedicalAudienceType, MedicalAudience, str]], Union[MedicalAudienceType, MedicalAudience, str]]] = Field(
         None,
         description="Medical audience for page.",
     )

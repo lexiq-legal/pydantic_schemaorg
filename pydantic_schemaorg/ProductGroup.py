@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Product import Product
 
 
@@ -29,7 +29,7 @@ class ProductGroup(Product):
         None,
         description="Indicates a textual identifier for a ProductGroup.",
     )
-    hasVariant: Optional[Union[List[Product], Product]] = Field(
+    hasVariant: Optional[Union[List[Union[Product, str]], Union[Product, str]]] = Field(
         None,
         description="Indicates a [[Product]] that is a member of this [[ProductGroup]] (or [[ProductModel]]).",
     )

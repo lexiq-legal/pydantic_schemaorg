@@ -1,11 +1,11 @@
 from pydantic import Field
 from datetime import datetime, date
-from typing import Any, Optional, Union, List
-from pydantic_schemaorg.CreativeWork import CreativeWork
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.Series import Series
+from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
-class CreativeWorkSeries(CreativeWork, Series):
+class CreativeWorkSeries(Series, CreativeWork):
     """A CreativeWorkSeries in schema.org is a group of related items, typically but not necessarily"
      "of the same kind. CreativeWorkSeries are usually organized into some order, often chronological."
      "Unlike [[ItemList]] which is a general purpose data structure for lists of things, the"
@@ -24,11 +24,11 @@ class CreativeWorkSeries(CreativeWork, Series):
 
     """
     type_: str = Field("CreativeWorkSeries", const=True, alias='@type')
-    endDate: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    endDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    startDate: Optional[Union[List[Union[datetime, date]], Union[datetime, date]]] = Field(
+    startDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
         None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )

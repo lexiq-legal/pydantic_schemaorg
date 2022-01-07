@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from typing import List, Optional, Union
 from pydantic_schemaorg.Product import Product
 
 
@@ -10,7 +11,7 @@ class SomeProducts(Product):
 
     """
     type_: str = Field("SomeProducts", const=True, alias='@type')
-    inventoryLevel: Any = Field(
+    inventoryLevel: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The current approximate inventory level for the item or items.",
     )

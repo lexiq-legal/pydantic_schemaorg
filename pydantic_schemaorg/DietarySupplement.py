@@ -1,9 +1,10 @@
 from pydantic import StrictBool, Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.RecommendedDoseSchedule import RecommendedDoseSchedule
 from pydantic_schemaorg.Organization import Organization
-from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
+from pydantic_schemaorg.MaximumDoseSchedule import MaximumDoseSchedule
 from pydantic_schemaorg.DrugLegalStatus import DrugLegalStatus
+from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
 from pydantic_schemaorg.Substance import Substance
 
 
@@ -22,7 +23,7 @@ class DietarySupplement(Substance):
      "with other drugs and foods, pregnancy, breastfeeding, known adverse reactions, and"
      "documented efficacy of the supplement.",
     )
-    recommendedIntake: Optional[Union[List[RecommendedDoseSchedule], RecommendedDoseSchedule]] = Field(
+    recommendedIntake: Optional[Union[List[Union[RecommendedDoseSchedule, str]], Union[RecommendedDoseSchedule, str]]] = Field(
         None,
         description="Recommended intake of this supplement for a given population as defined by a specific"
      "recommending authority.",
@@ -40,11 +41,11 @@ class DietarySupplement(Substance):
         None,
         description="Proprietary name given to the diet plan, typically by its originator or creator.",
     )
-    manufacturer: Optional[Union[List[Organization], Organization]] = Field(
+    manufacturer: Optional[Union[List[Union[Organization, str]], Union[Organization, str]]] = Field(
         None,
         description="The manufacturer of the product.",
     )
-    maximumIntake: Any = Field(
+    maximumIntake: Optional[Union[List[Union[MaximumDoseSchedule, str]], Union[MaximumDoseSchedule, str]]] = Field(
         None,
         description="Recommended intake of this supplement for a given population as defined by a specific"
      "recommending authority.",
@@ -58,12 +59,12 @@ class DietarySupplement(Substance):
         description="The specific biochemical interaction through which this drug or supplement produces"
      "its pharmacological effect.",
     )
-    legalStatus: Optional[Union[List[Union[str, MedicalEnumeration, DrugLegalStatus]], Union[str, MedicalEnumeration, DrugLegalStatus]]] = Field(
+    legalStatus: Optional[Union[List[Union[str, DrugLegalStatus, MedicalEnumeration]], Union[str, DrugLegalStatus, MedicalEnumeration]]] = Field(
         None,
         description="The drug or supplement's legal status, including any controlled substance schedules"
      "that apply.",
     )
-    isProprietary: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    isProprietary: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="True if this item's name is a proprietary/brand name (vs. generic name).",
     )

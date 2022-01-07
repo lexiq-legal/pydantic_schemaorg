@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Thing import Thing
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Intangible import Intangible
@@ -22,11 +22,11 @@ class Grant(Intangible):
 
     """
     type_: str = Field("Grant", const=True, alias='@type')
-    fundedItem: Optional[Union[List[Thing], Thing]] = Field(
+    fundedItem: Optional[Union[List[Union[Thing, str]], Union[Thing, str]]] = Field(
         None,
         description="Indicates an item funded or sponsored through a [[Grant]].",
     )
-    sponsor: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    sponsor: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",

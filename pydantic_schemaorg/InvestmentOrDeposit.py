@@ -1,6 +1,7 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
+from typing import List, Optional, Union
 from pydantic_schemaorg.FinancialProduct import FinancialProduct
 
 
@@ -12,7 +13,7 @@ class InvestmentOrDeposit(FinancialProduct):
 
     """
     type_: str = Field("InvestmentOrDeposit", const=True, alias='@type')
-    amount: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
+    amount: Optional[Union[List[Union[Decimal, MonetaryAmount, str]], Union[Decimal, MonetaryAmount, str]]] = Field(
         None,
         description="The amount of money.",
     )

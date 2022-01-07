@@ -1,6 +1,6 @@
 from pydantic import Field
 from decimal import Decimal
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.PeopleAudience import PeopleAudience
 
 
@@ -11,11 +11,11 @@ class ParentAudience(PeopleAudience):
 
     """
     type_: str = Field("ParentAudience", const=True, alias='@type')
-    childMinAge: Optional[Union[List[Decimal], Decimal]] = Field(
+    childMinAge: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="Minimal age of the child.",
     )
-    childMaxAge: Optional[Union[List[Decimal], Decimal]] = Field(
+    childMaxAge: Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]] = Field(
         None,
         description="Maximal age of the child.",
     )

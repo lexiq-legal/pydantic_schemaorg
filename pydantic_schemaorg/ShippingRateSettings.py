@@ -1,6 +1,7 @@
 from pydantic import StrictBool, Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.DefinedRegion import DefinedRegion
+from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
 from pydantic_schemaorg.DeliveryChargeSpecification import DeliveryChargeSpecification
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
@@ -20,27 +21,27 @@ class ShippingRateSettings(StructuredValue):
         description="Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within"
      "the context of a [[shippingSettingsLink]] cross-reference).",
     )
-    doesNotShip: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    doesNotShip: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Indicates when shipping to a particular [[shippingDestination]] is not available.",
     )
-    shippingDestination: Optional[Union[List[DefinedRegion], DefinedRegion]] = Field(
+    shippingDestination: Optional[Union[List[Union[DefinedRegion, str]], Union[DefinedRegion, str]]] = Field(
         None,
         description="indicates (possibly multiple) shipping destinations. These can be defined in several"
      "ways e.g. postalCode ranges.",
     )
-    shippingRate: Any = Field(
+    shippingRate: Optional[Union[List[Union[MonetaryAmount, str]], Union[MonetaryAmount, str]]] = Field(
         None,
         description="The shipping rate is the cost of shipping to the specified destination. Typically, the"
      "maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.",
     )
-    freeShippingThreshold: Union[List[Union[DeliveryChargeSpecification, Any]], Union[DeliveryChargeSpecification, Any]] = Field(
+    freeShippingThreshold: Optional[Union[List[Union[DeliveryChargeSpecification, MonetaryAmount, str]], Union[DeliveryChargeSpecification, MonetaryAmount, str]]] = Field(
         None,
         description="A monetary value above which (or equal to) the shipping rate becomes free. Intended to"
      "be used via an [[OfferShippingDetails]] with [[shippingSettingsLink]] matching"
      "this [[ShippingRateSettings]].",
     )
-    isUnlabelledFallback: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    isUnlabelledFallback: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="This can be marked 'true' to indicate that some published [[DeliveryTimeSettings]]"
      "or [[ShippingRateSettings]] are intended to apply to all [[OfferShippingDetails]]"

@@ -1,5 +1,5 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Language import Language
 from pydantic_schemaorg.Role import Role
 

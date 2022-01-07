@@ -1,6 +1,6 @@
 from pydantic import StrictBool, Field
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.BookFormatType import BookFormatType
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -12,11 +12,11 @@ class Book(CreativeWork):
 
     """
     type_: str = Field("Book", const=True, alias='@type')
-    illustrator: Optional[Union[List[Person], Person]] = Field(
+    illustrator: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="The illustrator of the book.",
     )
-    abridged: Optional[Union[List[StrictBool], StrictBool]] = Field(
+    abridged: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
         None,
         description="Indicates whether the book is an abridged edition.",
     )
@@ -24,11 +24,11 @@ class Book(CreativeWork):
         None,
         description="The ISBN of the book.",
     )
-    numberOfPages: Optional[Union[List[int], int]] = Field(
+    numberOfPages: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
         None,
         description="The number of pages in the book.",
     )
-    bookFormat: Optional[Union[List[BookFormatType], BookFormatType]] = Field(
+    bookFormat: Optional[Union[List[Union[BookFormatType, str]], Union[BookFormatType, str]]] = Field(
         None,
         description="The format of the book.",
     )

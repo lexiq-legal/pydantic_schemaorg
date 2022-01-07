@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.CreativeWork import CreativeWork
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 
@@ -21,16 +21,16 @@ class Claim(CreativeWork):
 
     """
     type_: str = Field("Claim", const=True, alias='@type')
-    firstAppearance: Optional[Union[List[CreativeWork], CreativeWork]] = Field(
+    firstAppearance: Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]] = Field(
         None,
         description="Indicates the first known occurence of a [[Claim]] in some [[CreativeWork]].",
     )
-    claimInterpreter: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    claimInterpreter: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="For a [[Claim]] interpreted from [[MediaObject]] content sed to indicate a claim contained,"
      "implied or refined from the content of a [[MediaObject]].",
     )
-    appearance: Optional[Union[List[CreativeWork], CreativeWork]] = Field(
+    appearance: Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]] = Field(
         None,
         description="Indicates an occurence of a [[Claim]] in some [[CreativeWork]].",
     )

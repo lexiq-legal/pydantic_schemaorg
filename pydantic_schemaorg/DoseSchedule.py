@@ -1,6 +1,7 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Any, Union
 from decimal import Decimal
+from pydantic_schemaorg.QualitativeValue import QualitativeValue
 from pydantic_schemaorg.MedicalIntangible import MedicalIntangible
 
 
@@ -16,7 +17,7 @@ class DoseSchedule(MedicalIntangible):
         description="Characteristics of the population for which this is intended, or which typically uses"
      "it, e.g. 'adults'.",
     )
-    doseValue: Union[List[Union[Decimal, Any]], Union[Decimal, Any]] = Field(
+    doseValue: Optional[Union[List[Union[Decimal, QualitativeValue, str]], Union[Decimal, QualitativeValue, str]]] = Field(
         None,
         description="The value of the dose, e.g. 500.",
     )

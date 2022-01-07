@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Drug import Drug
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
 
@@ -12,7 +12,7 @@ class DrugClass(MedicalEntity):
 
     """
     type_: str = Field("DrugClass", const=True, alias='@type')
-    drug: Optional[Union[List[Drug], Drug]] = Field(
+    drug: Optional[Union[List[Union[Drug, str]], Union[Drug, str]]] = Field(
         None,
         description="Specifying a drug or medicine used in a medication procedure.",
     )

@@ -1,7 +1,7 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
-from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from typing import List, Optional, Union
 from decimal import Decimal
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
 from pydantic_schemaorg.Intangible import Intangible
@@ -19,17 +19,17 @@ class ProgramMembership(Intangible):
         None,
         description="A unique identifier for the membership.",
     )
-    membershipPointsEarned: Optional[Union[List[Union[Decimal, QuantitativeValue]], Union[Decimal, QuantitativeValue]]] = Field(
+    membershipPointsEarned: Optional[Union[List[Union[Decimal, QuantitativeValue, str]], Union[Decimal, QuantitativeValue, str]]] = Field(
         None,
         description="The number of membership points earned by the member. If necessary, the unitText can"
      "be used to express the units the points are issued in. (e.g. stars, miles, etc.)",
     )
-    member: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    member: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="A member of an Organization or a ProgramMembership. Organizations can be members of"
      "organizations; ProgramMembership is typically for individuals.",
     )
-    members: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    members: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="A member of this organization.",
     )
@@ -37,7 +37,7 @@ class ProgramMembership(Intangible):
         None,
         description="The program providing the membership.",
     )
-    hostingOrganization: Optional[Union[List[Organization], Organization]] = Field(
+    hostingOrganization: Optional[Union[List[Union[Organization, str]], Union[Organization, str]]] = Field(
         None,
         description="The organization (airline, travelers' club, etc.) the membership is made with.",
     )

@@ -1,5 +1,5 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.SoftwareApplication import SoftwareApplication
 from pydantic_schemaorg.Intangible import Intangible
 
@@ -15,11 +15,11 @@ class EntryPoint(Intangible):
         None,
         description="The supported content type(s) for an EntryPoint response.",
     )
-    actionApplication: Optional[Union[List[SoftwareApplication], SoftwareApplication]] = Field(
+    actionApplication: Optional[Union[List[Union[SoftwareApplication, str]], Union[SoftwareApplication, str]]] = Field(
         None,
         description="An application that can complete the request.",
     )
-    application: Optional[Union[List[SoftwareApplication], SoftwareApplication]] = Field(
+    application: Optional[Union[List[Union[SoftwareApplication, str]], Union[SoftwareApplication, str]]] = Field(
         None,
         description="An application that can complete the request.",
     )

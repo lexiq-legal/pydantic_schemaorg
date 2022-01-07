@@ -1,7 +1,7 @@
 from pydantic import Field
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -15,7 +15,7 @@ class Quotation(CreativeWork):
 
     """
     type_: str = Field("Quotation", const=True, alias='@type')
-    spokenByCharacter: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    spokenByCharacter: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="The (e.g. fictional) character, Person or Organization to whom the quotation is attributed"
      "within the containing CreativeWork.",

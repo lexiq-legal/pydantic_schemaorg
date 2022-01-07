@@ -1,6 +1,6 @@
 from pydantic import Field
 from pydantic_schemaorg.Review import Review
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.AssessAction import AssessAction
 
 
@@ -12,7 +12,7 @@ class ReviewAction(AssessAction):
 
     """
     type_: str = Field("ReviewAction", const=True, alias='@type')
-    resultReview: Optional[Union[List[Review], Review]] = Field(
+    resultReview: Optional[Union[List[Union[Review, str]], Union[Review, str]]] = Field(
         None,
         description="A sub property of result. The review that resulted in the performing of the action.",
     )

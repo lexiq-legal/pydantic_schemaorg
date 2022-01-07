@@ -1,8 +1,12 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Union
+from pydantic_schemaorg.SpeakableSpecification import SpeakableSpecification
 from pydantic_schemaorg.Organization import Organization
 from pydantic_schemaorg.Person import Person
+from pydantic_schemaorg.BreadcrumbList import BreadcrumbList
+from pydantic_schemaorg.ImageObject import ImageObject
 from datetime import date
+from pydantic_schemaorg.WebPageElement import WebPageElement
 from pydantic_schemaorg.Specialty import Specialty
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
@@ -17,12 +21,12 @@ class WebPage(CreativeWork):
 
     """
     type_: str = Field("WebPage", const=True, alias='@type')
-    significantLink: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    significantLink: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="One of the more significant URLs on the page. Typically, these are the non-navigation"
      "links that are clicked on the most.",
     )
-    speakable: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    speakable: Optional[Union[List[Union[AnyUrl, SpeakableSpecification, str]], Union[AnyUrl, SpeakableSpecification, str]]] = Field(
         None,
         description="Indicates sections of a Web page that are particularly 'speakable' in the sense of being"
      "highlighted as being especially appropriate for text-to-speech conversion. Other"
@@ -39,37 +43,37 @@ class WebPage(CreativeWork):
      "to pick out document section(s) as speakable. For this we define a supporting type, [[SpeakableSpecification]]"
      "which is defined to be a possible value of the *speakable* property.",
     )
-    significantLinks: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    significantLinks: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="The most significant URLs on the page. Typically, these are the non-navigation links"
      "that are clicked on the most.",
     )
-    relatedLink: Optional[Union[List[AnyUrl], AnyUrl]] = Field(
+    relatedLink: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
         None,
         description="A link related to this web page, for example to other related web pages.",
     )
-    reviewedBy: Optional[Union[List[Union[Organization, Person]], Union[Organization, Person]]] = Field(
+    reviewedBy: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
         None,
         description="People or organizations that have reviewed the content on this web page for accuracy"
      "and/or completeness.",
     )
-    breadcrumb: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    breadcrumb: Optional[Union[List[Union[str, BreadcrumbList]], Union[str, BreadcrumbList]]] = Field(
         None,
         description="A set of links that can help a user understand and navigate a website hierarchy.",
     )
-    primaryImageOfPage: Any = Field(
+    primaryImageOfPage: Optional[Union[List[Union[ImageObject, str]], Union[ImageObject, str]]] = Field(
         None,
         description="Indicates the main image on the page.",
     )
-    lastReviewed: Optional[Union[List[date], date]] = Field(
+    lastReviewed: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="Date on which the content on this web page was last reviewed for accuracy and/or completeness.",
     )
-    mainContentOfPage: Any = Field(
+    mainContentOfPage: Optional[Union[List[Union[WebPageElement, str]], Union[WebPageElement, str]]] = Field(
         None,
         description="Indicates if this web page element is the main subject of the page.",
     )
-    specialty: Optional[Union[List[Specialty], Specialty]] = Field(
+    specialty: Optional[Union[List[Union[Specialty, str]], Union[Specialty, str]]] = Field(
         None,
         description="One of the domain specialities to which this web page's content applies.",
     )

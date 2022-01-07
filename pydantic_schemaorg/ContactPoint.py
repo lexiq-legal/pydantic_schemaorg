@@ -1,7 +1,10 @@
 from pydantic import Field
 from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
+from pydantic_schemaorg.GeoShape import GeoShape
 from pydantic_schemaorg.Place import Place
-from typing import Any, Optional, Union, List
+from typing import List, Optional, Union
+from pydantic_schemaorg.Language import Language
+from pydantic_schemaorg.OpeningHoursSpecification import OpeningHoursSpecification
 from pydantic_schemaorg.ContactPointOption import ContactPointOption
 from pydantic_schemaorg.Product import Product
 from pydantic_schemaorg.StructuredValue import StructuredValue
@@ -14,7 +17,7 @@ class ContactPoint(StructuredValue):
 
     """
     type_: str = Field("ContactPoint", const=True, alias='@type')
-    areaServed: Union[List[Union[str, AdministrativeArea, Place, Any]], Union[str, AdministrativeArea, Place, Any]] = Field(
+    areaServed: Optional[Union[List[Union[str, AdministrativeArea, GeoShape, Place]], Union[str, AdministrativeArea, GeoShape, Place]]] = Field(
         None,
         description="The geographic area where a service or offered item is provided.",
     )
@@ -24,13 +27,13 @@ class ContactPoint(StructuredValue):
      "For example, a sales contact point, a PR contact point and so on. This property is used"
      "to specify the kind of contact point.",
     )
-    availableLanguage: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    availableLanguage: Optional[Union[List[Union[str, Language]], Union[str, Language]]] = Field(
         None,
         description="A language someone may use with or at the item, service or place. Please use one of the language"
      "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
      "[[inLanguage]]",
     )
-    serviceArea: Union[List[Union[AdministrativeArea, Place, Any]], Union[AdministrativeArea, Place, Any]] = Field(
+    serviceArea: Optional[Union[List[Union[AdministrativeArea, GeoShape, Place, str]], Union[AdministrativeArea, GeoShape, Place, str]]] = Field(
         None,
         description="The geographic area where the service is provided.",
     )
@@ -38,7 +41,7 @@ class ContactPoint(StructuredValue):
         None,
         description="Email address.",
     )
-    hoursAvailable: Any = Field(
+    hoursAvailable: Optional[Union[List[Union[OpeningHoursSpecification, str]], Union[OpeningHoursSpecification, str]]] = Field(
         None,
         description="The hours during which this service or contact is available.",
     )
@@ -46,7 +49,7 @@ class ContactPoint(StructuredValue):
         None,
         description="The telephone number.",
     )
-    contactOption: Optional[Union[List[ContactPointOption], ContactPointOption]] = Field(
+    contactOption: Optional[Union[List[Union[ContactPointOption, str]], Union[ContactPointOption, str]]] = Field(
         None,
         description="An option available on this contact point (e.g. a toll-free number or support for hearing-impaired"
      "callers).",

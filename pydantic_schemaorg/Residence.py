@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.FloorPlan import FloorPlan
+from typing import List, Optional, Union
 from pydantic_schemaorg.Place import Place
 
 
@@ -10,7 +11,7 @@ class Residence(Place):
 
     """
     type_: str = Field("Residence", const=True, alias='@type')
-    accommodationFloorPlan: Any = Field(
+    accommodationFloorPlan: Optional[Union[List[Union[FloorPlan, str]], Union[FloorPlan, str]]] = Field(
         None,
         description="A floorplan of some [[Accommodation]].",
     )

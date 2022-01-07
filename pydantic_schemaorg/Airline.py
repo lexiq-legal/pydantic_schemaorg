@@ -1,5 +1,6 @@
 from pydantic import Field
-from typing import Any, Optional, Union, List
+from pydantic_schemaorg.BoardingPolicyType import BoardingPolicyType
+from typing import List, Optional, Any, Union
 from pydantic_schemaorg.Organization import Organization
 
 
@@ -10,7 +11,7 @@ class Airline(Organization):
 
     """
     type_: str = Field("Airline", const=True, alias='@type')
-    boardingPolicy: Any = Field(
+    boardingPolicy: Optional[Union[List[Union[BoardingPolicyType, str]], Union[BoardingPolicyType, str]]] = Field(
         None,
         description="The type of boarding policy used by the airline (e.g. zone-based or group-based).",
     )

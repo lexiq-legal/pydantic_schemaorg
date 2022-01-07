@@ -1,7 +1,34 @@
-from pydantic import Field, AnyUrl
-from typing import Any, Optional, Union, List
+from pydantic import AnyUrl, Field
+from typing import List, Optional, Union
+from pydantic_schemaorg.ContactPoint import ContactPoint
+from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
+from pydantic_schemaorg.GeoShape import GeoShape
+from pydantic_schemaorg.Place import Place
+from pydantic_schemaorg.CreativeWork import CreativeWork
+from pydantic_schemaorg.Person import Person
+from pydantic_schemaorg.AggregateRating import AggregateRating
+from pydantic_schemaorg.Language import Language
+from pydantic_schemaorg.Brand import Brand
+from pydantic_schemaorg.MerchantReturnPolicy import MerchantReturnPolicy
+from pydantic_schemaorg.PostalAddress import PostalAddress
+from pydantic_schemaorg.VirtualLocation import VirtualLocation
+from pydantic_schemaorg.InteractionCounter import InteractionCounter
+from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
+from pydantic_schemaorg.NonprofitType import NonprofitType
+from pydantic_schemaorg.ProgramMembership import ProgramMembership
+from pydantic_schemaorg.ImageObject import ImageObject
 from datetime import date
+from pydantic_schemaorg.Offer import Offer
+from pydantic_schemaorg.Event import Event
+from pydantic_schemaorg.OfferCatalog import OfferCatalog
+from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+from pydantic_schemaorg.AboutPage import AboutPage
+from pydantic_schemaorg.Review import Review
+from pydantic_schemaorg.Demand import Demand
+from pydantic_schemaorg.Article import Article
 from pydantic_schemaorg.Thing import Thing
+from pydantic_schemaorg.Product import Product
+from pydantic_schemaorg.OwnershipInfo import OwnershipInfo
 
 
 class Organization(Thing):
@@ -11,31 +38,31 @@ class Organization(Thing):
 
     """
     type_: str = Field("Organization", const=True, alias='@type')
-    subOrganization: Any = Field(
+    subOrganization: Optional[Union[List[Union['Organization', str]], Union['Organization', str]]] = Field(
         None,
         description="A relationship between two organizations where the first includes the second, e.g.,"
      "as a subsidiary. See also: the more specific 'department' property.",
     )
-    contactPoint: Any = Field(
+    contactPoint: Optional[Union[List[Union[ContactPoint, str]], Union[ContactPoint, str]]] = Field(
         None,
         description="A contact point for a person or organization.",
     )
-    areaServed: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    areaServed: Optional[Union[List[Union[str, AdministrativeArea, GeoShape, Place]], Union[str, AdministrativeArea, GeoShape, Place]]] = Field(
         None,
         description="The geographic area where a service or offered item is provided.",
     )
-    actionableFeedbackPolicy: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    actionableFeedbackPolicy: Optional[Union[List[Union[AnyUrl, CreativeWork, str]], Union[AnyUrl, CreativeWork, str]]] = Field(
         None,
         description="For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement"
      "about public engagement activities (for news media, the newsroom’s), including involving"
      "the public - digitally or otherwise -- in coverage decisions, reporting and activities"
      "after publication.",
     )
-    parentOrganization: Any = Field(
+    parentOrganization: Optional[Union[List[Union['Organization', str]], Union['Organization', str]]] = Field(
         None,
         description="The larger organization that this organization is a [[subOrganization]] of, if any.",
     )
-    funder: Any = Field(
+    funder: Optional[Union[List[Union['Organization', Person, str]], Union['Organization', Person, str]]] = Field(
         None,
         description="A person or organization that supports (sponsors) something through some kind of financial"
      "contribution.",
@@ -46,21 +73,21 @@ class Organization(Thing):
      "to as International Location Number or ILN) of the respective organization, person,"
      "or place. The GLN is a 13-digit number used to identify parties and physical locations.",
     )
-    employees: Any = Field(
+    employees: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="People working for this organization.",
     )
-    diversityPolicy: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    diversityPolicy: Optional[Union[List[Union[AnyUrl, CreativeWork, str]], Union[AnyUrl, CreativeWork, str]]] = Field(
         None,
         description="Statement on diversity policy by an [[Organization]] e.g. a [[NewsMediaOrganization]]."
      "For a [[NewsMediaOrganization]], a statement describing the newsroom’s diversity"
      "policy on both staffing and sources, typically providing staffing data.",
     )
-    aggregateRating: Any = Field(
+    aggregateRating: Optional[Union[List[Union[AggregateRating, str]], Union[AggregateRating, str]]] = Field(
         None,
         description="The overall rating, based on a collection of reviews or ratings, of the item.",
     )
-    knowsLanguage: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    knowsLanguage: Optional[Union[List[Union[str, Language]], Union[str, Language]]] = Field(
         None,
         description="Of a [[Person]], and less typically of an [[Organization]], to indicate a known language."
      "We do not distinguish skill levels or reading/writing/speaking/signing here. Use"
@@ -70,11 +97,11 @@ class Organization(Thing):
         None,
         description="An award won by or for this item.",
     )
-    foundingLocation: Any = Field(
+    foundingLocation: Optional[Union[List[Union[Place, str]], Union[Place, str]]] = Field(
         None,
         description="The place where the Organization was founded.",
     )
-    publishingPrinciples: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    publishingPrinciples: Optional[Union[List[Union[AnyUrl, CreativeWork, str]], Union[AnyUrl, CreativeWork, str]]] = Field(
         None,
         description="The publishingPrinciples property indicates (typically via [[URL]]) a document describing"
      "the editorial principles of an [[Organization]] (or individual e.g. a [[Person]] writing"
@@ -89,7 +116,7 @@ class Organization(Thing):
         description="The International Standard of Industrial Classification of All Economic Activities"
      "(ISIC), Revision 4 code for a particular organization, business person, or place.",
     )
-    member: Any = Field(
+    member: Optional[Union[List[Union['Organization', Person, str]], Union['Organization', Person, str]]] = Field(
         None,
         description="A member of an Organization or a ProgramMembership. Organizations can be members of"
      "organizations; ProgramMembership is typically for individuals.",
@@ -99,11 +126,11 @@ class Organization(Thing):
         description="The North American Industry Classification System (NAICS) code for a particular organization"
      "or business person.",
     )
-    employee: Any = Field(
+    employee: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="Someone working for this organization.",
     )
-    brand: Any = Field(
+    brand: Optional[Union[List[Union['Organization', Brand, str]], Union['Organization', Brand, str]]] = Field(
         None,
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
@@ -112,30 +139,30 @@ class Organization(Thing):
         None,
         description="The Dun & Bradstreet DUNS number for identifying an organization or business person.",
     )
-    hasMerchantReturnPolicy: Any = Field(
+    hasMerchantReturnPolicy: Optional[Union[List[Union[MerchantReturnPolicy, str]], Union[MerchantReturnPolicy, str]]] = Field(
         None,
         description="Specifies a MerchantReturnPolicy that may be applicable.",
     )
-    location: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    location: Optional[Union[List[Union[str, PostalAddress, VirtualLocation, Place]], Union[str, PostalAddress, VirtualLocation, Place]]] = Field(
         None,
         description="The location of, for example, where an event is happening, where an organization is located,"
      "or where an action takes place.",
     )
-    interactionStatistic: Any = Field(
+    interactionStatistic: Optional[Union[List[Union[InteractionCounter, str]], Union[InteractionCounter, str]]] = Field(
         None,
         description="The number of interactions for the CreativeWork using the WebSite or SoftwareApplication."
      "The most specific child type of InteractionCounter should be used.",
     )
-    hasCredential: Any = Field(
+    hasCredential: Optional[Union[List[Union[EducationalOccupationalCredential, str]], Union[EducationalOccupationalCredential, str]]] = Field(
         None,
         description="A credential awarded to the Person or Organization.",
     )
-    nonprofitStatus: Any = Field(
+    nonprofitStatus: Optional[Union[List[Union[NonprofitType, str]], Union[NonprofitType, str]]] = Field(
         None,
         description="nonprofit Status indicates the legal status of a non-profit organization in its primary"
      "place of business.",
     )
-    ethicsPolicy: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    ethicsPolicy: Optional[Union[List[Union[AnyUrl, CreativeWork, str]], Union[AnyUrl, CreativeWork, str]]] = Field(
         None,
         description="Statement about ethics policy, e.g. of a [[NewsMediaOrganization]] regarding journalistic"
      "and publishing practices, or of a [[Restaurant]], a page describing food source policies."
@@ -143,12 +170,12 @@ class Organization(Thing):
      "describing the personal, organizational, and corporate standards of behavior expected"
      "by the organization.",
     )
-    correctionsPolicy: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    correctionsPolicy: Optional[Union[List[Union[AnyUrl, CreativeWork, str]], Union[AnyUrl, CreativeWork, str]]] = Field(
         None,
         description="For an [[Organization]] (e.g. [[NewsMediaOrganization]]), a statement describing"
      "(in news media, the newsroom’s) disclosure and correction policy for errors.",
     )
-    memberOf: Any = Field(
+    memberOf: Optional[Union[List[Union[ProgramMembership, 'Organization', str]], Union[ProgramMembership, 'Organization', str]]] = Field(
         None,
         description="An Organization (or ProgramMembership) to which this Person or Organization belongs.",
     )
@@ -156,7 +183,7 @@ class Organization(Thing):
         None,
         description="A slogan or motto associated with the item.",
     )
-    department: Any = Field(
+    department: Optional[Union[List[Union['Organization', str]], Union['Organization', str]]] = Field(
         None,
         description="A relationship between an organization and a department of that organization, also"
      "described as an organization (allowing different urls, logos, opening hours). For"
@@ -171,19 +198,19 @@ class Organization(Thing):
         description="An organization identifier that uniquely identifies a legal entity as defined in ISO"
      "17442.",
     )
-    founders: Any = Field(
+    founders: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A person who founded this organization.",
     )
-    logo: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    logo: Optional[Union[List[Union[AnyUrl, ImageObject, str]], Union[AnyUrl, ImageObject, str]]] = Field(
         None,
         description="An associated logo.",
     )
-    members: Any = Field(
+    members: Optional[Union[List[Union['Organization', Person, str]], Union['Organization', Person, str]]] = Field(
         None,
         description="A member of this organization.",
     )
-    foundingDate: Optional[Union[List[date], date]] = Field(
+    foundingDate: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="The date that this organization was founded.",
     )
@@ -191,32 +218,32 @@ class Organization(Thing):
         None,
         description="Awards won by or for this item.",
     )
-    makesOffer: Any = Field(
+    makesOffer: Optional[Union[List[Union[Offer, str]], Union[Offer, str]]] = Field(
         None,
         description="A pointer to products or services offered by the organization or person.",
     )
-    address: Union[List[Union[str, Any]], Union[str, Any]] = Field(
+    address: Optional[Union[List[Union[str, PostalAddress]], Union[str, PostalAddress]]] = Field(
         None,
         description="Physical address of the item.",
     )
-    dissolutionDate: Optional[Union[List[date], date]] = Field(
+    dissolutionDate: Optional[Union[List[Union[date, str]], Union[date, str]]] = Field(
         None,
         description="The date that this organization was dissolved.",
     )
-    alumni: Any = Field(
+    alumni: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="Alumni of an organization.",
     )
-    sponsor: Any = Field(
+    sponsor: Optional[Union[List[Union['Organization', Person, str]], Union['Organization', Person, str]]] = Field(
         None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
     )
-    events: Any = Field(
+    events: Optional[Union[List[Union[Event, str]], Union[Event, str]]] = Field(
         None,
         description="Upcoming or past events associated with this place or organization.",
     )
-    serviceArea: Any = Field(
+    serviceArea: Optional[Union[List[Union[AdministrativeArea, GeoShape, Place, str]], Union[AdministrativeArea, GeoShape, Place, str]]] = Field(
         None,
         description="The geographic area where the service is provided.",
     )
@@ -229,26 +256,26 @@ class Organization(Thing):
         description="The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in"
      "Spain.",
     )
-    hasOfferCatalog: Any = Field(
+    hasOfferCatalog: Optional[Union[List[Union[OfferCatalog, str]], Union[OfferCatalog, str]]] = Field(
         None,
         description="Indicates an OfferCatalog listing for this Organization, Person, or Service.",
     )
-    numberOfEmployees: Any = Field(
+    numberOfEmployees: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
         None,
         description="The number of employees in an organization e.g. business.",
     )
-    ownershipFundingInfo: Union[List[Union[AnyUrl, str, Any]], Union[AnyUrl, str, Any]] = Field(
+    ownershipFundingInfo: Optional[Union[List[Union[AnyUrl, str, CreativeWork, AboutPage]], Union[AnyUrl, str, CreativeWork, AboutPage]]] = Field(
         None,
         description="For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]),"
      "a description of organizational ownership structure; funding and grants. In a news/media"
      "setting, this is with particular reference to editorial independence. Note that the"
      "[[funder]] is also available and can be used to make basic funder information machine-readable.",
     )
-    founder: Any = Field(
+    founder: Optional[Union[List[Union[Person, str]], Union[Person, str]]] = Field(
         None,
         description="A person who founded this organization.",
     )
-    reviews: Any = Field(
+    reviews: Optional[Union[List[Union[Review, str]], Union[Review, str]]] = Field(
         None,
         description="Review of the item.",
     )
@@ -256,19 +283,19 @@ class Organization(Thing):
         None,
         description="The telephone number.",
     )
-    hasPOS: Any = Field(
+    hasPOS: Optional[Union[List[Union[Place, str]], Union[Place, str]]] = Field(
         None,
         description="Points-of-Sales operated by the organization or person.",
     )
-    review: Any = Field(
+    review: Optional[Union[List[Union[Review, str]], Union[Review, str]]] = Field(
         None,
         description="A review of the item.",
     )
-    seeks: Any = Field(
+    seeks: Optional[Union[List[Union[Demand, str]], Union[Demand, str]]] = Field(
         None,
         description="A pointer to products or services sought by the organization or person (demand).",
     )
-    contactPoints: Any = Field(
+    contactPoints: Optional[Union[List[Union[ContactPoint, str]], Union[ContactPoint, str]]] = Field(
         None,
         description="A contact point for a person or organization.",
     )
@@ -276,25 +303,25 @@ class Organization(Thing):
         None,
         description="The official name of the organization, e.g. the registered company name.",
     )
-    diversityStaffingReport: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    diversityStaffingReport: Optional[Union[List[Union[AnyUrl, Article, str]], Union[AnyUrl, Article, str]]] = Field(
         None,
         description="For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]),"
      "a report on staffing diversity issues. In a news context this might be for example ASNE"
      "or RTDNA (US) reports, or self-reported.",
     )
-    unnamedSourcesPolicy: Union[List[Union[AnyUrl, Any]], Union[AnyUrl, Any]] = Field(
+    unnamedSourcesPolicy: Optional[Union[List[Union[AnyUrl, CreativeWork, str]], Union[AnyUrl, CreativeWork, str]]] = Field(
         None,
         description="For an [[Organization]] (typically a [[NewsMediaOrganization]]), a statement about"
      "policy on use of unnamed sources and the decision process required.",
     )
-    knowsAbout: Union[List[Union[AnyUrl, str, Any]], Union[AnyUrl, str, Any]] = Field(
+    knowsAbout: Optional[Union[List[Union[AnyUrl, str, Thing]], Union[AnyUrl, str, Thing]]] = Field(
         None,
         description="Of a [[Person]], and less typically of an [[Organization]], to indicate a topic that"
      "is known about - suggesting possible expertise but not implying it. We do not distinguish"
      "skill levels here, or relate this to educational content, events, objectives or [[JobPosting]]"
      "descriptions.",
     )
-    event: Any = Field(
+    event: Optional[Union[List[Union[Event, str]], Union[Event, str]]] = Field(
         None,
         description="Upcoming or past event associated with this place, organization, or action.",
     )
@@ -302,7 +329,7 @@ class Organization(Thing):
         None,
         description="The fax number.",
     )
-    owns: Any = Field(
+    owns: Optional[Union[List[Union[Product, OwnershipInfo, str]], Union[Product, OwnershipInfo, str]]] = Field(
         None,
         description="Products owned by the organization or person.",
     )
