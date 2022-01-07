@@ -76,6 +76,10 @@ class SchemaOrg:
                     imports[data_type_map[field_type][1]].add(data_type_map[field_type][2])
             if field_parent_types != field_types:
                 pydantic_types = pydantic_types + ("Any",)
+
+            if not 'str' in pydantic_types:
+                pydantic_types += ('str',)
+
             type_tuple = ", ".join(pydantic_types)
 
             if not pydantic_types:
