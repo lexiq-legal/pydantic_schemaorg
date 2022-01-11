@@ -1,13 +1,13 @@
 import datetime
 import os
 from pathlib import Path
-from typing import Dict, Union, Set, List, Tuple
+from typing import Dict, Union, Set, List, Tuple, Callable
 
 import jinja2
 
 from constants import data_type_map, PACKAGE_NAME
-from jinja import jinja_env
-from models import PydanticClass, PydanticField
+from jinja import jinja_env, python_safe
+from models import PydanticClass, PydanticField, Import
 
 
 class SchemaOrg:
@@ -18,7 +18,7 @@ class SchemaOrg:
             type_specificity: Dict[str, int]
     ):
         self.schema_org = schema_org
-        self.pydantic_classes: Dict[str, Union[PydanticClass, tuple]] = dict(type_map)
+        self.pydantic_classes: Dict[str, Union[PydanticClass, tuple]] = dict()
         self._type_specificity = dict(type_specificity)
         self.pydantic_fields = {k: {} for k in data_type_map}
 
@@ -28,6 +28,17 @@ class SchemaOrg:
             for k, v in self.schema_org.items()
             if v["@type"] != "rdf:Property"
         ]
+
+    @staticmethod
+    def update_imports(imports: List[Import], class_path: str, classes_: set, type: str) -> List[Import]:
+        filter_func: Callable[[Import], bool] = lambda \
+                i: i.classPath == class_path and i.type == type
+        import_ = next(filter(filter_func, imports), None)
+        if not import_:
+            imports.append(Import(type=type, classPath=class_path, classes_=classes_))
+        else:
+            import_.classes_.update(classes_)
+        return imports
 
     @staticmethod
     def _to_set(_object, prop="@id") -> Set[str]:
@@ -53,7 +64,7 @@ class SchemaOrg:
                         f"schema:{name}" in self._to_set(field.get("schema:domainIncludes")))]
 
     # TODO: refactor this ugly code
-    def extract_fields(self, name: str):
+    def extract_fields(self, name: str) -> (List[PydanticField], List[Import]):
         fields: List[PydanticField] = []
         imports = self._get_default_imports()
         for key, field in self._fields_for_model(name):
@@ -66,15 +77,18 @@ class SchemaOrg:
                 if field_type in data_type_map:
                     pydantic_types += (data_type_map[field_type][0],)
                     if data_type_map[field_type][1]:
-                        if data_type_map[field_type][1] not in imports.keys():
-                            imports[data_type_map[field_type][1]] = set()
-                        imports[data_type_map[field_type][1]].add(data_type_map[field_type][2])
+                        imports = self.update_imports(imports, class_path=f'{data_type_map[field_type][1]}',
+                                                      classes_={data_type_map[field_type][2]},
+                                                      type='field')
+
                 else:
                     if name != field_type:
-                        imports.update({f'{PACKAGE_NAME}.{field_type}': {field_type}})
+                        imports = self.update_imports(imports, class_path=f'{PACKAGE_NAME}.{field_type}',
+                                                      classes_={field_type},
+                                                      type='field')
                         pydantic_types += (field_type,)
-                    else: #if type is self-reference
-                        pydantic_types += (f'\'{field_type}\'', )
+                    else:  # if type is self-reference
+                        pydantic_types += (f'\'{field_type}\'',)
 
             if field_parent_types != field_types:
                 pydantic_types = pydantic_types + ("Any",)
@@ -87,13 +101,16 @@ class SchemaOrg:
             if not pydantic_types:
                 continue
             elif len(pydantic_types) > 1:
-                imports.update({'typing': {'List', 'Union', 'Optional'}})
+                imports = self.update_imports(imports, class_path='typing', classes_={'List', 'Union', 'Optional'},
+                                              type='parent')
                 optional = pydantic_types[-1] != "Any"
                 pydantic_types = f"Union[List[Union[{type_tuple}]], Union[{type_tuple}]]"
                 if optional:
                     pydantic_types = f"Optional[{pydantic_types}]"
             else:
-                imports.update({'typing': {'List', 'Union', 'Any', 'Optional'}})
+                imports = self.update_imports(imports, class_path='typing',
+                                              classes_={'List', 'Union', 'Optional', 'Any'},
+                                              type='parent')
                 pydantic_types = (
                     type_tuple
                     if type_tuple == "Any"
@@ -118,7 +135,8 @@ class SchemaOrg:
         parent_names = self.extract_parents(node)
 
         for parent_name in parent_names:
-            imports.update({f'{PACKAGE_NAME}.{parent_name}': {parent_name}})
+            imports = self.update_imports(imports, class_path=f'{PACKAGE_NAME}.{parent_name}', classes_={parent_name},
+                                          type='parent')
 
         self.pydantic_classes[name] = PydanticClass(
             name=name,
@@ -127,7 +145,7 @@ class SchemaOrg:
             parents=parent_names,
             imports=imports)
 
-        with open(f'{PACKAGE_NAME}/{name}.py', 'w') as model_file:
+        with open(f'{PACKAGE_NAME}/{python_safe(name)}.py', 'w') as model_file:
             with open(Path(__file__).parent / "templates/model.py.tpl") as template_file:
                 template = jinja_env.from_string(template_file.read())
 
@@ -139,6 +157,8 @@ class SchemaOrg:
                     model=self.pydantic_classes[name],
                 )
             template.stream(**template_args).dump(model_file)
+
+
 
     def extract_parents(self, node) -> set:
         parent_names = set(
@@ -159,5 +179,19 @@ class SchemaOrg:
         return parent_names
 
     @staticmethod
-    def _get_default_imports() -> Dict[str, set]:
-        return {'pydantic': {'Field'}}
+    def _get_default_imports() -> List[Import]:
+        return [Import(classes_={'Field'}, classPath='pydantic', type='parent')]
+
+    def write_init(self):
+        with open(f'{PACKAGE_NAME}/__init__.py', 'w') as init_file:
+            with open(Path(__file__).parent / "templates/__init__.py.tpl") as template_file:
+                template = jinja_env.from_string(template_file.read())
+
+                template_args = dict(
+                    schemaorg_version=os.getenv("SCHEMAORG_VERSION"),
+                    commit=os.getenv("COMMIT"),
+                    jinja2_version=jinja2.__version__,
+                    timestamp=datetime.datetime.now(),
+                    all_classes=self.pydantic_classes,
+                )
+            template.stream(**template_args).dump(init_file)

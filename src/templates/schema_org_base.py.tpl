@@ -1,12 +1,12 @@
-from pydantic import BaseModel
-
+from pydantic import BaseModel, Field
+from typing import Any
 
 class SchemaOrgBase(BaseModel):
     #JSON-LD fields
-    reverse_ = Field(alias='@reverse')
-    id_ = Field(alias='@id')
-    context_ = Field(alias='@context')
-    graph_ = Field(alias='@graph')
+    reverse_ : Any = Field(alias='@reverse')
+    id_ : Any= Field(alias='@id')
+    context_ : Any= Field(alias='@context')
+    graph_ : Any= Field(alias='@graph')
 
     def dict(self, *args, **kwargs):
         defaults = {

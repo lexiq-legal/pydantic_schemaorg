@@ -26,16 +26,6 @@ def write_base_class():
 def init_package():
     shutil.rmtree(PACKAGE_NAME)
     os.makedirs(PACKAGE_NAME, exist_ok=True)
-    with open(f'{PACKAGE_NAME}/__init__.py', 'w') as model_file:
-        with open(Path(__file__).parent / "templates/__init__.py.tpl") as template_file:
-            open(f'{PACKAGE_NAME}/__init__.py', 'w')
-            template = jinja_env.from_string(template_file.read())
-            template_args = dict(
-                schemaorg_version=os.getenv("SCHEMAORG_VERSION"),
-                commit=os.getenv("COMMIT"),
-                timestamp=datetime.datetime.now()
-            )
-        template.stream(**template_args).dump(model_file)
 
 
 if __name__ == "__main__":
@@ -52,3 +42,4 @@ if __name__ == "__main__":
     )
     for class_ in schema_org_api.get_all_classes():
         schema_org_api.load_type(class_)
+    schema_org_api.write_init()

@@ -20,5 +20,15 @@ def format_description(_input: str, max_width=70):
 
     return '\"\n     \"'.join([" ".join(line) for line in lines])
 
+# jinja2 filter format long descriptions from schema.org
+def python_safe(_input: str):
+    if _input in {"class", "def", "from", "import", "return", "yield"}:
+        return f"{_input}_"
+    elif _input[0].isdigit():
+        return f"_{_input}"
+    else:
+        return _input
+
 
 jinja_env.filters['format_description'] = format_description
+jinja_env.filters['python_safe'] = python_safe
