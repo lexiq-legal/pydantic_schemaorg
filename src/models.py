@@ -33,3 +33,4 @@ class PydanticClass(PydanticBase):
     fields: List[PydanticField]
     parents: set
     imports: List[Import]
+    depth: int = 1

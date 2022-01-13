@@ -122,17 +122,17 @@ class SchemaOrg:
                 type=pydantic_types))
         return fields, imports
 
-    def load_type(self, name: str):
+    def load_type(self, name: str) -> PydanticClass:
         if name in self.pydantic_classes:
             print(f'{name} exists, skipping..')
-            return
+            return self.pydantic_classes[name]
         try:
             node = self.schema_org[f"schema:{name}"]
         except KeyError:
             raise ValueError(f"Model {name} does not exist")
 
         fields, imports = self.extract_fields(name)
-        parent_names = self.extract_parents(node)
+        parent_names, depth = self.extract_parents(node)
 
         for parent_name in parent_names:
             imports = self.update_imports(imports, class_path=f'{PACKAGE_NAME}.{parent_name}', classes_={parent_name},
@@ -143,7 +143,8 @@ class SchemaOrg:
             description=self.cast_description(node.get("rdfs:comment", "")),
             fields=list(fields),
             parents=parent_names,
-            imports=imports)
+            imports=imports,
+            depth=depth)
 
         with open(f'{PACKAGE_NAME}/{python_safe(name)}.py', 'w') as model_file:
             with open(Path(__file__).parent / "templates/model.py.tpl") as template_file:
@@ -157,26 +158,30 @@ class SchemaOrg:
                     model=self.pydantic_classes[name],
                 )
             template.stream(**template_args).dump(model_file)
+        return self.pydantic_classes[name]
 
-
-
-    def extract_parents(self, node) -> set:
+    def extract_parents(self, node) -> (set, int):
         parent_names = set(
             reference.strip().split(":")[-1]
             for reference in self._to_set(node.get("rdfs:subClassOf", []))
         )
 
         node_types = node['@type'] if type(node['@type']) == list else [node['@type']]
+
         for node_type in node_types:
             if node_type.startswith('schema:'):
                 parent_names.add(node_type.strip().split(":")[-1])
 
+        parents: List[PydanticClass] = []
         for parent_name in parent_names:
-            self.load_type(parent_name)
+            parents.append(self.load_type(parent_name))
 
+        parent_depth = next(map(lambda y: y.depth, sorted(parents, key=lambda x: x.depth)), 0)
+        depth = parent_depth + 1
         if not parent_names:
             parent_names = {'SchemaOrgBase'}
-        return parent_names
+
+        return parent_names, depth
 
     @staticmethod
     def _get_default_imports() -> List[Import]:
