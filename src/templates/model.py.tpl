@@ -10,8 +10,24 @@ from {{import_.classPath}} import {{import_.classes_ | join(', ')}}
 class {{ model.valid_name }}({{model.parents | join(', ')}}):
     """{{ model.description | replace('\\n','\n') | format_description}}
 
-    See https://schema.org/{{ model.name }}.
-    model depth: {{model.depth}}
-    {{model.parents }}
+    See: https://schema.org/{{ model.name }}
+    Model depth: {{model.depth}}
     """
     type_: str = Field("{{ model.name }}", const=True, alias='@type')
+    {% for field in model.fields -%}
+    {{ field.valid_name }}: "{{ field.type }}" = Field(
+        None,
+        {%- if field.valid_name != field.name -%} alias="{{ field.name }}",{% endif %}
+        description="{{ field.description | replace('\\n','\n') | format_description }}",
+    )
+    {% endfor %}
+
+
+if TYPE_CHECKING:
+{% for import_ in model.imports -%}
+    {%-  if import_.type == 'field' %}
+    from {{import_.classPath}} import {{import_.classes_ | join(', ')}}
+    {% endif %}
+{% endfor %}
+
+    {{ model.valid_name }}.update_forward_refs()

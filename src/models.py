@@ -8,15 +8,24 @@ class PydanticBase(BaseModel):
     description: str
     valid_name: Optional[str] = None
 
-    @validator('valid_name', always=True)
+    @validator("valid_name", always=True)
     def ab(cls, v, values) -> str:
-        if not values['name']:
+        if not values["name"]:
             raise ValueError()
-        elif values['name'] in {"class", "def", "from", "import", "return", "yield", "True", "False"}:
+        elif values["name"] in {
+            "class",
+            "def",
+            "from",
+            "import",
+            "return",
+            "yield",
+            "True",
+            "False",
+        }:
             return f"{values['name']}_"
-        if values['name'][0].isdigit():
+        if values["name"][0].isdigit():
             return f"_{values['name']}"
-        return values['name']
+        return values["name"]
 
 
 class PydanticField(PydanticBase):

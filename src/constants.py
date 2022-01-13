@@ -1,4 +1,4 @@
-PACKAGE_NAME = 'pydantic_schemaorg'
+PACKAGE_NAME = "pydantic_schemaorg"
 
 # schema.org data types to pydantic https://schema.org/DataType
 data_type_map = {
@@ -15,7 +15,7 @@ data_type_map = {
     "CssSelectorType": ("str", "", ""),
     "PronounceableText": ("str", "", ""),
     "URL": ("AnyUrl", "pydantic", "AnyUrl"),
-    "XPathType": ("str", "", "")
+    "XPathType": ("str", "", ""),
 }
 
 data_type_specificity = {
