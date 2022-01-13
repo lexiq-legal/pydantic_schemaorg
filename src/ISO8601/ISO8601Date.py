@@ -1,11 +1,13 @@
 import re
-from typing import no_type_check, Optional, Dict, cast, Any, Tuple
+from typing import no_type_check, Optional, Dict, cast, Any, Tuple, Pattern
 
 from pydantic import BaseConfig
 from pydantic.fields import ModelField
 from pydantic.typing import CallableGenerator
 from pydantic.utils import update_not_none
 from pydantic.validators import str_validator, constr_length_validator
+
+from ISO8601 import errors
 
 
 def ISO8601Date_regex() -> Pattern[str]:
@@ -141,59 +143,48 @@ class ISO8601Date(str):
         A method used to validate parts of an URL.
         Could be overridden to set default values for parts if missing
         """
-        seconds = parts['scheme']
-        if scheme is None:
-            raise errors.UrlSchemeError()
-
-        if cls.allowed_schemes and scheme.lower() not in cls.allowed_schemes:
-            raise errors.UrlSchemePermittedError(cls.allowed_schemes)
-
-        port = parts['port']
-        if port is not None and int(port) > 65_535:
-            raise errors.UrlPortError()
-
-        user = parts['user']
-        if cls.user_required and user is None:
-            raise errors.UrlUserInfoError()
+        year = parts['year']
+        if year is None:
+            raise errors.ISO8601DateInvalid()
 
         return parts
 
-    @classmethod
-    def validate_host(cls, parts: Dict[str, str]) -> Tuple[str, Optional[str], str, bool]:
-        host, tld, host_type, rebuild = None, None, None, False
-        for f in ('domain', 'ipv4', 'ipv6'):
-            host = parts[f]
-            if host:
-                host_type = f
-                break
-
-        if host is None:
-            raise errors.UrlHostError()
-        elif host_type == 'domain':
-            is_international = False
-            d = ascii_domain_regex().fullmatch(host)
-            if d is None:
-                d = int_domain_regex().fullmatch(host)
-                if d is None:
-                    raise errors.UrlHostError()
-                is_international = True
-
-            tld = d.group('tld')
-            if tld is None and not is_international:
-                d = int_domain_regex().fullmatch(host)
-                tld = d.group('tld')
-                is_international = True
-
-            if tld is not None:
-                tld = tld[1:]
-            elif cls.tld_required:
-                raise errors.UrlHostTldError()
-
-            if is_international:
-                host_type = 'int_domain'
-                rebuild = True
-                host = host.encode('idna').decode('ascii')
-                if tld is not None:
-                    tld = tld.encode('idna').decode('ascii')
-
-        return host, tld, host_type, rebuild  # type: ignore
+    # @classmethod
+    # def validate_host(cls, parts: Dict[str, str]) -> Tuple[str, Optional[str], str, bool]:
+    #     host, tld, host_type, rebuild = None, None, None, False
+    #     for f in ('domain', 'ipv4', 'ipv6'):
+    #         host = parts[f]
+    #         if host:
+    #             host_type = f
+    #             break
+    #
+    #     if host is None:
+    #         raise errors.UrlHostError()
+    #     elif host_type == 'domain':
+    #         is_international = False
+    #         d = ascii_domain_regex().fullmatch(host)
+    #         if d is None:
+    #             d = int_domain_regex().fullmatch(host)
+    #             if d is None:
+    #                 raise errors.UrlHostError()
+    #             is_international = True
+    #
+    #         tld = d.group('tld')
+    #         if tld is None and not is_international:
+    #             d = int_domain_regex().fullmatch(host)
+    #             tld = d.group('tld')
+    #             is_international = True
+    #
+    #         if tld is not None:
+    #             tld = tld[1:]
+    #         elif cls.tld_required:
+    #             raise errors.UrlHostTldError()
+    #
+    #         if is_international:
+    #             host_type = 'int_domain'
+    #             rebuild = True
+    #             host = host.encode('idna').decode('ascii')
+    #             if tld is not None:
+    #                 tld = tld.encode('idna').decode('ascii')
+    #
+    #     return host, tld, host_type, rebuild  # type: ignore
