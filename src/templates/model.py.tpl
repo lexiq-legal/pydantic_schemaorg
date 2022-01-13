@@ -12,5 +12,6 @@ class {{ model.valid_name }}({{model.parents | join(', ')}}):
 
     See https://schema.org/{{ model.name }}.
     model depth: {{model.depth}}
+    {{model.parents }}
     """
     type_: str = Field("{{ model.name }}", const=True, alias='@type')

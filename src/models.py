@@ -31,6 +31,6 @@ class Import(BaseModel):
 
 class PydanticClass(PydanticBase):
     fields: List[PydanticField]
-    parents: set
+    parents: List[str]
     imports: List[Import]
     depth: int = 1

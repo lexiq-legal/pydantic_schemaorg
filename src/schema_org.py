@@ -177,11 +177,13 @@ class SchemaOrg:
             parents.append(self.load_type(parent_name))
 
         parent_depth = next(map(lambda y: y.depth, sorted(parents, key=lambda x: x.depth)), 0)
+        sorted_parents = list(map(lambda y: y.valid_name, sorted(parents, key=lambda x: x.depth, reverse=True)))
         depth = parent_depth + 1
-        if not parent_names:
-            parent_names = {'SchemaOrgBase'}
 
-        return parent_names, depth
+        if not sorted_parents:
+            sorted_parents = {'SchemaOrgBase'}
+
+        return sorted_parents, depth
 
     @staticmethod
     def _get_default_imports() -> List[Import]:
