@@ -1,7 +1,11 @@
-from pydantic import AnyUrl, Field
-from pydantic_schemaorg.AlignmentObject import AlignmentObject
-from typing import List, Optional, Union
-from pydantic_schemaorg.DefinedTerm import DefinedTerm
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
+from pydantic import Field
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -14,48 +18,57 @@ class LearningResource(CreativeWork):
      "A [[LearningResource]] may be created as a result of an [[EducationEvent]], for example"
      "by recording one.
 
-    See https://schema.org/LearningResource.
-
+    See: https://schema.org/LearningResource
+    Model depth: 3
     """
-    type_: str = Field("LearningResource", const=True, alias='@type')
-    educationalAlignment: Optional[Union[List[Union[AlignmentObject, str]], Union[AlignmentObject, str]]] = Field(
+
+    type_: str = Field("LearningResource", const=True, alias="@type")
+    educationalAlignment: "Optional[Union[List[Union[AlignmentObject, str]], Union[AlignmentObject, str]]]" = Field(
         None,
         description="An alignment to an established educational framework. This property should not be used"
-     "where the nature of the alignment can be described using a simple property, for example"
-     "to express that a resource [[teaches]] or [[assesses]] a competency.",
+        "where the nature of the alignment can be described using a simple property, for example"
+        "to express that a resource [[teaches]] or [[assesses]] a competency.",
     )
-    teaches: Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]] = Field(
+    teaches: "Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]]" = Field(
         None,
         description="The item being described is intended to help a person learn the competency or learning"
-     "outcome defined by the referenced term.",
+        "outcome defined by the referenced term.",
     )
-    competencyRequired: Optional[Union[List[Union[AnyUrl, str, DefinedTerm]], Union[AnyUrl, str, DefinedTerm]]] = Field(
+    competencyRequired: "Optional[Union[List[Union[AnyUrl, str, DefinedTerm]], Union[AnyUrl, str, DefinedTerm]]]" = Field(
         None,
         description="Knowledge, skill, ability or personal attribute that must be demonstrated by a person"
-     "or other entity in order to do something such as earn an Educational Occupational Credential"
-     "or understand a LearningResource.",
+        "or other entity in order to do something such as earn an Educational Occupational Credential"
+        "or understand a LearningResource.",
     )
-    educationalLevel: Optional[Union[List[Union[AnyUrl, str, DefinedTerm]], Union[AnyUrl, str, DefinedTerm]]] = Field(
+    educationalLevel: "Optional[Union[List[Union[AnyUrl, str, DefinedTerm]], Union[AnyUrl, str, DefinedTerm]]]" = Field(
         None,
         description="The level in terms of progression through an educational or training context. Examples"
-     "of educational levels include 'beginner', 'intermediate' or 'advanced', and formal"
-     "sets of level indicators.",
+        "of educational levels include 'beginner', 'intermediate' or 'advanced', and formal"
+        "sets of level indicators.",
     )
-    assesses: Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]] = Field(
+    assesses: "Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]]" = Field(
         None,
         description="The item being described is intended to assess the competency or learning outcome defined"
-     "by the referenced term.",
+        "by the referenced term.",
     )
-    educationalUse: Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]] = Field(
+    educationalUse: "Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]]" = Field(
         None,
         description="The purpose of a work in the context of education; for example, 'assignment', 'group"
-     "work'.",
+        "work'.",
     )
-    learningResourceType: Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]] = Field(
+    learningResourceType: "Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]]" = Field(
         None,
         description="The predominant type or kind characterizing the learning resource. For example, 'presentation',"
-     "'handout'.",
+        "'handout'.",
     )
-    
 
-LearningResource.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.AlignmentObject import AlignmentObject
+
+    from pydantic_schemaorg.DefinedTerm import DefinedTerm
+
+    from pydantic import AnyUrl
+
+    LearningResource.update_forward_refs()

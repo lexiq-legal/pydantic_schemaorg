@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.UKNonprofitType import UKNonprofitType
 
 
 class UKTrust(UKNonprofitType):
     """UKTrust: Non-profit type referring to a UK trust.
 
-    See https://schema.org/UKTrust.
-
+    See: https://schema.org/UKTrust
+    Model depth: 6
     """
-    type_: str = Field("UKTrust", const=True, alias='@type')
-    
 
-UKTrust.update_forward_refs()
+    type_: str = Field("UKTrust", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    UKTrust.update_forward_refs()

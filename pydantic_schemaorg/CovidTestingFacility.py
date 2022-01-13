@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.MedicalClinic import MedicalClinic
 
 
@@ -10,10 +15,13 @@ class CovidTestingFacility(MedicalClinic):
      "address, opening hours. Note that in an emergency, such information may not always be"
      "reliable.
 
-    See https://schema.org/CovidTestingFacility.
-
+    See: https://schema.org/CovidTestingFacility
+    Model depth: 5
     """
-    type_: str = Field("CovidTestingFacility", const=True, alias='@type')
-    
 
-CovidTestingFacility.update_forward_refs()
+    type_: str = Field("CovidTestingFacility", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    CovidTestingFacility.update_forward_refs()

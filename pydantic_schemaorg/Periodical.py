@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.CreativeWorkSeries import CreativeWorkSeries
 
 
@@ -7,10 +12,13 @@ class Periodical(CreativeWorkSeries):
      "designations and intended, such as a magazine, scholarly journal, or newspaper to continue"
      "indefinitely. See also [blog post](http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html).
 
-    See https://schema.org/Periodical.
-
+    See: https://schema.org/Periodical
+    Model depth: 4
     """
-    type_: str = Field("Periodical", const=True, alias='@type')
-    
 
-Periodical.update_forward_refs()
+    type_: str = Field("Periodical", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Periodical.update_forward_refs()

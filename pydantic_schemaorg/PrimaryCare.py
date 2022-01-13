@@ -1,16 +1,25 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
+
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
+from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
 
-class PrimaryCare(MedicalBusiness, MedicalSpecialty):
+
+class PrimaryCare(MedicalSpecialty, MedicalBusiness):
     """The medical care by a physician, or other health-care professional, who is the patient's"
      "first contact with the health-care system and who may recommend a specialist if necessary.
 
-    See https://schema.org/PrimaryCare.
-
+    See: https://schema.org/PrimaryCare
+    Model depth: 5
     """
-    type_: str = Field("PrimaryCare", const=True, alias='@type')
-    
 
-PrimaryCare.update_forward_refs()
+    type_: str = Field("PrimaryCare", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    PrimaryCare.update_forward_refs()

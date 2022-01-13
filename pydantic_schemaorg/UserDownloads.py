@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.UserInteraction import UserInteraction
 
 
@@ -7,10 +12,13 @@ class UserDownloads(UserInteraction):
      "pages. It is generally better to use [[Action]]-based vocabulary, alongside types"
      "such as [[Comment]].
 
-    See https://schema.org/UserDownloads.
-
+    See: https://schema.org/UserDownloads
+    Model depth: 4
     """
-    type_: str = Field("UserDownloads", const=True, alias='@type')
-    
 
-UserDownloads.update_forward_refs()
+    type_: str = Field("UserDownloads", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    UserDownloads.update_forward_refs()

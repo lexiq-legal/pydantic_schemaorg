@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.WearableSizeGroupEnumeration import WearableSizeGroupEnumeration
 
 
 class WearableSizeGroupWomens(WearableSizeGroupEnumeration):
     """Size group \"Womens\" for wearables.
 
-    See https://schema.org/WearableSizeGroupWomens.
-
+    See: https://schema.org/WearableSizeGroupWomens
+    Model depth: 6
     """
-    type_: str = Field("WearableSizeGroupWomens", const=True, alias='@type')
-    
 
-WearableSizeGroupWomens.update_forward_refs()
+    type_: str = Field("WearableSizeGroupWomens", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    WearableSizeGroupWomens.update_forward_refs()

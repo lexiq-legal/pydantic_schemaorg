@@ -1,5 +1,12 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MedicalObservationalStudyDesign import MedicalObservationalStudyDesign
+
+from pydantic_schemaorg.MedicalObservationalStudyDesign import (
+    MedicalObservationalStudyDesign,
+)
 
 
 class CohortStudy(MedicalObservationalStudyDesign):
@@ -12,10 +19,13 @@ class CohortStudy(MedicalObservationalStudyDesign):
      "to the substance under investigation, but otherwise similar. Alternatively, subgroups"
      "within the cohort may be compared with each other.
 
-    See https://schema.org/CohortStudy.
-
+    See: https://schema.org/CohortStudy
+    Model depth: 6
     """
-    type_: str = Field("CohortStudy", const=True, alias='@type')
-    
 
-CohortStudy.update_forward_refs()
+    type_: str = Field("CohortStudy", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    CohortStudy.update_forward_refs()

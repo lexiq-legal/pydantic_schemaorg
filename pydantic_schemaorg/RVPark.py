@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.CivicStructure import CivicStructure
 
 
@@ -6,10 +11,13 @@ class RVPark(CivicStructure):
     """A place offering space for \"Recreational Vehicles\", Caravans, mobile homes and the"
      "like.
 
-    See https://schema.org/RVPark.
-
+    See: https://schema.org/RVPark
+    Model depth: 4
     """
-    type_: str = Field("RVPark", const=True, alias='@type')
-    
 
-RVPark.update_forward_refs()
+    type_: str = Field("RVPark", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    RVPark.update_forward_refs()

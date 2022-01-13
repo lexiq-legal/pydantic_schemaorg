@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.LodgingBusiness import LodgingBusiness
 
 
@@ -7,10 +12,13 @@ class Hostel(LodgingBusiness):
      "<a href=\"/docs/hotels.html\">dedicated document on the use of schema.org for marking"
      "up hotels and other forms of accommodations</a>.
 
-    See https://schema.org/Hostel.
-
+    See: https://schema.org/Hostel
+    Model depth: 5
     """
-    type_: str = Field("Hostel", const=True, alias='@type')
-    
 
-Hostel.update_forward_refs()
+    type_: str = Field("Hostel", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Hostel.update_forward_refs()

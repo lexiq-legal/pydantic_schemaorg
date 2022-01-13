@@ -1,5 +1,12 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MediaManipulationRatingEnumeration import MediaManipulationRatingEnumeration
+
+from pydantic_schemaorg.MediaManipulationRatingEnumeration import (
+    MediaManipulationRatingEnumeration,
+)
 
 
 class StagedContent(MediaManipulationRatingEnumeration):
@@ -12,10 +19,13 @@ class StagedContent(MediaManipulationRatingEnumeration):
      "fake tweet. For an [[AudioObject]] to be 'staged content': Audio that has been created"
      "using actors or similarly contrived.
 
-    See https://schema.org/StagedContent.
-
+    See: https://schema.org/StagedContent
+    Model depth: 5
     """
-    type_: str = Field("StagedContent", const=True, alias='@type')
-    
 
-StagedContent.update_forward_refs()
+    type_: str = Field("StagedContent", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    StagedContent.update_forward_refs()

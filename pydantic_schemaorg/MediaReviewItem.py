@@ -1,6 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MediaObject import MediaObject
-from typing import List, Optional, Union
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -9,15 +14,20 @@ class MediaReviewItem(CreativeWork):
      "in a [[MediaReview]]. Authorship etc. apply to the items rather than to the curation/grouping"
      "or reviewing party.
 
-    See https://schema.org/MediaReviewItem.
-
+    See: https://schema.org/MediaReviewItem
+    Model depth: 3
     """
-    type_: str = Field("MediaReviewItem", const=True, alias='@type')
-    mediaItemAppearance: Optional[Union[List[Union[MediaObject, str]], Union[MediaObject, str]]] = Field(
+
+    type_: str = Field("MediaReviewItem", const=True, alias="@type")
+    mediaItemAppearance: "Optional[Union[List[Union[MediaObject, str]], Union[MediaObject, str]]]" = Field(
         None,
         description="In the context of a [[MediaReview]], indicates specific media item(s) that are grouped"
-     "using a [[MediaReviewItem]].",
+        "using a [[MediaReviewItem]].",
     )
-    
 
-MediaReviewItem.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.MediaObject import MediaObject
+
+    MediaReviewItem.update_forward_refs()

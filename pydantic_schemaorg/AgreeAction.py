@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.ReactAction import ReactAction
 
 
@@ -6,10 +11,13 @@ class AgreeAction(ReactAction):
     """The act of expressing a consistency of opinion with the object. An agent agrees to/about"
      "an object (a proposition, topic or theme) with participants.
 
-    See https://schema.org/AgreeAction.
-
+    See: https://schema.org/AgreeAction
+    Model depth: 5
     """
-    type_: str = Field("AgreeAction", const=True, alias='@type')
-    
 
-AgreeAction.update_forward_refs()
+    type_: str = Field("AgreeAction", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    AgreeAction.update_forward_refs()

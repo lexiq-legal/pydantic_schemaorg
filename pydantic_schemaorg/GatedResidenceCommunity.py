@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Residence import Residence
 
 
 class GatedResidenceCommunity(Residence):
     """Residence type: Gated community.
 
-    See https://schema.org/GatedResidenceCommunity.
-
+    See: https://schema.org/GatedResidenceCommunity
+    Model depth: 4
     """
-    type_: str = Field("GatedResidenceCommunity", const=True, alias='@type')
-    
 
-GatedResidenceCommunity.update_forward_refs()
+    type_: str = Field("GatedResidenceCommunity", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    GatedResidenceCommunity.update_forward_refs()

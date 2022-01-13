@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -6,10 +11,13 @@ class Specialty(Enumeration):
     """Any branch of a field in which people typically develop specific expertise, usually"
      "after significant study, time, and effort.
 
-    See https://schema.org/Specialty.
-
+    See: https://schema.org/Specialty
+    Model depth: 4
     """
-    type_: str = Field("Specialty", const=True, alias='@type')
-    
 
-Specialty.update_forward_refs()
+    type_: str = Field("Specialty", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Specialty.update_forward_refs()

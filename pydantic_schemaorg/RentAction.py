@@ -1,8 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.Organization import Organization
-from pydantic_schemaorg.Person import Person
-from typing import List, Optional, Union
-from pydantic_schemaorg.RealEstateAgent import RealEstateAgent
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.TradeAction import TradeAction
 
 
@@ -11,18 +14,27 @@ class RentAction(TradeAction):
      "as a vehicle or property. For example, an agent rents a property from a landlord in exchange"
      "for a periodic payment.
 
-    See https://schema.org/RentAction.
-
+    See: https://schema.org/RentAction
+    Model depth: 4
     """
-    type_: str = Field("RentAction", const=True, alias='@type')
-    landlord: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
+
+    type_: str = Field("RentAction", const=True, alias="@type")
+    landlord: "Optional[Union[List[Union[Person, Organization, str]], Union[Person, Organization, str]]]" = Field(
         None,
         description="A sub property of participant. The owner of the real estate property.",
     )
-    realEstateAgent: Optional[Union[List[Union[RealEstateAgent, str]], Union[RealEstateAgent, str]]] = Field(
+    realEstateAgent: "Optional[Union[List[Union[RealEstateAgent, str]], Union[RealEstateAgent, str]]]" = Field(
         None,
         description="A sub property of participant. The real estate agent involved in the action.",
     )
-    
 
-RentAction.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.Person import Person
+
+    from pydantic_schemaorg.Organization import Organization
+
+    from pydantic_schemaorg.RealEstateAgent import RealEstateAgent
+
+    RentAction.update_forward_refs()

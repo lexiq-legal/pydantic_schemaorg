@@ -1,14 +1,24 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MedicalObservationalStudyDesign import MedicalObservationalStudyDesign
+
+from pydantic_schemaorg.MedicalObservationalStudyDesign import (
+    MedicalObservationalStudyDesign,
+)
 
 
 class Registry(MedicalObservationalStudyDesign):
     """A registry-based study design.
 
-    See https://schema.org/Registry.
-
+    See: https://schema.org/Registry
+    Model depth: 6
     """
-    type_: str = Field("Registry", const=True, alias='@type')
-    
 
-Registry.update_forward_refs()
+    type_: str = Field("Registry", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Registry.update_forward_refs()

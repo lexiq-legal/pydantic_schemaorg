@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 
@@ -11,10 +16,13 @@ class ProfessionalService(LocalBusiness):
      "[[RoofingContractor]]. [[LegalService]] was introduced as a more inclusive supertype"
      "of [[Attorney]].
 
-    See https://schema.org/ProfessionalService.
-
+    See: https://schema.org/ProfessionalService
+    Model depth: 4
     """
-    type_: str = Field("ProfessionalService", const=True, alias='@type')
-    
 
-ProfessionalService.update_forward_refs()
+    type_: str = Field("ProfessionalService", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    ProfessionalService.update_forward_refs()

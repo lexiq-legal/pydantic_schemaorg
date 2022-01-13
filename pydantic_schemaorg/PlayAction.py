@@ -1,7 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.Audience import Audience
-from typing import List, Optional, Union
-from pydantic_schemaorg.Event import Event
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.Action import Action
 
 
@@ -13,18 +17,25 @@ class PlayAction(Action):
      "is under ConsumeAction), PlayAction refers to showing/displaying for an audience"
      "or at an event, rather than consuming visual content.
 
-    See https://schema.org/PlayAction.
-
+    See: https://schema.org/PlayAction
+    Model depth: 3
     """
-    type_: str = Field("PlayAction", const=True, alias='@type')
-    audience: Optional[Union[List[Union[Audience, str]], Union[Audience, str]]] = Field(
+
+    type_: str = Field("PlayAction", const=True, alias="@type")
+    audience: "Optional[Union[List[Union[Audience, str]], Union[Audience, str]]]" = Field(
         None,
         description="An intended audience, i.e. a group for whom something was created.",
     )
-    event: Optional[Union[List[Union[Event, str]], Union[Event, str]]] = Field(
+    event: "Optional[Union[List[Union[Event, str]], Union[Event, str]]]" = Field(
         None,
         description="Upcoming or past event associated with this place, organization, or action.",
     )
-    
 
-PlayAction.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.Audience import Audience
+
+    from pydantic_schemaorg.Event import Event
+
+    PlayAction.update_forward_refs()

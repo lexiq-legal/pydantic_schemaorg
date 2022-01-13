@@ -1,15 +1,24 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.Audience import Audience
+
 from pydantic_schemaorg.PeopleAudience import PeopleAudience
 
+from pydantic_schemaorg.Audience import Audience
 
-class MedicalAudience(Audience, PeopleAudience):
+
+class MedicalAudience(PeopleAudience, Audience):
     """Target audiences for medical web pages.
 
-    See https://schema.org/MedicalAudience.
-
+    See: https://schema.org/MedicalAudience
+    Model depth: 4
     """
-    type_: str = Field("MedicalAudience", const=True, alias='@type')
-    
 
-MedicalAudience.update_forward_refs()
+    type_: str = Field("MedicalAudience", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    MedicalAudience.update_forward_refs()

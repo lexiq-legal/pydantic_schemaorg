@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.BookFormatType import BookFormatType
 
 
@@ -7,10 +12,13 @@ class AudiobookFormat(BookFormatType):
      "There is also a type 'Audiobook' in the bib extension which includes Audiobook specific"
      "properties.
 
-    See https://schema.org/AudiobookFormat.
-
+    See: https://schema.org/AudiobookFormat
+    Model depth: 5
     """
-    type_: str = Field("AudiobookFormat", const=True, alias='@type')
-    
 
-AudiobookFormat.update_forward_refs()
+    type_: str = Field("AudiobookFormat", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    AudiobookFormat.update_forward_refs()

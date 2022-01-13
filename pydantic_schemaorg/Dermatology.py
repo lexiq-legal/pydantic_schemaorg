@@ -1,16 +1,25 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
+
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
+from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
 
-class Dermatology(MedicalBusiness, MedicalSpecialty):
+
+class Dermatology(MedicalSpecialty, MedicalBusiness):
     """A specific branch of medical science that pertains to diagnosis and treatment of disorders"
      "of skin.
 
-    See https://schema.org/Dermatology.
-
+    See: https://schema.org/Dermatology
+    Model depth: 5
     """
-    type_: str = Field("Dermatology", const=True, alias='@type')
-    
 
-Dermatology.update_forward_refs()
+    type_: str = Field("Dermatology", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Dermatology.update_forward_refs()

@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.MedicineSystem import MedicineSystem
 
 
 class Osteopathic(MedicineSystem):
     """A system of medicine focused on promoting the body's innate ability to heal itself.
 
-    See https://schema.org/Osteopathic.
-
+    See: https://schema.org/Osteopathic
+    Model depth: 6
     """
-    type_: str = Field("Osteopathic", const=True, alias='@type')
-    
 
-Osteopathic.update_forward_refs()
+    type_: str = Field("Osteopathic", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Osteopathic.update_forward_refs()

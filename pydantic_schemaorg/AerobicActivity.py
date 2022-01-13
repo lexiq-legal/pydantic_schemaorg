@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
 
 
@@ -7,10 +12,13 @@ class AerobicActivity(PhysicalActivityCategory):
      "energy-generating process; during activity, the aerobic metabolism uses oxygen to"
      "adequately meet energy demands during exercise.
 
-    See https://schema.org/AerobicActivity.
-
+    See: https://schema.org/AerobicActivity
+    Model depth: 5
     """
-    type_: str = Field("AerobicActivity", const=True, alias='@type')
-    
 
-AerobicActivity.update_forward_refs()
+    type_: str = Field("AerobicActivity", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    AerobicActivity.update_forward_refs()

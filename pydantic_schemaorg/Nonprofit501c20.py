@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.USNonprofitType import USNonprofitType
 
 
 class Nonprofit501c20(USNonprofitType):
     """Nonprofit501c20: Non-profit type referring to Group Legal Services Plan Organizations.
 
-    See https://schema.org/Nonprofit501c20.
-
+    See: https://schema.org/Nonprofit501c20
+    Model depth: 6
     """
-    type_: str = Field("Nonprofit501c20", const=True, alias='@type')
-    
 
-Nonprofit501c20.update_forward_refs()
+    type_: str = Field("Nonprofit501c20", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Nonprofit501c20.update_forward_refs()

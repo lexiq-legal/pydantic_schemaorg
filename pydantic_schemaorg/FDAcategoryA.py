@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.DrugPregnancyCategory import DrugPregnancyCategory
 
 
@@ -7,10 +12,13 @@ class FDAcategoryA(DrugPregnancyCategory):
      "failed to demonstrate a risk to the fetus in the first trimester of pregnancy (and there"
      "is no evidence of risk in later trimesters).
 
-    See https://schema.org/FDAcategoryA.
-
+    See: https://schema.org/FDAcategoryA
+    Model depth: 6
     """
-    type_: str = Field("FDAcategoryA", const=True, alias='@type')
-    
 
-FDAcategoryA.update_forward_refs()
+    type_: str = Field("FDAcategoryA", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    FDAcategoryA.update_forward_refs()

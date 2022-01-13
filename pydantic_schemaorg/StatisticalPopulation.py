@@ -1,6 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from typing import List, Optional, Union
-from pydantic_schemaorg.Class import Class
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -18,25 +23,30 @@ class StatisticalPopulation(Intangible):
      "a [[populationType]] of [[Event]] or [[NewsArticle]] could be used. See also [[Observation]],"
      "and the [data and datasets](/docs/data-and-datasets.html) overview for more details.
 
-    See https://schema.org/StatisticalPopulation.
-
+    See: https://schema.org/StatisticalPopulation
+    Model depth: 3
     """
-    type_: str = Field("StatisticalPopulation", const=True, alias='@type')
-    numConstraints: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
+
+    type_: str = Field("StatisticalPopulation", const=True, alias="@type")
+    numConstraints: "Optional[Union[List[Union[int, str]], Union[int, str]]]" = Field(
         None,
         description="Indicates the number of constraints (not counting [[populationType]]) defined for"
-     "a particular [[StatisticalPopulation]]. This helps applications understand if they"
-     "have access to a sufficiently complete description of a [[StatisticalPopulation]].",
+        "a particular [[StatisticalPopulation]]. This helps applications understand if they"
+        "have access to a sufficiently complete description of a [[StatisticalPopulation]].",
     )
-    constrainingProperty: Optional[Union[List[Union[int, str]], Union[int, str]]] = Field(
+    constrainingProperty: "Optional[Union[List[Union[int, str]], Union[int, str]]]" = Field(
         None,
         description="Indicates a property used as a constraint to define a [[StatisticalPopulation]] with"
-     "respect to the set of entities corresponding to an indicated type (via [[populationType]]).",
+        "respect to the set of entities corresponding to an indicated type (via [[populationType]]).",
     )
-    populationType: Optional[Union[List[Union[Class, str]], Union[Class, str]]] = Field(
+    populationType: "Optional[Union[List[Union[Class, str]], Union[Class, str]]]" = Field(
         None,
         description="Indicates the populationType common to all members of a [[StatisticalPopulation]].",
     )
-    
 
-StatisticalPopulation.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.Class import Class
+
+    StatisticalPopulation.update_forward_refs()

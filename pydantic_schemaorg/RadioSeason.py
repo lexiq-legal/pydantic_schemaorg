@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.CreativeWorkSeason import CreativeWorkSeason
 
 
 class RadioSeason(CreativeWorkSeason):
     """Season dedicated to radio broadcast and associated online delivery.
 
-    See https://schema.org/RadioSeason.
-
+    See: https://schema.org/RadioSeason
+    Model depth: 4
     """
-    type_: str = Field("RadioSeason", const=True, alias='@type')
-    
 
-RadioSeason.update_forward_refs()
+    type_: str = Field("RadioSeason", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    RadioSeason.update_forward_refs()

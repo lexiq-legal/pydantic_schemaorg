@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
@@ -7,10 +12,13 @@ class SpeechPathology(MedicalSpecialty):
      "and voice, as stuttering, lisping, or lalling, and of language disturbances, as aphasia"
      "or delayed language acquisition.
 
-    See https://schema.org/SpeechPathology.
-
+    See: https://schema.org/SpeechPathology
+    Model depth: 6
     """
-    type_: str = Field("SpeechPathology", const=True, alias='@type')
-    
 
-SpeechPathology.update_forward_refs()
+    type_: str = Field("SpeechPathology", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    SpeechPathology.update_forward_refs()

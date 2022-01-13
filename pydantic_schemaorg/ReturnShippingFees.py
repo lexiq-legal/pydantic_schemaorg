@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.ReturnFeesEnumeration import ReturnFeesEnumeration
 
 
 class ReturnShippingFees(ReturnFeesEnumeration):
     """Specifies that the customer must pay the return shipping costs when returning a product
 
-    See https://schema.org/ReturnShippingFees.
-
+    See: https://schema.org/ReturnShippingFees
+    Model depth: 5
     """
-    type_: str = Field("ReturnShippingFees", const=True, alias='@type')
-    
 
-ReturnShippingFees.update_forward_refs()
+    type_: str = Field("ReturnShippingFees", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    ReturnShippingFees.update_forward_refs()

@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.CommunicateAction import CommunicateAction
 
 
@@ -11,10 +16,13 @@ class CheckOutAction(CommunicateAction):
      "CheckOutAction implies that the agent is informing/confirming the end of a previously"
      "reserved service.
 
-    See https://schema.org/CheckOutAction.
-
+    See: https://schema.org/CheckOutAction
+    Model depth: 5
     """
-    type_: str = Field("CheckOutAction", const=True, alias='@type')
-    
 
-CheckOutAction.update_forward_refs()
+    type_: str = Field("CheckOutAction", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    CheckOutAction.update_forward_refs()

@@ -1,5 +1,12 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MediaManipulationRatingEnumeration import MediaManipulationRatingEnumeration
+
+from pydantic_schemaorg.MediaManipulationRatingEnumeration import (
+    MediaManipulationRatingEnumeration,
+)
 
 
 class EditedOrCroppedContent(MediaManipulationRatingEnumeration):
@@ -15,10 +22,13 @@ class EditedOrCroppedContent(MediaManipulationRatingEnumeration):
      "editing multiple audio clips together to alter the story being told or editing out large"
      "portions from the recording.
 
-    See https://schema.org/EditedOrCroppedContent.
-
+    See: https://schema.org/EditedOrCroppedContent
+    Model depth: 5
     """
-    type_: str = Field("EditedOrCroppedContent", const=True, alias='@type')
-    
 
-EditedOrCroppedContent.update_forward_refs()
+    type_: str = Field("EditedOrCroppedContent", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    EditedOrCroppedContent.update_forward_refs()

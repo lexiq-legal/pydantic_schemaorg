@@ -1,5 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from typing import List, Optional, Any, Union
+
+from typing import Union, List, Optional, Any
+
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -10,14 +16,17 @@ class Guide(CreativeWork):
      "and recommend specific products or services. A [[Guide]] may represent a Ranked List"
      "and recommend specific products or services with ranking.
 
-    See https://schema.org/Guide.
-
+    See: https://schema.org/Guide
+    Model depth: 3
     """
-    type_: str = Field("Guide", const=True, alias='@type')
-    reviewAspect: Optional[Union[List[str], str]] = Field(
+
+    type_: str = Field("Guide", const=True, alias="@type")
+    reviewAspect: "Optional[Union[List[str], str]]" = Field(
         None,
         description="This Review or Rating is relevant to this part or facet of the itemReviewed.",
     )
-    
 
-Guide.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    Guide.update_forward_refs()

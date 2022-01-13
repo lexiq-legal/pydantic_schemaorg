@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.PlanAction import PlanAction
 
 
@@ -7,10 +12,13 @@ class ScheduleAction(PlanAction):
      "Unlike ReserveAction, ScheduleAction allocates future actions (e.g. an event, a task,"
      "etc) towards a time slot / spatial allocation.
 
-    See https://schema.org/ScheduleAction.
-
+    See: https://schema.org/ScheduleAction
+    Model depth: 5
     """
-    type_: str = Field("ScheduleAction", const=True, alias='@type')
-    
 
-ScheduleAction.update_forward_refs()
+    type_: str = Field("ScheduleAction", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    ScheduleAction.update_forward_refs()

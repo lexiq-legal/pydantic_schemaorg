@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.USNonprofitType import USNonprofitType
 
 
@@ -6,10 +11,13 @@ class Nonprofit501c12(USNonprofitType):
     """Nonprofit501c12: Non-profit type referring to Benevolent Life Insurance Associations,"
      "Mutual Ditch or Irrigation Companies, Mutual or Cooperative Telephone Companies.
 
-    See https://schema.org/Nonprofit501c12.
-
+    See: https://schema.org/Nonprofit501c12
+    Model depth: 6
     """
-    type_: str = Field("Nonprofit501c12", const=True, alias='@type')
-    
 
-Nonprofit501c12.update_forward_refs()
+    type_: str = Field("Nonprofit501c12", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Nonprofit501c12.update_forward_refs()

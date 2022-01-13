@@ -1,6 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from typing import List, Optional, Any, Union
-from pydantic_schemaorg.QualitativeValue import QualitativeValue
+
+from typing import Union, List, Optional, Any
+
 from pydantic_schemaorg.Reservation import Reservation
 
 
@@ -9,27 +14,32 @@ class FlightReservation(Reservation):
      "e.g. in confirmation emails or HTML pages with individual confirmations of reservations."
      "For offers of tickets, use [[Offer]].
 
-    See https://schema.org/FlightReservation.
-
+    See: https://schema.org/FlightReservation
+    Model depth: 4
     """
-    type_: str = Field("FlightReservation", const=True, alias='@type')
-    passengerSequenceNumber: Optional[Union[List[str], str]] = Field(
+
+    type_: str = Field("FlightReservation", const=True, alias="@type")
+    passengerSequenceNumber: "Optional[Union[List[str], str]]" = Field(
         None,
         description="The passenger's sequence number as assigned by the airline.",
     )
-    securityScreening: Optional[Union[List[str], str]] = Field(
+    securityScreening: "Optional[Union[List[str], str]]" = Field(
         None,
         description="The type of security screening the passenger is subject to.",
     )
-    passengerPriorityStatus: Optional[Union[List[Union[str, QualitativeValue]], Union[str, QualitativeValue]]] = Field(
+    passengerPriorityStatus: "Optional[Union[List[Union[str, QualitativeValue]], Union[str, QualitativeValue]]]" = Field(
         None,
         description="The priority status assigned to a passenger for security or boarding (e.g. FastTrack"
-     "or Priority).",
+        "or Priority).",
     )
-    boardingGroup: Optional[Union[List[str], str]] = Field(
+    boardingGroup: "Optional[Union[List[str], str]]" = Field(
         None,
         description="The airline-specific indicator of boarding order / preference.",
     )
-    
 
-FlightReservation.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.QualitativeValue import QualitativeValue
+
+    FlightReservation.update_forward_refs()

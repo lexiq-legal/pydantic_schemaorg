@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Accommodation import Accommodation
 
 
@@ -8,10 +13,13 @@ class Room(Accommodation):
      "<br /><br /> See also the <a href=\"/docs/hotels.html\">dedicated document on the"
      "use of schema.org for marking up hotels and other forms of accommodations</a>.
 
-    See https://schema.org/Room.
-
+    See: https://schema.org/Room
+    Model depth: 4
     """
-    type_: str = Field("Room", const=True, alias='@type')
-    
 
-Room.update_forward_refs()
+    type_: str = Field("Room", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Room.update_forward_refs()

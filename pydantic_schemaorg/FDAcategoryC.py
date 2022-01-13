@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.DrugPregnancyCategory import DrugPregnancyCategory
 
 
@@ -8,10 +13,13 @@ class FDAcategoryC(DrugPregnancyCategory):
      "humans, but potential benefits may warrant use of the drug in pregnant women despite"
      "potential risks.
 
-    See https://schema.org/FDAcategoryC.
-
+    See: https://schema.org/FDAcategoryC
+    Model depth: 6
     """
-    type_: str = Field("FDAcategoryC", const=True, alias='@type')
-    
 
-FDAcategoryC.update_forward_refs()
+    type_: str = Field("FDAcategoryC", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    FDAcategoryC.update_forward_refs()

@@ -1,8 +1,12 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.CreativeWork import CreativeWork
-from typing import List, Optional, Union
-from pydantic_schemaorg.Organization import Organization
-from pydantic_schemaorg.Person import Person
 
 
 class Claim(CreativeWork):
@@ -17,23 +21,32 @@ class Claim(CreativeWork):
      "or [[Question]] might be [[about]] some [[Claim]]. At this time, Schema.org does not"
      "define any types of relationship between claims. This is a natural area for future exploration.
 
-    See https://schema.org/Claim.
-
+    See: https://schema.org/Claim
+    Model depth: 3
     """
-    type_: str = Field("Claim", const=True, alias='@type')
-    firstAppearance: Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]] = Field(
+
+    type_: str = Field("Claim", const=True, alias="@type")
+    firstAppearance: "Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]]" = Field(
         None,
         description="Indicates the first known occurence of a [[Claim]] in some [[CreativeWork]].",
     )
-    claimInterpreter: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
+    claimInterpreter: "Optional[Union[List[Union[Person, Organization, str]], Union[Person, Organization, str]]]" = Field(
         None,
         description="For a [[Claim]] interpreted from [[MediaObject]] content sed to indicate a claim contained,"
-     "implied or refined from the content of a [[MediaObject]].",
+        "implied or refined from the content of a [[MediaObject]].",
     )
-    appearance: Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]] = Field(
+    appearance: "Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]]" = Field(
         None,
         description="Indicates an occurence of a [[Claim]] in some [[CreativeWork]].",
     )
-    
 
-Claim.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.CreativeWork import CreativeWork
+
+    from pydantic_schemaorg.Person import Person
+
+    from pydantic_schemaorg.Organization import Organization
+
+    Claim.update_forward_refs()

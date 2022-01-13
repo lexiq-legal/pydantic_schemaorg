@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.USNonprofitType import USNonprofitType
 
 
@@ -7,10 +12,13 @@ class Nonprofit501c3(USNonprofitType):
      "Scientific, Literary, Testing for Public Safety, to Foster National or International"
      "Amateur Sports Competition, or Prevention of Cruelty to Children or Animals Organizations.
 
-    See https://schema.org/Nonprofit501c3.
-
+    See: https://schema.org/Nonprofit501c3
+    Model depth: 6
     """
-    type_: str = Field("Nonprofit501c3", const=True, alias='@type')
-    
 
-Nonprofit501c3.update_forward_refs()
+    type_: str = Field("Nonprofit501c3", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Nonprofit501c3.update_forward_refs()

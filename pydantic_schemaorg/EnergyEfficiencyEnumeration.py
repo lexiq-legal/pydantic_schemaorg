@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -6,10 +11,13 @@ class EnergyEfficiencyEnumeration(Enumeration):
     """Enumerates energy efficiency levels (also known as \"classes\" or \"ratings\") and"
      "certifications that are part of several international energy efficiency standards.
 
-    See https://schema.org/EnergyEfficiencyEnumeration.
-
+    See: https://schema.org/EnergyEfficiencyEnumeration
+    Model depth: 4
     """
-    type_: str = Field("EnergyEfficiencyEnumeration", const=True, alias='@type')
-    
 
-EnergyEfficiencyEnumeration.update_forward_refs()
+    type_: str = Field("EnergyEfficiencyEnumeration", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    EnergyEfficiencyEnumeration.update_forward_refs()

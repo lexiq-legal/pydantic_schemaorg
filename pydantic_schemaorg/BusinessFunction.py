@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -13,10 +18,13 @@ class BusinessFunction(Enumeration):
      "* http://purl.org/goodrelations/v1#Repair * http://purl.org/goodrelations/v1#Sell"
      "* http://purl.org/goodrelations/v1#Buy
 
-    See https://schema.org/BusinessFunction.
-
+    See: https://schema.org/BusinessFunction
+    Model depth: 4
     """
-    type_: str = Field("BusinessFunction", const=True, alias='@type')
-    
 
-BusinessFunction.update_forward_refs()
+    type_: str = Field("BusinessFunction", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    BusinessFunction.update_forward_refs()

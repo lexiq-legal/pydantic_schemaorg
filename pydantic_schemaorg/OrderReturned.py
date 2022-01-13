@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.OrderStatus import OrderStatus
 
 
 class OrderReturned(OrderStatus):
     """OrderStatus representing that an order has been returned.
 
-    See https://schema.org/OrderReturned.
-
+    See: https://schema.org/OrderReturned
+    Model depth: 6
     """
-    type_: str = Field("OrderReturned", const=True, alias='@type')
-    
 
-OrderReturned.update_forward_refs()
+    type_: str = Field("OrderReturned", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    OrderReturned.update_forward_refs()

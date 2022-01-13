@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -6,10 +11,13 @@ class PriceComponentTypeEnumeration(Enumeration):
     """Enumerates different price components that together make up the total price for an offered"
      "product.
 
-    See https://schema.org/PriceComponentTypeEnumeration.
-
+    See: https://schema.org/PriceComponentTypeEnumeration
+    Model depth: 4
     """
-    type_: str = Field("PriceComponentTypeEnumeration", const=True, alias='@type')
-    
 
-PriceComponentTypeEnumeration.update_forward_refs()
+    type_: str = Field("PriceComponentTypeEnumeration", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    PriceComponentTypeEnumeration.update_forward_refs()

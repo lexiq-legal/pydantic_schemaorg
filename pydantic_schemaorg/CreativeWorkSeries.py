@@ -1,7 +1,13 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from datetime import datetime, date
-from typing import List, Optional, Any, Union
+
+from typing import Union, List, Optional, Any
+
 from pydantic_schemaorg.Series import Series
+
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -20,24 +26,29 @@ class CreativeWorkSeries(Series, CreativeWork):
      "publishers should be free to apply properties of the series parts to the series as a whole"
      "wherever they seem appropriate.
 
-    See https://schema.org/CreativeWorkSeries.
-
+    See: https://schema.org/CreativeWorkSeries
+    Model depth: 3
     """
-    type_: str = Field("CreativeWorkSeries", const=True, alias='@type')
-    endDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
+
+    type_: str = Field("CreativeWorkSeries", const=True, alias="@type")
+    endDate: "Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]]" = Field(
         None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    startDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
+    startDate: "Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]]" = Field(
         None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    issn: Optional[Union[List[str], str]] = Field(
+    issn: "Optional[Union[List[str], str]]" = Field(
         None,
         description="The International Standard Serial Number (ISSN) that identifies this serial publication."
-     "You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L)"
-     "for, this serial publication.",
+        "You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L)"
+        "for, this serial publication.",
     )
-    
 
-CreativeWorkSeries.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from datetime import date, datetime
+
+    CreativeWorkSeries.update_forward_refs()

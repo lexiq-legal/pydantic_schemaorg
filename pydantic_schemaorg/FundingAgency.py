@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Project import Project
 
 
@@ -9,10 +14,13 @@ class FundingAgency(Project):
      "corporate sponsorship etc. Examples of funding agencies include ERC, REA, NIH, Bill"
      "and Melinda Gates Foundation...
 
-    See https://schema.org/FundingAgency.
-
+    See: https://schema.org/FundingAgency
+    Model depth: 4
     """
-    type_: str = Field("FundingAgency", const=True, alias='@type')
-    
 
-FundingAgency.update_forward_refs()
+    type_: str = Field("FundingAgency", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    FundingAgency.update_forward_refs()

@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.AudioObject import AudioObject
 
 
@@ -9,10 +14,13 @@ class AudioObjectSnapshot(AudioObject):
      "e.g. creator or dateCreated that aren't represented in their actual content, do not"
      "affect this notion of identity.
 
-    See https://schema.org/AudioObjectSnapshot.
-
+    See: https://schema.org/AudioObjectSnapshot
+    Model depth: 5
     """
-    type_: str = Field("AudioObjectSnapshot", const=True, alias='@type')
-    
 
-AudioObjectSnapshot.update_forward_refs()
+    type_: str = Field("AudioObjectSnapshot", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    AudioObjectSnapshot.update_forward_refs()

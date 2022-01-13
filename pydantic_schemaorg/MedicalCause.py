@@ -1,6 +1,12 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
-from typing import List, Optional, Union
 
 
 class MedicalCause(MedicalEntity):
@@ -18,14 +24,19 @@ class MedicalCause(MedicalEntity):
      "oncologic, otolaryngologic, pharmacologic, psychiatric, pulmonary, renal, rheumatologic,"
      "toxic, traumatic, or urologic causes; medical conditions can be causes as well.
 
-    See https://schema.org/MedicalCause.
-
+    See: https://schema.org/MedicalCause
+    Model depth: 3
     """
-    type_: str = Field("MedicalCause", const=True, alias='@type')
-    causeOf: Optional[Union[List[Union[MedicalEntity, str]], Union[MedicalEntity, str]]] = Field(
+
+    type_: str = Field("MedicalCause", const=True, alias="@type")
+    causeOf: "Optional[Union[List[Union[MedicalEntity, str]], Union[MedicalEntity, str]]]" = Field(
         None,
         description="The condition, complication, symptom, sign, etc. caused.",
     )
-    
 
-MedicalCause.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.MedicalEntity import MedicalEntity
+
+    MedicalCause.update_forward_refs()

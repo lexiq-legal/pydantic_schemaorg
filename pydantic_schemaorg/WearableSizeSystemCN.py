@@ -1,14 +1,24 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.WearableSizeSystemEnumeration import WearableSizeSystemEnumeration
+
+from pydantic_schemaorg.WearableSizeSystemEnumeration import (
+    WearableSizeSystemEnumeration,
+)
 
 
 class WearableSizeSystemCN(WearableSizeSystemEnumeration):
     """Chinese size system for wearables.
 
-    See https://schema.org/WearableSizeSystemCN.
-
+    See: https://schema.org/WearableSizeSystemCN
+    Model depth: 6
     """
-    type_: str = Field("WearableSizeSystemCN", const=True, alias='@type')
-    
 
-WearableSizeSystemCN.update_forward_refs()
+    type_: str = Field("WearableSizeSystemCN", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    WearableSizeSystemCN.update_forward_refs()

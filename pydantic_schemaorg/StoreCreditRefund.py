@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.RefundTypeEnumeration import RefundTypeEnumeration
 
 
 class StoreCreditRefund(RefundTypeEnumeration):
     """Specifies that the customer receives a store credit as refund when returning a product
 
-    See https://schema.org/StoreCreditRefund.
-
+    See: https://schema.org/StoreCreditRefund
+    Model depth: 5
     """
-    type_: str = Field("StoreCreditRefund", const=True, alias='@type')
-    
 
-StoreCreditRefund.update_forward_refs()
+    type_: str = Field("StoreCreditRefund", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    StoreCreditRefund.update_forward_refs()

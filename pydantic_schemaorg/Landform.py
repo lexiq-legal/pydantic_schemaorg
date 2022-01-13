@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Place import Place
 
 
@@ -8,10 +13,13 @@ class Landform(Place):
      "seas and so forth, including sub-aqueous terrain features such as submersed mountain"
      "ranges, volcanoes, and the great ocean basins.
 
-    See https://schema.org/Landform.
-
+    See: https://schema.org/Landform
+    Model depth: 3
     """
-    type_: str = Field("Landform", const=True, alias='@type')
-    
 
-Landform.update_forward_refs()
+    type_: str = Field("Landform", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Landform.update_forward_refs()

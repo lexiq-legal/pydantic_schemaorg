@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
@@ -6,10 +11,13 @@ class Genetic(MedicalSpecialty):
     """A specific branch of medical science that pertains to hereditary transmission and the"
      "variation of inherited characteristics and disorders.
 
-    See https://schema.org/Genetic.
-
+    See: https://schema.org/Genetic
+    Model depth: 6
     """
-    type_: str = Field("Genetic", const=True, alias='@type')
-    
 
-Genetic.update_forward_refs()
+    type_: str = Field("Genetic", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Genetic.update_forward_refs()

@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -12,10 +17,13 @@ class PaymentMethod(Enumeration):
      "* http://purl.org/goodrelations/v1#GoogleCheckout * http://purl.org/goodrelations/v1#PayPal"
      "* http://purl.org/goodrelations/v1#PaySwarm
 
-    See https://schema.org/PaymentMethod.
-
+    See: https://schema.org/PaymentMethod
+    Model depth: 4
     """
-    type_: str = Field("PaymentMethod", const=True, alias='@type')
-    
 
-PaymentMethod.update_forward_refs()
+    type_: str = Field("PaymentMethod", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    PaymentMethod.update_forward_refs()

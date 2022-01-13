@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -9,10 +14,13 @@ class Language(Intangible):
      "programming languages such as Scheme and Lisp, which are now best represented using"
      "[[ComputerLanguage]].
 
-    See https://schema.org/Language.
-
+    See: https://schema.org/Language
+    Model depth: 3
     """
-    type_: str = Field("Language", const=True, alias='@type')
-    
 
-Language.update_forward_refs()
+    type_: str = Field("Language", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Language.update_forward_refs()

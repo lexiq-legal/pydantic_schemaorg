@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -8,10 +13,13 @@ class VirtualLocation(Intangible):
      "an event, virtual locations should not be confused with physical locations in the real"
      "world.
 
-    See https://schema.org/VirtualLocation.
-
+    See: https://schema.org/VirtualLocation
+    Model depth: 3
     """
-    type_: str = Field("VirtualLocation", const=True, alias='@type')
-    
 
-VirtualLocation.update_forward_refs()
+    type_: str = Field("VirtualLocation", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    VirtualLocation.update_forward_refs()

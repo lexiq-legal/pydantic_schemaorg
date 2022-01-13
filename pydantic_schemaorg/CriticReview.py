@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Review import Review
 
 
@@ -11,10 +16,13 @@ class CriticReview(Review):
      "type. Review aggregator sites such as Metacritic already separate out the site's user"
      "reviews from selected critic reviews that originate from third-party sources.
 
-    See https://schema.org/CriticReview.
-
+    See: https://schema.org/CriticReview
+    Model depth: 4
     """
-    type_: str = Field("CriticReview", const=True, alias='@type')
-    
 
-CriticReview.update_forward_refs()
+    type_: str = Field("CriticReview", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    CriticReview.update_forward_refs()

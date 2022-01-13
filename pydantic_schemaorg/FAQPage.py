@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.WebPage import WebPage
 
 
@@ -6,10 +11,13 @@ class FAQPage(WebPage):
     """A [[FAQPage]] is a [[WebPage]] presenting one or more \"[Frequently asked questions](https://en.wikipedia.org/wiki/FAQ)\""
      "(see also [[QAPage]]).
 
-    See https://schema.org/FAQPage.
-
+    See: https://schema.org/FAQPage
+    Model depth: 4
     """
-    type_: str = Field("FAQPage", const=True, alias='@type')
-    
 
-FAQPage.update_forward_refs()
+    type_: str = Field("FAQPage", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    FAQPage.update_forward_refs()

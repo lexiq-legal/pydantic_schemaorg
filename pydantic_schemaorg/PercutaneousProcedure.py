@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.MedicalProcedureType import MedicalProcedureType
 
 
@@ -7,10 +12,13 @@ class PercutaneousProcedure(MedicalProcedureType):
      "organs or tissue is achieved via needle-puncture of the skin. For example, catheter-based"
      "procedures like stent delivery.
 
-    See https://schema.org/PercutaneousProcedure.
-
+    See: https://schema.org/PercutaneousProcedure
+    Model depth: 6
     """
-    type_: str = Field("PercutaneousProcedure", const=True, alias='@type')
-    
 
-PercutaneousProcedure.update_forward_refs()
+    type_: str = Field("PercutaneousProcedure", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    PercutaneousProcedure.update_forward_refs()

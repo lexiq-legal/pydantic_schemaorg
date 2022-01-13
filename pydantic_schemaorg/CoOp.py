@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.GamePlayMode import GamePlayMode
 
 
 class CoOp(GamePlayMode):
     """Play mode: CoOp. Co-operative games, where you play on the same team with friends.
 
-    See https://schema.org/CoOp.
-
+    See: https://schema.org/CoOp
+    Model depth: 5
     """
-    type_: str = Field("CoOp", const=True, alias='@type')
-    
 
-CoOp.update_forward_refs()
+    type_: str = Field("CoOp", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    CoOp.update_forward_refs()

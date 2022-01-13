@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Store import Store
 
 
 class ElectronicsStore(Store):
     """An electronics store.
 
-    See https://schema.org/ElectronicsStore.
-
+    See: https://schema.org/ElectronicsStore
+    Model depth: 5
     """
-    type_: str = Field("ElectronicsStore", const=True, alias='@type')
-    
 
-ElectronicsStore.update_forward_refs()
+    type_: str = Field("ElectronicsStore", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    ElectronicsStore.update_forward_refs()

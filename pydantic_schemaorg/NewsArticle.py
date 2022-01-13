@@ -1,5 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from typing import List, Optional, Any, Union
+
+from typing import Union, List, Optional, Any
+
 from pydantic_schemaorg.Article import Article
 
 
@@ -8,42 +14,45 @@ class NewsArticle(Article):
      "and supporting materials for understanding the news. A more detailed overview of [schema.org"
      "News markup](/docs/news.html) is also available.
 
-    See https://schema.org/NewsArticle.
-
+    See: https://schema.org/NewsArticle
+    Model depth: 4
     """
-    type_: str = Field("NewsArticle", const=True, alias='@type')
-    dateline: Optional[Union[List[str], str]] = Field(
+
+    type_: str = Field("NewsArticle", const=True, alias="@type")
+    dateline: "Optional[Union[List[str], str]]" = Field(
         None,
         description="A [dateline](https://en.wikipedia.org/wiki/Dateline) is a brief piece of text included"
-     "in news articles that describes where and when the story was written or filed though the"
-     "date is often omitted. Sometimes only a placename is provided. Structured representations"
-     "of dateline-related information can also be expressed more explicitly using [[locationCreated]]"
-     "(which represents where a work was created e.g. where a news report was written). For"
-     "location depicted or described in the content, use [[contentLocation]]. Dateline"
-     "summaries are oriented more towards human readers than towards automated processing,"
-     "and can vary substantially. Some examples: \"BEIRUT, Lebanon, June 2.\", \"Paris,"
-     "France\", \"December 19, 2017 11:43AM Reporting from Washington\", \"Beijing/Moscow\","
-     "\"QUEZON CITY, Philippines\".",
+        "in news articles that describes where and when the story was written or filed though the"
+        "date is often omitted. Sometimes only a placename is provided. Structured representations"
+        "of dateline-related information can also be expressed more explicitly using [[locationCreated]]"
+        "(which represents where a work was created e.g. where a news report was written). For"
+        "location depicted or described in the content, use [[contentLocation]]. Dateline"
+        "summaries are oriented more towards human readers than towards automated processing,"
+        'and can vary substantially. Some examples: "BEIRUT, Lebanon, June 2.", "Paris,'
+        'France", "December 19, 2017 11:43AM Reporting from Washington", "Beijing/Moscow",'
+        '"QUEZON CITY, Philippines".',
     )
-    printSection: Optional[Union[List[str], str]] = Field(
+    printSection: "Optional[Union[List[str], str]]" = Field(
         None,
         description="If this NewsArticle appears in print, this field indicates the print section in which"
-     "the article appeared.",
+        "the article appeared.",
     )
-    printPage: Optional[Union[List[str], str]] = Field(
+    printPage: "Optional[Union[List[str], str]]" = Field(
         None,
         description="If this NewsArticle appears in print, this field indicates the name of the page on which"
-     "the article is found. Please note that this field is intended for the exact page name (e.g."
-     "A5, B18).",
+        "the article is found. Please note that this field is intended for the exact page name (e.g."
+        "A5, B18).",
     )
-    printColumn: Optional[Union[List[str], str]] = Field(
+    printColumn: "Optional[Union[List[str], str]]" = Field(
         None,
         description="The number of the column in which the NewsArticle appears in the print edition.",
     )
-    printEdition: Optional[Union[List[str], str]] = Field(
+    printEdition: "Optional[Union[List[str], str]]" = Field(
         None,
         description="The edition of the print product in which the NewsArticle appears.",
     )
-    
 
-NewsArticle.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    NewsArticle.update_forward_refs()

@@ -1,6 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MedicalTrialDesign import MedicalTrialDesign
-from typing import List, Optional, Union
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.MedicalStudy import MedicalStudy
 
 
@@ -10,14 +15,19 @@ class MedicalTrial(MedicalStudy):
      "trials are controlled and subjects are allocated at random to the different treatment"
      "and/or control groups.
 
-    See https://schema.org/MedicalTrial.
-
+    See: https://schema.org/MedicalTrial
+    Model depth: 4
     """
-    type_: str = Field("MedicalTrial", const=True, alias='@type')
-    trialDesign: Optional[Union[List[Union[MedicalTrialDesign, str]], Union[MedicalTrialDesign, str]]] = Field(
+
+    type_: str = Field("MedicalTrial", const=True, alias="@type")
+    trialDesign: "Optional[Union[List[Union[MedicalTrialDesign, str]], Union[MedicalTrialDesign, str]]]" = Field(
         None,
         description="Specifics about the trial design (enumerated).",
     )
-    
 
-MedicalTrial.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.MedicalTrialDesign import MedicalTrialDesign
+
+    MedicalTrial.update_forward_refs()

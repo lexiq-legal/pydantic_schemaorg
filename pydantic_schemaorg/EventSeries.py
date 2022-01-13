@@ -1,9 +1,15 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.Event import Event
+
 from pydantic_schemaorg.Series import Series
 
+from pydantic_schemaorg.Event import Event
 
-class EventSeries(Event, Series):
+
+class EventSeries(Series, Event):
     """A series of [[Event]]s. Included events can relate with the series using the [[superEvent]]"
      "property. An EventSeries is a collection of events that share some unifying characteristic."
      "For example, \"The Olympic Games\" is a series, which is repeated regularly. The \"2012"
@@ -18,10 +24,13 @@ class EventSeries(Event, Series):
      "of time is compact and when aspects such as location are fixed, but it may also sometimes"
      "prove useful to describe a longer-term series as an Event.
 
-    See https://schema.org/EventSeries.
-
+    See: https://schema.org/EventSeries
+    Model depth: 3
     """
-    type_: str = Field("EventSeries", const=True, alias='@type')
-    
 
-EventSeries.update_forward_refs()
+    type_: str = Field("EventSeries", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    EventSeries.update_forward_refs()

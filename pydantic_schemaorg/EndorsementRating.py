@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Rating import Rating
 
 
@@ -13,10 +18,13 @@ class EndorsementRating(Rating):
      "a positive, endorsement rating is particularly useful in the absence of numeric scales"
      "as it helps consumers understand that the rating is broadly positive.
 
-    See https://schema.org/EndorsementRating.
-
+    See: https://schema.org/EndorsementRating
+    Model depth: 4
     """
-    type_: str = Field("EndorsementRating", const=True, alias='@type')
-    
 
-EndorsementRating.update_forward_refs()
+    type_: str = Field("EndorsementRating", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    EndorsementRating.update_forward_refs()

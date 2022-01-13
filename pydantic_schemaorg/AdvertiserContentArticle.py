@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Article import Article
 
 
@@ -7,10 +12,13 @@ class AdvertiserContentArticle(Article):
      "Includes [advertorials](https://en.wikipedia.org/wiki/Advertorial), sponsored"
      "content, native advertising and other paid content.
 
-    See https://schema.org/AdvertiserContentArticle.
-
+    See: https://schema.org/AdvertiserContentArticle
+    Model depth: 4
     """
-    type_: str = Field("AdvertiserContentArticle", const=True, alias='@type')
-    
 
-AdvertiserContentArticle.update_forward_refs()
+    type_: str = Field("AdvertiserContentArticle", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    AdvertiserContentArticle.update_forward_refs()

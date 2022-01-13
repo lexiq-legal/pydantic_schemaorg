@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.ItemList import ItemList
 
 
@@ -12,10 +17,13 @@ class BreadcrumbList(ItemList):
      "values of 'position' are not assigned meaning for a BreadcrumbList, but they should"
      "be integers, e.g. beginning with '1' for the first item in the list.
 
-    See https://schema.org/BreadcrumbList.
-
+    See: https://schema.org/BreadcrumbList
+    Model depth: 4
     """
-    type_: str = Field("BreadcrumbList", const=True, alias='@type')
-    
 
-BreadcrumbList.update_forward_refs()
+    type_: str = Field("BreadcrumbList", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    BreadcrumbList.update_forward_refs()

@@ -1,5 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from typing import List, Optional, Any, Union
+
+from typing import Union, List, Optional, Any
+
 from pydantic_schemaorg.BioChemEntity import BioChemEntity
 
 
@@ -11,15 +17,18 @@ class Protein(BioChemEntity):
      "record can have multiple isoforms inside it which would also be schema:Protein. They"
      "can be imagined, synthetic, hypothetical or naturally occurring.
 
-    See https://schema.org/Protein.
-
+    See: https://schema.org/Protein
+    Model depth: 3
     """
-    type_: str = Field("Protein", const=True, alias='@type')
-    hasBioPolymerSequence: Optional[Union[List[str], str]] = Field(
+
+    type_: str = Field("Protein", const=True, alias="@type")
+    hasBioPolymerSequence: "Optional[Union[List[str], str]]" = Field(
         None,
         description="A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of"
-     "a Gene or an amino acid sequence of a Protein.",
+        "a Gene or an amino acid sequence of a Protein.",
     )
-    
 
-Protein.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    Protein.update_forward_refs()

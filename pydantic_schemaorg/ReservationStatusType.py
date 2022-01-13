@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.StatusEnumeration import StatusEnumeration
 
 
 class ReservationStatusType(StatusEnumeration):
     """Enumerated status values for Reservation.
 
-    See https://schema.org/ReservationStatusType.
-
+    See: https://schema.org/ReservationStatusType
+    Model depth: 5
     """
-    type_: str = Field("ReservationStatusType", const=True, alias='@type')
-    
 
-ReservationStatusType.update_forward_refs()
+    type_: str = Field("ReservationStatusType", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    ReservationStatusType.update_forward_refs()

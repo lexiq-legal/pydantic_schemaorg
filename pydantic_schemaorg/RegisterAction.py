@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -10,10 +15,13 @@ class RegisterAction(InteractAction):
      "object. * [[SubscribeAction]]: Unlike SubscribeAction, RegisterAction doesn't"
      "imply that the agent is expecting updates from the object.
 
-    See https://schema.org/RegisterAction.
-
+    See: https://schema.org/RegisterAction
+    Model depth: 4
     """
-    type_: str = Field("RegisterAction", const=True, alias='@type')
-    
 
-RegisterAction.update_forward_refs()
+    type_: str = Field("RegisterAction", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    RegisterAction.update_forward_refs()

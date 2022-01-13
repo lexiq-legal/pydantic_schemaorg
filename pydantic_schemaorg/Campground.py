@@ -1,9 +1,15 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.CivicStructure import CivicStructure
+
 from pydantic_schemaorg.LodgingBusiness import LodgingBusiness
 
+from pydantic_schemaorg.CivicStructure import CivicStructure
 
-class Campground(CivicStructure, LodgingBusiness):
+
+class Campground(LodgingBusiness, CivicStructure):
     """A camping site, campsite, or [[Campground]] is a place used for overnight stay in the"
      "outdoors, typically containing individual [[CampingPitch]] locations. In British"
      "English a campsite is an area, usually divided into a number of pitches, where people"
@@ -15,10 +21,13 @@ class Campground(CivicStructure, LodgingBusiness):
      "See also the dedicated [document on the use of schema.org for marking up hotels and other"
      "forms of accommodations](/docs/hotels.html).
 
-    See https://schema.org/Campground.
-
+    See: https://schema.org/Campground
+    Model depth: 4
     """
-    type_: str = Field("Campground", const=True, alias='@type')
-    
 
-Campground.update_forward_refs()
+    type_: str = Field("Campground", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Campground.update_forward_refs()

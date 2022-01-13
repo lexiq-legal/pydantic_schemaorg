@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.EventStatusType import EventStatusType
 
 
@@ -7,10 +12,13 @@ class EventCancelled(EventStatusType):
      "to be cancelled. Either startDate or previousStartDate may be used to specify the event's"
      "cancelled date(s).
 
-    See https://schema.org/EventCancelled.
-
+    See: https://schema.org/EventCancelled
+    Model depth: 6
     """
-    type_: str = Field("EventCancelled", const=True, alias='@type')
-    
 
-EventCancelled.update_forward_refs()
+    type_: str = Field("EventCancelled", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    EventCancelled.update_forward_refs()

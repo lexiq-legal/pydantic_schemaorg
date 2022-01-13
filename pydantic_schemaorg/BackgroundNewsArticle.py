@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.NewsArticle import NewsArticle
 
 
@@ -11,10 +16,13 @@ class BackgroundNewsArticle(NewsArticle):
      "[[ScholarlyArticle]]. See also [[NewsArticle]] for related vocabulary from a learning/education"
      "perspective.
 
-    See https://schema.org/BackgroundNewsArticle.
-
+    See: https://schema.org/BackgroundNewsArticle
+    Model depth: 5
     """
-    type_: str = Field("BackgroundNewsArticle", const=True, alias='@type')
-    
 
-BackgroundNewsArticle.update_forward_refs()
+    type_: str = Field("BackgroundNewsArticle", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    BackgroundNewsArticle.update_forward_refs()

@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -11,10 +16,13 @@ class SubscribeAction(InteractAction):
      "* [[JoinAction]]: Unlike JoinAction, SubscribeAction implies that the agent is interested"
      "in continuing receiving updates from the object.
 
-    See https://schema.org/SubscribeAction.
-
+    See: https://schema.org/SubscribeAction
+    Model depth: 4
     """
-    type_: str = Field("SubscribeAction", const=True, alias='@type')
-    
 
-SubscribeAction.update_forward_refs()
+    type_: str = Field("SubscribeAction", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    SubscribeAction.update_forward_refs()

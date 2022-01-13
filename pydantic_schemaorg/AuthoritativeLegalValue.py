@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.LegalValueLevel import LegalValueLevel
 
 
@@ -8,10 +13,13 @@ class AuthoritativeLegalValue(LegalValueLevel):
      "published by the EU Office of Publications). Something \"Authoritative\" is considered"
      "to be also [[OfficialLegalValue]]\".
 
-    See https://schema.org/AuthoritativeLegalValue.
-
+    See: https://schema.org/AuthoritativeLegalValue
+    Model depth: 5
     """
-    type_: str = Field("AuthoritativeLegalValue", const=True, alias='@type')
-    
 
-AuthoritativeLegalValue.update_forward_refs()
+    type_: str = Field("AuthoritativeLegalValue", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    AuthoritativeLegalValue.update_forward_refs()

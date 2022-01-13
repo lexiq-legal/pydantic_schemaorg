@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.DataFeed import DataFeed
 
 
@@ -12,10 +17,13 @@ class CompleteDataFeed(DataFeed):
      "old entries can be safely discarded when the feed is refreshed, since we can assume the"
      "feed has provided descriptions for all current items.
 
-    See https://schema.org/CompleteDataFeed.
-
+    See: https://schema.org/CompleteDataFeed
+    Model depth: 5
     """
-    type_: str = Field("CompleteDataFeed", const=True, alias='@type')
-    
 
-CompleteDataFeed.update_forward_refs()
+    type_: str = Field("CompleteDataFeed", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    CompleteDataFeed.update_forward_refs()

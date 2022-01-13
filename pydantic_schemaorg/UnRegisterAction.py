@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -8,10 +13,13 @@ class UnRegisterAction(InteractAction):
      "that you are unregistering from a service you werer previously registered, rather than"
      "leaving a team/group of people.
 
-    See https://schema.org/UnRegisterAction.
-
+    See: https://schema.org/UnRegisterAction
+    Model depth: 4
     """
-    type_: str = Field("UnRegisterAction", const=True, alias='@type')
-    
 
-UnRegisterAction.update_forward_refs()
+    type_: str = Field("UnRegisterAction", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    UnRegisterAction.update_forward_refs()

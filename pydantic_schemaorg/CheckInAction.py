@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.CommunicateAction import CommunicateAction
 
 
@@ -12,10 +17,13 @@ class CheckInAction(CommunicateAction):
      "CheckInAction implies that the agent is informing/confirming the *start* of a previously"
      "reserved service rather than its validity/existence.
 
-    See https://schema.org/CheckInAction.
-
+    See: https://schema.org/CheckInAction
+    Model depth: 5
     """
-    type_: str = Field("CheckInAction", const=True, alias='@type')
-    
 
-CheckInAction.update_forward_refs()
+    type_: str = Field("CheckInAction", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    CheckInAction.update_forward_refs()

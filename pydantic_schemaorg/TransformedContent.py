@@ -1,5 +1,12 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MediaManipulationRatingEnumeration import MediaManipulationRatingEnumeration
+
+from pydantic_schemaorg.MediaManipulationRatingEnumeration import (
+    MediaManipulationRatingEnumeration,
+)
 
 
 class TransformedContent(MediaManipulationRatingEnumeration):
@@ -15,10 +22,13 @@ class TransformedContent(MediaManipulationRatingEnumeration):
      "Part or all of the audio has been manipulated to alter the words or sounds, or the audio"
      "has been synthetically generated, such as to create a sound-alike voice.
 
-    See https://schema.org/TransformedContent.
-
+    See: https://schema.org/TransformedContent
+    Model depth: 5
     """
-    type_: str = Field("TransformedContent", const=True, alias='@type')
-    
 
-TransformedContent.update_forward_refs()
+    type_: str = Field("TransformedContent", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    TransformedContent.update_forward_refs()

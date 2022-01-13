@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.AutomotiveBusiness import AutomotiveBusiness
 
 
 class MotorcycleDealer(AutomotiveBusiness):
     """A motorcycle dealer.
 
-    See https://schema.org/MotorcycleDealer.
-
+    See: https://schema.org/MotorcycleDealer
+    Model depth: 5
     """
-    type_: str = Field("MotorcycleDealer", const=True, alias='@type')
-    
 
-MotorcycleDealer.update_forward_refs()
+    type_: str = Field("MotorcycleDealer", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    MotorcycleDealer.update_forward_refs()

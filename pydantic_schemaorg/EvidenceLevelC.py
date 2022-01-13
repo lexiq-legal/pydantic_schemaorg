@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.MedicalEvidenceLevel import MedicalEvidenceLevel
 
 
 class EvidenceLevelC(MedicalEvidenceLevel):
     """Only consensus opinion of experts, case studies, or standard-of-care.
 
-    See https://schema.org/EvidenceLevelC.
-
+    See: https://schema.org/EvidenceLevelC
+    Model depth: 6
     """
-    type_: str = Field("EvidenceLevelC", const=True, alias='@type')
-    
 
-EvidenceLevelC.update_forward_refs()
+    type_: str = Field("EvidenceLevelC", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    EvidenceLevelC.update_forward_refs()

@@ -1,10 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.Property import Property
-from typing import List, Optional, Union
-from datetime import datetime
-from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from pydantic_schemaorg.StatisticalPopulation import StatisticalPopulation
-from pydantic_schemaorg.DataType import DataType
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -18,32 +19,45 @@ class Observation(Intangible):
      "See also [[StatisticalPopulation]], and the [data and datasets](/docs/data-and-datasets.html)"
      "overview for more details.
 
-    See https://schema.org/Observation.
-
+    See: https://schema.org/Observation
+    Model depth: 3
     """
-    type_: str = Field("Observation", const=True, alias='@type')
-    measuredProperty: Optional[Union[List[Union[Property, str]], Union[Property, str]]] = Field(
+
+    type_: str = Field("Observation", const=True, alias="@type")
+    measuredProperty: "Optional[Union[List[Union[Property, str]], Union[Property, str]]]" = Field(
         None,
         description="The measuredProperty of an [[Observation]], either a schema.org property, a property"
-     "from other RDF-compatible systems e.g. W3C RDF Data Cube, or schema.org extensions"
-     "such as [GS1's](https://www.gs1.org/voc/?show=properties).",
+        "from other RDF-compatible systems e.g. W3C RDF Data Cube, or schema.org extensions"
+        "such as [GS1's](https://www.gs1.org/voc/?show=properties).",
     )
-    observationDate: Optional[Union[List[Union[datetime, str]], Union[datetime, str]]] = Field(
+    observationDate: "Optional[Union[List[Union[datetime, str]], Union[datetime, str]]]" = Field(
         None,
         description="The observationDate of an [[Observation]].",
     )
-    marginOfError: Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]] = Field(
+    marginOfError: "Optional[Union[List[Union[QuantitativeValue, str]], Union[QuantitativeValue, str]]]" = Field(
         None,
         description="A marginOfError for an [[Observation]].",
     )
-    observedNode: Optional[Union[List[Union[StatisticalPopulation, str]], Union[StatisticalPopulation, str]]] = Field(
+    observedNode: "Optional[Union[List[Union[StatisticalPopulation, str]], Union[StatisticalPopulation, str]]]" = Field(
         None,
         description="The observedNode of an [[Observation]], often a [[StatisticalPopulation]].",
     )
-    measuredValue: Optional[Union[List[Union[DataType, str]], Union[DataType, str]]] = Field(
+    measuredValue: "Optional[Union[List[Union[DataType, str]], Union[DataType, str]]]" = Field(
         None,
         description="The measuredValue of an [[Observation]].",
     )
-    
 
-Observation.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.Property import Property
+
+    from datetime import datetime
+
+    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+
+    from pydantic_schemaorg.StatisticalPopulation import StatisticalPopulation
+
+    from pydantic_schemaorg.DataType import DataType
+
+    Observation.update_forward_refs()

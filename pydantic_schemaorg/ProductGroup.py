@@ -1,6 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.DefinedTerm import DefinedTerm
-from typing import List, Optional, Union
+
+from typing import Union, List, Optional, Any
+
 from pydantic_schemaorg.Product import Product
 
 
@@ -15,24 +20,31 @@ class ProductGroup(Product):
      "not included in this mechanism; neither are the following specific properties [[variesBy]],"
      "[[hasVariant]], [[url]].
 
-    See https://schema.org/ProductGroup.
-
+    See: https://schema.org/ProductGroup
+    Model depth: 3
     """
-    type_: str = Field("ProductGroup", const=True, alias='@type')
-    variesBy: Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]] = Field(
+
+    type_: str = Field("ProductGroup", const=True, alias="@type")
+    variesBy: "Optional[Union[List[Union[str, DefinedTerm]], Union[str, DefinedTerm]]]" = Field(
         None,
         description="Indicates the property or properties by which the variants in a [[ProductGroup]] vary,"
-     "e.g. their size, color etc. Schema.org properties can be referenced by their short name"
-     "e.g. \"color\"; terms defined elsewhere can be referenced with their URIs.",
+        "e.g. their size, color etc. Schema.org properties can be referenced by their short name"
+        'e.g. "color"; terms defined elsewhere can be referenced with their URIs.',
     )
-    productGroupID: Optional[Union[List[str], str]] = Field(
+    productGroupID: "Optional[Union[List[str], str]]" = Field(
         None,
         description="Indicates a textual identifier for a ProductGroup.",
     )
-    hasVariant: Optional[Union[List[Union[Product, str]], Union[Product, str]]] = Field(
+    hasVariant: "Optional[Union[List[Union[Product, str]], Union[Product, str]]]" = Field(
         None,
         description="Indicates a [[Product]] that is a member of this [[ProductGroup]] (or [[ProductModel]]).",
     )
-    
 
-ProductGroup.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.DefinedTerm import DefinedTerm
+
+    from pydantic_schemaorg.Product import Product
+
+    ProductGroup.update_forward_refs()

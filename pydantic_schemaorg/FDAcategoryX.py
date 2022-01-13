@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.DrugPregnancyCategory import DrugPregnancyCategory
 
 
@@ -8,10 +13,13 @@ class FDAcategoryX(DrugPregnancyCategory):
      "reaction data from investigational or marketing experience, and the risks involved"
      "in use of the drug in pregnant women clearly outweigh potential benefits.
 
-    See https://schema.org/FDAcategoryX.
-
+    See: https://schema.org/FDAcategoryX
+    Model depth: 6
     """
-    type_: str = Field("FDAcategoryX", const=True, alias='@type')
-    
 
-FDAcategoryX.update_forward_refs()
+    type_: str = Field("FDAcategoryX", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    FDAcategoryX.update_forward_refs()

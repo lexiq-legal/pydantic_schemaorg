@@ -1,23 +1,34 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.TypeAndQuantityNode import TypeAndQuantityNode
-from typing import List, Optional, Union
-from pydantic_schemaorg.Product import Product
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.Collection import Collection
 
+from pydantic_schemaorg.Product import Product
 
-class ProductCollection(Product, Collection):
+
+class ProductCollection(Collection, Product):
     """A set of products (either [[ProductGroup]]s or specific variants) that are listed together"
      "e.g. in an [[Offer]].
 
-    See https://schema.org/ProductCollection.
-
+    See: https://schema.org/ProductCollection
+    Model depth: 3
     """
-    type_: str = Field("ProductCollection", const=True, alias='@type')
-    includesObject: Optional[Union[List[Union[TypeAndQuantityNode, str]], Union[TypeAndQuantityNode, str]]] = Field(
+
+    type_: str = Field("ProductCollection", const=True, alias="@type")
+    includesObject: "Optional[Union[List[Union[TypeAndQuantityNode, str]], Union[TypeAndQuantityNode, str]]]" = Field(
         None,
         description="This links to a node or nodes indicating the exact quantity of the products included in"
-     "an [[Offer]] or [[ProductCollection]].",
+        "an [[Offer]] or [[ProductCollection]].",
     )
-    
 
-ProductCollection.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.TypeAndQuantityNode import TypeAndQuantityNode
+
+    ProductCollection.update_forward_refs()

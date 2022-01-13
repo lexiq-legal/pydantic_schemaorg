@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.ImageObject import ImageObject
 
 
@@ -9,10 +14,13 @@ class ImageObjectSnapshot(ImageObject):
      "about the files, e.g. creator or dateCreated that aren't represented in their actual"
      "content, do not affect this notion of identity.
 
-    See https://schema.org/ImageObjectSnapshot.
-
+    See: https://schema.org/ImageObjectSnapshot
+    Model depth: 5
     """
-    type_: str = Field("ImageObjectSnapshot", const=True, alias='@type')
-    
 
-ImageObjectSnapshot.update_forward_refs()
+    type_: str = Field("ImageObjectSnapshot", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    ImageObjectSnapshot.update_forward_refs()

@@ -1,5 +1,12 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MediaManipulationRatingEnumeration import MediaManipulationRatingEnumeration
+
+from pydantic_schemaorg.MediaManipulationRatingEnumeration import (
+    MediaManipulationRatingEnumeration,
+)
 
 
 class DecontextualizedContent(MediaManipulationRatingEnumeration):
@@ -20,10 +27,13 @@ class DecontextualizedContent(MediaManipulationRatingEnumeration):
      "it. For example, using incorrect dates or locations, or sharing brief clips from a longer"
      "recording to mislead viewers. (Audio rated “original” can also be missing context.)
 
-    See https://schema.org/DecontextualizedContent.
-
+    See: https://schema.org/DecontextualizedContent
+    Model depth: 5
     """
-    type_: str = Field("DecontextualizedContent", const=True, alias='@type')
-    
 
-DecontextualizedContent.update_forward_refs()
+    type_: str = Field("DecontextualizedContent", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    DecontextualizedContent.update_forward_refs()

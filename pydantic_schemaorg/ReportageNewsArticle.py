@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.NewsArticle import NewsArticle
 
 
@@ -17,10 +22,13 @@ class ReportageNewsArticle(NewsArticle):
      "typically expressed elsewhere. A [[ReportageNewsArticle]] which goes deeper into"
      "analysis can also be marked with an additional type of [[AnalysisNewsArticle]].
 
-    See https://schema.org/ReportageNewsArticle.
-
+    See: https://schema.org/ReportageNewsArticle
+    Model depth: 5
     """
-    type_: str = Field("ReportageNewsArticle", const=True, alias='@type')
-    
 
-ReportageNewsArticle.update_forward_refs()
+    type_: str = Field("ReportageNewsArticle", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    ReportageNewsArticle.update_forward_refs()

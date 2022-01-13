@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.PerformingGroup import PerformingGroup
 
 
 class TheaterGroup(PerformingGroup):
     """A theater group or company, for example, the Royal Shakespeare Company or Druid Theatre.
 
-    See https://schema.org/TheaterGroup.
-
+    See: https://schema.org/TheaterGroup
+    Model depth: 4
     """
-    type_: str = Field("TheaterGroup", const=True, alias='@type')
-    
 
-TheaterGroup.update_forward_refs()
+    type_: str = Field("TheaterGroup", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    TheaterGroup.update_forward_refs()

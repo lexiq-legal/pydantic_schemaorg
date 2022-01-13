@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.ReactAction import ReactAction
 
 
@@ -6,10 +11,13 @@ class DisagreeAction(ReactAction):
     """The act of expressing a difference of opinion with the object. An agent disagrees to/about"
      "an object (a proposition, topic or theme) with participants.
 
-    See https://schema.org/DisagreeAction.
-
+    See: https://schema.org/DisagreeAction
+    Model depth: 5
     """
-    type_: str = Field("DisagreeAction", const=True, alias='@type')
-    
 
-DisagreeAction.update_forward_refs()
+    type_: str = Field("DisagreeAction", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    DisagreeAction.update_forward_refs()

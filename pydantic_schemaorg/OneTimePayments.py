@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.GovernmentBenefitsType import GovernmentBenefitsType
 
 
 class OneTimePayments(GovernmentBenefitsType):
     """OneTimePayments: this is a benefit for one-time payments for individuals.
 
-    See https://schema.org/OneTimePayments.
-
+    See: https://schema.org/OneTimePayments
+    Model depth: 5
     """
-    type_: str = Field("OneTimePayments", const=True, alias='@type')
-    
 
-OneTimePayments.update_forward_refs()
+    type_: str = Field("OneTimePayments", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    OneTimePayments.update_forward_refs()

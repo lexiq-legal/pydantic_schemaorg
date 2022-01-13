@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -10,10 +15,13 @@ class MediaManipulationRatingEnumeration(Enumeration):
      "[[MediaReview]]. Note that the application of these codes is with regard to a piece of"
      "media shared or published in a particular context.
 
-    See https://schema.org/MediaManipulationRatingEnumeration.
-
+    See: https://schema.org/MediaManipulationRatingEnumeration
+    Model depth: 4
     """
-    type_: str = Field("MediaManipulationRatingEnumeration", const=True, alias='@type')
-    
 
-MediaManipulationRatingEnumeration.update_forward_refs()
+    type_: str = Field("MediaManipulationRatingEnumeration", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    MediaManipulationRatingEnumeration.update_forward_refs()

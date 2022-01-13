@@ -1,14 +1,24 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.BodyMeasurementTypeEnumeration import BodyMeasurementTypeEnumeration
+
+from pydantic_schemaorg.BodyMeasurementTypeEnumeration import (
+    BodyMeasurementTypeEnumeration,
+)
 
 
 class BodyMeasurementInsideLeg(BodyMeasurementTypeEnumeration):
     """Inside leg (measured between crotch and soles of feet). Used, for example, to fit pants.
 
-    See https://schema.org/BodyMeasurementInsideLeg.
-
+    See: https://schema.org/BodyMeasurementInsideLeg
+    Model depth: 6
     """
-    type_: str = Field("BodyMeasurementInsideLeg", const=True, alias='@type')
-    
 
-BodyMeasurementInsideLeg.update_forward_refs()
+    type_: str = Field("BodyMeasurementInsideLeg", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    BodyMeasurementInsideLeg.update_forward_refs()

@@ -1,6 +1,11 @@
-from pydantic import AnyUrl, Field
-from typing import List, Optional, Union
-from datetime import datetime, date
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
+from pydantic import Field
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -12,29 +17,36 @@ class Role(Intangible):
      "then associated with the main entities using ordinary properties like 'member' or 'actor'."
      "See also [blog post](http://blog.schema.org/2014/06/introducing-role.html).
 
-    See https://schema.org/Role.
-
+    See: https://schema.org/Role
+    Model depth: 3
     """
-    type_: str = Field("Role", const=True, alias='@type')
-    roleName: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
+
+    type_: str = Field("Role", const=True, alias="@type")
+    roleName: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = Field(
         None,
         description="A role played, performed or filled by a person or organization. For example, the team"
-     "of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer';"
-     "or an athlete in a SportsTeam might play in the position named 'Quarterback'.",
+        "of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer';"
+        "or an athlete in a SportsTeam might play in the position named 'Quarterback'.",
     )
-    endDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
+    endDate: "Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]]" = Field(
         None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    namedPosition: Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]] = Field(
+    namedPosition: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = Field(
         None,
         description="A position played, performed or filled by a person or organization, as part of an organization."
-     "For example, an athlete in a SportsTeam might play in the position named 'Quarterback'.",
+        "For example, an athlete in a SportsTeam might play in the position named 'Quarterback'.",
     )
-    startDate: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
+    startDate: "Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]]" = Field(
         None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    
 
-Role.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic import AnyUrl
+
+    from datetime import date, datetime
+
+    Role.update_forward_refs()

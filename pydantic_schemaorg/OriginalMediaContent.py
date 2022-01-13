@@ -1,5 +1,12 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MediaManipulationRatingEnumeration import MediaManipulationRatingEnumeration
+
+from pydantic_schemaorg.MediaManipulationRatingEnumeration import (
+    MediaManipulationRatingEnumeration,
+)
 
 
 class OriginalMediaContent(MediaManipulationRatingEnumeration):
@@ -14,10 +21,13 @@ class OriginalMediaContent(MediaManipulationRatingEnumeration):
      "has been misleadingly altered or manipulated, though it may contain false or misleading"
      "claims.
 
-    See https://schema.org/OriginalMediaContent.
-
+    See: https://schema.org/OriginalMediaContent
+    Model depth: 5
     """
-    type_: str = Field("OriginalMediaContent", const=True, alias='@type')
-    
 
-OriginalMediaContent.update_forward_refs()
+    type_: str = Field("OriginalMediaContent", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    OriginalMediaContent.update_forward_refs()

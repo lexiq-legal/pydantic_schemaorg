@@ -1,7 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.Organization import Organization
-from pydantic_schemaorg.Person import Person
-from typing import List, Optional, Union
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -18,14 +22,21 @@ class FollowAction(InteractAction):
      "than the location of inanimate objects (e.g. you track a package, but you don't follow"
      "it).
 
-    See https://schema.org/FollowAction.
-
+    See: https://schema.org/FollowAction
+    Model depth: 4
     """
-    type_: str = Field("FollowAction", const=True, alias='@type')
-    followee: Optional[Union[List[Union[Organization, Person, str]], Union[Organization, Person, str]]] = Field(
+
+    type_: str = Field("FollowAction", const=True, alias="@type")
+    followee: "Optional[Union[List[Union[Person, Organization, str]], Union[Person, Organization, str]]]" = Field(
         None,
         description="A sub property of object. The person or organization being followed.",
     )
-    
 
-FollowAction.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.Person import Person
+
+    from pydantic_schemaorg.Organization import Organization
+
+    FollowAction.update_forward_refs()

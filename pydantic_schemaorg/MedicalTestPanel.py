@@ -1,19 +1,30 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.MedicalTest import MedicalTest
-from typing import List, Optional, Union
 
 
 class MedicalTestPanel(MedicalTest):
     """Any collection of tests commonly ordered together.
 
-    See https://schema.org/MedicalTestPanel.
-
+    See: https://schema.org/MedicalTestPanel
+    Model depth: 4
     """
-    type_: str = Field("MedicalTestPanel", const=True, alias='@type')
-    subTest: Optional[Union[List[Union[MedicalTest, str]], Union[MedicalTest, str]]] = Field(
+
+    type_: str = Field("MedicalTestPanel", const=True, alias="@type")
+    subTest: "Optional[Union[List[Union[MedicalTest, str]], Union[MedicalTest, str]]]" = Field(
         None,
         description="A component test of the panel.",
     )
-    
 
-MedicalTestPanel.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.MedicalTest import MedicalTest
+
+    MedicalTestPanel.update_forward_refs()

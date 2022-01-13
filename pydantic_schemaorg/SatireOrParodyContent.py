@@ -1,5 +1,12 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MediaManipulationRatingEnumeration import MediaManipulationRatingEnumeration
+
+from pydantic_schemaorg.MediaManipulationRatingEnumeration import (
+    MediaManipulationRatingEnumeration,
+)
 
 
 class SatireOrParodyContent(MediaManipulationRatingEnumeration):
@@ -19,10 +26,13 @@ class SatireOrParodyContent(MediaManipulationRatingEnumeration):
      "in that context. (Reshares of satire/parody content that do not include relevant context"
      "are more likely to fall under the “missing context” rating.)
 
-    See https://schema.org/SatireOrParodyContent.
-
+    See: https://schema.org/SatireOrParodyContent
+    Model depth: 5
     """
-    type_: str = Field("SatireOrParodyContent", const=True, alias='@type')
-    
 
-SatireOrParodyContent.update_forward_refs()
+    type_: str = Field("SatireOrParodyContent", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    SatireOrParodyContent.update_forward_refs()

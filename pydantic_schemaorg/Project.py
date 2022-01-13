@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Organization import Organization
 
 
@@ -7,10 +12,13 @@ class Project(Organization):
      "a particular aim. Use properties from [[Organization]], [[subOrganization]]/[[parentOrganization]]"
      "to indicate project sub-structures.
 
-    See https://schema.org/Project.
-
+    See: https://schema.org/Project
+    Model depth: 3
     """
-    type_: str = Field("Project", const=True, alias='@type')
-    
 
-Project.update_forward_refs()
+    type_: str = Field("Project", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Project.update_forward_refs()

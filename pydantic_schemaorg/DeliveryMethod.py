@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -12,10 +17,13 @@ class DeliveryMethod(Enumeration):
      "* http://purl.org/goodrelations/v1#DHL * http://purl.org/goodrelations/v1#FederalExpress"
      "* http://purl.org/goodrelations/v1#UPS
 
-    See https://schema.org/DeliveryMethod.
-
+    See: https://schema.org/DeliveryMethod
+    Model depth: 4
     """
-    type_: str = Field("DeliveryMethod", const=True, alias='@type')
-    
 
-DeliveryMethod.update_forward_refs()
+    type_: str = Field("DeliveryMethod", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    DeliveryMethod.update_forward_refs()

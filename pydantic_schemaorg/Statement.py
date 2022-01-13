@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -8,10 +13,13 @@ class Statement(CreativeWork):
      "(e.g. in Fact Checking), consider using [[Claim]] instead. Use the [[text]] property"
      "to capture the text of the statement.
 
-    See https://schema.org/Statement.
-
+    See: https://schema.org/Statement
+    Model depth: 3
     """
-    type_: str = Field("Statement", const=True, alias='@type')
-    
 
-Statement.update_forward_refs()
+    type_: str = Field("Statement", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    Statement.update_forward_refs()

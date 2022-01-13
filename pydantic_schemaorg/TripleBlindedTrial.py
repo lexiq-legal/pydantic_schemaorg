@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.MedicalTrialDesign import MedicalTrialDesign
 
 
@@ -7,10 +12,13 @@ class TripleBlindedTrial(MedicalTrialDesign):
      "nor the patient knows the details of the treatment the patient was randomly assigned"
      "to.
 
-    See https://schema.org/TripleBlindedTrial.
-
+    See: https://schema.org/TripleBlindedTrial
+    Model depth: 6
     """
-    type_: str = Field("TripleBlindedTrial", const=True, alias='@type')
-    
 
-TripleBlindedTrial.update_forward_refs()
+    type_: str = Field("TripleBlindedTrial", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    TripleBlindedTrial.update_forward_refs()

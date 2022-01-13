@@ -1,8 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.Duration import Duration
-from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-from typing import List, Optional, Union
-from datetime import datetime, date
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.WebPage import WebPage
 
 
@@ -11,19 +14,28 @@ class RealEstateListing(WebPage):
      "(whose [[businessFunction]] is typically to lease out, or to sell). The [[RealEstateListing]]"
      "type itself represents the overall listing, as manifested in some [[WebPage]].
 
-    See https://schema.org/RealEstateListing.
-
+    See: https://schema.org/RealEstateListing
+    Model depth: 4
     """
-    type_: str = Field("RealEstateListing", const=True, alias='@type')
-    leaseLength: Optional[Union[List[Union[Duration, QuantitativeValue, str]], Union[Duration, QuantitativeValue, str]]] = Field(
+
+    type_: str = Field("RealEstateListing", const=True, alias="@type")
+    leaseLength: "Optional[Union[List[Union[QuantitativeValue, Duration, str]], Union[QuantitativeValue, Duration, str]]]" = Field(
         None,
         description="Length of the lease for some [[Accommodation]], either particular to some [[Offer]]"
-     "or in some cases intrinsic to the property.",
+        "or in some cases intrinsic to the property.",
     )
-    datePosted: Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]] = Field(
+    datePosted: "Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]]" = Field(
         None,
         description="Publication date of an online listing.",
     )
-    
 
-RealEstateListing.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+
+    from pydantic_schemaorg.Duration import Duration
+
+    from datetime import date, datetime
+
+    RealEstateListing.update_forward_refs()

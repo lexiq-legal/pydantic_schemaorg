@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.LegalValueLevel import LegalValueLevel
 
 
@@ -8,10 +13,13 @@ class OfficialLegalValue(LegalValueLevel):
      "organisation with the public task of making it available (e.g. a consolidated version"
      "of a EU directive published by the EU Office of Publications).
 
-    See https://schema.org/OfficialLegalValue.
-
+    See: https://schema.org/OfficialLegalValue
+    Model depth: 5
     """
-    type_: str = Field("OfficialLegalValue", const=True, alias='@type')
-    
 
-OfficialLegalValue.update_forward_refs()
+    type_: str = Field("OfficialLegalValue", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    OfficialLegalValue.update_forward_refs()

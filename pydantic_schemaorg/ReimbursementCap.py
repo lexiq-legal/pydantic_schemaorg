@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.DrugCostCategory import DrugCostCategory
 
 
 class ReimbursementCap(DrugCostCategory):
     """The drug's cost represents the maximum reimbursement paid by an insurer for the drug.
 
-    See https://schema.org/ReimbursementCap.
-
+    See: https://schema.org/ReimbursementCap
+    Model depth: 6
     """
-    type_: str = Field("ReimbursementCap", const=True, alias='@type')
-    
 
-ReimbursementCap.update_forward_refs()
+    type_: str = Field("ReimbursementCap", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    ReimbursementCap.update_forward_refs()

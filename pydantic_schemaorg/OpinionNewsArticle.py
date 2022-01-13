@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.NewsArticle import NewsArticle
 
 
@@ -8,10 +13,13 @@ class OpinionNewsArticle(NewsArticle):
      "consisting of a column or [[Blog]]/[[BlogPosting]] entry in the Opinions section of"
      "a news publication.
 
-    See https://schema.org/OpinionNewsArticle.
-
+    See: https://schema.org/OpinionNewsArticle
+    Model depth: 5
     """
-    type_: str = Field("OpinionNewsArticle", const=True, alias='@type')
-    
 
-OpinionNewsArticle.update_forward_refs()
+    type_: str = Field("OpinionNewsArticle", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    OpinionNewsArticle.update_forward_refs()

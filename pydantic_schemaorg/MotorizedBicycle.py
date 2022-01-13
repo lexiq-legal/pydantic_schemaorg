@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Vehicle import Vehicle
 
 
@@ -6,10 +11,13 @@ class MotorizedBicycle(Vehicle):
     """A motorized bicycle is a bicycle with an attached motor used to power the vehicle, or to"
      "assist with pedaling.
 
-    See https://schema.org/MotorizedBicycle.
-
+    See: https://schema.org/MotorizedBicycle
+    Model depth: 4
     """
-    type_: str = Field("MotorizedBicycle", const=True, alias='@type')
-    
 
-MotorizedBicycle.update_forward_refs()
+    type_: str = Field("MotorizedBicycle", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    MotorizedBicycle.update_forward_refs()

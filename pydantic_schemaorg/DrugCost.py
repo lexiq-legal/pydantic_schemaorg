@@ -1,9 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.DrugCostCategory import DrugCostCategory
-from typing import List, Optional, Any, Union
-from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
-from decimal import Decimal
-from pydantic_schemaorg.QualitativeValue import QualitativeValue
+
+from typing import Union, List, Optional, Any
+
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
 
@@ -15,35 +17,46 @@ class DrugCost(MedicalEntity):
      "type captures some of the variables, costs should be used with caution by consumers of"
      "this schema's markup.
 
-    See https://schema.org/DrugCost.
-
+    See: https://schema.org/DrugCost
+    Model depth: 3
     """
-    type_: str = Field("DrugCost", const=True, alias='@type')
-    costCategory: Optional[Union[List[Union[DrugCostCategory, str]], Union[DrugCostCategory, str]]] = Field(
+
+    type_: str = Field("DrugCost", const=True, alias="@type")
+    costCategory: "Optional[Union[List[Union[DrugCostCategory, str]], Union[DrugCostCategory, str]]]" = Field(
         None,
         description="The category of cost, such as wholesale, retail, reimbursement cap, etc.",
     )
-    drugUnit: Optional[Union[List[str], str]] = Field(
+    drugUnit: "Optional[Union[List[str], str]]" = Field(
         None,
         description="The unit in which the drug is measured, e.g. '5 mg tablet'.",
     )
-    applicableLocation: Optional[Union[List[Union[AdministrativeArea, str]], Union[AdministrativeArea, str]]] = Field(
+    applicableLocation: "Optional[Union[List[Union[AdministrativeArea, str]], Union[AdministrativeArea, str]]]" = Field(
         None,
         description="The location in which the status applies.",
     )
-    costCurrency: Optional[Union[List[str], str]] = Field(
+    costCurrency: "Optional[Union[List[str], str]]" = Field(
         None,
         description="The currency (in 3-letter of the drug cost. See: http://en.wikipedia.org/wiki/ISO_4217.",
     )
-    costPerUnit: Optional[Union[List[Union[Decimal, str, QualitativeValue]], Union[Decimal, str, QualitativeValue]]] = Field(
+    costPerUnit: "Optional[Union[List[Union[Decimal, str, QualitativeValue]], Union[Decimal, str, QualitativeValue]]]" = Field(
         None,
         description="The cost per unit of the drug.",
     )
-    costOrigin: Optional[Union[List[str], str]] = Field(
+    costOrigin: "Optional[Union[List[str], str]]" = Field(
         None,
         description="Additional details to capture the origin of the cost data. For example, 'Medicare Part"
-     "B'.",
+        "B'.",
     )
-    
 
-DrugCost.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.DrugCostCategory import DrugCostCategory
+
+    from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
+
+    from decimal import Decimal
+
+    from pydantic_schemaorg.QualitativeValue import QualitativeValue
+
+    DrugCost.update_forward_refs()

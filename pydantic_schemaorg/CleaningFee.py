@@ -1,15 +1,25 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.PriceComponentTypeEnumeration import PriceComponentTypeEnumeration
+
+from pydantic_schemaorg.PriceComponentTypeEnumeration import (
+    PriceComponentTypeEnumeration,
+)
 
 
 class CleaningFee(PriceComponentTypeEnumeration):
     """Represents the cleaning fee part of the total price for an offered product, for example"
      "a vacation rental.
 
-    See https://schema.org/CleaningFee.
-
+    See: https://schema.org/CleaningFee
+    Model depth: 5
     """
-    type_: str = Field("CleaningFee", const=True, alias='@type')
-    
 
-CleaningFee.update_forward_refs()
+    type_: str = Field("CleaningFee", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    CleaningFee.update_forward_refs()

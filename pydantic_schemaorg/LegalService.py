@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 
@@ -7,10 +12,13 @@ class LegalService(LocalBusiness):
      "e.g. law firms. As a [[LocalBusiness]] it can be described as a [[provider]] of one or"
      "more [[Service]]\(s).
 
-    See https://schema.org/LegalService.
-
+    See: https://schema.org/LegalService
+    Model depth: 4
     """
-    type_: str = Field("LegalService", const=True, alias='@type')
-    
 
-LegalService.update_forward_refs()
+    type_: str = Field("LegalService", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    LegalService.update_forward_refs()

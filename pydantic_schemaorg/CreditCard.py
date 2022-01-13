@@ -1,5 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.LoanOrCredit import LoanOrCredit
+
 from pydantic_schemaorg.PaymentCard import PaymentCard
 
 
@@ -10,10 +16,13 @@ class CreditCard(LoanOrCredit, PaymentCard):
      "* http://purl.org/goodrelations/v1#Discover * http://purl.org/goodrelations/v1#JCB"
      "* http://purl.org/goodrelations/v1#MasterCard * http://purl.org/goodrelations/v1#VISA
 
-    See https://schema.org/CreditCard.
-
+    See: https://schema.org/CreditCard
+    Model depth: 6
     """
-    type_: str = Field("CreditCard", const=True, alias='@type')
-    
 
-CreditCard.update_forward_refs()
+    type_: str = Field("CreditCard", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    CreditCard.update_forward_refs()

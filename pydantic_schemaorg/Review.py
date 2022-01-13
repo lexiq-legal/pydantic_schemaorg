@@ -1,68 +1,82 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from typing import List, Optional, Union
-from pydantic_schemaorg.ItemList import ItemList
-from pydantic_schemaorg.WebContent import WebContent
-from pydantic_schemaorg.ListItem import ListItem
-from pydantic_schemaorg.Rating import Rating
-from pydantic_schemaorg.Thing import Thing
+
+from typing import Union, List, Optional, Any
+
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
 class Review(CreativeWork):
     """A review of an item - for example, of a restaurant, movie, or store.
 
-    See https://schema.org/Review.
-
+    See: https://schema.org/Review
+    Model depth: 3
     """
-    type_: str = Field("Review", const=True, alias='@type')
-    associatedMediaReview: Optional[Union[List[Union['Review', str]], Union['Review', str]]] = Field(
+
+    type_: str = Field("Review", const=True, alias="@type")
+    associatedMediaReview: "Optional[Union[List[Union['Review', str]], Union['Review', str]]]" = Field(
         None,
         description="An associated [[MediaReview]], related by specific common content, topic or claim."
-     "The expectation is that this property would be most typically used in cases where a single"
-     "activity is conducting both claim reviews and media reviews, in which case [[relatedMediaReview]]"
-     "would commonly be used on a [[ClaimReview]], while [[relatedClaimReview]] would be"
-     "used on [[MediaReview]].",
+        "The expectation is that this property would be most typically used in cases where a single"
+        "activity is conducting both claim reviews and media reviews, in which case [[relatedMediaReview]]"
+        "would commonly be used on a [[ClaimReview]], while [[relatedClaimReview]] would be"
+        "used on [[MediaReview]].",
     )
-    positiveNotes: Optional[Union[List[Union[str, ItemList, WebContent, ListItem]], Union[str, ItemList, WebContent, ListItem]]] = Field(
+    positiveNotes: "Optional[Union[List[Union[str, ListItem, ItemList, WebContent]], Union[str, ListItem, ItemList, WebContent]]]" = Field(
         None,
         description="Indicates, in the context of a [[Review]] (e.g. framed as 'pro' vs 'con' considerations),"
-     "positive considerations - either as unstructured text, or a list.",
+        "positive considerations - either as unstructured text, or a list.",
     )
-    reviewAspect: Optional[Union[List[str], str]] = Field(
+    reviewAspect: "Optional[Union[List[str], str]]" = Field(
         None,
         description="This Review or Rating is relevant to this part or facet of the itemReviewed.",
     )
-    reviewRating: Optional[Union[List[Union[Rating, str]], Union[Rating, str]]] = Field(
+    reviewRating: "Optional[Union[List[Union[Rating, str]], Union[Rating, str]]]" = Field(
         None,
         description="The rating given in this review. Note that reviews can themselves be rated. The ```reviewRating```"
-     "applies to rating given by the review. The [[aggregateRating]] property applies to"
-     "the review itself, as a creative work.",
+        "applies to rating given by the review. The [[aggregateRating]] property applies to"
+        "the review itself, as a creative work.",
     )
-    associatedClaimReview: Optional[Union[List[Union['Review', str]], Union['Review', str]]] = Field(
+    associatedClaimReview: "Optional[Union[List[Union['Review', str]], Union['Review', str]]]" = Field(
         None,
         description="An associated [[ClaimReview]], related by specific common content, topic or claim."
-     "The expectation is that this property would be most typically used in cases where a single"
-     "activity is conducting both claim reviews and media reviews, in which case [[relatedMediaReview]]"
-     "would commonly be used on a [[ClaimReview]], while [[relatedClaimReview]] would be"
-     "used on [[MediaReview]].",
+        "The expectation is that this property would be most typically used in cases where a single"
+        "activity is conducting both claim reviews and media reviews, in which case [[relatedMediaReview]]"
+        "would commonly be used on a [[ClaimReview]], while [[relatedClaimReview]] would be"
+        "used on [[MediaReview]].",
     )
-    associatedReview: Optional[Union[List[Union['Review', str]], Union['Review', str]]] = Field(
+    associatedReview: "Optional[Union[List[Union['Review', str]], Union['Review', str]]]" = Field(
         None,
         description="An associated [[Review]].",
     )
-    reviewBody: Optional[Union[List[str], str]] = Field(
+    reviewBody: "Optional[Union[List[str], str]]" = Field(
         None,
         description="The actual body of the review.",
     )
-    negativeNotes: Optional[Union[List[Union[str, ItemList, WebContent, ListItem]], Union[str, ItemList, WebContent, ListItem]]] = Field(
+    negativeNotes: "Optional[Union[List[Union[str, ListItem, ItemList, WebContent]], Union[str, ListItem, ItemList, WebContent]]]" = Field(
         None,
         description="Indicates, in the context of a [[Review]] (e.g. framed as 'pro' vs 'con' considerations),"
-     "negative considerations - either as unstructured text, or a list.",
+        "negative considerations - either as unstructured text, or a list.",
     )
-    itemReviewed: Optional[Union[List[Union[Thing, str]], Union[Thing, str]]] = Field(
+    itemReviewed: "Optional[Union[List[Union[Thing, str]], Union[Thing, str]]]" = Field(
         None,
         description="The item that is being reviewed/rated.",
     )
-    
 
-Review.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.ListItem import ListItem
+
+    from pydantic_schemaorg.ItemList import ItemList
+
+    from pydantic_schemaorg.WebContent import WebContent
+
+    from pydantic_schemaorg.Rating import Rating
+
+    from pydantic_schemaorg.Thing import Thing
+
+    Review.update_forward_refs()

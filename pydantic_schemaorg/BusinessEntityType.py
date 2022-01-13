@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -9,10 +14,13 @@ class BusinessEntityType(Enumeration):
      "* http://purl.org/goodrelations/v1#Enduser * http://purl.org/goodrelations/v1#PublicInstitution"
      "* http://purl.org/goodrelations/v1#Reseller
 
-    See https://schema.org/BusinessEntityType.
-
+    See: https://schema.org/BusinessEntityType
+    Model depth: 4
     """
-    type_: str = Field("BusinessEntityType", const=True, alias='@type')
-    
 
-BusinessEntityType.update_forward_refs()
+    type_: str = Field("BusinessEntityType", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    BusinessEntityType.update_forward_refs()

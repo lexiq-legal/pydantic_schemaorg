@@ -1,14 +1,22 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.HealthAspectEnumeration import HealthAspectEnumeration
 
 
 class RisksOrComplicationsHealthAspect(HealthAspectEnumeration):
     """Information about the risk factors and possible complications that may follow a topic.
 
-    See https://schema.org/RisksOrComplicationsHealthAspect.
-
+    See: https://schema.org/RisksOrComplicationsHealthAspect
+    Model depth: 5
     """
-    type_: str = Field("RisksOrComplicationsHealthAspect", const=True, alias='@type')
-    
 
-RisksOrComplicationsHealthAspect.update_forward_refs()
+    type_: str = Field("RisksOrComplicationsHealthAspect", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    RisksOrComplicationsHealthAspect.update_forward_refs()

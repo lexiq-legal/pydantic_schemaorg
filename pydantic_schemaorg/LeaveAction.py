@@ -1,6 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.Event import Event
-from typing import List, Optional, Union
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -9,14 +14,19 @@ class LeaveAction(InteractAction):
      "* [[JoinAction]]: The antonym of LeaveAction. * [[UnRegisterAction]]: Unlike UnRegisterAction,"
      "LeaveAction implies leaving a group/team of people rather than a service.
 
-    See https://schema.org/LeaveAction.
-
+    See: https://schema.org/LeaveAction
+    Model depth: 4
     """
-    type_: str = Field("LeaveAction", const=True, alias='@type')
-    event: Optional[Union[List[Union[Event, str]], Union[Event, str]]] = Field(
+
+    type_: str = Field("LeaveAction", const=True, alias="@type")
+    event: "Optional[Union[List[Union[Event, str]], Union[Event, str]]]" = Field(
         None,
         description="Upcoming or past event associated with this place, organization, or action.",
     )
-    
 
-LeaveAction.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.Event import Event
+
+    LeaveAction.update_forward_refs()

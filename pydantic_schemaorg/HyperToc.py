@@ -1,7 +1,11 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MediaObject import MediaObject
-from typing import List, Optional, Union
-from pydantic_schemaorg.HyperTocEntry import HyperTocEntry
+
+from typing import Union, List, Optional
+
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -12,18 +16,25 @@ class HyperToc(CreativeWork):
      "same larger work is split into multiple files, [[associatedMedia]] can be used on individual"
      "[[HyperTocEntry]] items.
 
-    See https://schema.org/HyperToc.
-
+    See: https://schema.org/HyperToc
+    Model depth: 3
     """
-    type_: str = Field("HyperToc", const=True, alias='@type')
-    associatedMedia: Optional[Union[List[Union[MediaObject, str]], Union[MediaObject, str]]] = Field(
+
+    type_: str = Field("HyperToc", const=True, alias="@type")
+    associatedMedia: "Optional[Union[List[Union[MediaObject, str]], Union[MediaObject, str]]]" = Field(
         None,
         description="A media object that encodes this CreativeWork. This property is a synonym for encoding.",
     )
-    tocEntry: Optional[Union[List[Union[HyperTocEntry, str]], Union[HyperTocEntry, str]]] = Field(
+    tocEntry: "Optional[Union[List[Union[HyperTocEntry, str]], Union[HyperTocEntry, str]]]" = Field(
         None,
         description="Indicates a [[HyperTocEntry]] in a [[HyperToc]].",
     )
-    
 
-HyperToc.update_forward_refs()
+
+if TYPE_CHECKING:
+
+    from pydantic_schemaorg.MediaObject import MediaObject
+
+    from pydantic_schemaorg.HyperTocEntry import HyperTocEntry
+
+    HyperToc.update_forward_refs()

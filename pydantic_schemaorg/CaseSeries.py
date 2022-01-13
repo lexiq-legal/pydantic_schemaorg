@@ -1,5 +1,12 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
-from pydantic_schemaorg.MedicalObservationalStudyDesign import MedicalObservationalStudyDesign
+
+from pydantic_schemaorg.MedicalObservationalStudyDesign import (
+    MedicalObservationalStudyDesign,
+)
 
 
 class CaseSeries(MedicalObservationalStudyDesign):
@@ -11,10 +18,13 @@ class CaseSeries(MedicalObservationalStudyDesign):
      "depending on whether all cases presenting to the reporting authors over a period of time"
      "were included, or only a selection.
 
-    See https://schema.org/CaseSeries.
-
+    See: https://schema.org/CaseSeries
+    Model depth: 6
     """
-    type_: str = Field("CaseSeries", const=True, alias='@type')
-    
 
-CaseSeries.update_forward_refs()
+    type_: str = Field("CaseSeries", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    CaseSeries.update_forward_refs()

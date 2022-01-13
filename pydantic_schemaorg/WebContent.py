@@ -1,4 +1,9 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+
 from pydantic import Field
+
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -10,10 +15,13 @@ class WebContent(CreativeWork):
      "always be stated. (The intent is that the existing types [[WebPage]], [[WebSite]] and"
      "[[WebPageElement]] will eventually be declared as subtypes of [[WebContent]]).
 
-    See https://schema.org/WebContent.
-
+    See: https://schema.org/WebContent
+    Model depth: 3
     """
-    type_: str = Field("WebContent", const=True, alias='@type')
-    
 
-WebContent.update_forward_refs()
+    type_: str = Field("WebContent", const=True, alias="@type")
+
+
+if TYPE_CHECKING:
+
+    WebContent.update_forward_refs()
