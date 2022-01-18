@@ -1,21 +1,24 @@
 import re
-from typing import no_type_check, Optional, Dict, cast, Any, Pattern
+from typing import no_type_check, Optional, Dict, cast, Any, Pattern, TYPE_CHECKING, Generator
 
 from pydantic import BaseConfig
 from pydantic.fields import ModelField
-from pydantic.typing import CallableGenerator
 from pydantic.utils import update_not_none
 from pydantic.validators import str_validator, constr_length_validator
 
 from ISO8601 import errors
+
+if TYPE_CHECKING:
+    from pydantic.typing import AnyCallable
+
+    CallableGenerator = Generator[AnyCallable, None, None]
 
 
 def ISO8601Date_regex() -> Pattern[str]:
     global _url_regex_cache
     if _url_regex_cache is None:
         _url_regex_cache = re.compile(
-            r'^(?P<year>-?(?:[1-9][0-9]*)?[0-9]{4})-(?P<month>1[0-2]|0[1-9])(?P<day>3[01]|0[1-9]|[12][0-9])T(?P<hour>2[0-3]|[01][0-9])(?P<minute>[0-5][0-9]):(?P<second>[0-5][0-9])(?P<microsecond>\.[0-9]+)(?P<timezone>Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$',
-            # scheme https://tools.ietf.org/html/rfc3986#appendix-A
+            r'(?P<year>-?(?:[1-9][0-9]*)?[0-9]{4})-?(?P<month>1[0-2]|0[1-9])?-?(?P<day>3[01]|0[1-9]|[12][0-9])?(T(?P<hour>(2[0-3]|[01][0-9])))?(\:(?P<minute>[0-5][0-9]))?(\:(?P<second>[0-5][0-9]))?(\.(?P<microsecond>[0-9]+))?([+-](?P<timezone>([0-9]{2}\:[0-9]{2})|Z))?',
             re.IGNORECASE
         )
         return _url_regex_cache
@@ -26,7 +29,7 @@ class ISO8601Date(str):
     min_length = 1
     max_length = 2 ** 16
 
-    __slots__ = ('year', 'month', 'day', 'hour', 'minute', 'second', 'microsecond', 'tz')
+    __slots__ = ('date', 'year', 'month', 'day', 'hour', 'minute', 'second', 'microsecond', 'tz')
 
     @no_type_check
     def __new__(cls, date: Optional[str], **kwargs) -> object:
@@ -36,13 +39,13 @@ class ISO8601Date(str):
             self,
             date: str,
             *,
-            year: int,
+            year: Optional[int] = None,
             month: Optional[int] = None,
             day: Optional[int] = None,
-            hour: int,
+            hour: Optional[int] = None,
             minute: Optional[int] = None,
-            second: int = None,
-            microsecond: int = None,
+            second: Optional[int] = None,
+            microsecond: Optional[int] = None,
             tz: Optional[str] = None,
     ) -> None:
         str.__init__(date)
