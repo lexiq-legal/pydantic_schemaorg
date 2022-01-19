@@ -133,18 +133,18 @@ class ISO8601Date(str):
 
         return cls(
             date,
-            year=int(parts['year']),
-            month=int(parts['month']),
-            day=int(parts['day']),
-            hour=int(parts['hour']),
-            minute=int(parts['minute']),
-            second=int(parts['second']),
-            microsecond=int(parts['microsecond']),
+            year=parts['year'],
+            month=parts['month'],
+            day=parts['day'],
+            hour=parts['hour'],
+            minute=parts['minute'],
+            second=parts['second'],
+            microsecond=parts['microsecond'],
             tz=parts['tz'],
         )
 
     @classmethod
-    def validate_parts(cls, parts: Dict[str, str]) -> Dict[str, str]:
+    def validate_parts(cls, parts: Dict[str, str]) -> Dict[str, Union[str, int]]:
         """
         A method used to validate parts of an ISO8601.
         """
@@ -152,13 +152,10 @@ class ISO8601Date(str):
         year = parts['year']
         if year is None:
             raise errors.ISO8601DateInvalid()
-        prev_exist = True
 
         for part_order in parts_order:
-            parts[parts_order] = parts.get(part_order, None)
-            exist = bool(parts.get(part_order, None))
-
-            if exist and prev_exist:
-                continue
+            parts[part_order] = parts.get(part_order, None)
+            if parts[part_order] is not None and part_order != 'tz':
+                parts[part_order] = int(parts[part_order])
 
         return parts

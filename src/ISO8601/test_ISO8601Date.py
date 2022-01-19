@@ -11,10 +11,9 @@
 #    Complete date plus hours, minutes, seconds and a decimal fraction of a
 # second
 #       YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+01:00)
-from pydantic import BaseModel
+from pydantic import BaseModel, AnyUrl
 
 from ISO8601.ISO8601Date import ISO8601Date
-
 
 class TestModel(BaseModel):
     testDate: ISO8601Date
