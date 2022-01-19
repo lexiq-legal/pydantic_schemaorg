@@ -51,4 +51,6 @@ if __name__ == "__main__":
     schema_org_api = SchemaOrg(schema_data, data_type_map, data_type_specificity)
     for class_ in schema_org_api.get_all_classes():
         schema_org_api.load_type(class_)
+    for class_ in schema_org_api.get_all_classes():
+        schema_org_api.load_type(class_)
     schema_org_api.write_init()

@@ -24,10 +24,10 @@ class {{ model.valid_name }}({{model.parents | join(', ')}}):
 
 
 if TYPE_CHECKING:
-{% for import_ in model.imports -%}
+    {% for import_ in model.imports -%}
     {%-  if import_.type == 'field' %}
     from {{import_.classPath}} import {{import_.classes_ | join(', ')}}
     {% endif %}
-{% endfor %}
+    {% endfor %}
 
-    {{ model.valid_name }}.update_forward_refs()
+{{ model.valid_name }}.update_forward_refs()

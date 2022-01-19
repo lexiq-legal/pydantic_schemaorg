@@ -43,3 +43,4 @@ class PydanticClass(PydanticBase):
     parents: List[str]
     imports: List[Import]
     depth: int = 1
+    forward_refs: List[Import] = []

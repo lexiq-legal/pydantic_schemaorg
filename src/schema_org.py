@@ -12,10 +12,10 @@ from models import PydanticClass, PydanticField, Import
 
 class SchemaOrg:
     def __init__(
-        self,
-        schema_org: Dict[str, Dict],
-        type_map: Dict[str, tuple],
-        type_specificity: Dict[str, int],
+            self,
+            schema_org: Dict[str, Dict],
+            type_map: Dict[str, tuple],
+            type_specificity: Dict[str, int],
     ):
         self.schema_org = schema_org
         self.pydantic_classes: Dict[str, Union[PydanticClass, tuple]] = dict()
@@ -29,9 +29,13 @@ class SchemaOrg:
             if v["@type"] != "rdf:Property"
         ]
 
+    def get_class_by_name(self, name: str) -> Dict:
+        return self.schema_org[f"schema:{name}"]
+
+
     @staticmethod
     def update_imports(
-        imports: List[Import], class_path: str, classes_: set, type: str
+            imports: List[Import], class_path: str, classes_: set, type: str
     ) -> List[Import]:
         filter_func: Callable[[Import], bool] = (
             lambda i: i.classPath == class_path and i.type == type
@@ -68,8 +72,8 @@ class SchemaOrg:
             (key.strip().split(":")[-1], field)
             for key, field in self.schema_org.items()
             if (
-                field.get("@type") == "rdf:Property"
-                and f"schema:{name}" in self._to_set(field.get("schema:domainIncludes"))
+                    field.get("@type") == "rdf:Property"
+                    and f"schema:{name}" in self._to_set(field.get("schema:domainIncludes"))
             )
         ]
 
@@ -83,9 +87,9 @@ class SchemaOrg:
             field_types = [type_name for type_name in field_parent_types]
             pydantic_types = ()
             for field_type in sorted(
-                field_types,
-                key=lambda ft: self._type_specificity.get(ft, 0),
-                reverse=True,
+                    field_types,
+                    key=lambda ft: self._type_specificity.get(ft, 0),
+                    reverse=True,
             ):
                 if field_type in data_type_map:
                     pydantic_types += (data_type_map[field_type][0],)
@@ -160,7 +164,7 @@ class SchemaOrg:
             print(f"{name} exists, skipping..")
             return self.pydantic_classes[name]
         try:
-            node = self.schema_org[f"schema:{name}"]
+            node = self.get_class_by_name(name)
         except KeyError:
             raise ValueError(f"Model {name} does not exist")
 
@@ -186,7 +190,7 @@ class SchemaOrg:
 
         with open(f"{PACKAGE_NAME}/{python_safe(name)}.py", "w") as model_file:
             with open(
-                Path(__file__).parent / "templates/model.py.tpl"
+                    Path(__file__).parent / "templates/model.py.tpl"
             ) as template_file:
                 template = jinja_env.from_string(template_file.read())
 
@@ -239,7 +243,7 @@ class SchemaOrg:
     def write_init(self):
         with open(f"{PACKAGE_NAME}/__init__.py", "w") as init_file:
             with open(
-                Path(__file__).parent / "templates/__init__.py.tpl"
+                    Path(__file__).parent / "templates/__init__.py.tpl"
             ) as template_file:
                 template = jinja_env.from_string(template_file.read())
 
