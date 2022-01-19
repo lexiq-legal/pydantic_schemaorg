@@ -9,13 +9,14 @@ from urllib import request
 from constants import data_type_map, PACKAGE_NAME, data_type_specificity
 from jinja import jinja_env
 from schema_org import SchemaOrg
-import black
+
+THIS_PATH = Path(__file__).parent
 
 
 def write_base_class():
     with open(f"{PACKAGE_NAME}/SchemaOrgBase.py", "w") as model_file:
         with open(
-            Path(__file__).parent / "templates/schema_org_base.py.tpl"
+                THIS_PATH / "templates/schema_org_base.py.tpl"
         ) as template_file:
             template = jinja_env.from_string(template_file.read())
             template_args = dict(
@@ -26,9 +27,17 @@ def write_base_class():
         template.stream(**template_args).dump(model_file)
 
 
+def copy_utils():
+    os.makedirs(f'{PACKAGE_NAME}/ISO8601', exist_ok=True)
+    for file in os.listdir(f'{THIS_PATH}/ISO8601'):
+        if file.endswith('.py'):
+            shutil.copy(f'{THIS_PATH}/ISO8601/{file}', f'{PACKAGE_NAME}/ISO8601')
+
+
 def init_package():
     shutil.rmtree(PACKAGE_NAME)
     os.makedirs(PACKAGE_NAME, exist_ok=True)
+    copy_utils()
 
 
 if __name__ == "__main__":
