@@ -1,5 +1,5 @@
 import re
-from typing import no_type_check, Optional, Dict, cast, Any, Pattern, TYPE_CHECKING, Generator
+from typing import no_type_check, Optional, Dict, cast, Any, Pattern, TYPE_CHECKING, Generator, AnyStr, Union
 
 from pydantic import BaseConfig
 from pydantic.fields import ModelField
@@ -13,6 +13,8 @@ if TYPE_CHECKING:
 
     CallableGenerator = Generator[AnyCallable, None, None]
 
+_url_regex_cache: Union[Pattern[AnyStr], None] = None
+
 
 def ISO8601Date_regex() -> Pattern[str]:
     global _url_regex_cache
@@ -21,6 +23,8 @@ def ISO8601Date_regex() -> Pattern[str]:
             r'(?P<year>-?(?:[1-9][0-9]*)?[0-9]{4})-?(?P<month>1[0-2]|0[1-9])?-?(?P<day>3[01]|0[1-9]|[12][0-9])?(T(?P<hour>(2[0-3]|[01][0-9])))?(\:(?P<minute>[0-5][0-9]))?(\:(?P<second>[0-5][0-9]))?(\.(?P<microsecond>[0-9]+))?([+-](?P<timezone>([0-9]{2}\:[0-9]{2})|Z))?',
             re.IGNORECASE
         )
+        return _url_regex_cache
+    else:
         return _url_regex_cache
 
 
@@ -99,6 +103,16 @@ class ISO8601Date(str):
     def __get_validators__(cls) -> 'CallableGenerator':
         yield cls.validate
 
+    def validate_iso_date(self, value: Any):
+        value = str_validator(value)
+        if self.__class__.strip_whitespace:
+            value = value.strip()
+        m = ISO8601Date_regex().match(value)
+        assert m, 'ISO8601Date regex failed unexpectedly'
+
+        parts = m.groupdict()
+        parts = self.__class__.validate_parts(parts)
+
     @classmethod
     def validate(cls, value: Any, field: 'ModelField', config: 'BaseConfig') -> 'ISO8601Date':
         if value.__class__ == cls:
@@ -114,13 +128,11 @@ class ISO8601Date(str):
         parts = m.groupdict()
         parts = cls.validate_parts(parts)
 
-        host, tld, host_type, rebuild = cls.validate_host(parts)
-
         if m.end() != len(date):
             raise ValueError()
 
         return cls(
-            None if rebuild else date,
+            date,
             year=int(parts['year']),
             month=int(parts['month']),
             day=int(parts['day']),
@@ -134,51 +146,19 @@ class ISO8601Date(str):
     @classmethod
     def validate_parts(cls, parts: Dict[str, str]) -> Dict[str, str]:
         """
-        A method used to validate parts of an URL.
-        Could be overridden to set default values for parts if missing
+        A method used to validate parts of an ISO8601.
         """
+        parts_order = ['year', 'month', 'day', 'hour', 'minute', 'second', 'microsecond', 'tz']
         year = parts['year']
         if year is None:
             raise errors.ISO8601DateInvalid()
+        prev_exist = True
+
+        for part_order in parts_order:
+            parts[parts_order] = parts.get(part_order, None)
+            exist = bool(parts.get(part_order, None))
+
+            if exist and prev_exist:
+                continue
 
         return parts
-
-    # @classmethod
-    # def validate_host(cls, parts: Dict[str, str]) -> Tuple[str, Optional[str], str, bool]:
-    #     host, tld, host_type, rebuild = None, None, None, False
-    #     for f in ('domain', 'ipv4', 'ipv6'):
-    #         host = parts[f]
-    #         if host:
-    #             host_type = f
-    #             break
-    #
-    #     if host is None:
-    #         raise errors.UrlHostError()
-    #     elif host_type == 'domain':
-    #         is_international = False
-    #         d = ascii_domain_regex().fullmatch(host)
-    #         if d is None:
-    #             d = int_domain_regex().fullmatch(host)
-    #             if d is None:
-    #                 raise errors.UrlHostError()
-    #             is_international = True
-    #
-    #         tld = d.group('tld')
-    #         if tld is None and not is_international:
-    #             d = int_domain_regex().fullmatch(host)
-    #             tld = d.group('tld')
-    #             is_international = True
-    #
-    #         if tld is not None:
-    #             tld = tld[1:]
-    #         elif cls.tld_required:
-    #             raise errors.UrlHostTldError()
-    #
-    #         if is_international:
-    #             host_type = 'int_domain'
-    #             rebuild = True
-    #             host = host.encode('idna').decode('ascii')
-    #             if tld is not None:
-    #                 tld = tld.encode('idna').decode('ascii')
-    #
-    #     return host, tld, host_type, rebuild  # type: ignore
