@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Any
+from typing import Any, Optional
 from pydantic.typing import update_model_forward_refs
 
 class SchemaOrgBase(BaseModel):

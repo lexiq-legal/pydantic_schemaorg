@@ -32,7 +32,6 @@ class SchemaOrg:
     def get_class_by_name(self, name: str) -> Dict:
         return self.schema_org[f"schema:{name}"]
 
-
     @staticmethod
     def update_imports(
             imports: List[Import], class_path: str, classes_: set, type: str
@@ -128,7 +127,7 @@ class SchemaOrg:
                     imports,
                     class_path="typing",
                     classes_={"List", "Union", "Optional"},
-                    type="parent",
+                    type="field",
                 )
                 optional = pydantic_types[-1] != "Any"
                 pydantic_types = (
@@ -141,7 +140,7 @@ class SchemaOrg:
                     imports,
                     class_path="typing",
                     classes_={"List", "Union", "Optional", "Any"},
-                    type="parent",
+                    type="field",
                 )
                 pydantic_types = (
                     type_tuple
@@ -169,7 +168,7 @@ class SchemaOrg:
             raise ValueError(f"Model {name} does not exist")
 
         fields, imports = self.extract_fields(name)
-        parent_names, depth = self.extract_parents(node)
+        parent_names, forward_refs, depth = self.extract_parents(node)
 
         for parent_name in parent_names:
             imports = self.update_imports(
@@ -183,12 +182,14 @@ class SchemaOrg:
             name=name,
             description=self.cast_description(node.get("rdfs:comment", "")),
             fields=list(fields),
-            parents=parent_names,
-            imports=imports,
+            parents=[f'{parent_name}' for parent_name in parent_names],
+            parent_imports=list(filter(lambda x: x.type == 'parent', imports)),
             depth=depth,
+            field_imports=list(filter(lambda x: x.type == 'field', imports)),
+            forward_refs=forward_refs
         )
 
-        with open(f"{PACKAGE_NAME}/{python_safe(name)}.py", "w") as model_file:
+        with open(f"{PACKAGE_NAME}/{self.pydantic_classes[name].valid_name}.py", "w") as model_file:
             with open(
                     Path(__file__).parent / "templates/model.py.tpl"
             ) as template_file:
@@ -204,7 +205,17 @@ class SchemaOrg:
             template.stream(**template_args).dump(model_file)
         return self.pydantic_classes[name]
 
-    def extract_parents(self, node) -> (set, int):
+    @staticmethod
+    def _filter_forward_refs(forward_refs: List[Import]) -> List[Import]:
+        a: Dict[str, Union[set, None]] = {}
+        for forward_ref in forward_refs:
+            if a.get(forward_ref.classPath, None):
+                a[forward_ref.classPath].update(forward_ref.classes_)
+            else:
+                a[forward_ref.classPath] = forward_ref.classes_
+        return [Import(type='forward_ref', classPath=k, classes_=v) for k, v in a.items()]
+
+    def extract_parents(self, node) -> (set, list, int):
         parent_names = set(
             reference.strip().split(":")[-1]
             for reference in self._to_set(node.get("rdfs:subClassOf", []))
@@ -217,8 +228,11 @@ class SchemaOrg:
                 parent_names.add(node_type.strip().split(":")[-1])
 
         parents: List[PydanticClass] = []
+        forward_refs = []
         for parent_name in parent_names:
+            parent = self.load_type(parent_name)
             parents.append(self.load_type(parent_name))
+            forward_refs += parent.field_imports + parent.forward_refs
 
         parent_depth = next(
             map(lambda y: y.depth, sorted(parents, key=lambda x: x.depth)), 0
@@ -234,7 +248,7 @@ class SchemaOrg:
         if not sorted_parents:
             sorted_parents = {"SchemaOrgBase"}
 
-        return sorted_parents, depth
+        return sorted_parents, self._filter_forward_refs(forward_refs), depth
 
     @staticmethod
     def _get_default_imports() -> List[Import]:
@@ -252,6 +266,6 @@ class SchemaOrg:
                     commit=os.getenv("COMMIT"),
                     jinja2_version=jinja2.__version__,
                     timestamp=datetime.datetime.now(),
-                    all_classes=self.pydantic_classes,
+                    all_classes=sorted(self.pydantic_classes.values(),key=lambda x: x.depth),
                 )
             template.stream(**template_args).dump(init_file)

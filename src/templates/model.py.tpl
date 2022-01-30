@@ -1,11 +1,8 @@
 from __future__ import annotations
+from pydantic import Field
 from typing import TYPE_CHECKING
+from typing import Optional,List,Any,Union
 
-{% for import_ in model.imports -%}
-{% if import_.type == 'parent' %}
-from {{import_.classPath}} import {{import_.classes_ | join(', ')}}
-{% endif %}
-{%- endfor %}
 
 class {{ model.valid_name }}({{model.parents | join(', ')}}):
     """{{ model.description | replace('\\n','\n') | format_description}}
@@ -23,11 +20,11 @@ class {{ model.valid_name }}({{model.parents | join(', ')}}):
     {% endfor %}
 
 
+{% if model.field_imports %}
 if TYPE_CHECKING:
-    {% for import_ in model.imports -%}
-    {%-  if import_.type == 'field' %}
+{%- for import_ in model.field_imports %}
     from {{import_.classPath}} import {{import_.classes_ | join(', ')}}
-    {% endif %}
-    {% endfor %}
+{%- endfor %}
+{% endif %}
 
-{{ model.valid_name }}.update_forward_refs()
+#{{ model.valid_name }}.update_forward_refs({% for import_ in model.forward_refs -%}{% for class_ in import_.classes_ -%}{{class_}}={{class_}},{%- endfor %}{%- endfor %})

@@ -41,6 +41,7 @@ class Import(BaseModel):
 class PydanticClass(PydanticBase):
     fields: List[PydanticField]
     parents: List[str]
-    imports: List[Import]
     depth: int = 1
+    parent_imports: List[Import]
+    field_imports: List[Import]
     forward_refs: List[Import] = []
