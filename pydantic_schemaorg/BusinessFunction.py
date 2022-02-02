@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -21,10 +19,6 @@ class BusinessFunction(Enumeration):
     See: https://schema.org/BusinessFunction
     Model depth: 4
     """
+    type_: str = Field("BusinessFunction", alias='@type')
+    
 
-    type_: str = Field("BusinessFunction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    BusinessFunction.update_forward_refs()

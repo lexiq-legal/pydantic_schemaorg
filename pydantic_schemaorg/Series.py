@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -14,10 +12,6 @@ class Series(Intangible):
     See: https://schema.org/Series
     Model depth: 3
     """
+    type_: str = Field("Series", alias='@type')
+    
 
-    type_: str = Field("Series", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Series.update_forward_refs()

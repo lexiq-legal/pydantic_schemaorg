@@ -1,11 +1,11 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+from decimal import Decimal
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -18,57 +18,53 @@ class GeoShape(StructuredValue):
     See: https://schema.org/GeoShape
     Model depth: 4
     """
-
-    type_: str = Field("GeoShape", const=True, alias="@type")
-    polygon: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("GeoShape", alias='@type')
+    polygon: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="A polygon is the area enclosed by a point-to-point path for which the starting and ending"
-        "points are the same. A polygon is expressed as a series of four or more space delimited"
-        "points where the first and final points are identical.",
+     "points are the same. A polygon is expressed as a series of four or more space delimited"
+     "points where the first and final points are identical.",
     )
-    postalCode: "Optional[Union[List[str], str]]" = Field(
+    postalCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="The postal code. For example, 94043.",
     )
-    line: "Optional[Union[List[str], str]]" = Field(
+    line: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="A line is a point-to-point path consisting of two or more points. A line is expressed as"
-        "a series of two or more point objects separated by space.",
+     "a series of two or more point objects separated by space.",
     )
-    circle: "Optional[Union[List[str], str]]" = Field(
+    circle: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="A circle is the circular region of a specified radius centered at a specified latitude"
-        "and longitude. A circle is expressed as a pair followed by a radius in meters.",
+     "and longitude. A circle is expressed as a pair followed by a radius in meters.",
     )
-    elevation: "Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]]" = Field(
+    elevation: Optional[Union[List[Union[Decimal, 'Number', str, 'Text']], Decimal, 'Number', str, 'Text']] = Field(
         None,
         description="The elevation of a location ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System))."
-        "Values may be of the form 'NUMBER UNIT_OF_MEASUREMENT' (e.g., '1,000 m', '3,200 ft')"
-        "while numbers alone should be assumed to be a value in meters.",
+     "Values may be of the form 'NUMBER UNIT_OF_MEASUREMENT' (e.g., '1,000 m', '3,200 ft')"
+     "while numbers alone should be assumed to be a value in meters.",
     )
-    address: "Optional[Union[List[Union[str, PostalAddress]], Union[str, PostalAddress]]]" = Field(
+    address: Optional[Union[List[Union[str, 'Text', 'PostalAddress']], str, 'Text', 'PostalAddress']] = Field(
         None,
         description="Physical address of the item.",
     )
-    box: "Optional[Union[List[str], str]]" = Field(
+    box: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="A box is the area enclosed by the rectangle formed by two points. The first point is the"
-        "lower corner, the second point is the upper corner. A box is expressed as two points separated"
-        "by a space character.",
+     "lower corner, the second point is the upper corner. A box is expressed as two points separated"
+     "by a space character.",
     )
-    addressCountry: "Optional[Union[List[Union[str, Country]], Union[str, Country]]]" = Field(
+    addressCountry: Optional[Union[List[Union[str, 'Text', 'Country']], str, 'Text', 'Country']] = Field(
         None,
         description="The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2"
-        "country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
+     "country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    from decimal import Decimal
-
+    from pydantic_schemaorg.Text import Text
+    from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.PostalAddress import PostalAddress
-
     from pydantic_schemaorg.Country import Country
-
-    GeoShape.update_forward_refs()

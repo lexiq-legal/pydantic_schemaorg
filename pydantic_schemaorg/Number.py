@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.DataType import DataType
 
 
@@ -16,10 +14,6 @@ class Number(DataType):
     See: https://schema.org/Number
     Model depth: 5
     """
+    type_: str = Field("Number", alias='@type')
+    
 
-    type_: str = Field("Number", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Number.update_forward_refs()

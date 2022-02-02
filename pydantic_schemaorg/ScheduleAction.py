@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.PlanAction import PlanAction
 
 
@@ -15,10 +13,6 @@ class ScheduleAction(PlanAction):
     See: https://schema.org/ScheduleAction
     Model depth: 5
     """
+    type_: str = Field("ScheduleAction", alias='@type')
+    
 
-    type_: str = Field("ScheduleAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    ScheduleAction.update_forward_refs()

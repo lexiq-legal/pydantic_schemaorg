@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -20,10 +18,6 @@ class DeliveryMethod(Enumeration):
     See: https://schema.org/DeliveryMethod
     Model depth: 4
     """
+    type_: str = Field("DeliveryMethod", alias='@type')
+    
 
-    type_: str = Field("DeliveryMethod", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    DeliveryMethod.update_forward_refs()

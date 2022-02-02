@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -14,10 +12,6 @@ class PriceComponentTypeEnumeration(Enumeration):
     See: https://schema.org/PriceComponentTypeEnumeration
     Model depth: 4
     """
+    type_: str = Field("PriceComponentTypeEnumeration", alias='@type')
+    
 
-    type_: str = Field("PriceComponentTypeEnumeration", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PriceComponentTypeEnumeration.update_forward_refs()

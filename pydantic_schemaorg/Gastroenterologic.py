@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
@@ -14,10 +12,6 @@ class Gastroenterologic(MedicalSpecialty):
     See: https://schema.org/Gastroenterologic
     Model depth: 6
     """
+    type_: str = Field("Gastroenterologic", alias='@type')
+    
 
-    type_: str = Field("Gastroenterologic", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Gastroenterologic.update_forward_refs()

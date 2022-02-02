@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.DrugPregnancyCategory import DrugPregnancyCategory
 
 
@@ -15,10 +13,6 @@ class FDAcategoryA(DrugPregnancyCategory):
     See: https://schema.org/FDAcategoryA
     Model depth: 6
     """
+    type_: str = Field("FDAcategoryA", alias='@type')
+    
 
-    type_: str = Field("FDAcategoryA", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    FDAcategoryA.update_forward_refs()

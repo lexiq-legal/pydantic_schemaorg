@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalTrialDesign import MedicalTrialDesign
 
 
@@ -14,10 +12,6 @@ class OpenTrial(MedicalTrialDesign):
     See: https://schema.org/OpenTrial
     Model depth: 6
     """
+    type_: str = Field("OpenTrial", alias='@type')
+    
 
-    type_: str = Field("OpenTrial", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    OpenTrial.update_forward_refs()

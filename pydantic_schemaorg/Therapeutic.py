@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalDevicePurpose import MedicalDevicePurpose
 
 
@@ -13,10 +11,6 @@ class Therapeutic(MedicalDevicePurpose):
     See: https://schema.org/Therapeutic
     Model depth: 6
     """
+    type_: str = Field("Therapeutic", alias='@type')
+    
 
-    type_: str = Field("Therapeutic", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Therapeutic.update_forward_refs()

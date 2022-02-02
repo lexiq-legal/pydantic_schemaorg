@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CreateAction import CreateAction
 
 
@@ -14,10 +12,6 @@ class DrawAction(CreateAction):
     See: https://schema.org/DrawAction
     Model depth: 4
     """
+    type_: str = Field("DrawAction", alias='@type')
+    
 
-    type_: str = Field("DrawAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    DrawAction.update_forward_refs()

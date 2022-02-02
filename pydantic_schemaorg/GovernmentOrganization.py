@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Organization import Organization
 
 
@@ -13,10 +11,6 @@ class GovernmentOrganization(Organization):
     See: https://schema.org/GovernmentOrganization
     Model depth: 3
     """
+    type_: str = Field("GovernmentOrganization", alias='@type')
+    
 
-    type_: str = Field("GovernmentOrganization", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    GovernmentOrganization.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.BookFormatType import BookFormatType
 
 
@@ -15,10 +13,6 @@ class AudiobookFormat(BookFormatType):
     See: https://schema.org/AudiobookFormat
     Model depth: 5
     """
+    type_: str = Field("AudiobookFormat", alias='@type')
+    
 
-    type_: str = Field("AudiobookFormat", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    AudiobookFormat.update_forward_refs()

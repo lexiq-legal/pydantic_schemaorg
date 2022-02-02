@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.ReactAction import ReactAction
 
 
@@ -14,10 +12,6 @@ class DislikeAction(ReactAction):
     See: https://schema.org/DislikeAction
     Model depth: 5
     """
+    type_: str = Field("DislikeAction", alias='@type')
+    
 
-    type_: str = Field("DislikeAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    DislikeAction.update_forward_refs()

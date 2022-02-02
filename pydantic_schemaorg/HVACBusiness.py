@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.HomeAndConstructionBusiness import HomeAndConstructionBusiness
 
 
@@ -13,10 +11,6 @@ class HVACBusiness(HomeAndConstructionBusiness):
     See: https://schema.org/HVACBusiness
     Model depth: 5
     """
+    type_: str = Field("HVACBusiness", alias='@type')
+    
 
-    type_: str = Field("HVACBusiness", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    HVACBusiness.update_forward_refs()

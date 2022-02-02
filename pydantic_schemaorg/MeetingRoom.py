@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Room import Room
 
 
@@ -17,10 +15,6 @@ class MeetingRoom(Room):
     See: https://schema.org/MeetingRoom
     Model depth: 5
     """
+    type_: str = Field("MeetingRoom", alias='@type')
+    
 
-    type_: str = Field("MeetingRoom", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MeetingRoom.update_forward_refs()

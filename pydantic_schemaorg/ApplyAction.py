@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.OrganizeAction import OrganizeAction
 
 
@@ -15,10 +13,6 @@ class ApplyAction(OrganizeAction):
     See: https://schema.org/ApplyAction
     Model depth: 4
     """
+    type_: str = Field("ApplyAction", alias='@type')
+    
 
-    type_: str = Field("ApplyAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    ApplyAction.update_forward_refs()

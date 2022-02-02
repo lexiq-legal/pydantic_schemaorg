@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-
-from pydantic import Field
-
 from typing import Union, List, Optional
 
+
+from pydantic import Field
 from pydantic_schemaorg.MedicalStudy import MedicalStudy
 
 
@@ -18,16 +17,13 @@ class MedicalTrial(MedicalStudy):
     See: https://schema.org/MedicalTrial
     Model depth: 4
     """
-
-    type_: str = Field("MedicalTrial", const=True, alias="@type")
-    trialDesign: "Optional[Union[List[Union[MedicalTrialDesign, str]], Union[MedicalTrialDesign, str]]]" = Field(
+    type_: str = Field("MedicalTrial", alias='@type')
+    trialDesign: Optional[Union[List[Union['MedicalTrialDesign', str]], 'MedicalTrialDesign', str]] = Field(
         None,
         description="Specifics about the trial design (enumerated).",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.MedicalTrialDesign import MedicalTrialDesign
-
-    MedicalTrial.update_forward_refs()

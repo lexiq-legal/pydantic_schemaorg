@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.Role import Role
 
 
@@ -18,22 +17,20 @@ class LinkRole(Role):
     See: https://schema.org/LinkRole
     Model depth: 4
     """
-
-    type_: str = Field("LinkRole", const=True, alias="@type")
-    linkRelationship: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("LinkRole", alias='@type')
+    linkRelationship: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Indicates the relationship type of a Web link.",
     )
-    inLanguage: "Optional[Union[List[Union[str, Language]], Union[str, Language]]]" = Field(
+    inLanguage: Optional[Union[List[Union[str, 'Text', 'Language']], str, 'Text', 'Language']] = Field(
         None,
         description="The language of the content or performance or used in an action. Please use one of the language"
-        "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
-        "[[availableLanguage]].",
+     "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
+     "[[availableLanguage]].",
     )
+    
 
 
 if TYPE_CHECKING:
-
+    from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.Language import Language
-
-    LinkRole.update_forward_refs()

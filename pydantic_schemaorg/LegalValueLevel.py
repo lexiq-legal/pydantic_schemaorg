@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -13,10 +11,6 @@ class LegalValueLevel(Enumeration):
     See: https://schema.org/LegalValueLevel
     Model depth: 4
     """
+    type_: str = Field("LegalValueLevel", alias='@type')
+    
 
-    type_: str = Field("LegalValueLevel", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    LegalValueLevel.update_forward_refs()

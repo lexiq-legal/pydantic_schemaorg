@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-
-from pydantic import Field
-
 from typing import Union, List, Optional
 
+
+from pydantic import Field
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -15,14 +14,13 @@ class Collection(CreativeWork):
     See: https://schema.org/Collection
     Model depth: 3
     """
-
-    type_: str = Field("Collection", const=True, alias="@type")
-    collectionSize: "Optional[Union[List[Union[int, str]], Union[int, str]]]" = Field(
+    type_: str = Field("Collection", alias='@type')
+    collectionSize: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
         None,
         description="The number of items in the [[Collection]].",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    Collection.update_forward_refs()
+    from pydantic_schemaorg.Integer import Integer

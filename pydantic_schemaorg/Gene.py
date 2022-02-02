@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.BioChemEntity import BioChemEntity
 
 
@@ -18,38 +17,31 @@ class Gene(BioChemEntity):
     See: https://schema.org/Gene
     Model depth: 3
     """
-
-    type_: str = Field("Gene", const=True, alias="@type")
-    hasBioPolymerSequence: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("Gene", alias='@type')
+    hasBioPolymerSequence: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of"
-        "a Gene or an amino acid sequence of a Protein.",
+     "a Gene or an amino acid sequence of a Protein.",
     )
-    encodesBioChemEntity: "Optional[Union[List[Union[BioChemEntity, str]], Union[BioChemEntity, str]]]" = Field(
+    encodesBioChemEntity: Optional[Union[List[Union['BioChemEntity', str]], 'BioChemEntity', str]] = Field(
         None,
         description="Another BioChemEntity encoded by this one.",
     )
-    alternativeOf: "Optional[Union[List[Union['Gene', str]], Union['Gene', str]]]" = (
-        Field(
-            None,
-            description="Another gene which is a variation of this one.",
-        )
+    alternativeOf: Optional[Union[List[Union['Gene', str]], 'Gene', str]] = Field(
+        None,
+        description="Another gene which is a variation of this one.",
     )
-    expressedIn: "Optional[Union[List[Union[BioChemEntity, DefinedTerm, AnatomicalSystem, AnatomicalStructure, str]], Union[BioChemEntity, DefinedTerm, AnatomicalSystem, AnatomicalStructure, str]]]" = Field(
+    expressedIn: Optional[Union[List[Union['AnatomicalStructure', 'AnatomicalSystem', 'BioChemEntity', 'DefinedTerm', str]], 'AnatomicalStructure', 'AnatomicalSystem', 'BioChemEntity', 'DefinedTerm', str]] = Field(
         None,
         description="Tissue, organ, biological sample, etc in which activity of this gene has been observed"
-        "experimentally. For example brain, digestive system.",
+     "experimentally. For example brain, digestive system.",
     )
+    
 
 
 if TYPE_CHECKING:
-
+    from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.BioChemEntity import BioChemEntity
-
-    from pydantic_schemaorg.DefinedTerm import DefinedTerm
-
-    from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
-
     from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
-
-    Gene.update_forward_refs()
+    from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
+    from pydantic_schemaorg.DefinedTerm import DefinedTerm

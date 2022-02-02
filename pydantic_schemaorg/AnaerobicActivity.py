@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
 
 
@@ -14,10 +12,6 @@ class AnaerobicActivity(PhysicalActivityCategory):
     See: https://schema.org/AnaerobicActivity
     Model depth: 5
     """
+    type_: str = Field("AnaerobicActivity", alias='@type')
+    
 
-    type_: str = Field("AnaerobicActivity", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    AnaerobicActivity.update_forward_refs()

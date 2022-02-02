@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-
-from pydantic import Field
-
 from typing import Union, List, Optional
 
+
+from pydantic import Field
 from pydantic_schemaorg.MedicalStudy import MedicalStudy
 
 
@@ -21,18 +20,13 @@ class MedicalObservationalStudy(MedicalStudy):
     See: https://schema.org/MedicalObservationalStudy
     Model depth: 4
     """
-
-    type_: str = Field("MedicalObservationalStudy", const=True, alias="@type")
-    studyDesign: "Optional[Union[List[Union[MedicalObservationalStudyDesign, str]], Union[MedicalObservationalStudyDesign, str]]]" = Field(
+    type_: str = Field("MedicalObservationalStudy", alias='@type')
+    studyDesign: Optional[Union[List[Union['MedicalObservationalStudyDesign', str]], 'MedicalObservationalStudyDesign', str]] = Field(
         None,
         description="Specifics about the observational study design (enumerated).",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    from pydantic_schemaorg.MedicalObservationalStudyDesign import (
-        MedicalObservationalStudyDesign,
-    )
-
-    MedicalObservationalStudy.update_forward_refs()
+    from pydantic_schemaorg.MedicalObservationalStudyDesign import MedicalObservationalStudyDesign

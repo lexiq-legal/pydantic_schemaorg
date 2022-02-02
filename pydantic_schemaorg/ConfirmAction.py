@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.InformAction import InformAction
 
 
@@ -14,10 +12,6 @@ class ConfirmAction(InformAction):
     See: https://schema.org/ConfirmAction
     Model depth: 6
     """
+    type_: str = Field("ConfirmAction", alias='@type')
+    
 
-    type_: str = Field("ConfirmAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    ConfirmAction.update_forward_refs()

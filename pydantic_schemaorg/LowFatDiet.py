@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.RestrictedDiet import RestrictedDiet
 
 
@@ -13,10 +11,6 @@ class LowFatDiet(RestrictedDiet):
     See: https://schema.org/LowFatDiet
     Model depth: 5
     """
+    type_: str = Field("LowFatDiet", alias='@type')
+    
 
-    type_: str = Field("LowFatDiet", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    LowFatDiet.update_forward_refs()

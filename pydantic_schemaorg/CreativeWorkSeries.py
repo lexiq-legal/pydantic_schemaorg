@@ -1,13 +1,12 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.Series import Series
-
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -29,26 +28,25 @@ class CreativeWorkSeries(Series, CreativeWork):
     See: https://schema.org/CreativeWorkSeries
     Model depth: 3
     """
-
-    type_: str = Field("CreativeWorkSeries", const=True, alias="@type")
-    endDate: "Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]]" = Field(
+    type_: str = Field("CreativeWorkSeries", alias='@type')
+    endDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
         None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    startDate: "Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]]" = Field(
+    startDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
         None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
-    issn: "Optional[Union[List[str], str]]" = Field(
+    issn: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="The International Standard Serial Number (ISSN) that identifies this serial publication."
-        "You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L)"
-        "for, this serial publication.",
+     "You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L)"
+     "for, this serial publication.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    from datetime import date, datetime
-
-    CreativeWorkSeries.update_forward_refs()
+    from pydantic_schemaorg.DateTime import DateTime
+    from pydantic_schemaorg.Date import Date
+    from pydantic_schemaorg.Text import Text

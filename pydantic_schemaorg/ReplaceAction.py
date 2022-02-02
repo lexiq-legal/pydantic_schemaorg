@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional
-
 from pydantic_schemaorg.UpdateAction import UpdateAction
 
 
@@ -15,20 +14,17 @@ class ReplaceAction(UpdateAction):
     See: https://schema.org/ReplaceAction
     Model depth: 4
     """
-
-    type_: str = Field("ReplaceAction", const=True, alias="@type")
-    replacer: "Optional[Union[List[Union[Thing, str]], Union[Thing, str]]]" = Field(
+    type_: str = Field("ReplaceAction", alias='@type')
+    replacer: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
         None,
         description="A sub property of object. The object that replaces.",
     )
-    replacee: "Optional[Union[List[Union[Thing, str]], Union[Thing, str]]]" = Field(
+    replacee: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
         None,
         description="A sub property of object. The object that is being replaced.",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.Thing import Thing
-
-    ReplaceAction.update_forward_refs()

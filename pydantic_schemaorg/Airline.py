@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.Organization import Organization
 
 
@@ -15,20 +14,18 @@ class Airline(Organization):
     See: https://schema.org/Airline
     Model depth: 3
     """
-
-    type_: str = Field("Airline", const=True, alias="@type")
-    boardingPolicy: "Optional[Union[List[Union[BoardingPolicyType, str]], Union[BoardingPolicyType, str]]]" = Field(
+    type_: str = Field("Airline", alias='@type')
+    boardingPolicy: Optional[Union[List[Union['BoardingPolicyType', str]], 'BoardingPolicyType', str]] = Field(
         None,
         description="The type of boarding policy used by the airline (e.g. zone-based or group-based).",
     )
-    iataCode: "Optional[Union[List[str], str]]" = Field(
+    iataCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="IATA identifier for an airline or airport.",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.BoardingPolicyType import BoardingPolicyType
-
-    Airline.update_forward_refs()
+    from pydantic_schemaorg.Text import Text

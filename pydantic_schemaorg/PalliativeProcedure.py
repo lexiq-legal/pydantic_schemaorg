@@ -1,11 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
-
 from pydantic_schemaorg.MedicalProcedure import MedicalProcedure
 
 
@@ -16,10 +13,6 @@ class PalliativeProcedure(MedicalTherapy, MedicalProcedure):
     See: https://schema.org/PalliativeProcedure
     Model depth: 4
     """
+    type_: str = Field("PalliativeProcedure", alias='@type')
+    
 
-    type_: str = Field("PalliativeProcedure", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PalliativeProcedure.update_forward_refs()

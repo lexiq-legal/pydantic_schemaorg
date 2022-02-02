@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Periodical import Periodical
 
 
@@ -15,10 +13,6 @@ class Newspaper(Periodical):
     See: https://schema.org/Newspaper
     Model depth: 5
     """
+    type_: str = Field("Newspaper", alias='@type')
+    
 
-    type_: str = Field("Newspaper", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Newspaper.update_forward_refs()

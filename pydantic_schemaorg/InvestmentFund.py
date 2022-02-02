@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.InvestmentOrDeposit import InvestmentOrDeposit
 
 
@@ -14,10 +12,6 @@ class InvestmentFund(InvestmentOrDeposit):
     See: https://schema.org/InvestmentFund
     Model depth: 6
     """
+    type_: str = Field("InvestmentFund", alias='@type')
+    
 
-    type_: str = Field("InvestmentFund", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    InvestmentFund.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.GovernmentBenefitsType import GovernmentBenefitsType
 
 
@@ -13,10 +11,6 @@ class BasicIncome(GovernmentBenefitsType):
     See: https://schema.org/BasicIncome
     Model depth: 5
     """
+    type_: str = Field("BasicIncome", alias='@type')
+    
 
-    type_: str = Field("BasicIncome", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    BasicIncome.update_forward_refs()

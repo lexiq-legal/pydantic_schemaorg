@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.SteeringPositionValue import SteeringPositionValue
 
 
@@ -14,10 +12,6 @@ class RightHandDriving(SteeringPositionValue):
     See: https://schema.org/RightHandDriving
     Model depth: 6
     """
+    type_: str = Field("RightHandDriving", alias='@type')
+    
 
-    type_: str = Field("RightHandDriving", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    RightHandDriving.update_forward_refs()

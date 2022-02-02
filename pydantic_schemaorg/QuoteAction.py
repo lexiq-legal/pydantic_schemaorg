@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.TradeAction import TradeAction
 
 
@@ -13,10 +11,6 @@ class QuoteAction(TradeAction):
     See: https://schema.org/QuoteAction
     Model depth: 4
     """
+    type_: str = Field("QuoteAction", alias='@type')
+    
 
-    type_: str = Field("QuoteAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    QuoteAction.update_forward_refs()

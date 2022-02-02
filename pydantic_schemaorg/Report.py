@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, List, Optional
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.Article import Article
 
 
@@ -15,14 +14,13 @@ class Report(Article):
     See: https://schema.org/Report
     Model depth: 4
     """
-
-    type_: str = Field("Report", const=True, alias="@type")
-    reportNumber: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("Report", alias='@type')
+    reportNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="The number or other unique designator assigned to a Report by the publishing organization.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    Report.update_forward_refs()
+    from pydantic_schemaorg.Text import Text

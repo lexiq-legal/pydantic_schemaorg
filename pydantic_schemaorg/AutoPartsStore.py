@@ -1,11 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Store import Store
-
 from pydantic_schemaorg.AutomotiveBusiness import AutomotiveBusiness
 
 
@@ -15,10 +12,6 @@ class AutoPartsStore(Store, AutomotiveBusiness):
     See: https://schema.org/AutoPartsStore
     Model depth: 5
     """
+    type_: str = Field("AutoPartsStore", alias='@type')
+    
 
-    type_: str = Field("AutoPartsStore", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    AutoPartsStore.update_forward_refs()

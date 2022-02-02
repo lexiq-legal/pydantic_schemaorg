@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional
-
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -19,22 +18,18 @@ class HyperToc(CreativeWork):
     See: https://schema.org/HyperToc
     Model depth: 3
     """
-
-    type_: str = Field("HyperToc", const=True, alias="@type")
-    associatedMedia: "Optional[Union[List[Union[MediaObject, str]], Union[MediaObject, str]]]" = Field(
+    type_: str = Field("HyperToc", alias='@type')
+    associatedMedia: Optional[Union[List[Union['MediaObject', str]], 'MediaObject', str]] = Field(
         None,
         description="A media object that encodes this CreativeWork. This property is a synonym for encoding.",
     )
-    tocEntry: "Optional[Union[List[Union[HyperTocEntry, str]], Union[HyperTocEntry, str]]]" = Field(
+    tocEntry: Optional[Union[List[Union['HyperTocEntry', str]], 'HyperTocEntry', str]] = Field(
         None,
         description="Indicates a [[HyperTocEntry]] in a [[HyperToc]].",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.MediaObject import MediaObject
-
     from pydantic_schemaorg.HyperTocEntry import HyperTocEntry
-
-    HyperToc.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.OrderStatus import OrderStatus
 
 
@@ -13,10 +11,6 @@ class OrderProblem(OrderStatus):
     See: https://schema.org/OrderProblem
     Model depth: 6
     """
+    type_: str = Field("OrderProblem", alias='@type')
+    
 
-    type_: str = Field("OrderProblem", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    OrderProblem.update_forward_refs()

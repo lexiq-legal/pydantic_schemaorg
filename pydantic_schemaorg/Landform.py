@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Place import Place
 
 
@@ -16,10 +14,6 @@ class Landform(Place):
     See: https://schema.org/Landform
     Model depth: 3
     """
+    type_: str = Field("Landform", alias='@type')
+    
 
-    type_: str = Field("Landform", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Landform.update_forward_refs()

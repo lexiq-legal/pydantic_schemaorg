@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.VideoObject import VideoObject
 
 
@@ -17,10 +15,6 @@ class VideoObjectSnapshot(VideoObject):
     See: https://schema.org/VideoObjectSnapshot
     Model depth: 5
     """
+    type_: str = Field("VideoObjectSnapshot", alias='@type')
+    
 
-    type_: str = Field("VideoObjectSnapshot", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    VideoObjectSnapshot.update_forward_refs()

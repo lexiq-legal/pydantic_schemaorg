@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.FinancialProduct import FinancialProduct
 
 
@@ -13,10 +11,6 @@ class PaymentService(FinancialProduct):
     See: https://schema.org/PaymentService
     Model depth: 5
     """
+    type_: str = Field("PaymentService", alias='@type')
+    
 
-    type_: str = Field("PaymentService", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PaymentService.update_forward_refs()

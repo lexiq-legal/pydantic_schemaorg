@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional
-
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -16,22 +15,21 @@ class Comment(CreativeWork):
     See: https://schema.org/Comment
     Model depth: 3
     """
-
-    type_: str = Field("Comment", const=True, alias="@type")
-    downvoteCount: "Optional[Union[List[Union[int, str]], Union[int, str]]]" = Field(
+    type_: str = Field("Comment", alias='@type')
+    downvoteCount: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
         None,
         description="The number of downvotes this question, answer or comment has received from the community.",
     )
-    upvoteCount: "Optional[Union[List[Union[int, str]], Union[int, str]]]" = Field(
+    upvoteCount: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
         None,
         description="The number of upvotes this question, answer or comment has received from the community.",
     )
-    parentItem: "Optional[Union[List[Union['Comment', str]], Union['Comment', str]]]" = Field(
+    parentItem: Optional[Union[List[Union['Comment', str]], 'Comment', str]] = Field(
         None,
         description="The parent of a question, answer or item in general.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    Comment.update_forward_refs()
+    from pydantic_schemaorg.Integer import Integer

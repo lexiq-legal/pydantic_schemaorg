@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.DataFeed import DataFeed
 
 
@@ -20,10 +18,6 @@ class CompleteDataFeed(DataFeed):
     See: https://schema.org/CompleteDataFeed
     Model depth: 5
     """
+    type_: str = Field("CompleteDataFeed", alias='@type')
+    
 
-    type_: str = Field("CompleteDataFeed", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    CompleteDataFeed.update_forward_refs()

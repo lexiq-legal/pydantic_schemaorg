@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 
@@ -13,10 +11,6 @@ class HealthAndBeautyBusiness(LocalBusiness):
     See: https://schema.org/HealthAndBeautyBusiness
     Model depth: 4
     """
+    type_: str = Field("HealthAndBeautyBusiness", alias='@type')
+    
 
-    type_: str = Field("HealthAndBeautyBusiness", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    HealthAndBeautyBusiness.update_forward_refs()

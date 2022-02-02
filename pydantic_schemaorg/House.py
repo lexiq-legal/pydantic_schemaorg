@@ -1,11 +1,11 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-
-from pydantic import Field
-
+from decimal import Decimal
 from typing import Union, List, Optional
 
+
+from pydantic import Field
 from pydantic_schemaorg.Accommodation import Accommodation
 
 
@@ -16,20 +16,16 @@ class House(Accommodation):
     See: https://schema.org/House
     Model depth: 4
     """
-
-    type_: str = Field("House", const=True, alias="@type")
-    numberOfRooms: "Optional[Union[List[Union[Decimal, QuantitativeValue, str]], Union[Decimal, QuantitativeValue, str]]]" = Field(
+    type_: str = Field("House", alias='@type')
+    numberOfRooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
         None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
-        "business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be"
-        "put in the unitText property of the QuantitativeValue.",
+     "business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be"
+     "put in the unitText property of the QuantitativeValue.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    from decimal import Decimal
-
+    from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-
-    House.update_forward_refs()

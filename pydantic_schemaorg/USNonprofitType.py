@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.NonprofitType import NonprofitType
 
 
@@ -13,10 +11,6 @@ class USNonprofitType(NonprofitType):
     See: https://schema.org/USNonprofitType
     Model depth: 5
     """
+    type_: str = Field("USNonprofitType", alias='@type')
+    
 
-    type_: str = Field("USNonprofitType", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    USNonprofitType.update_forward_refs()

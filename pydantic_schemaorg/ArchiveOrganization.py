@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-
-from pydantic import Field
-
 from typing import Union, List, Optional
 
+
+from pydantic import Field
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 
@@ -16,17 +15,14 @@ class ArchiveOrganization(LocalBusiness):
     See: https://schema.org/ArchiveOrganization
     Model depth: 4
     """
-
-    type_: str = Field("ArchiveOrganization", const=True, alias="@type")
-    archiveHeld: "Optional[Union[List[Union[ArchiveComponent, str]], Union[ArchiveComponent, str]]]" = Field(
+    type_: str = Field("ArchiveOrganization", alias='@type')
+    archiveHeld: Optional[Union[List[Union['ArchiveComponent', str]], 'ArchiveComponent', str]] = Field(
         None,
         description="Collection, [fonds](https://en.wikipedia.org/wiki/Fonds), or item held, kept"
-        "or maintained by an [[ArchiveOrganization]].",
+     "or maintained by an [[ArchiveOrganization]].",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.ArchiveComponent import ArchiveComponent
-
-    ArchiveOrganization.update_forward_refs()

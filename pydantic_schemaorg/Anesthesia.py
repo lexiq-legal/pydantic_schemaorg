@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
@@ -14,10 +12,6 @@ class Anesthesia(MedicalSpecialty):
     See: https://schema.org/Anesthesia
     Model depth: 6
     """
+    type_: str = Field("Anesthesia", alias='@type')
+    
 
-    type_: str = Field("Anesthesia", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Anesthesia.update_forward_refs()

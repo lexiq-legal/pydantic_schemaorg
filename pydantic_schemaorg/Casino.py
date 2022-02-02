@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.EntertainmentBusiness import EntertainmentBusiness
 
 
@@ -13,10 +11,6 @@ class Casino(EntertainmentBusiness):
     See: https://schema.org/Casino
     Model depth: 5
     """
+    type_: str = Field("Casino", alias='@type')
+    
 
-    type_: str = Field("Casino", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Casino.update_forward_refs()

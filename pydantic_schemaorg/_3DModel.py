@@ -1,5 +1,11 @@
-from pydantic import StrictBool, Field
-from typing import List, Optional, Union
+from __future__ import annotations
+from typing import TYPE_CHECKING
+
+from pydantic import StrictBool
+from typing import Union, List, Optional
+
+
+from pydantic import Field
 from pydantic_schemaorg.MediaObject import MediaObject
 
 
@@ -12,15 +18,17 @@ class _3DModel(MediaObject):
      "be used. Geospatial, AR/VR, artistic/animation, gaming, engineering and scientific"
      "content can all be represented using [[3DModel]].
 
-    See https://schema.org/3DModel.
-
+    See: https://schema.org/3DModel
+    Model depth: 4
     """
-    type_: str = Field("3DModel", const=True, alias='@type')
-    isResizable: Optional[Union[List[Union[StrictBool, str]], Union[StrictBool, str]]] = Field(
+    type_: str = Field("3DModel", alias='@type')
+    isResizable: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         None,
         description="Whether the 3DModel allows resizing. For example, room layout applications often do"
      "not allow 3DModel elements to be resized to reflect reality.",
     )
     
 
-_3DModel.update_forward_refs()
+
+if TYPE_CHECKING:
+    from pydantic_schemaorg.Boolean import Boolean

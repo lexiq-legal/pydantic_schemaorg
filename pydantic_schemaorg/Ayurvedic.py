@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicineSystem import MedicineSystem
 
 
@@ -14,10 +12,6 @@ class Ayurvedic(MedicineSystem):
     See: https://schema.org/Ayurvedic
     Model depth: 6
     """
+    type_: str = Field("Ayurvedic", alias='@type')
+    
 
-    type_: str = Field("Ayurvedic", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Ayurvedic.update_forward_refs()

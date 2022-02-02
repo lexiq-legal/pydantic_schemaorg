@@ -1,11 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.LodgingBusiness import LodgingBusiness
-
 from pydantic_schemaorg.CivicStructure import CivicStructure
 
 
@@ -24,10 +21,6 @@ class Campground(LodgingBusiness, CivicStructure):
     See: https://schema.org/Campground
     Model depth: 4
     """
+    type_: str = Field("Campground", alias='@type')
+    
 
-    type_: str = Field("Campground", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Campground.update_forward_refs()

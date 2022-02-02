@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.GamePlayMode import GamePlayMode
 
 
@@ -13,10 +11,6 @@ class MultiPlayer(GamePlayMode):
     See: https://schema.org/MultiPlayer
     Model depth: 5
     """
+    type_: str = Field("MultiPlayer", alias='@type')
+    
 
-    type_: str = Field("MultiPlayer", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MultiPlayer.update_forward_refs()

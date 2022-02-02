@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.OrderStatus import OrderStatus
 
 
@@ -13,10 +11,6 @@ class OrderReturned(OrderStatus):
     See: https://schema.org/OrderReturned
     Model depth: 6
     """
+    type_: str = Field("OrderReturned", alias='@type')
+    
 
-    type_: str = Field("OrderReturned", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    OrderReturned.update_forward_refs()

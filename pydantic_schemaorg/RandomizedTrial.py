@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalTrialDesign import MedicalTrialDesign
 
 
@@ -13,10 +11,6 @@ class RandomizedTrial(MedicalTrialDesign):
     See: https://schema.org/RandomizedTrial
     Model depth: 6
     """
+    type_: str = Field("RandomizedTrial", alias='@type')
+    
 
-    type_: str = Field("RandomizedTrial", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    RandomizedTrial.update_forward_refs()

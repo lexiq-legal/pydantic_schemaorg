@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Review import Review
 
 
@@ -14,10 +12,6 @@ class EmployerReview(Review):
     See: https://schema.org/EmployerReview
     Model depth: 4
     """
+    type_: str = Field("EmployerReview", alias='@type')
+    
 
-    type_: str = Field("EmployerReview", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    EmployerReview.update_forward_refs()

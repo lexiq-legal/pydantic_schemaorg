@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
 
 
@@ -14,10 +12,6 @@ class OccupationalTherapy(MedicalTherapy):
     See: https://schema.org/OccupationalTherapy
     Model depth: 6
     """
+    type_: str = Field("OccupationalTherapy", alias='@type')
+    
 
-    type_: str = Field("OccupationalTherapy", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    OccupationalTherapy.update_forward_refs()

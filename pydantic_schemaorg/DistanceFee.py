@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.PriceComponentTypeEnumeration import (
-    PriceComponentTypeEnumeration,
-)
+from pydantic_schemaorg.PriceComponentTypeEnumeration import PriceComponentTypeEnumeration
 
 
 class DistanceFee(PriceComponentTypeEnumeration):
@@ -16,10 +12,6 @@ class DistanceFee(PriceComponentTypeEnumeration):
     See: https://schema.org/DistanceFee
     Model depth: 5
     """
+    type_: str = Field("DistanceFee", alias='@type')
+    
 
-    type_: str = Field("DistanceFee", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    DistanceFee.update_forward_refs()

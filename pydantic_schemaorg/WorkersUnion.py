@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Organization import Organization
 
 
@@ -15,10 +13,6 @@ class WorkersUnion(Organization):
     See: https://schema.org/WorkersUnion
     Model depth: 3
     """
+    type_: str = Field("WorkersUnion", alias='@type')
+    
 
-    type_: str = Field("WorkersUnion", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    WorkersUnion.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
@@ -14,10 +12,6 @@ class Neurologic(MedicalSpecialty):
     See: https://schema.org/Neurologic
     Model depth: 6
     """
+    type_: str = Field("Neurologic", alias='@type')
+    
 
-    type_: str = Field("Neurologic", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Neurologic.update_forward_refs()

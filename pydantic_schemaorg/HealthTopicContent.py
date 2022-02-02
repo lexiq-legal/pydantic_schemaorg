@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-
-from pydantic import Field
-
 from typing import Union, List, Optional
 
+
+from pydantic import Field
 from pydantic_schemaorg.WebContent import WebContent
 
 
@@ -20,18 +19,15 @@ class HealthTopicContent(WebContent):
     See: https://schema.org/HealthTopicContent
     Model depth: 4
     """
-
-    type_: str = Field("HealthTopicContent", const=True, alias="@type")
-    hasHealthAspect: "Optional[Union[List[Union[HealthAspectEnumeration, str]], Union[HealthAspectEnumeration, str]]]" = Field(
+    type_: str = Field("HealthTopicContent", alias='@type')
+    hasHealthAspect: Optional[Union[List[Union['HealthAspectEnumeration', str]], 'HealthAspectEnumeration', str]] = Field(
         None,
         description="Indicates the aspect or aspects specifically addressed in some [[HealthTopicContent]]."
-        "For example, that the content is an overview, or that it talks about treatment, self-care,"
-        "treatments or their side-effects.",
+     "For example, that the content is an overview, or that it talks about treatment, self-care,"
+     "treatments or their side-effects.",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.HealthAspectEnumeration import HealthAspectEnumeration
-
-    HealthTopicContent.update_forward_refs()

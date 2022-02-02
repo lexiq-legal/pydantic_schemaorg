@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.ActionStatusType import ActionStatusType
 
 
@@ -14,10 +12,6 @@ class FailedActionStatus(ActionStatusType):
     See: https://schema.org/FailedActionStatus
     Model depth: 6
     """
+    type_: str = Field("FailedActionStatus", alias='@type')
+    
 
-    type_: str = Field("FailedActionStatus", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    FailedActionStatus.update_forward_refs()

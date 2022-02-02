@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 
 
@@ -14,10 +12,6 @@ class BrainStructure(AnatomicalStructure):
     See: https://schema.org/BrainStructure
     Model depth: 4
     """
+    type_: str = Field("BrainStructure", alias='@type')
+    
 
-    type_: str = Field("BrainStructure", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    BrainStructure.update_forward_refs()

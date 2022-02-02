@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalGuideline import MedicalGuideline
 
 
@@ -14,10 +12,6 @@ class MedicalGuidelineContraindication(MedicalGuideline):
     See: https://schema.org/MedicalGuidelineContraindication
     Model depth: 4
     """
+    type_: str = Field("MedicalGuidelineContraindication", alias='@type')
+    
 
-    type_: str = Field("MedicalGuidelineContraindication", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MedicalGuidelineContraindication.update_forward_refs()

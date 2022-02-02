@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Vehicle import Vehicle
 
 
@@ -14,10 +12,6 @@ class MotorizedBicycle(Vehicle):
     See: https://schema.org/MotorizedBicycle
     Model depth: 4
     """
+    type_: str = Field("MotorizedBicycle", alias='@type')
+    
 
-    type_: str = Field("MotorizedBicycle", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MotorizedBicycle.update_forward_refs()

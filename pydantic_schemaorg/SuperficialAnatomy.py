@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
 
@@ -29,42 +28,37 @@ class SuperficialAnatomy(MedicalEntity):
     See: https://schema.org/SuperficialAnatomy
     Model depth: 3
     """
-
-    type_: str = Field("SuperficialAnatomy", const=True, alias="@type")
-    significance: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("SuperficialAnatomy", alias='@type')
+    significance: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="The significance associated with the superficial anatomy; as an example, how characteristics"
-        "of the superficial anatomy can suggest underlying medical conditions or courses of"
-        "treatment.",
+     "of the superficial anatomy can suggest underlying medical conditions or courses of"
+     "treatment.",
     )
-    relatedAnatomy: "Optional[Union[List[Union[AnatomicalSystem, AnatomicalStructure, str]], Union[AnatomicalSystem, AnatomicalStructure, str]]]" = Field(
+    relatedAnatomy: Optional[Union[List[Union['AnatomicalSystem', 'AnatomicalStructure', str]], 'AnatomicalSystem', 'AnatomicalStructure', str]] = Field(
         None,
         description="Anatomical systems or structures that relate to the superficial anatomy.",
     )
-    relatedCondition: "Optional[Union[List[Union[MedicalCondition, str]], Union[MedicalCondition, str]]]" = Field(
+    relatedCondition: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
         None,
         description="A medical condition associated with this anatomy.",
     )
-    relatedTherapy: "Optional[Union[List[Union[MedicalTherapy, str]], Union[MedicalTherapy, str]]]" = Field(
+    relatedTherapy: Optional[Union[List[Union['MedicalTherapy', str]], 'MedicalTherapy', str]] = Field(
         None,
         description="A medical therapy related to this anatomy.",
     )
-    associatedPathophysiology: "Optional[Union[List[str], str]]" = Field(
+    associatedPathophysiology: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="If applicable, a description of the pathophysiology associated with the anatomical"
-        "system, including potential abnormal changes in the mechanical, physical, and biochemical"
-        "functions of the system.",
+     "system, including potential abnormal changes in the mechanical, physical, and biochemical"
+     "functions of the system.",
     )
+    
 
 
 if TYPE_CHECKING:
-
+    from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
-
     from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
-
     from pydantic_schemaorg.MedicalCondition import MedicalCondition
-
     from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
-
-    SuperficialAnatomy.update_forward_refs()

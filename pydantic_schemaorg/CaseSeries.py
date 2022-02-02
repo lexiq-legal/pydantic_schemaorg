@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.MedicalObservationalStudyDesign import (
-    MedicalObservationalStudyDesign,
-)
+from pydantic_schemaorg.MedicalObservationalStudyDesign import MedicalObservationalStudyDesign
 
 
 class CaseSeries(MedicalObservationalStudyDesign):
@@ -21,10 +17,6 @@ class CaseSeries(MedicalObservationalStudyDesign):
     See: https://schema.org/CaseSeries
     Model depth: 6
     """
+    type_: str = Field("CaseSeries", alias='@type')
+    
 
-    type_: str = Field("CaseSeries", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    CaseSeries.update_forward_refs()

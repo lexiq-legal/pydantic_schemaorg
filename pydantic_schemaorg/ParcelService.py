@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
 
 
@@ -15,10 +13,6 @@ class ParcelService(DeliveryMethod):
     See: https://schema.org/ParcelService
     Model depth: 5
     """
+    type_: str = Field("ParcelService", alias='@type')
+    
 
-    type_: str = Field("ParcelService", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    ParcelService.update_forward_refs()

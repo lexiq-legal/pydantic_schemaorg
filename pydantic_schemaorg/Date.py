@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.DataType import DataType
 
 
@@ -13,10 +11,6 @@ class Date(DataType):
     See: https://schema.org/Date
     Model depth: 5
     """
+    type_: str = Field("Date", alias='@type')
+    
 
-    type_: str = Field("Date", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Date.update_forward_refs()

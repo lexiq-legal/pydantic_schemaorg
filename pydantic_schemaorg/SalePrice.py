@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.PriceTypeEnumeration import PriceTypeEnumeration
 
 
@@ -13,10 +11,6 @@ class SalePrice(PriceTypeEnumeration):
     See: https://schema.org/SalePrice
     Model depth: 5
     """
+    type_: str = Field("SalePrice", alias='@type')
+    
 
-    type_: str = Field("SalePrice", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    SalePrice.update_forward_refs()

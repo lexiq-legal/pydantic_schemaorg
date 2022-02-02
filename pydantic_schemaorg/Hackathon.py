@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Event import Event
 
 
@@ -13,10 +11,6 @@ class Hackathon(Event):
     See: https://schema.org/Hackathon
     Model depth: 3
     """
+    type_: str = Field("Hackathon", alias='@type')
+    
 
-    type_: str = Field("Hackathon", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Hackathon.update_forward_refs()

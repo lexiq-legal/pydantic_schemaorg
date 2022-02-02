@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.QualitativeValue import QualitativeValue
 
 
@@ -13,10 +11,6 @@ class DriveWheelConfigurationValue(QualitativeValue):
     See: https://schema.org/DriveWheelConfigurationValue
     Model depth: 5
     """
+    type_: str = Field("DriveWheelConfigurationValue", alias='@type')
+    
 
-    type_: str = Field("DriveWheelConfigurationValue", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    DriveWheelConfigurationValue.update_forward_refs()

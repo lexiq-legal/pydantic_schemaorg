@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.AggregateRating import AggregateRating
 
 
@@ -13,10 +11,6 @@ class EmployerAggregateRating(AggregateRating):
     See: https://schema.org/EmployerAggregateRating
     Model depth: 5
     """
+    type_: str = Field("EmployerAggregateRating", alias='@type')
+    
 
-    type_: str = Field("EmployerAggregateRating", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    EmployerAggregateRating.update_forward_refs()

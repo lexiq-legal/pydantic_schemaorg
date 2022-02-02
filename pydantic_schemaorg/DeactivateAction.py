@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.ControlAction import ControlAction
 
 
@@ -14,10 +12,6 @@ class DeactivateAction(ControlAction):
     See: https://schema.org/DeactivateAction
     Model depth: 4
     """
+    type_: str = Field("DeactivateAction", alias='@type')
+    
 
-    type_: str = Field("DeactivateAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    DeactivateAction.update_forward_refs()

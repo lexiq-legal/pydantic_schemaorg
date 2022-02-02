@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Quantity import Quantity
 
 
@@ -14,10 +12,6 @@ class Distance(Quantity):
     See: https://schema.org/Distance
     Model depth: 4
     """
+    type_: str = Field("Distance", alias='@type')
+    
 
-    type_: str = Field("Distance", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Distance.update_forward_refs()

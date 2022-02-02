@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalTrialDesign import MedicalTrialDesign
 
 
@@ -14,10 +12,6 @@ class DoubleBlindedTrial(MedicalTrialDesign):
     See: https://schema.org/DoubleBlindedTrial
     Model depth: 6
     """
+    type_: str = Field("DoubleBlindedTrial", alias='@type')
+    
 
-    type_: str = Field("DoubleBlindedTrial", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    DoubleBlindedTrial.update_forward_refs()

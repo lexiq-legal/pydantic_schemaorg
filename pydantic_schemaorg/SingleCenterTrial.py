@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalTrialDesign import MedicalTrialDesign
 
 
@@ -13,10 +11,6 @@ class SingleCenterTrial(MedicalTrialDesign):
     See: https://schema.org/SingleCenterTrial
     Model depth: 6
     """
+    type_: str = Field("SingleCenterTrial", alias='@type')
+    
 
-    type_: str = Field("SingleCenterTrial", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    SingleCenterTrial.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Store import Store
 
 
@@ -13,10 +11,6 @@ class PawnShop(Store):
     See: https://schema.org/PawnShop
     Model depth: 5
     """
+    type_: str = Field("PawnShop", alias='@type')
+    
 
-    type_: str = Field("PawnShop", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PawnShop.update_forward_refs()

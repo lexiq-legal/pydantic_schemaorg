@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.BodyMeasurementTypeEnumeration import (
-    BodyMeasurementTypeEnumeration,
-)
+from pydantic_schemaorg.BodyMeasurementTypeEnumeration import BodyMeasurementTypeEnumeration
 
 
 class BodyMeasurementArm(BodyMeasurementTypeEnumeration):
@@ -16,10 +12,6 @@ class BodyMeasurementArm(BodyMeasurementTypeEnumeration):
     See: https://schema.org/BodyMeasurementArm
     Model depth: 6
     """
+    type_: str = Field("BodyMeasurementArm", alias='@type')
+    
 
-    type_: str = Field("BodyMeasurementArm", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    BodyMeasurementArm.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.ImageObject import ImageObject
 
 
@@ -17,10 +15,6 @@ class ImageObjectSnapshot(ImageObject):
     See: https://schema.org/ImageObjectSnapshot
     Model depth: 5
     """
+    type_: str = Field("ImageObjectSnapshot", alias='@type')
+    
 
-    type_: str = Field("ImageObjectSnapshot", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    ImageObjectSnapshot.update_forward_refs()

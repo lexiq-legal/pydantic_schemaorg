@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.MediaManipulationRatingEnumeration import (
-    MediaManipulationRatingEnumeration,
-)
+from pydantic_schemaorg.MediaManipulationRatingEnumeration import MediaManipulationRatingEnumeration
 
 
 class EditedOrCroppedContent(MediaManipulationRatingEnumeration):
@@ -25,10 +21,6 @@ class EditedOrCroppedContent(MediaManipulationRatingEnumeration):
     See: https://schema.org/EditedOrCroppedContent
     Model depth: 5
     """
+    type_: str = Field("EditedOrCroppedContent", alias='@type')
+    
 
-    type_: str = Field("EditedOrCroppedContent", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    EditedOrCroppedContent.update_forward_refs()

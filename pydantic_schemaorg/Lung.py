@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.PhysicalExam import PhysicalExam
 
 
@@ -13,10 +11,6 @@ class Lung(PhysicalExam):
     See: https://schema.org/Lung
     Model depth: 5
     """
+    type_: str = Field("Lung", alias='@type')
+    
 
-    type_: str = Field("Lung", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Lung.update_forward_refs()

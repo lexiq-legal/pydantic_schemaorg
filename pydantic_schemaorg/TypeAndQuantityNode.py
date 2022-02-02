@@ -1,11 +1,12 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+from pydantic import AnyUrl
+from decimal import Decimal
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -16,43 +17,37 @@ class TypeAndQuantityNode(StructuredValue):
     See: https://schema.org/TypeAndQuantityNode
     Model depth: 4
     """
-
-    type_: str = Field("TypeAndQuantityNode", const=True, alias="@type")
-    businessFunction: "Optional[Union[List[Union[BusinessFunction, str]], Union[BusinessFunction, str]]]" = Field(
+    type_: str = Field("TypeAndQuantityNode", alias='@type')
+    businessFunction: Optional[Union[List[Union['BusinessFunction', str]], 'BusinessFunction', str]] = Field(
         None,
         description="The business function (e.g. sell, lease, repair, dispose) of the offer or component"
-        "of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.",
+     "of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.",
     )
-    typeOfGood: "Optional[Union[List[Union[Product, Service, str]], Union[Product, Service, str]]]" = Field(
+    typeOfGood: Optional[Union[List[Union['Service', 'Product', str]], 'Service', 'Product', str]] = Field(
         None,
         description="The product that this structured value is referring to.",
     )
-    unitText: "Optional[Union[List[str], str]]" = Field(
+    unitText: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="A string or text indicating the unit of measurement. Useful if you cannot provide a standard"
-        "unit code for <a href='unitCode'>unitCode</a>.",
+     "unit code for <a href='unitCode'>unitCode</a>.",
     )
-    unitCode: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = Field(
+    unitCode: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         None,
         description="The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL."
-        "Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.",
+     "Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.",
     )
-    amountOfThisGood: "Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]]" = Field(
+    amountOfThisGood: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
         None,
         description="The quantity of the goods included in the offer.",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.BusinessFunction import BusinessFunction
-
-    from pydantic_schemaorg.Product import Product
-
     from pydantic_schemaorg.Service import Service
-
-    from pydantic import AnyUrl
-
-    from decimal import Decimal
-
-    TypeAndQuantityNode.update_forward_refs()
+    from pydantic_schemaorg.Product import Product
+    from pydantic_schemaorg.Text import Text
+    from pydantic_schemaorg.URL import URL
+    from pydantic_schemaorg.Number import Number

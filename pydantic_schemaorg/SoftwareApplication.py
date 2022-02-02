@@ -1,11 +1,11 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from pydantic import AnyUrl
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -15,129 +15,120 @@ class SoftwareApplication(CreativeWork):
     See: https://schema.org/SoftwareApplication
     Model depth: 3
     """
-
-    type_: str = Field("SoftwareApplication", const=True, alias="@type")
-    applicationSubCategory: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = Field(
+    type_: str = Field("SoftwareApplication", alias='@type')
+    applicationSubCategory: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         None,
         description="Subcategory of the application, e.g. 'Arcade Game'.",
     )
-    processorRequirements: "Optional[Union[List[str], str]]" = Field(
+    processorRequirements: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Processor architecture required to run the application (e.g. IA64).",
     )
-    installUrl: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = Field(
+    installUrl: Optional[Union[List[Union[AnyUrl, 'URL', str]], AnyUrl, 'URL', str]] = Field(
         None,
         description="URL at which the app may be installed, if different from the URL of the item.",
     )
-    screenshot: "Optional[Union[List[Union[AnyUrl, ImageObject, str]], Union[AnyUrl, ImageObject, str]]]" = Field(
+    screenshot: Optional[Union[List[Union[AnyUrl, 'URL', 'ImageObject', str]], AnyUrl, 'URL', 'ImageObject', str]] = Field(
         None,
         description="A link to a screenshot image of the app.",
     )
-    device: "Optional[Union[List[str], str]]" = Field(
+    device: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Device required to run the application. Used in cases where a specific make/model is"
-        "required to run the application.",
+     "required to run the application.",
     )
-    operatingSystem: "Optional[Union[List[str], str]]" = Field(
+    operatingSystem: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Operating systems supported (Windows 7, OSX 10.6, Android 1.6).",
     )
-    softwareAddOn: "Optional[Union[List[Union['SoftwareApplication', str]], Union['SoftwareApplication', str]]]" = Field(
+    softwareAddOn: Optional[Union[List[Union['SoftwareApplication', str]], 'SoftwareApplication', str]] = Field(
         None,
         description="Additional content for a software application.",
     )
-    applicationSuite: "Optional[Union[List[str], str]]" = Field(
+    applicationSuite: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="The name of the application suite to which the application belongs (e.g. Excel belongs"
-        "to Office).",
+     "to Office).",
     )
-    storageRequirements: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = Field(
+    storageRequirements: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         None,
         description="Storage requirements (free space required).",
     )
-    availableOnDevice: "Optional[Union[List[str], str]]" = Field(
+    availableOnDevice: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Device required to run the application. Used in cases where a specific make/model is"
-        "required to run the application.",
+     "required to run the application.",
     )
-    softwareRequirements: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = Field(
+    softwareRequirements: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         None,
         description="Component dependency requirements for application. This includes runtime environments"
-        "and shared libraries that are not included in the application distribution package,"
-        "but required to run the application (Examples: DirectX, Java or .NET runtime).",
+     "and shared libraries that are not included in the application distribution package,"
+     "but required to run the application (Examples: DirectX, Java or .NET runtime).",
     )
-    softwareHelp: "Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]]" = Field(
+    softwareHelp: Optional[Union[List[Union['CreativeWork', str]], 'CreativeWork', str]] = Field(
         None,
         description="Software application help.",
     )
-    softwareVersion: "Optional[Union[List[str], str]]" = Field(
+    softwareVersion: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Version of the software instance.",
     )
-    permissions: "Optional[Union[List[str], str]]" = Field(
+    permissions: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Permission(s) required to run the app (for example, a mobile app may require full internet"
-        "access or may run only on wifi).",
+     "access or may run only on wifi).",
     )
-    fileSize: "Optional[Union[List[str], str]]" = Field(
+    fileSize: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB etc.), KB"
-        "will be assumed.",
+     "will be assumed.",
     )
-    releaseNotes: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = (
-        Field(
-            None,
-            description="Description of what changed in this version.",
-        )
+    releaseNotes: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
+        None,
+        description="Description of what changed in this version.",
     )
-    downloadUrl: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = (
-        Field(
-            None,
-            description="If the file can be downloaded, URL to download the binary.",
-        )
+    downloadUrl: Optional[Union[List[Union[AnyUrl, 'URL', str]], AnyUrl, 'URL', str]] = Field(
+        None,
+        description="If the file can be downloaded, URL to download the binary.",
     )
-    requirements: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = Field(
+    requirements: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         None,
         description="Component dependency requirements for application. This includes runtime environments"
-        "and shared libraries that are not included in the application distribution package,"
-        "but required to run the application (Examples: DirectX, Java or .NET runtime).",
+     "and shared libraries that are not included in the application distribution package,"
+     "but required to run the application (Examples: DirectX, Java or .NET runtime).",
     )
-    supportingData: "Optional[Union[List[Union[DataFeed, str]], Union[DataFeed, str]]]" = Field(
+    supportingData: Optional[Union[List[Union['DataFeed', str]], 'DataFeed', str]] = Field(
         None,
         description="Supporting data for a SoftwareApplication.",
     )
-    countriesNotSupported: "Optional[Union[List[str], str]]" = Field(
+    countriesNotSupported: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Countries for which the application is not supported. You can also provide the two-letter"
-        "ISO 3166-1 alpha-2 country code.",
+     "ISO 3166-1 alpha-2 country code.",
     )
-    featureList: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = Field(
+    featureList: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         None,
         description="Features or modules provided by this application (and possibly required by other applications).",
     )
-    applicationCategory: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = Field(
+    applicationCategory: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         None,
         description="Type of software application, e.g. 'Game, Multimedia'.",
     )
-    memoryRequirements: "Optional[Union[List[Union[AnyUrl, str]], Union[AnyUrl, str]]]" = Field(
+    memoryRequirements: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         None,
         description="Minimum memory requirements.",
     )
-    countriesSupported: "Optional[Union[List[str], str]]" = Field(
+    countriesSupported: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Countries for which the application is supported. You can also provide the two-letter"
-        "ISO 3166-1 alpha-2 country code.",
+     "ISO 3166-1 alpha-2 country code.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    from pydantic import AnyUrl
-
+    from pydantic_schemaorg.URL import URL
+    from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.ImageObject import ImageObject
-
     from pydantic_schemaorg.CreativeWork import CreativeWork
-
     from pydantic_schemaorg.DataFeed import DataFeed
-
-    SoftwareApplication.update_forward_refs()

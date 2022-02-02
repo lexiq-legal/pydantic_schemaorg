@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalEvidenceLevel import MedicalEvidenceLevel
 
 
@@ -13,10 +11,6 @@ class EvidenceLevelC(MedicalEvidenceLevel):
     See: https://schema.org/EvidenceLevelC
     Model depth: 6
     """
+    type_: str = Field("EvidenceLevelC", alias='@type')
+    
 
-    type_: str = Field("EvidenceLevelC", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    EvidenceLevelC.update_forward_refs()

@@ -1,6 +1,7 @@
 from __future__ import annotations
-from pydantic import Field, AnyUrl
+{%- if model.pydantic_imports %}
 from typing import TYPE_CHECKING
+{%- endif %}
 {% if model.field_imports %}
 {%- for import_ in model.field_imports %}
 from {{import_.classPath}} import {{import_.classes_ | join(', ')}}
@@ -11,7 +12,7 @@ from {{import_.classPath}} import {{import_.classes_ | join(', ')}}
 {%- endfor %}
 
 
-class {{ model.valid_name }}({{model.parents|sort(attribute='depth', reverse=True) |map(attribute='valid_name')| join(', ')}}):
+class {{ model.valid_name }}({{model.parents| sort(attribute='depth', reverse=True) | map(attribute='valid_name') | join(', ')}}):
     """{{ model.description | replace('\\n','\n') | format_description}}
 
     See: https://schema.org/{{ model.name }}
@@ -32,5 +33,3 @@ if TYPE_CHECKING:
     from {{import_.classPath}} import {{import_.classes_ | join(', ')}}
 {%- endfor %}
 {% endif %}
-
-#{{ model.valid_name }}.update_forward_refs()

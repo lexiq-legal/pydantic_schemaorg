@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Quantity import Quantity
 
 
@@ -13,10 +11,6 @@ class Duration(Quantity):
     See: https://schema.org/Duration
     Model depth: 4
     """
+    type_: str = Field("Duration", alias='@type')
+    
 
-    type_: str = Field("Duration", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Duration.update_forward_refs()

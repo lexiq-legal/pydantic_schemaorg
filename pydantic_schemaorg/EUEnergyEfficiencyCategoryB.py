@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.EUEnergyEfficiencyEnumeration import (
-    EUEnergyEfficiencyEnumeration,
-)
+from pydantic_schemaorg.EUEnergyEfficiencyEnumeration import EUEnergyEfficiencyEnumeration
 
 
 class EUEnergyEfficiencyCategoryB(EUEnergyEfficiencyEnumeration):
@@ -15,10 +11,6 @@ class EUEnergyEfficiencyCategoryB(EUEnergyEfficiencyEnumeration):
     See: https://schema.org/EUEnergyEfficiencyCategoryB
     Model depth: 6
     """
+    type_: str = Field("EUEnergyEfficiencyCategoryB", alias='@type')
+    
 
-    type_: str = Field("EUEnergyEfficiencyCategoryB", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    EUEnergyEfficiencyCategoryB.update_forward_refs()

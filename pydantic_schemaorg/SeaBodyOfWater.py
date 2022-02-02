@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.BodyOfWater import BodyOfWater
 
 
@@ -13,10 +11,6 @@ class SeaBodyOfWater(BodyOfWater):
     See: https://schema.org/SeaBodyOfWater
     Model depth: 5
     """
+    type_: str = Field("SeaBodyOfWater", alias='@type')
+    
 
-    type_: str = Field("SeaBodyOfWater", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    SeaBodyOfWater.update_forward_refs()

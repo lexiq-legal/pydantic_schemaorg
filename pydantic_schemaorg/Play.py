@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -15,10 +13,6 @@ class Play(CreativeWork):
     See: https://schema.org/Play
     Model depth: 3
     """
+    type_: str = Field("Play", alias='@type')
+    
 
-    type_: str = Field("Play", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Play.update_forward_refs()

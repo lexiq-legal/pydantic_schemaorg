@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.ItemList import ItemList
 
 
@@ -20,10 +18,6 @@ class BreadcrumbList(ItemList):
     See: https://schema.org/BreadcrumbList
     Model depth: 4
     """
+    type_: str = Field("BreadcrumbList", alias='@type')
+    
 
-    type_: str = Field("BreadcrumbList", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    BreadcrumbList.update_forward_refs()

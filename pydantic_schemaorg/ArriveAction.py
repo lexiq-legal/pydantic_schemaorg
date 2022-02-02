@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MoveAction import MoveAction
 
 
@@ -14,10 +12,6 @@ class ArriveAction(MoveAction):
     See: https://schema.org/ArriveAction
     Model depth: 4
     """
+    type_: str = Field("ArriveAction", alias='@type')
+    
 
-    type_: str = Field("ArriveAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    ArriveAction.update_forward_refs()

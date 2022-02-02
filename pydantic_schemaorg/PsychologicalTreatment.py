@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.TherapeuticProcedure import TherapeuticProcedure
 
 
@@ -14,10 +12,6 @@ class PsychologicalTreatment(TherapeuticProcedure):
     See: https://schema.org/PsychologicalTreatment
     Model depth: 5
     """
+    type_: str = Field("PsychologicalTreatment", alias='@type')
+    
 
-    type_: str = Field("PsychologicalTreatment", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PsychologicalTreatment.update_forward_refs()

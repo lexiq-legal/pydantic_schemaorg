@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.LocalBusiness import LocalBusiness
 
 
@@ -19,10 +17,6 @@ class ProfessionalService(LocalBusiness):
     See: https://schema.org/ProfessionalService
     Model depth: 4
     """
+    type_: str = Field("ProfessionalService", alias='@type')
+    
 
-    type_: str = Field("ProfessionalService", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    ProfessionalService.update_forward_refs()

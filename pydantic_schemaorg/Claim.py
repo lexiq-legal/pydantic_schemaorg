@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional
-
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -24,29 +23,24 @@ class Claim(CreativeWork):
     See: https://schema.org/Claim
     Model depth: 3
     """
-
-    type_: str = Field("Claim", const=True, alias="@type")
-    firstAppearance: "Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]]" = Field(
+    type_: str = Field("Claim", alias='@type')
+    firstAppearance: Optional[Union[List[Union['CreativeWork', str]], 'CreativeWork', str]] = Field(
         None,
         description="Indicates the first known occurence of a [[Claim]] in some [[CreativeWork]].",
     )
-    claimInterpreter: "Optional[Union[List[Union[Person, Organization, str]], Union[Person, Organization, str]]]" = Field(
+    claimInterpreter: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         None,
         description="For a [[Claim]] interpreted from [[MediaObject]] content sed to indicate a claim contained,"
-        "implied or refined from the content of a [[MediaObject]].",
+     "implied or refined from the content of a [[MediaObject]].",
     )
-    appearance: "Optional[Union[List[Union[CreativeWork, str]], Union[CreativeWork, str]]]" = Field(
+    appearance: Optional[Union[List[Union['CreativeWork', str]], 'CreativeWork', str]] = Field(
         None,
         description="Indicates an occurence of a [[Claim]] in some [[CreativeWork]].",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.CreativeWork import CreativeWork
-
-    from pydantic_schemaorg.Person import Person
-
     from pydantic_schemaorg.Organization import Organization
-
-    Claim.update_forward_refs()
+    from pydantic_schemaorg.Person import Person

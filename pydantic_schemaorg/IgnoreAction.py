@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.AssessAction import AssessAction
 
 
@@ -13,10 +11,6 @@ class IgnoreAction(AssessAction):
     See: https://schema.org/IgnoreAction
     Model depth: 4
     """
+    type_: str = Field("IgnoreAction", alias='@type')
+    
 
-    type_: str = Field("IgnoreAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    IgnoreAction.update_forward_refs()

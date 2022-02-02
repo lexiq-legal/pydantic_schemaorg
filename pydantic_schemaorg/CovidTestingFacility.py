@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalClinic import MedicalClinic
 
 
@@ -18,10 +16,6 @@ class CovidTestingFacility(MedicalClinic):
     See: https://schema.org/CovidTestingFacility
     Model depth: 5
     """
+    type_: str = Field("CovidTestingFacility", alias='@type')
+    
 
-    type_: str = Field("CovidTestingFacility", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    CovidTestingFacility.update_forward_refs()

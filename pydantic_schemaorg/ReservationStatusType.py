@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.StatusEnumeration import StatusEnumeration
 
 
@@ -13,10 +11,6 @@ class ReservationStatusType(StatusEnumeration):
     See: https://schema.org/ReservationStatusType
     Model depth: 5
     """
+    type_: str = Field("ReservationStatusType", alias='@type')
+    
 
-    type_: str = Field("ReservationStatusType", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    ReservationStatusType.update_forward_refs()

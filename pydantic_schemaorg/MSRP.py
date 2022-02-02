@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.PriceTypeEnumeration import PriceTypeEnumeration
 
 
@@ -13,10 +11,6 @@ class MSRP(PriceTypeEnumeration):
     See: https://schema.org/MSRP
     Model depth: 5
     """
+    type_: str = Field("MSRP", alias='@type')
+    
 
-    type_: str = Field("MSRP", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MSRP.update_forward_refs()

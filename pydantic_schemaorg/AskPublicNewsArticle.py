@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.NewsArticle import NewsArticle
 
 
@@ -15,10 +13,6 @@ class AskPublicNewsArticle(NewsArticle):
     See: https://schema.org/AskPublicNewsArticle
     Model depth: 5
     """
+    type_: str = Field("AskPublicNewsArticle", alias='@type')
+    
 
-    type_: str = Field("AskPublicNewsArticle", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    AskPublicNewsArticle.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CreativeWorkSeries import CreativeWorkSeries
 
 
@@ -15,10 +13,6 @@ class Periodical(CreativeWorkSeries):
     See: https://schema.org/Periodical
     Model depth: 4
     """
+    type_: str = Field("Periodical", alias='@type')
+    
 
-    type_: str = Field("Periodical", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Periodical.update_forward_refs()

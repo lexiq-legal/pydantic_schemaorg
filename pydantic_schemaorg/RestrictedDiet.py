@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -14,10 +12,6 @@ class RestrictedDiet(Enumeration):
     See: https://schema.org/RestrictedDiet
     Model depth: 4
     """
+    type_: str = Field("RestrictedDiet", alias='@type')
+    
 
-    type_: str = Field("RestrictedDiet", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    RestrictedDiet.update_forward_refs()

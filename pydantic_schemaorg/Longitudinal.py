@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.MedicalObservationalStudyDesign import (
-    MedicalObservationalStudyDesign,
-)
+from pydantic_schemaorg.MedicalObservationalStudyDesign import MedicalObservationalStudyDesign
 
 
 class Longitudinal(MedicalObservationalStudyDesign):
@@ -18,10 +14,6 @@ class Longitudinal(MedicalObservationalStudyDesign):
     See: https://schema.org/Longitudinal
     Model depth: 6
     """
+    type_: str = Field("Longitudinal", alias='@type')
+    
 
-    type_: str = Field("Longitudinal", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Longitudinal.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
 
 
@@ -13,10 +11,6 @@ class MedicalDevicePurpose(MedicalEnumeration):
     See: https://schema.org/MedicalDevicePurpose
     Model depth: 5
     """
+    type_: str = Field("MedicalDevicePurpose", alias='@type')
+    
 
-    type_: str = Field("MedicalDevicePurpose", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MedicalDevicePurpose.update_forward_refs()

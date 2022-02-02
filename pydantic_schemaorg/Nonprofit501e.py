@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.USNonprofitType import USNonprofitType
 
 
@@ -13,10 +11,6 @@ class Nonprofit501e(USNonprofitType):
     See: https://schema.org/Nonprofit501e
     Model depth: 6
     """
+    type_: str = Field("Nonprofit501e", alias='@type')
+    
 
-    type_: str = Field("Nonprofit501e", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Nonprofit501e.update_forward_refs()

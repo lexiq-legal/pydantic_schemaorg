@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.PaymentStatusType import PaymentStatusType
 
 
@@ -13,10 +11,6 @@ class PaymentDue(PaymentStatusType):
     See: https://schema.org/PaymentDue
     Model depth: 6
     """
+    type_: str = Field("PaymentDue", alias='@type')
+    
 
-    type_: str = Field("PaymentDue", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PaymentDue.update_forward_refs()

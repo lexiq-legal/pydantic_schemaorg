@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional
-
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
 
@@ -22,46 +21,38 @@ class MedicalStudy(MedicalEntity):
     See: https://schema.org/MedicalStudy
     Model depth: 3
     """
-
-    type_: str = Field("MedicalStudy", const=True, alias="@type")
-    studyLocation: "Optional[Union[List[Union[AdministrativeArea, str]], Union[AdministrativeArea, str]]]" = Field(
+    type_: str = Field("MedicalStudy", alias='@type')
+    studyLocation: Optional[Union[List[Union['AdministrativeArea', str]], 'AdministrativeArea', str]] = Field(
         None,
         description="The location in which the study is taking/took place.",
     )
-    studySubject: "Optional[Union[List[Union[MedicalEntity, str]], Union[MedicalEntity, str]]]" = Field(
+    studySubject: Optional[Union[List[Union['MedicalEntity', str]], 'MedicalEntity', str]] = Field(
         None,
         description="A subject of the study, i.e. one of the medical conditions, therapies, devices, drugs,"
-        "etc. investigated by the study.",
+     "etc. investigated by the study.",
     )
-    status: "Optional[Union[List[Union[str, EventStatusType, MedicalStudyStatus]], Union[str, EventStatusType, MedicalStudyStatus]]]" = Field(
+    status: Optional[Union[List[Union[str, 'Text', 'MedicalStudyStatus', 'EventStatusType']], str, 'Text', 'MedicalStudyStatus', 'EventStatusType']] = Field(
         None,
         description="The status of the study (enumerated).",
     )
-    sponsor: "Optional[Union[List[Union[Person, Organization, str]], Union[Person, Organization, str]]]" = Field(
+    sponsor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
-        "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
+     "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
     )
-    healthCondition: "Optional[Union[List[Union[MedicalCondition, str]], Union[MedicalCondition, str]]]" = Field(
+    healthCondition: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
         None,
         description="Specifying the health condition(s) of a patient, medical study, or other target audience.",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
-
     from pydantic_schemaorg.MedicalEntity import MedicalEntity
-
-    from pydantic_schemaorg.EventStatusType import EventStatusType
-
+    from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
-
+    from pydantic_schemaorg.EventStatusType import EventStatusType
     from pydantic_schemaorg.Person import Person
-
     from pydantic_schemaorg.Organization import Organization
-
     from pydantic_schemaorg.MedicalCondition import MedicalCondition
-
-    MedicalStudy.update_forward_refs()

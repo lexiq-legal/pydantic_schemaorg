@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Reservation import Reservation
 
 
@@ -15,10 +13,6 @@ class EventReservation(Reservation):
     See: https://schema.org/EventReservation
     Model depth: 4
     """
+    type_: str = Field("EventReservation", alias='@type')
+    
 
-    type_: str = Field("EventReservation", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    EventReservation.update_forward_refs()

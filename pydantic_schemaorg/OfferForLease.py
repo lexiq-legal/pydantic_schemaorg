@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Offer import Offer
 
 
@@ -16,10 +14,6 @@ class OfferForLease(Offer):
     See: https://schema.org/OfferForLease
     Model depth: 4
     """
+    type_: str = Field("OfferForLease", alias='@type')
+    
 
-    type_: str = Field("OfferForLease", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    OfferForLease.update_forward_refs()

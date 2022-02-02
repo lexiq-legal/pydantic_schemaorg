@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MediaGallery import MediaGallery
 
 
@@ -13,10 +11,6 @@ class VideoGallery(MediaGallery):
     See: https://schema.org/VideoGallery
     Model depth: 6
     """
+    type_: str = Field("VideoGallery", alias='@type')
+    
 
-    type_: str = Field("VideoGallery", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    VideoGallery.update_forward_refs()

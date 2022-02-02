@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -15,10 +13,6 @@ class ComputerLanguage(Intangible):
     See: https://schema.org/ComputerLanguage
     Model depth: 3
     """
+    type_: str = Field("ComputerLanguage", alias='@type')
+    
 
-    type_: str = Field("ComputerLanguage", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    ComputerLanguage.update_forward_refs()

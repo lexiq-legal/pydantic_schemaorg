@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.WebPage import WebPage
 
 
@@ -13,10 +11,6 @@ class CollectionPage(WebPage):
     See: https://schema.org/CollectionPage
     Model depth: 4
     """
+    type_: str = Field("CollectionPage", alias='@type')
+    
 
-    type_: str = Field("CollectionPage", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    CollectionPage.update_forward_refs()

@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, List, Optional
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.BioChemEntity import BioChemEntity
 
 
@@ -20,15 +19,14 @@ class Protein(BioChemEntity):
     See: https://schema.org/Protein
     Model depth: 3
     """
-
-    type_: str = Field("Protein", const=True, alias="@type")
-    hasBioPolymerSequence: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("Protein", alias='@type')
+    hasBioPolymerSequence: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of"
-        "a Gene or an amino acid sequence of a Protein.",
+     "a Gene or an amino acid sequence of a Protein.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    Protein.update_forward_refs()
+    from pydantic_schemaorg.Text import Text

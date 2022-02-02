@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.UKNonprofitType import UKNonprofitType
 
 
@@ -13,10 +11,6 @@ class UKTrust(UKNonprofitType):
     See: https://schema.org/UKTrust
     Model depth: 6
     """
+    type_: str = Field("UKTrust", alias='@type')
+    
 
-    type_: str = Field("UKTrust", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    UKTrust.update_forward_refs()

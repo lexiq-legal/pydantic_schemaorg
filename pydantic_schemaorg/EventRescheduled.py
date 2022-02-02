@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.EventStatusType import EventStatusType
 
 
@@ -15,10 +13,6 @@ class EventRescheduled(EventStatusType):
     See: https://schema.org/EventRescheduled
     Model depth: 6
     """
+    type_: str = Field("EventRescheduled", alias='@type')
+    
 
-    type_: str = Field("EventRescheduled", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    EventRescheduled.update_forward_refs()

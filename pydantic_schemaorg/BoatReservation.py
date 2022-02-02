@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Reservation import Reservation
 
 
@@ -15,10 +13,6 @@ class BoatReservation(Reservation):
     See: https://schema.org/BoatReservation
     Model depth: 4
     """
+    type_: str = Field("BoatReservation", alias='@type')
+    
 
-    type_: str = Field("BoatReservation", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    BoatReservation.update_forward_refs()

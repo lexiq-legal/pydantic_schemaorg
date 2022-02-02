@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MediaObject import MediaObject
 
 
@@ -13,10 +11,6 @@ class MusicVideoObject(MediaObject):
     See: https://schema.org/MusicVideoObject
     Model depth: 4
     """
+    type_: str = Field("MusicVideoObject", alias='@type')
+    
 
-    type_: str = Field("MusicVideoObject", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MusicVideoObject.update_forward_refs()

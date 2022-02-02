@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.BodyMeasurementTypeEnumeration import (
-    BodyMeasurementTypeEnumeration,
-)
+from pydantic_schemaorg.BodyMeasurementTypeEnumeration import BodyMeasurementTypeEnumeration
 
 
 class BodyMeasurementInsideLeg(BodyMeasurementTypeEnumeration):
@@ -15,10 +11,6 @@ class BodyMeasurementInsideLeg(BodyMeasurementTypeEnumeration):
     See: https://schema.org/BodyMeasurementInsideLeg
     Model depth: 6
     """
+    type_: str = Field("BodyMeasurementInsideLeg", alias='@type')
+    
 
-    type_: str = Field("BodyMeasurementInsideLeg", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    BodyMeasurementInsideLeg.update_forward_refs()

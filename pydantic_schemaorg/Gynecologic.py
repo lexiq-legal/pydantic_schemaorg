@@ -1,11 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
-
 from pydantic_schemaorg.MedicalBusiness import MedicalBusiness
 
 
@@ -16,10 +13,6 @@ class Gynecologic(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Gynecologic
     Model depth: 5
     """
+    type_: str = Field("Gynecologic", alias='@type')
+    
 
-    type_: str = Field("Gynecologic", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Gynecologic.update_forward_refs()

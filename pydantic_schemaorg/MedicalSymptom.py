@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalSignOrSymptom import MedicalSignOrSymptom
 
 
@@ -14,10 +12,6 @@ class MedicalSymptom(MedicalSignOrSymptom):
     See: https://schema.org/MedicalSymptom
     Model depth: 5
     """
+    type_: str = Field("MedicalSymptom", alias='@type')
+    
 
-    type_: str = Field("MedicalSymptom", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MedicalSymptom.update_forward_refs()

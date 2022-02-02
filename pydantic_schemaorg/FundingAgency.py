@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Project import Project
 
 
@@ -17,10 +15,6 @@ class FundingAgency(Project):
     See: https://schema.org/FundingAgency
     Model depth: 4
     """
+    type_: str = Field("FundingAgency", alias='@type')
+    
 
-    type_: str = Field("FundingAgency", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    FundingAgency.update_forward_refs()

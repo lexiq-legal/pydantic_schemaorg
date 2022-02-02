@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.AudioObject import AudioObject
 
 
@@ -17,10 +15,6 @@ class AudioObjectSnapshot(AudioObject):
     See: https://schema.org/AudioObjectSnapshot
     Model depth: 5
     """
+    type_: str = Field("AudioObjectSnapshot", alias='@type')
+    
 
-    type_: str = Field("AudioObjectSnapshot", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    AudioObjectSnapshot.update_forward_refs()

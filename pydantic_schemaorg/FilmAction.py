@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CreateAction import CreateAction
 
 
@@ -13,10 +11,6 @@ class FilmAction(CreateAction):
     See: https://schema.org/FilmAction
     Model depth: 4
     """
+    type_: str = Field("FilmAction", alias='@type')
+    
 
-    type_: str = Field("FilmAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    FilmAction.update_forward_refs()

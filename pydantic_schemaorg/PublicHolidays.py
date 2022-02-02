@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.DayOfWeek import DayOfWeek
 
 
@@ -17,10 +15,6 @@ class PublicHolidays(DayOfWeek):
     See: https://schema.org/PublicHolidays
     Model depth: 5
     """
+    type_: str = Field("PublicHolidays", alias='@type')
+    
 
-    type_: str = Field("PublicHolidays", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PublicHolidays.update_forward_refs()

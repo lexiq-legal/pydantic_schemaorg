@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -14,10 +12,6 @@ class Conversation(CreativeWork):
     See: https://schema.org/Conversation
     Model depth: 3
     """
+    type_: str = Field("Conversation", alias='@type')
+    
 
-    type_: str = Field("Conversation", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Conversation.update_forward_refs()

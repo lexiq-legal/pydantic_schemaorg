@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, List, Optional
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.MedicalRiskEstimator import MedicalRiskEstimator
 
 
@@ -16,14 +15,13 @@ class MedicalRiskScore(MedicalRiskEstimator):
     See: https://schema.org/MedicalRiskScore
     Model depth: 4
     """
-
-    type_: str = Field("MedicalRiskScore", const=True, alias="@type")
-    algorithm: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("MedicalRiskScore", alias='@type')
+    algorithm: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="The algorithm or rules to follow to compute the score.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    MedicalRiskScore.update_forward_refs()
+    from pydantic_schemaorg.Text import Text

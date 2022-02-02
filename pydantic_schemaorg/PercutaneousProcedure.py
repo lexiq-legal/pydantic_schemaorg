@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalProcedureType import MedicalProcedureType
 
 
@@ -15,10 +13,6 @@ class PercutaneousProcedure(MedicalProcedureType):
     See: https://schema.org/PercutaneousProcedure
     Model depth: 6
     """
+    type_: str = Field("PercutaneousProcedure", alias='@type')
+    
 
-    type_: str = Field("PercutaneousProcedure", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PercutaneousProcedure.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.UKNonprofitType import UKNonprofitType
 
 
@@ -14,10 +12,6 @@ class UnincorporatedAssociationCharity(UKNonprofitType):
     See: https://schema.org/UnincorporatedAssociationCharity
     Model depth: 6
     """
+    type_: str = Field("UnincorporatedAssociationCharity", alias='@type')
+    
 
-    type_: str = Field("UnincorporatedAssociationCharity", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    UnincorporatedAssociationCharity.update_forward_refs()

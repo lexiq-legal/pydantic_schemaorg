@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.WearableMeasurementTypeEnumeration import (
-    WearableMeasurementTypeEnumeration,
-)
+from pydantic_schemaorg.WearableMeasurementTypeEnumeration import WearableMeasurementTypeEnumeration
 
 
 class WearableMeasurementLength(WearableMeasurementTypeEnumeration):
@@ -15,10 +11,6 @@ class WearableMeasurementLength(WearableMeasurementTypeEnumeration):
     See: https://schema.org/WearableMeasurementLength
     Model depth: 6
     """
+    type_: str = Field("WearableMeasurementLength", alias='@type')
+    
 
-    type_: str = Field("WearableMeasurementLength", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    WearableMeasurementLength.update_forward_refs()

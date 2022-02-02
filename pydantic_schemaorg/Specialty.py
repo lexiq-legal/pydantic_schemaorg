@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -14,10 +12,6 @@ class Specialty(Enumeration):
     See: https://schema.org/Specialty
     Model depth: 4
     """
+    type_: str = Field("Specialty", alias='@type')
+    
 
-    type_: str = Field("Specialty", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Specialty.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.ReturnLabelSourceEnumeration import ReturnLabelSourceEnumeration
 
 
@@ -13,10 +11,6 @@ class ReturnLabelInBox(ReturnLabelSourceEnumeration):
     See: https://schema.org/ReturnLabelInBox
     Model depth: 5
     """
+    type_: str = Field("ReturnLabelInBox", alias='@type')
+    
 
-    type_: str = Field("ReturnLabelInBox", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    ReturnLabelInBox.update_forward_refs()

@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-
-from pydantic import Field
-
 from typing import Union, List, Optional
 
+
+from pydantic import Field
 from pydantic_schemaorg.Trip import Trip
 
 
@@ -18,17 +17,15 @@ class TouristTrip(Trip):
     See: https://schema.org/TouristTrip
     Model depth: 4
     """
-
-    type_: str = Field("TouristTrip", const=True, alias="@type")
-    touristType: "Optional[Union[List[Union[str, Audience]], Union[str, Audience]]]" = Field(
+    type_: str = Field("TouristTrip", alias='@type')
+    touristType: Optional[Union[List[Union[str, 'Text', 'Audience']], str, 'Text', 'Audience']] = Field(
         None,
         description="Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular"
-        "country, etc.",
+     "country, etc.",
     )
+    
 
 
 if TYPE_CHECKING:
-
+    from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.Audience import Audience
-
-    TouristTrip.update_forward_refs()

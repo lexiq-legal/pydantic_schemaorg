@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.WearableMeasurementTypeEnumeration import (
-    WearableMeasurementTypeEnumeration,
-)
+from pydantic_schemaorg.WearableMeasurementTypeEnumeration import WearableMeasurementTypeEnumeration
 
 
 class WearableMeasurementHips(WearableMeasurementTypeEnumeration):
@@ -15,10 +11,6 @@ class WearableMeasurementHips(WearableMeasurementTypeEnumeration):
     See: https://schema.org/WearableMeasurementHips
     Model depth: 6
     """
+    type_: str = Field("WearableMeasurementHips", alias='@type')
+    
 
-    type_: str = Field("WearableMeasurementHips", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    WearableMeasurementHips.update_forward_refs()

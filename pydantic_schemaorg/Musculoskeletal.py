@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
@@ -14,10 +12,6 @@ class Musculoskeletal(MedicalSpecialty):
     See: https://schema.org/Musculoskeletal
     Model depth: 6
     """
+    type_: str = Field("Musculoskeletal", alias='@type')
+    
 
-    type_: str = Field("Musculoskeletal", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Musculoskeletal.update_forward_refs()

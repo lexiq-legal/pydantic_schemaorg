@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
 
@@ -14,10 +12,6 @@ class MedicalIndication(MedicalEntity):
     See: https://schema.org/MedicalIndication
     Model depth: 3
     """
+    type_: str = Field("MedicalIndication", alias='@type')
+    
 
-    type_: str = Field("MedicalIndication", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MedicalIndication.update_forward_refs()

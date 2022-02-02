@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.MediaManipulationRatingEnumeration import (
-    MediaManipulationRatingEnumeration,
-)
+from pydantic_schemaorg.MediaManipulationRatingEnumeration import MediaManipulationRatingEnumeration
 
 
 class StagedContent(MediaManipulationRatingEnumeration):
@@ -22,10 +18,6 @@ class StagedContent(MediaManipulationRatingEnumeration):
     See: https://schema.org/StagedContent
     Model depth: 5
     """
+    type_: str = Field("StagedContent", alias='@type')
+    
 
-    type_: str = Field("StagedContent", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    StagedContent.update_forward_refs()

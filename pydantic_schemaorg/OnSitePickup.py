@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
 
 
@@ -13,10 +11,6 @@ class OnSitePickup(DeliveryMethod):
     See: https://schema.org/OnSitePickup
     Model depth: 5
     """
+    type_: str = Field("OnSitePickup", alias='@type')
+    
 
-    type_: str = Field("OnSitePickup", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    OnSitePickup.update_forward_refs()

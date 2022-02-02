@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -14,10 +12,6 @@ class Code(CreativeWork):
     See: https://schema.org/Code
     Model depth: 3
     """
+    type_: str = Field("Code", alias='@type')
+    
 
-    type_: str = Field("Code", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Code.update_forward_refs()

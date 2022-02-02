@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.ItemAvailability import ItemAvailability
 
 
@@ -13,10 +11,6 @@ class InStoreOnly(ItemAvailability):
     See: https://schema.org/InStoreOnly
     Model depth: 5
     """
+    type_: str = Field("InStoreOnly", alias='@type')
+    
 
-    type_: str = Field("InStoreOnly", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    InStoreOnly.update_forward_refs()

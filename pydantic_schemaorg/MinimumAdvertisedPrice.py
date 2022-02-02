@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.PriceTypeEnumeration import PriceTypeEnumeration
 
 
@@ -14,10 +12,6 @@ class MinimumAdvertisedPrice(PriceTypeEnumeration):
     See: https://schema.org/MinimumAdvertisedPrice
     Model depth: 5
     """
+    type_: str = Field("MinimumAdvertisedPrice", alias='@type')
+    
 
-    type_: str = Field("MinimumAdvertisedPrice", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MinimumAdvertisedPrice.update_forward_refs()

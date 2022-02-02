@@ -1,11 +1,11 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+from decimal import Decimal
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -16,44 +16,39 @@ class ProgramMembership(Intangible):
     See: https://schema.org/ProgramMembership
     Model depth: 3
     """
-
-    type_: str = Field("ProgramMembership", const=True, alias="@type")
-    membershipNumber: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("ProgramMembership", alias='@type')
+    membershipNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="A unique identifier for the membership.",
     )
-    membershipPointsEarned: "Optional[Union[List[Union[Decimal, QuantitativeValue, str]], Union[Decimal, QuantitativeValue, str]]]" = Field(
+    membershipPointsEarned: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
         None,
         description="The number of membership points earned by the member. If necessary, the unitText can"
-        "be used to express the units the points are issued in. (e.g. stars, miles, etc.)",
+     "be used to express the units the points are issued in. (e.g. stars, miles, etc.)",
     )
-    member: "Optional[Union[List[Union[Person, Organization, str]], Union[Person, Organization, str]]]" = Field(
+    member: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         None,
         description="A member of an Organization or a ProgramMembership. Organizations can be members of"
-        "organizations; ProgramMembership is typically for individuals.",
+     "organizations; ProgramMembership is typically for individuals.",
     )
-    members: "Optional[Union[List[Union[Person, Organization, str]], Union[Person, Organization, str]]]" = Field(
+    members: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         None,
         description="A member of this organization.",
     )
-    programName: "Optional[Union[List[str], str]]" = Field(
+    programName: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="The program providing the membership.",
     )
-    hostingOrganization: "Optional[Union[List[Union[Organization, str]], Union[Organization, str]]]" = Field(
+    hostingOrganization: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
         None,
         description="The organization (airline, travelers' club, etc.) the membership is made with.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    from decimal import Decimal
-
+    from pydantic_schemaorg.Text import Text
+    from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-
     from pydantic_schemaorg.Person import Person
-
     from pydantic_schemaorg.Organization import Organization
-
-    ProgramMembership.update_forward_refs()

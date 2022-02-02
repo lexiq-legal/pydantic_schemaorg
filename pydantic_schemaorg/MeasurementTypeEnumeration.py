@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -14,10 +12,6 @@ class MeasurementTypeEnumeration(Enumeration):
     See: https://schema.org/MeasurementTypeEnumeration
     Model depth: 4
     """
+    type_: str = Field("MeasurementTypeEnumeration", alias='@type')
+    
 
-    type_: str = Field("MeasurementTypeEnumeration", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MeasurementTypeEnumeration.update_forward_refs()

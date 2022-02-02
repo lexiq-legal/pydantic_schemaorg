@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-
-from pydantic import Field
-
 from typing import Union, List, Optional
 
+
+from pydantic import Field
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -25,18 +24,14 @@ class FollowAction(InteractAction):
     See: https://schema.org/FollowAction
     Model depth: 4
     """
-
-    type_: str = Field("FollowAction", const=True, alias="@type")
-    followee: "Optional[Union[List[Union[Person, Organization, str]], Union[Person, Organization, str]]]" = Field(
+    type_: str = Field("FollowAction", alias='@type')
+    followee: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         None,
         description="A sub property of object. The person or organization being followed.",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.Person import Person
-
     from pydantic_schemaorg.Organization import Organization
-
-    FollowAction.update_forward_refs()

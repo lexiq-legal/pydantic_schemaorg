@@ -1,11 +1,11 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional
-
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -16,38 +16,29 @@ class OwnershipInfo(StructuredValue):
     See: https://schema.org/OwnershipInfo
     Model depth: 4
     """
-
-    type_: str = Field("OwnershipInfo", const=True, alias="@type")
-    acquiredFrom: "Optional[Union[List[Union[Person, Organization, str]], Union[Person, Organization, str]]]" = Field(
+    type_: str = Field("OwnershipInfo", alias='@type')
+    acquiredFrom: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         None,
         description="The organization or person from which the product was acquired.",
     )
-    typeOfGood: "Optional[Union[List[Union[Product, Service, str]], Union[Product, Service, str]]]" = Field(
+    typeOfGood: Optional[Union[List[Union['Service', 'Product', str]], 'Service', 'Product', str]] = Field(
         None,
         description="The product that this structured value is referring to.",
     )
-    ownedThrough: "Optional[Union[List[Union[datetime, str]], Union[datetime, str]]]" = Field(
+    ownedThrough: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
         None,
         description="The date and time of giving up ownership on the product.",
     )
-    ownedFrom: "Optional[Union[List[Union[datetime, str]], Union[datetime, str]]]" = (
-        Field(
-            None,
-            description="The date and time of obtaining the product.",
-        )
+    ownedFrom: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
+        None,
+        description="The date and time of obtaining the product.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    from pydantic_schemaorg.Person import Person
-
     from pydantic_schemaorg.Organization import Organization
-
-    from pydantic_schemaorg.Product import Product
-
+    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Service import Service
-
-    from datetime import datetime
-
-    OwnershipInfo.update_forward_refs()
+    from pydantic_schemaorg.Product import Product
+    from pydantic_schemaorg.DateTime import DateTime

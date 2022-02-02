@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.FindAction import FindAction
 
 
@@ -14,10 +12,6 @@ class CheckAction(FindAction):
     See: https://schema.org/CheckAction
     Model depth: 4
     """
+    type_: str = Field("CheckAction", alias='@type')
+    
 
-    type_: str = Field("CheckAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    CheckAction.update_forward_refs()

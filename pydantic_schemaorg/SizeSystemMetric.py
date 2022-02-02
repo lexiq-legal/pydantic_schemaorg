@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.SizeSystemEnumeration import SizeSystemEnumeration
 
 
@@ -13,10 +11,6 @@ class SizeSystemMetric(SizeSystemEnumeration):
     See: https://schema.org/SizeSystemMetric
     Model depth: 5
     """
+    type_: str = Field("SizeSystemMetric", alias='@type')
+    
 
-    type_: str = Field("SizeSystemMetric", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    SizeSystemMetric.update_forward_refs()

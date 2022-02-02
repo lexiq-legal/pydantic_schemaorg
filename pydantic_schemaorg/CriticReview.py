@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Review import Review
 
 
@@ -19,10 +17,6 @@ class CriticReview(Review):
     See: https://schema.org/CriticReview
     Model depth: 4
     """
+    type_: str = Field("CriticReview", alias='@type')
+    
 
-    type_: str = Field("CriticReview", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    CriticReview.update_forward_refs()

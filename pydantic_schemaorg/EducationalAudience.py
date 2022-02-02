@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, List, Optional
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.Audience import Audience
 
 
@@ -15,14 +14,13 @@ class EducationalAudience(Audience):
     See: https://schema.org/EducationalAudience
     Model depth: 4
     """
-
-    type_: str = Field("EducationalAudience", const=True, alias="@type")
-    educationalRole: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("EducationalAudience", alias='@type')
+    educationalRole: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="An educationalRole of an EducationalAudience.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    EducationalAudience.update_forward_refs()
+    from pydantic_schemaorg.Text import Text

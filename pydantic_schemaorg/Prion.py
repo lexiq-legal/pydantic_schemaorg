@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.InfectiousAgentClass import InfectiousAgentClass
 
 
@@ -13,10 +11,6 @@ class Prion(InfectiousAgentClass):
     See: https://schema.org/Prion
     Model depth: 6
     """
+    type_: str = Field("Prion", alias='@type')
+    
 
-    type_: str = Field("Prion", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Prion.update_forward_refs()

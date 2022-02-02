@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.DoseSchedule import DoseSchedule
 
 
@@ -15,10 +13,6 @@ class RecommendedDoseSchedule(DoseSchedule):
     See: https://schema.org/RecommendedDoseSchedule
     Model depth: 5
     """
+    type_: str = Field("RecommendedDoseSchedule", alias='@type')
+    
 
-    type_: str = Field("RecommendedDoseSchedule", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    RecommendedDoseSchedule.update_forward_refs()

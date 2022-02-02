@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CivicStructure import CivicStructure
 
 
@@ -13,10 +11,6 @@ class PlaceOfWorship(CivicStructure):
     See: https://schema.org/PlaceOfWorship
     Model depth: 4
     """
+    type_: str = Field("PlaceOfWorship", alias='@type')
+    
 
-    type_: str = Field("PlaceOfWorship", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PlaceOfWorship.update_forward_refs()

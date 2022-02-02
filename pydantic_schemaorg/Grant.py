@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional
-
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -24,25 +23,20 @@ class Grant(Intangible):
     See: https://schema.org/Grant
     Model depth: 3
     """
-
-    type_: str = Field("Grant", const=True, alias="@type")
-    fundedItem: "Optional[Union[List[Union[Thing, str]], Union[Thing, str]]]" = Field(
+    type_: str = Field("Grant", alias='@type')
+    fundedItem: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
         None,
         description="Indicates an item funded or sponsored through a [[Grant]].",
     )
-    sponsor: "Optional[Union[List[Union[Person, Organization, str]], Union[Person, Organization, str]]]" = Field(
+    sponsor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
-        "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
+     "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.Thing import Thing
-
     from pydantic_schemaorg.Person import Person
-
     from pydantic_schemaorg.Organization import Organization
-
-    Grant.update_forward_refs()

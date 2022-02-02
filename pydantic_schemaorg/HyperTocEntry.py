@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -21,26 +20,24 @@ class HyperTocEntry(CreativeWork):
     See: https://schema.org/HyperTocEntry
     Model depth: 3
     """
-
-    type_: str = Field("HyperTocEntry", const=True, alias="@type")
-    utterances: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("HyperTocEntry", alias='@type')
+    utterances: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of"
-        "a media object, represented as a [[HyperTocEntry]].",
+     "a media object, represented as a [[HyperTocEntry]].",
     )
-    tocContinuation: "Optional[Union[List[Union['HyperTocEntry', str]], Union['HyperTocEntry', str]]]" = Field(
+    tocContinuation: Optional[Union[List[Union['HyperTocEntry', str]], 'HyperTocEntry', str]] = Field(
         None,
         description="A [[HyperTocEntry]] can have a [[tocContinuation]] indicated, which is another [[HyperTocEntry]]"
-        "that would be the default next item to play or render.",
+     "that would be the default next item to play or render.",
     )
-    associatedMedia: "Optional[Union[List[Union[MediaObject, str]], Union[MediaObject, str]]]" = Field(
+    associatedMedia: Optional[Union[List[Union['MediaObject', str]], 'MediaObject', str]] = Field(
         None,
         description="A media object that encodes this CreativeWork. This property is a synonym for encoding.",
     )
+    
 
 
 if TYPE_CHECKING:
-
+    from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.MediaObject import MediaObject
-
-    HyperTocEntry.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CreativeWorkSeason import CreativeWorkSeason
 
 
@@ -13,10 +11,6 @@ class RadioSeason(CreativeWorkSeason):
     See: https://schema.org/RadioSeason
     Model depth: 4
     """
+    type_: str = Field("RadioSeason", alias='@type')
+    
 
-    type_: str = Field("RadioSeason", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    RadioSeason.update_forward_refs()

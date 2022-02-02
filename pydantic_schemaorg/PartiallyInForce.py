@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.LegalForceStatus import LegalForceStatus
 
 
@@ -13,10 +11,6 @@ class PartiallyInForce(LegalForceStatus):
     See: https://schema.org/PartiallyInForce
     Model depth: 6
     """
+    type_: str = Field("PartiallyInForce", alias='@type')
+    
 
-    type_: str = Field("PartiallyInForce", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PartiallyInForce.update_forward_refs()

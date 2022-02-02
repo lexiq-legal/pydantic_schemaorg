@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.GovernmentBenefitsType import GovernmentBenefitsType
 
 
@@ -13,10 +11,6 @@ class OneTimePayments(GovernmentBenefitsType):
     See: https://schema.org/OneTimePayments
     Model depth: 5
     """
+    type_: str = Field("OneTimePayments", alias='@type')
+    
 
-    type_: str = Field("OneTimePayments", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    OneTimePayments.update_forward_refs()

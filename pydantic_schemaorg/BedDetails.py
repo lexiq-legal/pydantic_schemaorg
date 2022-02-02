@@ -1,11 +1,11 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from decimal import Decimal
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional
-
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -17,23 +17,20 @@ class BedDetails(Intangible):
     See: https://schema.org/BedDetails
     Model depth: 3
     """
-
-    type_: str = Field("BedDetails", const=True, alias="@type")
-    numberOfBeds: "Optional[Union[List[Union[Decimal, str]], Union[Decimal, str]]]" = Field(
+    type_: str = Field("BedDetails", alias='@type')
+    numberOfBeds: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
         None,
         description="The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment.",
     )
-    typeOfBed: "Optional[Union[List[Union[str, BedType]], Union[str, BedType]]]" = Field(
+    typeOfBed: Optional[Union[List[Union[str, 'Text', 'BedType']], str, 'Text', 'BedType']] = Field(
         None,
         description="The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity"
-        "indicated by quantity.",
+     "indicated by quantity.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    from decimal import Decimal
-
+    from pydantic_schemaorg.Number import Number
+    from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.BedType import BedType
-
-    BedDetails.update_forward_refs()

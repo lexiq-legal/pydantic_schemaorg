@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.InteractAction import InteractAction
 
 
@@ -16,10 +14,6 @@ class UnRegisterAction(InteractAction):
     See: https://schema.org/UnRegisterAction
     Model depth: 4
     """
+    type_: str = Field("UnRegisterAction", alias='@type')
+    
 
-    type_: str = Field("UnRegisterAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    UnRegisterAction.update_forward_refs()

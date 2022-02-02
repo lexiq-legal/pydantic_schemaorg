@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Intangible import Intangible
 
 
@@ -17,10 +15,6 @@ class Language(Intangible):
     See: https://schema.org/Language
     Model depth: 3
     """
+    type_: str = Field("Language", alias='@type')
+    
 
-    type_: str = Field("Language", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Language.update_forward_refs()

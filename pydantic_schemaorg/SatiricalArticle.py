@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Article import Article
 
 
@@ -15,10 +13,6 @@ class SatiricalArticle(Article):
     See: https://schema.org/SatiricalArticle
     Model depth: 4
     """
+    type_: str = Field("SatiricalArticle", alias='@type')
+    
 
-    type_: str = Field("SatiricalArticle", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    SatiricalArticle.update_forward_refs()

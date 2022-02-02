@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CommunicateAction import CommunicateAction
 
 
@@ -20,10 +18,6 @@ class CheckInAction(CommunicateAction):
     See: https://schema.org/CheckInAction
     Model depth: 5
     """
+    type_: str = Field("CheckInAction", alias='@type')
+    
 
-    type_: str = Field("CheckInAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    CheckInAction.update_forward_refs()

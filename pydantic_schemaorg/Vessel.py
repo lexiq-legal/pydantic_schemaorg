@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
 
 
@@ -14,10 +12,6 @@ class Vessel(AnatomicalStructure):
     See: https://schema.org/Vessel
     Model depth: 4
     """
+    type_: str = Field("Vessel", alias='@type')
+    
 
-    type_: str = Field("Vessel", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Vessel.update_forward_refs()

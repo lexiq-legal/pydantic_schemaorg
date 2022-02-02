@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CivicStructure import CivicStructure
 
 
@@ -15,10 +13,6 @@ class PublicToilet(CivicStructure):
     See: https://schema.org/PublicToilet
     Model depth: 4
     """
+    type_: str = Field("PublicToilet", alias='@type')
+    
 
-    type_: str = Field("PublicToilet", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PublicToilet.update_forward_refs()

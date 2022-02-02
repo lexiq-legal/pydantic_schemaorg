@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-
-from pydantic import Field
-
 from typing import Union, List, Optional
 
+
+from pydantic import Field
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -17,17 +16,14 @@ class MediaReviewItem(CreativeWork):
     See: https://schema.org/MediaReviewItem
     Model depth: 3
     """
-
-    type_: str = Field("MediaReviewItem", const=True, alias="@type")
-    mediaItemAppearance: "Optional[Union[List[Union[MediaObject, str]], Union[MediaObject, str]]]" = Field(
+    type_: str = Field("MediaReviewItem", alias='@type')
+    mediaItemAppearance: Optional[Union[List[Union['MediaObject', str]], 'MediaObject', str]] = Field(
         None,
         description="In the context of a [[MediaReview]], indicates specific media item(s) that are grouped"
-        "using a [[MediaReviewItem]].",
+     "using a [[MediaReviewItem]].",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.MediaObject import MediaObject
-
-    MediaReviewItem.update_forward_refs()

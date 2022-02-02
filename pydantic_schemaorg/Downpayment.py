@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.PriceComponentTypeEnumeration import (
-    PriceComponentTypeEnumeration,
-)
+from pydantic_schemaorg.PriceComponentTypeEnumeration import PriceComponentTypeEnumeration
 
 
 class Downpayment(PriceComponentTypeEnumeration):
@@ -16,10 +12,6 @@ class Downpayment(PriceComponentTypeEnumeration):
     See: https://schema.org/Downpayment
     Model depth: 5
     """
+    type_: str = Field("Downpayment", alias='@type')
+    
 
-    type_: str = Field("Downpayment", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Downpayment.update_forward_refs()

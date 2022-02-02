@@ -1,11 +1,11 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional
-
 from pydantic_schemaorg.PropertyValue import PropertyValue
 
 
@@ -16,27 +16,24 @@ class LocationFeatureSpecification(PropertyValue):
     See: https://schema.org/LocationFeatureSpecification
     Model depth: 5
     """
-
-    type_: str = Field("LocationFeatureSpecification", const=True, alias="@type")
-    validFrom: "Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]]" = Field(
+    type_: str = Field("LocationFeatureSpecification", alias='@type')
+    validFrom: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
         None,
         description="The date when the item becomes valid.",
     )
-    validThrough: "Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]]" = Field(
+    validThrough: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
         None,
         description="The date after when the item is not valid. For example the end of an offer, salary period,"
-        "or a period of opening hours.",
+     "or a period of opening hours.",
     )
-    hoursAvailable: "Optional[Union[List[Union[OpeningHoursSpecification, str]], Union[OpeningHoursSpecification, str]]]" = Field(
+    hoursAvailable: Optional[Union[List[Union['OpeningHoursSpecification', str]], 'OpeningHoursSpecification', str]] = Field(
         None,
         description="The hours during which this service or contact is available.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    from datetime import date, datetime
-
+    from pydantic_schemaorg.DateTime import DateTime
+    from pydantic_schemaorg.Date import Date
     from pydantic_schemaorg.OpeningHoursSpecification import OpeningHoursSpecification
-
-    LocationFeatureSpecification.update_forward_refs()

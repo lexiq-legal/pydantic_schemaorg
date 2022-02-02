@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, List, Optional
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.Action import Action
 
 
@@ -16,16 +15,15 @@ class SolveMathAction(Action):
     See: https://schema.org/SolveMathAction
     Model depth: 3
     """
-
-    type_: str = Field("SolveMathAction", const=True, alias="@type")
-    eduQuestionType: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("SolveMathAction", alias='@type')
+    eduQuestionType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates"
-        'the format of question being given. Example: "Multiple choice", "Open ended",'
-        '"Flashcard".',
+     "the format of question being given. Example: \"Multiple choice\", \"Open ended\","
+     "\"Flashcard\".",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    SolveMathAction.update_forward_refs()
+    from pydantic_schemaorg.Text import Text

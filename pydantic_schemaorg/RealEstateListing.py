@@ -1,11 +1,11 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional
-
 from pydantic_schemaorg.WebPage import WebPage
 
 
@@ -17,25 +17,21 @@ class RealEstateListing(WebPage):
     See: https://schema.org/RealEstateListing
     Model depth: 4
     """
-
-    type_: str = Field("RealEstateListing", const=True, alias="@type")
-    leaseLength: "Optional[Union[List[Union[QuantitativeValue, Duration, str]], Union[QuantitativeValue, Duration, str]]]" = Field(
+    type_: str = Field("RealEstateListing", alias='@type')
+    leaseLength: Optional[Union[List[Union['Duration', 'QuantitativeValue', str]], 'Duration', 'QuantitativeValue', str]] = Field(
         None,
         description="Length of the lease for some [[Accommodation]], either particular to some [[Offer]]"
-        "or in some cases intrinsic to the property.",
+     "or in some cases intrinsic to the property.",
     )
-    datePosted: "Optional[Union[List[Union[datetime, date, str]], Union[datetime, date, str]]]" = Field(
+    datePosted: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
         None,
         description="Publication date of an online listing.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-
     from pydantic_schemaorg.Duration import Duration
-
-    from datetime import date, datetime
-
-    RealEstateListing.update_forward_refs()
+    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+    from pydantic_schemaorg.DateTime import DateTime
+    from pydantic_schemaorg.Date import Date

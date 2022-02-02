@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.OrderStatus import OrderStatus
 
 
@@ -13,10 +11,6 @@ class OrderPaymentDue(OrderStatus):
     See: https://schema.org/OrderPaymentDue
     Model depth: 6
     """
+    type_: str = Field("OrderPaymentDue", alias='@type')
+    
 
-    type_: str = Field("OrderPaymentDue", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    OrderPaymentDue.update_forward_refs()

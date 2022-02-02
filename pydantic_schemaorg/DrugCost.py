@@ -1,11 +1,11 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+from decimal import Decimal
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.MedicalEntity import MedicalEntity
 
 
@@ -20,43 +20,38 @@ class DrugCost(MedicalEntity):
     See: https://schema.org/DrugCost
     Model depth: 3
     """
-
-    type_: str = Field("DrugCost", const=True, alias="@type")
-    costCategory: "Optional[Union[List[Union[DrugCostCategory, str]], Union[DrugCostCategory, str]]]" = Field(
+    type_: str = Field("DrugCost", alias='@type')
+    costCategory: Optional[Union[List[Union['DrugCostCategory', str]], 'DrugCostCategory', str]] = Field(
         None,
         description="The category of cost, such as wholesale, retail, reimbursement cap, etc.",
     )
-    drugUnit: "Optional[Union[List[str], str]]" = Field(
+    drugUnit: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="The unit in which the drug is measured, e.g. '5 mg tablet'.",
     )
-    applicableLocation: "Optional[Union[List[Union[AdministrativeArea, str]], Union[AdministrativeArea, str]]]" = Field(
+    applicableLocation: Optional[Union[List[Union['AdministrativeArea', str]], 'AdministrativeArea', str]] = Field(
         None,
         description="The location in which the status applies.",
     )
-    costCurrency: "Optional[Union[List[str], str]]" = Field(
+    costCurrency: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="The currency (in 3-letter of the drug cost. See: http://en.wikipedia.org/wiki/ISO_4217.",
     )
-    costPerUnit: "Optional[Union[List[Union[Decimal, str, QualitativeValue]], Union[Decimal, str, QualitativeValue]]]" = Field(
+    costPerUnit: Optional[Union[List[Union[Decimal, 'Number', str, 'Text', 'QualitativeValue']], Decimal, 'Number', str, 'Text', 'QualitativeValue']] = Field(
         None,
         description="The cost per unit of the drug.",
     )
-    costOrigin: "Optional[Union[List[str], str]]" = Field(
+    costOrigin: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Additional details to capture the origin of the cost data. For example, 'Medicare Part"
-        "B'.",
+     "B'.",
     )
+    
 
 
 if TYPE_CHECKING:
-
     from pydantic_schemaorg.DrugCostCategory import DrugCostCategory
-
+    from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
-
-    from decimal import Decimal
-
+    from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.QualitativeValue import QualitativeValue
-
-    DrugCost.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.ReactAction import ReactAction
 
 
@@ -13,10 +11,6 @@ class WantAction(ReactAction):
     See: https://schema.org/WantAction
     Model depth: 5
     """
+    type_: str = Field("WantAction", alias='@type')
+    
 
-    type_: str = Field("WantAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    WantAction.update_forward_refs()

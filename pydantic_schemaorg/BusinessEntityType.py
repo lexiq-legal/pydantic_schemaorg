@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Enumeration import Enumeration
 
 
@@ -17,10 +15,6 @@ class BusinessEntityType(Enumeration):
     See: https://schema.org/BusinessEntityType
     Model depth: 4
     """
+    type_: str = Field("BusinessEntityType", alias='@type')
+    
 
-    type_: str = Field("BusinessEntityType", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    BusinessEntityType.update_forward_refs()

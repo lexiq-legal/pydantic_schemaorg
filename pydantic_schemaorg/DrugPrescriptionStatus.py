@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
 
 
@@ -13,10 +11,6 @@ class DrugPrescriptionStatus(MedicalEnumeration):
     See: https://schema.org/DrugPrescriptionStatus
     Model depth: 5
     """
+    type_: str = Field("DrugPrescriptionStatus", alias='@type')
+    
 
-    type_: str = Field("DrugPrescriptionStatus", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    DrugPrescriptionStatus.update_forward_refs()

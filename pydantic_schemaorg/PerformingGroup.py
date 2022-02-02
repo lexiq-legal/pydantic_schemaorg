@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Organization import Organization
 
 
@@ -13,10 +11,6 @@ class PerformingGroup(Organization):
     See: https://schema.org/PerformingGroup
     Model depth: 3
     """
+    type_: str = Field("PerformingGroup", alias='@type')
+    
 
-    type_: str = Field("PerformingGroup", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PerformingGroup.update_forward_refs()

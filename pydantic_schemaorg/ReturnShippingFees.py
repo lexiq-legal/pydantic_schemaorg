@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.ReturnFeesEnumeration import ReturnFeesEnumeration
 
 
@@ -13,10 +11,6 @@ class ReturnShippingFees(ReturnFeesEnumeration):
     See: https://schema.org/ReturnShippingFees
     Model depth: 5
     """
+    type_: str = Field("ReturnShippingFees", alias='@type')
+    
 
-    type_: str = Field("ReturnShippingFees", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    ReturnShippingFees.update_forward_refs()

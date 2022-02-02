@@ -1,12 +1,8 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
-from pydantic_schemaorg.PriceComponentTypeEnumeration import (
-    PriceComponentTypeEnumeration,
-)
+from pydantic_schemaorg.PriceComponentTypeEnumeration import PriceComponentTypeEnumeration
 
 
 class Subscription(PriceComponentTypeEnumeration):
@@ -15,10 +11,6 @@ class Subscription(PriceComponentTypeEnumeration):
     See: https://schema.org/Subscription
     Model depth: 5
     """
+    type_: str = Field("Subscription", alias='@type')
+    
 
-    type_: str = Field("Subscription", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Subscription.update_forward_refs()

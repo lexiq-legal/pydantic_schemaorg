@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CreativeWorkSeries import CreativeWorkSeries
 
 
@@ -13,10 +11,6 @@ class BookSeries(CreativeWorkSeries):
     See: https://schema.org/BookSeries
     Model depth: 4
     """
+    type_: str = Field("BookSeries", alias='@type')
+    
 
-    type_: str = Field("BookSeries", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    BookSeries.update_forward_refs()

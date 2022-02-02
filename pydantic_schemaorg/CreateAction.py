@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.Action import Action
 
 
@@ -14,10 +12,6 @@ class CreateAction(Action):
     See: https://schema.org/CreateAction
     Model depth: 3
     """
+    type_: str = Field("CreateAction", alias='@type')
+    
 
-    type_: str = Field("CreateAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    CreateAction.update_forward_refs()

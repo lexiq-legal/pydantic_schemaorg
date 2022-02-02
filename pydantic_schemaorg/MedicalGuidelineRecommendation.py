@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, List, Optional
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.MedicalGuideline import MedicalGuideline
 
 
@@ -16,14 +15,13 @@ class MedicalGuidelineRecommendation(MedicalGuideline):
     See: https://schema.org/MedicalGuidelineRecommendation
     Model depth: 4
     """
-
-    type_: str = Field("MedicalGuidelineRecommendation", const=True, alias="@type")
-    recommendationStrength: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("MedicalGuidelineRecommendation", alias='@type')
+    recommendationStrength: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="Strength of the guideline's recommendation (e.g. 'class I').",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    MedicalGuidelineRecommendation.update_forward_refs()
+    from pydantic_schemaorg.Text import Text

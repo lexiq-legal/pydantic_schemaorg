@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.ReactAction import ReactAction
 
 
@@ -14,10 +12,6 @@ class AgreeAction(ReactAction):
     See: https://schema.org/AgreeAction
     Model depth: 5
     """
+    type_: str = Field("AgreeAction", alias='@type')
+    
 
-    type_: str = Field("AgreeAction", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    AgreeAction.update_forward_refs()

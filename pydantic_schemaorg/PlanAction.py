@@ -1,11 +1,11 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-
-from pydantic import Field
-
+from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 from typing import Union, List, Optional
 
+
+from pydantic import Field
 from pydantic_schemaorg.OrganizeAction import OrganizeAction
 
 
@@ -16,16 +16,13 @@ class PlanAction(OrganizeAction):
     See: https://schema.org/PlanAction
     Model depth: 4
     """
-
-    type_: str = Field("PlanAction", const=True, alias="@type")
-    scheduledTime: "Optional[Union[List[Union[datetime, str]], Union[datetime, str]]]" = Field(
+    type_: str = Field("PlanAction", alias='@type')
+    scheduledTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
         None,
         description="The time the object is scheduled to.",
     )
+    
 
 
 if TYPE_CHECKING:
-
-    from datetime import datetime
-
-    PlanAction.update_forward_refs()
+    from pydantic_schemaorg.DateTime import DateTime

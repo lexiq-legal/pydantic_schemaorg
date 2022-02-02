@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
@@ -13,10 +11,6 @@ class Drawing(CreativeWork):
     See: https://schema.org/Drawing
     Model depth: 3
     """
+    type_: str = Field("Drawing", alias='@type')
+    
 
-    type_: str = Field("Drawing", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Drawing.update_forward_refs()

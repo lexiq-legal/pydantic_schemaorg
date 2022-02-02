@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.UserInteraction import UserInteraction
 
 
@@ -15,10 +13,6 @@ class UserLikes(UserInteraction):
     See: https://schema.org/UserLikes
     Model depth: 4
     """
+    type_: str = Field("UserLikes", alias='@type')
+    
 
-    type_: str = Field("UserLikes", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    UserLikes.update_forward_refs()

@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.WebPage import WebPage
 
 
@@ -13,10 +11,6 @@ class AboutPage(WebPage):
     See: https://schema.org/AboutPage
     Model depth: 4
     """
+    type_: str = Field("AboutPage", alias='@type')
+    
 
-    type_: str = Field("AboutPage", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    AboutPage.update_forward_refs()

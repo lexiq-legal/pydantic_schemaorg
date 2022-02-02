@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
 
 
@@ -14,10 +12,6 @@ class Genetic(MedicalSpecialty):
     See: https://schema.org/Genetic
     Model depth: 6
     """
+    type_: str = Field("Genetic", alias='@type')
+    
 
-    type_: str = Field("Genetic", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    Genetic.update_forward_refs()

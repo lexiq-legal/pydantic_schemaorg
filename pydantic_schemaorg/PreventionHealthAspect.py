@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.HealthAspectEnumeration import HealthAspectEnumeration
 
 
@@ -14,10 +12,6 @@ class PreventionHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/PreventionHealthAspect
     Model depth: 5
     """
+    type_: str = Field("PreventionHealthAspect", alias='@type')
+    
 
-    type_: str = Field("PreventionHealthAspect", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    PreventionHealthAspect.update_forward_refs()

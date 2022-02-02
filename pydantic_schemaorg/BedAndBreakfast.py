@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.LodgingBusiness import LodgingBusiness
 
 
@@ -14,10 +12,6 @@ class BedAndBreakfast(LodgingBusiness):
     See: https://schema.org/BedAndBreakfast
     Model depth: 5
     """
+    type_: str = Field("BedAndBreakfast", alias='@type')
+    
 
-    type_: str = Field("BedAndBreakfast", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    BedAndBreakfast.update_forward_refs()

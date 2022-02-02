@@ -1,11 +1,10 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
+from typing import Union, Optional, List
+
 
 from pydantic import Field
-
-from typing import Union, List, Optional, Any
-
 from pydantic_schemaorg.StructuredValue import StructuredValue
 
 
@@ -21,39 +20,34 @@ class DefinedRegion(StructuredValue):
     See: https://schema.org/DefinedRegion
     Model depth: 4
     """
-
-    type_: str = Field("DefinedRegion", const=True, alias="@type")
-    postalCode: "Optional[Union[List[str], str]]" = Field(
+    type_: str = Field("DefinedRegion", alias='@type')
+    postalCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="The postal code. For example, 94043.",
     )
-    postalCodePrefix: "Optional[Union[List[str], str]]" = Field(
+    postalCodePrefix: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="A defined range of postal codes indicated by a common textual prefix. Used for non-numeric"
-        "systems such as UK.",
+     "systems such as UK.",
     )
-    addressCountry: "Optional[Union[List[Union[str, Country]], Union[str, Country]]]" = Field(
+    addressCountry: Optional[Union[List[Union[str, 'Text', 'Country']], str, 'Text', 'Country']] = Field(
         None,
         description="The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2"
-        "country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
+     "country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
     )
-    postalCodeRange: "Optional[Union[List[Union[PostalCodeRangeSpecification, str]], Union[PostalCodeRangeSpecification, str]]]" = Field(
+    postalCodeRange: Optional[Union[List[Union['PostalCodeRangeSpecification', str]], 'PostalCodeRangeSpecification', str]] = Field(
         None,
         description="A defined range of postal codes.",
     )
-    addressRegion: "Optional[Union[List[str], str]]" = Field(
+    addressRegion: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         None,
         description="The region in which the locality is, and which is in the country. For example, California"
-        "or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country)",
+     "or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country)",
     )
+    
 
 
 if TYPE_CHECKING:
-
+    from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.Country import Country
-
-    from pydantic_schemaorg.PostalCodeRangeSpecification import (
-        PostalCodeRangeSpecification,
-    )
-
-    DefinedRegion.update_forward_refs()
+    from pydantic_schemaorg.PostalCodeRangeSpecification import PostalCodeRangeSpecification

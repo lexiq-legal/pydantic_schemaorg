@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.HealthAspectEnumeration import HealthAspectEnumeration
 
 
@@ -14,10 +12,6 @@ class HowOrWhereHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/HowOrWhereHealthAspect
     Model depth: 5
     """
+    type_: str = Field("HowOrWhereHealthAspect", alias='@type')
+    
 
-    type_: str = Field("HowOrWhereHealthAspect", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    HowOrWhereHealthAspect.update_forward_refs()

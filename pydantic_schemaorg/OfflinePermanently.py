@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.GameServerStatus import GameServerStatus
 
 
@@ -13,10 +11,6 @@ class OfflinePermanently(GameServerStatus):
     See: https://schema.org/OfflinePermanently
     Model depth: 6
     """
+    type_: str = Field("OfflinePermanently", alias='@type')
+    
 
-    type_: str = Field("OfflinePermanently", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    OfflinePermanently.update_forward_refs()

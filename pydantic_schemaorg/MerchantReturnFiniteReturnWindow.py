@@ -1,9 +1,7 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING
 
 
 from pydantic import Field
-
 from pydantic_schemaorg.MerchantReturnEnumeration import MerchantReturnEnumeration
 
 
@@ -13,10 +11,6 @@ class MerchantReturnFiniteReturnWindow(MerchantReturnEnumeration):
     See: https://schema.org/MerchantReturnFiniteReturnWindow
     Model depth: 5
     """
+    type_: str = Field("MerchantReturnFiniteReturnWindow", alias='@type')
+    
 
-    type_: str = Field("MerchantReturnFiniteReturnWindow", const=True, alias="@type")
-
-
-if TYPE_CHECKING:
-
-    MerchantReturnFiniteReturnWindow.update_forward_refs()
