@@ -34,8 +34,6 @@ def get_all_examples() -> Iterator[Union[List, Dict]]:
         "https://schema.org/version/latest/schemaorg-all-examples.txt"
     )
     content = schema_org_request.text
-    reg = re.compile(r'<script type="application/ld+json">')
-    t = re.match(r'</script>', '</script>')
     matches = re.findall(r'<script type\="application/ld\+json">(?P<json_ld>.*?)</script>', content,
                          flags=re.DOTALL | re.M)
     for match in matches:
