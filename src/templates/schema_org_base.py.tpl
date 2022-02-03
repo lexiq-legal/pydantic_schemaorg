@@ -5,7 +5,7 @@ from typing import Any, Optional, ForwardRef, List, Union
 from pydantic import BaseModel, Field, StrictBool, AnyUrl
 from pydantic.typing import update_model_forward_refs
 
-from ISO8601.ISO8601Date import ISO8601Date
+from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 from pydantic_schemaorg.__types__ import types
 
 updated_models=set()
