@@ -11,7 +11,7 @@ Works with python >= 3.7 since the library uses `__future__.annotations`
 
 ## How to install
 
-```pip install pydantic_schemaorg```<br><br>
+```pip install pydantic-schemaorg```<br><br>
 Import any class you want to use by with the following convention<br>
 ```from pydantic_schemaorg.<SCHEMAORG_MODEL_NAME> import <SCHEMAORG_MODEL_NAME>```<br><br>
 
@@ -25,7 +25,7 @@ from pydantic_schemaorg.ScholarlyArticle import ScholarlyArticle
 scholarly_article = ScholarlyArticle(url='https://github.com/lexiq-legal/pydantic_schemaorg',
                                     sameAs='https://github.com/lexiq-legal/pydantic_schemaorg',
                                     copyrightNotice='Free to use under the MIT license',
-                                    dateCreated='15-12-2012')
+                                    dateCreated='15-12-2021')
 print(scholarly_article.json())
 ```
 
