@@ -7,7 +7,7 @@ on [https://schema.org/version/latest/schemaorg-current-https.jsonld](https://sc
 
 ## Requirements
 
-Works with python >= 3.7 since the library uses `__future__.annotations`
+Works with python >= 3.8
 
 ## How to install
 
