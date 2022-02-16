@@ -1,4 +1,5 @@
 # pydantic_schemaorg
+[![PyPi version](https://img.shields.io/pypi/v/pydantic-schemaorg.svg)](https://pypi.python.org/pypi/pydantic-schemaorg/) [![](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) ![t](https://img.shields.io/badge/status-stable-green.svg) [![](https://img.shields.io/github/license/lexiq-legal/pydantic_schemaorg.svg)](https://github.com/lexq-legal/pydantic_schemaorg/blob/master/LICENSE.md)
 
 Use [Schema.org](https://schema.org) types in [pydantic](https://pydantic-docs.helpmanual.io/)! <br> <br>
 **Pydantic_schemaorg** contains all the models defined by schema.org. The pydantic classes are auto-generated from the
