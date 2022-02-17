@@ -21,7 +21,7 @@ class {{ model.valid_name }}({{model.parents| sort(attribute='depth', reverse=Tr
     type_: str = Field("{{ model.name }}", alias='@type')
     {% for field in model.fields -%}
     {{ field.valid_name }}: {{ field.type }} = Field(
-        None,
+        default=None,
         {%- if field.valid_name != field.name -%} alias="{{ field.name }}",{% endif %}
         description="{{ field.description | replace('\\n','\n') | format_description }}",
     )
