@@ -16,7 +16,7 @@ class PropertyValueSpecification(Intangible):
     See: https://schema.org/PropertyValueSpecification
     Model depth: 3
     """
-    type_: str = Field("PropertyValueSpecification", alias='@type')
+    type_: str = Field(default="PropertyValueSpecification", alias='@type')
     multipleValues: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="Whether multiple values are allowed for the property. Default is false.",
@@ -67,7 +67,6 @@ class PropertyValueSpecification(Intangible):
      "current values.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Boolean import Boolean

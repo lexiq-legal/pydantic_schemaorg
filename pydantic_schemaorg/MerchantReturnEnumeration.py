@@ -11,6 +11,5 @@ class MerchantReturnEnumeration(Enumeration):
     See: https://schema.org/MerchantReturnEnumeration
     Model depth: 4
     """
-    type_: str = Field("MerchantReturnEnumeration", alias='@type')
+    type_: str = Field(default="MerchantReturnEnumeration", alias='@type')
     
-

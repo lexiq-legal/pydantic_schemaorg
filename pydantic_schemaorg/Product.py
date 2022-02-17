@@ -17,7 +17,7 @@ class Product(Thing):
     See: https://schema.org/Product
     Model depth: 2
     """
-    type_: str = Field("Product", alias='@type')
+    type_: str = Field(default="Product", alias='@type')
     pattern: Optional[Union[List[Union[str, 'Text', 'DefinedTerm']], str, 'Text', 'DefinedTerm']] = Field(
         default=None,
         description="A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'."
@@ -30,7 +30,7 @@ class Product(Thing):
      "the gauge of a screw. Usually an exact measurement, but can also be a range of measurements"
      "for adjustable products, for example belts and ski bindings.",
     )
-    offers: Optional[Union[List[Union['Demand', 'Offer', str]], 'Demand', 'Offer', str]] = Field(
+    offers: Optional[Union[List[Union['Offer', 'Demand', str]], 'Offer', 'Demand', str]] = Field(
         default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -112,7 +112,7 @@ class Product(Thing):
         default=None,
         description="The manufacturer of the product.",
     )
-    brand: Optional[Union[List[Union['Organization', 'Brand', str]], 'Organization', 'Brand', str]] = Field(
+    brand: Optional[Union[List[Union['Brand', 'Organization', str]], 'Brand', 'Organization', str]] = Field(
         default=None,
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
@@ -139,11 +139,11 @@ class Product(Thing):
         default=None,
         description="A pointer to another, functionally similar product (or multiple products).",
     )
-    height: Optional[Union[List[Union['QuantitativeValue', 'Distance', str]], 'QuantitativeValue', 'Distance', str]] = Field(
+    height: Optional[Union[List[Union['Distance', 'QuantitativeValue', str]], 'Distance', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The height of the item.",
     )
-    size: Optional[Union[List[Union[str, 'Text', 'SizeSpecification', 'DefinedTerm', 'QuantitativeValue']], str, 'Text', 'SizeSpecification', 'DefinedTerm', 'QuantitativeValue']] = Field(
+    size: Optional[Union[List[Union[str, 'Text', 'SizeSpecification', 'QuantitativeValue', 'DefinedTerm']], str, 'Text', 'SizeSpecification', 'QuantitativeValue', 'DefinedTerm']] = Field(
         default=None,
         description="A standardized size of a product or creative work, specified either through a simple"
      "textual string (for example 'XL', '32Wx34L'), a QuantitativeValue with a unitCode,"
@@ -249,7 +249,7 @@ class Product(Thing):
      "https://schema.org/gtin13, ...) will typically expect such data to be provided using"
      "those properties, rather than using the generic property/value mechanism.",
     )
-    isVariantOf: Optional[Union[List[Union['ProductGroup', 'ProductModel', str]], 'ProductGroup', 'ProductModel', str]] = Field(
+    isVariantOf: Optional[Union[List[Union['ProductModel', 'ProductGroup', str]], 'ProductModel', 'ProductGroup', str]] = Field(
         default=None,
         description="Indicates the kind of product that this is a variant of. In the case of [[ProductModel]],"
      "this is a pointer (from a ProductModel) to a base product from which this product is a variant."
@@ -275,8 +275,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Offer import Offer
+    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.ProductModel import ProductModel
     from pydantic_schemaorg.Distance import Distance
     from pydantic_schemaorg.Date import Date

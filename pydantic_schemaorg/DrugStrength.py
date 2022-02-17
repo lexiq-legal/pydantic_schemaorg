@@ -15,7 +15,7 @@ class DrugStrength(MedicalIntangible):
     See: https://schema.org/DrugStrength
     Model depth: 4
     """
-    type_: str = Field("DrugStrength", alias='@type')
+    type_: str = Field(default="DrugStrength", alias='@type')
     activeIngredient: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="An active ingredient, typically chemical compounds and/or biologic substances.",
@@ -38,7 +38,6 @@ class DrugStrength(MedicalIntangible):
      "recommending authority.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

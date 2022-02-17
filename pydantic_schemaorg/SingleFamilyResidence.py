@@ -15,7 +15,7 @@ class SingleFamilyResidence(House):
     See: https://schema.org/SingleFamilyResidence
     Model depth: 5
     """
-    type_: str = Field("SingleFamilyResidence", alias='@type')
+    type_: str = Field(default="SingleFamilyResidence", alias='@type')
     numberOfRooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
@@ -30,7 +30,6 @@ class SingleFamilyResidence(House):
      "person). Typical unit code(s): C62 for person",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

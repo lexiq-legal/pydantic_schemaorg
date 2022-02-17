@@ -11,6 +11,5 @@ class CheckoutPage(WebPage):
     See: https://schema.org/CheckoutPage
     Model depth: 4
     """
-    type_: str = Field("CheckoutPage", alias='@type')
+    type_: str = Field(default="CheckoutPage", alias='@type')
     
-

@@ -11,6 +11,6 @@ class OfferItemCondition(Enumeration):
     See: https://schema.org/OfferItemCondition
     Model depth: 4
     """
-    type_: str = Field("OfferItemCondition", alias='@type')
+    type_: str = Field(default="OfferItemCondition", alias='@type')
     
 

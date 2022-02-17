@@ -11,6 +11,5 @@ class Wholesale(DrugCostCategory):
     See: https://schema.org/Wholesale
     Model depth: 6
     """
-    type_: str = Field("Wholesale", alias='@type')
+    type_: str = Field(default="Wholesale", alias='@type')
     
-

@@ -11,6 +11,5 @@ class MedicalObservationalStudyDesign(MedicalEnumeration):
     See: https://schema.org/MedicalObservationalStudyDesign
     Model depth: 5
     """
-    type_: str = Field("MedicalObservationalStudyDesign", alias='@type')
+    type_: str = Field(default="MedicalObservationalStudyDesign", alias='@type')
     
-

@@ -15,7 +15,7 @@ class WarrantyPromise(StructuredValue):
     See: https://schema.org/WarrantyPromise
     Model depth: 4
     """
-    type_: str = Field("WarrantyPromise", alias='@type')
+    type_: str = Field(default="WarrantyPromise", alias='@type')
     warrantyScope: Optional[Union[List[Union['WarrantyScope', str]], 'WarrantyScope', str]] = Field(
         default=None,
         description="The scope of the warranty promise.",
@@ -26,7 +26,6 @@ class WarrantyPromise(StructuredValue):
      "months, or DAY for days.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.WarrantyScope import WarrantyScope

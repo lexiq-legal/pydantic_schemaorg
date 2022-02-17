@@ -15,6 +15,5 @@ class PublicHolidays(DayOfWeek):
     See: https://schema.org/PublicHolidays
     Model depth: 5
     """
-    type_: str = Field("PublicHolidays", alias='@type')
+    type_: str = Field(default="PublicHolidays", alias='@type')
     
-

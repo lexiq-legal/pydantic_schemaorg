@@ -15,7 +15,7 @@ class InformAction(CommunicateAction):
     See: https://schema.org/InformAction
     Model depth: 5
     """
-    type_: str = Field("InformAction", alias='@type')
+    type_: str = Field(default="InformAction", alias='@type')
     event: Optional[Union[List[Union['Event', str]], 'Event', str]] = Field(
         default=None,
         description="Upcoming or past event associated with this place, organization, or action.",

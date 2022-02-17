@@ -11,6 +11,5 @@ class UKTrust(UKNonprofitType):
     See: https://schema.org/UKTrust
     Model depth: 6
     """
-    type_: str = Field("UKTrust", alias='@type')
+    type_: str = Field(default="UKTrust", alias='@type')
     
-

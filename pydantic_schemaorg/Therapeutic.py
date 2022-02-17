@@ -11,6 +11,5 @@ class Therapeutic(MedicalDevicePurpose):
     See: https://schema.org/Therapeutic
     Model depth: 6
     """
-    type_: str = Field("Therapeutic", alias='@type')
+    type_: str = Field(default="Therapeutic", alias='@type')
     
-

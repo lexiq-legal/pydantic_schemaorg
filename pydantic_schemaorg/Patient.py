@@ -15,7 +15,7 @@ class Patient(MedicalAudience, Person):
     See: https://schema.org/Patient
     Model depth: 3
     """
-    type_: str = Field("Patient", alias='@type')
+    type_: str = Field(default="Patient", alias='@type')
     diagnosis: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
         default=None,
         description="One or more alternative conditions considered in the differential diagnosis process"
@@ -30,7 +30,6 @@ class Patient(MedicalAudience, Person):
         description="Specifying a drug or medicine used in a medication procedure.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalCondition import MedicalCondition

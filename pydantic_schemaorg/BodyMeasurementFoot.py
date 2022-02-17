@@ -12,6 +12,5 @@ class BodyMeasurementFoot(BodyMeasurementTypeEnumeration):
     See: https://schema.org/BodyMeasurementFoot
     Model depth: 6
     """
-    type_: str = Field("BodyMeasurementFoot", alias='@type')
+    type_: str = Field(default="BodyMeasurementFoot", alias='@type')
     
-

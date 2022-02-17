@@ -20,7 +20,7 @@ class HyperTocEntry(CreativeWork):
     See: https://schema.org/HyperTocEntry
     Model depth: 3
     """
-    type_: str = Field("HyperTocEntry", alias='@type')
+    type_: str = Field(default="HyperTocEntry", alias='@type')
     utterances: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of"
@@ -36,7 +36,6 @@ class HyperTocEntry(CreativeWork):
         description="A media object that encodes this CreativeWork. This property is a synonym for encoding.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

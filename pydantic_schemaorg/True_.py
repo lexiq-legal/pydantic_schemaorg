@@ -11,6 +11,5 @@ class True_(Boolean):
     See: https://schema.org/True
     Model depth: 6
     """
-    type_: str = Field("True", alias='@type')
+    type_: str = Field(default="True", alias='@type')
     
-

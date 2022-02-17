@@ -14,7 +14,7 @@ class Corporation(Organization):
     See: https://schema.org/Corporation
     Model depth: 3
     """
-    type_: str = Field("Corporation", alias='@type')
+    type_: str = Field(default="Corporation", alias='@type')
     tickerSymbol: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The exchange traded instrument associated with a Corporation object. The tickerSymbol"
@@ -23,7 +23,6 @@ class Corporation(Organization):
      "vocabulary of Market Identifier Codes (MIC) specified in ISO15022.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

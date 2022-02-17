@@ -15,7 +15,7 @@ class PublicationVolume(CreativeWork):
     See: https://schema.org/PublicationVolume
     Model depth: 3
     """
-    type_: str = Field("PublicationVolume", alias='@type')
+    type_: str = Field(default="PublicationVolume", alias='@type')
     pageStart: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
         default=None,
         description="The page on which the work starts; for example \"135\" or \"xiii\".",
@@ -34,7 +34,6 @@ class PublicationVolume(CreativeWork):
         description="The page on which the work ends; for example \"138\" or \"xvi\".",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Integer import Integer

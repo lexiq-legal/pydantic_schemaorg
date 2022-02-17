@@ -11,6 +11,5 @@ class DeleteAction(UpdateAction):
     See: https://schema.org/DeleteAction
     Model depth: 4
     """
-    type_: str = Field("DeleteAction", alias='@type')
+    type_: str = Field(default="DeleteAction", alias='@type')
     
-

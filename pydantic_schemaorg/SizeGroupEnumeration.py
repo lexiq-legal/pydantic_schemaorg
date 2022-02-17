@@ -11,6 +11,6 @@ class SizeGroupEnumeration(Enumeration):
     See: https://schema.org/SizeGroupEnumeration
     Model depth: 4
     """
-    type_: str = Field("SizeGroupEnumeration", alias='@type')
+    type_: str = Field(default="SizeGroupEnumeration", alias='@type')
     
 

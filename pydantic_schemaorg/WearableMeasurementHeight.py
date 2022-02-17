@@ -11,6 +11,5 @@ class WearableMeasurementHeight(WearableMeasurementTypeEnumeration):
     See: https://schema.org/WearableMeasurementHeight
     Model depth: 6
     """
-    type_: str = Field("WearableMeasurementHeight", alias='@type')
+    type_: str = Field(default="WearableMeasurementHeight", alias='@type')
     
-

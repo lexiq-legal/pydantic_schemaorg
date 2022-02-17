@@ -12,6 +12,5 @@ class PatientExperienceHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/PatientExperienceHealthAspect
     Model depth: 5
     """
-    type_: str = Field("PatientExperienceHealthAspect", alias='@type')
+    type_: str = Field(default="PatientExperienceHealthAspect", alias='@type')
     
-

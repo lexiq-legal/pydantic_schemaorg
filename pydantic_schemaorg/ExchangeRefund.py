@@ -11,6 +11,5 @@ class ExchangeRefund(RefundTypeEnumeration):
     See: https://schema.org/ExchangeRefund
     Model depth: 5
     """
-    type_: str = Field("ExchangeRefund", alias='@type')
+    type_: str = Field(default="ExchangeRefund", alias='@type')
     
-

@@ -15,7 +15,7 @@ class Chapter(CreativeWork):
     See: https://schema.org/Chapter
     Model depth: 3
     """
-    type_: str = Field("Chapter", alias='@type')
+    type_: str = Field(default="Chapter", alias='@type')
     pageStart: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
         default=None,
         description="The page on which the work starts; for example \"135\" or \"xiii\".",
@@ -30,7 +30,6 @@ class Chapter(CreativeWork):
         description="The page on which the work ends; for example \"138\" or \"xvi\".",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Integer import Integer

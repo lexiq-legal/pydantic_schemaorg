@@ -11,6 +11,5 @@ class GardenStore(Store):
     See: https://schema.org/GardenStore
     Model depth: 5
     """
-    type_: str = Field("GardenStore", alias='@type')
+    type_: str = Field(default="GardenStore", alias='@type')
     
-

@@ -11,6 +11,5 @@ class WPHeader(WebPageElement):
     See: https://schema.org/WPHeader
     Model depth: 4
     """
-    type_: str = Field("WPHeader", alias='@type')
+    type_: str = Field(default="WPHeader", alias='@type')
     
-

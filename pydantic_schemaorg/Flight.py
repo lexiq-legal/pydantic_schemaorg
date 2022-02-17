@@ -15,7 +15,7 @@ class Flight(Trip):
     See: https://schema.org/Flight
     Model depth: 4
     """
-    type_: str = Field("Flight", alias='@type')
+    type_: str = Field(default="Flight", alias='@type')
     boardingPolicy: Optional[Union[List[Union['BoardingPolicyType', str]], 'BoardingPolicyType', str]] = Field(
         default=None,
         description="The type of boarding policy used by the airline (e.g. zone-based or group-based).",
@@ -33,7 +33,7 @@ class Flight(Trip):
         description="The unique identifier for a flight including the airline IATA code. For example, if describing"
      "United flight 110, where the IATA code for United is 'UA', the flightNumber is 'UA110'.",
     )
-    seller: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    seller: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="An entity which offers (sells / leases / lends / loans) the services / goods. A seller may"
      "also be a provider.",
@@ -80,13 +80,12 @@ class Flight(Trip):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.BoardingPolicyType import BoardingPolicyType
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.Distance import Distance
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Duration import Duration
     from pydantic_schemaorg.Vehicle import Vehicle
     from pydantic_schemaorg.DateTime import DateTime

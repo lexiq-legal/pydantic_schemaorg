@@ -12,6 +12,5 @@ class Surgical(MedicalSpecialty):
     See: https://schema.org/Surgical
     Model depth: 6
     """
-    type_: str = Field("Surgical", alias='@type')
+    type_: str = Field(default="Surgical", alias='@type')
     
-

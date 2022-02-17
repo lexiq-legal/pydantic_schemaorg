@@ -21,12 +21,12 @@ class EducationalOccupationalProgram(Intangible):
     See: https://schema.org/EducationalOccupationalProgram
     Model depth: 3
     """
-    type_: str = Field("EducationalOccupationalProgram", alias='@type')
+    type_: str = Field(default="EducationalOccupationalProgram", alias='@type')
     timeToComplete: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
         default=None,
         description="The expected length of time to complete the program if attending full-time.",
     )
-    offers: Optional[Union[List[Union['Demand', 'Offer', str]], 'Demand', 'Offer', str]] = Field(
+    offers: Optional[Union[List[Union['Offer', 'Demand', str]], 'Offer', 'Demand', str]] = Field(
         default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -45,7 +45,7 @@ class EducationalOccupationalProgram(Intangible):
         description="The date at which the program begins collecting applications for the next enrollment"
      "cycle.",
     )
-    programPrerequisites: Optional[Union[List[Union[str, 'Text', 'EducationalOccupationalCredential', 'AlignmentObject', 'Course']], str, 'Text', 'EducationalOccupationalCredential', 'AlignmentObject', 'Course']] = Field(
+    programPrerequisites: Optional[Union[List[Union[str, 'Text', 'Course', 'EducationalOccupationalCredential', 'AlignmentObject']], str, 'Text', 'Course', 'EducationalOccupationalCredential', 'AlignmentObject']] = Field(
         default=None,
         description="Prerequisites for enrolling in the program.",
     )
@@ -125,7 +125,7 @@ class EducationalOccupationalProgram(Intangible):
         description="A financial aid type or program which students may use to pay for tuition or fees associated"
      "with the program.",
     )
-    provider: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    provider: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."
@@ -149,24 +149,23 @@ class EducationalOccupationalProgram(Intangible):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Duration import Duration
-    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Offer import Offer
+    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.StructuredValue import StructuredValue
     from pydantic_schemaorg.Date import Date
     from pydantic_schemaorg.Text import Text
+    from pydantic_schemaorg.Course import Course
     from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
     from pydantic_schemaorg.AlignmentObject import AlignmentObject
-    from pydantic_schemaorg.Course import Course
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.DayOfWeek import DayOfWeek
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.CategoryCode import CategoryCode

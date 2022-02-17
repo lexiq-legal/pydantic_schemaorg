@@ -11,6 +11,5 @@ class Duration(Quantity):
     See: https://schema.org/Duration
     Model depth: 4
     """
-    type_: str = Field("Duration", alias='@type')
+    type_: str = Field(default="Duration", alias='@type')
     
-

@@ -11,6 +11,5 @@ class IngredientsHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/IngredientsHealthAspect
     Model depth: 5
     """
-    type_: str = Field("IngredientsHealthAspect", alias='@type')
+    type_: str = Field(default="IngredientsHealthAspect", alias='@type')
     
-

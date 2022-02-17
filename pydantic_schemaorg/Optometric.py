@@ -12,6 +12,5 @@ class Optometric(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Optometric
     Model depth: 5
     """
-    type_: str = Field("Optometric", alias='@type')
+    type_: str = Field(default="Optometric", alias='@type')
     
-

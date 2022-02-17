@@ -11,6 +11,5 @@ class RearWheelDriveConfiguration(DriveWheelConfigurationValue):
     See: https://schema.org/RearWheelDriveConfiguration
     Model depth: 6
     """
-    type_: str = Field("RearWheelDriveConfiguration", alias='@type')
+    type_: str = Field(default="RearWheelDriveConfiguration", alias='@type')
     
-

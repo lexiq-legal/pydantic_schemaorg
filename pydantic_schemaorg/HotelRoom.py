@@ -15,7 +15,7 @@ class HotelRoom(Room):
     See: https://schema.org/HotelRoom
     Model depth: 5
     """
-    type_: str = Field("HotelRoom", alias='@type')
+    type_: str = Field(default="HotelRoom", alias='@type')
     bed: Optional[Union[List[Union[str, 'Text', 'BedDetails', 'BedType']], str, 'Text', 'BedDetails', 'BedType']] = Field(
         default=None,
         description="The type of bed or beds included in the accommodation. For the single case of just one bed"
@@ -31,7 +31,6 @@ class HotelRoom(Room):
      "person). Typical unit code(s): C62 for person",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

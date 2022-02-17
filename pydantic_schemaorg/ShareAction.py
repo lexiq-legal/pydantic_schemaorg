@@ -11,6 +11,6 @@ class ShareAction(CommunicateAction):
     See: https://schema.org/ShareAction
     Model depth: 5
     """
-    type_: str = Field("ShareAction", alias='@type')
+    type_: str = Field(default="ShareAction", alias='@type')
     
 

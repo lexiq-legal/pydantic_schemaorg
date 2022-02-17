@@ -11,6 +11,5 @@ class Withdrawn(MedicalStudyStatus):
     See: https://schema.org/Withdrawn
     Model depth: 6
     """
-    type_: str = Field("Withdrawn", alias='@type')
+    type_: str = Field(default="Withdrawn", alias='@type')
     
-

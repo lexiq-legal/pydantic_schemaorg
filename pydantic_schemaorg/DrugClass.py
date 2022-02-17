@@ -15,13 +15,12 @@ class DrugClass(MedicalEntity):
     See: https://schema.org/DrugClass
     Model depth: 3
     """
-    type_: str = Field("DrugClass", alias='@type')
+    type_: str = Field(default="DrugClass", alias='@type')
     drug: Optional[Union[List[Union['Drug', str]], 'Drug', str]] = Field(
         default=None,
         description="Specifying a drug or medicine used in a medication procedure.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Drug import Drug

@@ -16,7 +16,7 @@ class LocationFeatureSpecification(PropertyValue):
     See: https://schema.org/LocationFeatureSpecification
     Model depth: 5
     """
-    type_: str = Field("LocationFeatureSpecification", alias='@type')
+    type_: str = Field(default="LocationFeatureSpecification", alias='@type')
     validFrom: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
         default=None,
         description="The date when the item becomes valid.",

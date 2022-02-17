@@ -11,6 +11,5 @@ class ActionStatusType(StatusEnumeration):
     See: https://schema.org/ActionStatusType
     Model depth: 5
     """
-    type_: str = Field("ActionStatusType", alias='@type')
+    type_: str = Field(default="ActionStatusType", alias='@type')
     
-

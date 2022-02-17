@@ -11,6 +11,5 @@ class RoofingContractor(HomeAndConstructionBusiness):
     See: https://schema.org/RoofingContractor
     Model depth: 5
     """
-    type_: str = Field("RoofingContractor", alias='@type')
+    type_: str = Field(default="RoofingContractor", alias='@type')
     
-

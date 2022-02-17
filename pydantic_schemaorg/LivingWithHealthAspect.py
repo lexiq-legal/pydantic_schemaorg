@@ -11,6 +11,5 @@ class LivingWithHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/LivingWithHealthAspect
     Model depth: 5
     """
-    type_: str = Field("LivingWithHealthAspect", alias='@type')
+    type_: str = Field(default="LivingWithHealthAspect", alias='@type')
     
-

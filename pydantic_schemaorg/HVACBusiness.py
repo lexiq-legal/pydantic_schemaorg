@@ -11,6 +11,5 @@ class HVACBusiness(HomeAndConstructionBusiness):
     See: https://schema.org/HVACBusiness
     Model depth: 5
     """
-    type_: str = Field("HVACBusiness", alias='@type')
+    type_: str = Field(default="HVACBusiness", alias='@type')
     
-

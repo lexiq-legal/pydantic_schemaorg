@@ -14,7 +14,7 @@ class SomeProducts(Product):
     See: https://schema.org/SomeProducts
     Model depth: 3
     """
-    type_: str = Field("SomeProducts", alias='@type')
+    type_: str = Field(default="SomeProducts", alias='@type')
     inventoryLevel: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
         default=None,
         description="The current approximate inventory level for the item or items.",

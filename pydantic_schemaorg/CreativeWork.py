@@ -18,7 +18,7 @@ class CreativeWork(Thing):
     See: https://schema.org/CreativeWork
     Model depth: 2
     """
-    type_: str = Field("CreativeWork", alias='@type')
+    type_: str = Field(default="CreativeWork", alias='@type')
     pattern: Optional[Union[List[Union[str, 'Text', 'DefinedTerm']], str, 'Text', 'DefinedTerm']] = Field(
         default=None,
         description="A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'."
@@ -42,7 +42,7 @@ class CreativeWork(Thing):
         default=None,
         description="Fictional person connected with a creative work.",
     )
-    offers: Optional[Union[List[Union['Demand', 'Offer', str]], 'Demand', 'Offer', str]] = Field(
+    offers: Optional[Union[List[Union['Offer', 'Demand', str]], 'Offer', 'Demand', str]] = Field(
         default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -76,7 +76,7 @@ class CreativeWork(Thing):
         description="The specific time described by a creative work, for works (e.g. articles, video objects"
      "etc.) that emphasise a particular moment within an Event.",
     )
-    maintainer: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    maintainer: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A maintainer of a [[Dataset]], software package ([[SoftwareApplication]]), or other"
      "[[Project]]. A maintainer is a [[Person]] or [[Organization]] that manages contributions"
@@ -93,13 +93,13 @@ class CreativeWork(Thing):
         default=None,
         description="The typical expected age range, e.g. '7-9', '11-'.",
     )
-    author: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    author: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The author of this content or rating. Please note that author is special in that HTML 5"
      "provides a special mechanism for indicating authorship via the rel tag. That is equivalent"
      "to this and may be used interchangeably.",
     )
-    funder: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    funder: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A person or organization that supports (sponsors) something through some kind of financial"
      "contribution.",
@@ -185,11 +185,11 @@ class CreativeWork(Thing):
         default=None,
         description="Comments, typically from users.",
     )
-    audio: Optional[Union[List[Union['AudioObject', 'MusicRecording', 'Clip', str]], 'AudioObject', 'MusicRecording', 'Clip', str]] = Field(
+    audio: Optional[Union[List[Union['MusicRecording', 'Clip', 'AudioObject', str]], 'MusicRecording', 'Clip', 'AudioObject', str]] = Field(
         default=None,
         description="An embedded audio object.",
     )
-    video: Optional[Union[List[Union['VideoObject', 'Clip', str]], 'VideoObject', 'Clip', str]] = Field(
+    video: Optional[Union[List[Union['Clip', 'VideoObject', str]], 'Clip', 'VideoObject', str]] = Field(
         default=None,
         description="An embedded video object.",
     )
@@ -197,7 +197,7 @@ class CreativeWork(Thing):
         default=None,
         description="The Organization on whose behalf the creator was working.",
     )
-    translator: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    translator: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="Organization or person who adapts a creative work to different languages, regional"
      "differences and technical requirements of a target market, or that translates during"
@@ -245,7 +245,7 @@ class CreativeWork(Thing):
      "their multiple expressions, it is possible to use [[titleEIDR]] alone (for a general"
      "description), or alongside [[editEIDR]] for a more edit-specific description.",
     )
-    sdPublisher: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    sdPublisher: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="Indicates the party responsible for generating and publishing the current structured"
      "data markup, typically in cases where the structured data is derived automatically"
@@ -298,7 +298,7 @@ class CreativeWork(Thing):
      "Incomplete, Draft, Published, Obsolete. Some organizations define a set of terms for"
      "the stages of their publication lifecycle.",
     )
-    publisher: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    publisher: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The publisher of the creative work.",
     )
@@ -350,7 +350,7 @@ class CreativeWork(Thing):
         description="Example/instance/realization/derivation of the concept of this creative work. eg."
      "The paperback edition, first edition, or eBook.",
     )
-    size: Optional[Union[List[Union[str, 'Text', 'SizeSpecification', 'DefinedTerm', 'QuantitativeValue']], str, 'Text', 'SizeSpecification', 'DefinedTerm', 'QuantitativeValue']] = Field(
+    size: Optional[Union[List[Union[str, 'Text', 'SizeSpecification', 'QuantitativeValue', 'DefinedTerm']], str, 'Text', 'SizeSpecification', 'QuantitativeValue', 'DefinedTerm']] = Field(
         default=None,
         description="A standardized size of a product or creative work, specified either through a simple"
      "textual string (for example 'XL', '32Wx34L'), a QuantitativeValue with a unitCode,"
@@ -370,7 +370,7 @@ class CreativeWork(Thing):
         default=None,
         description="A media object that encodes this CreativeWork.",
     )
-    creator: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    creator: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The creator/author of this CreativeWork. This is the same as the Author property for"
      "CreativeWork.",
@@ -449,7 +449,7 @@ class CreativeWork(Thing):
         default=None,
         description="An intended audience, i.e. a group for whom something was created.",
     )
-    sponsor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    sponsor: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -545,7 +545,7 @@ class CreativeWork(Thing):
         default=None,
         description="A link to the page containing the comments of the CreativeWork.",
     )
-    provider: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    provider: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."
@@ -560,7 +560,7 @@ class CreativeWork(Thing):
      "file formats can be indicated instead via the most appropriate URL, e.g. defining Web"
      "page or a Wikipedia entry.",
     )
-    producer: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    producer: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The person or organization who produced the work (e.g. music album, movie, tv/radio"
      "series etc.).",
@@ -596,11 +596,11 @@ class CreativeWork(Thing):
         description="The location depicted or described in the content. For example, the location in a photograph"
      "or painting.",
     )
-    copyrightHolder: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    copyrightHolder: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The party holding the legal copyright to the CreativeWork.",
     )
-    contributor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    contributor: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A secondary contributor to the CreativeWork or Event.",
     )
@@ -627,8 +627,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.Person import Person
-    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Offer import Offer
+    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.Product import Product
@@ -640,9 +640,9 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.ItemList import ItemList
     from pydantic_schemaorg.AlignmentObject import AlignmentObject
     from pydantic_schemaorg.Comment import Comment
-    from pydantic_schemaorg.AudioObject import AudioObject
     from pydantic_schemaorg.MusicRecording import MusicRecording
     from pydantic_schemaorg.Clip import Clip
+    from pydantic_schemaorg.AudioObject import AudioObject
     from pydantic_schemaorg.VideoObject import VideoObject
     from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.Country import Country

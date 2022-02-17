@@ -11,6 +11,5 @@ class RadioClip(Clip):
     See: https://schema.org/RadioClip
     Model depth: 4
     """
-    type_: str = Field("RadioClip", alias='@type')
+    type_: str = Field(default="RadioClip", alias='@type')
     
-

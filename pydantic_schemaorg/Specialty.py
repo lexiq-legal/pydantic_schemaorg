@@ -12,6 +12,6 @@ class Specialty(Enumeration):
     See: https://schema.org/Specialty
     Model depth: 4
     """
-    type_: str = Field("Specialty", alias='@type')
+    type_: str = Field(default="Specialty", alias='@type')
     
 

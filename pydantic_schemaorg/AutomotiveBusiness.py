@@ -11,6 +11,6 @@ class AutomotiveBusiness(LocalBusiness):
     See: https://schema.org/AutomotiveBusiness
     Model depth: 4
     """
-    type_: str = Field("AutomotiveBusiness", alias='@type')
+    type_: str = Field(default="AutomotiveBusiness", alias='@type')
     
 

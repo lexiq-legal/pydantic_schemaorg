@@ -13,6 +13,5 @@ class ReviewNewsArticle(NewsArticle, CriticReview):
     See: https://schema.org/ReviewNewsArticle
     Model depth: 5
     """
-    type_: str = Field("ReviewNewsArticle", alias='@type')
+    type_: str = Field(default="ReviewNewsArticle", alias='@type')
     
-

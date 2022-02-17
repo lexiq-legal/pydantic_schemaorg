@@ -21,6 +21,5 @@ class TransformedContent(MediaManipulationRatingEnumeration):
     See: https://schema.org/TransformedContent
     Model depth: 5
     """
-    type_: str = Field("TransformedContent", alias='@type')
+    type_: str = Field(default="TransformedContent", alias='@type')
     
-

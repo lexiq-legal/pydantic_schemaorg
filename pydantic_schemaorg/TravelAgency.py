@@ -11,6 +11,6 @@ class TravelAgency(LocalBusiness):
     See: https://schema.org/TravelAgency
     Model depth: 4
     """
-    type_: str = Field("TravelAgency", alias='@type')
+    type_: str = Field(default="TravelAgency", alias='@type')
     
 

@@ -17,8 +17,8 @@ class Legislation(CreativeWork):
     See: https://schema.org/Legislation
     Model depth: 3
     """
-    type_: str = Field("Legislation", alias='@type')
-    legislationPassedBy: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    type_: str = Field(default="Legislation", alias='@type')
+    legislationPassedBy: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The person or organization that originally passed or made the law : typically parliament"
      "(for primary legislation) or government (for secondary legislation). This indicates"
@@ -69,7 +69,7 @@ class Legislation(CreativeWork):
         description="Indicates a legal jurisdiction, e.g. of some legislation, or where some government"
      "service is based.",
     )
-    legislationResponsible: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    legislationResponsible: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="An individual or organization that has some kind of responsibility for the legislation."
      "Typically the ministry who is/was in charge of elaborating the legislation, or the adressee"
@@ -102,10 +102,9 @@ class Legislation(CreativeWork):
     )
     
 
-
 if TYPE_CHECKING:
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Date import Date
     from pydantic_schemaorg.LegalForceStatus import LegalForceStatus
     from pydantic_schemaorg.URL import URL

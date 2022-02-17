@@ -15,7 +15,7 @@ class MedicalProcedure(MedicalEntity):
     See: https://schema.org/MedicalProcedure
     Model depth: 3
     """
-    type_: str = Field("MedicalProcedure", alias='@type')
+    type_: str = Field(default="MedicalProcedure", alias='@type')
     procedureType: Optional[Union[List[Union['MedicalProcedureType', str]], 'MedicalProcedureType', str]] = Field(
         default=None,
         description="The type of procedure, for example Surgical, Noninvasive, or Percutaneous.",

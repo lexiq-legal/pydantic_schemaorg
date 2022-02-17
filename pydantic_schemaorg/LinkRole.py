@@ -17,7 +17,7 @@ class LinkRole(Role):
     See: https://schema.org/LinkRole
     Model depth: 4
     """
-    type_: str = Field("LinkRole", alias='@type')
+    type_: str = Field(default="LinkRole", alias='@type')
     linkRelationship: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Indicates the relationship type of a Web link.",
@@ -29,7 +29,6 @@ class LinkRole(Role):
      "[[availableLanguage]].",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

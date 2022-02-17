@@ -12,6 +12,5 @@ class PreventionHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/PreventionHealthAspect
     Model depth: 5
     """
-    type_: str = Field("PreventionHealthAspect", alias='@type')
+    type_: str = Field(default="PreventionHealthAspect", alias='@type')
     
-

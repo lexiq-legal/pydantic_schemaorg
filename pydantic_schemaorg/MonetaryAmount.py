@@ -20,7 +20,7 @@ class MonetaryAmount(StructuredValue):
     See: https://schema.org/MonetaryAmount
     Model depth: 4
     """
-    type_: str = Field("MonetaryAmount", alias='@type')
+    type_: str = Field(default="MonetaryAmount", alias='@type')
     minValue: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
         default=None,
         description="The lower value of some characteristic or property.",
@@ -56,7 +56,6 @@ class MonetaryAmount(StructuredValue):
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

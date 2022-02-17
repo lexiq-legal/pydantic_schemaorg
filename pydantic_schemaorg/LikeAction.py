@@ -12,6 +12,5 @@ class LikeAction(ReactAction):
     See: https://schema.org/LikeAction
     Model depth: 5
     """
-    type_: str = Field("LikeAction", alias='@type')
+    type_: str = Field(default="LikeAction", alias='@type')
     
-

@@ -15,7 +15,7 @@ class ImageObject(MediaObject):
     See: https://schema.org/ImageObject
     Model depth: 4
     """
-    type_: str = Field("ImageObject", alias='@type')
+    type_: str = Field(default="ImageObject", alias='@type')
     thumbnail: Optional[Union[List[Union['ImageObject', str]], 'ImageObject', str]] = Field(
         default=None,
         description="Thumbnail image for an image or video.",
@@ -38,7 +38,6 @@ class ImageObject(MediaObject):
      "etc.) use MediaObject and indicate the [[encodingFormat]].",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

@@ -11,6 +11,5 @@ class State(AdministrativeArea):
     See: https://schema.org/State
     Model depth: 4
     """
-    type_: str = Field("State", alias='@type')
+    type_: str = Field(default="State", alias='@type')
     
-

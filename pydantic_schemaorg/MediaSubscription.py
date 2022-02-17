@@ -14,7 +14,7 @@ class MediaSubscription(Intangible):
     See: https://schema.org/MediaSubscription
     Model depth: 3
     """
-    type_: str = Field("MediaSubscription", alias='@type')
+    type_: str = Field(default="MediaSubscription", alias='@type')
     expectsAcceptanceOf: Optional[Union[List[Union['Offer', str]], 'Offer', str]] = Field(
         default=None,
         description="An Offer which must be accepted before the user can perform the Action. For example, the"
@@ -27,7 +27,6 @@ class MediaSubscription(Intangible):
      "before playing media.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Offer import Offer

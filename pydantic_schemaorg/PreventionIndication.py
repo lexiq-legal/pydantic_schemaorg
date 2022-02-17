@@ -11,6 +11,5 @@ class PreventionIndication(MedicalIndication):
     See: https://schema.org/PreventionIndication
     Model depth: 4
     """
-    type_: str = Field("PreventionIndication", alias='@type')
+    type_: str = Field(default="PreventionIndication", alias='@type')
     
-

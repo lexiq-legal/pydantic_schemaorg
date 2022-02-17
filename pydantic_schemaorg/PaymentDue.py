@@ -11,6 +11,5 @@ class PaymentDue(PaymentStatusType):
     See: https://schema.org/PaymentDue
     Model depth: 6
     """
-    type_: str = Field("PaymentDue", alias='@type')
+    type_: str = Field(default="PaymentDue", alias='@type')
     
-

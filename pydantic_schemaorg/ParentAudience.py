@@ -15,7 +15,7 @@ class ParentAudience(PeopleAudience):
     See: https://schema.org/ParentAudience
     Model depth: 5
     """
-    type_: str = Field("ParentAudience", alias='@type')
+    type_: str = Field(default="ParentAudience", alias='@type')
     childMinAge: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
         default=None,
         description="Minimal age of the child.",
@@ -25,7 +25,6 @@ class ParentAudience(PeopleAudience):
         description="Maximal age of the child.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

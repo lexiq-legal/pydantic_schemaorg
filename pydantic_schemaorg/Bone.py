@@ -11,6 +11,5 @@ class Bone(AnatomicalStructure):
     See: https://schema.org/Bone
     Model depth: 4
     """
-    type_: str = Field("Bone", alias='@type')
+    type_: str = Field(default="Bone", alias='@type')
     
-

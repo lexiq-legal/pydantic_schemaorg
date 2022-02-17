@@ -11,6 +11,6 @@ class ItemListOrderType(Enumeration):
     See: https://schema.org/ItemListOrderType
     Model depth: 4
     """
-    type_: str = Field("ItemListOrderType", alias='@type')
+    type_: str = Field(default="ItemListOrderType", alias='@type')
     
 

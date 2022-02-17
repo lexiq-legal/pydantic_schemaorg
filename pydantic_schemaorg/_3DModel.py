@@ -21,14 +21,13 @@ class _3DModel(MediaObject):
     See: https://schema.org/3DModel
     Model depth: 4
     """
-    type_: str = Field("3DModel", alias='@type')
+    type_: str = Field(default="3DModel", alias='@type')
     isResizable: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="Whether the 3DModel allows resizing. For example, room layout applications often do"
      "not allow 3DModel elements to be resized to reflect reality.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Boolean import Boolean

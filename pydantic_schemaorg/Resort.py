@@ -15,6 +15,5 @@ class Resort(LodgingBusiness):
     See: https://schema.org/Resort
     Model depth: 5
     """
-    type_: str = Field("Resort", alias='@type')
+    type_: str = Field(default="Resort", alias='@type')
     
-

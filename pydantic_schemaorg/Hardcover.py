@@ -11,6 +11,5 @@ class Hardcover(BookFormatType):
     See: https://schema.org/Hardcover
     Model depth: 5
     """
-    type_: str = Field("Hardcover", alias='@type')
+    type_: str = Field(default="Hardcover", alias='@type')
     
-

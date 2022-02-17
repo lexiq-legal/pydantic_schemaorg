@@ -11,6 +11,5 @@ class GraphicNovel(BookFormatType):
     See: https://schema.org/GraphicNovel
     Model depth: 5
     """
-    type_: str = Field("GraphicNovel", alias='@type')
+    type_: str = Field(default="GraphicNovel", alias='@type')
     
-

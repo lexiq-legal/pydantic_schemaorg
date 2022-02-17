@@ -11,6 +11,5 @@ class MixtapeAlbum(MusicAlbumProductionType):
     See: https://schema.org/MixtapeAlbum
     Model depth: 5
     """
-    type_: str = Field("MixtapeAlbum", alias='@type')
+    type_: str = Field(default="MixtapeAlbum", alias='@type')
     
-

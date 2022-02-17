@@ -11,6 +11,6 @@ class TennisComplex(SportsActivityLocation):
     See: https://schema.org/TennisComplex
     Model depth: 5
     """
-    type_: str = Field("TennisComplex", alias='@type')
+    type_: str = Field(default="TennisComplex", alias='@type')
     
 

@@ -18,6 +18,5 @@ class BreadcrumbList(ItemList):
     See: https://schema.org/BreadcrumbList
     Model depth: 4
     """
-    type_: str = Field("BreadcrumbList", alias='@type')
+    type_: str = Field(default="BreadcrumbList", alias='@type')
     
-

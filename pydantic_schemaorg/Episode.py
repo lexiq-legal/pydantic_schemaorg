@@ -14,7 +14,7 @@ class Episode(CreativeWork):
     See: https://schema.org/Episode
     Model depth: 3
     """
-    type_: str = Field("Episode", alias='@type')
+    type_: str = Field(default="Episode", alias='@type')
     partOfSeason: Optional[Union[List[Union['CreativeWorkSeason', str]], 'CreativeWorkSeason', str]] = Field(
         default=None,
         description="The season to which this episode belongs.",
@@ -60,7 +60,7 @@ class Episode(CreativeWork):
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    musicBy: Optional[Union[List[Union['Person', 'MusicGroup', str]], 'Person', 'MusicGroup', str]] = Field(
+    musicBy: Optional[Union[List[Union['MusicGroup', 'Person', str]], 'MusicGroup', 'Person', str]] = Field(
         default=None,
         description="The composer of the soundtrack.",
     )

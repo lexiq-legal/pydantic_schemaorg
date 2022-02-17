@@ -16,7 +16,7 @@ class HealthPlanFormulary(Intangible):
     See: https://schema.org/HealthPlanFormulary
     Model depth: 3
     """
-    type_: str = Field("HealthPlanFormulary", alias='@type')
+    type_: str = Field(default="HealthPlanFormulary", alias='@type')
     offersPrescriptionByMail: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="Whether prescriptions can be delivered by mail.",
@@ -30,7 +30,6 @@ class HealthPlanFormulary(Intangible):
         description="Whether The costs to the patient for services under this network or formulary.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Boolean import Boolean

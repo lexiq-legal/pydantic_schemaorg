@@ -12,6 +12,5 @@ class MedicalAudience(PeopleAudience, Audience):
     See: https://schema.org/MedicalAudience
     Model depth: 4
     """
-    type_: str = Field("MedicalAudience", alias='@type')
+    type_: str = Field(default="MedicalAudience", alias='@type')
     
-

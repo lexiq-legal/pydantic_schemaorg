@@ -11,6 +11,5 @@ class WearableSizeSystemCN(WearableSizeSystemEnumeration):
     See: https://schema.org/WearableSizeSystemCN
     Model depth: 6
     """
-    type_: str = Field("WearableSizeSystemCN", alias='@type')
+    type_: str = Field(default="WearableSizeSystemCN", alias='@type')
     
-

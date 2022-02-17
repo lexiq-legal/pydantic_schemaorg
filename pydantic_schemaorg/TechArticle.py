@@ -15,7 +15,7 @@ class TechArticle(Article):
     See: https://schema.org/TechArticle
     Model depth: 4
     """
-    type_: str = Field("TechArticle", alias='@type')
+    type_: str = Field(default="TechArticle", alias='@type')
     proficiencyLevel: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Proficiency needed for this content; expected values: 'Beginner', 'Expert'.",
@@ -25,7 +25,6 @@ class TechArticle(Article):
         description="Prerequisites needed to fulfill steps in article.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

@@ -15,7 +15,7 @@ class BroadcastFrequencySpecification(Intangible):
     See: https://schema.org/BroadcastFrequencySpecification
     Model depth: 3
     """
-    type_: str = Field("BroadcastFrequencySpecification", alias='@type')
+    type_: str = Field(default="BroadcastFrequencySpecification", alias='@type')
     broadcastSignalModulation: Optional[Union[List[Union[str, 'Text', 'QualitativeValue']], str, 'Text', 'QualitativeValue']] = Field(
         default=None,
         description="The modulation (e.g. FM, AM, etc) used by a particular broadcast service.",
@@ -29,7 +29,6 @@ class BroadcastFrequencySpecification(Intangible):
         description="The subchannel used for the broadcast.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

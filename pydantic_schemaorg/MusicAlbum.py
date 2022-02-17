@@ -14,7 +14,7 @@ class MusicAlbum(MusicPlaylist):
     See: https://schema.org/MusicAlbum
     Model depth: 4
     """
-    type_: str = Field("MusicAlbum", alias='@type')
+    type_: str = Field(default="MusicAlbum", alias='@type')
     albumProductionType: Optional[Union[List[Union['MusicAlbumProductionType', str]], 'MusicAlbumProductionType', str]] = Field(
         default=None,
         description="Classification of the album by it's type of content: soundtrack, live album, studio"
@@ -24,7 +24,7 @@ class MusicAlbum(MusicPlaylist):
         default=None,
         description="The kind of release which this album is: single, EP or album.",
     )
-    byArtist: Optional[Union[List[Union['Person', 'MusicGroup', str]], 'Person', 'MusicGroup', str]] = Field(
+    byArtist: Optional[Union[List[Union['MusicGroup', 'Person', str]], 'MusicGroup', 'Person', str]] = Field(
         default=None,
         description="The artist that performed this album or recording.",
     )
@@ -38,6 +38,6 @@ class MusicAlbum(MusicPlaylist):
 if TYPE_CHECKING:
     from pydantic_schemaorg.MusicAlbumProductionType import MusicAlbumProductionType
     from pydantic_schemaorg.MusicAlbumReleaseType import MusicAlbumReleaseType
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.MusicGroup import MusicGroup
+    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.MusicRelease import MusicRelease

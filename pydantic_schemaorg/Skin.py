@@ -11,6 +11,5 @@ class Skin(PhysicalExam):
     See: https://schema.org/Skin
     Model depth: 5
     """
-    type_: str = Field("Skin", alias='@type')
+    type_: str = Field(default="Skin", alias='@type')
     
-

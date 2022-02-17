@@ -15,7 +15,7 @@ class LendAction(TransferAction):
     See: https://schema.org/LendAction
     Model depth: 4
     """
-    type_: str = Field("LendAction", alias='@type')
+    type_: str = Field(default="LendAction", alias='@type')
     borrower: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
         default=None,
         description="A sub property of participant. The person that borrows the object being lent.",

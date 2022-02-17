@@ -11,6 +11,5 @@ class AdministrativeArea(Place):
     See: https://schema.org/AdministrativeArea
     Model depth: 3
     """
-    type_: str = Field("AdministrativeArea", alias='@type')
+    type_: str = Field(default="AdministrativeArea", alias='@type')
     
-

@@ -16,7 +16,7 @@ class House(Accommodation):
     See: https://schema.org/House
     Model depth: 4
     """
-    type_: str = Field("House", alias='@type')
+    type_: str = Field(default="House", alias='@type')
     numberOfRooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
@@ -24,7 +24,6 @@ class House(Accommodation):
      "put in the unitText property of the QuantitativeValue.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

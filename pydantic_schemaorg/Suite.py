@@ -19,7 +19,7 @@ class Suite(Accommodation):
     See: https://schema.org/Suite
     Model depth: 4
     """
-    type_: str = Field("Suite", alias='@type')
+    type_: str = Field(default="Suite", alias='@type')
     numberOfRooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
@@ -41,7 +41,6 @@ class Suite(Accommodation):
      "person). Typical unit code(s): C62 for person",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

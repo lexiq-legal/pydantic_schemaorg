@@ -15,6 +15,5 @@ class FundingAgency(Project):
     See: https://schema.org/FundingAgency
     Model depth: 4
     """
-    type_: str = Field("FundingAgency", alias='@type')
+    type_: str = Field(default="FundingAgency", alias='@type')
     
-

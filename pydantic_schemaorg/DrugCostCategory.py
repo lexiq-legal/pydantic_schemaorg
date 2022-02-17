@@ -11,6 +11,6 @@ class DrugCostCategory(MedicalEnumeration):
     See: https://schema.org/DrugCostCategory
     Model depth: 5
     """
-    type_: str = Field("DrugCostCategory", alias='@type')
+    type_: str = Field(default="DrugCostCategory", alias='@type')
     
 

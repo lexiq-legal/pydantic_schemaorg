@@ -13,6 +13,5 @@ class TripleBlindedTrial(MedicalTrialDesign):
     See: https://schema.org/TripleBlindedTrial
     Model depth: 6
     """
-    type_: str = Field("TripleBlindedTrial", alias='@type')
+    type_: str = Field(default="TripleBlindedTrial", alias='@type')
     
-

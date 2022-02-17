@@ -16,7 +16,7 @@ class ApartmentComplex(Residence):
     See: https://schema.org/ApartmentComplex
     Model depth: 4
     """
-    type_: str = Field("ApartmentComplex", alias='@type')
+    type_: str = Field(default="ApartmentComplex", alias='@type')
     numberOfBedrooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]]"
@@ -45,7 +45,6 @@ class ApartmentComplex(Residence):
      "[[ApartmentComplex]]). See also [[numberOfAccommodationUnits]].",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

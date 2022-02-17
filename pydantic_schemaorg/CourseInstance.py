@@ -17,7 +17,7 @@ class CourseInstance(Event):
     See: https://schema.org/CourseInstance
     Model depth: 3
     """
-    type_: str = Field("CourseInstance", alias='@type')
+    type_: str = Field(default="CourseInstance", alias='@type')
     courseWorkload: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The amount of work expected of students taking the course, often provided as a figure"
@@ -36,7 +36,6 @@ class CourseInstance(Event):
      "(e.g. https://ceds.ed.gov/element/001311#Asynchronous ).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

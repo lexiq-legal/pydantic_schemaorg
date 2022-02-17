@@ -11,6 +11,5 @@ class AddAction(UpdateAction):
     See: https://schema.org/AddAction
     Model depth: 4
     """
-    type_: str = Field("AddAction", alias='@type')
+    type_: str = Field(default="AddAction", alias='@type')
     
-

@@ -15,7 +15,7 @@ class DataFeedItem(Intangible):
     See: https://schema.org/DataFeedItem
     Model depth: 3
     """
-    type_: str = Field("DataFeedItem", alias='@type')
+    type_: str = Field(default="DataFeedItem", alias='@type')
     dateDeleted: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
         default=None,
         description="The datetime the item was removed from the DataFeed.",
@@ -34,7 +34,6 @@ class DataFeedItem(Intangible):
         description="The date on which the CreativeWork was created or the item was added to a DataFeed.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.DateTime import DateTime

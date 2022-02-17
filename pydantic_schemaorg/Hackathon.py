@@ -11,6 +11,5 @@ class Hackathon(Event):
     See: https://schema.org/Hackathon
     Model depth: 3
     """
-    type_: str = Field("Hackathon", alias='@type')
+    type_: str = Field(default="Hackathon", alias='@type')
     
-

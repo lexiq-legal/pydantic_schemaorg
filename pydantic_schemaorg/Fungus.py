@@ -11,6 +11,5 @@ class Fungus(InfectiousAgentClass):
     See: https://schema.org/Fungus
     Model depth: 6
     """
-    type_: str = Field("Fungus", alias='@type')
+    type_: str = Field(default="Fungus", alias='@type')
     
-

@@ -15,7 +15,7 @@ class MusicGroup(PerformingGroup):
     See: https://schema.org/MusicGroup
     Model depth: 4
     """
-    type_: str = Field("MusicGroup", alias='@type')
+    type_: str = Field(default="MusicGroup", alias='@type')
     genre: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         default=None,
         description="Genre of the creative work, broadcast channel or group.",
@@ -28,7 +28,7 @@ class MusicGroup(PerformingGroup):
         default=None,
         description="A music recording (track)&#x2014;usually a single song.",
     )
-    track: Optional[Union[List[Union['ItemList', 'MusicRecording', str]], 'ItemList', 'MusicRecording', str]] = Field(
+    track: Optional[Union[List[Union['MusicRecording', 'ItemList', str]], 'MusicRecording', 'ItemList', str]] = Field(
         default=None,
         description="A music recording (track)&#x2014;usually a single song. If an ItemList is given, the"
      "list should contain items of type MusicRecording.",
@@ -42,7 +42,6 @@ class MusicGroup(PerformingGroup):
         description="A member of a music group&#x2014;for example, John, Paul, George, or Ringo.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL

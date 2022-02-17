@@ -14,13 +14,12 @@ class DrugLegalStatus(MedicalIntangible):
     See: https://schema.org/DrugLegalStatus
     Model depth: 4
     """
-    type_: str = Field("DrugLegalStatus", alias='@type')
+    type_: str = Field(default="DrugLegalStatus", alias='@type')
     applicableLocation: Optional[Union[List[Union['AdministrativeArea', str]], 'AdministrativeArea', str]] = Field(
         default=None,
         description="The location in which the status applies.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.AdministrativeArea import AdministrativeArea

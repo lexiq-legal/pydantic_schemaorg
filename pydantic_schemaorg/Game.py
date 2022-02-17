@@ -17,7 +17,7 @@ class Game(CreativeWork):
     See: https://schema.org/Game
     Model depth: 3
     """
-    type_: str = Field("Game", alias='@type')
+    type_: str = Field(default="Game", alias='@type')
     gameLocation: Optional[Union[List[Union[AnyUrl, 'URL', 'Place', 'PostalAddress', str]], AnyUrl, 'URL', 'Place', 'PostalAddress', str]] = Field(
         default=None,
         description="Real or fictional location of the game (or part of game).",
@@ -42,7 +42,6 @@ class Game(CreativeWork):
         description="Indicate how many people can play this game (minimum, maximum, or range).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL

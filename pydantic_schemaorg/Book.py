@@ -15,7 +15,7 @@ class Book(CreativeWork):
     See: https://schema.org/Book
     Model depth: 3
     """
-    type_: str = Field("Book", alias='@type')
+    type_: str = Field(default="Book", alias='@type')
     illustrator: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
         default=None,
         description="The illustrator of the book.",
@@ -41,7 +41,6 @@ class Book(CreativeWork):
         description="The edition of the book.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Person import Person

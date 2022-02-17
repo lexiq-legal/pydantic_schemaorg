@@ -12,6 +12,5 @@ class AccountingService(FinancialService):
     See: https://schema.org/AccountingService
     Model depth: 5
     """
-    type_: str = Field("AccountingService", alias='@type')
+    type_: str = Field(default="AccountingService", alias='@type')
     
-

@@ -16,7 +16,7 @@ class EngineSpecification(StructuredValue):
     See: https://schema.org/EngineSpecification
     Model depth: 4
     """
-    type_: str = Field("EngineSpecification", alias='@type')
+    type_: str = Field(default="EngineSpecification", alias='@type')
     torque: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
         default=None,
         description="The torque (turning force) of the vehicle's engine. Typical unit code(s): NU for newton"
@@ -52,7 +52,6 @@ class EngineSpecification(StructuredValue):
      "to indicate ranges.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue

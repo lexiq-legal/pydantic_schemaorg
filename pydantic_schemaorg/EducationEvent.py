@@ -15,7 +15,7 @@ class EducationEvent(Event):
     See: https://schema.org/EducationEvent
     Model depth: 3
     """
-    type_: str = Field("EducationEvent", alias='@type')
+    type_: str = Field(default="EducationEvent", alias='@type')
     teaches: Optional[Union[List[Union[str, 'Text', 'DefinedTerm']], str, 'Text', 'DefinedTerm']] = Field(
         default=None,
         description="The item being described is intended to help a person learn the competency or learning"
@@ -33,7 +33,6 @@ class EducationEvent(Event):
      "by the referenced term.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

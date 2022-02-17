@@ -11,6 +11,5 @@ class DemoAlbum(MusicAlbumProductionType):
     See: https://schema.org/DemoAlbum
     Model depth: 5
     """
-    type_: str = Field("DemoAlbum", alias='@type')
+    type_: str = Field(default="DemoAlbum", alias='@type')
     
-

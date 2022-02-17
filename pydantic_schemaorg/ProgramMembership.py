@@ -16,7 +16,7 @@ class ProgramMembership(Intangible):
     See: https://schema.org/ProgramMembership
     Model depth: 3
     """
-    type_: str = Field("ProgramMembership", alias='@type')
+    type_: str = Field(default="ProgramMembership", alias='@type')
     membershipNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A unique identifier for the membership.",
@@ -26,12 +26,12 @@ class ProgramMembership(Intangible):
         description="The number of membership points earned by the member. If necessary, the unitText can"
      "be used to express the units the points are issued in. (e.g. stars, miles, etc.)",
     )
-    member: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    member: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A member of an Organization or a ProgramMembership. Organizations can be members of"
      "organizations; ProgramMembership is typically for individuals.",
     )
-    members: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    members: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A member of this organization.",
     )
@@ -45,10 +45,9 @@ class ProgramMembership(Intangible):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person

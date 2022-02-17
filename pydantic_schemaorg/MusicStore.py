@@ -11,6 +11,5 @@ class MusicStore(Store):
     See: https://schema.org/MusicStore
     Model depth: 5
     """
-    type_: str = Field("MusicStore", alias='@type')
+    type_: str = Field(default="MusicStore", alias='@type')
     
-

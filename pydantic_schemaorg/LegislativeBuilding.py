@@ -11,6 +11,6 @@ class LegislativeBuilding(GovernmentBuilding):
     See: https://schema.org/LegislativeBuilding
     Model depth: 5
     """
-    type_: str = Field("LegislativeBuilding", alias='@type')
+    type_: str = Field(default="LegislativeBuilding", alias='@type')
     
 

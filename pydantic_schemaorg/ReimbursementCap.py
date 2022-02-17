@@ -11,6 +11,6 @@ class ReimbursementCap(DrugCostCategory):
     See: https://schema.org/ReimbursementCap
     Model depth: 6
     """
-    type_: str = Field("ReimbursementCap", alias='@type')
+    type_: str = Field(default="ReimbursementCap", alias='@type')
     
 

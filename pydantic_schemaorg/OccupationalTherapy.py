@@ -12,6 +12,5 @@ class OccupationalTherapy(MedicalTherapy):
     See: https://schema.org/OccupationalTherapy
     Model depth: 6
     """
-    type_: str = Field("OccupationalTherapy", alias='@type')
+    type_: str = Field(default="OccupationalTherapy", alias='@type')
     
-

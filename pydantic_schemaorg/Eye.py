@@ -11,6 +11,5 @@ class Eye(PhysicalExam):
     See: https://schema.org/Eye
     Model depth: 5
     """
-    type_: str = Field("Eye", alias='@type')
+    type_: str = Field(default="Eye", alias='@type')
     
-

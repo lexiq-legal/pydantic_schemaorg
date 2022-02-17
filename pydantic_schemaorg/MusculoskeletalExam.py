@@ -11,6 +11,5 @@ class MusculoskeletalExam(PhysicalExam):
     See: https://schema.org/MusculoskeletalExam
     Model depth: 5
     """
-    type_: str = Field("MusculoskeletalExam", alias='@type')
+    type_: str = Field(default="MusculoskeletalExam", alias='@type')
     
-

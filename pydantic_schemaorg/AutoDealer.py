@@ -11,6 +11,5 @@ class AutoDealer(AutomotiveBusiness):
     See: https://schema.org/AutoDealer
     Model depth: 5
     """
-    type_: str = Field("AutoDealer", alias='@type')
+    type_: str = Field(default="AutoDealer", alias='@type')
     
-

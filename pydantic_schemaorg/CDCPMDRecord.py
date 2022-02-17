@@ -19,7 +19,7 @@ class CDCPMDRecord(StructuredValue):
     See: https://schema.org/CDCPMDRecord
     Model depth: 4
     """
-    type_: str = Field("CDCPMDRecord", alias='@type')
+    type_: str = Field(default="CDCPMDRecord", alias='@type')
     cvdNumVentUse: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
         default=None,
         description="numventuse - MECHANICAL VENTILATORS IN USE: Total number of ventilators in use.",
@@ -105,7 +105,6 @@ class CDCPMDRecord(StructuredValue):
      "that are occupied.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

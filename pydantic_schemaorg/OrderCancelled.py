@@ -11,6 +11,5 @@ class OrderCancelled(OrderStatus):
     See: https://schema.org/OrderCancelled
     Model depth: 6
     """
-    type_: str = Field("OrderCancelled", alias='@type')
+    type_: str = Field(default="OrderCancelled", alias='@type')
     
-

@@ -11,6 +11,5 @@ class ResultsAvailable(MedicalStudyStatus):
     See: https://schema.org/ResultsAvailable
     Model depth: 6
     """
-    type_: str = Field("ResultsAvailable", alias='@type')
+    type_: str = Field(default="ResultsAvailable", alias='@type')
     
-

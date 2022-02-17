@@ -17,7 +17,7 @@ class Drug(Substance):
     See: https://schema.org/Drug
     Model depth: 4
     """
-    type_: str = Field("Drug", alias='@type')
+    type_: str = Field(default="Drug", alias='@type')
     prescribingInfo: Optional[Union[List[Union[AnyUrl, 'URL', str]], AnyUrl, 'URL', str]] = Field(
         default=None,
         description="Link to prescribing information for the drug.",
@@ -158,7 +158,6 @@ class Drug(Substance):
         description="Any FDA or other warnings about the drug (text or URL).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL

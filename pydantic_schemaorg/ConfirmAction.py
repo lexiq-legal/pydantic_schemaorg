@@ -12,6 +12,6 @@ class ConfirmAction(InformAction):
     See: https://schema.org/ConfirmAction
     Model depth: 6
     """
-    type_: str = Field("ConfirmAction", alias='@type')
+    type_: str = Field(default="ConfirmAction", alias='@type')
     
 

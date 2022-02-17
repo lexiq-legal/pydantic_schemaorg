@@ -15,7 +15,7 @@ class PeopleAudience(Audience):
     See: https://schema.org/PeopleAudience
     Model depth: 4
     """
-    type_: str = Field("PeopleAudience", alias='@type')
+    type_: str = Field(default="PeopleAudience", alias='@type')
     suggestedGender: Optional[Union[List[Union[str, 'Text', 'GenderType']], str, 'Text', 'GenderType']] = Field(
         default=None,
         description="The suggested gender of the intended person or audience, for example \"male\", \"female\","
@@ -57,7 +57,6 @@ class PeopleAudience(Audience):
         description="Audiences defined by a person's minimum age.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

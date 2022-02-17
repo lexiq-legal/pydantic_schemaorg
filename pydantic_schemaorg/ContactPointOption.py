@@ -11,6 +11,5 @@ class ContactPointOption(Enumeration):
     See: https://schema.org/ContactPointOption
     Model depth: 4
     """
-    type_: str = Field("ContactPointOption", alias='@type')
+    type_: str = Field(default="ContactPointOption", alias='@type')
     
-

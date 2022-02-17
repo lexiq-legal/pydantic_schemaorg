@@ -12,6 +12,5 @@ class MedicalRiskCalculator(MedicalRiskEstimator):
     See: https://schema.org/MedicalRiskCalculator
     Model depth: 4
     """
-    type_: str = Field("MedicalRiskCalculator", alias='@type')
+    type_: str = Field(default="MedicalRiskCalculator", alias='@type')
     
-

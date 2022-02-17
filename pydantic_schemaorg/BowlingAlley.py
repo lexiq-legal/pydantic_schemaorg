@@ -11,6 +11,6 @@ class BowlingAlley(SportsActivityLocation):
     See: https://schema.org/BowlingAlley
     Model depth: 5
     """
-    type_: str = Field("BowlingAlley", alias='@type')
+    type_: str = Field(default="BowlingAlley", alias='@type')
     
 

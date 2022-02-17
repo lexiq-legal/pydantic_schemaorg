@@ -11,6 +11,5 @@ class BoatTerminal(CivicStructure):
     See: https://schema.org/BoatTerminal
     Model depth: 4
     """
-    type_: str = Field("BoatTerminal", alias='@type')
+    type_: str = Field(default="BoatTerminal", alias='@type')
     
-

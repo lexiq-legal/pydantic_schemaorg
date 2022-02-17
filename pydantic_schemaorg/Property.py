@@ -15,7 +15,7 @@ class Property(Intangible):
     See: https://schema.org/Property
     Model depth: 3
     """
-    type_: str = Field("Property", alias='@type')
+    type_: str = Field(default="Property", alias='@type')
     domainIncludes: Optional[Union[List[Union['Class', str]], 'Class', str]] = Field(
         default=None,
         description="Relates a property to a class that is (one of) the type(s) the property is expected to be"
@@ -34,12 +34,11 @@ class Property(Intangible):
      "inverses; in these situations RDFa and JSON-LD syntax for reverse properties can be"
      "used.",
     )
-    supersededBy: Optional[Union[List[Union['Enumeration', 'Property', 'Class', str]], 'Enumeration', 'Property', 'Class', str]] = Field(
+    supersededBy: Optional[Union[List[Union['Class', 'Property', 'Enumeration', str]], 'Class', 'Property', 'Enumeration', str]] = Field(
         default=None,
         description="Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Class import Class

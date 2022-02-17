@@ -11,6 +11,5 @@ class Festival(Event):
     See: https://schema.org/Festival
     Model depth: 3
     """
-    type_: str = Field("Festival", alias='@type')
+    type_: str = Field(default="Festival", alias='@type')
     
-

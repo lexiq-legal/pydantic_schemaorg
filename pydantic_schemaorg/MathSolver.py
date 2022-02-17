@@ -14,7 +14,7 @@ class MathSolver(CreativeWork):
     See: https://schema.org/MathSolver
     Model depth: 3
     """
-    type_: str = Field("MathSolver", alias='@type')
+    type_: str = Field(default="MathSolver", alias='@type')
     mathExpression: Optional[Union[List[Union[str, 'Text', 'SolveMathAction']], str, 'Text', 'SolveMathAction']] = Field(
         default=None,
         description="A mathematical expression (e.g. 'x^2-3x=0') that may be solved for a specific variable,"

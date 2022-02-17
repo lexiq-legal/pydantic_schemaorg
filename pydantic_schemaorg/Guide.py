@@ -18,13 +18,12 @@ class Guide(CreativeWork):
     See: https://schema.org/Guide
     Model depth: 3
     """
-    type_: str = Field("Guide", alias='@type')
+    type_: str = Field(default="Guide", alias='@type')
     reviewAspect: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="This Review or Rating is relevant to this part or facet of the itemReviewed.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

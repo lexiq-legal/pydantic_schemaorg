@@ -18,7 +18,7 @@ class ComicIssue(PublicationIssue):
     See: https://schema.org/ComicIssue
     Model depth: 4
     """
-    type_: str = Field("ComicIssue", alias='@type')
+    type_: str = Field(default="ComicIssue", alias='@type')
     colorist: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
         default=None,
         description="The individual who adds color to inked drawings.",
@@ -47,7 +47,6 @@ class ComicIssue(PublicationIssue):
         description="The individual who traces over the pencil drawings in ink after pencils are complete.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Person import Person

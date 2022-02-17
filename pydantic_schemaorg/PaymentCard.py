@@ -7,18 +7,18 @@ from decimal import Decimal
 
 
 from pydantic import Field
-from pydantic_schemaorg.FinancialProduct import FinancialProduct
 from pydantic_schemaorg.PaymentMethod import PaymentMethod
+from pydantic_schemaorg.FinancialProduct import FinancialProduct
 
 
-class PaymentCard(FinancialProduct, PaymentMethod):
+class PaymentCard(PaymentMethod, FinancialProduct):
     """A payment method using a credit, debit, store or other card to associate the payment with"
      "an account.
 
     See: https://schema.org/PaymentCard
     Model depth: 5
     """
-    type_: str = Field("PaymentCard", alias='@type')
+    type_: str = Field(default="PaymentCard", alias='@type')
     contactlessPayment: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="A secure method for consumers to purchase products or services via debit, credit or smartcards"
@@ -38,7 +38,6 @@ class PaymentCard(FinancialProduct, PaymentMethod):
      "card statement each month.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Boolean import Boolean

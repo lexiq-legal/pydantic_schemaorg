@@ -12,6 +12,5 @@ class CharitableIncorporatedOrganization(UKNonprofitType):
     See: https://schema.org/CharitableIncorporatedOrganization
     Model depth: 6
     """
-    type_: str = Field("CharitableIncorporatedOrganization", alias='@type')
+    type_: str = Field(default="CharitableIncorporatedOrganization", alias='@type')
     
-

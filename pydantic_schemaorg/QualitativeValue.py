@@ -15,7 +15,7 @@ class QualitativeValue(Enumeration):
     See: https://schema.org/QualitativeValue
     Model depth: 4
     """
-    type_: str = Field("QualitativeValue", alias='@type')
+    type_: str = Field(default="QualitativeValue", alias='@type')
     lesser: Optional[Union[List[Union['QualitativeValue', str]], 'QualitativeValue', str]] = Field(
         default=None,
         description="This ordering relation for qualitative values indicates that the subject is lesser"
@@ -55,19 +55,18 @@ class QualitativeValue(Enumeration):
      "https://schema.org/gtin13, ...) will typically expect such data to be provided using"
      "those properties, rather than using the generic property/value mechanism.",
     )
-    valueReference: Optional[Union[List[Union[str, 'Text', 'PropertyValue', 'StructuredValue', 'Enumeration', 'QualitativeValue', 'DefinedTerm', 'MeasurementTypeEnumeration', 'QuantitativeValue']], str, 'Text', 'PropertyValue', 'StructuredValue', 'Enumeration', 'QualitativeValue', 'DefinedTerm', 'MeasurementTypeEnumeration', 'QuantitativeValue']] = Field(
+    valueReference: Optional[Union[List[Union[str, 'Text', 'StructuredValue', 'QualitativeValue', 'PropertyValue', 'Enumeration', 'MeasurementTypeEnumeration', 'DefinedTerm', 'QuantitativeValue']], str, 'Text', 'StructuredValue', 'QualitativeValue', 'PropertyValue', 'Enumeration', 'MeasurementTypeEnumeration', 'DefinedTerm', 'QuantitativeValue']] = Field(
         default=None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.PropertyValue import PropertyValue
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.StructuredValue import StructuredValue
     from pydantic_schemaorg.Enumeration import Enumeration
-    from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
+    from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue

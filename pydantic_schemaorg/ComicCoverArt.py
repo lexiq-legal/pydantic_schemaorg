@@ -12,6 +12,6 @@ class ComicCoverArt(CoverArt, ComicStory):
     See: https://schema.org/ComicCoverArt
     Model depth: 4
     """
-    type_: str = Field("ComicCoverArt", alias='@type')
+    type_: str = Field(default="ComicCoverArt", alias='@type')
     
 

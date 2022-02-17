@@ -14,14 +14,14 @@ class MenuItem(Intangible):
     See: https://schema.org/MenuItem
     Model depth: 3
     """
-    type_: str = Field("MenuItem", alias='@type')
+    type_: str = Field(default="MenuItem", alias='@type')
     menuAddOn: Optional[Union[List[Union['MenuItem', 'MenuSection', str]], 'MenuItem', 'MenuSection', str]] = Field(
         default=None,
         description="Additional menu item(s) such as a side dish of salad or side order of fries that can be added"
      "to this menu item. Additionally it can be a menu section containing allowed add-on menu"
      "items for this menu item.",
     )
-    offers: Optional[Union[List[Union['Demand', 'Offer', str]], 'Demand', 'Offer', str]] = Field(
+    offers: Optional[Union[List[Union['Offer', 'Demand', str]], 'Offer', 'Demand', str]] = Field(
         default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -41,10 +41,9 @@ class MenuItem(Intangible):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.MenuSection import MenuSection
-    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Offer import Offer
+    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.NutritionInformation import NutritionInformation
     from pydantic_schemaorg.RestrictedDiet import RestrictedDiet

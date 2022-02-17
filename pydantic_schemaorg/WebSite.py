@@ -15,7 +15,7 @@ class WebSite(CreativeWork):
     See: https://schema.org/WebSite
     Model depth: 3
     """
-    type_: str = Field("WebSite", alias='@type')
+    type_: str = Field(default="WebSite", alias='@type')
     issn: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The International Standard Serial Number (ISSN) that identifies this serial publication."
@@ -23,7 +23,6 @@ class WebSite(CreativeWork):
      "for, this serial publication.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

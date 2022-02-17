@@ -12,6 +12,5 @@ class Vessel(AnatomicalStructure):
     See: https://schema.org/Vessel
     Model depth: 4
     """
-    type_: str = Field("Vessel", alias='@type')
+    type_: str = Field(default="Vessel", alias='@type')
     
-

@@ -11,6 +11,5 @@ class RefundTypeEnumeration(Enumeration):
     See: https://schema.org/RefundTypeEnumeration
     Model depth: 4
     """
-    type_: str = Field("RefundTypeEnumeration", alias='@type')
+    type_: str = Field(default="RefundTypeEnumeration", alias='@type')
     
-

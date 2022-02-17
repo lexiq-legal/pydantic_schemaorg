@@ -11,6 +11,5 @@ class BodyMeasurementNeck(BodyMeasurementTypeEnumeration):
     See: https://schema.org/BodyMeasurementNeck
     Model depth: 6
     """
-    type_: str = Field("BodyMeasurementNeck", alias='@type')
+    type_: str = Field(default="BodyMeasurementNeck", alias='@type')
     
-

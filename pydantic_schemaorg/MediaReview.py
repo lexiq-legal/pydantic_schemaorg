@@ -23,7 +23,7 @@ class MediaReview(Review):
     See: https://schema.org/MediaReview
     Model depth: 4
     """
-    type_: str = Field("MediaReview", alias='@type')
+    type_: str = Field(default="MediaReview", alias='@type')
     originalMediaLink: Optional[Union[List[Union[AnyUrl, 'URL', 'MediaObject', 'WebPage', str]], AnyUrl, 'URL', 'MediaObject', 'WebPage', str]] = Field(
         default=None,
         description="Link to the page containing an original version of the content, or directly to an online"

@@ -15,7 +15,7 @@ class DDxElement(MedicalIntangible):
     See: https://schema.org/DDxElement
     Model depth: 4
     """
-    type_: str = Field("DDxElement", alias='@type')
+    type_: str = Field(default="DDxElement", alias='@type')
     diagnosis: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
         default=None,
         description="One or more alternative conditions considered in the differential diagnosis process"
@@ -27,7 +27,6 @@ class DDxElement(MedicalIntangible):
      "in the differential diagnosis.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalCondition import MedicalCondition

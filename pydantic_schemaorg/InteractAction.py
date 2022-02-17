@@ -11,6 +11,6 @@ class InteractAction(Action):
     See: https://schema.org/InteractAction
     Model depth: 3
     """
-    type_: str = Field("InteractAction", alias='@type')
+    type_: str = Field(default="InteractAction", alias='@type')
     
 

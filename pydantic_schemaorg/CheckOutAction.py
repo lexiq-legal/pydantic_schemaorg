@@ -17,6 +17,5 @@ class CheckOutAction(CommunicateAction):
     See: https://schema.org/CheckOutAction
     Model depth: 5
     """
-    type_: str = Field("CheckOutAction", alias='@type')
+    type_: str = Field(default="CheckOutAction", alias='@type')
     
-

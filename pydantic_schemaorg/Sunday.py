@@ -11,6 +11,5 @@ class Sunday(DayOfWeek):
     See: https://schema.org/Sunday
     Model depth: 5
     """
-    type_: str = Field("Sunday", alias='@type')
+    type_: str = Field(default="Sunday", alias='@type')
     
-

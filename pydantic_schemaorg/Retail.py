@@ -11,6 +11,6 @@ class Retail(DrugCostCategory):
     See: https://schema.org/Retail
     Model depth: 6
     """
-    type_: str = Field("Retail", alias='@type')
+    type_: str = Field(default="Retail", alias='@type')
     
 

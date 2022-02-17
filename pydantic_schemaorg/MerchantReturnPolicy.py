@@ -18,7 +18,7 @@ class MerchantReturnPolicy(Intangible):
     See: https://schema.org/MerchantReturnPolicy
     Model depth: 3
     """
-    type_: str = Field("MerchantReturnPolicy", alias='@type')
+    type_: str = Field(default="MerchantReturnPolicy", alias='@type')
     customerRemorseReturnFees: Optional[Union[List[Union['ReturnFeesEnumeration', str]], 'ReturnFeesEnumeration', str]] = Field(
         default=None,
         description="The type of return fees if the product is returned due to customer remorse.",

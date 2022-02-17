@@ -11,6 +11,5 @@ class UsageOrScheduleHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/UsageOrScheduleHealthAspect
     Model depth: 5
     """
-    type_: str = Field("UsageOrScheduleHealthAspect", alias='@type')
+    type_: str = Field(default="UsageOrScheduleHealthAspect", alias='@type')
     
-

@@ -17,7 +17,7 @@ class ExercisePlan(PhysicalActivity, CreativeWork):
     See: https://schema.org/ExercisePlan
     Model depth: 3
     """
-    type_: str = Field("ExercisePlan", alias='@type')
+    type_: str = Field(default="ExercisePlan", alias='@type')
     repetitions: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="Number of times one should repeat the activity.",
@@ -31,7 +31,7 @@ class ExercisePlan(PhysicalActivity, CreativeWork):
         description="Quantitative measure gauging the degree of force involved in the exercise, for example,"
      "heartbeats per minute. May include the velocity of the movement.",
     )
-    workload: Optional[Union[List[Union['QuantitativeValue', 'Energy', str]], 'QuantitativeValue', 'Energy', str]] = Field(
+    workload: Optional[Union[List[Union['Energy', 'QuantitativeValue', str]], 'Energy', 'QuantitativeValue', str]] = Field(
         default=None,
         description="Quantitative measure of the physiologic output of the exercise; also referred to as"
      "energy expenditure.",
@@ -47,7 +47,7 @@ class ExercisePlan(PhysicalActivity, CreativeWork):
         description="Type(s) of exercise or activity, such as strength training, flexibility training,"
      "aerobics, cardiac rehabilitation, etc.",
     )
-    activityDuration: Optional[Union[List[Union['QuantitativeValue', 'Duration', str]], 'QuantitativeValue', 'Duration', str]] = Field(
+    activityDuration: Optional[Union[List[Union['Duration', 'QuantitativeValue', str]], 'Duration', 'QuantitativeValue', str]] = Field(
         default=None,
         description="Length of time to engage in the activity.",
     )

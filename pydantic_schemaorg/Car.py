@@ -14,7 +14,7 @@ class Car(Vehicle):
     See: https://schema.org/Car
     Model depth: 4
     """
-    type_: str = Field("Car", alias='@type')
+    type_: str = Field(default="Car", alias='@type')
     acrissCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The ACRISS Car Classification Code is a code used by many car rental companies, for classifying"
@@ -30,7 +30,6 @@ class Car(Vehicle):
      "to indicate ranges.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

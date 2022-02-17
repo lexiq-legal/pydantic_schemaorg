@@ -11,6 +11,6 @@ class ListenAction(ConsumeAction):
     See: https://schema.org/ListenAction
     Model depth: 4
     """
-    type_: str = Field("ListenAction", alias='@type')
+    type_: str = Field(default="ListenAction", alias='@type')
     
 

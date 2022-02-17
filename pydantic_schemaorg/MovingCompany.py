@@ -11,6 +11,5 @@ class MovingCompany(HomeAndConstructionBusiness):
     See: https://schema.org/MovingCompany
     Model depth: 5
     """
-    type_: str = Field("MovingCompany", alias='@type')
+    type_: str = Field(default="MovingCompany", alias='@type')
     
-

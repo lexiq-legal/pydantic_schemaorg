@@ -11,6 +11,5 @@ class TieAction(AchieveAction):
     See: https://schema.org/TieAction
     Model depth: 4
     """
-    type_: str = Field("TieAction", alias='@type')
+    type_: str = Field(default="TieAction", alias='@type')
     
-

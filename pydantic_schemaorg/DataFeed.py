@@ -14,15 +14,14 @@ class DataFeed(Dataset):
     See: https://schema.org/DataFeed
     Model depth: 4
     """
-    type_: str = Field("DataFeed", alias='@type')
-    dataFeedElement: Optional[Union[List[Union[str, 'Text', 'Thing', 'DataFeedItem']], str, 'Text', 'Thing', 'DataFeedItem']] = Field(
+    type_: str = Field(default="DataFeed", alias='@type')
+    dataFeedElement: Optional[Union[List[Union[str, 'Text', 'DataFeedItem', 'Thing']], str, 'Text', 'DataFeedItem', 'Thing']] = Field(
         default=None,
         description="An item within in a data feed. Data feeds may have many elements.",
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.DataFeedItem import DataFeedItem
+    from pydantic_schemaorg.Thing import Thing

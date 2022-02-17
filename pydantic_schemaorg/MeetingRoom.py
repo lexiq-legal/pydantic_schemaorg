@@ -15,6 +15,5 @@ class MeetingRoom(Room):
     See: https://schema.org/MeetingRoom
     Model depth: 5
     """
-    type_: str = Field("MeetingRoom", alias='@type')
+    type_: str = Field(default="MeetingRoom", alias='@type')
     
-

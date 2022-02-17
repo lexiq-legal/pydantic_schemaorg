@@ -12,6 +12,5 @@ class CrossSectional(MedicalObservationalStudyDesign):
     See: https://schema.org/CrossSectional
     Model depth: 6
     """
-    type_: str = Field("CrossSectional", alias='@type')
+    type_: str = Field(default="CrossSectional", alias='@type')
     
-

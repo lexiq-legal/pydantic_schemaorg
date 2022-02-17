@@ -18,7 +18,7 @@ class DeliveryTimeSettings(StructuredValue):
     See: https://schema.org/DeliveryTimeSettings
     Model depth: 4
     """
-    type_: str = Field("DeliveryTimeSettings", alias='@type')
+    type_: str = Field(default="DeliveryTimeSettings", alias='@type')
     shippingDestination: Optional[Union[List[Union['DefinedRegion', str]], 'DefinedRegion', str]] = Field(
         default=None,
         description="indicates (possibly multiple) shipping destinations. These can be defined in several"
@@ -43,7 +43,6 @@ class DeliveryTimeSettings(StructuredValue):
      "the context of a [[shippingSettingsLink]] cross-reference).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.DefinedRegion import DefinedRegion

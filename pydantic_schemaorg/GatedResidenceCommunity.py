@@ -11,6 +11,5 @@ class GatedResidenceCommunity(Residence):
     See: https://schema.org/GatedResidenceCommunity
     Model depth: 4
     """
-    type_: str = Field("GatedResidenceCommunity", alias='@type')
+    type_: str = Field(default="GatedResidenceCommunity", alias='@type')
     
-

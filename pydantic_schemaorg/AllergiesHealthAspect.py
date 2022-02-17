@@ -11,6 +11,5 @@ class AllergiesHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/AllergiesHealthAspect
     Model depth: 5
     """
-    type_: str = Field("AllergiesHealthAspect", alias='@type')
+    type_: str = Field(default="AllergiesHealthAspect", alias='@type')
     
-

@@ -11,6 +11,5 @@ class SchoolDistrict(AdministrativeArea):
     See: https://schema.org/SchoolDistrict
     Model depth: 4
     """
-    type_: str = Field("SchoolDistrict", alias='@type')
+    type_: str = Field(default="SchoolDistrict", alias='@type')
     
-

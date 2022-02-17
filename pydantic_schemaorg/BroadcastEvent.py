@@ -15,7 +15,7 @@ class BroadcastEvent(PublicationEvent):
     See: https://schema.org/BroadcastEvent
     Model depth: 4
     """
-    type_: str = Field("BroadcastEvent", alias='@type')
+    type_: str = Field(default="BroadcastEvent", alias='@type')
     isLiveBroadcast: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="True if the broadcast is of a live event.",
@@ -33,7 +33,6 @@ class BroadcastEvent(PublicationEvent):
         description="The event being broadcast such as a sporting event or awards ceremony.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Boolean import Boolean

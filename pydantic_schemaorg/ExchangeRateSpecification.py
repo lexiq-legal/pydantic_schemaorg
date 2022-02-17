@@ -15,7 +15,7 @@ class ExchangeRateSpecification(StructuredValue):
     See: https://schema.org/ExchangeRateSpecification
     Model depth: 4
     """
-    type_: str = Field("ExchangeRateSpecification", alias='@type')
+    type_: str = Field(default="ExchangeRateSpecification", alias='@type')
     exchangeRateSpread: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', str]], Decimal, 'Number', 'MonetaryAmount', str]] = Field(
         default=None,
         description="The difference between the price at which a broker or other intermediary buys and sells"
@@ -34,7 +34,6 @@ class ExchangeRateSpecification(StructuredValue):
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

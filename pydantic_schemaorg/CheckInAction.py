@@ -18,6 +18,5 @@ class CheckInAction(CommunicateAction):
     See: https://schema.org/CheckInAction
     Model depth: 5
     """
-    type_: str = Field("CheckInAction", alias='@type')
+    type_: str = Field(default="CheckInAction", alias='@type')
     
-

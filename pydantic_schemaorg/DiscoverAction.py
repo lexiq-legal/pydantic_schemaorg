@@ -11,6 +11,6 @@ class DiscoverAction(FindAction):
     See: https://schema.org/DiscoverAction
     Model depth: 4
     """
-    type_: str = Field("DiscoverAction", alias='@type')
+    type_: str = Field(default="DiscoverAction", alias='@type')
     
 

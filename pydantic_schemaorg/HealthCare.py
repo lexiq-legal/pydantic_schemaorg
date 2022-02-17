@@ -11,6 +11,5 @@ class HealthCare(GovernmentBenefitsType):
     See: https://schema.org/HealthCare
     Model depth: 5
     """
-    type_: str = Field("HealthCare", alias='@type')
+    type_: str = Field(default="HealthCare", alias='@type')
     
-

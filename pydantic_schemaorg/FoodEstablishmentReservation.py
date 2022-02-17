@@ -18,7 +18,7 @@ class FoodEstablishmentReservation(Reservation):
     See: https://schema.org/FoodEstablishmentReservation
     Model depth: 4
     """
-    type_: str = Field("FoodEstablishmentReservation", alias='@type')
+    type_: str = Field(default="FoodEstablishmentReservation", alias='@type')
     partySize: Optional[Union[List[Union[int, 'Integer', 'QuantitativeValue', str]], int, 'Integer', 'QuantitativeValue', str]] = Field(
         default=None,
         description="Number of people the reservation should accommodate.",
@@ -42,7 +42,6 @@ class FoodEstablishmentReservation(Reservation):
      "dates with times. This situation may be clarified in future revisions.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Integer import Integer

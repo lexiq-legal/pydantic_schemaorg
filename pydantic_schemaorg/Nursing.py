@@ -13,6 +13,5 @@ class Nursing(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Nursing
     Model depth: 5
     """
-    type_: str = Field("Nursing", alias='@type')
+    type_: str = Field(default="Nursing", alias='@type')
     
-

@@ -11,6 +11,5 @@ class ReportedDoseSchedule(DoseSchedule):
     See: https://schema.org/ReportedDoseSchedule
     Model depth: 5
     """
-    type_: str = Field("ReportedDoseSchedule", alias='@type')
+    type_: str = Field(default="ReportedDoseSchedule", alias='@type')
     
-

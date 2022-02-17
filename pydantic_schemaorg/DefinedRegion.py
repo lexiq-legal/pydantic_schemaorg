@@ -20,7 +20,7 @@ class DefinedRegion(StructuredValue):
     See: https://schema.org/DefinedRegion
     Model depth: 4
     """
-    type_: str = Field("DefinedRegion", alias='@type')
+    type_: str = Field(default="DefinedRegion", alias='@type')
     postalCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The postal code. For example, 94043.",

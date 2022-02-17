@@ -11,6 +11,6 @@ class DigitalAudioTapeFormat(MusicReleaseFormatType):
     See: https://schema.org/DigitalAudioTapeFormat
     Model depth: 5
     """
-    type_: str = Field("DigitalAudioTapeFormat", alias='@type')
+    type_: str = Field(default="DigitalAudioTapeFormat", alias='@type')
     
 

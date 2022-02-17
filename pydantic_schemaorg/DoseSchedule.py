@@ -15,7 +15,7 @@ class DoseSchedule(MedicalIntangible):
     See: https://schema.org/DoseSchedule
     Model depth: 4
     """
-    type_: str = Field("DoseSchedule", alias='@type')
+    type_: str = Field(default="DoseSchedule", alias='@type')
     targetPopulation: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Characteristics of the population for which this is intended, or which typically uses"

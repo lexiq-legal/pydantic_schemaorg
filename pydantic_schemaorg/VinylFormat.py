@@ -11,6 +11,6 @@ class VinylFormat(MusicReleaseFormatType):
     See: https://schema.org/VinylFormat
     Model depth: 5
     """
-    type_: str = Field("VinylFormat", alias='@type')
+    type_: str = Field(default="VinylFormat", alias='@type')
     
 

@@ -16,7 +16,7 @@ class SpeakableSpecification(Intangible):
     See: https://schema.org/SpeakableSpecification
     Model depth: 3
     """
-    type_: str = Field("SpeakableSpecification", alias='@type')
+    type_: str = Field(default="SpeakableSpecification", alias='@type')
     xpath: Optional[Union[List[Union[str, 'XPathType']], str, 'XPathType']] = Field(
         default=None,
         description="An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter"
@@ -29,7 +29,6 @@ class SpeakableSpecification(Intangible):
      "page element\".",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.XPathType import XPathType

@@ -17,7 +17,7 @@ class CompoundPriceSpecification(PriceSpecification):
     See: https://schema.org/CompoundPriceSpecification
     Model depth: 5
     """
-    type_: str = Field("CompoundPriceSpecification", alias='@type')
+    type_: str = Field(default="CompoundPriceSpecification", alias='@type')
     priceType: Optional[Union[List[Union[str, 'Text', 'PriceTypeEnumeration']], str, 'Text', 'PriceTypeEnumeration']] = Field(
         default=None,
         description="Defines the type of a price specified for an offered product, for example a list price,"
@@ -33,7 +33,6 @@ class CompoundPriceSpecification(PriceSpecification):
      "for the [[CompoundPriceSpecification]] node.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

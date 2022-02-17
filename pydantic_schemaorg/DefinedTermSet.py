@@ -15,13 +15,12 @@ class DefinedTermSet(CreativeWork):
     See: https://schema.org/DefinedTermSet
     Model depth: 3
     """
-    type_: str = Field("DefinedTermSet", alias='@type')
+    type_: str = Field(default="DefinedTermSet", alias='@type')
     hasDefinedTerm: Optional[Union[List[Union['DefinedTerm', str]], 'DefinedTerm', str]] = Field(
         default=None,
         description="A Defined Term contained in this term set.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.DefinedTerm import DefinedTerm

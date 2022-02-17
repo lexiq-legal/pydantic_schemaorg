@@ -17,8 +17,8 @@ class PublicationEvent(Event):
     See: https://schema.org/PublicationEvent
     Model depth: 3
     """
-    type_: str = Field("PublicationEvent", alias='@type')
-    publishedBy: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    type_: str = Field(default="PublicationEvent", alias='@type')
+    publishedBy: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="An agent associated with the publication event.",
     )
@@ -32,9 +32,8 @@ class PublicationEvent(Event):
     )
     
 
-
 if TYPE_CHECKING:
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.BroadcastService import BroadcastService
     from pydantic_schemaorg.Boolean import Boolean

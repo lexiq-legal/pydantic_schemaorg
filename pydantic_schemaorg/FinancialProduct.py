@@ -18,7 +18,7 @@ class FinancialProduct(Service):
     See: https://schema.org/FinancialProduct
     Model depth: 4
     """
-    type_: str = Field("FinancialProduct", alias='@type')
+    type_: str = Field(default="FinancialProduct", alias='@type')
     annualPercentageRate: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The annual rate that is charged for borrowing (or made by investing), expressed as a single"

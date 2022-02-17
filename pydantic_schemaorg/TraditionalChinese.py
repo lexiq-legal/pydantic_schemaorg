@@ -13,6 +13,5 @@ class TraditionalChinese(MedicineSystem):
     See: https://schema.org/TraditionalChinese
     Model depth: 6
     """
-    type_: str = Field("TraditionalChinese", alias='@type')
+    type_: str = Field(default="TraditionalChinese", alias='@type')
     
-

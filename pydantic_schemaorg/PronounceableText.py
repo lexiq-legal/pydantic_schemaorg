@@ -14,7 +14,7 @@ class PronounceableText(Text):
     See: https://schema.org/PronounceableText
     Model depth: 6
     """
-    type_: str = Field("PronounceableText", alias='@type')
+    type_: str = Field(default="PronounceableText", alias='@type')
     textValue: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Text value being annotated.",
@@ -35,7 +35,6 @@ class PronounceableText(Text):
      "[[availableLanguage]].",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

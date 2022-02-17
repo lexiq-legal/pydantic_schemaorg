@@ -11,6 +11,6 @@ class BodyMeasurementWeight(BodyMeasurementTypeEnumeration):
     See: https://schema.org/BodyMeasurementWeight
     Model depth: 6
     """
-    type_: str = Field("BodyMeasurementWeight", alias='@type')
+    type_: str = Field(default="BodyMeasurementWeight", alias='@type')
     
 

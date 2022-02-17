@@ -11,6 +11,5 @@ class MovieClip(Clip):
     See: https://schema.org/MovieClip
     Model depth: 4
     """
-    type_: str = Field("MovieClip", alias='@type')
+    type_: str = Field(default="MovieClip", alias='@type')
     
-

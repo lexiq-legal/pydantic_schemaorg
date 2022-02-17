@@ -12,6 +12,6 @@ class DeactivateAction(ControlAction):
     See: https://schema.org/DeactivateAction
     Model depth: 4
     """
-    type_: str = Field("DeactivateAction", alias='@type')
+    type_: str = Field(default="DeactivateAction", alias='@type')
     
 

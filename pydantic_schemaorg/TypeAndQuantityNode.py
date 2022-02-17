@@ -17,7 +17,7 @@ class TypeAndQuantityNode(StructuredValue):
     See: https://schema.org/TypeAndQuantityNode
     Model depth: 4
     """
-    type_: str = Field("TypeAndQuantityNode", alias='@type')
+    type_: str = Field(default="TypeAndQuantityNode", alias='@type')
     businessFunction: Optional[Union[List[Union['BusinessFunction', str]], 'BusinessFunction', str]] = Field(
         default=None,
         description="The business function (e.g. sell, lease, repair, dispose) of the offer or component"
@@ -42,7 +42,6 @@ class TypeAndQuantityNode(StructuredValue):
         description="The quantity of the goods included in the offer.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.BusinessFunction import BusinessFunction

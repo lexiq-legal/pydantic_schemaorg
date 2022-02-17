@@ -15,7 +15,7 @@ class TVSeason(CreativeWorkSeason, CreativeWork):
     See: https://schema.org/TVSeason
     Model depth: 3
     """
-    type_: str = Field("TVSeason", alias='@type')
+    type_: str = Field(default="TVSeason", alias='@type')
     countryOfOrigin: Optional[Union[List[Union['Country', str]], 'Country', str]] = Field(
         default=None,
         description="The country of origin of something, including products as well as creative works such"
@@ -31,7 +31,6 @@ class TVSeason(CreativeWorkSeason, CreativeWork):
         description="The TV series to which this episode or season belongs.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Country import Country

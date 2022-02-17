@@ -12,6 +12,5 @@ class HowOrWhereHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/HowOrWhereHealthAspect
     Model depth: 5
     """
-    type_: str = Field("HowOrWhereHealthAspect", alias='@type')
+    type_: str = Field(default="HowOrWhereHealthAspect", alias='@type')
     
-

@@ -11,6 +11,5 @@ class ReturnAtKiosk(ReturnMethodEnumeration):
     See: https://schema.org/ReturnAtKiosk
     Model depth: 5
     """
-    type_: str = Field("ReturnAtKiosk", alias='@type')
+    type_: str = Field(default="ReturnAtKiosk", alias='@type')
     
-

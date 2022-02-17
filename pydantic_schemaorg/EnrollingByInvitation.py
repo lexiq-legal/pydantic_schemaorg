@@ -11,6 +11,5 @@ class EnrollingByInvitation(MedicalStudyStatus):
     See: https://schema.org/EnrollingByInvitation
     Model depth: 6
     """
-    type_: str = Field("EnrollingByInvitation", alias='@type')
+    type_: str = Field(default="EnrollingByInvitation", alias='@type')
     
-

@@ -13,6 +13,5 @@ class ReserveAction(PlanAction):
     See: https://schema.org/ReserveAction
     Model depth: 5
     """
-    type_: str = Field("ReserveAction", alias='@type')
+    type_: str = Field(default="ReserveAction", alias='@type')
     
-

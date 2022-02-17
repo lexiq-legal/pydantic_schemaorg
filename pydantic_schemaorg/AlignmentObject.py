@@ -18,7 +18,7 @@ class AlignmentObject(Intangible):
     See: https://schema.org/AlignmentObject
     Model depth: 3
     """
-    type_: str = Field("AlignmentObject", alias='@type')
+    type_: str = Field(default="AlignmentObject", alias='@type')
     alignmentType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A category of alignment between the learning resource and the framework node. Recommended"

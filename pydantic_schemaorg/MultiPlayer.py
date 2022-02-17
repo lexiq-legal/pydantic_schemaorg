@@ -11,6 +11,6 @@ class MultiPlayer(GamePlayMode):
     See: https://schema.org/MultiPlayer
     Model depth: 5
     """
-    type_: str = Field("MultiPlayer", alias='@type')
+    type_: str = Field(default="MultiPlayer", alias='@type')
     
 

@@ -15,7 +15,7 @@ class Taxon(Thing):
     See: https://schema.org/Taxon
     Model depth: 2
     """
-    type_: str = Field("Taxon", alias='@type')
+    type_: str = Field(default="Taxon", alias='@type')
     hasDefinedTerm: Optional[Union[List[Union['DefinedTerm', str]], 'DefinedTerm', str]] = Field(
         default=None,
         description="A Defined Term contained in this term set.",
@@ -34,7 +34,6 @@ class Taxon(Thing):
      "– (typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.DefinedTerm import DefinedTerm

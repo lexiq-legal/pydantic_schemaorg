@@ -11,6 +11,5 @@ class Casino(EntertainmentBusiness):
     See: https://schema.org/Casino
     Model depth: 5
     """
-    type_: str = Field("Casino", alias='@type')
+    type_: str = Field(default="Casino", alias='@type')
     
-

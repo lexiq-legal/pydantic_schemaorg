@@ -12,6 +12,5 @@ class DisagreeAction(ReactAction):
     See: https://schema.org/DisagreeAction
     Model depth: 5
     """
-    type_: str = Field("DisagreeAction", alias='@type')
+    type_: str = Field(default="DisagreeAction", alias='@type')
     
-

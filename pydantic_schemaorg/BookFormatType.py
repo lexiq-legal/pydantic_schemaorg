@@ -11,6 +11,5 @@ class BookFormatType(Enumeration):
     See: https://schema.org/BookFormatType
     Model depth: 4
     """
-    type_: str = Field("BookFormatType", alias='@type')
+    type_: str = Field(default="BookFormatType", alias='@type')
     
-

@@ -11,6 +11,5 @@ class WantAction(ReactAction):
     See: https://schema.org/WantAction
     Model depth: 5
     """
-    type_: str = Field("WantAction", alias='@type')
+    type_: str = Field(default="WantAction", alias='@type')
     
-

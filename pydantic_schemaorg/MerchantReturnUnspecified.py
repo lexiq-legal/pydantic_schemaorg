@@ -11,6 +11,5 @@ class MerchantReturnUnspecified(MerchantReturnEnumeration):
     See: https://schema.org/MerchantReturnUnspecified
     Model depth: 5
     """
-    type_: str = Field("MerchantReturnUnspecified", alias='@type')
+    type_: str = Field(default="MerchantReturnUnspecified", alias='@type')
     
-

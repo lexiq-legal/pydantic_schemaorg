@@ -11,6 +11,6 @@ class RadioEpisode(Episode):
     See: https://schema.org/RadioEpisode
     Model depth: 4
     """
-    type_: str = Field("RadioEpisode", alias='@type')
+    type_: str = Field(default="RadioEpisode", alias='@type')
     
 

@@ -17,7 +17,7 @@ class TradeAction(Action):
     See: https://schema.org/TradeAction
     Model depth: 3
     """
-    type_: str = Field("TradeAction", alias='@type')
+    type_: str = Field(default="TradeAction", alias='@type')
     priceCurrency: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The currency of the price, or a price component when attached to [[PriceSpecification]]"

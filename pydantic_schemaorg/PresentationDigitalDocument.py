@@ -11,6 +11,6 @@ class PresentationDigitalDocument(DigitalDocument):
     See: https://schema.org/PresentationDigitalDocument
     Model depth: 4
     """
-    type_: str = Field("PresentationDigitalDocument", alias='@type')
+    type_: str = Field(default="PresentationDigitalDocument", alias='@type')
     
 

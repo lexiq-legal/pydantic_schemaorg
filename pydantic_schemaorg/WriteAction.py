@@ -14,7 +14,7 @@ class WriteAction(CreateAction):
     See: https://schema.org/WriteAction
     Model depth: 4
     """
-    type_: str = Field("WriteAction", alias='@type')
+    type_: str = Field(default="WriteAction", alias='@type')
     language: Optional[Union[List[Union['Language', str]], 'Language', str]] = Field(
         default=None,
         description="A sub property of instrument. The language used on this action.",
@@ -26,7 +26,6 @@ class WriteAction(CreateAction):
      "[[availableLanguage]].",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Language import Language

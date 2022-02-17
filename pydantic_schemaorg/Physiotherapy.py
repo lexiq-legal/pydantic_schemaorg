@@ -13,6 +13,5 @@ class Physiotherapy(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Physiotherapy
     Model depth: 5
     """
-    type_: str = Field("Physiotherapy", alias='@type')
+    type_: str = Field(default="Physiotherapy", alias='@type')
     
-

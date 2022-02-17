@@ -15,7 +15,7 @@ class TVEpisode(Episode):
     See: https://schema.org/TVEpisode
     Model depth: 4
     """
-    type_: str = Field("TVEpisode", alias='@type')
+    type_: str = Field(default="TVEpisode", alias='@type')
     subtitleLanguage: Optional[Union[List[Union[str, 'Text', 'Language']], str, 'Text', 'Language']] = Field(
         default=None,
         description="Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
@@ -45,7 +45,6 @@ class TVEpisode(Episode):
         description="The TV series to which this episode or season belongs.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

@@ -11,6 +11,5 @@ class Lung(PhysicalExam):
     See: https://schema.org/Lung
     Model depth: 5
     """
-    type_: str = Field("Lung", alias='@type')
+    type_: str = Field(default="Lung", alias='@type')
     
-

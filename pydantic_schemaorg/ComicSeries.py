@@ -12,6 +12,5 @@ class ComicSeries(Periodical):
     See: https://schema.org/ComicSeries
     Model depth: 5
     """
-    type_: str = Field("ComicSeries", alias='@type')
+    type_: str = Field(default="ComicSeries", alias='@type')
     
-

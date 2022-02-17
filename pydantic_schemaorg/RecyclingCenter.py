@@ -11,6 +11,6 @@ class RecyclingCenter(LocalBusiness):
     See: https://schema.org/RecyclingCenter
     Model depth: 4
     """
-    type_: str = Field("RecyclingCenter", alias='@type')
+    type_: str = Field(default="RecyclingCenter", alias='@type')
     
 

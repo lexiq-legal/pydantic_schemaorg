@@ -11,6 +11,6 @@ class Zoo(CivicStructure):
     See: https://schema.org/Zoo
     Model depth: 4
     """
-    type_: str = Field("Zoo", alias='@type')
+    type_: str = Field(default="Zoo", alias='@type')
     
 

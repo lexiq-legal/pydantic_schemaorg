@@ -15,13 +15,12 @@ class PathologyTest(MedicalTest):
     See: https://schema.org/PathologyTest
     Model depth: 4
     """
-    type_: str = Field("PathologyTest", alias='@type')
+    type_: str = Field(default="PathologyTest", alias='@type')
     tissueSample: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The type of tissue sample required for the test.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

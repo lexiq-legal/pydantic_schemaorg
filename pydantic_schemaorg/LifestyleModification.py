@@ -12,6 +12,6 @@ class LifestyleModification(MedicalEntity):
     See: https://schema.org/LifestyleModification
     Model depth: 3
     """
-    type_: str = Field("LifestyleModification", alias='@type')
+    type_: str = Field(default="LifestyleModification", alias='@type')
     
 

@@ -12,6 +12,6 @@ class RestrictedDiet(Enumeration):
     See: https://schema.org/RestrictedDiet
     Model depth: 4
     """
-    type_: str = Field("RestrictedDiet", alias='@type')
+    type_: str = Field(default="RestrictedDiet", alias='@type')
     
 

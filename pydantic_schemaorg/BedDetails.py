@@ -17,7 +17,7 @@ class BedDetails(Intangible):
     See: https://schema.org/BedDetails
     Model depth: 3
     """
-    type_: str = Field("BedDetails", alias='@type')
+    type_: str = Field(default="BedDetails", alias='@type')
     numberOfBeds: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
         default=None,
         description="The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment.",
@@ -28,7 +28,6 @@ class BedDetails(Intangible):
      "indicated by quantity.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

@@ -11,6 +11,5 @@ class WearableSizeGroupShort(WearableSizeGroupEnumeration):
     See: https://schema.org/WearableSizeGroupShort
     Model depth: 6
     """
-    type_: str = Field("WearableSizeGroupShort", alias='@type')
+    type_: str = Field(default="WearableSizeGroupShort", alias='@type')
     
-

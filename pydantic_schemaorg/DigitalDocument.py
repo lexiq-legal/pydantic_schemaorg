@@ -14,7 +14,7 @@ class DigitalDocument(CreativeWork):
     See: https://schema.org/DigitalDocument
     Model depth: 3
     """
-    type_: str = Field("DigitalDocument", alias='@type')
+    type_: str = Field(default="DigitalDocument", alias='@type')
     hasDigitalDocumentPermission: Optional[Union[List[Union['DigitalDocumentPermission', str]], 'DigitalDocumentPermission', str]] = Field(
         default=None,
         description="A permission related to the access to this document (e.g. permission to read or write"

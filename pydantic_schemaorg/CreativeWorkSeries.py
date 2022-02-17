@@ -28,7 +28,7 @@ class CreativeWorkSeries(Series, CreativeWork):
     See: https://schema.org/CreativeWorkSeries
     Model depth: 3
     """
-    type_: str = Field("CreativeWorkSeries", alias='@type')
+    type_: str = Field(default="CreativeWorkSeries", alias='@type')
     endDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
         default=None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",

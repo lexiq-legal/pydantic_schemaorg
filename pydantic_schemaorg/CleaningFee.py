@@ -12,6 +12,5 @@ class CleaningFee(PriceComponentTypeEnumeration):
     See: https://schema.org/CleaningFee
     Model depth: 5
     """
-    type_: str = Field("CleaningFee", alias='@type')
+    type_: str = Field(default="CleaningFee", alias='@type')
     
-

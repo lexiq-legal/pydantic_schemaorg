@@ -14,7 +14,7 @@ class APIReference(TechArticle):
     See: https://schema.org/APIReference
     Model depth: 5
     """
-    type_: str = Field("APIReference", alias='@type')
+    type_: str = Field(default="APIReference", alias='@type')
     assemblyVersion: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Associated product/technology version. e.g., .NET Framework 4.5.",
@@ -36,7 +36,6 @@ class APIReference(TechArticle):
         description="Type of app development: phone, Metro style, desktop, XBox, etc.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

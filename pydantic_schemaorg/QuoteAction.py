@@ -11,6 +11,5 @@ class QuoteAction(TradeAction):
     See: https://schema.org/QuoteAction
     Model depth: 4
     """
-    type_: str = Field("QuoteAction", alias='@type')
+    type_: str = Field(default="QuoteAction", alias='@type')
     
-

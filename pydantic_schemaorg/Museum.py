@@ -11,6 +11,5 @@ class Museum(CivicStructure):
     See: https://schema.org/Museum
     Model depth: 4
     """
-    type_: str = Field("Museum", alias='@type')
+    type_: str = Field(default="Museum", alias='@type')
     
-

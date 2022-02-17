@@ -11,6 +11,5 @@ class SocialEvent(Event):
     See: https://schema.org/SocialEvent
     Model depth: 3
     """
-    type_: str = Field("SocialEvent", alias='@type')
+    type_: str = Field(default="SocialEvent", alias='@type')
     
-

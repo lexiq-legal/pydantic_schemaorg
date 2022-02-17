@@ -16,6 +16,6 @@ class RegisterAction(InteractAction):
     See: https://schema.org/RegisterAction
     Model depth: 4
     """
-    type_: str = Field("RegisterAction", alias='@type')
+    type_: str = Field(default="RegisterAction", alias='@type')
     
 

@@ -11,6 +11,6 @@ class ReturnLabelDownloadAndPrint(ReturnLabelSourceEnumeration):
     See: https://schema.org/ReturnLabelDownloadAndPrint
     Model depth: 5
     """
-    type_: str = Field("ReturnLabelDownloadAndPrint", alias='@type')
+    type_: str = Field(default="ReturnLabelDownloadAndPrint", alias='@type')
     
 

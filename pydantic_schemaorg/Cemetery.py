@@ -11,6 +11,5 @@ class Cemetery(CivicStructure):
     See: https://schema.org/Cemetery
     Model depth: 4
     """
-    type_: str = Field("Cemetery", alias='@type')
+    type_: str = Field(default="Cemetery", alias='@type')
     
-

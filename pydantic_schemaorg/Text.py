@@ -11,6 +11,5 @@ class Text(DataType):
     See: https://schema.org/Text
     Model depth: 5
     """
-    type_: str = Field("Text", alias='@type')
+    type_: str = Field(default="Text", alias='@type')
     
-

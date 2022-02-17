@@ -12,6 +12,6 @@ class Clinician(MedicalAudienceType):
     See: https://schema.org/Clinician
     Model depth: 6
     """
-    type_: str = Field("Clinician", alias='@type')
+    type_: str = Field(default="Clinician", alias='@type')
     
 

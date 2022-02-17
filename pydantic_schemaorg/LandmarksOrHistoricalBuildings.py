@@ -11,6 +11,5 @@ class LandmarksOrHistoricalBuildings(Place):
     See: https://schema.org/LandmarksOrHistoricalBuildings
     Model depth: 3
     """
-    type_: str = Field("LandmarksOrHistoricalBuildings", alias='@type')
+    type_: str = Field(default="LandmarksOrHistoricalBuildings", alias='@type')
     
-

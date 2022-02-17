@@ -11,6 +11,6 @@ class LegalValueLevel(Enumeration):
     See: https://schema.org/LegalValueLevel
     Model depth: 4
     """
-    type_: str = Field("LegalValueLevel", alias='@type')
+    type_: str = Field(default="LegalValueLevel", alias='@type')
     
 

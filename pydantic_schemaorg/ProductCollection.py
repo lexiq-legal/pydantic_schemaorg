@@ -16,14 +16,13 @@ class ProductCollection(Collection, Product):
     See: https://schema.org/ProductCollection
     Model depth: 3
     """
-    type_: str = Field("ProductCollection", alias='@type')
+    type_: str = Field(default="ProductCollection", alias='@type')
     includesObject: Optional[Union[List[Union['TypeAndQuantityNode', str]], 'TypeAndQuantityNode', str]] = Field(
         default=None,
         description="This links to a node or nodes indicating the exact quantity of the products included in"
      "an [[Offer]] or [[ProductCollection]].",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.TypeAndQuantityNode import TypeAndQuantityNode

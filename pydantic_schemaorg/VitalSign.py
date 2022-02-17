@@ -12,6 +12,5 @@ class VitalSign(MedicalSign):
     See: https://schema.org/VitalSign
     Model depth: 6
     """
-    type_: str = Field("VitalSign", alias='@type')
+    type_: str = Field(default="VitalSign", alias='@type')
     
-

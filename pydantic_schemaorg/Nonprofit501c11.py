@@ -11,6 +11,5 @@ class Nonprofit501c11(USNonprofitType):
     See: https://schema.org/Nonprofit501c11
     Model depth: 6
     """
-    type_: str = Field("Nonprofit501c11", alias='@type')
+    type_: str = Field(default="Nonprofit501c11", alias='@type')
     
-

@@ -12,6 +12,5 @@ class LaboratoryScience(MedicalSpecialty):
     See: https://schema.org/LaboratoryScience
     Model depth: 6
     """
-    type_: str = Field("LaboratoryScience", alias='@type')
+    type_: str = Field(default="LaboratoryScience", alias='@type')
     
-

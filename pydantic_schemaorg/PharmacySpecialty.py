@@ -11,6 +11,5 @@ class PharmacySpecialty(MedicalSpecialty):
     See: https://schema.org/PharmacySpecialty
     Model depth: 6
     """
-    type_: str = Field("PharmacySpecialty", alias='@type')
+    type_: str = Field(default="PharmacySpecialty", alias='@type')
     
-

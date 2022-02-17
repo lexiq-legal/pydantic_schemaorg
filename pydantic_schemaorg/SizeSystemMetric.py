@@ -11,6 +11,6 @@ class SizeSystemMetric(SizeSystemEnumeration):
     See: https://schema.org/SizeSystemMetric
     Model depth: 5
     """
-    type_: str = Field("SizeSystemMetric", alias='@type')
+    type_: str = Field(default="SizeSystemMetric", alias='@type')
     
 

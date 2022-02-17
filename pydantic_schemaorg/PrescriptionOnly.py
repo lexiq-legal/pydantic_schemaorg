@@ -11,6 +11,5 @@ class PrescriptionOnly(DrugPrescriptionStatus):
     See: https://schema.org/PrescriptionOnly
     Model depth: 6
     """
-    type_: str = Field("PrescriptionOnly", alias='@type')
+    type_: str = Field(default="PrescriptionOnly", alias='@type')
     
-

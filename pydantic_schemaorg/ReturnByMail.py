@@ -11,6 +11,5 @@ class ReturnByMail(ReturnMethodEnumeration):
     See: https://schema.org/ReturnByMail
     Model depth: 5
     """
-    type_: str = Field("ReturnByMail", alias='@type')
+    type_: str = Field(default="ReturnByMail", alias='@type')
     
-

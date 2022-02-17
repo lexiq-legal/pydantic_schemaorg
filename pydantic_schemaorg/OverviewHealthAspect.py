@@ -12,6 +12,5 @@ class OverviewHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/OverviewHealthAspect
     Model depth: 5
     """
-    type_: str = Field("OverviewHealthAspect", alias='@type')
+    type_: str = Field(default="OverviewHealthAspect", alias='@type')
     
-

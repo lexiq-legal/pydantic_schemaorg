@@ -16,7 +16,7 @@ class Blog(CreativeWork):
     See: https://schema.org/Blog
     Model depth: 3
     """
-    type_: str = Field("Blog", alias='@type')
+    type_: str = Field(default="Blog", alias='@type')
     blogPosts: Optional[Union[List[Union['BlogPosting', str]], 'BlogPosting', str]] = Field(
         default=None,
         description="Indicates a post that is part of a [[Blog]]. Note that historically, what we term a \"Blog\""

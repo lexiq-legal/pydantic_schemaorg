@@ -16,7 +16,7 @@ class HowToDirection(ListItem, CreativeWork):
     See: https://schema.org/HowToDirection
     Model depth: 3
     """
-    type_: str = Field("HowToDirection", alias='@type')
+    type_: str = Field(default="HowToDirection", alias='@type')
     duringMedia: Optional[Union[List[Union[AnyUrl, 'URL', 'MediaObject', str]], AnyUrl, 'URL', 'MediaObject', str]] = Field(
         default=None,
         description="A media object representing the circumstances while performing this direction.",
@@ -54,7 +54,6 @@ class HowToDirection(ListItem, CreativeWork):
         description="A sub-property of instrument. A supply consumed when performing instructions or a direction.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL

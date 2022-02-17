@@ -13,6 +13,5 @@ class DepositAccount(InvestmentOrDeposit, BankAccount):
     See: https://schema.org/DepositAccount
     Model depth: 6
     """
-    type_: str = Field("DepositAccount", alias='@type')
+    type_: str = Field(default="DepositAccount", alias='@type')
     
-

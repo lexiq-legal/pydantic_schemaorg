@@ -11,6 +11,5 @@ class DefenceEstablishment(GovernmentBuilding):
     See: https://schema.org/DefenceEstablishment
     Model depth: 5
     """
-    type_: str = Field("DefenceEstablishment", alias='@type')
+    type_: str = Field(default="DefenceEstablishment", alias='@type')
     
-

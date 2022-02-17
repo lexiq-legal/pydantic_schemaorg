@@ -11,6 +11,5 @@ class TollFree(ContactPointOption):
     See: https://schema.org/TollFree
     Model depth: 5
     """
-    type_: str = Field("TollFree", alias='@type')
+    type_: str = Field(default="TollFree", alias='@type')
     
-

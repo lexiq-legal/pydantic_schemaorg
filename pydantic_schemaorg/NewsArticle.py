@@ -16,7 +16,7 @@ class NewsArticle(Article):
     See: https://schema.org/NewsArticle
     Model depth: 4
     """
-    type_: str = Field("NewsArticle", alias='@type')
+    type_: str = Field(default="NewsArticle", alias='@type')
     dateline: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A [dateline](https://en.wikipedia.org/wiki/Dateline) is a brief piece of text included"

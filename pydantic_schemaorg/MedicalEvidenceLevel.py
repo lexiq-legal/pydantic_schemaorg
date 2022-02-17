@@ -11,6 +11,6 @@ class MedicalEvidenceLevel(MedicalEnumeration):
     See: https://schema.org/MedicalEvidenceLevel
     Model depth: 5
     """
-    type_: str = Field("MedicalEvidenceLevel", alias='@type')
+    type_: str = Field(default="MedicalEvidenceLevel", alias='@type')
     
 

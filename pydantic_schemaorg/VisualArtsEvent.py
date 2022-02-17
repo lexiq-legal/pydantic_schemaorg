@@ -11,6 +11,5 @@ class VisualArtsEvent(Event):
     See: https://schema.org/VisualArtsEvent
     Model depth: 3
     """
-    type_: str = Field("VisualArtsEvent", alias='@type')
+    type_: str = Field(default="VisualArtsEvent", alias='@type')
     
-

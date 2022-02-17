@@ -11,6 +11,5 @@ class UnemploymentSupport(GovernmentBenefitsType):
     See: https://schema.org/UnemploymentSupport
     Model depth: 5
     """
-    type_: str = Field("UnemploymentSupport", alias='@type')
+    type_: str = Field(default="UnemploymentSupport", alias='@type')
     
-

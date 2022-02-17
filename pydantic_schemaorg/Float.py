@@ -11,6 +11,5 @@ class Float(Number):
     See: https://schema.org/Float
     Model depth: 6
     """
-    type_: str = Field("Float", alias='@type')
+    type_: str = Field(default="Float", alias='@type')
     
-

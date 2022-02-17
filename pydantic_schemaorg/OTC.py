@@ -12,6 +12,5 @@ class OTC(DrugPrescriptionStatus):
     See: https://schema.org/OTC
     Model depth: 6
     """
-    type_: str = Field("OTC", alias='@type')
+    type_: str = Field(default="OTC", alias='@type')
     
-

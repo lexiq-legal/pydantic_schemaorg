@@ -15,7 +15,7 @@ class HealthPlanCostSharingSpecification(Intangible):
     See: https://schema.org/HealthPlanCostSharingSpecification
     Model depth: 3
     """
-    type_: str = Field("HealthPlanCostSharingSpecification", alias='@type')
+    type_: str = Field(default="HealthPlanCostSharingSpecification", alias='@type')
     healthPlanCoinsuranceOption: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Whether the coinsurance applies before or after deductible, etc. TODO: Is this a closed"
@@ -38,7 +38,6 @@ class HealthPlanCostSharingSpecification(Intangible):
         description="Whether The rate of coinsurance expressed as a number between 0.0 and 1.0.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

@@ -13,6 +13,5 @@ class BefriendAction(InteractAction):
     See: https://schema.org/BefriendAction
     Model depth: 4
     """
-    type_: str = Field("BefriendAction", alias='@type')
+    type_: str = Field(default="BefriendAction", alias='@type')
     
-

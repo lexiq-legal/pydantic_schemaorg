@@ -11,6 +11,5 @@ class Throat(PhysicalExam):
     See: https://schema.org/Throat
     Model depth: 5
     """
-    type_: str = Field("Throat", alias='@type')
+    type_: str = Field(default="Throat", alias='@type')
     
-

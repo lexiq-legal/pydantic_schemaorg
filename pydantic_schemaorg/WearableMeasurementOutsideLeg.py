@@ -11,6 +11,5 @@ class WearableMeasurementOutsideLeg(WearableMeasurementTypeEnumeration):
     See: https://schema.org/WearableMeasurementOutsideLeg
     Model depth: 6
     """
-    type_: str = Field("WearableMeasurementOutsideLeg", alias='@type')
+    type_: str = Field(default="WearableMeasurementOutsideLeg", alias='@type')
     
-

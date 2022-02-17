@@ -13,6 +13,5 @@ class EventReservation(Reservation):
     See: https://schema.org/EventReservation
     Model depth: 4
     """
-    type_: str = Field("EventReservation", alias='@type')
+    type_: str = Field(default="EventReservation", alias='@type')
     
-

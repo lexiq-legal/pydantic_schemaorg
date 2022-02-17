@@ -16,7 +16,7 @@ class MortgageLoan(LoanOrCredit):
     See: https://schema.org/MortgageLoan
     Model depth: 6
     """
-    type_: str = Field("MortgageLoan", alias='@type')
+    type_: str = Field(default="MortgageLoan", alias='@type')
     domiciledMortgage: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="Whether borrower is a resident of the jurisdiction where the property is located.",
@@ -26,7 +26,6 @@ class MortgageLoan(LoanOrCredit):
         description="Amount of mortgage mandate that can be converted into a proper mortgage at a later stage.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Boolean import Boolean

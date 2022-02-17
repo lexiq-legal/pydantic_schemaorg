@@ -11,6 +11,5 @@ class ReadAction(ConsumeAction):
     See: https://schema.org/ReadAction
     Model depth: 4
     """
-    type_: str = Field("ReadAction", alias='@type')
+    type_: str = Field(default="ReadAction", alias='@type')
     
-

@@ -11,6 +11,6 @@ class EntertainmentBusiness(LocalBusiness):
     See: https://schema.org/EntertainmentBusiness
     Model depth: 4
     """
-    type_: str = Field("EntertainmentBusiness", alias='@type')
+    type_: str = Field(default="EntertainmentBusiness", alias='@type')
     
 

@@ -11,6 +11,5 @@ class Courthouse(GovernmentBuilding):
     See: https://schema.org/Courthouse
     Model depth: 5
     """
-    type_: str = Field("Courthouse", alias='@type')
+    type_: str = Field(default="Courthouse", alias='@type')
     
-

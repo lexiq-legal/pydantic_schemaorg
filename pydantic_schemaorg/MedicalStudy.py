@@ -21,7 +21,7 @@ class MedicalStudy(MedicalEntity):
     See: https://schema.org/MedicalStudy
     Model depth: 3
     """
-    type_: str = Field("MedicalStudy", alias='@type')
+    type_: str = Field(default="MedicalStudy", alias='@type')
     studyLocation: Optional[Union[List[Union['AdministrativeArea', str]], 'AdministrativeArea', str]] = Field(
         default=None,
         description="The location in which the study is taking/took place.",
@@ -35,7 +35,7 @@ class MedicalStudy(MedicalEntity):
         default=None,
         description="The status of the study (enumerated).",
     )
-    sponsor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    sponsor: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -53,6 +53,6 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
     from pydantic_schemaorg.EventStatusType import EventStatusType
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.MedicalCondition import MedicalCondition

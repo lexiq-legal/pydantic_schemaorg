@@ -15,7 +15,7 @@ class HealthPlanNetwork(Intangible):
     See: https://schema.org/HealthPlanNetwork
     Model depth: 3
     """
-    type_: str = Field("HealthPlanNetwork", alias='@type')
+    type_: str = Field(default="HealthPlanNetwork", alias='@type')
     healthPlanNetworkTier: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The tier(s) for this network.",
@@ -30,7 +30,6 @@ class HealthPlanNetwork(Intangible):
         description="Whether The costs to the patient for services under this network or formulary.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

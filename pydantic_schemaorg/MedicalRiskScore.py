@@ -15,13 +15,12 @@ class MedicalRiskScore(MedicalRiskEstimator):
     See: https://schema.org/MedicalRiskScore
     Model depth: 4
     """
-    type_: str = Field("MedicalRiskScore", alias='@type')
+    type_: str = Field(default="MedicalRiskScore", alias='@type')
     algorithm: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The algorithm or rules to follow to compute the score.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

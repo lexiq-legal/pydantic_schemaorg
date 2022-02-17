@@ -15,7 +15,7 @@ class BroadcastChannel(Intangible):
     See: https://schema.org/BroadcastChannel
     Model depth: 3
     """
-    type_: str = Field("BroadcastChannel", alias='@type')
+    type_: str = Field(default="BroadcastChannel", alias='@type')
     broadcastChannelId: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The unique address by which the BroadcastService can be identified in a provider lineup."
@@ -44,7 +44,6 @@ class BroadcastChannel(Intangible):
         description="The CableOrSatelliteService offering the channel.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

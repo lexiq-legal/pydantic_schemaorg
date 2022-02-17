@@ -11,6 +11,5 @@ class BodyOfWater(Landform):
     See: https://schema.org/BodyOfWater
     Model depth: 4
     """
-    type_: str = Field("BodyOfWater", alias='@type')
+    type_: str = Field(default="BodyOfWater", alias='@type')
     
-

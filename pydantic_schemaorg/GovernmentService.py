@@ -15,7 +15,7 @@ class GovernmentService(Service):
     See: https://schema.org/GovernmentService
     Model depth: 4
     """
-    type_: str = Field("GovernmentService", alias='@type')
+    type_: str = Field(default="GovernmentService", alias='@type')
     jurisdiction: Optional[Union[List[Union[str, 'Text', 'AdministrativeArea']], str, 'Text', 'AdministrativeArea']] = Field(
         default=None,
         description="Indicates a legal jurisdiction, e.g. of some legislation, or where some government"
@@ -28,7 +28,6 @@ class GovernmentService(Service):
      "like a subcontractor.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

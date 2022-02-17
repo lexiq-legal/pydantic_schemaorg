@@ -12,6 +12,6 @@ class Mass(Quantity):
     See: https://schema.org/Mass
     Model depth: 4
     """
-    type_: str = Field("Mass", alias='@type')
+    type_: str = Field(default="Mass", alias='@type')
     
 

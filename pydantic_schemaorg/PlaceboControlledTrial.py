@@ -11,6 +11,5 @@ class PlaceboControlledTrial(MedicalTrialDesign):
     See: https://schema.org/PlaceboControlledTrial
     Model depth: 6
     """
-    type_: str = Field("PlaceboControlledTrial", alias='@type')
+    type_: str = Field(default="PlaceboControlledTrial", alias='@type')
     
-

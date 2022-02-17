@@ -11,6 +11,5 @@ class SinglePlayer(GamePlayMode):
     See: https://schema.org/SinglePlayer
     Model depth: 5
     """
-    type_: str = Field("SinglePlayer", alias='@type')
+    type_: str = Field(default="SinglePlayer", alias='@type')
     
-

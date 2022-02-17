@@ -11,6 +11,5 @@ class EmailMessage(Message):
     See: https://schema.org/EmailMessage
     Model depth: 4
     """
-    type_: str = Field("EmailMessage", alias='@type')
+    type_: str = Field(default="EmailMessage", alias='@type')
     
-

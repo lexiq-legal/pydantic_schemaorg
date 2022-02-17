@@ -11,6 +11,5 @@ class MSRP(PriceTypeEnumeration):
     See: https://schema.org/MSRP
     Model depth: 5
     """
-    type_: str = Field("MSRP", alias='@type')
+    type_: str = Field(default="MSRP", alias='@type')
     
-

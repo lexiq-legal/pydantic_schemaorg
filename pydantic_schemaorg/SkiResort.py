@@ -12,6 +12,5 @@ class SkiResort(Resort, SportsActivityLocation):
     See: https://schema.org/SkiResort
     Model depth: 5
     """
-    type_: str = Field("SkiResort", alias='@type')
+    type_: str = Field(default="SkiResort", alias='@type')
     
-

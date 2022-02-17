@@ -12,6 +12,5 @@ class Endocrine(MedicalSpecialty):
     See: https://schema.org/Endocrine
     Model depth: 6
     """
-    type_: str = Field("Endocrine", alias='@type')
+    type_: str = Field(default="Endocrine", alias='@type')
     
-

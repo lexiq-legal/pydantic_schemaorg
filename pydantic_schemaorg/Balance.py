@@ -11,6 +11,5 @@ class Balance(PhysicalActivityCategory):
     See: https://schema.org/Balance
     Model depth: 5
     """
-    type_: str = Field("Balance", alias='@type')
+    type_: str = Field(default="Balance", alias='@type')
     
-

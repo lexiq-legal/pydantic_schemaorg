@@ -11,6 +11,5 @@ class GovernmentOffice(LocalBusiness):
     See: https://schema.org/GovernmentOffice
     Model depth: 4
     """
-    type_: str = Field("GovernmentOffice", alias='@type')
+    type_: str = Field(default="GovernmentOffice", alias='@type')
     
-

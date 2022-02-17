@@ -14,7 +14,7 @@ class ScreeningEvent(Event):
     See: https://schema.org/ScreeningEvent
     Model depth: 3
     """
-    type_: str = Field("ScreeningEvent", alias='@type')
+    type_: str = Field(default="ScreeningEvent", alias='@type')
     workPresented: Optional[Union[List[Union['Movie', str]], 'Movie', str]] = Field(
         default=None,
         description="The movie presented during this event.",
@@ -28,7 +28,6 @@ class ScreeningEvent(Event):
         description="The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Movie import Movie

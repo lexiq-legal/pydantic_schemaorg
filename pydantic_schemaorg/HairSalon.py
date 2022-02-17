@@ -11,6 +11,5 @@ class HairSalon(HealthAndBeautyBusiness):
     See: https://schema.org/HairSalon
     Model depth: 5
     """
-    type_: str = Field("HairSalon", alias='@type')
+    type_: str = Field(default="HairSalon", alias='@type')
     
-

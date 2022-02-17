@@ -19,7 +19,7 @@ class HealthTopicContent(WebContent):
     See: https://schema.org/HealthTopicContent
     Model depth: 4
     """
-    type_: str = Field("HealthTopicContent", alias='@type')
+    type_: str = Field(default="HealthTopicContent", alias='@type')
     hasHealthAspect: Optional[Union[List[Union['HealthAspectEnumeration', str]], 'HealthAspectEnumeration', str]] = Field(
         default=None,
         description="Indicates the aspect or aspects specifically addressed in some [[HealthTopicContent]]."
@@ -27,7 +27,6 @@ class HealthTopicContent(WebContent):
      "treatments or their side-effects.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.HealthAspectEnumeration import HealthAspectEnumeration

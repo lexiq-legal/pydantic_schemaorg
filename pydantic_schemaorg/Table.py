@@ -11,6 +11,5 @@ class Table(WebPageElement):
     See: https://schema.org/Table
     Model depth: 4
     """
-    type_: str = Field("Table", alias='@type')
+    type_: str = Field(default="Table", alias='@type')
     
-

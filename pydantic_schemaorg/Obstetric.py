@@ -13,6 +13,5 @@ class Obstetric(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Obstetric
     Model depth: 5
     """
-    type_: str = Field("Obstetric", alias='@type')
+    type_: str = Field(default="Obstetric", alias='@type')
     
-

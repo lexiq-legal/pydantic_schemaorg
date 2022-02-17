@@ -12,6 +12,5 @@ class SuspendAction(ControlAction):
     See: https://schema.org/SuspendAction
     Model depth: 4
     """
-    type_: str = Field("SuspendAction", alias='@type')
+    type_: str = Field(default="SuspendAction", alias='@type')
     
-

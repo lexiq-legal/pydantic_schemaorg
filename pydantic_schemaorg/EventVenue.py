@@ -11,6 +11,5 @@ class EventVenue(CivicStructure):
     See: https://schema.org/EventVenue
     Model depth: 4
     """
-    type_: str = Field("EventVenue", alias='@type')
+    type_: str = Field(default="EventVenue", alias='@type')
     
-

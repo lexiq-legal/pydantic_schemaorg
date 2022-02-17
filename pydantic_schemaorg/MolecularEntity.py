@@ -16,7 +16,7 @@ class MolecularEntity(BioChemEntity):
     See: https://schema.org/MolecularEntity
     Model depth: 3
     """
-    type_: str = Field("MolecularEntity", alias='@type')
+    type_: str = Field(default="MolecularEntity", alias='@type')
     iupacName: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Systematic method of naming chemical compounds as recommended by the International"

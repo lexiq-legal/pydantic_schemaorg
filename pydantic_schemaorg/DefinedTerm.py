@@ -19,7 +19,7 @@ class DefinedTerm(Intangible):
     See: https://schema.org/DefinedTerm
     Model depth: 3
     """
-    type_: str = Field("DefinedTerm", alias='@type')
+    type_: str = Field(default="DefinedTerm", alias='@type')
     termCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A code that identifies this [[DefinedTerm]] within a [[DefinedTermSet]]",

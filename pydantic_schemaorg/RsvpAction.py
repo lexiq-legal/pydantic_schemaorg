@@ -15,7 +15,7 @@ class RsvpAction(InformAction):
     See: https://schema.org/RsvpAction
     Model depth: 6
     """
-    type_: str = Field("RsvpAction", alias='@type')
+    type_: str = Field(default="RsvpAction", alias='@type')
     additionalNumberOfGuests: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
         default=None,
         description="If responding yes, the number of guests who will attend in addition to the invitee.",
@@ -29,7 +29,6 @@ class RsvpAction(InformAction):
         description="The response (yes, no, maybe) to the RSVP.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

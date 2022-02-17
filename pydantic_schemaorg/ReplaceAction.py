@@ -14,7 +14,7 @@ class ReplaceAction(UpdateAction):
     See: https://schema.org/ReplaceAction
     Model depth: 4
     """
-    type_: str = Field("ReplaceAction", alias='@type')
+    type_: str = Field(default="ReplaceAction", alias='@type')
     replacer: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
         default=None,
         description="A sub property of object. The object that replaces.",
@@ -24,7 +24,6 @@ class ReplaceAction(UpdateAction):
         description="A sub property of object. The object that is being replaced.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Thing import Thing

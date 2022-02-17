@@ -12,6 +12,5 @@ class OfferCatalog(ItemList):
     See: https://schema.org/OfferCatalog
     Model depth: 4
     """
-    type_: str = Field("OfferCatalog", alias='@type')
+    type_: str = Field(default="OfferCatalog", alias='@type')
     
-

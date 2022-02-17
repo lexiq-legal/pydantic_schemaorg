@@ -12,6 +12,6 @@ class MeasurementTypeEnumeration(Enumeration):
     See: https://schema.org/MeasurementTypeEnumeration
     Model depth: 4
     """
-    type_: str = Field("MeasurementTypeEnumeration", alias='@type')
+    type_: str = Field(default="MeasurementTypeEnumeration", alias='@type')
     
 

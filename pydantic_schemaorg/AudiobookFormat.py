@@ -13,6 +13,5 @@ class AudiobookFormat(BookFormatType):
     See: https://schema.org/AudiobookFormat
     Model depth: 5
     """
-    type_: str = Field("AudiobookFormat", alias='@type')
+    type_: str = Field(default="AudiobookFormat", alias='@type')
     
-

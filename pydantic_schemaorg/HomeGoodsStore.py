@@ -11,6 +11,5 @@ class HomeGoodsStore(Store):
     See: https://schema.org/HomeGoodsStore
     Model depth: 5
     """
-    type_: str = Field("HomeGoodsStore", alias='@type')
+    type_: str = Field(default="HomeGoodsStore", alias='@type')
     
-

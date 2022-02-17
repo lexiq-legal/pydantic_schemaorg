@@ -11,6 +11,5 @@ class Protozoa(InfectiousAgentClass):
     See: https://schema.org/Protozoa
     Model depth: 6
     """
-    type_: str = Field("Protozoa", alias='@type')
+    type_: str = Field(default="Protozoa", alias='@type')
     
-

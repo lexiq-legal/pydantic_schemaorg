@@ -11,6 +11,5 @@ class Reservoir(BodyOfWater):
     See: https://schema.org/Reservoir
     Model depth: 5
     """
-    type_: str = Field("Reservoir", alias='@type')
+    type_: str = Field(default="Reservoir", alias='@type')
     
-

@@ -11,6 +11,5 @@ class Church(PlaceOfWorship):
     See: https://schema.org/Church
     Model depth: 5
     """
-    type_: str = Field("Church", alias='@type')
+    type_: str = Field(default="Church", alias='@type')
     
-

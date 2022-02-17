@@ -14,13 +14,12 @@ class InsertAction(AddAction):
     See: https://schema.org/InsertAction
     Model depth: 5
     """
-    type_: str = Field("InsertAction", alias='@type')
+    type_: str = Field(default="InsertAction", alias='@type')
     toLocation: Optional[Union[List[Union['Place', str]], 'Place', str]] = Field(
         default=None,
         description="A sub property of location. The final location of the object or the agent after the action.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Place import Place

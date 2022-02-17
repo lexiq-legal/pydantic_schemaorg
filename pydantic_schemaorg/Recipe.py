@@ -16,8 +16,8 @@ class Recipe(HowTo):
     See: https://schema.org/Recipe
     Model depth: 4
     """
-    type_: str = Field("Recipe", alias='@type')
-    recipeInstructions: Optional[Union[List[Union[str, 'Text', 'ItemList', 'CreativeWork']], str, 'Text', 'ItemList', 'CreativeWork']] = Field(
+    type_: str = Field(default="Recipe", alias='@type')
+    recipeInstructions: Optional[Union[List[Union[str, 'Text', 'CreativeWork', 'ItemList']], str, 'Text', 'CreativeWork', 'ItemList']] = Field(
         default=None,
         description="A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered"
      "list with HowToStep and/or HowToSection items.",
@@ -62,11 +62,10 @@ class Recipe(HowTo):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.ItemList import ItemList
     from pydantic_schemaorg.CreativeWork import CreativeWork
+    from pydantic_schemaorg.ItemList import ItemList
     from pydantic_schemaorg.Duration import Duration
     from pydantic_schemaorg.NutritionInformation import NutritionInformation
     from pydantic_schemaorg.RestrictedDiet import RestrictedDiet

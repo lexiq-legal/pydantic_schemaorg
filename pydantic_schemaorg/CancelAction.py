@@ -12,6 +12,6 @@ class CancelAction(PlanAction):
     See: https://schema.org/CancelAction
     Model depth: 5
     """
-    type_: str = Field("CancelAction", alias='@type')
+    type_: str = Field(default="CancelAction", alias='@type')
     
 

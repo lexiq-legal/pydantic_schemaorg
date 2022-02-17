@@ -16,13 +16,12 @@ class InvestmentOrDeposit(FinancialProduct):
     See: https://schema.org/InvestmentOrDeposit
     Model depth: 5
     """
-    type_: str = Field("InvestmentOrDeposit", alias='@type')
+    type_: str = Field(default="InvestmentOrDeposit", alias='@type')
     amount: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', str]], Decimal, 'Number', 'MonetaryAmount', str]] = Field(
         default=None,
         description="The amount of money.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

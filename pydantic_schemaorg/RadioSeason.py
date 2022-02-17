@@ -11,6 +11,5 @@ class RadioSeason(CreativeWorkSeason):
     See: https://schema.org/RadioSeason
     Model depth: 4
     """
-    type_: str = Field("RadioSeason", alias='@type')
+    type_: str = Field(default="RadioSeason", alias='@type')
     
-

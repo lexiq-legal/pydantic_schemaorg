@@ -15,13 +15,12 @@ class AskAction(CommunicateAction):
     See: https://schema.org/AskAction
     Model depth: 5
     """
-    type_: str = Field("AskAction", alias='@type')
+    type_: str = Field(default="AskAction", alias='@type')
     question: Optional[Union[List[Union['Question', str]], 'Question', str]] = Field(
         default=None,
         description="A sub property of object. A question.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Question import Question

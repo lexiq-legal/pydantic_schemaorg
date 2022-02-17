@@ -11,6 +11,5 @@ class ReturnInStore(ReturnMethodEnumeration):
     See: https://schema.org/ReturnInStore
     Model depth: 5
     """
-    type_: str = Field("ReturnInStore", alias='@type')
+    type_: str = Field(default="ReturnInStore", alias='@type')
     
-

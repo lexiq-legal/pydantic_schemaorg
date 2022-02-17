@@ -12,6 +12,5 @@ class DrawAction(CreateAction):
     See: https://schema.org/DrawAction
     Model depth: 4
     """
-    type_: str = Field("DrawAction", alias='@type')
+    type_: str = Field(default="DrawAction", alias='@type')
     
-

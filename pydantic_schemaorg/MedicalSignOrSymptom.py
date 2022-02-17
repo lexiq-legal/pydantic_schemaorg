@@ -15,7 +15,7 @@ class MedicalSignOrSymptom(MedicalCondition):
     See: https://schema.org/MedicalSignOrSymptom
     Model depth: 4
     """
-    type_: str = Field("MedicalSignOrSymptom", alias='@type')
+    type_: str = Field(default="MedicalSignOrSymptom", alias='@type')
     possibleTreatment: Optional[Union[List[Union['MedicalTherapy', str]], 'MedicalTherapy', str]] = Field(
         default=None,
         description="A possible treatment to address this condition, sign or symptom.",

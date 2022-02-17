@@ -13,6 +13,5 @@ class LegalService(LocalBusiness):
     See: https://schema.org/LegalService
     Model depth: 4
     """
-    type_: str = Field("LegalService", alias='@type')
+    type_: str = Field(default="LegalService", alias='@type')
     
-

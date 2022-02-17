@@ -15,7 +15,7 @@ class QuantitativeValueDistribution(StructuredValue):
     See: https://schema.org/QuantitativeValueDistribution
     Model depth: 4
     """
-    type_: str = Field("QuantitativeValueDistribution", alias='@type')
+    type_: str = Field(default="QuantitativeValueDistribution", alias='@type')
     percentile75: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
         default=None,
         description="The 75th percentile value.",
@@ -41,7 +41,6 @@ class QuantitativeValueDistribution(StructuredValue):
         description="The median value.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

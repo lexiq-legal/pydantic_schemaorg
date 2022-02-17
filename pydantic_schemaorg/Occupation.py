@@ -15,7 +15,7 @@ class Occupation(Intangible):
     See: https://schema.org/Occupation
     Model depth: 3
     """
-    type_: str = Field("Occupation", alias='@type')
+    type_: str = Field(default="Occupation", alias='@type')
     experienceRequirements: Optional[Union[List[Union[str, 'Text', 'OccupationalExperienceRequirements']], str, 'Text', 'OccupationalExperienceRequirements']] = Field(
         default=None,
         description="Description of skills and experience needed for the position or Occupation.",
@@ -59,7 +59,6 @@ class Occupation(Intangible):
         description="Educational background needed for the position or Occupation.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

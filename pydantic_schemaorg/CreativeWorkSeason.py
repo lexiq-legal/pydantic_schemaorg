@@ -15,7 +15,7 @@ class CreativeWorkSeason(CreativeWork):
     See: https://schema.org/CreativeWorkSeason
     Model depth: 3
     """
-    type_: str = Field("CreativeWorkSeason", alias='@type')
+    type_: str = Field(default="CreativeWorkSeason", alias='@type')
     trailer: Optional[Union[List[Union['VideoObject', str]], 'VideoObject', str]] = Field(
         default=None,
         description="The trailer of a movie or tv/radio series, season, episode, etc.",
@@ -64,7 +64,6 @@ class CreativeWorkSeason(CreativeWork):
         description="An episode of a tv, radio or game media within a series or season.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.VideoObject import VideoObject

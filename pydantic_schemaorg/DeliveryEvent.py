@@ -15,7 +15,7 @@ class DeliveryEvent(Event):
     See: https://schema.org/DeliveryEvent
     Model depth: 3
     """
-    type_: str = Field("DeliveryEvent", alias='@type')
+    type_: str = Field(default="DeliveryEvent", alias='@type')
     accessCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Password, PIN, or access code needed for delivery (e.g. from a locker).",
@@ -33,7 +33,6 @@ class DeliveryEvent(Event):
         description="When the item is available for pickup from the store, locker, etc.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

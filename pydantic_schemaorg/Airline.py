@@ -14,7 +14,7 @@ class Airline(Organization):
     See: https://schema.org/Airline
     Model depth: 3
     """
-    type_: str = Field("Airline", alias='@type')
+    type_: str = Field(default="Airline", alias='@type')
     boardingPolicy: Optional[Union[List[Union['BoardingPolicyType', str]], 'BoardingPolicyType', str]] = Field(
         default=None,
         description="The type of boarding policy used by the airline (e.g. zone-based or group-based).",
@@ -24,7 +24,6 @@ class Airline(Organization):
         description="IATA identifier for an airline or airport.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.BoardingPolicyType import BoardingPolicyType

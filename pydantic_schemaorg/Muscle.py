@@ -15,7 +15,7 @@ class Muscle(AnatomicalStructure):
     See: https://schema.org/Muscle
     Model depth: 4
     """
-    type_: str = Field("Muscle", alias='@type')
+    type_: str = Field(default="Muscle", alias='@type')
     nerve: Optional[Union[List[Union['Nerve', str]], 'Nerve', str]] = Field(
         default=None,
         description="The underlying innervation associated with the muscle.",
@@ -37,7 +37,6 @@ class Muscle(AnatomicalStructure):
         description="The place of attachment of a muscle, or what the muscle moves.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Nerve import Nerve

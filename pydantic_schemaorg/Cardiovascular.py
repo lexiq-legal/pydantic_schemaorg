@@ -12,6 +12,5 @@ class Cardiovascular(MedicalSpecialty):
     See: https://schema.org/Cardiovascular
     Model depth: 6
     """
-    type_: str = Field("Cardiovascular", alias='@type')
+    type_: str = Field(default="Cardiovascular", alias='@type')
     
-

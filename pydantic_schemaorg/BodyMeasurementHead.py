@@ -11,6 +11,6 @@ class BodyMeasurementHead(BodyMeasurementTypeEnumeration):
     See: https://schema.org/BodyMeasurementHead
     Model depth: 6
     """
-    type_: str = Field("BodyMeasurementHead", alias='@type')
+    type_: str = Field(default="BodyMeasurementHead", alias='@type')
     
 

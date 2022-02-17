@@ -14,7 +14,7 @@ class MovieSeries(CreativeWorkSeries):
     See: https://schema.org/MovieSeries
     Model depth: 4
     """
-    type_: str = Field("MovieSeries", alias='@type')
+    type_: str = Field(default="MovieSeries", alias='@type')
     actors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
         default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
@@ -44,12 +44,11 @@ class MovieSeries(CreativeWorkSeries):
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    musicBy: Optional[Union[List[Union['Person', 'MusicGroup', str]], 'Person', 'MusicGroup', str]] = Field(
+    musicBy: Optional[Union[List[Union['MusicGroup', 'Person', str]], 'MusicGroup', 'Person', str]] = Field(
         default=None,
         description="The composer of the soundtrack.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Person import Person

@@ -11,6 +11,5 @@ class CafeOrCoffeeShop(FoodEstablishment):
     See: https://schema.org/CafeOrCoffeeShop
     Model depth: 5
     """
-    type_: str = Field("CafeOrCoffeeShop", alias='@type')
+    type_: str = Field(default="CafeOrCoffeeShop", alias='@type')
     
-

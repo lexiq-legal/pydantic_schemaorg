@@ -14,13 +14,12 @@ class SocialMediaPosting(Article):
     See: https://schema.org/SocialMediaPosting
     Model depth: 4
     """
-    type_: str = Field("SocialMediaPosting", alias='@type')
+    type_: str = Field(default="SocialMediaPosting", alias='@type')
     sharedContent: Optional[Union[List[Union['CreativeWork', str]], 'CreativeWork', str]] = Field(
         default=None,
         description="A CreativeWork such as an image, video, or audio clip shared as part of this posting.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.CreativeWork import CreativeWork

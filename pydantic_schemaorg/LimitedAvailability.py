@@ -11,6 +11,5 @@ class LimitedAvailability(ItemAvailability):
     See: https://schema.org/LimitedAvailability
     Model depth: 5
     """
-    type_: str = Field("LimitedAvailability", alias='@type')
+    type_: str = Field(default="LimitedAvailability", alias='@type')
     
-

@@ -11,6 +11,5 @@ class Crematorium(CivicStructure):
     See: https://schema.org/Crematorium
     Model depth: 4
     """
-    type_: str = Field("Crematorium", alias='@type')
+    type_: str = Field(default="Crematorium", alias='@type')
     
-

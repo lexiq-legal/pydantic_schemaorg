@@ -13,6 +13,5 @@ class PublicToilet(CivicStructure):
     See: https://schema.org/PublicToilet
     Model depth: 4
     """
-    type_: str = Field("PublicToilet", alias='@type')
+    type_: str = Field(default="PublicToilet", alias='@type')
     
-

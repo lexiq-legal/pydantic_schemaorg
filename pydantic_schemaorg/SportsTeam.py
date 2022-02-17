@@ -14,7 +14,7 @@ class SportsTeam(SportsOrganization):
     See: https://schema.org/SportsTeam
     Model depth: 4
     """
-    type_: str = Field("SportsTeam", alias='@type')
+    type_: str = Field(default="SportsTeam", alias='@type')
     gender: Optional[Union[List[Union[str, 'Text', 'GenderType']], str, 'Text', 'GenderType']] = Field(
         default=None,
         description="Gender of something, typically a [[Person]], but possibly also fictional characters,"
@@ -33,7 +33,6 @@ class SportsTeam(SportsOrganization):
         description="A person that acts in a coaching role for a sports team.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

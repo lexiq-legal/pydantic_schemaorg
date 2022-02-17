@@ -11,6 +11,5 @@ class GovernmentOrganization(Organization):
     See: https://schema.org/GovernmentOrganization
     Model depth: 3
     """
-    type_: str = Field("GovernmentOrganization", alias='@type')
+    type_: str = Field(default="GovernmentOrganization", alias='@type')
     
-

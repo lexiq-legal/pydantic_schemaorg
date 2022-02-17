@@ -14,8 +14,8 @@ class Class(Intangible):
     See: https://schema.org/Class
     Model depth: 3
     """
-    type_: str = Field("Class", alias='@type')
-    supersededBy: Optional[Union[List[Union['Enumeration', 'Property', 'Class', str]], 'Enumeration', 'Property', 'Class', str]] = Field(
+    type_: str = Field(default="Class", alias='@type')
+    supersededBy: Optional[Union[List[Union['Class', 'Property', 'Enumeration', str]], 'Class', 'Property', 'Enumeration', str]] = Field(
         default=None,
         description="Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",
     )
@@ -23,5 +23,5 @@ class Class(Intangible):
 
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.Enumeration import Enumeration
     from pydantic_schemaorg.Property import Property
+    from pydantic_schemaorg.Enumeration import Enumeration

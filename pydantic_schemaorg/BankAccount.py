@@ -16,7 +16,7 @@ class BankAccount(FinancialProduct):
     See: https://schema.org/BankAccount
     Model depth: 5
     """
-    type_: str = Field("BankAccount", alias='@type')
+    type_: str = Field(default="BankAccount", alias='@type')
     accountMinimumInflow: Optional[Union[List[Union['MonetaryAmount', str]], 'MonetaryAmount', str]] = Field(
         default=None,
         description="A minimum amount that has to be paid in every month.",
@@ -32,7 +32,6 @@ class BankAccount(FinancialProduct):
      "has no funds in it. Basically the bank allows people to borrow a set amount of money.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.MonetaryAmount import MonetaryAmount

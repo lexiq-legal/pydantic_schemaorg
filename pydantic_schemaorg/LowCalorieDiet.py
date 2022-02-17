@@ -11,6 +11,5 @@ class LowCalorieDiet(RestrictedDiet):
     See: https://schema.org/LowCalorieDiet
     Model depth: 5
     """
-    type_: str = Field("LowCalorieDiet", alias='@type')
+    type_: str = Field(default="LowCalorieDiet", alias='@type')
     
-

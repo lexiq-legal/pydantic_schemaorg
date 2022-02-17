@@ -12,6 +12,5 @@ class FailedActionStatus(ActionStatusType):
     See: https://schema.org/FailedActionStatus
     Model depth: 6
     """
-    type_: str = Field("FailedActionStatus", alias='@type')
+    type_: str = Field(default="FailedActionStatus", alias='@type')
     
-

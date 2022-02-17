@@ -11,6 +11,5 @@ class Country(AdministrativeArea):
     See: https://schema.org/Country
     Model depth: 4
     """
-    type_: str = Field("Country", alias='@type')
+    type_: str = Field(default="Country", alias='@type')
     
-

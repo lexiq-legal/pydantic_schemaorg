@@ -15,7 +15,7 @@ class SolveMathAction(Action):
     See: https://schema.org/SolveMathAction
     Model depth: 3
     """
-    type_: str = Field("SolveMathAction", alias='@type')
+    type_: str = Field(default="SolveMathAction", alias='@type')
     eduQuestionType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates"
@@ -23,7 +23,6 @@ class SolveMathAction(Action):
      "\"Flashcard\".",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

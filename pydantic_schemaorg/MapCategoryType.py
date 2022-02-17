@@ -11,6 +11,6 @@ class MapCategoryType(Enumeration):
     See: https://schema.org/MapCategoryType
     Model depth: 4
     """
-    type_: str = Field("MapCategoryType", alias='@type')
+    type_: str = Field(default="MapCategoryType", alias='@type')
     
 

@@ -16,7 +16,7 @@ class Brand(Intangible):
     See: https://schema.org/Brand
     Model depth: 3
     """
-    type_: str = Field("Brand", alias='@type')
+    type_: str = Field(default="Brand", alias='@type')
     aggregateRating: Optional[Union[List[Union['AggregateRating', str]], 'AggregateRating', str]] = Field(
         default=None,
         description="The overall rating, based on a collection of reviews or ratings, of the item.",
@@ -34,7 +34,6 @@ class Brand(Intangible):
         description="A review of the item.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.AggregateRating import AggregateRating

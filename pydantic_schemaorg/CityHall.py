@@ -11,6 +11,5 @@ class CityHall(GovernmentBuilding):
     See: https://schema.org/CityHall
     Model depth: 5
     """
-    type_: str = Field("CityHall", alias='@type')
+    type_: str = Field(default="CityHall", alias='@type')
     
-

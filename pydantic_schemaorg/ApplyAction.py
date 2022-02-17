@@ -13,6 +13,5 @@ class ApplyAction(OrganizeAction):
     See: https://schema.org/ApplyAction
     Model depth: 4
     """
-    type_: str = Field("ApplyAction", alias='@type')
+    type_: str = Field(default="ApplyAction", alias='@type')
     
-

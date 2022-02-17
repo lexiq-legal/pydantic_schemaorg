@@ -11,6 +11,5 @@ class WearableSizeGroupMaternity(WearableSizeGroupEnumeration):
     See: https://schema.org/WearableSizeGroupMaternity
     Model depth: 6
     """
-    type_: str = Field("WearableSizeGroupMaternity", alias='@type')
+    type_: str = Field(default="WearableSizeGroupMaternity", alias='@type')
     
-

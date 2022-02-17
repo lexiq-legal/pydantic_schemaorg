@@ -11,6 +11,5 @@ class BusinessEvent(Event):
     See: https://schema.org/BusinessEvent
     Model depth: 3
     """
-    type_: str = Field("BusinessEvent", alias='@type')
+    type_: str = Field(default="BusinessEvent", alias='@type')
     
-

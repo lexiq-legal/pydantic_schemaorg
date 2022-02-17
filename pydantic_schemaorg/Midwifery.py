@@ -14,6 +14,5 @@ class Midwifery(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Midwifery
     Model depth: 5
     """
-    type_: str = Field("Midwifery", alias='@type')
+    type_: str = Field(default="Midwifery", alias='@type')
     
-

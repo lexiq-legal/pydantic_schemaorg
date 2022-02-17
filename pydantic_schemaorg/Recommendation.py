@@ -19,7 +19,7 @@ class Recommendation(Review):
     See: https://schema.org/Recommendation
     Model depth: 4
     """
-    type_: str = Field("Recommendation", alias='@type')
+    type_: str = Field(default="Recommendation", alias='@type')
     category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']], AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']] = Field(
         default=None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"

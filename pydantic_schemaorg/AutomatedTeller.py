@@ -11,6 +11,5 @@ class AutomatedTeller(FinancialService):
     See: https://schema.org/AutomatedTeller
     Model depth: 5
     """
-    type_: str = Field("AutomatedTeller", alias='@type')
+    type_: str = Field(default="AutomatedTeller", alias='@type')
     
-

@@ -14,7 +14,7 @@ class BroadcastService(Service):
     See: https://schema.org/BroadcastService
     Model depth: 4
     """
-    type_: str = Field("BroadcastService", alias='@type')
+    type_: str = Field(default="BroadcastService", alias='@type')
     broadcastFrequency: Optional[Union[List[Union[str, 'Text', 'BroadcastFrequencySpecification']], str, 'Text', 'BroadcastFrequencySpecification']] = Field(
         default=None,
         description="The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g."
@@ -67,7 +67,6 @@ class BroadcastService(Service):
      "and radio communications to identify people, radio and TV stations, or vehicles.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

@@ -12,6 +12,5 @@ class Attorney(LegalService):
     See: https://schema.org/Attorney
     Model depth: 5
     """
-    type_: str = Field("Attorney", alias='@type')
+    type_: str = Field(default="Attorney", alias='@type')
     
-

@@ -17,7 +17,7 @@ class InfectiousDisease(MedicalCondition):
     See: https://schema.org/InfectiousDisease
     Model depth: 4
     """
-    type_: str = Field("InfectiousDisease", alias='@type')
+    type_: str = Field(default="InfectiousDisease", alias='@type')
     transmissionMethod: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="How the disease spreads, either as a route or vector, for example 'direct contact', 'Aedes"
@@ -32,7 +32,6 @@ class InfectiousDisease(MedicalCondition):
         description="The class of infectious agent (bacteria, prion, etc.) that causes the disease.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

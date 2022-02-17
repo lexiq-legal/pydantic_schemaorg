@@ -21,7 +21,7 @@ class LearningResource(CreativeWork):
     See: https://schema.org/LearningResource
     Model depth: 3
     """
-    type_: str = Field("LearningResource", alias='@type')
+    type_: str = Field(default="LearningResource", alias='@type')
     educationalAlignment: Optional[Union[List[Union['AlignmentObject', str]], 'AlignmentObject', str]] = Field(
         default=None,
         description="An alignment to an established educational framework. This property should not be used"

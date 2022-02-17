@@ -11,6 +11,5 @@ class MedicalTrialDesign(MedicalEnumeration):
     See: https://schema.org/MedicalTrialDesign
     Model depth: 5
     """
-    type_: str = Field("MedicalTrialDesign", alias='@type')
+    type_: str = Field(default="MedicalTrialDesign", alias='@type')
     
-

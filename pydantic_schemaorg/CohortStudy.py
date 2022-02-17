@@ -18,6 +18,5 @@ class CohortStudy(MedicalObservationalStudyDesign):
     See: https://schema.org/CohortStudy
     Model depth: 6
     """
-    type_: str = Field("CohortStudy", alias='@type')
+    type_: str = Field(default="CohortStudy", alias='@type')
     
-

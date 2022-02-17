@@ -15,6 +15,6 @@ class BusinessEntityType(Enumeration):
     See: https://schema.org/BusinessEntityType
     Model depth: 4
     """
-    type_: str = Field("BusinessEntityType", alias='@type')
+    type_: str = Field(default="BusinessEntityType", alias='@type')
     
 

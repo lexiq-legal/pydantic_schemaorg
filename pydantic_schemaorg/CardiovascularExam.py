@@ -11,6 +11,5 @@ class CardiovascularExam(PhysicalExam):
     See: https://schema.org/CardiovascularExam
     Model depth: 5
     """
-    type_: str = Field("CardiovascularExam", alias='@type')
+    type_: str = Field(default="CardiovascularExam", alias='@type')
     
-

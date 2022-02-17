@@ -11,6 +11,5 @@ class Integer(Number):
     See: https://schema.org/Integer
     Model depth: 6
     """
-    type_: str = Field("Integer", alias='@type')
+    type_: str = Field(default="Integer", alias='@type')
     
-

@@ -18,7 +18,7 @@ class {{ model.valid_name }}({{model.parents| sort(attribute='depth', reverse=Tr
     See: https://schema.org/{{ model.name }}
     Model depth: {{model.depth}}
     """
-    type_: str = Field("{{ model.name }}", alias='@type')
+    type_: str = Field(default="{{ model.name }}", alias='@type')
     {% for field in model.fields -%}
     {{ field.valid_name }}: {{ field.type }} = Field(
         default=None,
@@ -26,7 +26,6 @@ class {{ model.valid_name }}({{model.parents| sort(attribute='depth', reverse=Tr
         description="{{ field.description | replace('\\n','\n') | format_description }}",
     )
     {% endfor %}
-
 {% if model.pydantic_imports %}
 if TYPE_CHECKING:
 {%- for import_ in model.pydantic_imports %}

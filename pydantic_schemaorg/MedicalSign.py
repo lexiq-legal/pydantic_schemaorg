@@ -15,7 +15,7 @@ class MedicalSign(MedicalSignOrSymptom):
     See: https://schema.org/MedicalSign
     Model depth: 5
     """
-    type_: str = Field("MedicalSign", alias='@type')
+    type_: str = Field(default="MedicalSign", alias='@type')
     identifyingExam: Optional[Union[List[Union['PhysicalExam', str]], 'PhysicalExam', str]] = Field(
         default=None,
         description="A physical examination that can identify this sign.",

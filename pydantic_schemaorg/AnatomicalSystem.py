@@ -18,8 +18,8 @@ class AnatomicalSystem(MedicalEntity):
     See: https://schema.org/AnatomicalSystem
     Model depth: 3
     """
-    type_: str = Field("AnatomicalSystem", alias='@type')
-    comprisedOf: Optional[Union[List[Union['AnatomicalSystem', 'AnatomicalStructure', str]], 'AnatomicalSystem', 'AnatomicalStructure', str]] = Field(
+    type_: str = Field(default="AnatomicalSystem", alias='@type')
+    comprisedOf: Optional[Union[List[Union['AnatomicalStructure', 'AnatomicalSystem', str]], 'AnatomicalStructure', 'AnatomicalSystem', str]] = Field(
         default=None,
         description="Specifying something physically contained by something else. Typically used here"
      "for the underlying anatomical structures, such as organs, that comprise the anatomical"
@@ -45,7 +45,6 @@ class AnatomicalSystem(MedicalEntity):
      "functions of the system.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure

@@ -12,6 +12,6 @@ class DrugPregnancyCategory(MedicalEnumeration):
     See: https://schema.org/DrugPregnancyCategory
     Model depth: 5
     """
-    type_: str = Field("DrugPregnancyCategory", alias='@type')
+    type_: str = Field(default="DrugPregnancyCategory", alias='@type')
     
 

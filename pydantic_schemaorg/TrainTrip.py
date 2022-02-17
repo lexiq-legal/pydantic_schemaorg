@@ -14,7 +14,7 @@ class TrainTrip(Trip):
     See: https://schema.org/TrainTrip
     Model depth: 4
     """
-    type_: str = Field("TrainTrip", alias='@type')
+    type_: str = Field(default="TrainTrip", alias='@type')
     arrivalStation: Optional[Union[List[Union['TrainStation', str]], 'TrainStation', str]] = Field(
         default=None,
         description="The station where the train trip ends.",
@@ -40,7 +40,6 @@ class TrainTrip(Trip):
         description="The station from which the train departs.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.TrainStation import TrainStation

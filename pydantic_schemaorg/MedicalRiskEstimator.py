@@ -15,7 +15,7 @@ class MedicalRiskEstimator(MedicalEntity):
     See: https://schema.org/MedicalRiskEstimator
     Model depth: 3
     """
-    type_: str = Field("MedicalRiskEstimator", alias='@type')
+    type_: str = Field(default="MedicalRiskEstimator", alias='@type')
     estimatesRiskOf: Optional[Union[List[Union['MedicalEntity', str]], 'MedicalEntity', str]] = Field(
         default=None,
         description="The condition, complication, or symptom whose risk is being estimated.",
@@ -26,7 +26,6 @@ class MedicalRiskEstimator(MedicalEntity):
      "condition.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalEntity import MedicalEntity

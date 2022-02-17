@@ -15,7 +15,7 @@ class ExerciseAction(PlayAction):
     See: https://schema.org/ExerciseAction
     Model depth: 4
     """
-    type_: str = Field("ExerciseAction", alias='@type')
+    type_: str = Field(default="ExerciseAction", alias='@type')
     exercisePlan: Optional[Union[List[Union['ExercisePlan', str]], 'ExercisePlan', str]] = Field(
         default=None,
         description="A sub property of instrument. The exercise plan used on this action.",
@@ -71,7 +71,6 @@ class ExerciseAction(PlayAction):
         description="A sub property of participant. The sports team that participated on this action.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.ExercisePlan import ExercisePlan

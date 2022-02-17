@@ -16,8 +16,8 @@ class Place(Thing):
     See: https://schema.org/Place
     Model depth: 2
     """
-    type_: str = Field("Place", alias='@type')
-    geo: Optional[Union[List[Union['GeoShape', 'GeoCoordinates', str]], 'GeoShape', 'GeoCoordinates', str]] = Field(
+    type_: str = Field(default="Place", alias='@type')
+    geo: Optional[Union[List[Union['GeoCoordinates', 'GeoShape', str]], 'GeoCoordinates', 'GeoShape', str]] = Field(
         default=None,
         description="The geo coordinates of the place.",
     )
@@ -239,8 +239,8 @@ class Place(Thing):
 
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.GeoShape import GeoShape
     from pydantic_schemaorg.GeoCoordinates import GeoCoordinates
+    from pydantic_schemaorg.GeoShape import GeoShape
     from pydantic_schemaorg.GeospatialGeometry import GeospatialGeometry
     from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.OpeningHoursSpecification import OpeningHoursSpecification

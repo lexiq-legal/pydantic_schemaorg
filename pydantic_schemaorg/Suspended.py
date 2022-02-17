@@ -11,6 +11,5 @@ class Suspended(MedicalStudyStatus):
     See: https://schema.org/Suspended
     Model depth: 6
     """
-    type_: str = Field("Suspended", alias='@type')
+    type_: str = Field(default="Suspended", alias='@type')
     
-

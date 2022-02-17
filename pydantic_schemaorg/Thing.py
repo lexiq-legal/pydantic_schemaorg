@@ -15,7 +15,7 @@ class Thing(SchemaOrgBase):
     See: https://schema.org/Thing
     Model depth: 1
     """
-    type_: str = Field("Thing", alias='@type')
+    type_: str = Field(default="Thing", alias='@type')
     mainEntityOfPage: Optional[Union[List[Union[AnyUrl, 'URL', 'CreativeWork', str]], AnyUrl, 'URL', 'CreativeWork', str]] = Field(
         default=None,
         description="Indicates a page (or other CreativeWork) for which this thing is the main entity being"

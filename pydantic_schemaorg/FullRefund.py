@@ -11,6 +11,5 @@ class FullRefund(RefundTypeEnumeration):
     See: https://schema.org/FullRefund
     Model depth: 5
     """
-    type_: str = Field("FullRefund", alias='@type')
+    type_: str = Field(default="FullRefund", alias='@type')
     
-

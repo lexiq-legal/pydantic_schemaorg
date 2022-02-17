@@ -14,8 +14,8 @@ class ContactPoint(StructuredValue):
     See: https://schema.org/ContactPoint
     Model depth: 4
     """
-    type_: str = Field("ContactPoint", alias='@type')
-    areaServed: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'AdministrativeArea', 'Place']], str, 'Text', 'GeoShape', 'AdministrativeArea', 'Place']] = Field(
+    type_: str = Field(default="ContactPoint", alias='@type')
+    areaServed: Optional[Union[List[Union[str, 'Text', 'AdministrativeArea', 'Place', 'GeoShape']], str, 'Text', 'AdministrativeArea', 'Place', 'GeoShape']] = Field(
         default=None,
         description="The geographic area where a service or offered item is provided.",
     )
@@ -31,7 +31,7 @@ class ContactPoint(StructuredValue):
      "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
      "[[inLanguage]]",
     )
-    serviceArea: Optional[Union[List[Union['AdministrativeArea', 'GeoShape', 'Place', str]], 'AdministrativeArea', 'GeoShape', 'Place', str]] = Field(
+    serviceArea: Optional[Union[List[Union['AdministrativeArea', 'Place', 'GeoShape', str]], 'AdministrativeArea', 'Place', 'GeoShape', str]] = Field(
         default=None,
         description="The geographic area where the service is provided.",
     )
@@ -64,12 +64,11 @@ class ContactPoint(StructuredValue):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.GeoShape import GeoShape
     from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
     from pydantic_schemaorg.Place import Place
+    from pydantic_schemaorg.GeoShape import GeoShape
     from pydantic_schemaorg.Language import Language
     from pydantic_schemaorg.OpeningHoursSpecification import OpeningHoursSpecification
     from pydantic_schemaorg.ContactPointOption import ContactPointOption

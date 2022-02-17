@@ -11,6 +11,5 @@ class ItemListOrderDescending(ItemListOrderType):
     See: https://schema.org/ItemListOrderDescending
     Model depth: 5
     """
-    type_: str = Field("ItemListOrderDescending", alias='@type')
+    type_: str = Field(default="ItemListOrderDescending", alias='@type')
     
-

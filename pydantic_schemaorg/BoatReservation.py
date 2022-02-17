@@ -13,6 +13,6 @@ class BoatReservation(Reservation):
     See: https://schema.org/BoatReservation
     Model depth: 4
     """
-    type_: str = Field("BoatReservation", alias='@type')
+    type_: str = Field(default="BoatReservation", alias='@type')
     
 

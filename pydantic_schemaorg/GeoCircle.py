@@ -18,7 +18,7 @@ class GeoCircle(GeoShape):
     See: https://schema.org/GeoCircle
     Model depth: 5
     """
-    type_: str = Field("GeoCircle", alias='@type')
+    type_: str = Field(default="GeoCircle", alias='@type')
     geoMidpoint: Optional[Union[List[Union['GeoCoordinates', str]], 'GeoCoordinates', str]] = Field(
         default=None,
         description="Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle.",
@@ -29,7 +29,6 @@ class GeoCircle(GeoShape):
      "via Distance notation).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.GeoCoordinates import GeoCoordinates

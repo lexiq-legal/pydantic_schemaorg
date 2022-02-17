@@ -11,6 +11,5 @@ class Mosque(PlaceOfWorship):
     See: https://schema.org/Mosque
     Model depth: 5
     """
-    type_: str = Field("Mosque", alias='@type')
+    type_: str = Field(default="Mosque", alias='@type')
     
-

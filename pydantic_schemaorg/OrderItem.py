@@ -16,7 +16,7 @@ class OrderItem(Intangible):
     See: https://schema.org/OrderItem
     Model depth: 3
     """
-    type_: str = Field("OrderItem", alias='@type')
+    type_: str = Field(default="OrderItem", alias='@type')
     orderDelivery: Optional[Union[List[Union['ParcelDelivery', str]], 'ParcelDelivery', str]] = Field(
         default=None,
         description="The delivery of the parcel related to this order or order item.",
@@ -38,7 +38,6 @@ class OrderItem(Intangible):
         description="The current status of the order item.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.ParcelDelivery import ParcelDelivery

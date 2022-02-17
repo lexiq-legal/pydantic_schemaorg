@@ -14,7 +14,7 @@ class UpdateAction(Action):
     See: https://schema.org/UpdateAction
     Model depth: 3
     """
-    type_: str = Field("UpdateAction", alias='@type')
+    type_: str = Field(default="UpdateAction", alias='@type')
     collection: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
         default=None,
         description="A sub property of object. The collection target of the action.",
@@ -24,7 +24,6 @@ class UpdateAction(Action):
         description="A sub property of object. The collection target of the action.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Thing import Thing

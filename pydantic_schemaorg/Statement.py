@@ -14,6 +14,6 @@ class Statement(CreativeWork):
     See: https://schema.org/Statement
     Model depth: 3
     """
-    type_: str = Field("Statement", alias='@type')
+    type_: str = Field(default="Statement", alias='@type')
     
 

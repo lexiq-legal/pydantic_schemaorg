@@ -18,6 +18,5 @@ class StagedContent(MediaManipulationRatingEnumeration):
     See: https://schema.org/StagedContent
     Model depth: 5
     """
-    type_: str = Field("StagedContent", alias='@type')
+    type_: str = Field(default="StagedContent", alias='@type')
     
-

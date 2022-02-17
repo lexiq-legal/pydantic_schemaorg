@@ -12,6 +12,5 @@ class AnaerobicActivity(PhysicalActivityCategory):
     See: https://schema.org/AnaerobicActivity
     Model depth: 5
     """
-    type_: str = Field("AnaerobicActivity", alias='@type')
+    type_: str = Field(default="AnaerobicActivity", alias='@type')
     
-

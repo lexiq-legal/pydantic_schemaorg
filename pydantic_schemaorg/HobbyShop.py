@@ -11,6 +11,5 @@ class HobbyShop(Store):
     See: https://schema.org/HobbyShop
     Model depth: 5
     """
-    type_: str = Field("HobbyShop", alias='@type')
+    type_: str = Field(default="HobbyShop", alias='@type')
     
-

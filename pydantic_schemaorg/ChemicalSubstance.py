@@ -15,7 +15,7 @@ class ChemicalSubstance(BioChemEntity):
     See: https://schema.org/ChemicalSubstance
     Model depth: 3
     """
-    type_: str = Field("ChemicalSubstance", alias='@type')
+    type_: str = Field(default="ChemicalSubstance", alias='@type')
     chemicalComposition: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The chemical composition describes the identity and relative ratio of the chemical"
@@ -30,7 +30,6 @@ class ChemicalSubstance(BioChemEntity):
         description="Intended use of the BioChemEntity by humans.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

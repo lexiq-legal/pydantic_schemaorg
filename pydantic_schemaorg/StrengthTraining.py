@@ -12,6 +12,6 @@ class StrengthTraining(PhysicalActivityCategory):
     See: https://schema.org/StrengthTraining
     Model depth: 5
     """
-    type_: str = Field("StrengthTraining", alias='@type')
+    type_: str = Field(default="StrengthTraining", alias='@type')
     
 

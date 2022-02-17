@@ -14,7 +14,7 @@ class GameServer(Intangible):
     See: https://schema.org/GameServer
     Model depth: 3
     """
-    type_: str = Field("GameServer", alias='@type')
+    type_: str = Field(default="GameServer", alias='@type')
     serverStatus: Optional[Union[List[Union['GameServerStatus', str]], 'GameServerStatus', str]] = Field(
         default=None,
         description="Status of a game server.",
@@ -28,7 +28,6 @@ class GameServer(Intangible):
         description="Video game which is played on this server.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.GameServerStatus import GameServerStatus

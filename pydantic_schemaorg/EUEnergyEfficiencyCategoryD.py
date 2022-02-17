@@ -11,6 +11,5 @@ class EUEnergyEfficiencyCategoryD(EUEnergyEfficiencyEnumeration):
     See: https://schema.org/EUEnergyEfficiencyCategoryD
     Model depth: 6
     """
-    type_: str = Field("EUEnergyEfficiencyCategoryD", alias='@type')
+    type_: str = Field(default="EUEnergyEfficiencyCategoryD", alias='@type')
     
-

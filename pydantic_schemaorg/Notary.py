@@ -11,6 +11,5 @@ class Notary(LegalService):
     See: https://schema.org/Notary
     Model depth: 5
     """
-    type_: str = Field("Notary", alias='@type')
+    type_: str = Field(default="Notary", alias='@type')
     
-

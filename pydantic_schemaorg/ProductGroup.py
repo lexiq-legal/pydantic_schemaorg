@@ -22,7 +22,7 @@ class ProductGroup(Product):
     See: https://schema.org/ProductGroup
     Model depth: 3
     """
-    type_: str = Field("ProductGroup", alias='@type')
+    type_: str = Field(default="ProductGroup", alias='@type')
     variesBy: Optional[Union[List[Union[str, 'Text', 'DefinedTerm']], str, 'Text', 'DefinedTerm']] = Field(
         default=None,
         description="Indicates the property or properties by which the variants in a [[ProductGroup]] vary,"
@@ -38,7 +38,6 @@ class ProductGroup(Product):
         description="Indicates a [[Product]] that is a member of this [[ProductGroup]] (or [[ProductModel]]).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

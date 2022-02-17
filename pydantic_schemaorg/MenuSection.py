@@ -16,7 +16,7 @@ class MenuSection(CreativeWork):
     See: https://schema.org/MenuSection
     Model depth: 3
     """
-    type_: str = Field("MenuSection", alias='@type')
+    type_: str = Field(default="MenuSection", alias='@type')
     hasMenuSection: Optional[Union[List[Union['MenuSection', str]], 'MenuSection', str]] = Field(
         default=None,
         description="A subgrouping of the menu (by dishes, course, serving time period, etc.).",

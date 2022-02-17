@@ -20,7 +20,7 @@ class OfferShippingDetails(StructuredValue):
     See: https://schema.org/OfferShippingDetails
     Model depth: 4
     """
-    type_: str = Field("OfferShippingDetails", alias='@type')
+    type_: str = Field(default="OfferShippingDetails", alias='@type')
     shippingLabel: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within"
@@ -55,7 +55,6 @@ class OfferShippingDetails(StructuredValue):
      "the context of a [[shippingSettingsLink]] cross-reference).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

@@ -11,6 +11,5 @@ class CDFormat(MusicReleaseFormatType):
     See: https://schema.org/CDFormat
     Model depth: 5
     """
-    type_: str = Field("CDFormat", alias='@type')
+    type_: str = Field(default="CDFormat", alias='@type')
     
-

@@ -15,7 +15,7 @@ class HealthInsurancePlan(Intangible):
     See: https://schema.org/HealthInsurancePlan
     Model depth: 3
     """
-    type_: str = Field("HealthInsurancePlan", alias='@type')
+    type_: str = Field(default="HealthInsurancePlan", alias='@type')
     contactPoint: Optional[Union[List[Union['ContactPoint', str]], 'ContactPoint', str]] = Field(
         default=None,
         description="A contact point for a person or organization.",
@@ -57,7 +57,6 @@ class HealthInsurancePlan(Intangible):
         description="Formularies covered by this plan.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.ContactPoint import ContactPoint

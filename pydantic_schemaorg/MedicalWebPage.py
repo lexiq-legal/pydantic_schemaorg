@@ -14,7 +14,7 @@ class MedicalWebPage(WebPage):
     See: https://schema.org/MedicalWebPage
     Model depth: 4
     """
-    type_: str = Field("MedicalWebPage", alias='@type')
+    type_: str = Field(default="MedicalWebPage", alias='@type')
     medicalAudience: Optional[Union[List[Union['MedicalAudience', 'MedicalAudienceType', str]], 'MedicalAudience', 'MedicalAudienceType', str]] = Field(
         default=None,
         description="Medical audience for page.",
@@ -25,7 +25,6 @@ class MedicalWebPage(WebPage):
      "'causes', 'prognosis', 'etiology', 'epidemiology', etc.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalAudience import MedicalAudience

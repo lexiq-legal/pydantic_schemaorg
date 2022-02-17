@@ -11,6 +11,5 @@ class ScholarlyArticle(Article):
     See: https://schema.org/ScholarlyArticle
     Model depth: 4
     """
-    type_: str = Field("ScholarlyArticle", alias='@type')
+    type_: str = Field(default="ScholarlyArticle", alias='@type')
     
-

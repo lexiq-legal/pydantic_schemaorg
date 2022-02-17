@@ -11,6 +11,5 @@ class OrderInTransit(OrderStatus):
     See: https://schema.org/OrderInTransit
     Model depth: 6
     """
-    type_: str = Field("OrderInTransit", alias='@type')
+    type_: str = Field(default="OrderInTransit", alias='@type')
     
-

@@ -11,6 +11,5 @@ class RelatedTopicsHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/RelatedTopicsHealthAspect
     Model depth: 5
     """
-    type_: str = Field("RelatedTopicsHealthAspect", alias='@type')
+    type_: str = Field(default="RelatedTopicsHealthAspect", alias='@type')
     
-

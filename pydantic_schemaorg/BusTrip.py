@@ -14,7 +14,7 @@ class BusTrip(Trip):
     See: https://schema.org/BusTrip
     Model depth: 4
     """
-    type_: str = Field("BusTrip", alias='@type')
+    type_: str = Field(default="BusTrip", alias='@type')
     departureBusStop: Optional[Union[List[Union['BusStation', 'BusStop', str]], 'BusStation', 'BusStop', str]] = Field(
         default=None,
         description="The stop or station from which the bus departs.",
@@ -32,7 +32,6 @@ class BusTrip(Trip):
         description="The name of the bus (e.g. Bolt Express).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.BusStation import BusStation

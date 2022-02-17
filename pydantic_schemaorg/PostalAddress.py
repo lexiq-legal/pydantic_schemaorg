@@ -14,7 +14,7 @@ class PostalAddress(ContactPoint):
     See: https://schema.org/PostalAddress
     Model depth: 5
     """
-    type_: str = Field("PostalAddress", alias='@type')
+    type_: str = Field(default="PostalAddress", alias='@type')
     postalCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The postal code. For example, 94043.",
@@ -43,7 +43,6 @@ class PostalAddress(ContactPoint):
      "or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country)",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

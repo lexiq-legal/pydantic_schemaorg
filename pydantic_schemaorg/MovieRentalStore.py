@@ -11,6 +11,5 @@ class MovieRentalStore(Store):
     See: https://schema.org/MovieRentalStore
     Model depth: 5
     """
-    type_: str = Field("MovieRentalStore", alias='@type')
+    type_: str = Field(default="MovieRentalStore", alias='@type')
     
-

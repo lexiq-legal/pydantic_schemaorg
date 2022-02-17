@@ -11,6 +11,5 @@ class CompilationAlbum(MusicAlbumProductionType):
     See: https://schema.org/CompilationAlbum
     Model depth: 5
     """
-    type_: str = Field("CompilationAlbum", alias='@type')
+    type_: str = Field(default="CompilationAlbum", alias='@type')
     
-

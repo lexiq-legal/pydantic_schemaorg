@@ -11,6 +11,5 @@ class RadioStation(LocalBusiness):
     See: https://schema.org/RadioStation
     Model depth: 4
     """
-    type_: str = Field("RadioStation", alias='@type')
+    type_: str = Field(default="RadioStation", alias='@type')
     
-

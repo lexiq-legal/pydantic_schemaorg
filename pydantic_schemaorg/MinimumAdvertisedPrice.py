@@ -12,6 +12,5 @@ class MinimumAdvertisedPrice(PriceTypeEnumeration):
     See: https://schema.org/MinimumAdvertisedPrice
     Model depth: 5
     """
-    type_: str = Field("MinimumAdvertisedPrice", alias='@type')
+    type_: str = Field(default="MinimumAdvertisedPrice", alias='@type')
     
-

@@ -22,7 +22,7 @@ class FloorPlan(Intangible):
     See: https://schema.org/FloorPlan
     Model depth: 3
     """
-    type_: str = Field("FloorPlan", alias='@type')
+    type_: str = Field(default="FloorPlan", alias='@type')
     numberOfBedrooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]]"
@@ -88,7 +88,6 @@ class FloorPlan(Intangible):
      "[[ApartmentComplex]]). See also [[numberOfAccommodationUnits]].",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

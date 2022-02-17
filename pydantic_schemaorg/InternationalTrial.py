@@ -11,6 +11,5 @@ class InternationalTrial(MedicalTrialDesign):
     See: https://schema.org/InternationalTrial
     Model depth: 6
     """
-    type_: str = Field("InternationalTrial", alias='@type')
+    type_: str = Field(default="InternationalTrial", alias='@type')
     
-

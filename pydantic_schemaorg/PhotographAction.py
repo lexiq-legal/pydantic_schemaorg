@@ -11,6 +11,5 @@ class PhotographAction(CreateAction):
     See: https://schema.org/PhotographAction
     Model depth: 4
     """
-    type_: str = Field("PhotographAction", alias='@type')
+    type_: str = Field(default="PhotographAction", alias='@type')
     
-

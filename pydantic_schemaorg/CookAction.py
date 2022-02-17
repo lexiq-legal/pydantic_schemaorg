@@ -14,7 +14,7 @@ class CookAction(CreateAction):
     See: https://schema.org/CookAction
     Model depth: 4
     """
-    type_: str = Field("CookAction", alias='@type')
+    type_: str = Field(default="CookAction", alias='@type')
     recipe: Optional[Union[List[Union['Recipe', str]], 'Recipe', str]] = Field(
         default=None,
         description="A sub property of instrument. The recipe/instructions used to perform the action.",
@@ -28,7 +28,6 @@ class CookAction(CreateAction):
         description="A sub property of location. The specific food event where the action occurred.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Recipe import Recipe

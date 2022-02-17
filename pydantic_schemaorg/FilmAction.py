@@ -11,6 +11,5 @@ class FilmAction(CreateAction):
     See: https://schema.org/FilmAction
     Model depth: 4
     """
-    type_: str = Field("FilmAction", alias='@type')
+    type_: str = Field(default="FilmAction", alias='@type')
     
-

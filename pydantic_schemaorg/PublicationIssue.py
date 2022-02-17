@@ -16,7 +16,7 @@ class PublicationIssue(CreativeWork):
     See: https://schema.org/PublicationIssue
     Model depth: 3
     """
-    type_: str = Field("PublicationIssue", alias='@type')
+    type_: str = Field(default="PublicationIssue", alias='@type')
     issueNumber: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
         default=None,
         description="Identifies the issue of publication; for example, \"iii\" or \"2\".",
@@ -35,7 +35,6 @@ class PublicationIssue(CreativeWork):
         description="The page on which the work ends; for example \"138\" or \"xvi\".",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Integer import Integer

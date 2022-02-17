@@ -12,6 +12,5 @@ class CreateAction(Action):
     See: https://schema.org/CreateAction
     Model depth: 3
     """
-    type_: str = Field("CreateAction", alias='@type')
+    type_: str = Field(default="CreateAction", alias='@type')
     
-

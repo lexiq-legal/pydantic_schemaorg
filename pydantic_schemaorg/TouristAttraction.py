@@ -18,7 +18,7 @@ class TouristAttraction(Place):
     See: https://schema.org/TouristAttraction
     Model depth: 3
     """
-    type_: str = Field("TouristAttraction", alias='@type')
+    type_: str = Field(default="TouristAttraction", alias='@type')
     availableLanguage: Optional[Union[List[Union[str, 'Text', 'Language']], str, 'Text', 'Language']] = Field(
         default=None,
         description="A language someone may use with or at the item, service or place. Please use one of the language"
@@ -31,7 +31,6 @@ class TouristAttraction(Place):
      "country, etc.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

@@ -11,6 +11,5 @@ class WearableSizeGroupHusky(WearableSizeGroupEnumeration):
     See: https://schema.org/WearableSizeGroupHusky
     Model depth: 6
     """
-    type_: str = Field("WearableSizeGroupHusky", alias='@type')
+    type_: str = Field(default="WearableSizeGroupHusky", alias='@type')
     
-

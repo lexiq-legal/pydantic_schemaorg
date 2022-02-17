@@ -13,6 +13,6 @@ class Project(Organization):
     See: https://schema.org/Project
     Model depth: 3
     """
-    type_: str = Field("Project", alias='@type')
+    type_: str = Field(default="Project", alias='@type')
     
 

@@ -11,6 +11,5 @@ class Optician(MedicalBusiness):
     See: https://schema.org/Optician
     Model depth: 5
     """
-    type_: str = Field("Optician", alias='@type')
+    type_: str = Field(default="Optician", alias='@type')
     
-

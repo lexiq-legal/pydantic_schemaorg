@@ -13,6 +13,6 @@ class Gynecologic(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Gynecologic
     Model depth: 5
     """
-    type_: str = Field("Gynecologic", alias='@type')
+    type_: str = Field(default="Gynecologic", alias='@type')
     
 

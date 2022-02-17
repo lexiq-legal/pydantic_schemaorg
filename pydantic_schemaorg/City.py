@@ -11,6 +11,5 @@ class City(AdministrativeArea):
     See: https://schema.org/City
     Model depth: 4
     """
-    type_: str = Field("City", alias='@type')
+    type_: str = Field(default="City", alias='@type')
     
-

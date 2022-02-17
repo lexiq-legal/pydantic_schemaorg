@@ -11,6 +11,6 @@ class ItemListUnordered(ItemListOrderType):
     See: https://schema.org/ItemListUnordered
     Model depth: 5
     """
-    type_: str = Field("ItemListUnordered", alias='@type')
+    type_: str = Field(default="ItemListUnordered", alias='@type')
     
 

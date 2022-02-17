@@ -11,6 +11,6 @@ class DrivingSchoolVehicleUsage(CarUsageType):
     See: https://schema.org/DrivingSchoolVehicleUsage
     Model depth: 5
     """
-    type_: str = Field("DrivingSchoolVehicleUsage", alias='@type')
+    type_: str = Field(default="DrivingSchoolVehicleUsage", alias='@type')
     
 

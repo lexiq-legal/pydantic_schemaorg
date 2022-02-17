@@ -22,7 +22,7 @@ class Observation(Intangible):
     See: https://schema.org/Observation
     Model depth: 3
     """
-    type_: str = Field("Observation", alias='@type')
+    type_: str = Field(default="Observation", alias='@type')
     measuredProperty: Optional[Union[List[Union['Property', str]], 'Property', str]] = Field(
         default=None,
         description="The measuredProperty of an [[Observation]], either a schema.org property, a property"
@@ -46,7 +46,6 @@ class Observation(Intangible):
         description="The measuredValue of an [[Observation]].",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Property import Property

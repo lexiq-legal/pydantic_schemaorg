@@ -11,6 +11,5 @@ class EatAction(ConsumeAction):
     See: https://schema.org/EatAction
     Model depth: 4
     """
-    type_: str = Field("EatAction", alias='@type')
+    type_: str = Field(default="EatAction", alias='@type')
     
-

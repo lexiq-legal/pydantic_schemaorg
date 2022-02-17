@@ -11,6 +11,5 @@ class Plumber(HomeAndConstructionBusiness):
     See: https://schema.org/Plumber
     Model depth: 5
     """
-    type_: str = Field("Plumber", alias='@type')
+    type_: str = Field(default="Plumber", alias='@type')
     
-

@@ -18,7 +18,7 @@ class ShippingRateSettings(StructuredValue):
     See: https://schema.org/ShippingRateSettings
     Model depth: 4
     """
-    type_: str = Field("ShippingRateSettings", alias='@type')
+    type_: str = Field(default="ShippingRateSettings", alias='@type')
     shippingLabel: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within"
@@ -54,7 +54,6 @@ class ShippingRateSettings(StructuredValue):
      "since this property is for use with unlabelled settings.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

@@ -14,13 +14,12 @@ class HowToSupply(HowToItem):
     See: https://schema.org/HowToSupply
     Model depth: 5
     """
-    type_: str = Field("HowToSupply", alias='@type')
+    type_: str = Field(default="HowToSupply", alias='@type')
     estimatedCost: Optional[Union[List[Union[str, 'Text', 'MonetaryAmount']], str, 'Text', 'MonetaryAmount']] = Field(
         default=None,
         description="The estimated cost of the supply or supplies consumed when performing instructions.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

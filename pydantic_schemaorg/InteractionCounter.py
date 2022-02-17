@@ -17,7 +17,7 @@ class InteractionCounter(StructuredValue):
     See: https://schema.org/InteractionCounter
     Model depth: 4
     """
-    type_: str = Field("InteractionCounter", alias='@type')
+    type_: str = Field(default="InteractionCounter", alias='@type')
     userInteractionCount: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
         default=None,
         description="The number of interactions for the CreativeWork using the WebSite or SoftwareApplication.",
@@ -27,7 +27,7 @@ class InteractionCounter(StructuredValue):
         description="The Action representing the type of interaction. For up votes, +1s, etc. use [[LikeAction]]."
      "For down votes use [[DislikeAction]]. Otherwise, use the most specific Action.",
     )
-    location: Optional[Union[List[Union[str, 'Text', 'Place', 'VirtualLocation', 'PostalAddress']], str, 'Text', 'Place', 'VirtualLocation', 'PostalAddress']] = Field(
+    location: Optional[Union[List[Union[str, 'Text', 'VirtualLocation', 'Place', 'PostalAddress']], str, 'Text', 'VirtualLocation', 'Place', 'PostalAddress']] = Field(
         default=None,
         description="The location of, for example, where an event is happening, where an organization is located,"
      "or where an action takes place.",
@@ -56,13 +56,12 @@ class InteractionCounter(StructuredValue):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.Action import Action
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.VirtualLocation import VirtualLocation
+    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.PostalAddress import PostalAddress
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Time import Time

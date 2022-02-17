@@ -14,6 +14,5 @@ class Pathology(MedicalSpecialty):
     See: https://schema.org/Pathology
     Model depth: 6
     """
-    type_: str = Field("Pathology", alias='@type')
+    type_: str = Field(default="Pathology", alias='@type')
     
-

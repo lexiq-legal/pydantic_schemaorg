@@ -12,6 +12,5 @@ class PoliceStation(EmergencyService, CivicStructure):
     See: https://schema.org/PoliceStation
     Model depth: 4
     """
-    type_: str = Field("PoliceStation", alias='@type')
+    type_: str = Field(default="PoliceStation", alias='@type')
     
-

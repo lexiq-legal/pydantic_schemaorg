@@ -11,6 +11,6 @@ class AssessAction(Action):
     See: https://schema.org/AssessAction
     Model depth: 3
     """
-    type_: str = Field("AssessAction", alias='@type')
+    type_: str = Field(default="AssessAction", alias='@type')
     
 

@@ -25,7 +25,7 @@ class StatisticalPopulation(Intangible):
     See: https://schema.org/StatisticalPopulation
     Model depth: 3
     """
-    type_: str = Field("StatisticalPopulation", alias='@type')
+    type_: str = Field(default="StatisticalPopulation", alias='@type')
     numConstraints: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
         default=None,
         description="Indicates the number of constraints (not counting [[populationType]]) defined for"
@@ -42,7 +42,6 @@ class StatisticalPopulation(Intangible):
         description="Indicates the populationType common to all members of a [[StatisticalPopulation]].",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Integer import Integer

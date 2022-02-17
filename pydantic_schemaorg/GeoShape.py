@@ -18,7 +18,7 @@ class GeoShape(StructuredValue):
     See: https://schema.org/GeoShape
     Model depth: 4
     """
-    type_: str = Field("GeoShape", alias='@type')
+    type_: str = Field(default="GeoShape", alias='@type')
     polygon: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A polygon is the area enclosed by a point-to-point path for which the starting and ending"
@@ -61,7 +61,6 @@ class GeoShape(StructuredValue):
      "country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

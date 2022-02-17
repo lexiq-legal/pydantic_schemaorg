@@ -20,7 +20,7 @@ class MedicalGuideline(MedicalEntity):
     See: https://schema.org/MedicalGuideline
     Model depth: 3
     """
-    type_: str = Field("MedicalGuideline", alias='@type')
+    type_: str = Field(default="MedicalGuideline", alias='@type')
     evidenceOrigin: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Source of the data used to formulate the guidance, e.g. RCT, consensus opinion, etc.",
@@ -38,7 +38,6 @@ class MedicalGuideline(MedicalEntity):
         description="The medical conditions, treatments, etc. that are the subject of the guideline.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

@@ -16,13 +16,12 @@ class MovieTheater(EntertainmentBusiness, CivicStructure):
     See: https://schema.org/MovieTheater
     Model depth: 4
     """
-    type_: str = Field("MovieTheater", alias='@type')
+    type_: str = Field(default="MovieTheater", alias='@type')
     screenCount: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
         default=None,
         description="The number of screens in the movie theater.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

@@ -16,7 +16,7 @@ class Organization(Thing):
     See: https://schema.org/Organization
     Model depth: 2
     """
-    type_: str = Field("Organization", alias='@type')
+    type_: str = Field(default="Organization", alias='@type')
     subOrganization: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
         default=None,
         description="A relationship between two organizations where the first includes the second, e.g.,"
@@ -26,7 +26,7 @@ class Organization(Thing):
         default=None,
         description="A contact point for a person or organization.",
     )
-    areaServed: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'AdministrativeArea', 'Place']], str, 'Text', 'GeoShape', 'AdministrativeArea', 'Place']] = Field(
+    areaServed: Optional[Union[List[Union[str, 'Text', 'AdministrativeArea', 'Place', 'GeoShape']], str, 'Text', 'AdministrativeArea', 'Place', 'GeoShape']] = Field(
         default=None,
         description="The geographic area where a service or offered item is provided.",
     )
@@ -41,7 +41,7 @@ class Organization(Thing):
         default=None,
         description="The larger organization that this organization is a [[subOrganization]] of, if any.",
     )
-    funder: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    funder: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A person or organization that supports (sponsors) something through some kind of financial"
      "contribution.",
@@ -95,7 +95,7 @@ class Organization(Thing):
         description="The International Standard of Industrial Classification of All Economic Activities"
      "(ISIC), Revision 4 code for a particular organization, business person, or place.",
     )
-    member: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    member: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A member of an Organization or a ProgramMembership. Organizations can be members of"
      "organizations; ProgramMembership is typically for individuals.",
@@ -109,7 +109,7 @@ class Organization(Thing):
         default=None,
         description="Someone working for this organization.",
     )
-    brand: Optional[Union[List[Union['Organization', 'Brand', str]], 'Organization', 'Brand', str]] = Field(
+    brand: Optional[Union[List[Union['Brand', 'Organization', str]], 'Brand', 'Organization', str]] = Field(
         default=None,
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
@@ -122,7 +122,7 @@ class Organization(Thing):
         default=None,
         description="Specifies a MerchantReturnPolicy that may be applicable.",
     )
-    location: Optional[Union[List[Union[str, 'Text', 'Place', 'VirtualLocation', 'PostalAddress']], str, 'Text', 'Place', 'VirtualLocation', 'PostalAddress']] = Field(
+    location: Optional[Union[List[Union[str, 'Text', 'VirtualLocation', 'Place', 'PostalAddress']], str, 'Text', 'VirtualLocation', 'Place', 'PostalAddress']] = Field(
         default=None,
         description="The location of, for example, where an event is happening, where an organization is located,"
      "or where an action takes place.",
@@ -185,7 +185,7 @@ class Organization(Thing):
         default=None,
         description="An associated logo.",
     )
-    members: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    members: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A member of this organization.",
     )
@@ -213,7 +213,7 @@ class Organization(Thing):
         default=None,
         description="Alumni of an organization.",
     )
-    sponsor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    sponsor: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -222,7 +222,7 @@ class Organization(Thing):
         default=None,
         description="Upcoming or past events associated with this place or organization.",
     )
-    serviceArea: Optional[Union[List[Union['AdministrativeArea', 'GeoShape', 'Place', str]], 'AdministrativeArea', 'GeoShape', 'Place', str]] = Field(
+    serviceArea: Optional[Union[List[Union['AdministrativeArea', 'Place', 'GeoShape', str]], 'AdministrativeArea', 'Place', 'GeoShape', str]] = Field(
         default=None,
         description="The geographic area where the service is provided.",
     )
@@ -243,7 +243,7 @@ class Organization(Thing):
         default=None,
         description="The number of employees in an organization e.g. business.",
     )
-    ownershipFundingInfo: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'AboutPage', 'CreativeWork']], AnyUrl, 'URL', str, 'Text', 'AboutPage', 'CreativeWork']] = Field(
+    ownershipFundingInfo: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'CreativeWork', 'AboutPage']], AnyUrl, 'URL', str, 'Text', 'CreativeWork', 'AboutPage']] = Field(
         default=None,
         description="For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]),"
      "a description of organizational ownership structure; funding and grants. In a news/media"
@@ -318,9 +318,9 @@ class Organization(Thing):
 if TYPE_CHECKING:
     from pydantic_schemaorg.ContactPoint import ContactPoint
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.GeoShape import GeoShape
     from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
     from pydantic_schemaorg.Place import Place
+    from pydantic_schemaorg.GeoShape import GeoShape
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.CreativeWork import CreativeWork
     from pydantic_schemaorg.Person import Person

@@ -16,7 +16,7 @@ class SoftwareSourceCode(CreativeWork):
     See: https://schema.org/SoftwareSourceCode
     Model depth: 3
     """
-    type_: str = Field("SoftwareSourceCode", alias='@type')
+    type_: str = Field(default="SoftwareSourceCode", alias='@type')
     codeRepository: Optional[Union[List[Union[AnyUrl, 'URL', str]], AnyUrl, 'URL', str]] = Field(
         default=None,
         description="Link to the repository where the un-compiled, human readable code and related code is"
@@ -52,7 +52,6 @@ class SoftwareSourceCode(CreativeWork):
      "just the product name can be used.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL

@@ -11,6 +11,5 @@ class OrderDelivered(OrderStatus):
     See: https://schema.org/OrderDelivered
     Model depth: 6
     """
-    type_: str = Field("OrderDelivered", alias='@type')
+    type_: str = Field(default="OrderDelivered", alias='@type')
     
-

@@ -16,7 +16,7 @@ class ShippingDeliveryTime(StructuredValue):
     See: https://schema.org/ShippingDeliveryTime
     Model depth: 4
     """
-    type_: str = Field("ShippingDeliveryTime", alias='@type')
+    type_: str = Field(default="ShippingDeliveryTime", alias='@type')
     transitTime: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
         default=None,
         description="The typical delay the order has been sent for delivery and the goods reach the final customer."
@@ -44,7 +44,6 @@ class ShippingDeliveryTime(StructuredValue):
         description="Days of the week when the merchant typically operates, indicated via opening hours markup.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue

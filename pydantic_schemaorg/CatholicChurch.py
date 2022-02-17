@@ -11,6 +11,5 @@ class CatholicChurch(Church):
     See: https://schema.org/CatholicChurch
     Model depth: 6
     """
-    type_: str = Field("CatholicChurch", alias='@type')
+    type_: str = Field(default="CatholicChurch", alias='@type')
     
-

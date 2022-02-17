@@ -15,7 +15,7 @@ class GeospatialGeometry(Intangible):
     See: https://schema.org/GeospatialGeometry
     Model depth: 3
     """
-    type_: str = Field("GeospatialGeometry", alias='@type')
+    type_: str = Field(default="GeospatialGeometry", alias='@type')
     geoEquals: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents spatial relations in which two geometries (or the places they represent)"
@@ -79,7 +79,6 @@ class GeospatialGeometry(Intangible):
      "in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Place import Place

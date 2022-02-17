@@ -26,13 +26,12 @@ class MedicalCause(MedicalEntity):
     See: https://schema.org/MedicalCause
     Model depth: 3
     """
-    type_: str = Field("MedicalCause", alias='@type')
+    type_: str = Field(default="MedicalCause", alias='@type')
     causeOf: Optional[Union[List[Union['MedicalEntity', str]], 'MedicalEntity', str]] = Field(
         default=None,
         description="The condition, complication, symptom, sign, etc. caused.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalEntity import MedicalEntity

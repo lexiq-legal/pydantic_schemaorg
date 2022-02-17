@@ -19,14 +19,13 @@ class Protein(BioChemEntity):
     See: https://schema.org/Protein
     Model depth: 3
     """
-    type_: str = Field("Protein", alias='@type')
+    type_: str = Field(default="Protein", alias='@type')
     hasBioPolymerSequence: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of"
      "a Gene or an amino acid sequence of a Protein.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

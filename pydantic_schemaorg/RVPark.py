@@ -12,6 +12,5 @@ class RVPark(CivicStructure):
     See: https://schema.org/RVPark
     Model depth: 4
     """
-    type_: str = Field("RVPark", alias='@type')
+    type_: str = Field(default="RVPark", alias='@type')
     
-

@@ -14,7 +14,7 @@ class NutritionInformation(StructuredValue):
     See: https://schema.org/NutritionInformation
     Model depth: 4
     """
-    type_: str = Field("NutritionInformation", alias='@type')
+    type_: str = Field(default="NutritionInformation", alias='@type')
     calories: Optional[Union[List[Union['Energy', str]], 'Energy', str]] = Field(
         default=None,
         description="The number of calories.",
@@ -64,7 +64,6 @@ class NutritionInformation(StructuredValue):
         description="The number of grams of sugar.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Energy import Energy

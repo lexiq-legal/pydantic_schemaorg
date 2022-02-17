@@ -11,6 +11,5 @@ class WearableMeasurementWidth(WearableMeasurementTypeEnumeration):
     See: https://schema.org/WearableMeasurementWidth
     Model depth: 6
     """
-    type_: str = Field("WearableMeasurementWidth", alias='@type')
+    type_: str = Field(default="WearableMeasurementWidth", alias='@type')
     
-

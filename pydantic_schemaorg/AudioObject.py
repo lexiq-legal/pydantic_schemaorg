@@ -14,7 +14,7 @@ class AudioObject(MediaObject):
     See: https://schema.org/AudioObject
     Model depth: 4
     """
-    type_: str = Field("AudioObject", alias='@type')
+    type_: str = Field(default="AudioObject", alias='@type')
     embeddedTextCaption: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.",
@@ -29,7 +29,6 @@ class AudioObject(MediaObject):
      "etc.) use MediaObject and indicate the [[encodingFormat]].",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

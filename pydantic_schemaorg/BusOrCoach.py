@@ -15,7 +15,7 @@ class BusOrCoach(Vehicle):
     See: https://schema.org/BusOrCoach
     Model depth: 4
     """
-    type_: str = Field("BusOrCoach", alias='@type')
+    type_: str = Field(default="BusOrCoach", alias='@type')
     acrissCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The ACRISS Car Classification Code is a code used by many car rental companies, for classifying"
@@ -31,7 +31,6 @@ class BusOrCoach(Vehicle):
      "to indicate ranges.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

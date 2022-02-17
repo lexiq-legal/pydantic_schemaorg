@@ -11,6 +11,5 @@ class SpreadsheetDigitalDocument(DigitalDocument):
     See: https://schema.org/SpreadsheetDigitalDocument
     Model depth: 4
     """
-    type_: str = Field("SpreadsheetDigitalDocument", alias='@type')
+    type_: str = Field(default="SpreadsheetDigitalDocument", alias='@type')
     
-

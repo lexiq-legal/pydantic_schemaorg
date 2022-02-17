@@ -11,6 +11,5 @@ class NoninvasiveProcedure(MedicalProcedureType):
     See: https://schema.org/NoninvasiveProcedure
     Model depth: 6
     """
-    type_: str = Field("NoninvasiveProcedure", alias='@type')
+    type_: str = Field(default="NoninvasiveProcedure", alias='@type')
     
-

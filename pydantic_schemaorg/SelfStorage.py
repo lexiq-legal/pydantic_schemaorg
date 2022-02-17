@@ -11,6 +11,5 @@ class SelfStorage(LocalBusiness):
     See: https://schema.org/SelfStorage
     Model depth: 4
     """
-    type_: str = Field("SelfStorage", alias='@type')
+    type_: str = Field(default="SelfStorage", alias='@type')
     
-

@@ -11,6 +11,5 @@ class VeganDiet(RestrictedDiet):
     See: https://schema.org/VeganDiet
     Model depth: 5
     """
-    type_: str = Field("VeganDiet", alias='@type')
+    type_: str = Field(default="VeganDiet", alias='@type')
     
-

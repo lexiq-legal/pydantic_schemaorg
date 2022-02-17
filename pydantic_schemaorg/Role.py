@@ -21,7 +21,7 @@ class Role(Intangible):
     See: https://schema.org/Role
     Model depth: 3
     """
-    type_: str = Field("Role", alias='@type')
+    type_: str = Field(default="Role", alias='@type')
     roleName: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         default=None,
         description="A role played, performed or filled by a person or organization. For example, the team"
@@ -42,7 +42,6 @@ class Role(Intangible):
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL

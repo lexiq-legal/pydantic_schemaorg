@@ -15,7 +15,7 @@ class GeoCoordinates(StructuredValue):
     See: https://schema.org/GeoCoordinates
     Model depth: 4
     """
-    type_: str = Field("GeoCoordinates", alias='@type')
+    type_: str = Field(default="GeoCoordinates", alias='@type')
     postalCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The postal code. For example, 94043.",
@@ -44,7 +44,6 @@ class GeoCoordinates(StructuredValue):
      "country code](http://en.wikipedia.org/wiki/ISO_3166-1).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

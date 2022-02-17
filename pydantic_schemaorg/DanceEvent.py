@@ -11,6 +11,6 @@ class DanceEvent(Event):
     See: https://schema.org/DanceEvent
     Model depth: 3
     """
-    type_: str = Field("DanceEvent", alias='@type')
+    type_: str = Field(default="DanceEvent", alias='@type')
     
 

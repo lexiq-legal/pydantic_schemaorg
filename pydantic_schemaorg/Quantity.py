@@ -12,6 +12,6 @@ class Quantity(Intangible):
     See: https://schema.org/Quantity
     Model depth: 3
     """
-    type_: str = Field("Quantity", alias='@type')
+    type_: str = Field(default="Quantity", alias='@type')
     
 

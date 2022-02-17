@@ -12,6 +12,5 @@ class SeeDoctorHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/SeeDoctorHealthAspect
     Model depth: 5
     """
-    type_: str = Field("SeeDoctorHealthAspect", alias='@type')
+    type_: str = Field(default="SeeDoctorHealthAspect", alias='@type')
     
-

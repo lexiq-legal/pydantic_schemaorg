@@ -11,6 +11,6 @@ class ComedyClub(EntertainmentBusiness):
     See: https://schema.org/ComedyClub
     Model depth: 5
     """
-    type_: str = Field("ComedyClub", alias='@type')
+    type_: str = Field(default="ComedyClub", alias='@type')
     
 

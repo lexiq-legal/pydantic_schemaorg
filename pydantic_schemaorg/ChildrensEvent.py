@@ -11,6 +11,5 @@ class ChildrensEvent(Event):
     See: https://schema.org/ChildrensEvent
     Model depth: 3
     """
-    type_: str = Field("ChildrensEvent", alias='@type')
+    type_: str = Field(default="ChildrensEvent", alias='@type')
     
-

@@ -14,6 +14,6 @@ class Number(DataType):
     See: https://schema.org/Number
     Model depth: 5
     """
-    type_: str = Field("Number", alias='@type')
+    type_: str = Field(default="Number", alias='@type')
     
 

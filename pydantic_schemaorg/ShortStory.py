@@ -11,6 +11,6 @@ class ShortStory(CreativeWork):
     See: https://schema.org/ShortStory
     Model depth: 3
     """
-    type_: str = Field("ShortStory", alias='@type')
+    type_: str = Field(default="ShortStory", alias='@type')
     
 

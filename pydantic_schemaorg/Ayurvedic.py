@@ -12,6 +12,6 @@ class Ayurvedic(MedicineSystem):
     See: https://schema.org/Ayurvedic
     Model depth: 6
     """
-    type_: str = Field("Ayurvedic", alias='@type')
+    type_: str = Field(default="Ayurvedic", alias='@type')
     
 

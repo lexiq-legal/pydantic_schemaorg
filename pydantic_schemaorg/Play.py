@@ -13,6 +13,5 @@ class Play(CreativeWork):
     See: https://schema.org/Play
     Model depth: 3
     """
-    type_: str = Field("Play", alias='@type')
+    type_: str = Field(default="Play", alias='@type')
     
-

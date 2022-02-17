@@ -12,6 +12,5 @@ class InvestmentFund(InvestmentOrDeposit):
     See: https://schema.org/InvestmentFund
     Model depth: 6
     """
-    type_: str = Field("InvestmentFund", alias='@type')
+    type_: str = Field(default="InvestmentFund", alias='@type')
     
-

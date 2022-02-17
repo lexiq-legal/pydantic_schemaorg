@@ -19,7 +19,7 @@ class Reservation(Intangible):
     See: https://schema.org/Reservation
     Model depth: 3
     """
-    type_: str = Field("Reservation", alias='@type')
+    type_: str = Field(default="Reservation", alias='@type')
     reservationId: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A unique identifier for the reservation.",
@@ -29,7 +29,7 @@ class Reservation(Intangible):
         description="Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the"
      "reservation.",
     )
-    underName: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    underName: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The person or organization the reservation or ticket is for.",
     )
@@ -53,7 +53,7 @@ class Reservation(Intangible):
      "'.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid"
      "using these symbols as a readability separator.",
     )
-    bookingAgent: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    bookingAgent: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="'bookingAgent' is an out-dated term indicating a 'broker' that serves as a booking agent.",
     )
@@ -61,7 +61,7 @@ class Reservation(Intangible):
         default=None,
         description="The current status of the reservation.",
     )
-    provider: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    provider: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."
@@ -75,7 +75,7 @@ class Reservation(Intangible):
         default=None,
         description="The thing -- flight, event, restaurant,etc. being reserved.",
     )
-    broker: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    broker: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="An entity that arranges for an exchange between a buyer and a seller. In most cases a broker"
      "never acquires or releases ownership of a product or service involved in an exchange."
@@ -92,8 +92,8 @@ class Reservation(Intangible):
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.ProgramMembership import ProgramMembership
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.PriceSpecification import PriceSpecification

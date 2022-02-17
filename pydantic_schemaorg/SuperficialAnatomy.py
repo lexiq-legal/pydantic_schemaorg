@@ -28,7 +28,7 @@ class SuperficialAnatomy(MedicalEntity):
     See: https://schema.org/SuperficialAnatomy
     Model depth: 3
     """
-    type_: str = Field("SuperficialAnatomy", alias='@type')
+    type_: str = Field(default="SuperficialAnatomy", alias='@type')
     significance: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The significance associated with the superficial anatomy; as an example, how characteristics"
@@ -54,7 +54,6 @@ class SuperficialAnatomy(MedicalEntity):
      "functions of the system.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

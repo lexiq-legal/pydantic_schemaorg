@@ -11,6 +11,5 @@ class AutoRental(AutomotiveBusiness):
     See: https://schema.org/AutoRental
     Model depth: 5
     """
-    type_: str = Field("AutoRental", alias='@type')
+    type_: str = Field(default="AutoRental", alias='@type')
     
-

@@ -15,12 +15,12 @@ class Rating(Intangible):
     See: https://schema.org/Rating
     Model depth: 3
     """
-    type_: str = Field("Rating", alias='@type')
+    type_: str = Field(default="Rating", alias='@type')
     worstRating: Optional[Union[List[Union[Decimal, 'Number', str, 'Text']], Decimal, 'Number', str, 'Text']] = Field(
         default=None,
         description="The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.",
     )
-    author: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    author: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The author of this content or rating. Please note that author is special in that HTML 5"
      "provides a special mechanism for indicating authorship via the rel tag. That is equivalent"
@@ -49,9 +49,8 @@ class Rating(Intangible):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person

@@ -13,6 +13,6 @@ class Pediatric(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Pediatric
     Model depth: 5
     """
-    type_: str = Field("Pediatric", alias='@type')
+    type_: str = Field(default="Pediatric", alias='@type')
     
 

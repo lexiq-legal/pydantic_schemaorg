@@ -12,6 +12,6 @@ class MediaGallery(CollectionPage):
     See: https://schema.org/MediaGallery
     Model depth: 5
     """
-    type_: str = Field("MediaGallery", alias='@type')
+    type_: str = Field(default="MediaGallery", alias='@type')
     
 

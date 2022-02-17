@@ -11,6 +11,5 @@ class ReservationPending(ReservationStatusType):
     See: https://schema.org/ReservationPending
     Model depth: 6
     """
-    type_: str = Field("ReservationPending", alias='@type')
+    type_: str = Field(default="ReservationPending", alias='@type')
     
-

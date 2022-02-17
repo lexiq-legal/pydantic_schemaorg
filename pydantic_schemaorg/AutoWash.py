@@ -11,6 +11,5 @@ class AutoWash(AutomotiveBusiness):
     See: https://schema.org/AutoWash
     Model depth: 5
     """
-    type_: str = Field("AutoWash", alias='@type')
+    type_: str = Field(default="AutoWash", alias='@type')
     
-

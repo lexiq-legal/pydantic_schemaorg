@@ -11,6 +11,6 @@ class Diagnostic(MedicalDevicePurpose):
     See: https://schema.org/Diagnostic
     Model depth: 6
     """
-    type_: str = Field("Diagnostic", alias='@type')
+    type_: str = Field(default="Diagnostic", alias='@type')
     
 

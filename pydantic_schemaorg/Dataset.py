@@ -16,7 +16,7 @@ class Dataset(CreativeWork):
     See: https://schema.org/Dataset
     Model depth: 3
     """
-    type_: str = Field("Dataset", alias='@type')
+    type_: str = Field(default="Dataset", alias='@type')
     includedDataCatalog: Optional[Union[List[Union['DataCatalog', str]], 'DataCatalog', str]] = Field(
         default=None,
         description="A data catalog which contains this dataset (this property was previously 'catalog',"
@@ -66,7 +66,6 @@ class Dataset(CreativeWork):
      "and description using PropertyValue.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.DataCatalog import DataCatalog

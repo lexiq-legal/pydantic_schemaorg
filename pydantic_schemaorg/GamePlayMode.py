@@ -11,6 +11,6 @@ class GamePlayMode(Enumeration):
     See: https://schema.org/GamePlayMode
     Model depth: 4
     """
-    type_: str = Field("GamePlayMode", alias='@type')
+    type_: str = Field(default="GamePlayMode", alias='@type')
     
 

@@ -18,7 +18,7 @@ class Vehicle(Product):
     See: https://schema.org/Vehicle
     Model depth: 3
     """
-    type_: str = Field("Vehicle", alias='@type')
+    type_: str = Field(default="Vehicle", alias='@type')
     meetsEmissionStandard: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'QualitativeValue']], AnyUrl, 'URL', str, 'Text', 'QualitativeValue']] = Field(
         default=None,
         description="Indicates that the vehicle meets the respective emission standard.",
@@ -248,7 +248,6 @@ class Vehicle(Product):
         description="The date the item e.g. vehicle was purchased by the current owner.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL

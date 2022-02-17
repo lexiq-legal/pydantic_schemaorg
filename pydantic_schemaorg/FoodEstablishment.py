@@ -15,7 +15,7 @@ class FoodEstablishment(LocalBusiness):
     See: https://schema.org/FoodEstablishment
     Model depth: 4
     """
-    type_: str = Field("FoodEstablishment", alias='@type')
+    type_: str = Field(default="FoodEstablishment", alias='@type')
     menu: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Menu']], AnyUrl, 'URL', str, 'Text', 'Menu']] = Field(
         default=None,
         description="Either the actual menu as a structured representation, as text, or a URL of the menu.",

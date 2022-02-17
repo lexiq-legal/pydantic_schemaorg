@@ -17,7 +17,7 @@ class WorkBasedProgram(EducationalOccupationalProgram):
     See: https://schema.org/WorkBasedProgram
     Model depth: 4
     """
-    type_: str = Field("WorkBasedProgram", alias='@type')
+    type_: str = Field(default="WorkBasedProgram", alias='@type')
     trainingSalary: Optional[Union[List[Union['MonetaryAmountDistribution', str]], 'MonetaryAmountDistribution', str]] = Field(
         default=None,
         description="The estimated salary earned while in the program.",
@@ -32,7 +32,6 @@ class WorkBasedProgram(EducationalOccupationalProgram):
      "as a literal may be assumed to be from O*NET-SOC.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution

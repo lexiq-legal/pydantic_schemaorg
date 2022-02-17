@@ -20,7 +20,7 @@ class Course(LearningResource, CreativeWork):
     See: https://schema.org/Course
     Model depth: 3
     """
-    type_: str = Field("Course", alias='@type')
+    type_: str = Field(default="Course", alias='@type')
     numberOfCredits: Optional[Union[List[Union[int, 'Integer', 'StructuredValue', str]], int, 'Integer', 'StructuredValue', str]] = Field(
         default=None,
         description="The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.",
@@ -39,7 +39,7 @@ class Course(LearningResource, CreativeWork):
         description="An offering of the course at a specific time and place or through specific media or mode"
      "of study or to a specific section of students.",
     )
-    coursePrerequisites: Optional[Union[List[Union[str, 'Text', 'AlignmentObject', 'Course']], str, 'Text', 'AlignmentObject', 'Course']] = Field(
+    coursePrerequisites: Optional[Union[List[Union[str, 'Text', 'Course', 'AlignmentObject']], str, 'Text', 'Course', 'AlignmentObject']] = Field(
         default=None,
         description="Requirements for taking the Course. May be completion of another [[Course]] or a textual"
      "description like \"permission of instructor\". Requirements may be a pre-requisite"
@@ -51,7 +51,6 @@ class Course(LearningResource, CreativeWork):
      "credential awarded as a consequence of successful completion of this course or program.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Integer import Integer

@@ -15,7 +15,7 @@ class TherapeuticProcedure(MedicalProcedure):
     See: https://schema.org/TherapeuticProcedure
     Model depth: 4
     """
-    type_: str = Field("TherapeuticProcedure", alias='@type')
+    type_: str = Field(default="TherapeuticProcedure", alias='@type')
     doseSchedule: Optional[Union[List[Union['DoseSchedule', str]], 'DoseSchedule', str]] = Field(
         default=None,
         description="A dosing schedule for the drug for a given population, either observed, recommended,"

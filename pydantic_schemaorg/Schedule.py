@@ -22,7 +22,7 @@ class Schedule(Intangible):
     See: https://schema.org/Schedule
     Model depth: 3
     """
-    type_: str = Field("Schedule", alias='@type')
+    type_: str = Field(default="Schedule", alias='@type')
     exceptDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
         default=None,
         description="Defines a [[Date]] or [[DateTime]] during which a scheduled [[Event]] will not take"
@@ -100,7 +100,6 @@ class Schedule(Intangible):
      "dates with times. This situation may be clarified in future revisions.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.DateTime import DateTime

@@ -11,6 +11,5 @@ class GroupBoardingPolicy(BoardingPolicyType):
     See: https://schema.org/GroupBoardingPolicy
     Model depth: 5
     """
-    type_: str = Field("GroupBoardingPolicy", alias='@type')
+    type_: str = Field(default="GroupBoardingPolicy", alias='@type')
     
-

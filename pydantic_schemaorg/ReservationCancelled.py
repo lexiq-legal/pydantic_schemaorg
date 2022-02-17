@@ -11,6 +11,5 @@ class ReservationCancelled(ReservationStatusType):
     See: https://schema.org/ReservationCancelled
     Model depth: 6
     """
-    type_: str = Field("ReservationCancelled", alias='@type')
+    type_: str = Field(default="ReservationCancelled", alias='@type')
     
-

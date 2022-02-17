@@ -13,6 +13,5 @@ class UserTweets(UserInteraction):
     See: https://schema.org/UserTweets
     Model depth: 4
     """
-    type_: str = Field("UserTweets", alias='@type')
+    type_: str = Field(default="UserTweets", alias='@type')
     
-

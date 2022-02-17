@@ -11,6 +11,5 @@ class PET(MedicalImagingTechnique):
     See: https://schema.org/PET
     Model depth: 6
     """
-    type_: str = Field("PET", alias='@type')
+    type_: str = Field(default="PET", alias='@type')
     
-

@@ -11,6 +11,5 @@ class Date(DataType):
     See: https://schema.org/Date
     Model depth: 5
     """
-    type_: str = Field("Date", alias='@type')
+    type_: str = Field(default="Date", alias='@type')
     
-

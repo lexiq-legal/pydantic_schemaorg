@@ -11,6 +11,5 @@ class Ear(PhysicalExam):
     See: https://schema.org/Ear
     Model depth: 5
     """
-    type_: str = Field("Ear", alias='@type')
+    type_: str = Field(default="Ear", alias='@type')
     
-

@@ -12,6 +12,5 @@ class MotorizedBicycle(Vehicle):
     See: https://schema.org/MotorizedBicycle
     Model depth: 4
     """
-    type_: str = Field("MotorizedBicycle", alias='@type')
+    type_: str = Field(default="MotorizedBicycle", alias='@type')
     
-

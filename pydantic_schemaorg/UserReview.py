@@ -12,6 +12,6 @@ class UserReview(Review):
     See: https://schema.org/UserReview
     Model depth: 4
     """
-    type_: str = Field("UserReview", alias='@type')
+    type_: str = Field(default="UserReview", alias='@type')
     
 

@@ -11,6 +11,5 @@ class TouristInformationCenter(LocalBusiness):
     See: https://schema.org/TouristInformationCenter
     Model depth: 4
     """
-    type_: str = Field("TouristInformationCenter", alias='@type')
+    type_: str = Field(default="TouristInformationCenter", alias='@type')
     
-

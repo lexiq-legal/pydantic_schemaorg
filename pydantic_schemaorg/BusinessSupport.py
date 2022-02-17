@@ -11,6 +11,6 @@ class BusinessSupport(GovernmentBenefitsType):
     See: https://schema.org/BusinessSupport
     Model depth: 5
     """
-    type_: str = Field("BusinessSupport", alias='@type')
+    type_: str = Field(default="BusinessSupport", alias='@type')
     
 

@@ -11,6 +11,5 @@ class Painting(CreativeWork):
     See: https://schema.org/Painting
     Model depth: 3
     """
-    type_: str = Field("Painting", alias='@type')
+    type_: str = Field(default="Painting", alias='@type')
     
-

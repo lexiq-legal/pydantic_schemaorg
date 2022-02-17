@@ -11,6 +11,6 @@ class SiteNavigationElement(WebPageElement):
     See: https://schema.org/SiteNavigationElement
     Model depth: 4
     """
-    type_: str = Field("SiteNavigationElement", alias='@type')
+    type_: str = Field(default="SiteNavigationElement", alias='@type')
     
 

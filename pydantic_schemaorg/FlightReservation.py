@@ -16,7 +16,7 @@ class FlightReservation(Reservation):
     See: https://schema.org/FlightReservation
     Model depth: 4
     """
-    type_: str = Field("FlightReservation", alias='@type')
+    type_: str = Field(default="FlightReservation", alias='@type')
     passengerSequenceNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The passenger's sequence number as assigned by the airline.",
@@ -35,7 +35,6 @@ class FlightReservation(Reservation):
         description="The airline-specific indicator of boarding order / preference.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

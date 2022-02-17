@@ -11,6 +11,5 @@ class PaymentDeclined(PaymentStatusType):
     See: https://schema.org/PaymentDeclined
     Model depth: 6
     """
-    type_: str = Field("PaymentDeclined", alias='@type')
+    type_: str = Field(default="PaymentDeclined", alias='@type')
     
-

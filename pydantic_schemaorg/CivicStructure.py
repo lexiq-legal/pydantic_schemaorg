@@ -14,7 +14,7 @@ class CivicStructure(Place):
     See: https://schema.org/CivicStructure
     Model depth: 3
     """
-    type_: str = Field("CivicStructure", alias='@type')
+    type_: str = Field(default="CivicStructure", alias='@type')
     openingHours: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The general opening hours for a business. Opening hours can be specified as a weekly time"

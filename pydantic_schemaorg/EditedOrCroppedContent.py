@@ -21,6 +21,5 @@ class EditedOrCroppedContent(MediaManipulationRatingEnumeration):
     See: https://schema.org/EditedOrCroppedContent
     Model depth: 5
     """
-    type_: str = Field("EditedOrCroppedContent", alias='@type')
+    type_: str = Field(default="EditedOrCroppedContent", alias='@type')
     
-

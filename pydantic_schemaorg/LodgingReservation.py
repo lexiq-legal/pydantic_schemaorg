@@ -18,7 +18,7 @@ class LodgingReservation(Reservation):
     See: https://schema.org/LodgingReservation
     Model depth: 4
     """
-    type_: str = Field("LodgingReservation", alias='@type')
+    type_: str = Field(default="LodgingReservation", alias='@type')
     lodgingUnitDescription: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A full description of the lodging unit.",
@@ -44,7 +44,6 @@ class LodgingReservation(Reservation):
         description="Textual description of the unit type (including suite vs. room, size of bed, etc.).",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

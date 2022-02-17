@@ -11,6 +11,5 @@ class TrainStation(CivicStructure):
     See: https://schema.org/TrainStation
     Model depth: 4
     """
-    type_: str = Field("TrainStation", alias='@type')
+    type_: str = Field(default="TrainStation", alias='@type')
     
-

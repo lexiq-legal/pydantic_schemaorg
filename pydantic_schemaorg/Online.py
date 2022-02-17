@@ -11,6 +11,5 @@ class Online(GameServerStatus):
     See: https://schema.org/Online
     Model depth: 6
     """
-    type_: str = Field("Online", alias='@type')
+    type_: str = Field(default="Online", alias='@type')
     
-

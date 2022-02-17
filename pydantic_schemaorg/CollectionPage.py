@@ -11,6 +11,6 @@ class CollectionPage(WebPage):
     See: https://schema.org/CollectionPage
     Model depth: 4
     """
-    type_: str = Field("CollectionPage", alias='@type')
+    type_: str = Field(default="CollectionPage", alias='@type')
     
 

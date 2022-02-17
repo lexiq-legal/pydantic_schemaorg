@@ -11,6 +11,5 @@ class Winery(FoodEstablishment):
     See: https://schema.org/Winery
     Model depth: 5
     """
-    type_: str = Field("Winery", alias='@type')
+    type_: str = Field(default="Winery", alias='@type')
     
-
