@@ -4,11 +4,11 @@ from typing import TYPE_CHECKING
 {%- endif %}
 {% if model.field_imports %}
 {%- for import_ in model.field_imports %}
-from {{import_.classPath}} import {{import_.classes_ | join(', ')}}
+from {{import_.classPath}} import {{import_.classes_ | sort | join(', ')}}
 {%- endfor %}
 {% endif %}
 {% for import_ in model.parent_imports%}
-from {{import_.classPath}} import {{import_.classes_ | join(', ')}}
+from {{import_.classPath}} import {{import_.classes_ | sort|join(', ')}}
 {%- endfor %}
 
 

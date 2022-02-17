@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic import StrictBool
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -23,7 +23,7 @@ class _3DModel(MediaObject):
     """
     type_: str = Field("3DModel", alias='@type')
     isResizable: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
-        None,
+        default=None,
         description="Whether the 3DModel allows resizing. For example, room layout applications often do"
      "not allow 3DModel elements to be resized to reflect reality.",
     )

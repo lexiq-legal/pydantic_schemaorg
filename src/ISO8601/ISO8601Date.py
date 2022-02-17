@@ -6,7 +6,7 @@ from pydantic.fields import ModelField
 from pydantic.utils import update_not_none
 from pydantic.validators import str_validator, constr_length_validator
 
-from ISO8601 import errors
+from pydantic_schemaorg.ISO8601 import errors
 
 if TYPE_CHECKING:
     from pydantic.typing import AnyCallable
