@@ -10,7 +10,7 @@ from pydantic_schemaorg.CivicStructure import CivicStructure
 from pydantic_schemaorg.MedicalOrganization import MedicalOrganization
 
 
-class Hospital(EmergencyService, CivicStructure, MedicalOrganization):
+class Hospital(MedicalOrganization, EmergencyService, CivicStructure):
     """A hospital.
 
     See: https://schema.org/Hospital
