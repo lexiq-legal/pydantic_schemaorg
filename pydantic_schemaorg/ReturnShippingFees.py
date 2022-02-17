@@ -13,4 +13,3 @@ class ReturnShippingFees(ReturnFeesEnumeration):
     """
     type_: str = Field(default="ReturnShippingFees", alias='@type')
     
-

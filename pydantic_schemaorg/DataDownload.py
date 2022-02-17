@@ -32,7 +32,6 @@ class DataDownload(MediaObject):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.Text import Text

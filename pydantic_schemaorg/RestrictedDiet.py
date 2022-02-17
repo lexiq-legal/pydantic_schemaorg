@@ -14,4 +14,3 @@ class RestrictedDiet(Enumeration):
     """
     type_: str = Field(default="RestrictedDiet", alias='@type')
     
-

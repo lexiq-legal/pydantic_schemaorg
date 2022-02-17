@@ -14,4 +14,3 @@ class SelfCareHealthAspect(HealthAspectEnumeration):
     """
     type_: str = Field(default="SelfCareHealthAspect", alias='@type')
     
-

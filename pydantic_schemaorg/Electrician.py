@@ -13,4 +13,3 @@ class Electrician(HomeAndConstructionBusiness):
     """
     type_: str = Field(default="Electrician", alias='@type')
     
-

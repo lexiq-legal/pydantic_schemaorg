@@ -14,4 +14,3 @@ class Clinician(MedicalAudienceType):
     """
     type_: str = Field(default="Clinician", alias='@type')
     
-

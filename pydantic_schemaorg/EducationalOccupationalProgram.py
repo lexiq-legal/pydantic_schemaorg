@@ -125,7 +125,7 @@ class EducationalOccupationalProgram(Intangible):
         description="A financial aid type or program which students may use to pay for tuition or fees associated"
      "with the program.",
     )
-    provider: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    provider: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."
@@ -166,6 +166,6 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.DayOfWeek import DayOfWeek
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.CategoryCode import CategoryCode

@@ -13,4 +13,3 @@ class MedicalEvidenceLevel(MedicalEnumeration):
     """
     type_: str = Field(default="MedicalEvidenceLevel", alias='@type')
     
-

@@ -27,6 +27,5 @@ class MenuSection(CreativeWork):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.MenuItem import MenuItem

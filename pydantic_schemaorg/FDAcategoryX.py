@@ -16,4 +16,3 @@ class FDAcategoryX(DrugPregnancyCategory):
     """
     type_: str = Field(default="FDAcategoryX", alias='@type')
     
-

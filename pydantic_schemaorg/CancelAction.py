@@ -14,4 +14,3 @@ class CancelAction(PlanAction):
     """
     type_: str = Field(default="CancelAction", alias='@type')
     
-

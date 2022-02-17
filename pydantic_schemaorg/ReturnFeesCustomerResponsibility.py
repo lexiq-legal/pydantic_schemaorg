@@ -13,4 +13,3 @@ class ReturnFeesCustomerResponsibility(ReturnFeesEnumeration):
     """
     type_: str = Field(default="ReturnFeesCustomerResponsibility", alias='@type')
     
-

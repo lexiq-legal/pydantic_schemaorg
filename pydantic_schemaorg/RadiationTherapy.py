@@ -13,4 +13,3 @@ class RadiationTherapy(MedicalTherapy):
     """
     type_: str = Field(default="RadiationTherapy", alias='@type')
     
-

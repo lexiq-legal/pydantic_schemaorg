@@ -62,7 +62,6 @@ class LearningResource(CreativeWork):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.AlignmentObject import AlignmentObject
     from pydantic_schemaorg.Text import Text

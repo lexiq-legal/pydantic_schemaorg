@@ -13,4 +13,3 @@ class Nose(PhysicalExam):
     """
     type_: str = Field(default="Nose", alias='@type')
     
-

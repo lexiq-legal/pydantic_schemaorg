@@ -27,6 +27,5 @@ class MedicalObservationalStudy(MedicalStudy):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalObservationalStudyDesign import MedicalObservationalStudyDesign

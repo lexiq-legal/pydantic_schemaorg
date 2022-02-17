@@ -13,4 +13,3 @@ class OfferItemCondition(Enumeration):
     """
     type_: str = Field(default="OfferItemCondition", alias='@type')
     
-

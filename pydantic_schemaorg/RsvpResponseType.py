@@ -14,4 +14,3 @@ class RsvpResponseType(Enumeration):
     """
     type_: str = Field(default="RsvpResponseType", alias='@type')
     
-

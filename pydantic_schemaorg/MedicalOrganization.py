@@ -31,7 +31,6 @@ class MedicalOrganization(Organization):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
     from pydantic_schemaorg.Boolean import Boolean

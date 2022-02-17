@@ -14,4 +14,3 @@ class AmpStory(CreativeWork):
     """
     type_: str = Field(default="AmpStory", alias='@type')
     
-

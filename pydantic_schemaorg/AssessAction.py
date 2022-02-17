@@ -13,4 +13,3 @@ class AssessAction(Action):
     """
     type_: str = Field(default="AssessAction", alias='@type')
     
-

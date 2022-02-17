@@ -52,7 +52,7 @@ class MediaObject(CreativeWork):
         default=None,
         description="Date when this media object was uploaded to this site.",
     )
-    height: Optional[Union[List[Union['Distance', 'QuantitativeValue', str]], 'Distance', 'QuantitativeValue', str]] = Field(
+    height: Optional[Union[List[Union['QuantitativeValue', 'Distance', str]], 'QuantitativeValue', 'Distance', str]] = Field(
         default=None,
         description="The height of the item.",
     )
@@ -121,14 +121,13 @@ class MediaObject(CreativeWork):
         default=None,
         description="Player type required&#x2014;for example, Flash or Silverlight.",
     )
-    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'Place', 'GeoShape']], str, 'Text', 'Place', 'GeoShape']] = Field(
+    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'Place']], str, 'Text', 'GeoShape', 'Place']] = Field(
         default=None,
         description="The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for"
      "the geo-political region(s) for which the offer or delivery charge specification is"
      "not valid, e.g. a region where the transaction is not allowed. See also [[eligibleRegion]].",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
@@ -139,8 +138,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.MediaSubscription import MediaSubscription
     from pydantic_schemaorg.Date import Date
-    from pydantic_schemaorg.Distance import Distance
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+    from pydantic_schemaorg.Distance import Distance
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Time import Time
     from pydantic_schemaorg.CreativeWork import CreativeWork

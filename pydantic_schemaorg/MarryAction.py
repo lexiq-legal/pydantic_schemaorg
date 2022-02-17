@@ -13,4 +13,3 @@ class MarryAction(InteractAction):
     """
     type_: str = Field(default="MarryAction", alias='@type')
     
-

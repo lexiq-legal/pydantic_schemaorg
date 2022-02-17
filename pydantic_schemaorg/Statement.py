@@ -16,4 +16,3 @@ class Statement(CreativeWork):
     """
     type_: str = Field(default="Statement", alias='@type')
     
-

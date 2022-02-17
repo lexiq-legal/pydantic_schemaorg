@@ -13,4 +13,3 @@ class WearableSizeGroupBoys(WearableSizeGroupEnumeration):
     """
     type_: str = Field(default="WearableSizeGroupBoys", alias='@type')
     
-

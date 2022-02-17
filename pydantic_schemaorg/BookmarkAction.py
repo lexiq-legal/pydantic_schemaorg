@@ -13,4 +13,3 @@ class BookmarkAction(OrganizeAction):
     """
     type_: str = Field(default="BookmarkAction", alias='@type')
     
-

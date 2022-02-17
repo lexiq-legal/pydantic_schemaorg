@@ -13,4 +13,3 @@ class StudioAlbum(MusicAlbumProductionType):
     """
     type_: str = Field(default="StudioAlbum", alias='@type')
     
-

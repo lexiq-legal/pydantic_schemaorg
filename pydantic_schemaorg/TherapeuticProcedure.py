@@ -34,7 +34,6 @@ class TherapeuticProcedure(MedicalProcedure):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.DoseSchedule import DoseSchedule
     from pydantic_schemaorg.MedicalEntity import MedicalEntity

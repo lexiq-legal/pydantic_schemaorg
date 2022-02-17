@@ -37,7 +37,6 @@ class MedicalTherapy(TherapeuticProcedure):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalEntity import MedicalEntity
     from pydantic_schemaorg.Text import Text

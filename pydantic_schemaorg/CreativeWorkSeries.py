@@ -45,7 +45,6 @@ class CreativeWorkSeries(Series, CreativeWork):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Date import Date

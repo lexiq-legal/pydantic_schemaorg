@@ -14,4 +14,3 @@ class Urologic(MedicalSpecialty):
     """
     type_: str = Field(default="Urologic", alias='@type')
     
-

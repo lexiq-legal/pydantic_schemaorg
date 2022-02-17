@@ -15,4 +15,3 @@ class BoatReservation(Reservation):
     """
     type_: str = Field(default="BoatReservation", alias='@type')
     
-

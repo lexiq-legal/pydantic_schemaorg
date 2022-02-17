@@ -13,4 +13,3 @@ class Park(CivicStructure):
     """
     type_: str = Field(default="Park", alias='@type')
     
-

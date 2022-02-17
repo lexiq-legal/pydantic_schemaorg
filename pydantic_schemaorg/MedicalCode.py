@@ -26,6 +26,5 @@ class MedicalCode(CategoryCode, MedicalIntangible):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

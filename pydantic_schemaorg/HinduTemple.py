@@ -13,4 +13,3 @@ class HinduTemple(PlaceOfWorship):
     """
     type_: str = Field(default="HinduTemple", alias='@type')
     
-

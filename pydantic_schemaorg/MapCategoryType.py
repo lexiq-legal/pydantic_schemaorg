@@ -13,4 +13,3 @@ class MapCategoryType(Enumeration):
     """
     type_: str = Field(default="MapCategoryType", alias='@type')
     
-

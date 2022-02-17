@@ -237,7 +237,6 @@ class Place(Thing):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.GeoCoordinates import GeoCoordinates
     from pydantic_schemaorg.GeoShape import GeoShape

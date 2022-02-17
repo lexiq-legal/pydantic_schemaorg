@@ -5,12 +5,12 @@ from typing import List, Optional, Union
 
 
 from pydantic import Field
-from pydantic_schemaorg.ItemList import ItemList
 from pydantic_schemaorg.ListItem import ListItem
+from pydantic_schemaorg.ItemList import ItemList
 from pydantic_schemaorg.CreativeWork import CreativeWork
 
 
-class HowToSection(ItemList, ListItem, CreativeWork):
+class HowToSection(ListItem, ItemList, CreativeWork):
     """A sub-grouping of steps in the instructions for how to achieve a result (e.g. steps for"
      "making a pie crust within a pie recipe).
 

@@ -33,7 +33,6 @@ class Apartment(Accommodation):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue

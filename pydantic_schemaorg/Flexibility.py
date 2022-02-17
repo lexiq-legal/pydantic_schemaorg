@@ -13,4 +13,3 @@ class Flexibility(PhysicalActivityCategory):
     """
     type_: str = Field(default="Flexibility", alias='@type')
     
-

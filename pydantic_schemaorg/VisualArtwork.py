@@ -34,7 +34,7 @@ class VisualArtwork(CreativeWork):
         default=None,
         description="The individual who adds color to inked drawings.",
     )
-    height: Optional[Union[List[Union['Distance', 'QuantitativeValue', str]], 'Distance', 'QuantitativeValue', str]] = Field(
+    height: Optional[Union[List[Union['QuantitativeValue', 'Distance', str]], 'QuantitativeValue', 'Distance', str]] = Field(
         default=None,
         description="The height of the item.",
     )
@@ -74,7 +74,6 @@ class VisualArtwork(CreativeWork):
         description="The individual who traces over the pencil drawings in ink after pencils are complete.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL

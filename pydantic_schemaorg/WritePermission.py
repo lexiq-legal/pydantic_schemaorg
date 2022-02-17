@@ -13,4 +13,3 @@ class WritePermission(DigitalDocumentPermissionType):
     """
     type_: str = Field(default="WritePermission", alias='@type')
     
-

@@ -13,4 +13,3 @@ class DiscoverAction(FindAction):
     """
     type_: str = Field(default="DiscoverAction", alias='@type')
     
-

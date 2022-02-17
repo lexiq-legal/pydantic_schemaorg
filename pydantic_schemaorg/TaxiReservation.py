@@ -32,7 +32,6 @@ class TaxiReservation(Reservation):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue

@@ -27,7 +27,6 @@ class ConsumeAction(Action):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.ActionAccessSpecification import ActionAccessSpecification
     from pydantic_schemaorg.Offer import Offer

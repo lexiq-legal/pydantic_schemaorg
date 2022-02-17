@@ -13,4 +13,3 @@ class OnlineOnly(ItemAvailability):
     """
     type_: str = Field(default="OnlineOnly", alias='@type')
     
-

@@ -13,4 +13,3 @@ class ReturnFeesEnumeration(Enumeration):
     """
     type_: str = Field(default="ReturnFeesEnumeration", alias='@type')
     
-

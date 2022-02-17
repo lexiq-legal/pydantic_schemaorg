@@ -13,4 +13,3 @@ class MedicalImagingTechnique(MedicalEnumeration):
     """
     type_: str = Field(default="MedicalImagingTechnique", alias='@type')
     
-

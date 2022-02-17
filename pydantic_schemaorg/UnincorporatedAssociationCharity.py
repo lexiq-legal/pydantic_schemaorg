@@ -14,4 +14,3 @@ class UnincorporatedAssociationCharity(UKNonprofitType):
     """
     type_: str = Field(default="UnincorporatedAssociationCharity", alias='@type')
     
-

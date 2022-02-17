@@ -15,4 +15,3 @@ class Gynecologic(MedicalSpecialty, MedicalBusiness):
     """
     type_: str = Field(default="Gynecologic", alias='@type')
     
-

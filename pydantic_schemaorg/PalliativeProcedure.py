@@ -15,4 +15,3 @@ class PalliativeProcedure(MedicalTherapy, MedicalProcedure):
     """
     type_: str = Field(default="PalliativeProcedure", alias='@type')
     
-

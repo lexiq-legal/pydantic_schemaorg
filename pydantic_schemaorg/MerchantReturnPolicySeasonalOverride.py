@@ -16,7 +16,7 @@ class MerchantReturnPolicySeasonalOverride(Intangible):
     Model depth: 3
     """
     type_: str = Field(default="MerchantReturnPolicySeasonalOverride", alias='@type')
-    merchantReturnDays: Optional[Union[List[Union[int, 'Integer', ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], int, 'Integer', ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    merchantReturnDays: Optional[Union[List[Union[ISO8601Date, 'DateTime', int, 'Integer', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', int, 'Integer', ISO8601Date, 'Date', str]] = Field(
         default=None,
         description="Specifies either a fixed return date or the number of days (from the delivery date) that"
      "a product can be returned. Used when the [[returnPolicyCategory]] property is specified"
@@ -37,7 +37,7 @@ class MerchantReturnPolicySeasonalOverride(Intangible):
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.DateTime import DateTime
+    from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.Date import Date
     from pydantic_schemaorg.MerchantReturnEnumeration import MerchantReturnEnumeration

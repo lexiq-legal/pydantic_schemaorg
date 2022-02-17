@@ -14,4 +14,3 @@ class StructuredValue(Intangible):
     """
     type_: str = Field(default="StructuredValue", alias='@type')
     
-

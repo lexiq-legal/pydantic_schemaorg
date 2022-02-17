@@ -18,4 +18,3 @@ class RegisterAction(InteractAction):
     """
     type_: str = Field(default="RegisterAction", alias='@type')
     
-

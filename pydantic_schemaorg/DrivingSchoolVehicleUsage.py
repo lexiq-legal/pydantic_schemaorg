@@ -13,4 +13,3 @@ class DrivingSchoolVehicleUsage(CarUsageType):
     """
     type_: str = Field(default="DrivingSchoolVehicleUsage", alias='@type')
     
-

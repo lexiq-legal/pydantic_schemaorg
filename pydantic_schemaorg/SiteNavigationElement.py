@@ -13,4 +13,3 @@ class SiteNavigationElement(WebPageElement):
     """
     type_: str = Field(default="SiteNavigationElement", alias='@type')
     
-

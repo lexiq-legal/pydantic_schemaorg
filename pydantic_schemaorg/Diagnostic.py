@@ -13,4 +13,3 @@ class Diagnostic(MedicalDevicePurpose):
     """
     type_: str = Field(default="Diagnostic", alias='@type')
     
-

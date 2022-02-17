@@ -13,4 +13,3 @@ class RealEstateAgent(LocalBusiness):
     """
     type_: str = Field(default="RealEstateAgent", alias='@type')
     
-

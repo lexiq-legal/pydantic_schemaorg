@@ -13,4 +13,3 @@ class SizeSystemMetric(SizeSystemEnumeration):
     """
     type_: str = Field(default="SizeSystemMetric", alias='@type')
     
-

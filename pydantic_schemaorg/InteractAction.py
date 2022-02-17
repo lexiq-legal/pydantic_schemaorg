@@ -13,4 +13,3 @@ class InteractAction(Action):
     """
     type_: str = Field(default="InteractAction", alias='@type')
     
-

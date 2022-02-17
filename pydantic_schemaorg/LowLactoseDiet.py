@@ -13,4 +13,3 @@ class LowLactoseDiet(RestrictedDiet):
     """
     type_: str = Field(default="LowLactoseDiet", alias='@type')
     
-

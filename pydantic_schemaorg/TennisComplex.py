@@ -13,4 +13,3 @@ class TennisComplex(SportsActivityLocation):
     """
     type_: str = Field(default="TennisComplex", alias='@type')
     
-

@@ -13,4 +13,3 @@ class AssignAction(AllocateAction):
     """
     type_: str = Field(default="AssignAction", alias='@type')
     
-

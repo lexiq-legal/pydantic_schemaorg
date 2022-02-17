@@ -41,7 +41,7 @@ class JobPosting(Intangible):
         description="A statement of knowledge, skill, ability, task or any other assertion expressing a competency"
      "that is desired or required to fulfill this role or to work in this occupation.",
     )
-    estimatedSalary: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmountDistribution', 'MonetaryAmount', str]], Decimal, 'Number', 'MonetaryAmountDistribution', 'MonetaryAmount', str]] = Field(
+    estimatedSalary: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', 'MonetaryAmountDistribution', str]], Decimal, 'Number', 'MonetaryAmount', 'MonetaryAmountDistribution', str]] = Field(
         default=None,
         description="An estimated salary for a job posting or occupation, based on a variety of variables including,"
      "but not limited to industry, job title, and location. Estimated salaries are often computed"
@@ -139,7 +139,7 @@ class JobPosting(Intangible):
         description="Indicates the department, unit and/or facility where the employee reports and/or in"
      "which the job is to be performed.",
     )
-    baseSalary: Optional[Union[List[Union[Decimal, 'Number', 'PriceSpecification', 'MonetaryAmount', str]], Decimal, 'Number', 'PriceSpecification', 'MonetaryAmount', str]] = Field(
+    baseSalary: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', 'PriceSpecification', str]], Decimal, 'Number', 'MonetaryAmount', 'PriceSpecification', str]] = Field(
         default=None,
         description="The base salary of the job or of an employee in an EmployeeRole.",
     )
@@ -207,8 +207,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.Number import Number
-    from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
     from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
+    from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.Integer import Integer

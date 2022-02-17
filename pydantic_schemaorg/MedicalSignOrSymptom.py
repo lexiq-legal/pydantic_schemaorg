@@ -22,6 +22,5 @@ class MedicalSignOrSymptom(MedicalCondition):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalTherapy import MedicalTherapy

@@ -24,7 +24,7 @@ class Physician(MedicalBusiness, MedicalOrganization):
         default=None,
         description="A hospital with which the physician or office is affiliated.",
     )
-    availableService: Optional[Union[List[Union['MedicalTherapy', 'MedicalTest', 'MedicalProcedure', str]], 'MedicalTherapy', 'MedicalTest', 'MedicalProcedure', str]] = Field(
+    availableService: Optional[Union[List[Union['MedicalTest', 'MedicalTherapy', 'MedicalProcedure', str]], 'MedicalTest', 'MedicalTherapy', 'MedicalProcedure', str]] = Field(
         default=None,
         description="A medical service available from this provider.",
     )
@@ -33,6 +33,6 @@ class Physician(MedicalBusiness, MedicalOrganization):
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
     from pydantic_schemaorg.Hospital import Hospital
-    from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
     from pydantic_schemaorg.MedicalTest import MedicalTest
+    from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
     from pydantic_schemaorg.MedicalProcedure import MedicalProcedure

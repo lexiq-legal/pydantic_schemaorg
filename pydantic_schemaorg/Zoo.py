@@ -13,4 +13,3 @@ class Zoo(CivicStructure):
     """
     type_: str = Field(default="Zoo", alias='@type')
     
-

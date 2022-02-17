@@ -13,4 +13,3 @@ class GamePlayMode(Enumeration):
     """
     type_: str = Field(default="GamePlayMode", alias='@type')
     
-

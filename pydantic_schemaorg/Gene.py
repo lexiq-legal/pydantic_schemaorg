@@ -31,7 +31,7 @@ class Gene(BioChemEntity):
         default=None,
         description="Another gene which is a variation of this one.",
     )
-    expressedIn: Optional[Union[List[Union['BioChemEntity', 'AnatomicalStructure', 'AnatomicalSystem', 'DefinedTerm', str]], 'BioChemEntity', 'AnatomicalStructure', 'AnatomicalSystem', 'DefinedTerm', str]] = Field(
+    expressedIn: Optional[Union[List[Union['AnatomicalStructure', 'BioChemEntity', 'AnatomicalSystem', 'DefinedTerm', str]], 'AnatomicalStructure', 'BioChemEntity', 'AnatomicalSystem', 'DefinedTerm', str]] = Field(
         default=None,
         description="Tissue, organ, biological sample, etc in which activity of this gene has been observed"
      "experimentally. For example brain, digestive system.",

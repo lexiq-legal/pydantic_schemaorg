@@ -53,7 +53,6 @@ class AnatomicalStructure(MedicalEntity):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.ImageObject import ImageObject
     from pydantic_schemaorg.MedicalCondition import MedicalCondition

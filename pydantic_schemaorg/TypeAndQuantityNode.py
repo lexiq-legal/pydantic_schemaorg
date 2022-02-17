@@ -23,7 +23,7 @@ class TypeAndQuantityNode(StructuredValue):
         description="The business function (e.g. sell, lease, repair, dispose) of the offer or component"
      "of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.",
     )
-    typeOfGood: Optional[Union[List[Union['Product', 'Service', str]], 'Product', 'Service', str]] = Field(
+    typeOfGood: Optional[Union[List[Union['Service', 'Product', str]], 'Service', 'Product', str]] = Field(
         default=None,
         description="The product that this structured value is referring to.",
     )
@@ -45,8 +45,8 @@ class TypeAndQuantityNode(StructuredValue):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.BusinessFunction import BusinessFunction
-    from pydantic_schemaorg.Product import Product
     from pydantic_schemaorg.Service import Service
+    from pydantic_schemaorg.Product import Product
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.Number import Number

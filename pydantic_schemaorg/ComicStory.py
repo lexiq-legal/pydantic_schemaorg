@@ -41,6 +41,5 @@ class ComicStory(CreativeWork):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Person import Person

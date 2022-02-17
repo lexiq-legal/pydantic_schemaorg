@@ -14,4 +14,3 @@ class PriceComponentTypeEnumeration(Enumeration):
     """
     type_: str = Field(default="PriceComponentTypeEnumeration", alias='@type')
     
-

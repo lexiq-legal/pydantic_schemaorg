@@ -23,7 +23,7 @@ class ProductModel(Product):
         default=None,
         description="A pointer from a newer variant of a product to its previous, often discontinued predecessor.",
     )
-    isVariantOf: Optional[Union[List[Union['ProductModel', 'ProductGroup', str]], 'ProductModel', 'ProductGroup', str]] = Field(
+    isVariantOf: Optional[Union[List[Union['ProductGroup', 'ProductModel', str]], 'ProductGroup', 'ProductModel', str]] = Field(
         default=None,
         description="Indicates the kind of product that this is a variant of. In the case of [[ProductModel]],"
      "this is a pointer (from a ProductModel) to a base product from which this product is a variant."
@@ -35,7 +35,6 @@ class ProductModel(Product):
      "this property can apply to any [[Product]] included in the group.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.ProductGroup import ProductGroup

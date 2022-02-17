@@ -13,4 +13,3 @@ class TelevisionStation(LocalBusiness):
     """
     type_: str = Field(default="TelevisionStation", alias='@type')
     
-

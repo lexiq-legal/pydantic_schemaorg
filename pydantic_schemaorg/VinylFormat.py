@@ -13,4 +13,3 @@ class VinylFormat(MusicReleaseFormatType):
     """
     type_: str = Field(default="VinylFormat", alias='@type')
     
-

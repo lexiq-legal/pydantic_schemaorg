@@ -14,4 +14,3 @@ class EventStatusType(StatusEnumeration):
     """
     type_: str = Field(default="EventStatusType", alias='@type')
     
-

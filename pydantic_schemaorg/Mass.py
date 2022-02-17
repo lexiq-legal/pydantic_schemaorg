@@ -14,4 +14,3 @@ class Mass(Quantity):
     """
     type_: str = Field(default="Mass", alias='@type')
     
-

@@ -13,4 +13,3 @@ class WearableSizeSystemEnumeration(SizeSystemEnumeration):
     """
     type_: str = Field(default="WearableSizeSystemEnumeration", alias='@type')
     
-

@@ -13,4 +13,3 @@ class BusinessSupport(GovernmentBenefitsType):
     """
     type_: str = Field(default="BusinessSupport", alias='@type')
     
-

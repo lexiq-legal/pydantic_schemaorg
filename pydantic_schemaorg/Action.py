@@ -31,7 +31,7 @@ class Action(Thing):
      "Also known as the semantic roles patient, affected or undergoer (which change their"
      "state) or theme (which doesn't). e.g. John read *a book*.",
     )
-    participant: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    participant: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="Other co-agents that participated in the action indirectly. e.g. John wrote a book with"
      "*Steve*.",
@@ -40,7 +40,7 @@ class Action(Thing):
         default=None,
         description="For failed actions, more information on the cause of the failure.",
     )
-    location: Optional[Union[List[Union[str, 'Text', 'VirtualLocation', 'Place', 'PostalAddress']], str, 'Text', 'VirtualLocation', 'Place', 'PostalAddress']] = Field(
+    location: Optional[Union[List[Union[str, 'Text', 'VirtualLocation', 'PostalAddress', 'Place']], str, 'Text', 'VirtualLocation', 'PostalAddress', 'Place']] = Field(
         default=None,
         description="The location of, for example, where an event is happening, where an organization is located,"
      "or where an action takes place.",
@@ -54,7 +54,7 @@ class Action(Thing):
      "Event uses startDate/endDate instead of startTime/endTime, even when describing"
      "dates with times. This situation may be clarified in future revisions.",
     )
-    agent: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    agent: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="The direct performer or driver of the action (animate or inanimate). e.g. *John* wrote"
      "a book.",
@@ -82,15 +82,14 @@ class Action(Thing):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Thing import Thing
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.VirtualLocation import VirtualLocation
-    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.PostalAddress import PostalAddress
+    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Time import Time
     from pydantic_schemaorg.EntryPoint import EntryPoint

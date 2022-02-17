@@ -14,4 +14,3 @@ class EUEnergyEfficiencyEnumeration(EnergyEfficiencyEnumeration):
     """
     type_: str = Field(default="EUEnergyEfficiencyEnumeration", alias='@type')
     
-

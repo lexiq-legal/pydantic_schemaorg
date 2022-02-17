@@ -14,4 +14,3 @@ class DistanceFee(PriceComponentTypeEnumeration):
     """
     type_: str = Field(default="DistanceFee", alias='@type')
     
-

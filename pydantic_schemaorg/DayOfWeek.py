@@ -17,4 +17,3 @@ class DayOfWeek(Enumeration):
     """
     type_: str = Field(default="DayOfWeek", alias='@type')
     
-

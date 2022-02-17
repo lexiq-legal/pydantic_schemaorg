@@ -13,4 +13,3 @@ class ItemListOrderType(Enumeration):
     """
     type_: str = Field(default="ItemListOrderType", alias='@type')
     
-

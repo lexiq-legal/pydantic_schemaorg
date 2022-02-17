@@ -13,4 +13,3 @@ class SizeGroupEnumeration(Enumeration):
     """
     type_: str = Field(default="SizeGroupEnumeration", alias='@type')
     
-

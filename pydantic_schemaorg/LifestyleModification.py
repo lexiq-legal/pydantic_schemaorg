@@ -14,4 +14,3 @@ class LifestyleModification(MedicalEntity):
     """
     type_: str = Field(default="LifestyleModification", alias='@type')
     
-

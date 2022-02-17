@@ -14,4 +14,3 @@ class Gastroenterologic(MedicalSpecialty):
     """
     type_: str = Field(default="Gastroenterologic", alias='@type')
     
-

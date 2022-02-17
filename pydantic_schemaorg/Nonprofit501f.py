@@ -13,4 +13,3 @@ class Nonprofit501f(USNonprofitType):
     """
     type_: str = Field(default="Nonprofit501f", alias='@type')
     
-

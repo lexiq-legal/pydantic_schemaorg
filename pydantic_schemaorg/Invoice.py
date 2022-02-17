@@ -33,7 +33,7 @@ class Invoice(Intangible):
         default=None,
         description="The time interval used to compute the invoice.",
     )
-    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']], AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']] = Field(
+    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']], AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']] = Field(
         default=None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -42,11 +42,11 @@ class Invoice(Intangible):
         default=None,
         description="The status of payment; whether the invoice has been paid or not.",
     )
-    customer: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    customer: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="Party placing the order or paying the invoice.",
     )
-    totalPaymentDue: Optional[Union[List[Union['PriceSpecification', 'MonetaryAmount', str]], 'PriceSpecification', 'MonetaryAmount', str]] = Field(
+    totalPaymentDue: Optional[Union[List[Union['MonetaryAmount', 'PriceSpecification', str]], 'MonetaryAmount', 'PriceSpecification', str]] = Field(
         default=None,
         description="The total amount due.",
     )
@@ -67,11 +67,11 @@ class Invoice(Intangible):
         default=None,
         description="A number that confirms the given order or payment has been received.",
     )
-    minimumPaymentDue: Optional[Union[List[Union['PriceSpecification', 'MonetaryAmount', str]], 'PriceSpecification', 'MonetaryAmount', str]] = Field(
+    minimumPaymentDue: Optional[Union[List[Union['MonetaryAmount', 'PriceSpecification', str]], 'MonetaryAmount', 'PriceSpecification', str]] = Field(
         default=None,
         description="The minimum payment required at this time.",
     )
-    provider: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    provider: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."
@@ -81,7 +81,7 @@ class Invoice(Intangible):
         default=None,
         description="The name of the credit card or other method of payment for the order.",
     )
-    broker: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    broker: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="An entity that arranges for an exchange between a buyer and a seller. In most cases a broker"
      "never acquires or releases ownership of a product or service involved in an exchange."
@@ -95,13 +95,13 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.Duration import Duration
     from pydantic_schemaorg.URL import URL
-    from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+    from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.PaymentStatusType import PaymentStatusType
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
-    from pydantic_schemaorg.PriceSpecification import PriceSpecification
+    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
+    from pydantic_schemaorg.PriceSpecification import PriceSpecification
     from pydantic_schemaorg.Date import Date
     from pydantic_schemaorg.Order import Order
     from pydantic_schemaorg.PaymentMethod import PaymentMethod

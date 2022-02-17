@@ -6,11 +6,11 @@ from pydantic import AnyUrl
 
 
 from pydantic import Field
-from pydantic_schemaorg.SoftwareApplication import SoftwareApplication
 from pydantic_schemaorg.Game import Game
+from pydantic_schemaorg.SoftwareApplication import SoftwareApplication
 
 
-class VideoGame(SoftwareApplication, Game):
+class VideoGame(Game, SoftwareApplication):
     """A video game is an electronic game that involves human interaction with a user interface"
      "to generate visual feedback on a video device.
 
@@ -64,7 +64,7 @@ class VideoGame(SoftwareApplication, Game):
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    musicBy: Optional[Union[List[Union['MusicGroup', 'Person', str]], 'MusicGroup', 'Person', str]] = Field(
+    musicBy: Optional[Union[List[Union['Person', 'MusicGroup', str]], 'Person', 'MusicGroup', str]] = Field(
         default=None,
         description="The composer of the soundtrack.",
     )

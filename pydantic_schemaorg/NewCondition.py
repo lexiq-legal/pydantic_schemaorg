@@ -13,4 +13,3 @@ class NewCondition(OfferItemCondition):
     """
     type_: str = Field(default="NewCondition", alias='@type')
     
-

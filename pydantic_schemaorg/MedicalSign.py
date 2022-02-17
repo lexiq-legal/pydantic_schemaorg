@@ -26,7 +26,6 @@ class MedicalSign(MedicalSignOrSymptom):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.PhysicalExam import PhysicalExam
     from pydantic_schemaorg.MedicalTest import MedicalTest

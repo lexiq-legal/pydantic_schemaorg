@@ -13,4 +13,3 @@ class ShareAction(CommunicateAction):
     """
     type_: str = Field(default="ShareAction", alias='@type')
     
-

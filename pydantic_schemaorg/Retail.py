@@ -13,4 +13,3 @@ class Retail(DrugCostCategory):
     """
     type_: str = Field(default="Retail", alias='@type')
     
-

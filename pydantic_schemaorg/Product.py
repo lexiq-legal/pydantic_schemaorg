@@ -112,12 +112,12 @@ class Product(Thing):
         default=None,
         description="The manufacturer of the product.",
     )
-    brand: Optional[Union[List[Union['Brand', 'Organization', str]], 'Brand', 'Organization', str]] = Field(
+    brand: Optional[Union[List[Union['Organization', 'Brand', str]], 'Organization', 'Brand', str]] = Field(
         default=None,
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
     )
-    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']], AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']] = Field(
+    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']], AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']] = Field(
         default=None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -135,15 +135,15 @@ class Product(Thing):
         default=None,
         description="A slogan or motto associated with the item.",
     )
-    isSimilarTo: Optional[Union[List[Union['Product', 'Service', str]], 'Product', 'Service', str]] = Field(
+    isSimilarTo: Optional[Union[List[Union['Service', 'Product', str]], 'Service', 'Product', str]] = Field(
         default=None,
         description="A pointer to another, functionally similar product (or multiple products).",
     )
-    height: Optional[Union[List[Union['Distance', 'QuantitativeValue', str]], 'Distance', 'QuantitativeValue', str]] = Field(
+    height: Optional[Union[List[Union['QuantitativeValue', 'Distance', str]], 'QuantitativeValue', 'Distance', str]] = Field(
         default=None,
         description="The height of the item.",
     )
-    size: Optional[Union[List[Union[str, 'Text', 'SizeSpecification', 'QuantitativeValue', 'DefinedTerm']], str, 'Text', 'SizeSpecification', 'QuantitativeValue', 'DefinedTerm']] = Field(
+    size: Optional[Union[List[Union[str, 'Text', 'QuantitativeValue', 'SizeSpecification', 'DefinedTerm']], str, 'Text', 'QuantitativeValue', 'SizeSpecification', 'DefinedTerm']] = Field(
         default=None,
         description="A standardized size of a product or creative work, specified either through a simple"
      "textual string (for example 'XL', '32Wx34L'), a QuantitativeValue with a unitCode,"
@@ -196,7 +196,7 @@ class Product(Thing):
         default=None,
         description="A material that something is made from, e.g. leather, wool, cotton, paper.",
     )
-    isRelatedTo: Optional[Union[List[Union['Product', 'Service', str]], 'Product', 'Service', str]] = Field(
+    isRelatedTo: Optional[Union[List[Union['Service', 'Product', str]], 'Service', 'Product', str]] = Field(
         default=None,
         description="A pointer to another, somehow related product (or multiple products).",
     )
@@ -249,7 +249,7 @@ class Product(Thing):
      "https://schema.org/gtin13, ...) will typically expect such data to be provided using"
      "those properties, rather than using the generic property/value mechanism.",
     )
-    isVariantOf: Optional[Union[List[Union['ProductModel', 'ProductGroup', str]], 'ProductModel', 'ProductGroup', str]] = Field(
+    isVariantOf: Optional[Union[List[Union['ProductGroup', 'ProductModel', str]], 'ProductGroup', 'ProductModel', str]] = Field(
         default=None,
         description="Indicates the kind of product that this is a variant of. In the case of [[ProductModel]],"
      "this is a pointer (from a ProductModel) to a base product from which this product is a variant."
@@ -270,7 +270,6 @@ class Product(Thing):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
@@ -285,8 +284,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Brand import Brand
     from pydantic_schemaorg.URL import URL
-    from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+    from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.MerchantReturnPolicy import MerchantReturnPolicy
     from pydantic_schemaorg.EnergyConsumptionDetails import EnergyConsumptionDetails
     from pydantic_schemaorg.Service import Service

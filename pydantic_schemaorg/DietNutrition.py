@@ -14,4 +14,3 @@ class DietNutrition(MedicalSpecialty, MedicalBusiness):
     """
     type_: str = Field(default="DietNutrition", alias='@type')
     
-

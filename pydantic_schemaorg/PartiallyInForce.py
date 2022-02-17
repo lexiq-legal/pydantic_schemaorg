@@ -13,4 +13,3 @@ class PartiallyInForce(LegalForceStatus):
     """
     type_: str = Field(default="PartiallyInForce", alias='@type')
     
-

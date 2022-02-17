@@ -61,12 +61,11 @@ class Clip(CreativeWork):
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    musicBy: Optional[Union[List[Union['MusicGroup', 'Person', str]], 'MusicGroup', 'Person', str]] = Field(
+    musicBy: Optional[Union[List[Union['Person', 'MusicGroup', str]], 'Person', 'MusicGroup', str]] = Field(
         default=None,
         description="The composer of the soundtrack.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.CreativeWorkSeason import CreativeWorkSeason

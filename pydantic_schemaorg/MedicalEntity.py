@@ -49,7 +49,6 @@ class MedicalEntity(Thing):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicineSystem import MedicineSystem
     from pydantic_schemaorg.MedicalGuideline import MedicalGuideline

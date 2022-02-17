@@ -13,4 +13,3 @@ class WearableMeasurementBack(WearableMeasurementTypeEnumeration):
     """
     type_: str = Field(default="WearableMeasurementBack", alias='@type')
     
-

@@ -13,4 +13,3 @@ class DiabeticDiet(RestrictedDiet):
     """
     type_: str = Field(default="DiabeticDiet", alias='@type')
     
-

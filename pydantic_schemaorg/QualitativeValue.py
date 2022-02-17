@@ -55,7 +55,7 @@ class QualitativeValue(Enumeration):
      "https://schema.org/gtin13, ...) will typically expect such data to be provided using"
      "those properties, rather than using the generic property/value mechanism.",
     )
-    valueReference: Optional[Union[List[Union[str, 'Text', 'StructuredValue', 'QualitativeValue', 'PropertyValue', 'Enumeration', 'MeasurementTypeEnumeration', 'DefinedTerm', 'QuantitativeValue']], str, 'Text', 'StructuredValue', 'QualitativeValue', 'PropertyValue', 'Enumeration', 'MeasurementTypeEnumeration', 'DefinedTerm', 'QuantitativeValue']] = Field(
+    valueReference: Optional[Union[List[Union[str, 'Text', 'PropertyValue', 'DefinedTerm', 'QualitativeValue', 'Enumeration', 'MeasurementTypeEnumeration', 'QuantitativeValue', 'StructuredValue']], str, 'Text', 'PropertyValue', 'DefinedTerm', 'QualitativeValue', 'Enumeration', 'MeasurementTypeEnumeration', 'QuantitativeValue', 'StructuredValue']] = Field(
         default=None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",
@@ -65,8 +65,8 @@ class QualitativeValue(Enumeration):
 if TYPE_CHECKING:
     from pydantic_schemaorg.PropertyValue import PropertyValue
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.StructuredValue import StructuredValue
+    from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.Enumeration import Enumeration
     from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
-    from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+    from pydantic_schemaorg.StructuredValue import StructuredValue

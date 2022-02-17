@@ -13,4 +13,3 @@ class OrganizeAction(Action):
     """
     type_: str = Field(default="OrganizeAction", alias='@type')
     
-

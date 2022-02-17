@@ -14,4 +14,3 @@ class Series(Intangible):
     """
     type_: str = Field(default="Series", alias='@type')
     
-

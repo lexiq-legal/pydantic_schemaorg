@@ -13,4 +13,3 @@ class BookSeries(CreativeWorkSeries):
     """
     type_: str = Field(default="BookSeries", alias='@type')
     
-

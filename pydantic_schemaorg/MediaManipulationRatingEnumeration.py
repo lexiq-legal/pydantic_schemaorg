@@ -18,4 +18,3 @@ class MediaManipulationRatingEnumeration(Enumeration):
     """
     type_: str = Field(default="MediaManipulationRatingEnumeration", alias='@type')
     
-

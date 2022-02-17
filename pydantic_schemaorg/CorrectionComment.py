@@ -13,4 +13,3 @@ class CorrectionComment(Comment):
     """
     type_: str = Field(default="CorrectionComment", alias='@type')
     
-

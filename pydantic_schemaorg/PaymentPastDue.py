@@ -13,4 +13,3 @@ class PaymentPastDue(PaymentStatusType):
     """
     type_: str = Field(default="PaymentPastDue", alias='@type')
     
-

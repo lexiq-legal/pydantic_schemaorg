@@ -14,4 +14,3 @@ class MusicAlbumProductionType(Enumeration):
     """
     type_: str = Field(default="MusicAlbumProductionType", alias='@type')
     
-

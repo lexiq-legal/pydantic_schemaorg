@@ -13,4 +13,3 @@ class DrugCostCategory(MedicalEnumeration):
     """
     type_: str = Field(default="DrugCostCategory", alias='@type')
     
-

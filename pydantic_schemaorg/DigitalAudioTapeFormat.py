@@ -13,4 +13,3 @@ class DigitalAudioTapeFormat(MusicReleaseFormatType):
     """
     type_: str = Field(default="DigitalAudioTapeFormat", alias='@type')
     
-

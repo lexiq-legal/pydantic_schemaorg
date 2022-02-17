@@ -13,4 +13,3 @@ class SeatingMap(MapCategoryType):
     """
     type_: str = Field(default="SeatingMap", alias='@type')
     
-

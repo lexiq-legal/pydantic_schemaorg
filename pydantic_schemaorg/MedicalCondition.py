@@ -60,7 +60,7 @@ class MedicalCondition(MedicalEntity):
         default=None,
         description="A possible treatment to address this condition, sign or symptom.",
     )
-    status: Optional[Union[List[Union[str, 'Text', 'MedicalStudyStatus', 'EventStatusType']], str, 'Text', 'MedicalStudyStatus', 'EventStatusType']] = Field(
+    status: Optional[Union[List[Union[str, 'Text', 'EventStatusType', 'MedicalStudyStatus']], str, 'Text', 'EventStatusType', 'MedicalStudyStatus']] = Field(
         default=None,
         description="The status of the study (enumerated).",
     )
@@ -96,7 +96,6 @@ class MedicalCondition(MedicalEntity):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.MedicalTest import MedicalTest
@@ -104,8 +103,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalConditionStage import MedicalConditionStage
     from pydantic_schemaorg.DDxElement import DDxElement
     from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
-    from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
     from pydantic_schemaorg.EventStatusType import EventStatusType
+    from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
     from pydantic_schemaorg.Drug import Drug
     from pydantic_schemaorg.SuperficialAnatomy import SuperficialAnatomy
     from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure

@@ -30,6 +30,5 @@ class Comment(CreativeWork):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Integer import Integer

@@ -13,4 +13,3 @@ class ItemListUnordered(ItemListOrderType):
     """
     type_: str = Field(default="ItemListUnordered", alias='@type')
     
-

@@ -13,4 +13,3 @@ class Quiz(LearningResource):
     """
     type_: str = Field(default="Quiz", alias='@type')
     
-

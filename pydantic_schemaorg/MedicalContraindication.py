@@ -16,4 +16,3 @@ class MedicalContraindication(MedicalEntity):
     """
     type_: str = Field(default="MedicalContraindication", alias='@type')
     
-

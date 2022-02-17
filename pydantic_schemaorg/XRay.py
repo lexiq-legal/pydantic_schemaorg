@@ -13,4 +13,3 @@ class XRay(MedicalImagingTechnique):
     """
     type_: str = Field(default="XRay", alias='@type')
     
-

@@ -14,4 +14,3 @@ class ConfirmAction(InformAction):
     """
     type_: str = Field(default="ConfirmAction", alias='@type')
     
-

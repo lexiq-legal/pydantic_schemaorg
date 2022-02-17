@@ -20,4 +20,3 @@ class DeliveryMethod(Enumeration):
     """
     type_: str = Field(default="DeliveryMethod", alias='@type')
     
-

@@ -14,4 +14,3 @@ class Specialty(Enumeration):
     """
     type_: str = Field(default="Specialty", alias='@type')
     
-

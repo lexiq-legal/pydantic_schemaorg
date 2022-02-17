@@ -15,4 +15,3 @@ class RecommendedDoseSchedule(DoseSchedule):
     """
     type_: str = Field(default="RecommendedDoseSchedule", alias='@type')
     
-

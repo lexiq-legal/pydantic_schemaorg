@@ -13,4 +13,3 @@ class Season(CreativeWork):
     """
     type_: str = Field(default="Season", alias='@type')
     
-

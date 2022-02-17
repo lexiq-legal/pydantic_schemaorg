@@ -15,4 +15,3 @@ class ScheduleAction(PlanAction):
     """
     type_: str = Field(default="ScheduleAction", alias='@type')
     
-

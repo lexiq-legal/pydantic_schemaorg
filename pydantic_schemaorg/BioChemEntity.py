@@ -25,7 +25,7 @@ class BioChemEntity(Thing):
         default=None,
         description="Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.",
     )
-    hasMolecularFunction: Optional[Union[List[Union[AnyUrl, 'URL', 'PropertyValue', 'DefinedTerm', str]], AnyUrl, 'URL', 'PropertyValue', 'DefinedTerm', str]] = Field(
+    hasMolecularFunction: Optional[Union[List[Union[AnyUrl, 'URL', 'DefinedTerm', 'PropertyValue', str]], AnyUrl, 'URL', 'DefinedTerm', 'PropertyValue', str]] = Field(
         default=None,
         description="Molecular function performed by this BioChemEntity; please use PropertyValue if you"
      "want to include any evidence.",
@@ -39,17 +39,17 @@ class BioChemEntity(Thing):
         default=None,
         description="Indicates a BioChemEntity that (in some sense) has this BioChemEntity as a part.",
     )
-    associatedDisease: Optional[Union[List[Union[AnyUrl, 'URL', 'PropertyValue', 'MedicalCondition', str]], AnyUrl, 'URL', 'PropertyValue', 'MedicalCondition', str]] = Field(
+    associatedDisease: Optional[Union[List[Union[AnyUrl, 'URL', 'MedicalCondition', 'PropertyValue', str]], AnyUrl, 'URL', 'MedicalCondition', 'PropertyValue', str]] = Field(
         default=None,
         description="Disease associated to this BioChemEntity. Such disease can be a MedicalCondition or"
      "a URL. If you want to add an evidence supporting the association, please use PropertyValue.",
     )
-    taxonomicRange: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Taxon', 'DefinedTerm']], AnyUrl, 'URL', str, 'Text', 'Taxon', 'DefinedTerm']] = Field(
+    taxonomicRange: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'DefinedTerm', 'Taxon']], AnyUrl, 'URL', str, 'Text', 'DefinedTerm', 'Taxon']] = Field(
         default=None,
         description="The taxonomic grouping of the organism that expresses, encodes, or in someway related"
      "to the BioChemEntity.",
     )
-    isInvolvedInBiologicalProcess: Optional[Union[List[Union[AnyUrl, 'URL', 'PropertyValue', 'DefinedTerm', str]], AnyUrl, 'URL', 'PropertyValue', 'DefinedTerm', str]] = Field(
+    isInvolvedInBiologicalProcess: Optional[Union[List[Union[AnyUrl, 'URL', 'DefinedTerm', 'PropertyValue', str]], AnyUrl, 'URL', 'DefinedTerm', 'PropertyValue', str]] = Field(
         default=None,
         description="Biological process this BioChemEntity is involved in; please use PropertyValue if"
      "you want to include any evidence.",
@@ -66,18 +66,17 @@ class BioChemEntity(Thing):
         default=None,
         description="Another BioChemEntity encoding by this one.",
     )
-    isLocatedInSubcellularLocation: Optional[Union[List[Union[AnyUrl, 'URL', 'PropertyValue', 'DefinedTerm', str]], AnyUrl, 'URL', 'PropertyValue', 'DefinedTerm', str]] = Field(
+    isLocatedInSubcellularLocation: Optional[Union[List[Union[AnyUrl, 'URL', 'DefinedTerm', 'PropertyValue', str]], AnyUrl, 'URL', 'DefinedTerm', 'PropertyValue', str]] = Field(
         default=None,
         description="Subcellular location where this BioChemEntity is located; please use PropertyValue"
      "if you want to include any evidence.",
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL
-    from pydantic_schemaorg.PropertyValue import PropertyValue
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
+    from pydantic_schemaorg.PropertyValue import PropertyValue
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.MedicalCondition import MedicalCondition
     from pydantic_schemaorg.Taxon import Taxon

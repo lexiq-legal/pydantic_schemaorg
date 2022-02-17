@@ -62,7 +62,6 @@ class LodgingBusiness(LocalBusiness):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.LocationFeatureSpecification import LocationFeatureSpecification
     from pydantic_schemaorg.Number import Number

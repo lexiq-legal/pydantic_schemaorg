@@ -13,4 +13,3 @@ class SheetMusic(CreativeWork):
     """
     type_: str = Field(default="SheetMusic", alias='@type')
     
-

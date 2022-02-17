@@ -14,4 +14,3 @@ class PhysicalExam(MedicalEnumeration, MedicalProcedure):
     """
     type_: str = Field(default="PhysicalExam", alias='@type')
     
-

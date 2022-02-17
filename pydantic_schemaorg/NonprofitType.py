@@ -14,4 +14,3 @@ class NonprofitType(Enumeration):
     """
     type_: str = Field(default="NonprofitType", alias='@type')
     
-

@@ -15,4 +15,3 @@ class SpeechPathology(MedicalSpecialty):
     """
     type_: str = Field(default="SpeechPathology", alias='@type')
     
-

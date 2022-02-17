@@ -21,7 +21,7 @@ class OrderItem(Intangible):
         default=None,
         description="The delivery of the parcel related to this order or order item.",
     )
-    orderedItem: Optional[Union[List[Union['Product', 'OrderItem', 'Service', str]], 'Product', 'OrderItem', 'Service', str]] = Field(
+    orderedItem: Optional[Union[List[Union['Service', 'Product', 'OrderItem', str]], 'Service', 'Product', 'OrderItem', str]] = Field(
         default=None,
         description="The item ordered.",
     )
@@ -41,8 +41,8 @@ class OrderItem(Intangible):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.ParcelDelivery import ParcelDelivery
-    from pydantic_schemaorg.Product import Product
     from pydantic_schemaorg.Service import Service
+    from pydantic_schemaorg.Product import Product
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.OrderStatus import OrderStatus

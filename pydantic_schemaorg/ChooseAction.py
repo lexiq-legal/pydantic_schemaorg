@@ -25,7 +25,6 @@ class ChooseAction(AssessAction):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.Thing import Thing

@@ -14,4 +14,3 @@ class ComicCoverArt(CoverArt, ComicStory):
     """
     type_: str = Field(default="ComicCoverArt", alias='@type')
     
-

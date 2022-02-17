@@ -14,4 +14,3 @@ class DeactivateAction(ControlAction):
     """
     type_: str = Field(default="DeactivateAction", alias='@type')
     
-

@@ -14,4 +14,3 @@ class Chiropractic(MedicineSystem):
     """
     type_: str = Field(default="Chiropractic", alias='@type')
     
-

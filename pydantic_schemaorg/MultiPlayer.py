@@ -13,4 +13,3 @@ class MultiPlayer(GamePlayMode):
     """
     type_: str = Field(default="MultiPlayer", alias='@type')
     
-

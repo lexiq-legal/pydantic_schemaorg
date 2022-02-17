@@ -14,4 +14,3 @@ class BedAndBreakfast(LodgingBusiness):
     """
     type_: str = Field(default="BedAndBreakfast", alias='@type')
     
-

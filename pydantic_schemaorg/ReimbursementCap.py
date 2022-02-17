@@ -13,4 +13,3 @@ class ReimbursementCap(DrugCostCategory):
     """
     type_: str = Field(default="ReimbursementCap", alias='@type')
     
-

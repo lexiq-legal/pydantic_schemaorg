@@ -13,4 +13,3 @@ class Manuscript(CreativeWork):
     """
     type_: str = Field(default="Manuscript", alias='@type')
     
-

@@ -21,6 +21,5 @@ class Residence(Place):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.FloorPlan import FloorPlan

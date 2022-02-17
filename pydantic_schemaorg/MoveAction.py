@@ -28,6 +28,5 @@ class MoveAction(Action):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Place import Place

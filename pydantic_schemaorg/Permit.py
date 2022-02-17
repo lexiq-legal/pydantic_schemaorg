@@ -46,7 +46,6 @@ class Permit(Intangible):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Service import Service
     from pydantic_schemaorg.Duration import Duration

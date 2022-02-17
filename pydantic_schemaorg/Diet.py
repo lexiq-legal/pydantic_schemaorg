@@ -21,7 +21,7 @@ class Diet(LifestyleModification, CreativeWork):
         default=None,
         description="Specific physiologic risks associated to the diet plan.",
     )
-    endorsers: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    endorsers: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="People or organizations that endorse the plan.",
     )
@@ -43,5 +43,5 @@ class Diet(LifestyleModification, CreativeWork):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.Organization import Organization

@@ -13,4 +13,3 @@ class BankOrCreditUnion(FinancialService):
     """
     type_: str = Field(default="BankOrCreditUnion", alias='@type')
     
-

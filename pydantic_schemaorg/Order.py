@@ -54,7 +54,7 @@ class Order(Intangible):
         default=None,
         description="Was the offer accepted as a gift for someone other than the buyer.",
     )
-    orderedItem: Optional[Union[List[Union['Product', 'OrderItem', 'Service', str]], 'Product', 'OrderItem', 'Service', str]] = Field(
+    orderedItem: Optional[Union[List[Union['Service', 'Product', 'OrderItem', str]], 'Service', 'Product', 'OrderItem', str]] = Field(
         default=None,
         description="The item ordered.",
     )
@@ -62,11 +62,11 @@ class Order(Intangible):
         default=None,
         description="The billing address for the order.",
     )
-    customer: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    customer: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="Party placing the order or paying the invoice.",
     )
-    seller: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    seller: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="An entity which offers (sells / leases / lends / loans) the services / goods. A seller may"
      "also be a provider.",
@@ -95,7 +95,7 @@ class Order(Intangible):
         default=None,
         description="The offer(s) -- e.g., product, quantity and price combinations -- included in the order.",
     )
-    merchant: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    merchant: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="'merchant' is an out-dated term for 'seller'.",
     )
@@ -107,7 +107,7 @@ class Order(Intangible):
         default=None,
         description="The name of the credit card or other method of payment for the order.",
     )
-    broker: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    broker: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="An entity that arranges for an exchange between a buyer and a seller. In most cases a broker"
      "never acquires or releases ownership of a product or service involved in an exchange."
@@ -116,7 +116,6 @@ class Order(Intangible):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Date import Date
@@ -124,12 +123,12 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.ParcelDelivery import ParcelDelivery
     from pydantic_schemaorg.Boolean import Boolean
+    from pydantic_schemaorg.Service import Service
     from pydantic_schemaorg.Product import Product
     from pydantic_schemaorg.OrderItem import OrderItem
-    from pydantic_schemaorg.Service import Service
     from pydantic_schemaorg.PostalAddress import PostalAddress
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.OrderStatus import OrderStatus
     from pydantic_schemaorg.Invoice import Invoice
     from pydantic_schemaorg.Offer import Offer

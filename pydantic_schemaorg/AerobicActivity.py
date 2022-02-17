@@ -15,4 +15,3 @@ class AerobicActivity(PhysicalActivityCategory):
     """
     type_: str = Field(default="AerobicActivity", alias='@type')
     
-

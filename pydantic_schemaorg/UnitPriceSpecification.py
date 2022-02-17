@@ -42,7 +42,7 @@ class UnitPriceSpecification(PriceSpecification):
      "PriceTypeEnumeration or as a free form text string for price types that are not already"
      "predefined in PriceTypeEnumeration.",
     )
-    billingDuration: Optional[Union[List[Union[Decimal, 'Number', 'Duration', 'QuantitativeValue', str]], Decimal, 'Number', 'Duration', 'QuantitativeValue', str]] = Field(
+    billingDuration: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', 'Duration', str]], Decimal, 'Number', 'QuantitativeValue', 'Duration', str]] = Field(
         default=None,
         description="Specifies for how long this price (or price component) will be billed. Can be used, for"
      "example, to model the contractual duration of a subscription or payment plan. Type can"
@@ -71,7 +71,7 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.PriceTypeEnumeration import PriceTypeEnumeration
-    from pydantic_schemaorg.Duration import Duration
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+    from pydantic_schemaorg.Duration import Duration
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.PriceComponentTypeEnumeration import PriceComponentTypeEnumeration

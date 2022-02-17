@@ -25,6 +25,5 @@ class JoinAction(InteractAction):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Event import Event

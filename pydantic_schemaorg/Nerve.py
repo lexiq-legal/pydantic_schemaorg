@@ -24,7 +24,7 @@ class Nerve(AnatomicalStructure):
         default=None,
         description="The neurological pathway extension that involves muscle control.",
     )
-    sensoryUnit: Optional[Union[List[Union['SuperficialAnatomy', 'AnatomicalStructure', str]], 'SuperficialAnatomy', 'AnatomicalStructure', str]] = Field(
+    sensoryUnit: Optional[Union[List[Union['AnatomicalStructure', 'SuperficialAnatomy', str]], 'AnatomicalStructure', 'SuperficialAnatomy', str]] = Field(
         default=None,
         description="The neurological pathway extension that inputs and sends information to the brain or"
      "spinal cord.",
@@ -34,7 +34,6 @@ class Nerve(AnatomicalStructure):
         description="The neurological pathway that originates the neurons.",
     )
     
-
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure

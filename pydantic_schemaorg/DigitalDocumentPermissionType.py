@@ -13,4 +13,3 @@ class DigitalDocumentPermissionType(Enumeration):
     """
     type_: str = Field(default="DigitalDocumentPermissionType", alias='@type')
     
-

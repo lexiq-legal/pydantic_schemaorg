@@ -14,4 +14,3 @@ class Quantity(Intangible):
     """
     type_: str = Field(default="Quantity", alias='@type')
     
-

@@ -37,7 +37,6 @@ class MedicalTest(MedicalEntity):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalDevice import MedicalDevice
     from pydantic_schemaorg.Text import Text

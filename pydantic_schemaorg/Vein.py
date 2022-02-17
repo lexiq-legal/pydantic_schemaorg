@@ -24,7 +24,7 @@ class Vein(Vessel):
         default=None,
         description="The vasculature that the vein drains into.",
     )
-    regionDrained: Optional[Union[List[Union['AnatomicalSystem', 'AnatomicalStructure', str]], 'AnatomicalSystem', 'AnatomicalStructure', str]] = Field(
+    regionDrained: Optional[Union[List[Union['AnatomicalStructure', 'AnatomicalSystem', str]], 'AnatomicalStructure', 'AnatomicalSystem', str]] = Field(
         default=None,
         description="The anatomical or organ system drained by this vessel; generally refers to a specific"
      "part of an organ.",

@@ -13,4 +13,3 @@ class DanceEvent(Event):
     """
     type_: str = Field(default="DanceEvent", alias='@type')
     
-

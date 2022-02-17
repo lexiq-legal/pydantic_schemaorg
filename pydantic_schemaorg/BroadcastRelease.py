@@ -13,4 +13,3 @@ class BroadcastRelease(MusicAlbumReleaseType):
     """
     type_: str = Field(default="BroadcastRelease", alias='@type')
     
-

@@ -21,7 +21,6 @@ class Enumeration(Intangible):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Class import Class
     from pydantic_schemaorg.Property import Property

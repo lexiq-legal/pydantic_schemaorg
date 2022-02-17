@@ -23,6 +23,5 @@ class PlanAction(OrganizeAction):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.DateTime import DateTime

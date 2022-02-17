@@ -13,4 +13,3 @@ class DataType(Class):
     """
     type_: str = Field(default="DataType", alias='@type')
     
-

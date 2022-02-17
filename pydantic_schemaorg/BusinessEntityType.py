@@ -17,4 +17,3 @@ class BusinessEntityType(Enumeration):
     """
     type_: str = Field(default="BusinessEntityType", alias='@type')
     
-

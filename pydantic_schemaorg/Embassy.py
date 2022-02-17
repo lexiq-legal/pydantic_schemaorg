@@ -13,4 +13,3 @@ class Embassy(GovernmentBuilding):
     """
     type_: str = Field(default="Embassy", alias='@type')
     
-

@@ -62,7 +62,7 @@ class SpecialAnnouncement(CreativeWork):
     Model depth: 3
     """
     type_: str = Field(default="SpecialAnnouncement", alias='@type')
-    announcementLocation: Optional[Union[List[Union['CivicStructure', 'LocalBusiness', str]], 'CivicStructure', 'LocalBusiness', str]] = Field(
+    announcementLocation: Optional[Union[List[Union['LocalBusiness', 'CivicStructure', str]], 'LocalBusiness', 'CivicStructure', str]] = Field(
         default=None,
         description="Indicates a specific [[CivicStructure]] or [[LocalBusiness]] associated with the"
      "SpecialAnnouncement. For example, a specific testing facility or business with special"
@@ -89,7 +89,7 @@ class SpecialAnnouncement(CreativeWork):
         default=None,
         description="Information about travel bans, e.g. in the context of a pandemic.",
     )
-    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']], AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']] = Field(
+    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']], AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']] = Field(
         default=None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -128,16 +128,16 @@ class SpecialAnnouncement(CreativeWork):
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.CivicStructure import CivicStructure
     from pydantic_schemaorg.LocalBusiness import LocalBusiness
+    from pydantic_schemaorg.CivicStructure import CivicStructure
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.WebContent import WebContent
     from pydantic_schemaorg.GovernmentService import GovernmentService
     from pydantic_schemaorg.Observation import Observation
     from pydantic_schemaorg.Dataset import Dataset
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+    from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Date import Date
     from pydantic_schemaorg.DataFeed import DataFeed

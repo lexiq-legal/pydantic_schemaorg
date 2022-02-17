@@ -14,4 +14,3 @@ class SizeSystemEnumeration(Enumeration):
     """
     type_: str = Field(default="SizeSystemEnumeration", alias='@type')
     
-

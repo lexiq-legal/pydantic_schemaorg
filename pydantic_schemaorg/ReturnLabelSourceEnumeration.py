@@ -13,4 +13,3 @@ class ReturnLabelSourceEnumeration(Enumeration):
     """
     type_: str = Field(default="ReturnLabelSourceEnumeration", alias='@type')
     
-

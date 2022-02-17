@@ -15,4 +15,3 @@ class Project(Organization):
     """
     type_: str = Field(default="Project", alias='@type')
     
-

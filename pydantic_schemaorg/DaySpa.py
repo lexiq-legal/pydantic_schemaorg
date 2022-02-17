@@ -13,4 +13,3 @@ class DaySpa(HealthAndBeautyBusiness):
     """
     type_: str = Field(default="DaySpa", alias='@type')
     
-

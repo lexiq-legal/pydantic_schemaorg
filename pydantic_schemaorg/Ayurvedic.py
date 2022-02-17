@@ -14,4 +14,3 @@ class Ayurvedic(MedicineSystem):
     """
     type_: str = Field(default="Ayurvedic", alias='@type')
     
-

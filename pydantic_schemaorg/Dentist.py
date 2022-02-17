@@ -15,4 +15,3 @@ class Dentist(MedicalBusiness, LocalBusiness, MedicalOrganization):
     """
     type_: str = Field(default="Dentist", alias='@type')
     
-

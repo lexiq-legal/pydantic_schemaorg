@@ -28,7 +28,6 @@ class WebPageElement(CreativeWork):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.XPathType import XPathType
     from pydantic_schemaorg.CssSelectorType import CssSelectorType

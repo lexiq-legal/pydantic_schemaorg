@@ -15,4 +15,3 @@ class WorkersUnion(Organization):
     """
     type_: str = Field(default="WorkersUnion", alias='@type')
     
-

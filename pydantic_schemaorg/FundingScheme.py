@@ -20,4 +20,3 @@ class FundingScheme(Organization):
     """
     type_: str = Field(default="FundingScheme", alias='@type')
     
-

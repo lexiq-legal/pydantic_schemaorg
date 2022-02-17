@@ -13,4 +13,3 @@ class OfflineTemporarily(GameServerStatus):
     """
     type_: str = Field(default="OfflineTemporarily", alias='@type')
     
-

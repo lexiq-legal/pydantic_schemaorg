@@ -14,4 +14,3 @@ class MedicalSymptom(MedicalSignOrSymptom):
     """
     type_: str = Field(default="MedicalSymptom", alias='@type')
     
-

@@ -13,4 +13,3 @@ class PhysicalActivityCategory(Enumeration):
     """
     type_: str = Field(default="PhysicalActivityCategory", alias='@type')
     
-

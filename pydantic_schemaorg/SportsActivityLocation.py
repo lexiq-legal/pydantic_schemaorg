@@ -13,4 +13,3 @@ class SportsActivityLocation(LocalBusiness):
     """
     type_: str = Field(default="SportsActivityLocation", alias='@type')
     
-

@@ -13,4 +13,3 @@ class Saturday(DayOfWeek):
     """
     type_: str = Field(default="Saturday", alias='@type')
     
-

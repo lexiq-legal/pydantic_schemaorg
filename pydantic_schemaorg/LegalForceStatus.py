@@ -13,4 +13,3 @@ class LegalForceStatus(StatusEnumeration):
     """
     type_: str = Field(default="LegalForceStatus", alias='@type')
     
-

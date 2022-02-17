@@ -13,4 +13,3 @@ class BodyMeasurementHead(BodyMeasurementTypeEnumeration):
     """
     type_: str = Field(default="BodyMeasurementHead", alias='@type')
     
-

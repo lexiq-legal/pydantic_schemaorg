@@ -22,6 +22,5 @@ class LendAction(TransferAction):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Person import Person

@@ -13,4 +13,3 @@ class BikeStore(Store):
     """
     type_: str = Field(default="BikeStore", alias='@type')
     
-

@@ -23,6 +23,5 @@ class DigitalDocument(CreativeWork):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.DigitalDocumentPermission import DigitalDocumentPermission

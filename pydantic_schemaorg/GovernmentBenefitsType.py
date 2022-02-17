@@ -14,4 +14,3 @@ class GovernmentBenefitsType(Enumeration):
     """
     type_: str = Field(default="GovernmentBenefitsType", alias='@type')
     
-

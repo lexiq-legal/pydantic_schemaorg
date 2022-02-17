@@ -13,4 +13,3 @@ class PlaceOfWorship(CivicStructure):
     """
     type_: str = Field(default="PlaceOfWorship", alias='@type')
     
-

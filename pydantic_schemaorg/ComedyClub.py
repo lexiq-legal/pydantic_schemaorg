@@ -13,4 +13,3 @@ class ComedyClub(EntertainmentBusiness):
     """
     type_: str = Field(default="ComedyClub", alias='@type')
     
-

@@ -30,6 +30,5 @@ class CivicStructure(Place):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

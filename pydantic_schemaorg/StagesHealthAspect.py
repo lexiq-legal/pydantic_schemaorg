@@ -13,4 +13,3 @@ class StagesHealthAspect(HealthAspectEnumeration):
     """
     type_: str = Field(default="StagesHealthAspect", alias='@type')
     
-

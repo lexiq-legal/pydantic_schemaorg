@@ -35,7 +35,6 @@ class Blog(CreativeWork):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.BlogPosting import BlogPosting
     from pydantic_schemaorg.Text import Text

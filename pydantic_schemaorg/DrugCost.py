@@ -48,7 +48,6 @@ class DrugCost(MedicalEntity):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.DrugCostCategory import DrugCostCategory
     from pydantic_schemaorg.Text import Text

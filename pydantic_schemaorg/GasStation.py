@@ -13,4 +13,3 @@ class GasStation(AutomotiveBusiness):
     """
     type_: str = Field(default="GasStation", alias='@type')
     
-

@@ -14,4 +14,3 @@ class MedicalIntangible(MedicalEntity):
     """
     type_: str = Field(default="MedicalIntangible", alias='@type')
     
-

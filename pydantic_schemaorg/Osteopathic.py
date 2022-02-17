@@ -13,4 +13,3 @@ class Osteopathic(MedicineSystem):
     """
     type_: str = Field(default="Osteopathic", alias='@type')
     
-

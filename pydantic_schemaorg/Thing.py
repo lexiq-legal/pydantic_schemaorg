@@ -79,7 +79,6 @@ class Thing(SchemaOrgBase):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.CreativeWork import CreativeWork

@@ -13,4 +13,3 @@ class ShortStory(CreativeWork):
     """
     type_: str = Field(default="ShortStory", alias='@type')
     
-

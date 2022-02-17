@@ -22,6 +22,5 @@ class OccupationalExperienceRequirements(Intangible):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number

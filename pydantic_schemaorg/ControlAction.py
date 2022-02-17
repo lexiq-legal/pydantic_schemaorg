@@ -13,4 +13,3 @@ class ControlAction(Action):
     """
     type_: str = Field(default="ControlAction", alias='@type')
     
-

@@ -51,7 +51,7 @@ class MerchantReturnPolicy(Intangible):
         description="The method (from an enumeration) by which the customer obtains a return shipping label"
      "for a defect product.",
     )
-    merchantReturnDays: Optional[Union[List[Union[int, 'Integer', ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], int, 'Integer', ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    merchantReturnDays: Optional[Union[List[Union[ISO8601Date, 'DateTime', int, 'Integer', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', int, 'Integer', ISO8601Date, 'Date', str]] = Field(
         default=None,
         description="Specifies either a fixed return date or the number of days (from the delivery date) that"
      "a product can be returned. Used when the [[returnPolicyCategory]] property is specified"
@@ -122,15 +122,14 @@ class MerchantReturnPolicy(Intangible):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.ReturnFeesEnumeration import ReturnFeesEnumeration
     from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
     from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.ReturnLabelSourceEnumeration import ReturnLabelSourceEnumeration
-    from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.DateTime import DateTime
+    from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.Date import Date
     from pydantic_schemaorg.MerchantReturnPolicySeasonalOverride import MerchantReturnPolicySeasonalOverride
     from pydantic_schemaorg.RefundTypeEnumeration import RefundTypeEnumeration

@@ -22,6 +22,5 @@ class InformAction(CommunicateAction):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Event import Event

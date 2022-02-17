@@ -14,4 +14,3 @@ class MediaGallery(CollectionPage):
     """
     type_: str = Field(default="MediaGallery", alias='@type')
     
-

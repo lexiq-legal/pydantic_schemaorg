@@ -17,11 +17,11 @@ class OwnershipInfo(StructuredValue):
     Model depth: 4
     """
     type_: str = Field(default="OwnershipInfo", alias='@type')
-    acquiredFrom: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    acquiredFrom: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="The organization or person from which the product was acquired.",
     )
-    typeOfGood: Optional[Union[List[Union['Product', 'Service', str]], 'Product', 'Service', str]] = Field(
+    typeOfGood: Optional[Union[List[Union['Service', 'Product', str]], 'Service', 'Product', str]] = Field(
         default=None,
         description="The product that this structured value is referring to.",
     )
@@ -36,8 +36,8 @@ class OwnershipInfo(StructuredValue):
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
-    from pydantic_schemaorg.Product import Product
+    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Service import Service
+    from pydantic_schemaorg.Product import Product
     from pydantic_schemaorg.DateTime import DateTime

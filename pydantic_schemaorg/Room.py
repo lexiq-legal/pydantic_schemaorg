@@ -16,4 +16,3 @@ class Room(Accommodation):
     """
     type_: str = Field(default="Room", alias='@type')
     
-

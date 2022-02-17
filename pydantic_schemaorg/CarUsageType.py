@@ -14,4 +14,3 @@ class CarUsageType(Enumeration):
     """
     type_: str = Field(default="CarUsageType", alias='@type')
     
-

@@ -13,4 +13,3 @@ class InStoreOnly(ItemAvailability):
     """
     type_: str = Field(default="InStoreOnly", alias='@type')
     
-

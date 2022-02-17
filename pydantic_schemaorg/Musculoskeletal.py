@@ -14,4 +14,3 @@ class Musculoskeletal(MedicalSpecialty):
     """
     type_: str = Field(default="Musculoskeletal", alias='@type')
     
-

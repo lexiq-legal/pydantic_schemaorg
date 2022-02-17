@@ -30,7 +30,6 @@ class MusicPlaylist(CreativeWork):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.MusicRecording import MusicRecording

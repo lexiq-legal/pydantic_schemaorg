@@ -26,7 +26,6 @@ class Audience(Intangible):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.AdministrativeArea import AdministrativeArea

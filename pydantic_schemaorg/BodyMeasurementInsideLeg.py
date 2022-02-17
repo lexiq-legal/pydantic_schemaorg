@@ -13,4 +13,3 @@ class BodyMeasurementInsideLeg(BodyMeasurementTypeEnumeration):
     """
     type_: str = Field(default="BodyMeasurementInsideLeg", alias='@type')
     
-

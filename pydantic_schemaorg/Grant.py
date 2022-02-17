@@ -28,7 +28,7 @@ class Grant(Intangible):
         default=None,
         description="Indicates an item funded or sponsored through a [[Grant]].",
     )
-    sponsor: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    sponsor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -37,5 +37,5 @@ class Grant(Intangible):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Thing import Thing
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.Organization import Organization

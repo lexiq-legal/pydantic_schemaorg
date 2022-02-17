@@ -13,4 +13,3 @@ class HealthAndBeautyBusiness(LocalBusiness):
     """
     type_: str = Field(default="HealthAndBeautyBusiness", alias='@type')
     
-

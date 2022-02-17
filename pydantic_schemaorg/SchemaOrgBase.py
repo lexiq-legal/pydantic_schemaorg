@@ -12,10 +12,10 @@ updated_models=set()
 
 class SchemaOrgBase(BaseModel):
     #JSON-LD fields
-    reverse_ : Optional[Any] = Field(None,alias='@reverse')
-    id_ : Optional[Any] = Field(None,alias='@id')
-    context_ : Optional[Any] = Field(None,alias='@context')
-    graph_ : Optional[Any] = Field(None,alias='@graph')
+    reverse_ : Optional[Any] = Field(default=None,alias='@reverse')
+    id_ : Optional[Any] = Field(default=None,alias='@id')
+    context_ : Optional[Any] = Field(default=None,alias='@context')
+    graph_ : Optional[Any] = Field(default=None,alias='@graph')
 
     def dict(self, *args, **kwargs):
         defaults = {

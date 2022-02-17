@@ -14,4 +14,3 @@ class ActivationFee(PriceComponentTypeEnumeration):
     """
     type_: str = Field(default="ActivationFee", alias='@type')
     
-

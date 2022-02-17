@@ -24,6 +24,5 @@ class MediaReviewItem(CreativeWork):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.MediaObject import MediaObject

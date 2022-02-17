@@ -13,4 +13,3 @@ class Synagogue(PlaceOfWorship):
     """
     type_: str = Field(default="Synagogue", alias='@type')
     
-

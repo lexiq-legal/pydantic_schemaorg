@@ -13,4 +13,3 @@ class MedicalStudyStatus(MedicalEnumeration):
     """
     type_: str = Field(default="MedicalStudyStatus", alias='@type')
     
-

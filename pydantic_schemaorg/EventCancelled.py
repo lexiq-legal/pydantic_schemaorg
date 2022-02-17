@@ -15,4 +15,3 @@ class EventCancelled(EventStatusType):
     """
     type_: str = Field(default="EventCancelled", alias='@type')
     
-

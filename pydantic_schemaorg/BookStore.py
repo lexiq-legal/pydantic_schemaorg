@@ -13,4 +13,3 @@ class BookStore(Store):
     """
     type_: str = Field(default="BookStore", alias='@type')
     
-

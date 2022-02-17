@@ -15,4 +15,3 @@ class AnalysisNewsArticle(NewsArticle):
     """
     type_: str = Field(default="AnalysisNewsArticle", alias='@type')
     
-

@@ -35,7 +35,7 @@ class SuperficialAnatomy(MedicalEntity):
      "of the superficial anatomy can suggest underlying medical conditions or courses of"
      "treatment.",
     )
-    relatedAnatomy: Optional[Union[List[Union['AnatomicalSystem', 'AnatomicalStructure', str]], 'AnatomicalSystem', 'AnatomicalStructure', str]] = Field(
+    relatedAnatomy: Optional[Union[List[Union['AnatomicalStructure', 'AnatomicalSystem', str]], 'AnatomicalStructure', 'AnatomicalSystem', str]] = Field(
         default=None,
         description="Anatomical systems or structures that relate to the superficial anatomy.",
     )
@@ -57,7 +57,7 @@ class SuperficialAnatomy(MedicalEntity):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
     from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
+    from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
     from pydantic_schemaorg.MedicalCondition import MedicalCondition
     from pydantic_schemaorg.MedicalTherapy import MedicalTherapy

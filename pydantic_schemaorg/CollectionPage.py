@@ -13,4 +13,3 @@ class CollectionPage(WebPage):
     """
     type_: str = Field(default="CollectionPage", alias='@type')
     
-

@@ -14,4 +14,3 @@ class Energy(Quantity):
     """
     type_: str = Field(default="Energy", alias='@type')
     
-

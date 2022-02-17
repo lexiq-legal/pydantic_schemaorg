@@ -13,4 +13,3 @@ class NotYetRecruiting(MedicalStudyStatus):
     """
     type_: str = Field(default="NotYetRecruiting", alias='@type')
     
-

@@ -13,4 +13,3 @@ class PresentationDigitalDocument(DigitalDocument):
     """
     type_: str = Field(default="PresentationDigitalDocument", alias='@type')
     
-

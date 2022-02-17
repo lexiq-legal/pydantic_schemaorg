@@ -51,6 +51,5 @@ class NewsArticle(Article):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text

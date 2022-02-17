@@ -27,7 +27,7 @@ class InteractionCounter(StructuredValue):
         description="The Action representing the type of interaction. For up votes, +1s, etc. use [[LikeAction]]."
      "For down votes use [[DislikeAction]]. Otherwise, use the most specific Action.",
     )
-    location: Optional[Union[List[Union[str, 'Text', 'VirtualLocation', 'Place', 'PostalAddress']], str, 'Text', 'VirtualLocation', 'Place', 'PostalAddress']] = Field(
+    location: Optional[Union[List[Union[str, 'Text', 'VirtualLocation', 'PostalAddress', 'Place']], str, 'Text', 'VirtualLocation', 'PostalAddress', 'Place']] = Field(
         default=None,
         description="The location of, for example, where an event is happening, where an organization is located,"
      "or where an action takes place.",
@@ -61,8 +61,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Action import Action
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.VirtualLocation import VirtualLocation
-    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.PostalAddress import PostalAddress
+    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Time import Time
     from pydantic_schemaorg.SoftwareApplication import SoftwareApplication

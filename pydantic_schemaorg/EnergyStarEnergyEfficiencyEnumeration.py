@@ -13,4 +13,3 @@ class EnergyStarEnergyEfficiencyEnumeration(EnergyEfficiencyEnumeration):
     """
     type_: str = Field(default="EnergyStarEnergyEfficiencyEnumeration", alias='@type')
     
-

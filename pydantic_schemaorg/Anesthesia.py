@@ -14,4 +14,3 @@ class Anesthesia(MedicalSpecialty):
     """
     type_: str = Field(default="Anesthesia", alias='@type')
     
-

@@ -13,4 +13,3 @@ class ReturnLabelDownloadAndPrint(ReturnLabelSourceEnumeration):
     """
     type_: str = Field(default="ReturnLabelDownloadAndPrint", alias='@type')
     
-

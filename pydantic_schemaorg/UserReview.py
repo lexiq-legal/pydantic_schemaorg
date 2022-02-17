@@ -14,4 +14,3 @@ class UserReview(Review):
     """
     type_: str = Field(default="UserReview", alias='@type')
     
-

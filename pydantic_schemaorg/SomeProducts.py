@@ -21,6 +21,5 @@ class SomeProducts(Product):
     )
     
 
-
 if TYPE_CHECKING:
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue

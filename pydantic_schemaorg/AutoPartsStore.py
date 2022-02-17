@@ -2,11 +2,11 @@ from __future__ import annotations
 
 
 from pydantic import Field
-from pydantic_schemaorg.AutomotiveBusiness import AutomotiveBusiness
 from pydantic_schemaorg.Store import Store
+from pydantic_schemaorg.AutomotiveBusiness import AutomotiveBusiness
 
 
-class AutoPartsStore(AutomotiveBusiness, Store):
+class AutoPartsStore(Store, AutomotiveBusiness):
     """An auto parts store.
 
     See: https://schema.org/AutoPartsStore
@@ -14,4 +14,3 @@ class AutoPartsStore(AutomotiveBusiness, Store):
     """
     type_: str = Field(default="AutoPartsStore", alias='@type')
     
-

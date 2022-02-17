@@ -13,4 +13,3 @@ class CoverArt(VisualArtwork):
     """
     type_: str = Field(default="CoverArt", alias='@type')
     
-

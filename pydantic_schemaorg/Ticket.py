@@ -18,7 +18,7 @@ class Ticket(Intangible):
     Model depth: 3
     """
     type_: str = Field(default="Ticket", alias='@type')
-    underName: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    underName: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="The person or organization the reservation or ticket is for.",
     )
@@ -61,8 +61,8 @@ class Ticket(Intangible):
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.Number import Number

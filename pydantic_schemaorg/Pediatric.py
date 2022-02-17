@@ -15,4 +15,3 @@ class Pediatric(MedicalSpecialty, MedicalBusiness):
     """
     type_: str = Field(default="Pediatric", alias='@type')
     
-

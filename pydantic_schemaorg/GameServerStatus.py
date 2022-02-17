@@ -13,4 +13,3 @@ class GameServerStatus(StatusEnumeration):
     """
     type_: str = Field(default="GameServerStatus", alias='@type')
     
-

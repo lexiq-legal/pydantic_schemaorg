@@ -13,4 +13,3 @@ class ListenAction(ConsumeAction):
     """
     type_: str = Field(default="ListenAction", alias='@type')
     
-

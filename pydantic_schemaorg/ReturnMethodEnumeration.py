@@ -13,4 +13,3 @@ class ReturnMethodEnumeration(Enumeration):
     """
     type_: str = Field(default="ReturnMethodEnumeration", alias='@type')
     
-

@@ -13,4 +13,3 @@ class ItemAvailability(Enumeration):
     """
     type_: str = Field(default="ItemAvailability", alias='@type')
     
-

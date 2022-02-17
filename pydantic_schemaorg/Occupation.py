@@ -25,7 +25,7 @@ class Occupation(Intangible):
         description="A statement of knowledge, skill, ability, task or any other assertion expressing a competency"
      "that is desired or required to fulfill this role or to work in this occupation.",
     )
-    estimatedSalary: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmountDistribution', 'MonetaryAmount', str]], Decimal, 'Number', 'MonetaryAmountDistribution', 'MonetaryAmount', str]] = Field(
+    estimatedSalary: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', 'MonetaryAmountDistribution', str]], Decimal, 'Number', 'MonetaryAmount', 'MonetaryAmountDistribution', str]] = Field(
         default=None,
         description="An estimated salary for a job posting or occupation, based on a variety of variables including,"
      "but not limited to industry, job title, and location. Estimated salaries are often computed"
@@ -65,8 +65,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.OccupationalExperienceRequirements import OccupationalExperienceRequirements
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.Number import Number
-    from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
     from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
+    from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
     from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
     from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
     from pydantic_schemaorg.CategoryCode import CategoryCode

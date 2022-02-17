@@ -13,4 +13,3 @@ class UKNonprofitType(NonprofitType):
     """
     type_: str = Field(default="UKNonprofitType", alias='@type')
     
-
