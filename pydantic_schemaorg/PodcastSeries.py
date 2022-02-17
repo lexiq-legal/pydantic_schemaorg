@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic import AnyUrl
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,12 +18,12 @@ class PodcastSeries(CreativeWorkSeries):
     """
     type_: str = Field("PodcastSeries", alias='@type')
     webFeed: Optional[Union[List[Union[AnyUrl, 'URL', 'DataFeed', str]], AnyUrl, 'URL', 'DataFeed', str]] = Field(
-        None,
+        default=None,
         description="The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped"
      "updates. This is usually RSS or Atom.",
     )
     actor: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated"
      "with individual items or with a series, episode, clip.",
     )

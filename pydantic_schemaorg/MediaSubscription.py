@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,12 +16,12 @@ class MediaSubscription(Intangible):
     """
     type_: str = Field("MediaSubscription", alias='@type')
     expectsAcceptanceOf: Optional[Union[List[Union['Offer', str]], 'Offer', str]] = Field(
-        None,
+        default=None,
         description="An Offer which must be accepted before the user can perform the Action. For example, the"
      "user may need to buy a movie before being able to watch it.",
     )
     authenticator: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
-        None,
+        default=None,
         description="The Organization responsible for authenticating the user's subscription. For example,"
      "many media apps require a cable/satellite provider to authenticate your subscription"
      "before playing media.",

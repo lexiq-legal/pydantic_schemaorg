@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,16 +17,16 @@ class Patient(MedicalAudience, Person):
     """
     type_: str = Field("Patient", alias='@type')
     diagnosis: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
-        None,
+        default=None,
         description="One or more alternative conditions considered in the differential diagnosis process"
      "as output of a diagnosis process.",
     )
     healthCondition: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
-        None,
+        default=None,
         description="Specifying the health condition(s) of a patient, medical study, or other target audience.",
     )
     drug: Optional[Union[List[Union['Drug', str]], 'Drug', str]] = Field(
-        None,
+        default=None,
         description="Specifying a drug or medicine used in a medication procedure.",
     )
     

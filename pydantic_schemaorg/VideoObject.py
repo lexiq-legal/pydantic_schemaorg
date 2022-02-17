@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,52 +16,52 @@ class VideoObject(MediaObject):
     """
     type_: str = Field("VideoObject", alias='@type')
     actors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
      "items or with a series, episode, clip.",
     )
     thumbnail: Optional[Union[List[Union['ImageObject', str]], 'ImageObject', str]] = Field(
-        None,
+        default=None,
         description="Thumbnail image for an image or video.",
     )
     embeddedTextCaption: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.",
     )
     videoQuality: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The quality of the video.",
     )
     director: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors"
      "can be associated with individual items or with a series, episode, clip.",
     )
     videoFrameSize: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The frame size of the video.",
     )
     actor: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated"
      "with individual items or with a series, episode, clip.",
     )
     directors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
     transcript: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="If this MediaObject is an AudioObject or VideoObject, the transcript of that object.",
     )
     caption: Optional[Union[List[Union[str, 'Text', 'MediaObject']], str, 'Text', 'MediaObject']] = Field(
-        None,
+        default=None,
         description="The caption for this object. For downloadable machine formats (closed caption, subtitles"
      "etc.) use MediaObject and indicate the [[encodingFormat]].",
     )
-    musicBy: Optional[Union[List[Union['MusicGroup', 'Person', str]], 'MusicGroup', 'Person', str]] = Field(
-        None,
+    musicBy: Optional[Union[List[Union['Person', 'MusicGroup', str]], 'Person', 'MusicGroup', str]] = Field(
+        default=None,
         description="The composer of the soundtrack.",
     )
     

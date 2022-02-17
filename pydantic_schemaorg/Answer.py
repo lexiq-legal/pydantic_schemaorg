@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class Answer(Comment):
     """
     type_: str = Field("Answer", alias='@type')
     answerExplanation: Optional[Union[List[Union['WebContent', 'Comment', str]], 'WebContent', 'Comment', str]] = Field(
-        None,
+        default=None,
         description="A step-by-step or full explanation about Answer. Can outline how this Answer was achieved"
      "or contain more broad clarification or statement about it.",
     )

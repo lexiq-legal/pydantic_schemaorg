@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,11 +16,11 @@ class ChooseAction(AssessAction):
     """
     type_: str = Field("ChooseAction", alias='@type')
     option: Optional[Union[List[Union[str, 'Text', 'Thing']], str, 'Text', 'Thing']] = Field(
-        None,
+        default=None,
         description="A sub property of object. The options subject to this action.",
     )
     actionOption: Optional[Union[List[Union[str, 'Text', 'Thing']], str, 'Text', 'Thing']] = Field(
-        None,
+        default=None,
         description="A sub property of object. The options subject to this action.",
     )
     

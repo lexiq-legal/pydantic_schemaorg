@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class EducationalOrganization(CivicStructure, Organization):
     """
     type_: str = Field("EducationalOrganization", alias='@type')
     alumni: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="Alumni of an organization.",
     )
     

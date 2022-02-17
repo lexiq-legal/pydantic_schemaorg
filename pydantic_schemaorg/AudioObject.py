@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,15 +16,15 @@ class AudioObject(MediaObject):
     """
     type_: str = Field("AudioObject", alias='@type')
     embeddedTextCaption: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.",
     )
     transcript: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="If this MediaObject is an AudioObject or VideoObject, the transcript of that object.",
     )
     caption: Optional[Union[List[Union[str, 'Text', 'MediaObject']], str, 'Text', 'MediaObject']] = Field(
-        None,
+        default=None,
         description="The caption for this object. For downloadable machine formats (closed caption, subtitles"
      "etc.) use MediaObject and indicate the [[encodingFormat]].",
     )

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import StrictBool
 
 
@@ -17,27 +17,27 @@ class Book(CreativeWork):
     """
     type_: str = Field("Book", alias='@type')
     illustrator: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="The illustrator of the book.",
     )
     abridged: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
-        None,
+        default=None,
         description="Indicates whether the book is an abridged edition.",
     )
     isbn: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The ISBN of the book.",
     )
     numberOfPages: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="The number of pages in the book.",
     )
     bookFormat: Optional[Union[List[Union['BookFormatType', str]], 'BookFormatType', str]] = Field(
-        None,
+        default=None,
         description="The format of the book.",
     )
     bookEdition: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The edition of the book.",
     )
     

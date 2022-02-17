@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,27 +17,27 @@ class MedicalProcedure(MedicalEntity):
     """
     type_: str = Field("MedicalProcedure", alias='@type')
     procedureType: Optional[Union[List[Union['MedicalProcedureType', str]], 'MedicalProcedureType', str]] = Field(
-        None,
+        default=None,
         description="The type of procedure, for example Surgical, Noninvasive, or Percutaneous.",
     )
     howPerformed: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="How the procedure is performed.",
     )
     preparation: Optional[Union[List[Union[str, 'Text', 'MedicalEntity']], str, 'Text', 'MedicalEntity']] = Field(
-        None,
+        default=None,
         description="Typical preparation that a patient must undergo before having the procedure performed.",
     )
     status: Optional[Union[List[Union[str, 'Text', 'MedicalStudyStatus', 'EventStatusType']], str, 'Text', 'MedicalStudyStatus', 'EventStatusType']] = Field(
-        None,
+        default=None,
         description="The status of the study (enumerated).",
     )
     bodyLocation: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Location in the body of the anatomical structure.",
     )
     followup: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Typical or recommended followup care after the procedure is performed.",
     )
     

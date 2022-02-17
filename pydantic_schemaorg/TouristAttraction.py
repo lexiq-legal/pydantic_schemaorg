@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -20,13 +20,13 @@ class TouristAttraction(Place):
     """
     type_: str = Field("TouristAttraction", alias='@type')
     availableLanguage: Optional[Union[List[Union[str, 'Text', 'Language']], str, 'Text', 'Language']] = Field(
-        None,
+        default=None,
         description="A language someone may use with or at the item, service or place. Please use one of the language"
      "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
      "[[inLanguage]]",
     )
     touristType: Optional[Union[List[Union[str, 'Text', 'Audience']], str, 'Text', 'Audience']] = Field(
-        None,
+        default=None,
         description="Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular"
      "country, etc.",
     )

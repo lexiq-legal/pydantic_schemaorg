@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,15 +17,15 @@ class BusinessAudience(Audience):
     """
     type_: str = Field("BusinessAudience", alias='@type')
     yearsInOperation: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The age of the business.",
     )
     numberOfEmployees: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The number of employees in an organization e.g. business.",
     )
     yearlyRevenue: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The size of the business in annual revenue.",
     )
     

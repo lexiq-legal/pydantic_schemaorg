@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 from decimal import Decimal
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
@@ -19,19 +19,19 @@ class Ticket(Intangible):
     """
     type_: str = Field("Ticket", alias='@type')
     underName: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
-        None,
+        default=None,
         description="The person or organization the reservation or ticket is for.",
     )
     ticketNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The unique identifier for the ticket.",
     )
     ticketToken: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
-        None,
+        default=None,
         description="Reference to an asset (e.g., Barcode, QR code image or PDF) usable for entrance.",
     )
     priceCurrency: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The currency of the price, or a price component when attached to [[PriceSpecification]]"
      "and its subtypes. Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217)"
      "e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies)"
@@ -39,7 +39,7 @@ class Ticket(Intangible):
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
     totalPrice: Optional[Union[List[Union[Decimal, 'Number', str, 'Text', 'PriceSpecification']], Decimal, 'Number', str, 'Text', 'PriceSpecification']] = Field(
-        None,
+        default=None,
         description="The total price for the reservation or ticket, including applicable taxes, shipping,"
      "etc. Usage guidelines: * Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030)"
      "to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols. * Use"
@@ -47,15 +47,15 @@ class Ticket(Intangible):
      "using these symbols as a readability separator.",
     )
     dateIssued: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The date the ticket was issued.",
     )
     ticketedSeat: Optional[Union[List[Union['Seat', str]], 'Seat', str]] = Field(
-        None,
+        default=None,
         description="The seat associated with the ticket.",
     )
     issuedBy: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
-        None,
+        default=None,
         description="The organization issuing the ticket or permit.",
     )
     

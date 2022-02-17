@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -30,15 +30,15 @@ class CreativeWorkSeries(Series, CreativeWork):
     """
     type_: str = Field("CreativeWorkSeries", alias='@type')
     endDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
     startDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
     issn: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The International Standard Serial Number (ISSN) that identifies this serial publication."
      "You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L)"
      "for, this serial publication.",

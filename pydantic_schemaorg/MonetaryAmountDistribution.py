@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class MonetaryAmountDistribution(QuantitativeValueDistribution):
     """
     type_: str = Field("MonetaryAmountDistribution", alias='@type')
     currency: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The currency in which the monetary amount is expressed. Use standard formats: [ISO 4217"
      "currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. \"USD\"; [Ticker"
      "symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies"

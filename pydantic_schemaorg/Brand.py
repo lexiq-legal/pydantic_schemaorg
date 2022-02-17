@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -18,19 +18,19 @@ class Brand(Intangible):
     """
     type_: str = Field("Brand", alias='@type')
     aggregateRating: Optional[Union[List[Union['AggregateRating', str]], 'AggregateRating', str]] = Field(
-        None,
+        default=None,
         description="The overall rating, based on a collection of reviews or ratings, of the item.",
     )
     slogan: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A slogan or motto associated with the item.",
     )
     logo: Optional[Union[List[Union[AnyUrl, 'URL', 'ImageObject', str]], AnyUrl, 'URL', 'ImageObject', str]] = Field(
-        None,
+        default=None,
         description="An associated logo.",
     )
     review: Optional[Union[List[Union['Review', str]], 'Review', str]] = Field(
-        None,
+        default=None,
         description="A review of the item.",
     )
     

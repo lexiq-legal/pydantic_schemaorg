@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from decimal import Decimal
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,7 +18,7 @@ class SeekToAction(Action):
     """
     type_: str = Field("SeekToAction", alias='@type')
     startOffset: Optional[Union[List[Union[Decimal, 'Number', 'HyperTocEntry', str]], Decimal, 'Number', 'HyperTocEntry', str]] = Field(
-        None,
+        default=None,
         description="The start time of the clip expressed as the number of seconds from the beginning of the"
      "work.",
     )

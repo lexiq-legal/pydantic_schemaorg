@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -25,11 +25,11 @@ class Grant(Intangible):
     """
     type_: str = Field("Grant", alias='@type')
     fundedItem: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
-        None,
+        default=None,
         description="Indicates an item funded or sponsored through a [[Grant]].",
     )
     sponsor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
-        None,
+        default=None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
     )

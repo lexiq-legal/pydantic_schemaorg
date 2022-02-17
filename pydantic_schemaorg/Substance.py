@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,11 +17,11 @@ class Substance(MedicalEntity):
     """
     type_: str = Field("Substance", alias='@type')
     activeIngredient: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="An active ingredient, typically chemical compounds and/or biologic substances.",
     )
     maximumIntake: Optional[Union[List[Union['MaximumDoseSchedule', str]], 'MaximumDoseSchedule', str]] = Field(
-        None,
+        default=None,
         description="Recommended intake of this supplement for a given population as defined by a specific"
      "recommending authority.",
     )

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,7 +18,7 @@ class ProductCollection(Collection, Product):
     """
     type_: str = Field("ProductCollection", alias='@type')
     includesObject: Optional[Union[List[Union['TypeAndQuantityNode', str]], 'TypeAndQuantityNode', str]] = Field(
-        None,
+        default=None,
         description="This links to a node or nodes indicating the exact quantity of the products included in"
      "an [[Offer]] or [[ProductCollection]].",
     )

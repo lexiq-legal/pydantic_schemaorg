@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -17,15 +17,15 @@ class BroadcastFrequencySpecification(Intangible):
     """
     type_: str = Field("BroadcastFrequencySpecification", alias='@type')
     broadcastSignalModulation: Optional[Union[List[Union[str, 'Text', 'QualitativeValue']], str, 'Text', 'QualitativeValue']] = Field(
-        None,
+        default=None,
         description="The modulation (e.g. FM, AM, etc) used by a particular broadcast service.",
     )
     broadcastFrequencyValue: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The frequency in MHz for a particular broadcast.",
     )
     broadcastSubChannel: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The subchannel used for the broadcast.",
     )
     

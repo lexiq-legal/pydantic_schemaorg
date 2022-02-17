@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import StrictBool
 
 
@@ -17,16 +17,16 @@ class HealthPlanNetwork(Intangible):
     """
     type_: str = Field("HealthPlanNetwork", alias='@type')
     healthPlanNetworkTier: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The tier(s) for this network.",
     )
     healthPlanNetworkId: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Name or unique ID of network. (Networks are often reused across different insurance"
      "plans).",
     )
     healthPlanCostSharing: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
-        None,
+        default=None,
         description="Whether The costs to the patient for services under this network or formulary.",
     )
     

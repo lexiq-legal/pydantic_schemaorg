@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -23,11 +23,11 @@ class TouristDestination(Place):
     """
     type_: str = Field("TouristDestination", alias='@type')
     includesAttraction: Optional[Union[List[Union['TouristAttraction', str]], 'TouristAttraction', str]] = Field(
-        None,
+        default=None,
         description="Attraction located at destination.",
     )
     touristType: Optional[Union[List[Union[str, 'Text', 'Audience']], str, 'Text', 'Audience']] = Field(
-        None,
+        default=None,
         description="Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular"
      "country, etc.",
     )

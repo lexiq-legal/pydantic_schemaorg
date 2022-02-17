@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,20 +17,20 @@ class Nerve(AnatomicalStructure):
     """
     type_: str = Field("Nerve", alias='@type')
     branch: Optional[Union[List[Union['AnatomicalStructure', str]], 'AnatomicalStructure', str]] = Field(
-        None,
+        default=None,
         description="The branches that delineate from the nerve bundle. Not to be confused with [[branchOf]].",
     )
     nerveMotor: Optional[Union[List[Union['Muscle', str]], 'Muscle', str]] = Field(
-        None,
+        default=None,
         description="The neurological pathway extension that involves muscle control.",
     )
     sensoryUnit: Optional[Union[List[Union['SuperficialAnatomy', 'AnatomicalStructure', str]], 'SuperficialAnatomy', 'AnatomicalStructure', str]] = Field(
-        None,
+        default=None,
         description="The neurological pathway extension that inputs and sends information to the brain or"
      "spinal cord.",
     )
     sourcedFrom: Optional[Union[List[Union['BrainStructure', str]], 'BrainStructure', str]] = Field(
-        None,
+        default=None,
         description="The neurological pathway that originates the neurons.",
     )
     

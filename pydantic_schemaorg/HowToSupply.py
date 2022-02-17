@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class HowToSupply(HowToItem):
     """
     type_: str = Field("HowToSupply", alias='@type')
     estimatedCost: Optional[Union[List[Union[str, 'Text', 'MonetaryAmount']], str, 'Text', 'MonetaryAmount']] = Field(
-        None,
+        default=None,
         description="The estimated cost of the supply or supplies consumed when performing instructions.",
     )
     

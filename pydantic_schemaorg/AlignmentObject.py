@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -20,24 +20,24 @@ class AlignmentObject(Intangible):
     """
     type_: str = Field("AlignmentObject", alias='@type')
     alignmentType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A category of alignment between the learning resource and the framework node. Recommended"
      "values include: 'requires', 'textComplexity', 'readingLevel', and 'educationalSubject'.",
     )
     targetUrl: Optional[Union[List[Union[AnyUrl, 'URL', str]], AnyUrl, 'URL', str]] = Field(
-        None,
+        default=None,
         description="The URL of a node in an established educational framework.",
     )
     targetDescription: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The description of a node in an established educational framework.",
     )
     educationalFramework: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The framework to which the resource being described is aligned.",
     )
     targetName: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The name of a node in an established educational framework.",
     )
     

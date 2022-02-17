@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -19,7 +19,7 @@ class CompoundPriceSpecification(PriceSpecification):
     """
     type_: str = Field("CompoundPriceSpecification", alias='@type')
     priceType: Optional[Union[List[Union[str, 'Text', 'PriceTypeEnumeration']], str, 'Text', 'PriceTypeEnumeration']] = Field(
-        None,
+        default=None,
         description="Defines the type of a price specified for an offered product, for example a list price,"
      "a (temporary) sale price or a manufacturer suggested retail price. If multiple prices"
      "are specified for an offer the [[priceType]] property can be used to identify the type"
@@ -28,7 +28,7 @@ class CompoundPriceSpecification(PriceSpecification):
      "predefined in PriceTypeEnumeration.",
     )
     priceComponent: Optional[Union[List[Union['UnitPriceSpecification', str]], 'UnitPriceSpecification', str]] = Field(
-        None,
+        default=None,
         description="This property links to all [[UnitPriceSpecification]] nodes that apply in parallel"
      "for the [[CompoundPriceSpecification]] node.",
     )

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -17,20 +17,20 @@ class DoseSchedule(MedicalIntangible):
     """
     type_: str = Field("DoseSchedule", alias='@type')
     targetPopulation: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Characteristics of the population for which this is intended, or which typically uses"
      "it, e.g. 'adults'.",
     )
     doseValue: Optional[Union[List[Union[Decimal, 'Number', 'QualitativeValue', str]], Decimal, 'Number', 'QualitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The value of the dose, e.g. 500.",
     )
     doseUnit: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The unit of the dose, e.g. 'mg'.",
     )
     frequency: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="How often the dose is taken, e.g. 'daily'.",
     )
     

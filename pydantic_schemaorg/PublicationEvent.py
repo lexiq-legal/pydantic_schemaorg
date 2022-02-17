@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import StrictBool
 
 
@@ -19,15 +19,15 @@ class PublicationEvent(Event):
     """
     type_: str = Field("PublicationEvent", alias='@type')
     publishedBy: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
-        None,
+        default=None,
         description="An agent associated with the publication event.",
     )
     publishedOn: Optional[Union[List[Union['BroadcastService', str]], 'BroadcastService', str]] = Field(
-        None,
+        default=None,
         description="A broadcast service associated with the publication event.",
     )
     free: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
-        None,
+        default=None,
         description="A flag to signal that the item, event, or place is accessible for free.",
     )
     

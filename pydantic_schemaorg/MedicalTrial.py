@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -19,7 +19,7 @@ class MedicalTrial(MedicalStudy):
     """
     type_: str = Field("MedicalTrial", alias='@type')
     trialDesign: Optional[Union[List[Union['MedicalTrialDesign', str]], 'MedicalTrialDesign', str]] = Field(
-        None,
+        default=None,
         description="Specifics about the trial design (enumerated).",
     )
     

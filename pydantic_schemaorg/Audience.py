@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,12 +16,12 @@ class Audience(Intangible):
     """
     type_: str = Field("Audience", alias='@type')
     audienceType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The target group associated with a given audience (e.g. veterans, car owners, musicians,"
      "etc.).",
     )
     geographicArea: Optional[Union[List[Union['AdministrativeArea', str]], 'AdministrativeArea', str]] = Field(
-        None,
+        default=None,
         description="The geographic area associated with the audience.",
     )
     

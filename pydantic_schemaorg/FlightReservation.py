@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,20 +18,20 @@ class FlightReservation(Reservation):
     """
     type_: str = Field("FlightReservation", alias='@type')
     passengerSequenceNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The passenger's sequence number as assigned by the airline.",
     )
     securityScreening: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The type of security screening the passenger is subject to.",
     )
     passengerPriorityStatus: Optional[Union[List[Union[str, 'Text', 'QualitativeValue']], str, 'Text', 'QualitativeValue']] = Field(
-        None,
+        default=None,
         description="The priority status assigned to a passenger for security or boarding (e.g. FastTrack"
      "or Priority).",
     )
     boardingGroup: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The airline-specific indicator of boarding order / preference.",
     )
     

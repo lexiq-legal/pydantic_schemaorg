@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -17,18 +17,18 @@ class EducationEvent(Event):
     """
     type_: str = Field("EducationEvent", alias='@type')
     teaches: Optional[Union[List[Union[str, 'Text', 'DefinedTerm']], str, 'Text', 'DefinedTerm']] = Field(
-        None,
+        default=None,
         description="The item being described is intended to help a person learn the competency or learning"
      "outcome defined by the referenced term.",
     )
     educationalLevel: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'DefinedTerm']], AnyUrl, 'URL', str, 'Text', 'DefinedTerm']] = Field(
-        None,
+        default=None,
         description="The level in terms of progression through an educational or training context. Examples"
      "of educational levels include 'beginner', 'intermediate' or 'advanced', and formal"
      "sets of level indicators.",
     )
     assesses: Optional[Union[List[Union[str, 'Text', 'DefinedTerm']], str, 'Text', 'DefinedTerm']] = Field(
-        None,
+        default=None,
         description="The item being described is intended to assess the competency or learning outcome defined"
      "by the referenced term.",
     )

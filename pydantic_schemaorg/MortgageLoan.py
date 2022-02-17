@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic import StrictBool
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,11 +18,11 @@ class MortgageLoan(LoanOrCredit):
     """
     type_: str = Field("MortgageLoan", alias='@type')
     domiciledMortgage: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
-        None,
+        default=None,
         description="Whether borrower is a resident of the jurisdiction where the property is located.",
     )
     loanMortgageMandateAmount: Optional[Union[List[Union['MonetaryAmount', str]], 'MonetaryAmount', str]] = Field(
-        None,
+        default=None,
         description="Amount of mortgage mandate that can be converted into a proper mortgage at a later stage.",
     )
     

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 
 
@@ -17,31 +17,31 @@ class Permit(Intangible):
     """
     type_: str = Field("Permit", alias='@type')
     issuedThrough: Optional[Union[List[Union['Service', str]], 'Service', str]] = Field(
-        None,
+        default=None,
         description="The service through with the permit was granted.",
     )
     validFor: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
-        None,
+        default=None,
         description="The duration of validity of a permit or similar thing.",
     )
     validUntil: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The date when the item is no longer valid.",
     )
     validFrom: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The date when the item becomes valid.",
     )
     permitAudience: Optional[Union[List[Union['Audience', str]], 'Audience', str]] = Field(
-        None,
+        default=None,
         description="The target audience for this permit.",
     )
     issuedBy: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
-        None,
+        default=None,
         description="The organization issuing the ticket or permit.",
     )
     validIn: Optional[Union[List[Union['AdministrativeArea', str]], 'AdministrativeArea', str]] = Field(
-        None,
+        default=None,
         description="The geographic area where a permit or similar thing is valid.",
     )
     

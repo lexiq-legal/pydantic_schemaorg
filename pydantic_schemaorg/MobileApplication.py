@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class MobileApplication(SoftwareApplication):
     """
     type_: str = Field("MobileApplication", alias='@type')
     carrierRequirements: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Specifies specific carrier(s) requirements for the application (e.g. an application"
      "may only work on a specific carrier network).",
     )

@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,16 +18,16 @@ class LocationFeatureSpecification(PropertyValue):
     """
     type_: str = Field("LocationFeatureSpecification", alias='@type')
     validFrom: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The date when the item becomes valid.",
     )
     validThrough: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The date after when the item is not valid. For example the end of an offer, salary period,"
      "or a period of opening hours.",
     )
     hoursAvailable: Optional[Union[List[Union['OpeningHoursSpecification', str]], 'OpeningHoursSpecification', str]] = Field(
-        None,
+        default=None,
         description="The hours during which this service or contact is available.",
     )
     

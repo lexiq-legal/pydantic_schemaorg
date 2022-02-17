@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -19,19 +19,19 @@ class Article(CreativeWork):
     """
     type_: str = Field("Article", alias='@type')
     backstory: Optional[Union[List[Union[str, 'Text', 'CreativeWork']], str, 'Text', 'CreativeWork']] = Field(
-        None,
+        default=None,
         description="For an [[Article]], typically a [[NewsArticle]], the backstory property provides"
      "a textual summary giving a brief explanation of why and how an article was created. In"
      "a journalistic setting this could include information about reporting process, methods,"
      "interviews, data sources, etc.",
     )
     articleSection: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Articles may belong to one or more 'sections' in a magazine or newspaper, such as Sports,"
      "Lifestyle, etc.",
     )
     speakable: Optional[Union[List[Union[AnyUrl, 'URL', 'SpeakableSpecification', str]], AnyUrl, 'URL', 'SpeakableSpecification', str]] = Field(
-        None,
+        default=None,
         description="Indicates sections of a Web page that are particularly 'speakable' in the sense of being"
      "highlighted as being especially appropriate for text-to-speech conversion. Other"
      "sections of a page may also be usefully spoken in particular circumstances; the 'speakable'"
@@ -48,24 +48,24 @@ class Article(CreativeWork):
      "which is defined to be a possible value of the *speakable* property.",
     )
     wordCount: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="The number of words in the text of the Article.",
     )
     articleBody: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The actual body of the article.",
     )
     pageStart: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
-        None,
+        default=None,
         description="The page on which the work starts; for example \"135\" or \"xiii\".",
     )
     pagination: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Any description of pages that is not separated into pageStart and pageEnd; for example,"
      "\"1-6, 9, 55\" or \"10-12, 46-49\".",
     )
     pageEnd: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
-        None,
+        default=None,
         description="The page on which the work ends; for example \"138\" or \"xvi\".",
     )
     

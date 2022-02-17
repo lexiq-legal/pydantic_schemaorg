@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,11 +16,11 @@ class UpdateAction(Action):
     """
     type_: str = Field("UpdateAction", alias='@type')
     collection: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
-        None,
+        default=None,
         description="A sub property of object. The collection target of the action.",
     )
     targetCollection: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
-        None,
+        default=None,
         description="A sub property of object. The collection target of the action.",
     )
     

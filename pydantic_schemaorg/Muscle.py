@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,23 +17,23 @@ class Muscle(AnatomicalStructure):
     """
     type_: str = Field("Muscle", alias='@type')
     nerve: Optional[Union[List[Union['Nerve', str]], 'Nerve', str]] = Field(
-        None,
+        default=None,
         description="The underlying innervation associated with the muscle.",
     )
     muscleAction: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The movement the muscle generates.",
     )
     antagonist: Optional[Union[List[Union['Muscle', str]], 'Muscle', str]] = Field(
-        None,
+        default=None,
         description="The muscle whose action counteracts the specified muscle.",
     )
     bloodSupply: Optional[Union[List[Union['Vessel', str]], 'Vessel', str]] = Field(
-        None,
+        default=None,
         description="The blood vessel that carries blood from the heart to the muscle.",
     )
     insertion: Optional[Union[List[Union['AnatomicalStructure', str]], 'AnatomicalStructure', str]] = Field(
-        None,
+        default=None,
         description="The place of attachment of a muscle, or what the muscle moves.",
     )
     

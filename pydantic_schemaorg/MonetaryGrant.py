@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -17,12 +17,12 @@ class MonetaryGrant(Grant):
     """
     type_: str = Field("MonetaryGrant", alias='@type')
     funder: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
-        None,
+        default=None,
         description="A person or organization that supports (sponsors) something through some kind of financial"
      "contribution.",
     )
     amount: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', str]], Decimal, 'Number', 'MonetaryAmount', str]] = Field(
-        None,
+        default=None,
         description="The amount of money.",
     )
     

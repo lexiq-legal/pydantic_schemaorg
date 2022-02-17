@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,12 +17,12 @@ class GovernmentService(Service):
     """
     type_: str = Field("GovernmentService", alias='@type')
     jurisdiction: Optional[Union[List[Union[str, 'Text', 'AdministrativeArea']], str, 'Text', 'AdministrativeArea']] = Field(
-        None,
+        default=None,
         description="Indicates a legal jurisdiction, e.g. of some legislation, or where some government"
      "service is based.",
     )
     serviceOperator: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
-        None,
+        default=None,
         description="The operating organization, if different from the provider. This enables the representation"
      "of services that are provided by an organization, but operated by another organization"
      "like a subcontractor.",

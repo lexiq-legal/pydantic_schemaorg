@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -19,11 +19,11 @@ class WorkBasedProgram(EducationalOccupationalProgram):
     """
     type_: str = Field("WorkBasedProgram", alias='@type')
     trainingSalary: Optional[Union[List[Union['MonetaryAmountDistribution', str]], 'MonetaryAmountDistribution', str]] = Field(
-        None,
+        default=None,
         description="The estimated salary earned while in the program.",
     )
     occupationalCategory: Optional[Union[List[Union[str, 'Text', 'CategoryCode']], str, 'Text', 'CategoryCode']] = Field(
-        None,
+        default=None,
         description="A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html),"
      "[ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or"
      "similar, with the property repeated for each applicable value. Ideally the taxonomy"

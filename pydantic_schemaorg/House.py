@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from decimal import Decimal
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,7 +18,7 @@ class House(Accommodation):
     """
     type_: str = Field("House", alias='@type')
     numberOfRooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
      "business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be"
      "put in the unitText property of the QuantitativeValue.",

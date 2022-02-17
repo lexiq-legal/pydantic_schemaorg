@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,36 +16,36 @@ class MovieSeries(CreativeWorkSeries):
     """
     type_: str = Field("MovieSeries", alias='@type')
     actors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
      "items or with a series, episode, clip.",
     )
     trailer: Optional[Union[List[Union['VideoObject', str]], 'VideoObject', str]] = Field(
-        None,
+        default=None,
         description="The trailer of a movie or tv/radio series, season, episode, etc.",
     )
     director: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors"
      "can be associated with individual items or with a series, episode, clip.",
     )
     productionCompany: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
-        None,
+        default=None,
         description="The production company or studio responsible for the item e.g. series, video game, episode"
      "etc.",
     )
     actor: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated"
      "with individual items or with a series, episode, clip.",
     )
     directors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    musicBy: Optional[Union[List[Union['MusicGroup', 'Person', str]], 'MusicGroup', 'Person', str]] = Field(
-        None,
+    musicBy: Optional[Union[List[Union['Person', 'MusicGroup', str]], 'Person', 'MusicGroup', str]] = Field(
+        default=None,
         description="The composer of the soundtrack.",
     )
     

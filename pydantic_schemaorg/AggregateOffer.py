@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -21,7 +21,7 @@ class AggregateOffer(Offer):
     """
     type_: str = Field("AggregateOffer", alias='@type')
     offers: Optional[Union[List[Union['Demand', 'Offer', str]], 'Demand', 'Offer', str]] = Field(
-        None,
+        default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
      "to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can"
@@ -30,21 +30,21 @@ class AggregateOffer(Offer):
      "or a subtype of Product, can clarify the nature of the offer.",
     )
     lowPrice: Optional[Union[List[Union[Decimal, 'Number', str, 'Text']], Decimal, 'Number', str, 'Text']] = Field(
-        None,
+        default=None,
         description="The lowest price of all offers available. Usage guidelines: * Use values from 0123456789"
      "(Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially"
      "similiar Unicode symbols. * Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to"
      "indicate a decimal point. Avoid using these symbols as a readability separator.",
     )
     highPrice: Optional[Union[List[Union[Decimal, 'Number', str, 'Text']], Decimal, 'Number', str, 'Text']] = Field(
-        None,
+        default=None,
         description="The highest price of all offers available. Usage guidelines: * Use values from 0123456789"
      "(Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially"
      "similiar Unicode symbols. * Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to"
      "indicate a decimal point. Avoid using these symbols as a readability separator.",
     )
     offerCount: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="The number of offers for the product.",
     )
     

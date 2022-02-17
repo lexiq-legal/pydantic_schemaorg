@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from decimal import Decimal
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -19,40 +19,40 @@ class ExercisePlan(PhysicalActivity, CreativeWork):
     """
     type_: str = Field("ExercisePlan", alias='@type')
     repetitions: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="Number of times one should repeat the activity.",
     )
     restPeriods: Optional[Union[List[Union[str, 'Text', 'QuantitativeValue']], str, 'Text', 'QuantitativeValue']] = Field(
-        None,
+        default=None,
         description="How often one should break from the activity.",
     )
     intensity: Optional[Union[List[Union[str, 'Text', 'QuantitativeValue']], str, 'Text', 'QuantitativeValue']] = Field(
-        None,
+        default=None,
         description="Quantitative measure gauging the degree of force involved in the exercise, for example,"
      "heartbeats per minute. May include the velocity of the movement.",
     )
-    workload: Optional[Union[List[Union['Energy', 'QuantitativeValue', str]], 'Energy', 'QuantitativeValue', str]] = Field(
-        None,
+    workload: Optional[Union[List[Union['QuantitativeValue', 'Energy', str]], 'QuantitativeValue', 'Energy', str]] = Field(
+        default=None,
         description="Quantitative measure of the physiologic output of the exercise; also referred to as"
      "energy expenditure.",
     )
     additionalVariable: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Any additional component of the exercise prescription that may need to be articulated"
      "to the patient. This may include the order of exercises, the number of repetitions of"
      "movement, quantitative distance, progressions over time, etc.",
     )
     exerciseType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Type(s) of exercise or activity, such as strength training, flexibility training,"
      "aerobics, cardiac rehabilitation, etc.",
     )
-    activityDuration: Optional[Union[List[Union['Duration', 'QuantitativeValue', str]], 'Duration', 'QuantitativeValue', str]] = Field(
-        None,
+    activityDuration: Optional[Union[List[Union['QuantitativeValue', 'Duration', str]], 'QuantitativeValue', 'Duration', str]] = Field(
+        default=None,
         description="Length of time to engage in the activity.",
     )
     activityFrequency: Optional[Union[List[Union[str, 'Text', 'QuantitativeValue']], str, 'Text', 'QuantitativeValue']] = Field(
-        None,
+        default=None,
         description="How often one should engage in the activity.",
     )
     

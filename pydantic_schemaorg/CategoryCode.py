@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -17,11 +17,11 @@ class CategoryCode(DefinedTerm):
     """
     type_: str = Field("CategoryCode", alias='@type')
     codeValue: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A short textual code that uniquely identifies the value.",
     )
     inCodeSet: Optional[Union[List[Union[AnyUrl, 'URL', 'CategoryCodeSet', str]], AnyUrl, 'URL', 'CategoryCodeSet', str]] = Field(
-        None,
+        default=None,
         description="A [[CategoryCodeSet]] that contains this category code.",
     )
     

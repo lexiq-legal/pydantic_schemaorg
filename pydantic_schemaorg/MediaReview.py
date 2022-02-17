@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic import AnyUrl
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -25,17 +25,17 @@ class MediaReview(Review):
     """
     type_: str = Field("MediaReview", alias='@type')
     originalMediaLink: Optional[Union[List[Union[AnyUrl, 'URL', 'MediaObject', 'WebPage', str]], AnyUrl, 'URL', 'MediaObject', 'WebPage', str]] = Field(
-        None,
+        default=None,
         description="Link to the page containing an original version of the content, or directly to an online"
      "copy of the original [[MediaObject]] content, e.g. video file.",
     )
     mediaAuthenticityCategory: Optional[Union[List[Union['MediaManipulationRatingEnumeration', str]], 'MediaManipulationRatingEnumeration', str]] = Field(
-        None,
+        default=None,
         description="Indicates a MediaManipulationRatingEnumeration classification of a media object"
      "(in the context of how it was published or shared).",
     )
     originalMediaContextDescription: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Describes, in a [[MediaReview]] when dealing with [[DecontextualizedContent]],"
      "background information that can contribute to better interpretation of the [[MediaObject]].",
     )

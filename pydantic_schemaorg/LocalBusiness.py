@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -19,11 +19,11 @@ class LocalBusiness(Organization, Place):
     """
     type_: str = Field("LocalBusiness", alias='@type')
     priceRange: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The price range of the business, for example ```$$$```.",
     )
     openingHours: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The general opening hours for a business. Opening hours can be specified as a weekly time"
      "range, starting with days, then times per day. Multiple days can be listed with commas"
      "',' separating each day. Day or time ranges are specified using a hyphen '-'. * Days are"
@@ -36,19 +36,19 @@ class LocalBusiness(Organization, Place):
      "through Sunday, all day&lt;/time&gt;</code>.",
     )
     branchOf: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
-        None,
+        default=None,
         description="The larger organization that this local business is a branch of, if any. Not to be confused"
      "with (anatomical)[[branch]].",
     )
     currenciesAccepted: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The currency accepted. Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217)"
      "e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies)"
      "for cryptocurrencies e.g. \"BTC\"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system)"
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
     paymentAccepted: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Cash, Credit Card, Cryptocurrency, Local Exchange Tradings System, etc.",
     )
     

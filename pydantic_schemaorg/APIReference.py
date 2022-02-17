@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,23 +16,23 @@ class APIReference(TechArticle):
     """
     type_: str = Field("APIReference", alias='@type')
     assemblyVersion: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Associated product/technology version. e.g., .NET Framework 4.5.",
     )
     programmingModel: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Indicates whether API is managed or unmanaged.",
     )
     assembly: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Library file name e.g., mscorlib.dll, system.web.dll.",
     )
     executableLibraryName: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Library file name e.g., mscorlib.dll, system.web.dll.",
     )
     targetPlatform: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Type of app development: phone, Metro style, desktop, XBox, etc.",
     )
     

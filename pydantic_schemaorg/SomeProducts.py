@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class SomeProducts(Product):
     """
     type_: str = Field("SomeProducts", alias='@type')
     inventoryLevel: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The current approximate inventory level for the item or items.",
     )
     

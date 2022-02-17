@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from datetime import time
 
 
@@ -18,12 +18,12 @@ class ShippingDeliveryTime(StructuredValue):
     """
     type_: str = Field("ShippingDeliveryTime", alias='@type')
     transitTime: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The typical delay the order has been sent for delivery and the goods reach the final customer."
      "Typical properties: minValue, maxValue, unitCode (d for DAY).",
     )
     cutoffTime: Optional[Union[List[Union[time, 'Time', str]], time, 'Time', str]] = Field(
-        None,
+        default=None,
         description="Order cutoff time allows merchants to describe the time after which they will no longer"
      "process orders received on that day. For orders processed after cutoff time, one day"
      "gets added to the delivery time estimate. This property is expected to be most typically"
@@ -32,7 +32,7 @@ class ShippingDeliveryTime(StructuredValue):
      "Standard Time (EST) which is 5 hours behind Coordinated Universal Time (UTC).",
     )
     handlingTime: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The typical delay between the receipt of the order and the goods either leaving the warehouse"
      "or being prepared for pickup, in case the delivery method is on site pickup. Typical properties:"
      "minValue, maxValue, unitCode (d for DAY). This is by common convention assumed to mean"
@@ -40,7 +40,7 @@ class ShippingDeliveryTime(StructuredValue):
      "business normally operates.",
     )
     businessDays: Optional[Union[List[Union['OpeningHoursSpecification', str]], 'OpeningHoursSpecification', str]] = Field(
-        None,
+        default=None,
         description="Days of the week when the merchant typically operates, indicated via opening hours markup.",
     )
     

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -22,27 +22,27 @@ class DrugCost(MedicalEntity):
     """
     type_: str = Field("DrugCost", alias='@type')
     costCategory: Optional[Union[List[Union['DrugCostCategory', str]], 'DrugCostCategory', str]] = Field(
-        None,
+        default=None,
         description="The category of cost, such as wholesale, retail, reimbursement cap, etc.",
     )
     drugUnit: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The unit in which the drug is measured, e.g. '5 mg tablet'.",
     )
     applicableLocation: Optional[Union[List[Union['AdministrativeArea', str]], 'AdministrativeArea', str]] = Field(
-        None,
+        default=None,
         description="The location in which the status applies.",
     )
     costCurrency: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The currency (in 3-letter of the drug cost. See: http://en.wikipedia.org/wiki/ISO_4217.",
     )
     costPerUnit: Optional[Union[List[Union[Decimal, 'Number', str, 'Text', 'QualitativeValue']], Decimal, 'Number', str, 'Text', 'QualitativeValue']] = Field(
-        None,
+        default=None,
         description="The cost per unit of the drug.",
     )
     costOrigin: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Additional details to capture the origin of the cost data. For example, 'Medicare Part"
      "B'.",
     )

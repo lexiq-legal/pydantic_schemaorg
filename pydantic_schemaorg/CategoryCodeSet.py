@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class CategoryCodeSet(DefinedTermSet):
     """
     type_: str = Field("CategoryCodeSet", alias='@type')
     hasCategoryCode: Optional[Union[List[Union['CategoryCode', str]], 'CategoryCode', str]] = Field(
-        None,
+        default=None,
         description="A Category code contained in this code set.",
     )
     

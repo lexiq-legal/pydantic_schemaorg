@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,11 +16,11 @@ class DigitalDocumentPermission(Intangible):
     """
     type_: str = Field("DigitalDocumentPermission", alias='@type')
     permissionType: Optional[Union[List[Union['DigitalDocumentPermissionType', str]], 'DigitalDocumentPermissionType', str]] = Field(
-        None,
+        default=None,
         description="The type of permission granted the person, organization, or audience.",
     )
-    grantee: Optional[Union[List[Union['Person', 'Audience', 'Organization', 'ContactPoint', str]], 'Person', 'Audience', 'Organization', 'ContactPoint', str]] = Field(
-        None,
+    grantee: Optional[Union[List[Union['Person', 'Organization', 'Audience', 'ContactPoint', str]], 'Person', 'Organization', 'Audience', 'ContactPoint', str]] = Field(
+        default=None,
         description="The person, organization, contact point, or audience that has been granted this permission.",
     )
     
@@ -29,6 +29,6 @@ class DigitalDocumentPermission(Intangible):
 if TYPE_CHECKING:
     from pydantic_schemaorg.DigitalDocumentPermissionType import DigitalDocumentPermissionType
     from pydantic_schemaorg.Person import Person
-    from pydantic_schemaorg.Audience import Audience
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Audience import Audience
     from pydantic_schemaorg.ContactPoint import ContactPoint

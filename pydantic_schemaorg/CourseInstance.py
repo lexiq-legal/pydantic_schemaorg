@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -19,17 +19,17 @@ class CourseInstance(Event):
     """
     type_: str = Field("CourseInstance", alias='@type')
     courseWorkload: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The amount of work expected of students taking the course, often provided as a figure"
      "per week or per month, and may be broken down by type. For example, \"2 hours of lectures,"
      "1 hour of lab work and 3 hours of independent study per week\".",
     )
     instructor: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A person assigned to instruct or provide instructional assistance for the [[CourseInstance]].",
     )
     courseMode: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
-        None,
+        default=None,
         description="The medium or means of delivery of the course instance or the mode of study, either as a"
      "text label (e.g. \"online\", \"onsite\" or \"blended\"; \"synchronous\" or \"asynchronous\";"
      "\"full-time\" or \"part-time\") or as a URL reference to a term from a controlled vocabulary"

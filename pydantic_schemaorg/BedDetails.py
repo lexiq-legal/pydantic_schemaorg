@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from decimal import Decimal
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -19,11 +19,11 @@ class BedDetails(Intangible):
     """
     type_: str = Field("BedDetails", alias='@type')
     numberOfBeds: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
-        None,
+        default=None,
         description="The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment.",
     )
     typeOfBed: Optional[Union[List[Union[str, 'Text', 'BedType']], str, 'Text', 'BedType']] = Field(
-        None,
+        default=None,
         description="The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity"
      "indicated by quantity.",
     )

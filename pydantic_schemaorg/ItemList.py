@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class ItemList(Intangible):
     """
     type_: str = Field("ItemList", alias='@type')
     itemListElement: Optional[Union[List[Union[str, 'Text', 'Thing', 'ListItem']], str, 'Text', 'Thing', 'ListItem']] = Field(
-        None,
+        default=None,
         description="For itemListElement values, you can use simple strings (e.g. \"Peter\", \"Paul\","
      "\"Mary\"), existing entities, or use ListItem. Text values are best if the elements"
      "in the list are plain strings. Existing entities are best for a simple, unordered list"
@@ -28,13 +28,13 @@ class ItemList(Intangible):
      "cases.",
     )
     numberOfItems: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="The number of items in an ItemList. Note that some descriptions might not fully describe"
      "all items in a list (e.g., multi-page pagination); in such cases, the numberOfItems"
      "would be for the entire list.",
     )
     itemListOrder: Optional[Union[List[Union[str, 'Text', 'ItemListOrderType']], str, 'Text', 'ItemListOrderType']] = Field(
-        None,
+        default=None,
         description="Type of ordering (e.g. Ascending, Descending, Unordered).",
     )
     

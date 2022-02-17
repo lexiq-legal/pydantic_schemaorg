@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic import AnyUrl
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class FinancialService(LocalBusiness):
     """
     type_: str = Field("FinancialService", alias='@type')
     feesAndCommissionsSpecification: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
-        None,
+        default=None,
         description="Description of fees, commissions, and other terms applied either to a class of financial"
      "product, or by a financial service organization.",
     )

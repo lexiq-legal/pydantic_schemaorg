@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -17,52 +17,52 @@ class Clip(CreativeWork):
     """
     type_: str = Field("Clip", alias='@type')
     partOfSeason: Optional[Union[List[Union['CreativeWorkSeason', str]], 'CreativeWorkSeason', str]] = Field(
-        None,
+        default=None,
         description="The season to which this episode belongs.",
     )
     actors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
      "items or with a series, episode, clip.",
     )
     director: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors"
      "can be associated with individual items or with a series, episode, clip.",
     )
     startOffset: Optional[Union[List[Union[Decimal, 'Number', 'HyperTocEntry', str]], Decimal, 'Number', 'HyperTocEntry', str]] = Field(
-        None,
+        default=None,
         description="The start time of the clip expressed as the number of seconds from the beginning of the"
      "work.",
     )
     clipNumber: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
-        None,
+        default=None,
         description="Position of the clip within an ordered group of clips.",
     )
     partOfSeries: Optional[Union[List[Union['CreativeWorkSeries', str]], 'CreativeWorkSeries', str]] = Field(
-        None,
+        default=None,
         description="The series to which this episode or season belongs.",
     )
     actor: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated"
      "with individual items or with a series, episode, clip.",
     )
     partOfEpisode: Optional[Union[List[Union['Episode', str]], 'Episode', str]] = Field(
-        None,
+        default=None,
         description="The episode to which this clip belongs.",
     )
     endOffset: Optional[Union[List[Union[Decimal, 'Number', 'HyperTocEntry', str]], Decimal, 'Number', 'HyperTocEntry', str]] = Field(
-        None,
+        default=None,
         description="The end time of the clip expressed as the number of seconds from the beginning of the work.",
     )
     directors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    musicBy: Optional[Union[List[Union['MusicGroup', 'Person', str]], 'MusicGroup', 'Person', str]] = Field(
-        None,
+    musicBy: Optional[Union[List[Union['Person', 'MusicGroup', str]], 'Person', 'MusicGroup', str]] = Field(
+        default=None,
         description="The composer of the soundtrack.",
     )
     

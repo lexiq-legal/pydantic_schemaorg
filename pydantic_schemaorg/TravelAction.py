@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class TravelAction(MoveAction):
     """
     type_: str = Field("TravelAction", alias='@type')
     distance: Optional[Union[List[Union['Distance', str]], 'Distance', str]] = Field(
-        None,
+        default=None,
         description="The distance travelled, e.g. exercising or travelling.",
     )
     

@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic import AnyUrl
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class WebAPI(Service):
     """
     type_: str = Field("WebAPI", alias='@type')
     documentation: Optional[Union[List[Union[AnyUrl, 'URL', 'CreativeWork', str]], AnyUrl, 'URL', 'CreativeWork', str]] = Field(
-        None,
+        default=None,
         description="Further documentation describing the Web API in more detail.",
     )
     

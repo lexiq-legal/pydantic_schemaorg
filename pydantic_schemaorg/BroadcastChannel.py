@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -17,30 +17,30 @@ class BroadcastChannel(Intangible):
     """
     type_: str = Field("BroadcastChannel", alias='@type')
     broadcastChannelId: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The unique address by which the BroadcastService can be identified in a provider lineup."
      "In US, this is typically a number.",
     )
     broadcastFrequency: Optional[Union[List[Union[str, 'Text', 'BroadcastFrequencySpecification']], str, 'Text', 'BroadcastFrequencySpecification']] = Field(
-        None,
+        default=None,
         description="The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g."
      "87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels,"
      "e.g. \"87 FM\".",
     )
     genre: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
-        None,
+        default=None,
         description="Genre of the creative work, broadcast channel or group.",
     )
     providesBroadcastService: Optional[Union[List[Union['BroadcastService', str]], 'BroadcastService', str]] = Field(
-        None,
+        default=None,
         description="The BroadcastService offered on this channel.",
     )
     broadcastServiceTier: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The type of service required to have access to the channel (e.g. Standard or Premium).",
     )
     inBroadcastLineup: Optional[Union[List[Union['CableOrSatelliteService', str]], 'CableOrSatelliteService', str]] = Field(
-        None,
+        default=None,
         description="The CableOrSatelliteService offering the channel.",
     )
     

@@ -1,8 +1,8 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from pydantic import StrictBool, AnyUrl
-from typing import Union, Optional, List
+from pydantic import AnyUrl, StrictBool
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -22,7 +22,7 @@ class PropertyValue(StructuredValue):
     """
     type_: str = Field("PropertyValue", alias='@type')
     measurementTechnique: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
-        None,
+        default=None,
         description="A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),"
      "corresponding to the method used for measuring the corresponding variable(s) (described"
      "using [[variableMeasured]]). This is oriented towards scientific and scholarly dataset"
@@ -36,16 +36,16 @@ class PropertyValue(StructuredValue):
      "a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].",
     )
     minValue: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
-        None,
+        default=None,
         description="The lower value of some characteristic or property.",
     )
     unitText: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A string or text indicating the unit of measurement. Useful if you cannot provide a standard"
      "unit code for <a href='unitCode'>unitCode</a>.",
     )
     value: Optional[Union[List[Union[Decimal, 'Number', StrictBool, 'Boolean', str, 'Text', 'StructuredValue']], Decimal, 'Number', StrictBool, 'Boolean', str, 'Text', 'StructuredValue']] = Field(
-        None,
+        default=None,
         description="The value of the quantitative value or property value node. * For [[QuantitativeValue]]"
      "and [[MonetaryAmount]], the recommended type for values is 'Number'. * For [[PropertyValue]],"
      "it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'. * Use values from 0123456789"
@@ -54,7 +54,7 @@ class PropertyValue(StructuredValue):
      "indicate a decimal point. Avoid using these symbols as a readability separator.",
     )
     propertyID: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
-        None,
+        default=None,
         description="A commonly used identifier for the characteristic represented by the property, e.g."
      "a manufacturer or a standard code for a property. propertyID can be (1) a prefixed string,"
      "mainly meant to be used with standards for product properties; (2) a site-specific,"
@@ -65,16 +65,16 @@ class PropertyValue(StructuredValue):
      "from their standards.",
     )
     unitCode: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
-        None,
+        default=None,
         description="The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL."
      "Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.",
     )
     maxValue: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
-        None,
+        default=None,
         description="The upper value of some characteristic or property.",
     )
-    valueReference: Optional[Union[List[Union[str, 'Text', 'PropertyValue', 'StructuredValue', 'MeasurementTypeEnumeration', 'QualitativeValue', 'Enumeration', 'QuantitativeValue', 'DefinedTerm']], str, 'Text', 'PropertyValue', 'StructuredValue', 'MeasurementTypeEnumeration', 'QualitativeValue', 'Enumeration', 'QuantitativeValue', 'DefinedTerm']] = Field(
-        None,
+    valueReference: Optional[Union[List[Union[str, 'Text', 'PropertyValue', 'StructuredValue', 'Enumeration', 'QualitativeValue', 'DefinedTerm', 'MeasurementTypeEnumeration', 'QuantitativeValue']], str, 'Text', 'PropertyValue', 'StructuredValue', 'Enumeration', 'QualitativeValue', 'DefinedTerm', 'MeasurementTypeEnumeration', 'QuantitativeValue']] = Field(
+        default=None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",
     )
@@ -87,8 +87,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.StructuredValue import StructuredValue
-    from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
-    from pydantic_schemaorg.QualitativeValue import QualitativeValue
     from pydantic_schemaorg.Enumeration import Enumeration
-    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
+    from pydantic_schemaorg.QualitativeValue import QualitativeValue
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
+    from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
+    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue

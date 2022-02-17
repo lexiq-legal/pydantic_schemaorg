@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -19,7 +19,7 @@ class Quotation(CreativeWork):
     """
     type_: str = Field("Quotation", alias='@type')
     spokenByCharacter: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
-        None,
+        default=None,
         description="The (e.g. fictional) character, Person or Organization to whom the quotation is attributed"
      "within the containing CreativeWork.",
     )

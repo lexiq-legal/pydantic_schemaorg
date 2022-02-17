@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -21,7 +21,7 @@ class HealthTopicContent(WebContent):
     """
     type_: str = Field("HealthTopicContent", alias='@type')
     hasHealthAspect: Optional[Union[List[Union['HealthAspectEnumeration', str]], 'HealthAspectEnumeration', str]] = Field(
-        None,
+        default=None,
         description="Indicates the aspect or aspects specifically addressed in some [[HealthTopicContent]]."
      "For example, that the content is an overview, or that it talks about treatment, self-care,"
      "treatments or their side-effects.",

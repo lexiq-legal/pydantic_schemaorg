@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,11 +17,11 @@ class TechArticle(Article):
     """
     type_: str = Field("TechArticle", alias='@type')
     proficiencyLevel: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Proficiency needed for this content; expected values: 'Beginner', 'Expert'.",
     )
     dependencies: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Prerequisites needed to fulfill steps in article.",
     )
     

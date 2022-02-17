@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class Collection(CreativeWork):
     """
     type_: str = Field("Collection", alias='@type')
     collectionSize: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="The number of items in the [[Collection]].",
     )
     

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,12 +18,12 @@ class SendAction(TransferAction):
     Model depth: 4
     """
     type_: str = Field("SendAction", alias='@type')
-    recipient: Optional[Union[List[Union['Person', 'Audience', 'Organization', 'ContactPoint', str]], 'Person', 'Audience', 'Organization', 'ContactPoint', str]] = Field(
-        None,
+    recipient: Optional[Union[List[Union['Person', 'Organization', 'Audience', 'ContactPoint', str]], 'Person', 'Organization', 'Audience', 'ContactPoint', str]] = Field(
+        default=None,
         description="A sub property of participant. The participant who is at the receiving end of the action.",
     )
     deliveryMethod: Optional[Union[List[Union['DeliveryMethod', str]], 'DeliveryMethod', str]] = Field(
-        None,
+        default=None,
         description="A sub property of instrument. The method of delivery.",
     )
     
@@ -31,7 +31,7 @@ class SendAction(TransferAction):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Person import Person
-    from pydantic_schemaorg.Audience import Audience
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Audience import Audience
     from pydantic_schemaorg.ContactPoint import ContactPoint
     from pydantic_schemaorg.DeliveryMethod import DeliveryMethod

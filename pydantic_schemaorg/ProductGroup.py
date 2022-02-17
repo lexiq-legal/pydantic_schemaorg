@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -24,17 +24,17 @@ class ProductGroup(Product):
     """
     type_: str = Field("ProductGroup", alias='@type')
     variesBy: Optional[Union[List[Union[str, 'Text', 'DefinedTerm']], str, 'Text', 'DefinedTerm']] = Field(
-        None,
+        default=None,
         description="Indicates the property or properties by which the variants in a [[ProductGroup]] vary,"
      "e.g. their size, color etc. Schema.org properties can be referenced by their short name"
      "e.g. \"color\"; terms defined elsewhere can be referenced with their URIs.",
     )
     productGroupID: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Indicates a textual identifier for a ProductGroup.",
     )
     hasVariant: Optional[Union[List[Union['Product', str]], 'Product', str]] = Field(
-        None,
+        default=None,
         description="Indicates a [[Product]] that is a member of this [[ProductGroup]] (or [[ProductModel]]).",
     )
     

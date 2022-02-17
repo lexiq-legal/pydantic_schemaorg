@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -21,11 +21,11 @@ class PlayAction(Action):
     """
     type_: str = Field("PlayAction", alias='@type')
     audience: Optional[Union[List[Union['Audience', str]], 'Audience', str]] = Field(
-        None,
+        default=None,
         description="An intended audience, i.e. a group for whom something was created.",
     )
     event: Optional[Union[List[Union['Event', str]], 'Event', str]] = Field(
-        None,
+        default=None,
         description="Upcoming or past event associated with this place, organization, or action.",
     )
     

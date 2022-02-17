@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -22,31 +22,31 @@ class Course(LearningResource, CreativeWork):
     """
     type_: str = Field("Course", alias='@type')
     numberOfCredits: Optional[Union[List[Union[int, 'Integer', 'StructuredValue', str]], int, 'Integer', 'StructuredValue', str]] = Field(
-        None,
+        default=None,
         description="The number of credits or units awarded by a Course or required to complete an EducationalOccupationalProgram.",
     )
     educationalCredentialAwarded: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'EducationalOccupationalCredential']], AnyUrl, 'URL', str, 'Text', 'EducationalOccupationalCredential']] = Field(
-        None,
+        default=None,
         description="A description of the qualification, award, certificate, diploma or other educational"
      "credential awarded as a consequence of successful completion of this course or program.",
     )
     courseCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The identifier for the [[Course]] used by the course [[provider]] (e.g. CS101 or 6.001).",
     )
     hasCourseInstance: Optional[Union[List[Union['CourseInstance', str]], 'CourseInstance', str]] = Field(
-        None,
+        default=None,
         description="An offering of the course at a specific time and place or through specific media or mode"
      "of study or to a specific section of students.",
     )
-    coursePrerequisites: Optional[Union[List[Union[str, 'Text', 'Course', 'AlignmentObject']], str, 'Text', 'Course', 'AlignmentObject']] = Field(
-        None,
+    coursePrerequisites: Optional[Union[List[Union[str, 'Text', 'AlignmentObject', 'Course']], str, 'Text', 'AlignmentObject', 'Course']] = Field(
+        default=None,
         description="Requirements for taking the Course. May be completion of another [[Course]] or a textual"
      "description like \"permission of instructor\". Requirements may be a pre-requisite"
      "competency, referenced using [[AlignmentObject]].",
     )
     occupationalCredentialAwarded: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'EducationalOccupationalCredential']], AnyUrl, 'URL', str, 'Text', 'EducationalOccupationalCredential']] = Field(
-        None,
+        default=None,
         description="A description of the qualification, award, certificate, diploma or other occupational"
      "credential awarded as a consequence of successful completion of this course or program.",
     )

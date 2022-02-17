@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,45 +16,45 @@ class HowTo(CreativeWork):
     """
     type_: str = Field("HowTo", alias='@type')
     yield_: Optional[Union[List[Union[str, 'Text', 'QuantitativeValue']], str, 'Text', 'QuantitativeValue']] = Field(
-        None,alias="yield",
+        default=None,alias="yield",
         description="The quantity that results by performing instructions. For example, a paper airplane,"
      "10 personalized candles.",
     )
     estimatedCost: Optional[Union[List[Union[str, 'Text', 'MonetaryAmount']], str, 'Text', 'MonetaryAmount']] = Field(
-        None,
+        default=None,
         description="The estimated cost of the supply or supplies consumed when performing instructions.",
     )
     prepTime: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
-        None,
+        default=None,
         description="The length of time it takes to prepare the items to be used in instructions or a direction,"
      "in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
     )
     step: Optional[Union[List[Union[str, 'Text', 'HowToSection', 'HowToStep', 'CreativeWork']], str, 'Text', 'HowToSection', 'HowToStep', 'CreativeWork']] = Field(
-        None,
+        default=None,
         description="A single step item (as HowToStep, text, document, video, etc.) or a HowToSection.",
     )
     totalTime: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
-        None,
+        default=None,
         description="The total time required to perform instructions or a direction (including time to prepare"
      "the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
     )
     performTime: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
-        None,
+        default=None,
         description="The length of time it takes to perform instructions or a direction (not including time"
      "to prepare the supplies), in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
     )
     tool: Optional[Union[List[Union[str, 'Text', 'HowToTool']], str, 'Text', 'HowToTool']] = Field(
-        None,
+        default=None,
         description="A sub property of instrument. An object used (but not consumed) when performing instructions"
      "or a direction.",
     )
-    steps: Optional[Union[List[Union[str, 'Text', 'CreativeWork', 'ItemList']], str, 'Text', 'CreativeWork', 'ItemList']] = Field(
-        None,
+    steps: Optional[Union[List[Union[str, 'Text', 'ItemList', 'CreativeWork']], str, 'Text', 'ItemList', 'CreativeWork']] = Field(
+        default=None,
         description="A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally"
      "misnamed 'steps'; 'step' is preferred).",
     )
     supply: Optional[Union[List[Union[str, 'Text', 'HowToSupply']], str, 'Text', 'HowToSupply']] = Field(
-        None,
+        default=None,
         description="A sub-property of instrument. A supply consumed when performing instructions or a direction.",
     )
     

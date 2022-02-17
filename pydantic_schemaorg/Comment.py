@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,15 +17,15 @@ class Comment(CreativeWork):
     """
     type_: str = Field("Comment", alias='@type')
     downvoteCount: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="The number of downvotes this question, answer or comment has received from the community.",
     )
     upvoteCount: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="The number of upvotes this question, answer or comment has received from the community.",
     )
     parentItem: Optional[Union[List[Union['Comment', str]], 'Comment', str]] = Field(
-        None,
+        default=None,
         description="The parent of a question, answer or item in general.",
     )
     

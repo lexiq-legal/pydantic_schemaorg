@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class ReviewAction(AssessAction):
     """
     type_: str = Field("ReviewAction", alias='@type')
     resultReview: Optional[Union[List[Union['Review', str]], 'Review', str]] = Field(
-        None,
+        default=None,
         description="A sub property of result. The review that resulted in the performing of the action.",
     )
     

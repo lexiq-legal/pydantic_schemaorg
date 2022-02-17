@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,11 +16,11 @@ class Artery(Vessel):
     """
     type_: str = Field("Artery", alias='@type')
     supplyTo: Optional[Union[List[Union['AnatomicalStructure', str]], 'AnatomicalStructure', str]] = Field(
-        None,
+        default=None,
         description="The area to which the artery supplies blood.",
     )
     arterialBranch: Optional[Union[List[Union['AnatomicalStructure', str]], 'AnatomicalStructure', str]] = Field(
-        None,
+        default=None,
         description="The branches that comprise the arterial structure.",
     )
     

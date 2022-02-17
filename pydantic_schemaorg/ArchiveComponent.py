@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,12 +16,12 @@ class ArchiveComponent(CreativeWork):
     Model depth: 3
     """
     type_: str = Field("ArchiveComponent", alias='@type')
-    itemLocation: Optional[Union[List[Union[str, 'Text', 'PostalAddress', 'Place']], str, 'Text', 'PostalAddress', 'Place']] = Field(
-        None,
+    itemLocation: Optional[Union[List[Union[str, 'Text', 'Place', 'PostalAddress']], str, 'Text', 'Place', 'PostalAddress']] = Field(
+        default=None,
         description="Current location of the item.",
     )
     holdingArchive: Optional[Union[List[Union['ArchiveOrganization', str]], 'ArchiveOrganization', str]] = Field(
-        None,
+        default=None,
         description="[[ArchiveOrganization]] that holds, keeps or maintains the [[ArchiveComponent]].",
     )
     
@@ -29,6 +29,6 @@ class ArchiveComponent(CreativeWork):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.PostalAddress import PostalAddress
     from pydantic_schemaorg.Place import Place
+    from pydantic_schemaorg.PostalAddress import PostalAddress
     from pydantic_schemaorg.ArchiveOrganization import ArchiveOrganization

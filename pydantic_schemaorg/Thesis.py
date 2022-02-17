@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class Thesis(CreativeWork):
     """
     type_: str = Field("Thesis", alias='@type')
     inSupportOf: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Qualification, candidature, degree, application that Thesis supports.",
     )
     

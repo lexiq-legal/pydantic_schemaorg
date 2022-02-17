@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic import AnyUrl
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,36 +18,36 @@ class SoftwareSourceCode(CreativeWork):
     """
     type_: str = Field("SoftwareSourceCode", alias='@type')
     codeRepository: Optional[Union[List[Union[AnyUrl, 'URL', str]], AnyUrl, 'URL', str]] = Field(
-        None,
+        default=None,
         description="Link to the repository where the un-compiled, human readable code and related code is"
      "located (SVN, github, CodePlex).",
     )
     runtimePlatform: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3,"
      ".Net Framework 3.0).",
     )
     programmingLanguage: Optional[Union[List[Union[str, 'Text', 'ComputerLanguage']], str, 'Text', 'ComputerLanguage']] = Field(
-        None,
+        default=None,
         description="The computer programming language.",
     )
     runtime: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3,"
      ".Net Framework 3.0).",
     )
     codeSampleType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="What type of code sample: full (compile ready) solution, code snippet, inline code,"
      "scripts, template.",
     )
     sampleType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="What type of code sample: full (compile ready) solution, code snippet, inline code,"
      "scripts, template.",
     )
     targetProduct: Optional[Union[List[Union['SoftwareApplication', str]], 'SoftwareApplication', str]] = Field(
-        None,
+        default=None,
         description="Target Operating System / Product to which the code applies. If applies to several versions,"
      "just the product name can be used.",
     )

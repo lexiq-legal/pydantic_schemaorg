@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,11 +17,11 @@ class MedicalRiskEstimator(MedicalEntity):
     """
     type_: str = Field("MedicalRiskEstimator", alias='@type')
     estimatesRiskOf: Optional[Union[List[Union['MedicalEntity', str]], 'MedicalEntity', str]] = Field(
-        None,
+        default=None,
         description="The condition, complication, or symptom whose risk is being estimated.",
     )
     includedRiskFactor: Optional[Union[List[Union['MedicalRiskFactor', str]], 'MedicalRiskFactor', str]] = Field(
-        None,
+        default=None,
         description="A modifiable or non-modifiable risk factor included in the calculation, e.g. age, coexisting"
      "condition.",
     )

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class PerformanceRole(Role):
     """
     type_: str = Field("PerformanceRole", alias='@type')
     characterName: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The name of a character played in some acting or performing role, i.e. in a PerformanceRole.",
     )
     

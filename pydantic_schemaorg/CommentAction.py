@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class CommentAction(CommunicateAction):
     """
     type_: str = Field("CommentAction", alias='@type')
     resultComment: Optional[Union[List[Union['Comment', str]], 'Comment', str]] = Field(
-        None,
+        default=None,
         description="A sub property of result. The Comment created or sent as a result of this action.",
     )
     

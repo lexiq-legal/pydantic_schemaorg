@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,11 +17,11 @@ class Audiobook(AudioObject, Book):
     """
     type_: str = Field("Audiobook", alias='@type')
     duration: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
-        None,
+        default=None,
         description="The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).",
     )
     readBy: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A person who reads (performs) the audiobook.",
     )
     

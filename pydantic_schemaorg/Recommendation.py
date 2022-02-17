@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic import AnyUrl
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -21,7 +21,7 @@ class Recommendation(Review):
     """
     type_: str = Field("Recommendation", alias='@type')
     category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']], AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']] = Field(
-        None,
+        default=None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
     )

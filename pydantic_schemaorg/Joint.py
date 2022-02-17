@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,15 +16,15 @@ class Joint(AnatomicalStructure):
     """
     type_: str = Field("Joint", alias='@type')
     functionalClass: Optional[Union[List[Union[str, 'Text', 'MedicalEntity']], str, 'Text', 'MedicalEntity']] = Field(
-        None,
+        default=None,
         description="The degree of mobility the joint allows.",
     )
     structuralClass: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The name given to how bone physically connects to each other.",
     )
     biomechnicalClass: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The biomechanical properties of the bone.",
     )
     

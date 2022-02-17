@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,15 +16,15 @@ class GameServer(Intangible):
     """
     type_: str = Field("GameServer", alias='@type')
     serverStatus: Optional[Union[List[Union['GameServerStatus', str]], 'GameServerStatus', str]] = Field(
-        None,
+        default=None,
         description="Status of a game server.",
     )
     playersOnline: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="Number of players on the server.",
     )
     game: Optional[Union[List[Union['VideoGame', str]], 'VideoGame', str]] = Field(
-        None,
+        default=None,
         description="Video game which is played on this server.",
     )
     

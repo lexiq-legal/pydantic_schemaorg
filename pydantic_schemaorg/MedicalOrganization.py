@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import StrictBool
 
 
@@ -17,15 +17,15 @@ class MedicalOrganization(Organization):
     """
     type_: str = Field("MedicalOrganization", alias='@type')
     medicalSpecialty: Optional[Union[List[Union['MedicalSpecialty', str]], 'MedicalSpecialty', str]] = Field(
-        None,
+        default=None,
         description="A medical specialty of the provider.",
     )
     isAcceptingNewPatients: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
-        None,
+        default=None,
         description="Whether the provider is accepting new patients.",
     )
     healthPlanNetworkId: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Name or unique ID of network. (Networks are often reused across different insurance"
      "plans).",
     )

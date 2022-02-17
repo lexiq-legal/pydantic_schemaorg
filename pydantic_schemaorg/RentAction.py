@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,11 +18,11 @@ class RentAction(TradeAction):
     """
     type_: str = Field("RentAction", alias='@type')
     landlord: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
-        None,
+        default=None,
         description="A sub property of participant. The owner of the real estate property.",
     )
     realEstateAgent: Optional[Union[List[Union['RealEstateAgent', str]], 'RealEstateAgent', str]] = Field(
-        None,
+        default=None,
         description="A sub property of participant. The real estate agent involved in the action.",
     )
     

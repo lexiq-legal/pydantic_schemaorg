@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -21,7 +21,7 @@ class Protein(BioChemEntity):
     """
     type_: str = Field("Protein", alias='@type')
     hasBioPolymerSequence: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of"
      "a Gene or an amino acid sequence of a Protein.",
     )

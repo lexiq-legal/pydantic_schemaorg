@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,11 +17,11 @@ class WarrantyPromise(StructuredValue):
     """
     type_: str = Field("WarrantyPromise", alias='@type')
     warrantyScope: Optional[Union[List[Union['WarrantyScope', str]], 'WarrantyScope', str]] = Field(
-        None,
+        default=None,
         description="The scope of the warranty promise.",
     )
     durationOfWarranty: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The duration of the warranty promise. Common unitCode values are ANN for year, MON for"
      "months, or DAY for days.",
     )

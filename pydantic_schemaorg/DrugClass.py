@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class DrugClass(MedicalEntity):
     """
     type_: str = Field("DrugClass", alias='@type')
     drug: Optional[Union[List[Union['Drug', str]], 'Drug', str]] = Field(
-        None,
+        default=None,
         description="Specifying a drug or medicine used in a medication procedure.",
     )
     

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -17,12 +17,12 @@ class EmployeeRole(OrganizationRole):
     """
     type_: str = Field("EmployeeRole", alias='@type')
     salaryCurrency: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) )"
      "used for the main salary information in this job posting or for this employee.",
     )
     baseSalary: Optional[Union[List[Union[Decimal, 'Number', 'PriceSpecification', 'MonetaryAmount', str]], Decimal, 'Number', 'PriceSpecification', 'MonetaryAmount', str]] = Field(
-        None,
+        default=None,
         description="The base salary of the job or of an employee in an EmployeeRole.",
     )
     

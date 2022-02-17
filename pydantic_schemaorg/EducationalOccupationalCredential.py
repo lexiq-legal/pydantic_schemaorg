@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -19,32 +19,32 @@ class EducationalOccupationalCredential(CreativeWork):
     """
     type_: str = Field("EducationalOccupationalCredential", alias='@type')
     validFor: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
-        None,
+        default=None,
         description="The duration of validity of a permit or similar thing.",
     )
     competencyRequired: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'DefinedTerm']], AnyUrl, 'URL', str, 'Text', 'DefinedTerm']] = Field(
-        None,
+        default=None,
         description="Knowledge, skill, ability or personal attribute that must be demonstrated by a person"
      "or other entity in order to do something such as earn an Educational Occupational Credential"
      "or understand a LearningResource.",
     )
     educationalLevel: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'DefinedTerm']], AnyUrl, 'URL', str, 'Text', 'DefinedTerm']] = Field(
-        None,
+        default=None,
         description="The level in terms of progression through an educational or training context. Examples"
      "of educational levels include 'beginner', 'intermediate' or 'advanced', and formal"
      "sets of level indicators.",
     )
     recognizedBy: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
-        None,
+        default=None,
         description="An organization that acknowledges the validity, value or utility of a credential. Note:"
      "recognition may include a process of quality assurance or accreditation.",
     )
     validIn: Optional[Union[List[Union['AdministrativeArea', str]], 'AdministrativeArea', str]] = Field(
-        None,
+        default=None,
         description="The geographic area where a permit or similar thing is valid.",
     )
     credentialCategory: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'DefinedTerm']], AnyUrl, 'URL', str, 'Text', 'DefinedTerm']] = Field(
-        None,
+        default=None,
         description="The category or type of credential being described, for example \"degree”, “certificate”,"
      "“badge”, or more specific term.",
     )

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 
 
@@ -18,19 +18,19 @@ class RentalCarReservation(Reservation):
     """
     type_: str = Field("RentalCarReservation", alias='@type')
     pickupLocation: Optional[Union[List[Union['Place', str]], 'Place', str]] = Field(
-        None,
+        default=None,
         description="Where a taxi will pick up a passenger or a rental car can be picked up.",
     )
     dropoffLocation: Optional[Union[List[Union['Place', str]], 'Place', str]] = Field(
-        None,
+        default=None,
         description="Where a rental car can be dropped off.",
     )
     pickupTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
-        None,
+        default=None,
         description="When a taxi will pickup a passenger or a rental car can be picked up.",
     )
     dropoffTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
-        None,
+        default=None,
         description="When a rental car can be dropped off.",
     )
     

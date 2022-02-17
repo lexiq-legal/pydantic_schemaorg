@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,12 +16,12 @@ class PaymentChargeSpecification(PriceSpecification):
     """
     type_: str = Field("PaymentChargeSpecification", alias='@type')
     appliesToDeliveryMethod: Optional[Union[List[Union['DeliveryMethod', str]], 'DeliveryMethod', str]] = Field(
-        None,
+        default=None,
         description="The delivery method(s) to which the delivery charge or payment charge specification"
      "applies.",
     )
     appliesToPaymentMethod: Optional[Union[List[Union['PaymentMethod', str]], 'PaymentMethod', str]] = Field(
-        None,
+        default=None,
         description="The payment method(s) to which the payment charge specification applies.",
     )
     

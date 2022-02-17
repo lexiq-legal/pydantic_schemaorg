@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,16 +18,16 @@ class LiveBlogPosting(BlogPosting):
     """
     type_: str = Field("LiveBlogPosting", alias='@type')
     coverageEndTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
-        None,
+        default=None,
         description="The time when the live blog will stop covering the Event. Note that coverage may continue"
      "after the Event concludes.",
     )
     liveBlogUpdate: Optional[Union[List[Union['BlogPosting', str]], 'BlogPosting', str]] = Field(
-        None,
+        default=None,
         description="An update to the LiveBlog.",
     )
     coverageStartTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
-        None,
+        default=None,
         description="The time when the live blog will begin covering the Event. Note that coverage may begin"
      "before the Event's start time. The LiveBlogPosting may also be created before coverage"
      "begins.",

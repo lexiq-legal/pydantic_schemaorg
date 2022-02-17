@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -19,21 +19,21 @@ class PhysicalActivity(LifestyleModification):
     """
     type_: str = Field("PhysicalActivity", alias='@type')
     epidemiology: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The characteristics of associated patients, such as age, gender, race etc.",
     )
     category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']], AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']] = Field(
-        None,
+        default=None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
     )
     pathophysiology: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Changes in the normal mechanical, physical, and biochemical functions that are associated"
      "with this activity or condition.",
     )
     associatedAnatomy: Optional[Union[List[Union['SuperficialAnatomy', 'AnatomicalSystem', 'AnatomicalStructure', str]], 'SuperficialAnatomy', 'AnatomicalSystem', 'AnatomicalStructure', str]] = Field(
-        None,
+        default=None,
         description="The anatomy of the underlying organ system or structures associated with this entity.",
     )
     

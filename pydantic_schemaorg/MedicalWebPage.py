@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -15,12 +15,12 @@ class MedicalWebPage(WebPage):
     Model depth: 4
     """
     type_: str = Field("MedicalWebPage", alias='@type')
-    medicalAudience: Optional[Union[List[Union['MedicalAudienceType', 'MedicalAudience', str]], 'MedicalAudienceType', 'MedicalAudience', str]] = Field(
-        None,
+    medicalAudience: Optional[Union[List[Union['MedicalAudience', 'MedicalAudienceType', str]], 'MedicalAudience', 'MedicalAudienceType', str]] = Field(
+        default=None,
         description="Medical audience for page.",
     )
     aspect: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="An aspect of medical practice that is considered on the page, such as 'diagnosis', 'treatment',"
      "'causes', 'prognosis', 'etiology', 'epidemiology', etc.",
     )
@@ -28,6 +28,6 @@ class MedicalWebPage(WebPage):
 
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.MedicalAudienceType import MedicalAudienceType
     from pydantic_schemaorg.MedicalAudience import MedicalAudience
+    from pydantic_schemaorg.MedicalAudienceType import MedicalAudienceType
     from pydantic_schemaorg.Text import Text

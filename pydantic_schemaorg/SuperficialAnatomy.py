@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -30,25 +30,25 @@ class SuperficialAnatomy(MedicalEntity):
     """
     type_: str = Field("SuperficialAnatomy", alias='@type')
     significance: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The significance associated with the superficial anatomy; as an example, how characteristics"
      "of the superficial anatomy can suggest underlying medical conditions or courses of"
      "treatment.",
     )
     relatedAnatomy: Optional[Union[List[Union['AnatomicalSystem', 'AnatomicalStructure', str]], 'AnatomicalSystem', 'AnatomicalStructure', str]] = Field(
-        None,
+        default=None,
         description="Anatomical systems or structures that relate to the superficial anatomy.",
     )
     relatedCondition: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
-        None,
+        default=None,
         description="A medical condition associated with this anatomy.",
     )
     relatedTherapy: Optional[Union[List[Union['MedicalTherapy', str]], 'MedicalTherapy', str]] = Field(
-        None,
+        default=None,
         description="A medical therapy related to this anatomy.",
     )
     associatedPathophysiology: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="If applicable, a description of the pathophysiology associated with the anatomical"
      "system, including potential abnormal changes in the mechanical, physical, and biochemical"
      "functions of the system.",

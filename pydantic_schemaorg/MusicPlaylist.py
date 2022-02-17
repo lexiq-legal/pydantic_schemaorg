@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,15 +16,15 @@ class MusicPlaylist(CreativeWork):
     """
     type_: str = Field("MusicPlaylist", alias='@type')
     numTracks: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="The number of tracks in this album or playlist.",
     )
     tracks: Optional[Union[List[Union['MusicRecording', str]], 'MusicRecording', str]] = Field(
-        None,
+        default=None,
         description="A music recording (track)&#x2014;usually a single song.",
     )
-    track: Optional[Union[List[Union['MusicRecording', 'ItemList', str]], 'MusicRecording', 'ItemList', str]] = Field(
-        None,
+    track: Optional[Union[List[Union['ItemList', 'MusicRecording', str]], 'ItemList', 'MusicRecording', str]] = Field(
+        default=None,
         description="A music recording (track)&#x2014;usually a single song. If an ItemList is given, the"
      "list should contain items of type MusicRecording.",
     )

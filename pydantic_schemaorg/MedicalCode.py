@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,11 +17,11 @@ class MedicalCode(CategoryCode, MedicalIntangible):
     """
     type_: str = Field("MedicalCode", alias='@type')
     codeValue: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A short textual code that uniquely identifies the value.",
     )
     codingSystem: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The coding system, e.g. 'ICD-10'.",
     )
     

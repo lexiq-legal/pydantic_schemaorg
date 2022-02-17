@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -19,7 +19,7 @@ class LegislationObject(MediaObject, Legislation):
     """
     type_: str = Field("LegislationObject", alias='@type')
     legislationLegalValue: Optional[Union[List[Union['LegalValueLevel', str]], 'LegalValueLevel', str]] = Field(
-        None,
+        default=None,
         description="The legal value of this legislation file. The same legislation can be written in multiple"
      "files with different legal values. Typically a digitally signed PDF have a \"stronger\""
      "legal value than the HTML file of the same act.",

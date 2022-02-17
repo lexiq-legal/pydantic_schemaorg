@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 from datetime import time
 
@@ -20,27 +20,27 @@ class LodgingReservation(Reservation):
     """
     type_: str = Field("LodgingReservation", alias='@type')
     lodgingUnitDescription: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A full description of the lodging unit.",
     )
     numChildren: Optional[Union[List[Union[int, 'Integer', 'QuantitativeValue', str]], int, 'Integer', 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The number of children staying in the unit.",
     )
     checkinTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
-        None,
+        default=None,
         description="The earliest someone may check into a lodging establishment.",
     )
     numAdults: Optional[Union[List[Union[int, 'Integer', 'QuantitativeValue', str]], int, 'Integer', 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The number of adults staying in the unit.",
     )
     checkoutTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
-        None,
+        default=None,
         description="The latest someone may check out of a lodging establishment.",
     )
     lodgingUnitType: Optional[Union[List[Union[str, 'Text', 'QualitativeValue']], str, 'Text', 'QualitativeValue']] = Field(
-        None,
+        default=None,
         description="Textual description of the unit type (including suite vs. room, size of bed, etc.).",
     )
     

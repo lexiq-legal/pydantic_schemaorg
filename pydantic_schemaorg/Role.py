@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic import AnyUrl
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 
 
@@ -23,22 +23,22 @@ class Role(Intangible):
     """
     type_: str = Field("Role", alias='@type')
     roleName: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
-        None,
+        default=None,
         description="A role played, performed or filled by a person or organization. For example, the team"
      "of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer';"
      "or an athlete in a SportsTeam might play in the position named 'Quarterback'.",
     )
     endDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
     namedPosition: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
-        None,
+        default=None,
         description="A position played, performed or filled by a person or organization, as part of an organization."
      "For example, an athlete in a SportsTeam might play in the position named 'Quarterback'.",
     )
     startDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
     

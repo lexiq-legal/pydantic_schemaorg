@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class CivicStructure(Place):
     """
     type_: str = Field("CivicStructure", alias='@type')
     openingHours: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The general opening hours for a business. Opening hours can be specified as a weekly time"
      "range, starting with days, then times per day. Multiple days can be listed with commas"
      "',' separating each day. Day or time ranges are specified using a hyphen '-'. * Days are"

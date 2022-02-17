@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 from pydantic import AnyUrl
 
@@ -18,17 +18,17 @@ class Dataset(CreativeWork):
     """
     type_: str = Field("Dataset", alias='@type')
     includedDataCatalog: Optional[Union[List[Union['DataCatalog', str]], 'DataCatalog', str]] = Field(
-        None,
+        default=None,
         description="A data catalog which contains this dataset (this property was previously 'catalog',"
      "preferred name is now 'includedInDataCatalog').",
     )
     datasetTimeInterval: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
-        None,
+        default=None,
         description="The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the"
      "year 2011 (in ISO 8601 time interval format).",
     )
     measurementTechnique: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
-        None,
+        default=None,
         description="A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),"
      "corresponding to the method used for measuring the corresponding variable(s) (described"
      "using [[variableMeasured]]). This is oriented towards scientific and scholarly dataset"
@@ -42,25 +42,25 @@ class Dataset(CreativeWork):
      "a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].",
     )
     catalog: Optional[Union[List[Union['DataCatalog', str]], 'DataCatalog', str]] = Field(
-        None,
+        default=None,
         description="A data catalog which contains this dataset.",
     )
     distribution: Optional[Union[List[Union['DataDownload', str]], 'DataDownload', str]] = Field(
-        None,
+        default=None,
         description="A downloadable form of this dataset, at a specific location, in a specific format.",
     )
     includedInDataCatalog: Optional[Union[List[Union['DataCatalog', str]], 'DataCatalog', str]] = Field(
-        None,
+        default=None,
         description="A data catalog which contains this dataset.",
     )
     issn: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The International Standard Serial Number (ISSN) that identifies this serial publication."
      "You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L)"
      "for, this serial publication.",
     )
     variableMeasured: Optional[Union[List[Union[str, 'Text', 'PropertyValue']], str, 'Text', 'PropertyValue']] = Field(
-        None,
+        default=None,
         description="The variableMeasured property can indicate (repeated as necessary) the variables"
      "that are measured in some dataset, either described as text or as pairs of identifier"
      "and description using PropertyValue.",

@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from decimal import Decimal
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,15 +17,15 @@ class RsvpAction(InformAction):
     """
     type_: str = Field("RsvpAction", alias='@type')
     additionalNumberOfGuests: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
-        None,
+        default=None,
         description="If responding yes, the number of guests who will attend in addition to the invitee.",
     )
     comment: Optional[Union[List[Union['Comment', str]], 'Comment', str]] = Field(
-        None,
+        default=None,
         description="Comments, typically from users.",
     )
     rsvpResponse: Optional[Union[List[Union['RsvpResponseType', str]], 'RsvpResponseType', str]] = Field(
-        None,
+        default=None,
         description="The response (yes, no, maybe) to the RSVP.",
     )
     

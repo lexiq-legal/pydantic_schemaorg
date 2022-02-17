@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class IndividualProduct(Product):
     """
     type_: str = Field("IndividualProduct", alias='@type')
     serialNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The serial number or any alphanumeric identifier of a particular product. When attached"
      "to an offer, it is a shortcut for the serial number of the product included in the offer.",
     )

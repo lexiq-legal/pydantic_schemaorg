@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,12 +17,12 @@ class DDxElement(MedicalIntangible):
     """
     type_: str = Field("DDxElement", alias='@type')
     diagnosis: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
-        None,
+        default=None,
         description="One or more alternative conditions considered in the differential diagnosis process"
      "as output of a diagnosis process.",
     )
     distinguishingSign: Optional[Union[List[Union['MedicalSignOrSymptom', str]], 'MedicalSignOrSymptom', str]] = Field(
-        None,
+        default=None,
         description="One of a set of signs and symptoms that can be used to distinguish this diagnosis from others"
      "in the differential diagnosis.",
     )

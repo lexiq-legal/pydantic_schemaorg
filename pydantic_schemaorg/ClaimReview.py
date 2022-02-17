@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class ClaimReview(Review):
     """
     type_: str = Field("ClaimReview", alias='@type')
     claimReviewed: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A short summary of the specific claims reviewed in a ClaimReview.",
     )
     

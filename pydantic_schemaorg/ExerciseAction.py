@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,57 +17,57 @@ class ExerciseAction(PlayAction):
     """
     type_: str = Field("ExerciseAction", alias='@type')
     exercisePlan: Optional[Union[List[Union['ExercisePlan', str]], 'ExercisePlan', str]] = Field(
-        None,
+        default=None,
         description="A sub property of instrument. The exercise plan used on this action.",
     )
     distance: Optional[Union[List[Union['Distance', str]], 'Distance', str]] = Field(
-        None,
+        default=None,
         description="The distance travelled, e.g. exercising or travelling.",
     )
     diet: Optional[Union[List[Union['Diet', str]], 'Diet', str]] = Field(
-        None,
+        default=None,
         description="A sub property of instrument. The diet used in this action.",
     )
     opponent: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A sub property of participant. The opponent on this action.",
     )
     fromLocation: Optional[Union[List[Union['Place', str]], 'Place', str]] = Field(
-        None,
+        default=None,
         description="A sub property of location. The original location of the object or the agent before the"
      "action.",
     )
     sportsActivityLocation: Optional[Union[List[Union['SportsActivityLocation', str]], 'SportsActivityLocation', str]] = Field(
-        None,
+        default=None,
         description="A sub property of location. The sports activity location where this action occurred.",
     )
     exerciseRelatedDiet: Optional[Union[List[Union['Diet', str]], 'Diet', str]] = Field(
-        None,
+        default=None,
         description="A sub property of instrument. The diet used in this action.",
     )
     exerciseType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Type(s) of exercise or activity, such as strength training, flexibility training,"
      "aerobics, cardiac rehabilitation, etc.",
     )
     toLocation: Optional[Union[List[Union['Place', str]], 'Place', str]] = Field(
-        None,
+        default=None,
         description="A sub property of location. The final location of the object or the agent after the action.",
     )
     sportsEvent: Optional[Union[List[Union['SportsEvent', str]], 'SportsEvent', str]] = Field(
-        None,
+        default=None,
         description="A sub property of location. The sports event where this action occurred.",
     )
     course: Optional[Union[List[Union['Place', str]], 'Place', str]] = Field(
-        None,
+        default=None,
         description="A sub property of location. The course where this action was taken.",
     )
     exerciseCourse: Optional[Union[List[Union['Place', str]], 'Place', str]] = Field(
-        None,
+        default=None,
         description="A sub property of location. The course where this action was taken.",
     )
     sportsTeam: Optional[Union[List[Union['SportsTeam', str]], 'SportsTeam', str]] = Field(
-        None,
+        default=None,
         description="A sub property of participant. The sports team that participated on this action.",
     )
     

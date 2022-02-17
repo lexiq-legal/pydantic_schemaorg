@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -20,11 +20,11 @@ class MedicalTherapy(TherapeuticProcedure):
     """
     type_: str = Field("MedicalTherapy", alias='@type')
     duplicateTherapy: Optional[Union[List[Union['MedicalTherapy', str]], 'MedicalTherapy', str]] = Field(
-        None,
+        default=None,
         description="A therapy that duplicates or overlaps this one.",
     )
     seriousAdverseOutcome: Optional[Union[List[Union['MedicalEntity', str]], 'MedicalEntity', str]] = Field(
-        None,
+        default=None,
         description="A possible serious complication and/or serious side effect of this therapy. Serious"
      "adverse outcomes include those that are life-threatening; result in death, disability,"
      "or permanent damage; require hospitalization or prolong existing hospitalization;"
@@ -32,7 +32,7 @@ class MedicalTherapy(TherapeuticProcedure):
      "medical or surgical intervention to prevent one of the outcomes in this definition.",
     )
     contraindication: Optional[Union[List[Union[str, 'Text', 'MedicalContraindication']], str, 'Text', 'MedicalContraindication']] = Field(
-        None,
+        default=None,
         description="A contraindication for this therapy.",
     )
     

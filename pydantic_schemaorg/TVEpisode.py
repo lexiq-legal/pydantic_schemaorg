@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -17,11 +17,11 @@ class TVEpisode(Episode):
     """
     type_: str = Field("TVEpisode", alias='@type')
     subtitleLanguage: Optional[Union[List[Union[str, 'Text', 'Language']], str, 'Text', 'Language']] = Field(
-        None,
+        default=None,
         description="Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
     )
     countryOfOrigin: Optional[Union[List[Union['Country', str]], 'Country', str]] = Field(
-        None,
+        default=None,
         description="The country of origin of something, including products as well as creative works such"
      "as movie and TV content. In the case of TV and movie, this would be the country of the principle"
      "offices of the production company or individual responsible for the movie. For other"
@@ -31,7 +31,7 @@ class TVEpisode(Episode):
      "may vary by context and product type, and cannot be fully enumerated here.",
     )
     titleEIDR: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
-        None,
+        default=None,
         description="An [EIDR](https://eidr.org/) (Entertainment Identifier Registry) [[identifier]]"
      "representing at the most general/abstract level, a work of film or television. For example,"
      "the motion picture known as \"Ghostbusters\" has a titleEIDR of \"10.5240/7EC7-228A-510A-053E-CBB8-J\"."
@@ -41,7 +41,7 @@ class TVEpisode(Episode):
      "description), or alongside [[editEIDR]] for a more edit-specific description.",
     )
     partOfTVSeries: Optional[Union[List[Union['TVSeries', str]], 'TVSeries', str]] = Field(
-        None,
+        default=None,
         description="The TV series to which this episode or season belongs.",
     )
     

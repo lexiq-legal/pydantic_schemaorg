@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,11 +16,11 @@ class BoatTrip(Trip):
     """
     type_: str = Field("BoatTrip", alias='@type')
     arrivalBoatTerminal: Optional[Union[List[Union['BoatTerminal', str]], 'BoatTerminal', str]] = Field(
-        None,
+        default=None,
         description="The terminal or port from which the boat arrives.",
     )
     departureBoatTerminal: Optional[Union[List[Union['BoatTerminal', str]], 'BoatTerminal', str]] = Field(
-        None,
+        default=None,
         description="The terminal or port from which the boat departs.",
     )
     

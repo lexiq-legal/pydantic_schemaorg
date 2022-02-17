@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic import StrictBool
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,15 +18,15 @@ class HealthPlanFormulary(Intangible):
     """
     type_: str = Field("HealthPlanFormulary", alias='@type')
     offersPrescriptionByMail: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
-        None,
+        default=None,
         description="Whether prescriptions can be delivered by mail.",
     )
     healthPlanDrugTier: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The tier(s) of drugs offered by this formulary or insurance plan.",
     )
     healthPlanCostSharing: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
-        None,
+        default=None,
         description="Whether The costs to the patient for services under this network or formulary.",
     )
     

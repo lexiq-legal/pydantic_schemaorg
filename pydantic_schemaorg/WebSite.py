@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class WebSite(CreativeWork):
     """
     type_: str = Field("WebSite", alias='@type')
     issn: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The International Standard Serial Number (ISSN) that identifies this serial publication."
      "You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L)"
      "for, this serial publication.",

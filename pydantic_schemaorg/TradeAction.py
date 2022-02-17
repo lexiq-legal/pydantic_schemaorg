@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -19,7 +19,7 @@ class TradeAction(Action):
     """
     type_: str = Field("TradeAction", alias='@type')
     priceCurrency: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The currency of the price, or a price component when attached to [[PriceSpecification]]"
      "and its subtypes. Use standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217)"
      "e.g. \"USD\"; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies)"
@@ -27,7 +27,7 @@ class TradeAction(Action):
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
     price: Optional[Union[List[Union[Decimal, 'Number', str, 'Text']], Decimal, 'Number', str, 'Text']] = Field(
-        None,
+        default=None,
         description="The offer price of a product, or of a price component when attached to PriceSpecification"
      "and its subtypes. Usage guidelines: * Use the [[priceCurrency]] property (with standard"
      "formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g."
@@ -44,7 +44,7 @@ class TradeAction(Action):
      "similiar Unicode symbols.",
     )
     priceSpecification: Optional[Union[List[Union['PriceSpecification', str]], 'PriceSpecification', str]] = Field(
-        None,
+        default=None,
         description="One or more detailed price specifications, indicating the unit price and delivery or"
      "payment charges.",
     )

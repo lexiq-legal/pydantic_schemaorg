@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class SolveMathAction(Action):
     """
     type_: str = Field("SolveMathAction", alias='@type')
     eduQuestionType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates"
      "the format of question being given. Example: \"Multiple choice\", \"Open ended\","
      "\"Flashcard\".",

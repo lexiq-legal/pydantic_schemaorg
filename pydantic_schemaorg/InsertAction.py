@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class InsertAction(AddAction):
     """
     type_: str = Field("InsertAction", alias='@type')
     toLocation: Optional[Union[List[Union['Place', str]], 'Place', str]] = Field(
-        None,
+        default=None,
         description="A sub property of location. The final location of the object or the agent after the action.",
     )
     

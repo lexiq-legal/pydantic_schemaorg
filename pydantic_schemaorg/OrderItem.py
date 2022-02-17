@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -18,23 +18,23 @@ class OrderItem(Intangible):
     """
     type_: str = Field("OrderItem", alias='@type')
     orderDelivery: Optional[Union[List[Union['ParcelDelivery', str]], 'ParcelDelivery', str]] = Field(
-        None,
+        default=None,
         description="The delivery of the parcel related to this order or order item.",
     )
-    orderedItem: Optional[Union[List[Union['Service', 'Product', 'OrderItem', str]], 'Service', 'Product', 'OrderItem', str]] = Field(
-        None,
+    orderedItem: Optional[Union[List[Union['Product', 'OrderItem', 'Service', str]], 'Product', 'OrderItem', 'Service', str]] = Field(
+        default=None,
         description="The item ordered.",
     )
     orderQuantity: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
-        None,
+        default=None,
         description="The number of the item ordered. If the property is not set, assume the quantity is one.",
     )
     orderItemNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The identifier of the order item.",
     )
     orderItemStatus: Optional[Union[List[Union['OrderStatus', str]], 'OrderStatus', str]] = Field(
-        None,
+        default=None,
         description="The current status of the order item.",
     )
     
@@ -42,8 +42,8 @@ class OrderItem(Intangible):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.ParcelDelivery import ParcelDelivery
-    from pydantic_schemaorg.Service import Service
     from pydantic_schemaorg.Product import Product
+    from pydantic_schemaorg.Service import Service
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.OrderStatus import OrderStatus

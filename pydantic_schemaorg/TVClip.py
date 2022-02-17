@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class TVClip(Clip):
     """
     type_: str = Field("TVClip", alias='@type')
     partOfTVSeries: Optional[Union[List[Union['TVSeries', str]], 'TVSeries', str]] = Field(
-        None,
+        default=None,
         description="The TV series to which this episode or season belongs.",
     )
     

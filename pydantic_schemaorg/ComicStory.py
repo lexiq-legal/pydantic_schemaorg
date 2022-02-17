@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,25 +18,25 @@ class ComicStory(CreativeWork):
     """
     type_: str = Field("ComicStory", alias='@type')
     colorist: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="The individual who adds color to inked drawings.",
     )
     artist: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="The primary artist for a work in a medium other than pencils or digital line art--for example,"
      "if the primary artwork is done in watercolors or digital paints.",
     )
     letterer: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="The individual who adds lettering, including speech balloons and sound effects, to"
      "artwork.",
     )
     penciler: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="The individual who draws the primary narrative artwork.",
     )
     inker: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="The individual who traces over the pencil drawings in ink after pencils are complete.",
     )
     

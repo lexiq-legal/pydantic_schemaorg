@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,11 +16,11 @@ class Airline(Organization):
     """
     type_: str = Field("Airline", alias='@type')
     boardingPolicy: Optional[Union[List[Union['BoardingPolicyType', str]], 'BoardingPolicyType', str]] = Field(
-        None,
+        default=None,
         description="The type of boarding policy used by the airline (e.g. zone-based or group-based).",
     )
     iataCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="IATA identifier for an airline or airport.",
     )
     

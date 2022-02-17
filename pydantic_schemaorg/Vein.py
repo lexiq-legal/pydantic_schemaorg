@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,16 +16,16 @@ class Vein(Vessel):
     """
     type_: str = Field("Vein", alias='@type')
     tributary: Optional[Union[List[Union['AnatomicalStructure', str]], 'AnatomicalStructure', str]] = Field(
-        None,
+        default=None,
         description="The anatomical or organ system that the vein flows into; a larger structure that the vein"
      "connects to.",
     )
     drainsTo: Optional[Union[List[Union['Vessel', str]], 'Vessel', str]] = Field(
-        None,
+        default=None,
         description="The vasculature that the vein drains into.",
     )
     regionDrained: Optional[Union[List[Union['AnatomicalSystem', 'AnatomicalStructure', str]], 'AnatomicalSystem', 'AnatomicalStructure', str]] = Field(
-        None,
+        default=None,
         description="The anatomical or organ system drained by this vessel; generally refers to a specific"
      "part of an organ.",
     )

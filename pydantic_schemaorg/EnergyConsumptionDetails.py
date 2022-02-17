@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -20,19 +20,19 @@ class EnergyConsumptionDetails(Intangible):
     """
     type_: str = Field("EnergyConsumptionDetails", alias='@type')
     energyEfficiencyScaleMax: Optional[Union[List[Union['EUEnergyEfficiencyEnumeration', str]], 'EUEnergyEfficiencyEnumeration', str]] = Field(
-        None,
+        default=None,
         description="Specifies the most energy efficient class on the regulated EU energy consumption scale"
      "for the product category a product belongs to. For example, energy consumption for televisions"
      "placed on the market after January 1, 2020 is scaled from D to A+++.",
     )
     energyEfficiencyScaleMin: Optional[Union[List[Union['EUEnergyEfficiencyEnumeration', str]], 'EUEnergyEfficiencyEnumeration', str]] = Field(
-        None,
+        default=None,
         description="Specifies the least energy efficient class on the regulated EU energy consumption scale"
      "for the product category a product belongs to. For example, energy consumption for televisions"
      "placed on the market after January 1, 2020 is scaled from D to A+++.",
     )
     hasEnergyEfficiencyCategory: Optional[Union[List[Union['EnergyEfficiencyEnumeration', str]], 'EnergyEfficiencyEnumeration', str]] = Field(
-        None,
+        default=None,
         description="Defines the energy efficiency Category (which could be either a rating out of range of"
      "values or a yes/no certification) for a product according to an international energy"
      "efficiency standard.",

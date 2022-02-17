@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -19,20 +19,20 @@ class Gene(BioChemEntity):
     """
     type_: str = Field("Gene", alias='@type')
     hasBioPolymerSequence: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of"
      "a Gene or an amino acid sequence of a Protein.",
     )
     encodesBioChemEntity: Optional[Union[List[Union['BioChemEntity', str]], 'BioChemEntity', str]] = Field(
-        None,
+        default=None,
         description="Another BioChemEntity encoded by this one.",
     )
     alternativeOf: Optional[Union[List[Union['Gene', str]], 'Gene', str]] = Field(
-        None,
+        default=None,
         description="Another gene which is a variation of this one.",
     )
-    expressedIn: Optional[Union[List[Union['AnatomicalStructure', 'AnatomicalSystem', 'BioChemEntity', 'DefinedTerm', str]], 'AnatomicalStructure', 'AnatomicalSystem', 'BioChemEntity', 'DefinedTerm', str]] = Field(
-        None,
+    expressedIn: Optional[Union[List[Union['BioChemEntity', 'DefinedTerm', 'AnatomicalStructure', 'AnatomicalSystem', str]], 'BioChemEntity', 'DefinedTerm', 'AnatomicalStructure', 'AnatomicalSystem', str]] = Field(
+        default=None,
         description="Tissue, organ, biological sample, etc in which activity of this gene has been observed"
      "experimentally. For example brain, digestive system.",
     )
@@ -42,6 +42,6 @@ class Gene(BioChemEntity):
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.BioChemEntity import BioChemEntity
+    from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
     from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
-    from pydantic_schemaorg.DefinedTerm import DefinedTerm

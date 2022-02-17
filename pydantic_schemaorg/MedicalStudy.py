@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -23,25 +23,25 @@ class MedicalStudy(MedicalEntity):
     """
     type_: str = Field("MedicalStudy", alias='@type')
     studyLocation: Optional[Union[List[Union['AdministrativeArea', str]], 'AdministrativeArea', str]] = Field(
-        None,
+        default=None,
         description="The location in which the study is taking/took place.",
     )
     studySubject: Optional[Union[List[Union['MedicalEntity', str]], 'MedicalEntity', str]] = Field(
-        None,
+        default=None,
         description="A subject of the study, i.e. one of the medical conditions, therapies, devices, drugs,"
      "etc. investigated by the study.",
     )
     status: Optional[Union[List[Union[str, 'Text', 'MedicalStudyStatus', 'EventStatusType']], str, 'Text', 'MedicalStudyStatus', 'EventStatusType']] = Field(
-        None,
+        default=None,
         description="The status of the study (enumerated).",
     )
     sponsor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
-        None,
+        default=None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
     )
     healthCondition: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
-        None,
+        default=None,
         description="Specifying the health condition(s) of a patient, medical study, or other target audience.",
     )
     

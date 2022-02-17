@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -21,11 +21,11 @@ class DefinedTerm(Intangible):
     """
     type_: str = Field("DefinedTerm", alias='@type')
     termCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A code that identifies this [[DefinedTerm]] within a [[DefinedTermSet]]",
     )
     inDefinedTermSet: Optional[Union[List[Union[AnyUrl, 'URL', 'DefinedTermSet', str]], AnyUrl, 'URL', 'DefinedTermSet', str]] = Field(
-        None,
+        default=None,
         description="A [[DefinedTermSet]] that contains this term.",
     )
     

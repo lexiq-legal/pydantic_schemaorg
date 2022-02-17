@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic import StrictBool
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,19 +17,19 @@ class BroadcastEvent(PublicationEvent):
     """
     type_: str = Field("BroadcastEvent", alias='@type')
     isLiveBroadcast: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
-        None,
+        default=None,
         description="True if the broadcast is of a live event.",
     )
     subtitleLanguage: Optional[Union[List[Union[str, 'Text', 'Language']], str, 'Text', 'Language']] = Field(
-        None,
+        default=None,
         description="Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
     )
     videoFormat: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).",
     )
     broadcastOfEvent: Optional[Union[List[Union['Event', str]], 'Event', str]] = Field(
-        None,
+        default=None,
         description="The event being broadcast such as a sporting event or awards ceremony.",
     )
     

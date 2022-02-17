@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class DefinedTermSet(CreativeWork):
     """
     type_: str = Field("DefinedTermSet", alias='@type')
     hasDefinedTerm: Optional[Union[List[Union['DefinedTerm', str]], 'DefinedTerm', str]] = Field(
-        None,
+        default=None,
         description="A Defined Term contained in this term set.",
     )
     

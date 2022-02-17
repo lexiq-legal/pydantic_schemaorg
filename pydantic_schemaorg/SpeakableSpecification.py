@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,12 +18,12 @@ class SpeakableSpecification(Intangible):
     """
     type_: str = Field("SpeakableSpecification", alias='@type')
     xpath: Optional[Union[List[Union[str, 'XPathType']], str, 'XPathType']] = Field(
-        None,
+        default=None,
         description="An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter"
      "case, multiple matches within a page can constitute a single conceptual \"Web page element\".",
     )
     cssSelector: Optional[Union[List[Union[str, 'CssSelectorType']], str, 'CssSelectorType']] = Field(
-        None,
+        default=None,
         description="A CSS selector, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the"
      "latter case, multiple matches within a page can constitute a single conceptual \"Web"
      "page element\".",

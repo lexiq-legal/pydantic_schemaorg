@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -20,11 +20,11 @@ class HyperToc(CreativeWork):
     """
     type_: str = Field("HyperToc", alias='@type')
     associatedMedia: Optional[Union[List[Union['MediaObject', str]], 'MediaObject', str]] = Field(
-        None,
+        default=None,
         description="A media object that encodes this CreativeWork. This property is a synonym for encoding.",
     )
     tocEntry: Optional[Union[List[Union['HyperTocEntry', str]], 'HyperTocEntry', str]] = Field(
-        None,
+        default=None,
         description="Indicates a [[HyperTocEntry]] in a [[HyperToc]].",
     )
     

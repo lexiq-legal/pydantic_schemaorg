@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -15,8 +15,8 @@ class Class(Intangible):
     Model depth: 3
     """
     type_: str = Field("Class", alias='@type')
-    supersededBy: Optional[Union[List[Union['Class', 'Enumeration', 'Property', str]], 'Class', 'Enumeration', 'Property', str]] = Field(
-        None,
+    supersededBy: Optional[Union[List[Union['Enumeration', 'Property', 'Class', str]], 'Enumeration', 'Property', 'Class', str]] = Field(
+        default=None,
         description="Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",
     )
     

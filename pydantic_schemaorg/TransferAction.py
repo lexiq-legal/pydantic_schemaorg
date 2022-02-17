@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,12 +17,12 @@ class TransferAction(Action):
     """
     type_: str = Field("TransferAction", alias='@type')
     fromLocation: Optional[Union[List[Union['Place', str]], 'Place', str]] = Field(
-        None,
+        default=None,
         description="A sub property of location. The original location of the object or the agent before the"
      "action.",
     )
     toLocation: Optional[Union[List[Union['Place', str]], 'Place', str]] = Field(
-        None,
+        default=None,
         description="A sub property of location. The final location of the object or the agent after the action.",
     )
     

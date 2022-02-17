@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class InformAction(CommunicateAction):
     """
     type_: str = Field("InformAction", alias='@type')
     event: Optional[Union[List[Union['Event', str]], 'Event', str]] = Field(
-        None,
+        default=None,
         description="Upcoming or past event associated with this place, organization, or action.",
     )
     

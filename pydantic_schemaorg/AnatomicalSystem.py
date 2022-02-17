@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -20,26 +20,26 @@ class AnatomicalSystem(MedicalEntity):
     """
     type_: str = Field("AnatomicalSystem", alias='@type')
     comprisedOf: Optional[Union[List[Union['AnatomicalSystem', 'AnatomicalStructure', str]], 'AnatomicalSystem', 'AnatomicalStructure', str]] = Field(
-        None,
+        default=None,
         description="Specifying something physically contained by something else. Typically used here"
      "for the underlying anatomical structures, such as organs, that comprise the anatomical"
      "system.",
     )
     relatedCondition: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
-        None,
+        default=None,
         description="A medical condition associated with this anatomy.",
     )
     relatedStructure: Optional[Union[List[Union['AnatomicalStructure', str]], 'AnatomicalStructure', str]] = Field(
-        None,
+        default=None,
         description="Related anatomical structure(s) that are not part of the system but relate or connect"
      "to it, such as vascular bundles associated with an organ system.",
     )
     relatedTherapy: Optional[Union[List[Union['MedicalTherapy', str]], 'MedicalTherapy', str]] = Field(
-        None,
+        default=None,
         description="A medical therapy related to this anatomy.",
     )
     associatedPathophysiology: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="If applicable, a description of the pathophysiology associated with the anatomical"
      "system, including potential abnormal changes in the mechanical, physical, and biochemical"
      "functions of the system.",

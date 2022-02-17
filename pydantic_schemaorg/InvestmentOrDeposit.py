@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from decimal import Decimal
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,7 +18,7 @@ class InvestmentOrDeposit(FinancialProduct):
     """
     type_: str = Field("InvestmentOrDeposit", alias='@type')
     amount: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', str]], Decimal, 'Number', 'MonetaryAmount', str]] = Field(
-        None,
+        default=None,
         description="The amount of money.",
     )
     

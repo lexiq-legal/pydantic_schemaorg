@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,11 +16,11 @@ class ReplaceAction(UpdateAction):
     """
     type_: str = Field("ReplaceAction", alias='@type')
     replacer: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
-        None,
+        default=None,
         description="A sub property of object. The object that replaces.",
     )
     replacee: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
-        None,
+        default=None,
         description="A sub property of object. The object that is being replaced.",
     )
     

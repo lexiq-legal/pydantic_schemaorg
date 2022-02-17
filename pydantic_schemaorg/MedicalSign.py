@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,11 +17,11 @@ class MedicalSign(MedicalSignOrSymptom):
     """
     type_: str = Field("MedicalSign", alias='@type')
     identifyingExam: Optional[Union[List[Union['PhysicalExam', str]], 'PhysicalExam', str]] = Field(
-        None,
+        default=None,
         description="A physical examination that can identify this sign.",
     )
     identifyingTest: Optional[Union[List[Union['MedicalTest', str]], 'MedicalTest', str]] = Field(
-        None,
+        default=None,
         description="A diagnostic test that can identify this sign.",
     )
     

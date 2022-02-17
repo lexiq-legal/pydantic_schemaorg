@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 
 
@@ -17,19 +17,19 @@ class DeliveryEvent(Event):
     """
     type_: str = Field("DeliveryEvent", alias='@type')
     accessCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Password, PIN, or access code needed for delivery (e.g. from a locker).",
     )
     availableThrough: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
-        None,
+        default=None,
         description="After this date, the item will no longer be available for pickup.",
     )
     hasDeliveryMethod: Optional[Union[List[Union['DeliveryMethod', str]], 'DeliveryMethod', str]] = Field(
-        None,
+        default=None,
         description="Method used for delivery or shipping.",
     )
     availableFrom: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
-        None,
+        default=None,
         description="When the item is available for pickup from the store, locker, etc.",
     )
     

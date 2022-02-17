@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class SocialMediaPosting(Article):
     """
     type_: str = Field("SocialMediaPosting", alias='@type')
     sharedContent: Optional[Union[List[Union['CreativeWork', str]], 'CreativeWork', str]] = Field(
-        None,
+        default=None,
         description="A CreativeWork such as an image, video, or audio clip shared as part of this posting.",
     )
     

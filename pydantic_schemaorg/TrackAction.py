@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -19,7 +19,7 @@ class TrackAction(FindAction):
     """
     type_: str = Field("TrackAction", alias='@type')
     deliveryMethod: Optional[Union[List[Union['DeliveryMethod', str]], 'DeliveryMethod', str]] = Field(
-        None,
+        default=None,
         description="A sub property of instrument. The method of delivery.",
     )
     

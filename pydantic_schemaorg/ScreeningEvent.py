@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,15 +16,15 @@ class ScreeningEvent(Event):
     """
     type_: str = Field("ScreeningEvent", alias='@type')
     workPresented: Optional[Union[List[Union['Movie', str]], 'Movie', str]] = Field(
-        None,
+        default=None,
         description="The movie presented during this event.",
     )
     subtitleLanguage: Optional[Union[List[Union[str, 'Text', 'Language']], str, 'Text', 'Language']] = Field(
-        None,
+        default=None,
         description="Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",
     )
     videoFormat: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).",
     )
     

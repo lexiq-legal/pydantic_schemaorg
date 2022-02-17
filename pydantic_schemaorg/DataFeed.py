@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class DataFeed(Dataset):
     """
     type_: str = Field("DataFeed", alias='@type')
     dataFeedElement: Optional[Union[List[Union[str, 'Text', 'Thing', 'DataFeedItem']], str, 'Text', 'Thing', 'DataFeedItem']] = Field(
-        None,
+        default=None,
         description="An item within in a data feed. Data feeds may have many elements.",
     )
     

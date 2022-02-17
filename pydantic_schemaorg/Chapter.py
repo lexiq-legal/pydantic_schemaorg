@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,16 +17,16 @@ class Chapter(CreativeWork):
     """
     type_: str = Field("Chapter", alias='@type')
     pageStart: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
-        None,
+        default=None,
         description="The page on which the work starts; for example \"135\" or \"xiii\".",
     )
     pagination: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Any description of pages that is not separated into pageStart and pageEnd; for example,"
      "\"1-6, 9, 55\" or \"10-12, 46-49\".",
     )
     pageEnd: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
-        None,
+        default=None,
         description="The page on which the work ends; for example \"138\" or \"xvi\".",
     )
     

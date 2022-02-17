@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,11 +17,11 @@ class PostalCodeRangeSpecification(StructuredValue):
     """
     type_: str = Field("PostalCodeRangeSpecification", alias='@type')
     postalCodeEnd: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Last postal code in the range (included). Needs to be after [[postalCodeBegin]].",
     )
     postalCodeBegin: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="First postal code in a range (included).",
     )
     

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class SportsTeam(SportsOrganization):
     """
     type_: str = Field("SportsTeam", alias='@type')
     gender: Optional[Union[List[Union[str, 'Text', 'GenderType']], str, 'Text', 'GenderType']] = Field(
-        None,
+        default=None,
         description="Gender of something, typically a [[Person]], but possibly also fictional characters,"
      "animals, etc. While https://schema.org/Male and https://schema.org/Female may"
      "be used, text strings are also acceptable for people who do not identify as a binary gender."
@@ -25,11 +25,11 @@ class SportsTeam(SportsOrganization):
      "A mixed-gender [[SportsTeam]] can be indicated with a text value of \"Mixed\".",
     )
     athlete: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A person that acts as performing member of a sports team; a player as opposed to a coach.",
     )
     coach: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A person that acts in a coaching role for a sports team.",
     )
     

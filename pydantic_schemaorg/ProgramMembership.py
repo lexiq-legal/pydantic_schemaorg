@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -18,29 +18,29 @@ class ProgramMembership(Intangible):
     """
     type_: str = Field("ProgramMembership", alias='@type')
     membershipNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A unique identifier for the membership.",
     )
     membershipPointsEarned: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The number of membership points earned by the member. If necessary, the unitText can"
      "be used to express the units the points are issued in. (e.g. stars, miles, etc.)",
     )
     member: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
-        None,
+        default=None,
         description="A member of an Organization or a ProgramMembership. Organizations can be members of"
      "organizations; ProgramMembership is typically for individuals.",
     )
-    members: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
-        None,
+    members: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+        default=None,
         description="A member of this organization.",
     )
     programName: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The program providing the membership.",
     )
     hostingOrganization: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
-        None,
+        default=None,
         description="The organization (airline, travelers' club, etc.) the membership is made with.",
     )
     

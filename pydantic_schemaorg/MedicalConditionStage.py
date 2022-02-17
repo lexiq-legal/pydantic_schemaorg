@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from decimal import Decimal
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,11 +17,11 @@ class MedicalConditionStage(MedicalIntangible):
     """
     type_: str = Field("MedicalConditionStage", alias='@type')
     stageAsNumber: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
-        None,
+        default=None,
         description="The stage represented as a number, e.g. 3.",
     )
     subStageSuffix: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The substage, e.g. 'a' for Stage IIIa.",
     )
     

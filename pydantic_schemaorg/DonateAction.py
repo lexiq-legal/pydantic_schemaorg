@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,8 +16,8 @@ class DonateAction(TradeAction):
     Model depth: 4
     """
     type_: str = Field("DonateAction", alias='@type')
-    recipient: Optional[Union[List[Union['Person', 'Audience', 'Organization', 'ContactPoint', str]], 'Person', 'Audience', 'Organization', 'ContactPoint', str]] = Field(
-        None,
+    recipient: Optional[Union[List[Union['Person', 'Organization', 'Audience', 'ContactPoint', str]], 'Person', 'Organization', 'Audience', 'ContactPoint', str]] = Field(
+        default=None,
         description="A sub property of participant. The participant who is at the receiving end of the action.",
     )
     
@@ -25,6 +25,6 @@ class DonateAction(TradeAction):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Person import Person
-    from pydantic_schemaorg.Audience import Audience
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Audience import Audience
     from pydantic_schemaorg.ContactPoint import ContactPoint

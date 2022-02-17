@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class TVSeason(CreativeWorkSeason, CreativeWork):
     """
     type_: str = Field("TVSeason", alias='@type')
     countryOfOrigin: Optional[Union[List[Union['Country', str]], 'Country', str]] = Field(
-        None,
+        default=None,
         description="The country of origin of something, including products as well as creative works such"
      "as movie and TV content. In the case of TV and movie, this would be the country of the principle"
      "offices of the production company or individual responsible for the movie. For other"
@@ -27,7 +27,7 @@ class TVSeason(CreativeWorkSeason, CreativeWork):
      "may vary by context and product type, and cannot be fully enumerated here.",
     )
     partOfTVSeries: Optional[Union[List[Union['TVSeries', str]], 'TVSeries', str]] = Field(
-        None,
+        default=None,
         description="The TV series to which this episode or season belongs.",
     )
     

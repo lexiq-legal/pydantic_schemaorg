@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,21 +17,21 @@ class MerchantReturnPolicySeasonalOverride(Intangible):
     """
     type_: str = Field("MerchantReturnPolicySeasonalOverride", alias='@type')
     merchantReturnDays: Optional[Union[List[Union[int, 'Integer', ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], int, 'Integer', ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="Specifies either a fixed return date or the number of days (from the delivery date) that"
      "a product can be returned. Used when the [[returnPolicyCategory]] property is specified"
      "as [[MerchantReturnFiniteReturnWindow]].",
     )
     endDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
     returnPolicyCategory: Optional[Union[List[Union['MerchantReturnEnumeration', str]], 'MerchantReturnEnumeration', str]] = Field(
-        None,
+        default=None,
         description="Specifies an applicable return policy (from an enumeration).",
     )
     startDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
     

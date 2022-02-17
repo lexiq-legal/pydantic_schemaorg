@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import StrictBool
 
 
@@ -20,12 +20,12 @@ class DeliveryTimeSettings(StructuredValue):
     """
     type_: str = Field("DeliveryTimeSettings", alias='@type')
     shippingDestination: Optional[Union[List[Union['DefinedRegion', str]], 'DefinedRegion', str]] = Field(
-        None,
+        default=None,
         description="indicates (possibly multiple) shipping destinations. These can be defined in several"
      "ways e.g. postalCode ranges.",
     )
     isUnlabelledFallback: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
-        None,
+        default=None,
         description="This can be marked 'true' to indicate that some published [[DeliveryTimeSettings]]"
      "or [[ShippingRateSettings]] are intended to apply to all [[OfferShippingDetails]]"
      "published by the same merchant, when referenced by a [[shippingSettingsLink]] in those"
@@ -34,11 +34,11 @@ class DeliveryTimeSettings(StructuredValue):
      "since this property is for use with unlabelled settings.",
     )
     deliveryTime: Optional[Union[List[Union['ShippingDeliveryTime', str]], 'ShippingDeliveryTime', str]] = Field(
-        None,
+        default=None,
         description="The total delay between the receipt of the order and the goods reaching the final customer.",
     )
     transitTimeLabel: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Label to match an [[OfferShippingDetails]] with a [[DeliveryTimeSettings]] (within"
      "the context of a [[shippingSettingsLink]] cross-reference).",
     )

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,7 +18,7 @@ class MediaReviewItem(CreativeWork):
     """
     type_: str = Field("MediaReviewItem", alias='@type')
     mediaItemAppearance: Optional[Union[List[Union['MediaObject', str]], 'MediaObject', str]] = Field(
-        None,
+        default=None,
         description="In the context of a [[MediaReview]], indicates specific media item(s) that are grouped"
      "using a [[MediaReviewItem]].",
     )

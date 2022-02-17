@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,52 +16,52 @@ class Episode(CreativeWork):
     """
     type_: str = Field("Episode", alias='@type')
     partOfSeason: Optional[Union[List[Union['CreativeWorkSeason', str]], 'CreativeWorkSeason', str]] = Field(
-        None,
+        default=None,
         description="The season to which this episode belongs.",
     )
     actors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
      "items or with a series, episode, clip.",
     )
     episodeNumber: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
-        None,
+        default=None,
         description="Position of the episode within an ordered group of episodes.",
     )
     trailer: Optional[Union[List[Union['VideoObject', str]], 'VideoObject', str]] = Field(
-        None,
+        default=None,
         description="The trailer of a movie or tv/radio series, season, episode, etc.",
     )
     duration: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
-        None,
+        default=None,
         description="The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).",
     )
     director: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors"
      "can be associated with individual items or with a series, episode, clip.",
     )
     productionCompany: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
-        None,
+        default=None,
         description="The production company or studio responsible for the item e.g. series, video game, episode"
      "etc.",
     )
     partOfSeries: Optional[Union[List[Union['CreativeWorkSeries', str]], 'CreativeWorkSeries', str]] = Field(
-        None,
+        default=None,
         description="The series to which this episode or season belongs.",
     )
     actor: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated"
      "with individual items or with a series, episode, clip.",
     )
     directors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    musicBy: Optional[Union[List[Union['MusicGroup', 'Person', str]], 'MusicGroup', 'Person', str]] = Field(
-        None,
+    musicBy: Optional[Union[List[Union['Person', 'MusicGroup', str]], 'Person', 'MusicGroup', str]] = Field(
+        default=None,
         description="The composer of the soundtrack.",
     )
     

@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from datetime import time
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 
 
@@ -21,24 +21,24 @@ class OpeningHoursSpecification(StructuredValue):
     """
     type_: str = Field("OpeningHoursSpecification", alias='@type')
     opens: Optional[Union[List[Union[time, 'Time', str]], time, 'Time', str]] = Field(
-        None,
+        default=None,
         description="The opening hour of the place or service on the given day(s) of the week.",
     )
     validFrom: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The date when the item becomes valid.",
     )
     validThrough: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The date after when the item is not valid. For example the end of an offer, salary period,"
      "or a period of opening hours.",
     )
     closes: Optional[Union[List[Union[time, 'Time', str]], time, 'Time', str]] = Field(
-        None,
+        default=None,
         description="The closing hour of the place or service on the given day(s) of the week.",
     )
     dayOfWeek: Optional[Union[List[Union['DayOfWeek', str]], 'DayOfWeek', str]] = Field(
-        None,
+        default=None,
         description="The day of the week for which these opening hours are valid.",
     )
     

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -26,7 +26,7 @@ class FollowAction(InteractAction):
     """
     type_: str = Field("FollowAction", alias='@type')
     followee: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
-        None,
+        default=None,
         description="A sub property of object. The person or organization being followed.",
     )
     

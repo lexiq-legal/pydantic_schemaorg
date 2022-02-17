@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -17,36 +17,36 @@ class Occupation(Intangible):
     """
     type_: str = Field("Occupation", alias='@type')
     experienceRequirements: Optional[Union[List[Union[str, 'Text', 'OccupationalExperienceRequirements']], str, 'Text', 'OccupationalExperienceRequirements']] = Field(
-        None,
+        default=None,
         description="Description of skills and experience needed for the position or Occupation.",
     )
     skills: Optional[Union[List[Union[str, 'Text', 'DefinedTerm']], str, 'Text', 'DefinedTerm']] = Field(
-        None,
+        default=None,
         description="A statement of knowledge, skill, ability, task or any other assertion expressing a competency"
      "that is desired or required to fulfill this role or to work in this occupation.",
     )
-    estimatedSalary: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', 'MonetaryAmountDistribution', str]], Decimal, 'Number', 'MonetaryAmount', 'MonetaryAmountDistribution', str]] = Field(
-        None,
+    estimatedSalary: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmountDistribution', 'MonetaryAmount', str]], Decimal, 'Number', 'MonetaryAmountDistribution', 'MonetaryAmount', str]] = Field(
+        default=None,
         description="An estimated salary for a job posting or occupation, based on a variety of variables including,"
      "but not limited to industry, job title, and location. Estimated salaries are often computed"
      "by outside organizations rather than the hiring organization, who may not have committed"
      "to the estimated value.",
     )
     occupationLocation: Optional[Union[List[Union['AdministrativeArea', str]], 'AdministrativeArea', str]] = Field(
-        None,
+        default=None,
         description="The region/country for which this occupational description is appropriate. Note that"
      "educational requirements and qualifications can vary between jurisdictions.",
     )
     responsibilities: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Responsibilities associated with this role or Occupation.",
     )
     qualifications: Optional[Union[List[Union[str, 'Text', 'EducationalOccupationalCredential']], str, 'Text', 'EducationalOccupationalCredential']] = Field(
-        None,
+        default=None,
         description="Specific qualifications required for this role or Occupation.",
     )
     occupationalCategory: Optional[Union[List[Union[str, 'Text', 'CategoryCode']], str, 'Text', 'CategoryCode']] = Field(
-        None,
+        default=None,
         description="A category describing the job, preferably using a term from a taxonomy such as [BLS O*NET-SOC](http://www.onetcenter.org/taxonomy.html),"
      "[ISCO-08](https://www.ilo.org/public/english/bureau/stat/isco/isco08/) or"
      "similar, with the property repeated for each applicable value. Ideally the taxonomy"
@@ -55,7 +55,7 @@ class Occupation(Intangible):
      "as a literal may be assumed to be from O*NET-SOC.",
     )
     educationRequirements: Optional[Union[List[Union[str, 'Text', 'EducationalOccupationalCredential']], str, 'Text', 'EducationalOccupationalCredential']] = Field(
-        None,
+        default=None,
         description="Educational background needed for the position or Occupation.",
     )
     
@@ -66,8 +66,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.OccupationalExperienceRequirements import OccupationalExperienceRequirements
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.Number import Number
-    from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
     from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
+    from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
     from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
     from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
     from pydantic_schemaorg.CategoryCode import CategoryCode

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class AskAction(CommunicateAction):
     """
     type_: str = Field("AskAction", alias='@type')
     question: Optional[Union[List[Union['Question', str]], 'Question', str]] = Field(
-        None,
+        default=None,
         description="A sub property of object. A question.",
     )
     

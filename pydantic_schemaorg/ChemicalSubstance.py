@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,16 +17,16 @@ class ChemicalSubstance(BioChemEntity):
     """
     type_: str = Field("ChemicalSubstance", alias='@type')
     chemicalComposition: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The chemical composition describes the identity and relative ratio of the chemical"
      "elements that make up the substance.",
     )
     chemicalRole: Optional[Union[List[Union['DefinedTerm', str]], 'DefinedTerm', str]] = Field(
-        None,
+        default=None,
         description="A role played by the BioChemEntity within a chemical context.",
     )
     potentialUse: Optional[Union[List[Union['DefinedTerm', str]], 'DefinedTerm', str]] = Field(
-        None,
+        default=None,
         description="Intended use of the BioChemEntity by humans.",
     )
     

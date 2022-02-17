@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -19,16 +19,16 @@ class InfectiousDisease(MedicalCondition):
     """
     type_: str = Field("InfectiousDisease", alias='@type')
     transmissionMethod: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="How the disease spreads, either as a route or vector, for example 'direct contact', 'Aedes"
      "aegypti', etc.",
     )
     infectiousAgent: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The actual infectious agent, such as a specific bacterium.",
     )
     infectiousAgentClass: Optional[Union[List[Union['InfectiousAgentClass', str]], 'InfectiousAgentClass', str]] = Field(
-        None,
+        default=None,
         description="The class of infectious agent (bacteria, prion, etc.) that causes the disease.",
     )
     

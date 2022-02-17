@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,11 +16,11 @@ class Menu(CreativeWork):
     """
     type_: str = Field("Menu", alias='@type')
     hasMenuSection: Optional[Union[List[Union['MenuSection', str]], 'MenuSection', str]] = Field(
-        None,
+        default=None,
         description="A subgrouping of the menu (by dishes, course, serving time period, etc.).",
     )
     hasMenuItem: Optional[Union[List[Union['MenuItem', str]], 'MenuItem', str]] = Field(
-        None,
+        default=None,
         description="A food or drink item contained in a menu or menu section.",
     )
     

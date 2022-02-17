@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -20,7 +20,7 @@ class Guide(CreativeWork):
     """
     type_: str = Field("Guide", alias='@type')
     reviewAspect: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="This Review or Rating is relevant to this part or facet of the itemReviewed.",
     )
     

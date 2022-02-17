@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from datetime import time
 
 
@@ -24,7 +24,7 @@ class Schedule(Intangible):
     """
     type_: str = Field("Schedule", alias='@type')
     exceptDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="Defines a [[Date]] or [[DateTime]] during which a scheduled [[Event]] will not take"
      "place. The property allows exceptions to a [[Schedule]] to be specified. If an exception"
      "is specified as a [[DateTime]] then only the event that would have started at that specific"
@@ -34,31 +34,31 @@ class Schedule(Intangible):
      "scheduled event.",
     )
     scheduleTimezone: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Indicates the timezone for which the time(s) indicated in the [[Schedule]] are given."
      "The value provided should be among those listed in the IANA Time Zone Database.",
     )
     byDay: Optional[Union[List[Union[str, 'Text', 'DayOfWeek']], str, 'Text', 'DayOfWeek']] = Field(
-        None,
+        default=None,
         description="Defines the day(s) of the week on which a recurring [[Event]] takes place. May be specified"
      "using either [[DayOfWeek]], or alternatively [[Text]] conforming to iCal's syntax"
      "for byDay recurrence rules.",
     )
     byMonthDay: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="Defines the day(s) of the month on which a recurring [[Event]] takes place. Specified"
      "as an [[Integer]] between 1-31.",
     )
     duration: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
-        None,
+        default=None,
         description="The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).",
     )
     repeatCount: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="Defines the number of times a recurring [[Event]] will take place",
     )
     endTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
-        None,
+        default=None,
         description="The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation),"
      "the time that it is expected to end. For actions that span a period of time, when the action"
      "was performed. e.g. John wrote a book from January to *December*. For media, including"
@@ -67,31 +67,31 @@ class Schedule(Intangible):
      "dates with times. This situation may be clarified in future revisions.",
     )
     endDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
     repeatFrequency: Optional[Union[List[Union[str, 'Text', 'Duration']], str, 'Text', 'Duration']] = Field(
-        None,
+        default=None,
         description="Defines the frequency at which [[Event]]s will occur according to a schedule [[Schedule]]."
      "The intervals between events should be defined as a [[Duration]] of time.",
     )
     byMonthWeek: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="Defines the week(s) of the month on which a recurring Event takes place. Specified as"
      "an Integer between 1-5. For clarity, byMonthWeek is best used in conjunction with byDay"
      "to indicate concepts like the first and third Mondays of a month.",
     )
     byMonth: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="Defines the month(s) of the year on which a recurring [[Event]] takes place. Specified"
      "as an [[Integer]] between 1-12. January is 1.",
     )
     startDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
     startTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
-        None,
+        default=None,
         description="The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation),"
      "the time that it is expected to start. For actions that span a period of time, when the action"
      "was performed. e.g. John wrote a book from *January* to December. For media, including"

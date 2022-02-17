@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -22,17 +22,17 @@ class HyperTocEntry(CreativeWork):
     """
     type_: str = Field("HyperTocEntry", alias='@type')
     utterances: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of"
      "a media object, represented as a [[HyperTocEntry]].",
     )
     tocContinuation: Optional[Union[List[Union['HyperTocEntry', str]], 'HyperTocEntry', str]] = Field(
-        None,
+        default=None,
         description="A [[HyperTocEntry]] can have a [[tocContinuation]] indicated, which is another [[HyperTocEntry]]"
      "that would be the default next item to play or render.",
     )
     associatedMedia: Optional[Union[List[Union['MediaObject', str]], 'MediaObject', str]] = Field(
-        None,
+        default=None,
         description="A media object that encodes this CreativeWork. This property is a synonym for encoding.",
     )
     

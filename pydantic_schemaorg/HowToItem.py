@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from decimal import Decimal
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,7 +18,7 @@ class HowToItem(ListItem):
     """
     type_: str = Field("HowToItem", alias='@type')
     requiredQuantity: Optional[Union[List[Union[Decimal, 'Number', str, 'Text', 'QuantitativeValue']], Decimal, 'Number', str, 'Text', 'QuantitativeValue']] = Field(
-        None,
+        default=None,
         description="The required quantity of the item(s).",
     )
     

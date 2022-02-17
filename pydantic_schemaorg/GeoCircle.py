@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -20,11 +20,11 @@ class GeoCircle(GeoShape):
     """
     type_: str = Field("GeoCircle", alias='@type')
     geoMidpoint: Optional[Union[List[Union['GeoCoordinates', str]], 'GeoCoordinates', str]] = Field(
-        None,
+        default=None,
         description="Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle.",
     )
     geoRadius: Optional[Union[List[Union[Decimal, 'Number', str, 'Text', 'Distance']], Decimal, 'Number', str, 'Text', 'Distance']] = Field(
-        None,
+        default=None,
         description="Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise"
      "via Distance notation).",
     )

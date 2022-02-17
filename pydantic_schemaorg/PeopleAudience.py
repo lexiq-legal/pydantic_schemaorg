@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from decimal import Decimal
 
 
@@ -17,43 +17,43 @@ class PeopleAudience(Audience):
     """
     type_: str = Field("PeopleAudience", alias='@type')
     suggestedGender: Optional[Union[List[Union[str, 'Text', 'GenderType']], str, 'Text', 'GenderType']] = Field(
-        None,
+        default=None,
         description="The suggested gender of the intended person or audience, for example \"male\", \"female\","
      "or \"unisex\".",
     )
     requiredMaxAge: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="Audiences defined by a person's maximum age.",
     )
     suggestedAge: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="The age or age range for the intended audience or person, for example 3-12 months for infants,"
      "1-5 years for toddlers.",
     )
     suggestedMaxAge: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
-        None,
+        default=None,
         description="Maximum recommended age in years for the audience or user.",
     )
     suggestedMinAge: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
-        None,
+        default=None,
         description="Minimum recommended age in years for the audience or user.",
     )
     suggestedMeasurement: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="A suggested range of body measurements for the intended audience or person, for example"
      "inseam between 32 and 34 inches or height between 170 and 190 cm. Typically found on a size"
      "chart for wearable products.",
     )
     requiredGender: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Audiences defined by a person's gender.",
     )
     healthCondition: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
-        None,
+        default=None,
         description="Specifying the health condition(s) of a patient, medical study, or other target audience.",
     )
     requiredMinAge: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
-        None,
+        default=None,
         description="Audiences defined by a person's minimum age.",
     )
     

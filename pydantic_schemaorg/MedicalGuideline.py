@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 
 
@@ -22,19 +22,19 @@ class MedicalGuideline(MedicalEntity):
     """
     type_: str = Field("MedicalGuideline", alias='@type')
     evidenceOrigin: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="Source of the data used to formulate the guidance, e.g. RCT, consensus opinion, etc.",
     )
     evidenceLevel: Optional[Union[List[Union['MedicalEvidenceLevel', str]], 'MedicalEvidenceLevel', str]] = Field(
-        None,
+        default=None,
         description="Strength of evidence of the data used to formulate the guideline (enumerated).",
     )
     guidelineDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="Date on which this guideline's recommendation was made.",
     )
     guidelineSubject: Optional[Union[List[Union['MedicalEntity', str]], 'MedicalEntity', str]] = Field(
-        None,
+        default=None,
         description="The medical conditions, treatments, etc. that are the subject of the guideline.",
     )
     

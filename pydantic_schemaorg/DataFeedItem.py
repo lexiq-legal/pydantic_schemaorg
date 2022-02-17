@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,20 +17,20 @@ class DataFeedItem(Intangible):
     """
     type_: str = Field("DataFeedItem", alias='@type')
     dateDeleted: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The datetime the item was removed from the DataFeed.",
     )
     item: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
-        None,
+        default=None,
         description="An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.",
     )
     dateModified: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The date on which the CreativeWork was most recently modified or when the item's entry"
      "was modified within a DataFeed.",
     )
     dateCreated: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The date on which the CreativeWork was created or the item was added to a DataFeed.",
     )
     

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -15,26 +15,26 @@ class BusTrip(Trip):
     Model depth: 4
     """
     type_: str = Field("BusTrip", alias='@type')
-    departureBusStop: Optional[Union[List[Union['BusStop', 'BusStation', str]], 'BusStop', 'BusStation', str]] = Field(
-        None,
+    departureBusStop: Optional[Union[List[Union['BusStation', 'BusStop', str]], 'BusStation', 'BusStop', str]] = Field(
+        default=None,
         description="The stop or station from which the bus departs.",
     )
-    arrivalBusStop: Optional[Union[List[Union['BusStop', 'BusStation', str]], 'BusStop', 'BusStation', str]] = Field(
-        None,
+    arrivalBusStop: Optional[Union[List[Union['BusStation', 'BusStop', str]], 'BusStation', 'BusStop', str]] = Field(
+        default=None,
         description="The stop or station from which the bus arrives.",
     )
     busNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The unique identifier for the bus.",
     )
     busName: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The name of the bus (e.g. Bolt Express).",
     )
     
 
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.BusStop import BusStop
     from pydantic_schemaorg.BusStation import BusStation
+    from pydantic_schemaorg.BusStop import BusStop
     from pydantic_schemaorg.Text import Text

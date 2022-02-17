@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 
 
@@ -17,19 +17,19 @@ class Taxon(Thing):
     """
     type_: str = Field("Taxon", alias='@type')
     hasDefinedTerm: Optional[Union[List[Union['DefinedTerm', str]], 'DefinedTerm', str]] = Field(
-        None,
+        default=None,
         description="A Defined Term contained in this term set.",
     )
     childTaxon: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Taxon']], AnyUrl, 'URL', str, 'Text', 'Taxon']] = Field(
-        None,
+        default=None,
         description="Closest child taxa of the taxon in question.",
     )
     parentTaxon: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Taxon']], AnyUrl, 'URL', str, 'Text', 'Taxon']] = Field(
-        None,
+        default=None,
         description="Closest parent taxon of the taxon in question.",
     )
     taxonRank: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'PropertyValue']], AnyUrl, 'URL', str, 'Text', 'PropertyValue']] = Field(
-        None,
+        default=None,
         description="The taxonomic rank of this taxon given preferably as a URI from a controlled vocabulary"
      "– (typically the ranks from TDWG TaxonRank ontology or equivalent Wikidata URIs).",
     )

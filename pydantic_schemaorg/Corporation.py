@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class Corporation(Organization):
     """
     type_: str = Field("Corporation", alias='@type')
     tickerSymbol: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The exchange traded instrument associated with a Corporation object. The tickerSymbol"
      "is expressed as an exchange and an instrument name separated by a space character. For"
      "the exchange component of the tickerSymbol attribute, we recommend using the controlled"

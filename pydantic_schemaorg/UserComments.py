@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic import AnyUrl
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 
@@ -20,23 +20,23 @@ class UserComments(UserInteraction):
     """
     type_: str = Field("UserComments", alias='@type')
     discusses: Optional[Union[List[Union['CreativeWork', str]], 'CreativeWork', str]] = Field(
-        None,
+        default=None,
         description="Specifies the CreativeWork associated with the UserComment.",
     )
     commentText: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The text of the UserComment.",
     )
     replyToUrl: Optional[Union[List[Union[AnyUrl, 'URL', str]], AnyUrl, 'URL', str]] = Field(
-        None,
+        default=None,
         description="The URL at which a reply may be posted to the specified UserComment.",
     )
     commentTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
-        None,
+        default=None,
         description="The time at which the UserComment was made.",
     )
-    creator: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
-        None,
+    creator: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+        default=None,
         description="The creator/author of this CreativeWork. This is the same as the Author property for"
      "CreativeWork.",
     )
@@ -49,5 +49,5 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Date import Date
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.Organization import Organization

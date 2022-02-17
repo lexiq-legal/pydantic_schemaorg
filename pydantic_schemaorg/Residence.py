@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class Residence(Place):
     """
     type_: str = Field("Residence", alias='@type')
     accommodationFloorPlan: Optional[Union[List[Union['FloorPlan', str]], 'FloorPlan', str]] = Field(
-        None,
+        default=None,
         description="A floorplan of some [[Accommodation]].",
     )
     

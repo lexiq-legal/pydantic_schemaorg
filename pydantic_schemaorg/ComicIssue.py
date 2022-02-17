@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -20,30 +20,30 @@ class ComicIssue(PublicationIssue):
     """
     type_: str = Field("ComicIssue", alias='@type')
     colorist: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="The individual who adds color to inked drawings.",
     )
     artist: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="The primary artist for a work in a medium other than pencils or digital line art--for example,"
      "if the primary artwork is done in watercolors or digital paints.",
     )
     letterer: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="The individual who adds lettering, including speech balloons and sound effects, to"
      "artwork.",
     )
     variantCover: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="A description of the variant cover for the issue, if the issue is a variant printing. For"
      "example, \"Bryan Hitch Variant Cover\" or \"2nd Printing Variant\".",
     )
     penciler: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="The individual who draws the primary narrative artwork.",
     )
     inker: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
-        None,
+        default=None,
         description="The individual who traces over the pencil drawings in ink after pencils are complete.",
     )
     

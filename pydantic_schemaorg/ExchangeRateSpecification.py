@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from decimal import Decimal
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -17,16 +17,16 @@ class ExchangeRateSpecification(StructuredValue):
     """
     type_: str = Field("ExchangeRateSpecification", alias='@type')
     exchangeRateSpread: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', str]], Decimal, 'Number', 'MonetaryAmount', str]] = Field(
-        None,
+        default=None,
         description="The difference between the price at which a broker or other intermediary buys and sells"
      "foreign currency.",
     )
     currentExchangeRate: Optional[Union[List[Union['UnitPriceSpecification', str]], 'UnitPriceSpecification', str]] = Field(
-        None,
+        default=None,
         description="The current price of a currency.",
     )
     currency: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
-        None,
+        default=None,
         description="The currency in which the monetary amount is expressed. Use standard formats: [ISO 4217"
      "currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. \"USD\"; [Ticker"
      "symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies"

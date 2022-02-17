@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
 
 
@@ -24,25 +24,25 @@ class Observation(Intangible):
     """
     type_: str = Field("Observation", alias='@type')
     measuredProperty: Optional[Union[List[Union['Property', str]], 'Property', str]] = Field(
-        None,
+        default=None,
         description="The measuredProperty of an [[Observation]], either a schema.org property, a property"
      "from other RDF-compatible systems e.g. W3C RDF Data Cube, or schema.org extensions"
      "such as [GS1's](https://www.gs1.org/voc/?show=properties).",
     )
     observationDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
-        None,
+        default=None,
         description="The observationDate of an [[Observation]].",
     )
     marginOfError: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
-        None,
+        default=None,
         description="A marginOfError for an [[Observation]].",
     )
     observedNode: Optional[Union[List[Union['StatisticalPopulation', str]], 'StatisticalPopulation', str]] = Field(
-        None,
+        default=None,
         description="The observedNode of an [[Observation]], often a [[StatisticalPopulation]].",
     )
     measuredValue: Optional[Union[List[Union['DataType', str]], 'DataType', str]] = Field(
-        None,
+        default=None,
         description="The measuredValue of an [[Observation]].",
     )
     

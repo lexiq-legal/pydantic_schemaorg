@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -16,13 +16,13 @@ class MenuItem(Intangible):
     """
     type_: str = Field("MenuItem", alias='@type')
     menuAddOn: Optional[Union[List[Union['MenuItem', 'MenuSection', str]], 'MenuItem', 'MenuSection', str]] = Field(
-        None,
+        default=None,
         description="Additional menu item(s) such as a side dish of salad or side order of fries that can be added"
      "to this menu item. Additionally it can be a menu section containing allowed add-on menu"
      "items for this menu item.",
     )
     offers: Optional[Union[List[Union['Demand', 'Offer', str]], 'Demand', 'Offer', str]] = Field(
-        None,
+        default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
      "to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can"
@@ -31,11 +31,11 @@ class MenuItem(Intangible):
      "or a subtype of Product, can clarify the nature of the offer.",
     )
     nutrition: Optional[Union[List[Union['NutritionInformation', str]], 'NutritionInformation', str]] = Field(
-        None,
+        default=None,
         description="Nutrition information about the recipe or menu item.",
     )
     suitableForDiet: Optional[Union[List[Union['RestrictedDiet', str]], 'RestrictedDiet', str]] = Field(
-        None,
+        default=None,
         description="Indicates a dietary restriction or guideline for which this recipe or menu item is suitable,"
      "e.g. diabetic, halal etc.",
     )

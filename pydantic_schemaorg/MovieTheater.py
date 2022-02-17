@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from decimal import Decimal
-from typing import Union, List, Optional
+from typing import List, Optional, Union
 
 
 from pydantic import Field
@@ -18,7 +18,7 @@ class MovieTheater(EntertainmentBusiness, CivicStructure):
     """
     type_: str = Field("MovieTheater", alias='@type')
     screenCount: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
-        None,
+        default=None,
         description="The number of screens in the movie theater.",
     )
     
