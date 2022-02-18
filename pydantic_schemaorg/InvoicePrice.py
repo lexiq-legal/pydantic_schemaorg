@@ -11,5 +11,5 @@ class InvoicePrice(PriceTypeEnumeration):
     See: https://schema.org/InvoicePrice
     Model depth: 5
     """
-    type_: str = Field(default="InvoicePrice", alias='@type')
+    type_: str = Field(default="InvoicePrice", alias='@type', constant=True)
     

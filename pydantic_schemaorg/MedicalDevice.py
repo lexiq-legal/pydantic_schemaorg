@@ -14,7 +14,7 @@ class MedicalDevice(MedicalEntity):
     See: https://schema.org/MedicalDevice
     Model depth: 3
     """
-    type_: str = Field(default="MedicalDevice", alias='@type')
+    type_: str = Field(default="MedicalDevice", alias='@type', constant=True)
     postOp: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A description of the postoperative procedures, care, and/or followups for this device.",

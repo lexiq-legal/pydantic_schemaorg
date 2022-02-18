@@ -11,5 +11,5 @@ class ContagiousnessHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/ContagiousnessHealthAspect
     Model depth: 5
     """
-    type_: str = Field(default="ContagiousnessHealthAspect", alias='@type')
+    type_: str = Field(default="ContagiousnessHealthAspect", alias='@type', constant=True)
     

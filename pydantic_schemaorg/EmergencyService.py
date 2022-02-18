@@ -11,5 +11,5 @@ class EmergencyService(LocalBusiness):
     See: https://schema.org/EmergencyService
     Model depth: 4
     """
-    type_: str = Field(default="EmergencyService", alias='@type')
+    type_: str = Field(default="EmergencyService", alias='@type', constant=True)
     

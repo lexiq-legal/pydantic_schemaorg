@@ -11,5 +11,5 @@ class MusicAlbumReleaseType(Enumeration):
     See: https://schema.org/MusicAlbumReleaseType
     Model depth: 4
     """
-    type_: str = Field(default="MusicAlbumReleaseType", alias='@type')
+    type_: str = Field(default="MusicAlbumReleaseType", alias='@type', constant=True)
     

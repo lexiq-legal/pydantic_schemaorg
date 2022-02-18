@@ -11,5 +11,5 @@ class PerformingArtsTheater(CivicStructure):
     See: https://schema.org/PerformingArtsTheater
     Model depth: 4
     """
-    type_: str = Field(default="PerformingArtsTheater", alias='@type')
+    type_: str = Field(default="PerformingArtsTheater", alias='@type', constant=True)
     

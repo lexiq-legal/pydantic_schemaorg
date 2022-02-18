@@ -17,7 +17,7 @@ class WorkBasedProgram(EducationalOccupationalProgram):
     See: https://schema.org/WorkBasedProgram
     Model depth: 4
     """
-    type_: str = Field(default="WorkBasedProgram", alias='@type')
+    type_: str = Field(default="WorkBasedProgram", alias='@type', constant=True)
     trainingSalary: Optional[Union[List[Union['MonetaryAmountDistribution', str]], 'MonetaryAmountDistribution', str]] = Field(
         default=None,
         description="The estimated salary earned while in the program.",

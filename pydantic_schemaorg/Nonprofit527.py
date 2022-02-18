@@ -11,5 +11,5 @@ class Nonprofit527(USNonprofitType):
     See: https://schema.org/Nonprofit527
     Model depth: 6
     """
-    type_: str = Field(default="Nonprofit527", alias='@type')
+    type_: str = Field(default="Nonprofit527", alias='@type', constant=True)
     

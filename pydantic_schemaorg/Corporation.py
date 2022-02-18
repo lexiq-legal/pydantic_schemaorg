@@ -14,7 +14,7 @@ class Corporation(Organization):
     See: https://schema.org/Corporation
     Model depth: 3
     """
-    type_: str = Field(default="Corporation", alias='@type')
+    type_: str = Field(default="Corporation", alias='@type', constant=True)
     tickerSymbol: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The exchange traded instrument associated with a Corporation object. The tickerSymbol"

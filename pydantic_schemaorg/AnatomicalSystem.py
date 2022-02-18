@@ -18,7 +18,7 @@ class AnatomicalSystem(MedicalEntity):
     See: https://schema.org/AnatomicalSystem
     Model depth: 3
     """
-    type_: str = Field(default="AnatomicalSystem", alias='@type')
+    type_: str = Field(default="AnatomicalSystem", alias='@type', constant=True)
     comprisedOf: Optional[Union[List[Union['AnatomicalStructure', 'AnatomicalSystem', str]], 'AnatomicalStructure', 'AnatomicalSystem', str]] = Field(
         default=None,
         description="Specifying something physically contained by something else. Typically used here"

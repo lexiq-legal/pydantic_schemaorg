@@ -12,5 +12,5 @@ class BodyMeasurementHeight(BodyMeasurementTypeEnumeration):
     See: https://schema.org/BodyMeasurementHeight
     Model depth: 6
     """
-    type_: str = Field(default="BodyMeasurementHeight", alias='@type')
+    type_: str = Field(default="BodyMeasurementHeight", alias='@type', constant=True)
     

@@ -11,5 +11,5 @@ class Registry(MedicalObservationalStudyDesign):
     See: https://schema.org/Registry
     Model depth: 6
     """
-    type_: str = Field(default="Registry", alias='@type')
+    type_: str = Field(default="Registry", alias='@type', constant=True)
     

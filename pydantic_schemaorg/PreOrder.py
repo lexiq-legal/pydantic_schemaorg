@@ -11,5 +11,5 @@ class PreOrder(ItemAvailability):
     See: https://schema.org/PreOrder
     Model depth: 5
     """
-    type_: str = Field(default="PreOrder", alias='@type')
+    type_: str = Field(default="PreOrder", alias='@type', constant=True)
     

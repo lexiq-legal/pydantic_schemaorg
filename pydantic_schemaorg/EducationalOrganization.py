@@ -15,7 +15,7 @@ class EducationalOrganization(CivicStructure, Organization):
     See: https://schema.org/EducationalOrganization
     Model depth: 3
     """
-    type_: str = Field(default="EducationalOrganization", alias='@type')
+    type_: str = Field(default="EducationalOrganization", alias='@type', constant=True)
     alumni: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
         default=None,
         description="Alumni of an organization.",

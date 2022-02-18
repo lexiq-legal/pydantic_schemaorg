@@ -12,5 +12,5 @@ class Atlas(CreativeWork):
     See: https://schema.org/Atlas
     Model depth: 3
     """
-    type_: str = Field(default="Atlas", alias='@type')
+    type_: str = Field(default="Atlas", alias='@type', constant=True)
     

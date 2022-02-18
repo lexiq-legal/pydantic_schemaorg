@@ -11,5 +11,5 @@ class TelevisionChannel(BroadcastChannel):
     See: https://schema.org/TelevisionChannel
     Model depth: 4
     """
-    type_: str = Field(default="TelevisionChannel", alias='@type')
+    type_: str = Field(default="TelevisionChannel", alias='@type', constant=True)
     

@@ -11,5 +11,5 @@ class Park(CivicStructure):
     See: https://schema.org/Park
     Model depth: 4
     """
-    type_: str = Field(default="Park", alias='@type')
+    type_: str = Field(default="Park", alias='@type', constant=True)
     

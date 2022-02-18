@@ -23,8 +23,8 @@ class MediaReview(Review):
     See: https://schema.org/MediaReview
     Model depth: 4
     """
-    type_: str = Field(default="MediaReview", alias='@type')
-    originalMediaLink: Optional[Union[List[Union[AnyUrl, 'URL', 'WebPage', 'MediaObject', str]], AnyUrl, 'URL', 'WebPage', 'MediaObject', str]] = Field(
+    type_: str = Field(default="MediaReview", alias='@type', constant=True)
+    originalMediaLink: Optional[Union[List[Union[AnyUrl, 'URL', 'MediaObject', 'WebPage', str]], AnyUrl, 'URL', 'MediaObject', 'WebPage', str]] = Field(
         default=None,
         description="Link to the page containing an original version of the content, or directly to an online"
      "copy of the original [[MediaObject]] content, e.g. video file.",
@@ -43,7 +43,7 @@ class MediaReview(Review):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL
-    from pydantic_schemaorg.WebPage import WebPage
     from pydantic_schemaorg.MediaObject import MediaObject
+    from pydantic_schemaorg.WebPage import WebPage
     from pydantic_schemaorg.MediaManipulationRatingEnumeration import MediaManipulationRatingEnumeration
     from pydantic_schemaorg.Text import Text

@@ -11,5 +11,5 @@ class StoreCreditRefund(RefundTypeEnumeration):
     See: https://schema.org/StoreCreditRefund
     Model depth: 5
     """
-    type_: str = Field(default="StoreCreditRefund", alias='@type')
+    type_: str = Field(default="StoreCreditRefund", alias='@type', constant=True)
     

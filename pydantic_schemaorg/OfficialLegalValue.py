@@ -14,5 +14,5 @@ class OfficialLegalValue(LegalValueLevel):
     See: https://schema.org/OfficialLegalValue
     Model depth: 5
     """
-    type_: str = Field(default="OfficialLegalValue", alias='@type')
+    type_: str = Field(default="OfficialLegalValue", alias='@type', constant=True)
     

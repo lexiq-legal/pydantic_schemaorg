@@ -14,5 +14,5 @@ class UnRegisterAction(InteractAction):
     See: https://schema.org/UnRegisterAction
     Model depth: 4
     """
-    type_: str = Field(default="UnRegisterAction", alias='@type')
+    type_: str = Field(default="UnRegisterAction", alias='@type', constant=True)
     

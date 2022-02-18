@@ -11,5 +11,5 @@ class TransitMap(MapCategoryType):
     See: https://schema.org/TransitMap
     Model depth: 5
     """
-    type_: str = Field(default="TransitMap", alias='@type')
+    type_: str = Field(default="TransitMap", alias='@type', constant=True)
     

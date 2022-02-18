@@ -11,5 +11,5 @@ class DaySpa(HealthAndBeautyBusiness):
     See: https://schema.org/DaySpa
     Model depth: 5
     """
-    type_: str = Field(default="DaySpa", alias='@type')
+    type_: str = Field(default="DaySpa", alias='@type', constant=True)
     

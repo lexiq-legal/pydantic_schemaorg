@@ -11,5 +11,5 @@ class LibrarySystem(Organization):
     See: https://schema.org/LibrarySystem
     Model depth: 3
     """
-    type_: str = Field(default="LibrarySystem", alias='@type')
+    type_: str = Field(default="LibrarySystem", alias='@type', constant=True)
     

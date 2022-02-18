@@ -11,5 +11,5 @@ class Observational(MedicalObservationalStudyDesign):
     See: https://schema.org/Observational
     Model depth: 6
     """
-    type_: str = Field(default="Observational", alias='@type')
+    type_: str = Field(default="Observational", alias='@type', constant=True)
     

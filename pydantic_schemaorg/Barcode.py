@@ -11,5 +11,5 @@ class Barcode(ImageObject):
     See: https://schema.org/Barcode
     Model depth: 5
     """
-    type_: str = Field(default="Barcode", alias='@type')
+    type_: str = Field(default="Barcode", alias='@type', constant=True)
     

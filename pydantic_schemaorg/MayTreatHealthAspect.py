@@ -11,5 +11,5 @@ class MayTreatHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/MayTreatHealthAspect
     Model depth: 5
     """
-    type_: str = Field(default="MayTreatHealthAspect", alias='@type')
+    type_: str = Field(default="MayTreatHealthAspect", alias='@type', constant=True)
     

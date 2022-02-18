@@ -16,16 +16,16 @@ class OrderItem(Intangible):
     See: https://schema.org/OrderItem
     Model depth: 3
     """
-    type_: str = Field(default="OrderItem", alias='@type')
+    type_: str = Field(default="OrderItem", alias='@type', constant=True)
     orderDelivery: Optional[Union[List[Union['ParcelDelivery', str]], 'ParcelDelivery', str]] = Field(
         default=None,
         description="The delivery of the parcel related to this order or order item.",
     )
-    orderedItem: Optional[Union[List[Union['Service', 'Product', 'OrderItem', str]], 'Service', 'Product', 'OrderItem', str]] = Field(
+    orderedItem: Optional[Union[List[Union['Service', 'OrderItem', 'Product', str]], 'Service', 'OrderItem', 'Product', str]] = Field(
         default=None,
         description="The item ordered.",
     )
-    orderQuantity: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    orderQuantity: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="The number of the item ordered. If the property is not set, assume the quantity is one.",
     )

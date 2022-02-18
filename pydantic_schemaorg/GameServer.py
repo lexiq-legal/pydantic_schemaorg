@@ -14,7 +14,7 @@ class GameServer(Intangible):
     See: https://schema.org/GameServer
     Model depth: 3
     """
-    type_: str = Field(default="GameServer", alias='@type')
+    type_: str = Field(default="GameServer", alias='@type', constant=True)
     serverStatus: Optional[Union[List[Union['GameServerStatus', str]], 'GameServerStatus', str]] = Field(
         default=None,
         description="Status of a game server.",

@@ -11,5 +11,5 @@ class CommentPermission(DigitalDocumentPermissionType):
     See: https://schema.org/CommentPermission
     Model depth: 5
     """
-    type_: str = Field(default="CommentPermission", alias='@type')
+    type_: str = Field(default="CommentPermission", alias='@type', constant=True)
     

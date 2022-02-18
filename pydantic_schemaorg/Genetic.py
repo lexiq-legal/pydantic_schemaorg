@@ -12,5 +12,5 @@ class Genetic(MedicalSpecialty):
     See: https://schema.org/Genetic
     Model depth: 6
     """
-    type_: str = Field(default="Genetic", alias='@type')
+    type_: str = Field(default="Genetic", alias='@type', constant=True)
     

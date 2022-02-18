@@ -14,7 +14,7 @@ class ConsumeAction(Action):
     See: https://schema.org/ConsumeAction
     Model depth: 3
     """
-    type_: str = Field(default="ConsumeAction", alias='@type')
+    type_: str = Field(default="ConsumeAction", alias='@type', constant=True)
     actionAccessibilityRequirement: Optional[Union[List[Union['ActionAccessSpecification', str]], 'ActionAccessSpecification', str]] = Field(
         default=None,
         description="A set of requirements that a must be fulfilled in order to perform an Action. If more than"

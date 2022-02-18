@@ -19,7 +19,7 @@ class OpeningHoursSpecification(StructuredValue):
     See: https://schema.org/OpeningHoursSpecification
     Model depth: 4
     """
-    type_: str = Field(default="OpeningHoursSpecification", alias='@type')
+    type_: str = Field(default="OpeningHoursSpecification", alias='@type', constant=True)
     opens: Optional[Union[List[Union[time, 'Time', str]], time, 'Time', str]] = Field(
         default=None,
         description="The opening hour of the place or service on the given day(s) of the week.",

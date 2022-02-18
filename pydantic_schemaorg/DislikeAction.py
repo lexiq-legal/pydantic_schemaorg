@@ -12,5 +12,5 @@ class DislikeAction(ReactAction):
     See: https://schema.org/DislikeAction
     Model depth: 5
     """
-    type_: str = Field(default="DislikeAction", alias='@type')
+    type_: str = Field(default="DislikeAction", alias='@type', constant=True)
     

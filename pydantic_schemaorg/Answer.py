@@ -14,7 +14,7 @@ class Answer(Comment):
     See: https://schema.org/Answer
     Model depth: 4
     """
-    type_: str = Field(default="Answer", alias='@type')
+    type_: str = Field(default="Answer", alias='@type', constant=True)
     answerExplanation: Optional[Union[List[Union['Comment', 'WebContent', str]], 'Comment', 'WebContent', str]] = Field(
         default=None,
         description="A step-by-step or full explanation about Answer. Can outline how this Answer was achieved"

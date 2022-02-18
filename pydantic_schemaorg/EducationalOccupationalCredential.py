@@ -17,7 +17,7 @@ class EducationalOccupationalCredential(CreativeWork):
     See: https://schema.org/EducationalOccupationalCredential
     Model depth: 3
     """
-    type_: str = Field(default="EducationalOccupationalCredential", alias='@type')
+    type_: str = Field(default="EducationalOccupationalCredential", alias='@type', constant=True)
     validFor: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
         default=None,
         description="The duration of validity of a permit or similar thing.",

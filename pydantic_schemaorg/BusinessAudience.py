@@ -15,7 +15,7 @@ class BusinessAudience(Audience):
     See: https://schema.org/BusinessAudience
     Model depth: 4
     """
-    type_: str = Field(default="BusinessAudience", alias='@type')
+    type_: str = Field(default="BusinessAudience", alias='@type', constant=True)
     yearsInOperation: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
         default=None,
         description="The age of the business.",

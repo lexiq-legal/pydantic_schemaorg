@@ -18,12 +18,12 @@ class GeoCircle(GeoShape):
     See: https://schema.org/GeoCircle
     Model depth: 5
     """
-    type_: str = Field(default="GeoCircle", alias='@type')
+    type_: str = Field(default="GeoCircle", alias='@type', constant=True)
     geoMidpoint: Optional[Union[List[Union['GeoCoordinates', str]], 'GeoCoordinates', str]] = Field(
         default=None,
         description="Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle.",
     )
-    geoRadius: Optional[Union[List[Union[Decimal, 'Number', str, 'Text', 'Distance']], Decimal, 'Number', str, 'Text', 'Distance']] = Field(
+    geoRadius: Optional[Union[List[Union[int, float, 'Number', str, 'Text', 'Distance']], int, float, 'Number', str, 'Text', 'Distance']] = Field(
         default=None,
         description="Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise"
      "via Distance notation).",

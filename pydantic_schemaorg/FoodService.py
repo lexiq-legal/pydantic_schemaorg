@@ -11,5 +11,5 @@ class FoodService(Service):
     See: https://schema.org/FoodService
     Model depth: 4
     """
-    type_: str = Field(default="FoodService", alias='@type')
+    type_: str = Field(default="FoodService", alias='@type', constant=True)
     

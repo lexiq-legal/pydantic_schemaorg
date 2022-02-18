@@ -15,7 +15,7 @@ class MobileApplication(SoftwareApplication):
     See: https://schema.org/MobileApplication
     Model depth: 4
     """
-    type_: str = Field(default="MobileApplication", alias='@type')
+    type_: str = Field(default="MobileApplication", alias='@type', constant=True)
     carrierRequirements: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Specifies specific carrier(s) requirements for the application (e.g. an application"

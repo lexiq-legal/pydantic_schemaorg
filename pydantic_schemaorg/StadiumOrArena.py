@@ -12,5 +12,5 @@ class StadiumOrArena(SportsActivityLocation, CivicStructure):
     See: https://schema.org/StadiumOrArena
     Model depth: 4
     """
-    type_: str = Field(default="StadiumOrArena", alias='@type')
+    type_: str = Field(default="StadiumOrArena", alias='@type', constant=True)
     

@@ -11,5 +11,5 @@ class WearableSizeSystemEN13402(WearableSizeSystemEnumeration):
     See: https://schema.org/WearableSizeSystemEN13402
     Model depth: 6
     """
-    type_: str = Field(default="WearableSizeSystemEN13402", alias='@type')
+    type_: str = Field(default="WearableSizeSystemEN13402", alias='@type', constant=True)
     

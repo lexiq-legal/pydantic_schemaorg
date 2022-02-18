@@ -15,5 +15,5 @@ class VideoObjectSnapshot(VideoObject):
     See: https://schema.org/VideoObjectSnapshot
     Model depth: 5
     """
-    type_: str = Field(default="VideoObjectSnapshot", alias='@type')
+    type_: str = Field(default="VideoObjectSnapshot", alias='@type', constant=True)
     

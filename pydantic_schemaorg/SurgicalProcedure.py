@@ -12,5 +12,5 @@ class SurgicalProcedure(MedicalProcedure):
     See: https://schema.org/SurgicalProcedure
     Model depth: 4
     """
-    type_: str = Field(default="SurgicalProcedure", alias='@type')
+    type_: str = Field(default="SurgicalProcedure", alias='@type', constant=True)
     

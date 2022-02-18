@@ -11,5 +11,5 @@ class IgnoreAction(AssessAction):
     See: https://schema.org/IgnoreAction
     Model depth: 4
     """
-    type_: str = Field(default="IgnoreAction", alias='@type')
+    type_: str = Field(default="IgnoreAction", alias='@type', constant=True)
     

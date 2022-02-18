@@ -5,11 +5,11 @@ from typing import List, Optional, Union
 
 
 from pydantic import Field
-from pydantic_schemaorg.Place import Place
 from pydantic_schemaorg.Organization import Organization
+from pydantic_schemaorg.Place import Place
 
 
-class LocalBusiness(Place, Organization):
+class LocalBusiness(Organization, Place):
     """A particular physical business or branch of an organization. Examples of LocalBusiness"
      "include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a"
      "medical practice, a club, a bowling alley, etc.
@@ -17,7 +17,7 @@ class LocalBusiness(Place, Organization):
     See: https://schema.org/LocalBusiness
     Model depth: 3
     """
-    type_: str = Field(default="LocalBusiness", alias='@type')
+    type_: str = Field(default="LocalBusiness", alias='@type', constant=True)
     priceRange: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The price range of the business, for example ```$$$```.",

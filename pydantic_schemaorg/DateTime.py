@@ -12,5 +12,5 @@ class DateTime(DataType):
     See: https://schema.org/DateTime
     Model depth: 5
     """
-    type_: str = Field(default="DateTime", alias='@type')
+    type_: str = Field(default="DateTime", alias='@type', constant=True)
     

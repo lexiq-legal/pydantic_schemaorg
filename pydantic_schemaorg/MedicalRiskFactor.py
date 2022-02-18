@@ -15,7 +15,7 @@ class MedicalRiskFactor(MedicalEntity):
     See: https://schema.org/MedicalRiskFactor
     Model depth: 3
     """
-    type_: str = Field(default="MedicalRiskFactor", alias='@type')
+    type_: str = Field(default="MedicalRiskFactor", alias='@type', constant=True)
     increasesRiskOf: Optional[Union[List[Union['MedicalEntity', str]], 'MedicalEntity', str]] = Field(
         default=None,
         description="The condition, complication, etc. influenced by this factor.",

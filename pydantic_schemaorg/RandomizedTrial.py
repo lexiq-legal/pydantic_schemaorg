@@ -11,5 +11,5 @@ class RandomizedTrial(MedicalTrialDesign):
     See: https://schema.org/RandomizedTrial
     Model depth: 6
     """
-    type_: str = Field(default="RandomizedTrial", alias='@type')
+    type_: str = Field(default="RandomizedTrial", alias='@type', constant=True)
     

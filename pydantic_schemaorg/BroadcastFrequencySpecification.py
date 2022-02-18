@@ -15,12 +15,12 @@ class BroadcastFrequencySpecification(Intangible):
     See: https://schema.org/BroadcastFrequencySpecification
     Model depth: 3
     """
-    type_: str = Field(default="BroadcastFrequencySpecification", alias='@type')
+    type_: str = Field(default="BroadcastFrequencySpecification", alias='@type', constant=True)
     broadcastSignalModulation: Optional[Union[List[Union[str, 'Text', 'QualitativeValue']], str, 'Text', 'QualitativeValue']] = Field(
         default=None,
         description="The modulation (e.g. FM, AM, etc) used by a particular broadcast service.",
     )
-    broadcastFrequencyValue: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    broadcastFrequencyValue: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The frequency in MHz for a particular broadcast.",
     )

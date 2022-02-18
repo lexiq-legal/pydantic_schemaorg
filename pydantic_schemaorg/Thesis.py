@@ -15,7 +15,7 @@ class Thesis(CreativeWork):
     See: https://schema.org/Thesis
     Model depth: 3
     """
-    type_: str = Field(default="Thesis", alias='@type')
+    type_: str = Field(default="Thesis", alias='@type', constant=True)
     inSupportOf: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Qualification, candidature, degree, application that Thesis supports.",

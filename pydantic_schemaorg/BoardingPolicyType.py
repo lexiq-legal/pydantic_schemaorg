@@ -11,5 +11,5 @@ class BoardingPolicyType(Enumeration):
     See: https://schema.org/BoardingPolicyType
     Model depth: 4
     """
-    type_: str = Field(default="BoardingPolicyType", alias='@type')
+    type_: str = Field(default="BoardingPolicyType", alias='@type', constant=True)
     

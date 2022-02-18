@@ -11,5 +11,5 @@ class LiquorStore(Store):
     See: https://schema.org/LiquorStore
     Model depth: 5
     """
-    type_: str = Field(default="LiquorStore", alias='@type')
+    type_: str = Field(default="LiquorStore", alias='@type', constant=True)
     

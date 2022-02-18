@@ -15,5 +15,5 @@ class HowToTip(ListItem, CreativeWork):
     See: https://schema.org/HowToTip
     Model depth: 3
     """
-    type_: str = Field(default="HowToTip", alias='@type')
+    type_: str = Field(default="HowToTip", alias='@type', constant=True)
     

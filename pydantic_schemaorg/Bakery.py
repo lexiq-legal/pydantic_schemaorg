@@ -11,5 +11,5 @@ class Bakery(FoodEstablishment):
     See: https://schema.org/Bakery
     Model depth: 5
     """
-    type_: str = Field(default="Bakery", alias='@type')
+    type_: str = Field(default="Bakery", alias='@type', constant=True)
     

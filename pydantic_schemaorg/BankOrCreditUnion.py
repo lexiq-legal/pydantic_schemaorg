@@ -11,5 +11,5 @@ class BankOrCreditUnion(FinancialService):
     See: https://schema.org/BankOrCreditUnion
     Model depth: 5
     """
-    type_: str = Field(default="BankOrCreditUnion", alias='@type')
+    type_: str = Field(default="BankOrCreditUnion", alias='@type', constant=True)
     

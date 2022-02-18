@@ -11,5 +11,5 @@ class OrderPaymentDue(OrderStatus):
     See: https://schema.org/OrderPaymentDue
     Model depth: 6
     """
-    type_: str = Field(default="OrderPaymentDue", alias='@type')
+    type_: str = Field(default="OrderPaymentDue", alias='@type', constant=True)
     

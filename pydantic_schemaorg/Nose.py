@@ -11,5 +11,5 @@ class Nose(PhysicalExam):
     See: https://schema.org/Nose
     Model depth: 5
     """
-    type_: str = Field(default="Nose", alias='@type')
+    type_: str = Field(default="Nose", alias='@type', constant=True)
     

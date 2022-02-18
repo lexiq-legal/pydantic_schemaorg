@@ -22,8 +22,8 @@ class FloorPlan(Intangible):
     See: https://schema.org/FloorPlan
     Model depth: 3
     """
-    type_: str = Field(default="FloorPlan", alias='@type')
-    numberOfBedrooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    type_: str = Field(default="FloorPlan", alias='@type', constant=True)
+    numberOfBedrooms: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]]"
      "or [[FloorPlan]].",
@@ -35,7 +35,7 @@ class FloorPlan(Intangible):
      "\"The simple sum of the number of bathrooms. For example for a property with two Full Bathrooms"
      "and one Half Bathroom, the Bathrooms Total Integer will be 3.\". See also [[numberOfRooms]].",
     )
-    numberOfPartialBathrooms: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    numberOfPartialBathrooms: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="Number of partial bathrooms - The total number of half and ¼ bathrooms in an [[Accommodation]]."
      "This corresponds to the [BathroomsPartial field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsPartial+Field).",
@@ -50,7 +50,7 @@ class FloorPlan(Intangible):
      "property does not make a statement about whether the feature is included in an offer for"
      "the main accommodation or available at extra costs.",
     )
-    numberOfRooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    numberOfRooms: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
      "business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be"
@@ -62,7 +62,7 @@ class FloorPlan(Intangible):
      "an [[ApartmentComplex]], or the number of accommodation units for a specific [[FloorPlan]]"
      "(within its specific [[ApartmentComplex]]). See also [[numberOfAvailableAccommodationUnits]].",
     )
-    petsAllowed: Optional[Union[List[Union[StrictBool, 'Boolean', str, 'Text']], StrictBool, 'Boolean', str, 'Text']] = Field(
+    petsAllowed: Optional[Union[List[Union[str, 'Text', StrictBool, 'Boolean']], str, 'Text', StrictBool, 'Boolean']] = Field(
         default=None,
         description="Indicates whether pets are allowed to enter the accommodation or lodging business."
      "More detailed information can be put in a text value.",
@@ -76,7 +76,7 @@ class FloorPlan(Intangible):
         default=None,
         description="Indicates some accommodation that this floor plan describes.",
     )
-    numberOfFullBathrooms: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    numberOfFullBathrooms: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="Number of full bathrooms - The total number of full and ¾ bathrooms in an [[Accommodation]]."
      "This corresponds to the [BathroomsFull field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsFull+Field).",
@@ -96,6 +96,6 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.ImageObject import ImageObject
     from pydantic_schemaorg.LocationFeatureSpecification import LocationFeatureSpecification
-    from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.Text import Text
+    from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.Accommodation import Accommodation

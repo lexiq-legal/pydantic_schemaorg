@@ -12,5 +12,5 @@ class Conversation(CreativeWork):
     See: https://schema.org/Conversation
     Model depth: 3
     """
-    type_: str = Field(default="Conversation", alias='@type')
+    type_: str = Field(default="Conversation", alias='@type', constant=True)
     

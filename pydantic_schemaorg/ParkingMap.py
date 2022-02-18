@@ -11,5 +11,5 @@ class ParkingMap(MapCategoryType):
     See: https://schema.org/ParkingMap
     Model depth: 5
     """
-    type_: str = Field(default="ParkingMap", alias='@type')
+    type_: str = Field(default="ParkingMap", alias='@type', constant=True)
     

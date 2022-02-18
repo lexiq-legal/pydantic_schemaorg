@@ -11,5 +11,5 @@ class Researcher(Audience):
     See: https://schema.org/Researcher
     Model depth: 4
     """
-    type_: str = Field(default="Researcher", alias='@type')
+    type_: str = Field(default="Researcher", alias='@type', constant=True)
     

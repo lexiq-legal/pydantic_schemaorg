@@ -11,5 +11,5 @@ class URL(Text):
     See: https://schema.org/URL
     Model depth: 6
     """
-    type_: str = Field(default="URL", alias='@type')
+    type_: str = Field(default="URL", alias='@type', constant=True)
     

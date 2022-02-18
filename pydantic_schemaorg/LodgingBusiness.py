@@ -18,14 +18,14 @@ class LodgingBusiness(LocalBusiness):
     See: https://schema.org/LodgingBusiness
     Model depth: 4
     """
-    type_: str = Field(default="LodgingBusiness", alias='@type')
+    type_: str = Field(default="LodgingBusiness", alias='@type', constant=True)
     amenityFeature: Optional[Union[List[Union['LocationFeatureSpecification', str]], 'LocationFeatureSpecification', str]] = Field(
         default=None,
         description="An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic"
      "property does not make a statement about whether the feature is included in an offer for"
      "the main accommodation or available at extra costs.",
     )
-    numberOfRooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    numberOfRooms: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
      "business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be"
@@ -41,7 +41,7 @@ class LodgingBusiness(LocalBusiness):
         default=None,
         description="The earliest someone may check into a lodging establishment.",
     )
-    petsAllowed: Optional[Union[List[Union[StrictBool, 'Boolean', str, 'Text']], StrictBool, 'Boolean', str, 'Text']] = Field(
+    petsAllowed: Optional[Union[List[Union[str, 'Text', StrictBool, 'Boolean']], str, 'Text', StrictBool, 'Boolean']] = Field(
         default=None,
         description="Indicates whether pets are allowed to enter the accommodation or lodging business."
      "More detailed information can be put in a text value.",
@@ -69,7 +69,7 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Rating import Rating
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Time import Time
-    from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.Text import Text
+    from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.Audience import Audience
     from pydantic_schemaorg.Language import Language

@@ -11,5 +11,5 @@ class NotInForce(LegalForceStatus):
     See: https://schema.org/NotInForce
     Model depth: 6
     """
-    type_: str = Field(default="NotInForce", alias='@type')
+    type_: str = Field(default="NotInForce", alias='@type', constant=True)
     

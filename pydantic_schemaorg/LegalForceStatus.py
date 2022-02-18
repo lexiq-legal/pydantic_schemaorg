@@ -11,5 +11,5 @@ class LegalForceStatus(StatusEnumeration):
     See: https://schema.org/LegalForceStatus
     Model depth: 5
     """
-    type_: str = Field(default="LegalForceStatus", alias='@type')
+    type_: str = Field(default="LegalForceStatus", alias='@type', constant=True)
     

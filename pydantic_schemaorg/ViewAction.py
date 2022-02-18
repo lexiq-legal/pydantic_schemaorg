@@ -11,5 +11,5 @@ class ViewAction(ConsumeAction):
     See: https://schema.org/ViewAction
     Model depth: 4
     """
-    type_: str = Field(default="ViewAction", alias='@type')
+    type_: str = Field(default="ViewAction", alias='@type', constant=True)
     

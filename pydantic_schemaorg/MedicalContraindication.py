@@ -14,5 +14,5 @@ class MedicalContraindication(MedicalEntity):
     See: https://schema.org/MedicalContraindication
     Model depth: 3
     """
-    type_: str = Field(default="MedicalContraindication", alias='@type')
+    type_: str = Field(default="MedicalContraindication", alias='@type', constant=True)
     

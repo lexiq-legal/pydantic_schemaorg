@@ -23,5 +23,5 @@ class ReportageNewsArticle(NewsArticle):
     See: https://schema.org/ReportageNewsArticle
     Model depth: 5
     """
-    type_: str = Field(default="ReportageNewsArticle", alias='@type')
+    type_: str = Field(default="ReportageNewsArticle", alias='@type', constant=True)
     

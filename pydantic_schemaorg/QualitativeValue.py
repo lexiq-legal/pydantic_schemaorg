@@ -15,7 +15,7 @@ class QualitativeValue(Enumeration):
     See: https://schema.org/QualitativeValue
     Model depth: 4
     """
-    type_: str = Field(default="QualitativeValue", alias='@type')
+    type_: str = Field(default="QualitativeValue", alias='@type', constant=True)
     lesser: Optional[Union[List[Union['QualitativeValue', str]], 'QualitativeValue', str]] = Field(
         default=None,
         description="This ordering relation for qualitative values indicates that the subject is lesser"
@@ -55,7 +55,7 @@ class QualitativeValue(Enumeration):
      "https://schema.org/gtin13, ...) will typically expect such data to be provided using"
      "those properties, rather than using the generic property/value mechanism.",
     )
-    valueReference: Optional[Union[List[Union[str, 'Text', 'PropertyValue', 'DefinedTerm', 'QualitativeValue', 'Enumeration', 'MeasurementTypeEnumeration', 'QuantitativeValue', 'StructuredValue']], str, 'Text', 'PropertyValue', 'DefinedTerm', 'QualitativeValue', 'Enumeration', 'MeasurementTypeEnumeration', 'QuantitativeValue', 'StructuredValue']] = Field(
+    valueReference: Optional[Union[List[Union[str, 'Text', 'MeasurementTypeEnumeration', 'PropertyValue', 'StructuredValue', 'Enumeration', 'DefinedTerm', 'QualitativeValue', 'QuantitativeValue']], str, 'Text', 'MeasurementTypeEnumeration', 'PropertyValue', 'StructuredValue', 'Enumeration', 'DefinedTerm', 'QualitativeValue', 'QuantitativeValue']] = Field(
         default=None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",
@@ -65,8 +65,8 @@ class QualitativeValue(Enumeration):
 if TYPE_CHECKING:
     from pydantic_schemaorg.PropertyValue import PropertyValue
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.DefinedTerm import DefinedTerm
-    from pydantic_schemaorg.Enumeration import Enumeration
     from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
-    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
     from pydantic_schemaorg.StructuredValue import StructuredValue
+    from pydantic_schemaorg.Enumeration import Enumeration
+    from pydantic_schemaorg.DefinedTerm import DefinedTerm
+    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue

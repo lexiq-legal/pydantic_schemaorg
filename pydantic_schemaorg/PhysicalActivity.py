@@ -17,7 +17,7 @@ class PhysicalActivity(LifestyleModification):
     See: https://schema.org/PhysicalActivity
     Model depth: 4
     """
-    type_: str = Field(default="PhysicalActivity", alias='@type')
+    type_: str = Field(default="PhysicalActivity", alias='@type', constant=True)
     epidemiology: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The characteristics of associated patients, such as age, gender, race etc.",
@@ -32,7 +32,7 @@ class PhysicalActivity(LifestyleModification):
         description="Changes in the normal mechanical, physical, and biochemical functions that are associated"
      "with this activity or condition.",
     )
-    associatedAnatomy: Optional[Union[List[Union['SuperficialAnatomy', 'AnatomicalStructure', 'AnatomicalSystem', str]], 'SuperficialAnatomy', 'AnatomicalStructure', 'AnatomicalSystem', str]] = Field(
+    associatedAnatomy: Optional[Union[List[Union['AnatomicalStructure', 'AnatomicalSystem', 'SuperficialAnatomy', str]], 'AnatomicalStructure', 'AnatomicalSystem', 'SuperficialAnatomy', str]] = Field(
         default=None,
         description="The anatomy of the underlying organ system or structures associated with this entity.",
     )
@@ -43,6 +43,6 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
     from pydantic_schemaorg.Thing import Thing
-    from pydantic_schemaorg.SuperficialAnatomy import SuperficialAnatomy
     from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
     from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
+    from pydantic_schemaorg.SuperficialAnatomy import SuperficialAnatomy

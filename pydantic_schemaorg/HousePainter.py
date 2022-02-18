@@ -11,5 +11,5 @@ class HousePainter(HomeAndConstructionBusiness):
     See: https://schema.org/HousePainter
     Model depth: 5
     """
-    type_: str = Field(default="HousePainter", alias='@type')
+    type_: str = Field(default="HousePainter", alias='@type', constant=True)
     

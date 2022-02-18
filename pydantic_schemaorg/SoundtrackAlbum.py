@@ -11,5 +11,5 @@ class SoundtrackAlbum(MusicAlbumProductionType):
     See: https://schema.org/SoundtrackAlbum
     Model depth: 5
     """
-    type_: str = Field(default="SoundtrackAlbum", alias='@type')
+    type_: str = Field(default="SoundtrackAlbum", alias='@type', constant=True)
     

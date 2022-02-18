@@ -11,5 +11,5 @@ class SideEffectsHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/SideEffectsHealthAspect
     Model depth: 5
     """
-    type_: str = Field(default="SideEffectsHealthAspect", alias='@type')
+    type_: str = Field(default="SideEffectsHealthAspect", alias='@type', constant=True)
     

@@ -12,5 +12,5 @@ class Musculoskeletal(MedicalSpecialty):
     See: https://schema.org/Musculoskeletal
     Model depth: 6
     """
-    type_: str = Field(default="Musculoskeletal", alias='@type')
+    type_: str = Field(default="Musculoskeletal", alias='@type', constant=True)
     

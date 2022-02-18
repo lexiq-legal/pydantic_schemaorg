@@ -20,7 +20,7 @@ class OfferShippingDetails(StructuredValue):
     See: https://schema.org/OfferShippingDetails
     Model depth: 4
     """
-    type_: str = Field(default="OfferShippingDetails", alias='@type')
+    type_: str = Field(default="OfferShippingDetails", alias='@type', constant=True)
     shippingLabel: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within"

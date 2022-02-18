@@ -11,5 +11,5 @@ class Motorcycle(Vehicle):
     See: https://schema.org/Motorcycle
     Model depth: 4
     """
-    type_: str = Field(default="Motorcycle", alias='@type')
+    type_: str = Field(default="Motorcycle", alias='@type', constant=True)
     

@@ -15,7 +15,7 @@ class TVSeason(CreativeWorkSeason, CreativeWork):
     See: https://schema.org/TVSeason
     Model depth: 3
     """
-    type_: str = Field(default="TVSeason", alias='@type')
+    type_: str = Field(default="TVSeason", alias='@type', constant=True)
     countryOfOrigin: Optional[Union[List[Union['Country', str]], 'Country', str]] = Field(
         default=None,
         description="The country of origin of something, including products as well as creative works such"

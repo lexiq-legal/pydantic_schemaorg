@@ -13,5 +13,5 @@ class MaximumDoseSchedule(DoseSchedule):
     See: https://schema.org/MaximumDoseSchedule
     Model depth: 5
     """
-    type_: str = Field(default="MaximumDoseSchedule", alias='@type')
+    type_: str = Field(default="MaximumDoseSchedule", alias='@type', constant=True)
     

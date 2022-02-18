@@ -11,5 +11,5 @@ class WearableMeasurementChestOrBust(WearableMeasurementTypeEnumeration):
     See: https://schema.org/WearableMeasurementChestOrBust
     Model depth: 6
     """
-    type_: str = Field(default="WearableMeasurementChestOrBust", alias='@type')
+    type_: str = Field(default="WearableMeasurementChestOrBust", alias='@type', constant=True)
     

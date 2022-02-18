@@ -18,5 +18,5 @@ class DeliveryMethod(Enumeration):
     See: https://schema.org/DeliveryMethod
     Model depth: 4
     """
-    type_: str = Field(default="DeliveryMethod", alias='@type')
+    type_: str = Field(default="DeliveryMethod", alias='@type', constant=True)
     

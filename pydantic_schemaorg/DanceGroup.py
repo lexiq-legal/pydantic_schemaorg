@@ -11,5 +11,5 @@ class DanceGroup(PerformingGroup):
     See: https://schema.org/DanceGroup
     Model depth: 4
     """
-    type_: str = Field(default="DanceGroup", alias='@type')
+    type_: str = Field(default="DanceGroup", alias='@type', constant=True)
     

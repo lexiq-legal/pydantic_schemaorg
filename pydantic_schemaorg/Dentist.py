@@ -13,5 +13,5 @@ class Dentist(MedicalBusiness, LocalBusiness, MedicalOrganization):
     See: https://schema.org/Dentist
     Model depth: 4
     """
-    type_: str = Field(default="Dentist", alias='@type')
+    type_: str = Field(default="Dentist", alias='@type', constant=True)
     

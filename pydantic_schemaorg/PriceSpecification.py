@@ -19,7 +19,7 @@ class PriceSpecification(StructuredValue):
     See: https://schema.org/PriceSpecification
     Model depth: 4
     """
-    type_: str = Field(default="PriceSpecification", alias='@type')
+    type_: str = Field(default="PriceSpecification", alias='@type', constant=True)
     valueAddedTaxIncluded: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="Specifies whether the applicable value-added tax (VAT) is included in the price specification"
@@ -40,7 +40,7 @@ class PriceSpecification(StructuredValue):
      "for cryptocurrencies e.g. \"BTC\"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system)"
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
-    price: Optional[Union[List[Union[Decimal, 'Number', str, 'Text']], Decimal, 'Number', str, 'Text']] = Field(
+    price: Optional[Union[List[Union[int, float, 'Number', str, 'Text']], int, float, 'Number', str, 'Text']] = Field(
         default=None,
         description="The offer price of a product, or of a price component when attached to PriceSpecification"
      "and its subtypes. Usage guidelines: * Use the [[priceCurrency]] property (with standard"
@@ -57,11 +57,11 @@ class PriceSpecification(StructuredValue):
      "0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially"
      "similiar Unicode symbols.",
     )
-    maxPrice: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    maxPrice: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="The highest price if the price is a range.",
     )
-    minPrice: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    minPrice: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="The lowest price if the price is a range.",
     )

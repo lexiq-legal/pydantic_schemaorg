@@ -14,5 +14,5 @@ class Longitudinal(MedicalObservationalStudyDesign):
     See: https://schema.org/Longitudinal
     Model depth: 6
     """
-    type_: str = Field(default="Longitudinal", alias='@type')
+    type_: str = Field(default="Longitudinal", alias='@type', constant=True)
     

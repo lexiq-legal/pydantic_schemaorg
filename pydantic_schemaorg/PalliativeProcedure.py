@@ -13,5 +13,5 @@ class PalliativeProcedure(MedicalTherapy, MedicalProcedure):
     See: https://schema.org/PalliativeProcedure
     Model depth: 4
     """
-    type_: str = Field(default="PalliativeProcedure", alias='@type')
+    type_: str = Field(default="PalliativeProcedure", alias='@type', constant=True)
     

@@ -16,7 +16,7 @@ class PodcastSeries(CreativeWorkSeries):
     See: https://schema.org/PodcastSeries
     Model depth: 4
     """
-    type_: str = Field(default="PodcastSeries", alias='@type')
+    type_: str = Field(default="PodcastSeries", alias='@type', constant=True)
     webFeed: Optional[Union[List[Union[AnyUrl, 'URL', 'DataFeed', str]], AnyUrl, 'URL', 'DataFeed', str]] = Field(
         default=None,
         description="The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped"

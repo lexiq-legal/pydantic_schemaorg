@@ -15,8 +15,8 @@ class OccupationalExperienceRequirements(Intangible):
     See: https://schema.org/OccupationalExperienceRequirements
     Model depth: 3
     """
-    type_: str = Field(default="OccupationalExperienceRequirements", alias='@type')
-    monthsOfExperience: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    type_: str = Field(default="OccupationalExperienceRequirements", alias='@type', constant=True)
+    monthsOfExperience: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="Indicates the minimal number of months of experience required for a position.",
     )

@@ -14,7 +14,7 @@ class InviteAction(CommunicateAction):
     See: https://schema.org/InviteAction
     Model depth: 5
     """
-    type_: str = Field(default="InviteAction", alias='@type')
+    type_: str = Field(default="InviteAction", alias='@type', constant=True)
     event: Optional[Union[List[Union['Event', str]], 'Event', str]] = Field(
         default=None,
         description="Upcoming or past event associated with this place, organization, or action.",

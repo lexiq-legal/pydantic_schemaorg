@@ -11,5 +11,5 @@ class MotorcycleDealer(AutomotiveBusiness):
     See: https://schema.org/MotorcycleDealer
     Model depth: 5
     """
-    type_: str = Field(default="MotorcycleDealer", alias='@type')
+    type_: str = Field(default="MotorcycleDealer", alias='@type', constant=True)
     

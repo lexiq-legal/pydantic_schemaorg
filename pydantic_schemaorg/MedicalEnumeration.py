@@ -13,5 +13,5 @@ class MedicalEnumeration(Enumeration):
     See: https://schema.org/MedicalEnumeration
     Model depth: 4
     """
-    type_: str = Field(default="MedicalEnumeration", alias='@type')
+    type_: str = Field(default="MedicalEnumeration", alias='@type', constant=True)
     

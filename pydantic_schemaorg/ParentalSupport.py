@@ -11,5 +11,5 @@ class ParentalSupport(GovernmentBenefitsType):
     See: https://schema.org/ParentalSupport
     Model depth: 5
     """
-    type_: str = Field(default="ParentalSupport", alias='@type')
+    type_: str = Field(default="ParentalSupport", alias='@type', constant=True)
     

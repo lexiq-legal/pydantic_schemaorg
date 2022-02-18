@@ -11,5 +11,5 @@ class Paperback(BookFormatType):
     See: https://schema.org/Paperback
     Model depth: 5
     """
-    type_: str = Field(default="Paperback", alias='@type')
+    type_: str = Field(default="Paperback", alias='@type', constant=True)
     

@@ -13,5 +13,5 @@ class Periodical(CreativeWorkSeries):
     See: https://schema.org/Periodical
     Model depth: 4
     """
-    type_: str = Field(default="Periodical", alias='@type')
+    type_: str = Field(default="Periodical", alias='@type', constant=True)
     

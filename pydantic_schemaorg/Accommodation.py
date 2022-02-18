@@ -20,8 +20,8 @@ class Accommodation(Place):
     See: https://schema.org/Accommodation
     Model depth: 3
     """
-    type_: str = Field(default="Accommodation", alias='@type')
-    numberOfBedrooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    type_: str = Field(default="Accommodation", alias='@type', constant=True)
+    numberOfBedrooms: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]]"
      "or [[FloorPlan]].",
@@ -37,17 +37,17 @@ class Accommodation(Place):
         default=None,
         description="Indications regarding the permitted usage of the accommodation.",
     )
-    numberOfPartialBathrooms: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    numberOfPartialBathrooms: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="Number of partial bathrooms - The total number of half and ¼ bathrooms in an [[Accommodation]]."
      "This corresponds to the [BathroomsPartial field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsPartial+Field).",
     )
-    yearBuilt: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    yearBuilt: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="The year an [[Accommodation]] was constructed. This corresponds to the [YearBuilt"
      "field in RESO](https://ddwiki.reso.org/display/DDW17/YearBuilt+Field).",
     )
-    leaseLength: Optional[Union[List[Union['QuantitativeValue', 'Duration', str]], 'QuantitativeValue', 'Duration', str]] = Field(
+    leaseLength: Optional[Union[List[Union['Duration', 'QuantitativeValue', str]], 'Duration', 'QuantitativeValue', str]] = Field(
         default=None,
         description="Length of the lease for some [[Accommodation]], either particular to some [[Offer]]"
      "or in some cases intrinsic to the property.",
@@ -58,7 +58,7 @@ class Accommodation(Place):
      "property does not make a statement about whether the feature is included in an offer for"
      "the main accommodation or available at extra costs.",
     )
-    numberOfRooms: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    numberOfRooms: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
      "business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be"
@@ -69,7 +69,7 @@ class Accommodation(Place):
         description="A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]]"
      "or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.",
     )
-    petsAllowed: Optional[Union[List[Union[StrictBool, 'Boolean', str, 'Text']], StrictBool, 'Boolean', str, 'Text']] = Field(
+    petsAllowed: Optional[Union[List[Union[str, 'Text', StrictBool, 'Boolean']], str, 'Text', StrictBool, 'Boolean']] = Field(
         default=None,
         description="Indicates whether pets are allowed to enter the accommodation or lodging business."
      "More detailed information can be put in a text value.",
@@ -96,7 +96,7 @@ class Accommodation(Place):
         default=None,
         description="A floorplan of some [[Accommodation]].",
     )
-    numberOfFullBathrooms: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    numberOfFullBathrooms: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="Number of full bathrooms - The total number of full and ¾ bathrooms in an [[Accommodation]]."
      "This corresponds to the [BathroomsFull field in RESO](https://ddwiki.reso.org/display/DDW17/BathroomsFull+Field).",

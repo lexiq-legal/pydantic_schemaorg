@@ -16,7 +16,7 @@ class SoftwareSourceCode(CreativeWork):
     See: https://schema.org/SoftwareSourceCode
     Model depth: 3
     """
-    type_: str = Field(default="SoftwareSourceCode", alias='@type')
+    type_: str = Field(default="SoftwareSourceCode", alias='@type', constant=True)
     codeRepository: Optional[Union[List[Union[AnyUrl, 'URL', str]], AnyUrl, 'URL', str]] = Field(
         default=None,
         description="Link to the repository where the un-compiled, human readable code and related code is"

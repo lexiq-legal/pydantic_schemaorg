@@ -11,5 +11,5 @@ class BlogPosting(SocialMediaPosting):
     See: https://schema.org/BlogPosting
     Model depth: 5
     """
-    type_: str = Field(default="BlogPosting", alias='@type')
+    type_: str = Field(default="BlogPosting", alias='@type', constant=True)
     

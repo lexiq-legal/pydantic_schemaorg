@@ -11,5 +11,5 @@ class NoteDigitalDocument(DigitalDocument):
     See: https://schema.org/NoteDigitalDocument
     Model depth: 4
     """
-    type_: str = Field(default="NoteDigitalDocument", alias='@type')
+    type_: str = Field(default="NoteDigitalDocument", alias='@type', constant=True)
     

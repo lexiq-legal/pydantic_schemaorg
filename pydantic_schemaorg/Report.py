@@ -14,7 +14,7 @@ class Report(Article):
     See: https://schema.org/Report
     Model depth: 4
     """
-    type_: str = Field(default="Report", alias='@type')
+    type_: str = Field(default="Report", alias='@type', constant=True)
     reportNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The number or other unique designator assigned to a Report by the publishing organization.",

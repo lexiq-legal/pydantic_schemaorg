@@ -14,7 +14,7 @@ class ScreeningEvent(Event):
     See: https://schema.org/ScreeningEvent
     Model depth: 3
     """
-    type_: str = Field(default="ScreeningEvent", alias='@type')
+    type_: str = Field(default="ScreeningEvent", alias='@type', constant=True)
     workPresented: Optional[Union[List[Union['Movie', str]], 'Movie', str]] = Field(
         default=None,
         description="The movie presented during this event.",

@@ -11,5 +11,5 @@ class False_(Boolean):
     See: https://schema.org/False
     Model depth: 6
     """
-    type_: str = Field(default="False", alias='@type')
+    type_: str = Field(default="False", alias='@type', constant=True)
     

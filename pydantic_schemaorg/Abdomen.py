@@ -11,5 +11,5 @@ class Abdomen(PhysicalExam):
     See: https://schema.org/Abdomen
     Model depth: 5
     """
-    type_: str = Field(default="Abdomen", alias='@type')
+    type_: str = Field(default="Abdomen", alias='@type', constant=True)
     

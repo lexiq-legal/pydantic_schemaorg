@@ -11,5 +11,5 @@ class BedType(QualitativeValue):
     See: https://schema.org/BedType
     Model depth: 5
     """
-    type_: str = Field(default="BedType", alias='@type')
+    type_: str = Field(default="BedType", alias='@type', constant=True)
     

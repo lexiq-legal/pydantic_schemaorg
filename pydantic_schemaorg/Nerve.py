@@ -15,7 +15,7 @@ class Nerve(AnatomicalStructure):
     See: https://schema.org/Nerve
     Model depth: 4
     """
-    type_: str = Field(default="Nerve", alias='@type')
+    type_: str = Field(default="Nerve", alias='@type', constant=True)
     branch: Optional[Union[List[Union['AnatomicalStructure', str]], 'AnatomicalStructure', str]] = Field(
         default=None,
         description="The branches that delineate from the nerve bundle. Not to be confused with [[branchOf]].",

@@ -8,7 +8,7 @@ data_type_map = {
     "Date": ("ISO8601Date", f"{PACKAGE_NAME}.ISO8601.ISO8601Date", "ISO8601Date"),
     "DateTime": ("ISO8601Date", f"{PACKAGE_NAME}.ISO8601.ISO8601Date", "ISO8601Date"),
     "Time": ("time", "datetime", "time"),
-    "Number": ("Decimal", "decimal", "Decimal"),
+    "Number": ("int, float", "decimal", "Decimal"),
     "Float": ("float", "", ""),
     "Integer": ("int", "", ""),
     "Text": ("str", "", ""),
@@ -16,7 +16,6 @@ data_type_map = {
     "PronounceableText": ("str", "", ""),
     "URL": ("AnyUrl", "pydantic", "AnyUrl"),
     "XPathType": ("str", "", ""),
-
 }
 
 data_type_specificity = {

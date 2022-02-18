@@ -11,5 +11,5 @@ class Photograph(CreativeWork):
     See: https://schema.org/Photograph
     Model depth: 3
     """
-    type_: str = Field(default="Photograph", alias='@type')
+    type_: str = Field(default="Photograph", alias='@type', constant=True)
     

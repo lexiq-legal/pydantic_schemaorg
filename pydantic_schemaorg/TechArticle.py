@@ -15,7 +15,7 @@ class TechArticle(Article):
     See: https://schema.org/TechArticle
     Model depth: 4
     """
-    type_: str = Field(default="TechArticle", alias='@type')
+    type_: str = Field(default="TechArticle", alias='@type', constant=True)
     proficiencyLevel: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Proficiency needed for this content; expected values: 'Beginner', 'Expert'.",

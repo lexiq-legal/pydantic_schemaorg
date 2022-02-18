@@ -12,5 +12,5 @@ class CheckAction(FindAction):
     See: https://schema.org/CheckAction
     Model depth: 4
     """
-    type_: str = Field(default="CheckAction", alias='@type')
+    type_: str = Field(default="CheckAction", alias='@type', constant=True)
     

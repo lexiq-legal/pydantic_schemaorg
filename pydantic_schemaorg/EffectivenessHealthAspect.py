@@ -11,5 +11,5 @@ class EffectivenessHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/EffectivenessHealthAspect
     Model depth: 5
     """
-    type_: str = Field(default="EffectivenessHealthAspect", alias='@type')
+    type_: str = Field(default="EffectivenessHealthAspect", alias='@type', constant=True)
     

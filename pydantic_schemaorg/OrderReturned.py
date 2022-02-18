@@ -11,5 +11,5 @@ class OrderReturned(OrderStatus):
     See: https://schema.org/OrderReturned
     Model depth: 6
     """
-    type_: str = Field(default="OrderReturned", alias='@type')
+    type_: str = Field(default="OrderReturned", alias='@type', constant=True)
     

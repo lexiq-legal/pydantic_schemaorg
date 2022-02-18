@@ -15,13 +15,13 @@ class EmployeeRole(OrganizationRole):
     See: https://schema.org/EmployeeRole
     Model depth: 5
     """
-    type_: str = Field(default="EmployeeRole", alias='@type')
+    type_: str = Field(default="EmployeeRole", alias='@type', constant=True)
     salaryCurrency: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) )"
      "used for the main salary information in this job posting or for this employee.",
     )
-    baseSalary: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', 'PriceSpecification', str]], Decimal, 'Number', 'MonetaryAmount', 'PriceSpecification', str]] = Field(
+    baseSalary: Optional[Union[List[Union[int, float, 'Number', 'MonetaryAmount', 'PriceSpecification', str]], int, float, 'Number', 'MonetaryAmount', 'PriceSpecification', str]] = Field(
         default=None,
         description="The base salary of the job or of an employee in an EmployeeRole.",
     )

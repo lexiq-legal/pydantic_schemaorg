@@ -12,5 +12,5 @@ class ArriveAction(MoveAction):
     See: https://schema.org/ArriveAction
     Model depth: 4
     """
-    type_: str = Field(default="ArriveAction", alias='@type')
+    type_: str = Field(default="ArriveAction", alias='@type', constant=True)
     

@@ -16,7 +16,7 @@ class Person(Thing):
     See: https://schema.org/Person
     Model depth: 2
     """
-    type_: str = Field(default="Person", alias='@type')
+    type_: str = Field(default="Person", alias='@type', constant=True)
     contactPoint: Optional[Union[List[Union['ContactPoint', str]], 'ContactPoint', str]] = Field(
         default=None,
         description="A contact point for a person or organization.",
@@ -45,7 +45,7 @@ class Person(Thing):
         default=None,
         description="An organization that the person is an alumni of.",
     )
-    funder: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    funder: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A person or organization that supports (sponsors) something through some kind of financial"
      "contribution.",
@@ -131,7 +131,7 @@ class Person(Thing):
         default=None,
         description="A sibling of the person.",
     )
-    brand: Optional[Union[List[Union['Organization', 'Brand', str]], 'Organization', 'Brand', str]] = Field(
+    brand: Optional[Union[List[Union['Brand', 'Organization', str]], 'Brand', 'Organization', str]] = Field(
         default=None,
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
@@ -157,7 +157,7 @@ class Person(Thing):
         default=None,
         description="Given name. In the U.S., the first name of a Person.",
     )
-    height: Optional[Union[List[Union['QuantitativeValue', 'Distance', str]], 'QuantitativeValue', 'Distance', str]] = Field(
+    height: Optional[Union[List[Union['Distance', 'QuantitativeValue', str]], 'Distance', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The height of the item.",
     )
@@ -206,7 +206,7 @@ class Person(Thing):
         default=None,
         description="Date of birth.",
     )
-    sponsor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    sponsor: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -288,7 +288,7 @@ class Person(Thing):
         default=None,
         description="The fax number.",
     )
-    owns: Optional[Union[List[Union['Product', 'OwnershipInfo', str]], 'Product', 'OwnershipInfo', str]] = Field(
+    owns: Optional[Union[List[Union['OwnershipInfo', 'Product', str]], 'OwnershipInfo', 'Product', str]] = Field(
         default=None,
         description="Products owned by the organization or person.",
     )
@@ -322,5 +322,5 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Event import Event
     from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Thing import Thing
-    from pydantic_schemaorg.Product import Product
     from pydantic_schemaorg.OwnershipInfo import OwnershipInfo
+    from pydantic_schemaorg.Product import Product

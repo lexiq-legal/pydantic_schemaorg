@@ -12,5 +12,5 @@ class Renal(MedicalSpecialty):
     See: https://schema.org/Renal
     Model depth: 6
     """
-    type_: str = Field(default="Renal", alias='@type')
+    type_: str = Field(default="Renal", alias='@type', constant=True)
     

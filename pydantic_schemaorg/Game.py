@@ -17,7 +17,7 @@ class Game(CreativeWork):
     See: https://schema.org/Game
     Model depth: 3
     """
-    type_: str = Field(default="Game", alias='@type')
+    type_: str = Field(default="Game", alias='@type', constant=True)
     gameLocation: Optional[Union[List[Union[AnyUrl, 'URL', 'PostalAddress', 'Place', str]], AnyUrl, 'URL', 'PostalAddress', 'Place', str]] = Field(
         default=None,
         description="Real or fictional location of the game (or part of game).",

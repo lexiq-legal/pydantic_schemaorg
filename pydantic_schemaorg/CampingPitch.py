@@ -20,5 +20,5 @@ class CampingPitch(Accommodation):
     See: https://schema.org/CampingPitch
     Model depth: 4
     """
-    type_: str = Field(default="CampingPitch", alias='@type')
+    type_: str = Field(default="CampingPitch", alias='@type', constant=True)
     

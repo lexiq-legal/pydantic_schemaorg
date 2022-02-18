@@ -11,5 +11,5 @@ class ResearchOrganization(Organization):
     See: https://schema.org/ResearchOrganization
     Model depth: 3
     """
-    type_: str = Field(default="ResearchOrganization", alias='@type')
+    type_: str = Field(default="ResearchOrganization", alias='@type', constant=True)
     

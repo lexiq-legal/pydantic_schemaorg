@@ -12,5 +12,5 @@ class AchieveAction(Action):
     See: https://schema.org/AchieveAction
     Model depth: 3
     """
-    type_: str = Field(default="AchieveAction", alias='@type')
+    type_: str = Field(default="AchieveAction", alias='@type', constant=True)
     

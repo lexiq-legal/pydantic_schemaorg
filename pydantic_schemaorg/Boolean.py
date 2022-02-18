@@ -11,5 +11,5 @@ class Boolean(DataType):
     See: https://schema.org/Boolean
     Model depth: 5
     """
-    type_: str = Field(default="Boolean", alias='@type')
+    type_: str = Field(default="Boolean", alias='@type', constant=True)
     

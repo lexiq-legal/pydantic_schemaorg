@@ -11,5 +11,5 @@ class Season(CreativeWork):
     See: https://schema.org/Season
     Model depth: 3
     """
-    type_: str = Field(default="Season", alias='@type')
+    type_: str = Field(default="Season", alias='@type', constant=True)
     

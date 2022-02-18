@@ -12,5 +12,5 @@ class Urologic(MedicalSpecialty):
     See: https://schema.org/Urologic
     Model depth: 6
     """
-    type_: str = Field(default="Urologic", alias='@type')
+    type_: str = Field(default="Urologic", alias='@type', constant=True)
     

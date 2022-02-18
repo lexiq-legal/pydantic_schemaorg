@@ -11,5 +11,5 @@ class DVDFormat(MusicReleaseFormatType):
     See: https://schema.org/DVDFormat
     Model depth: 5
     """
-    type_: str = Field(default="DVDFormat", alias='@type')
+    type_: str = Field(default="DVDFormat", alias='@type', constant=True)
     

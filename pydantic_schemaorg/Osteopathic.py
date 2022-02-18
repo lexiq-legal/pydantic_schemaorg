@@ -11,5 +11,5 @@ class Osteopathic(MedicineSystem):
     See: https://schema.org/Osteopathic
     Model depth: 6
     """
-    type_: str = Field(default="Osteopathic", alias='@type')
+    type_: str = Field(default="Osteopathic", alias='@type', constant=True)
     

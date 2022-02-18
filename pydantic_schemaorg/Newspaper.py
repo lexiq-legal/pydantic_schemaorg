@@ -13,5 +13,5 @@ class Newspaper(Periodical):
     See: https://schema.org/Newspaper
     Model depth: 5
     """
-    type_: str = Field(default="Newspaper", alias='@type')
+    type_: str = Field(default="Newspaper", alias='@type', constant=True)
     

@@ -11,5 +11,5 @@ class EnergyStarCertified(EnergyStarEnergyEfficiencyEnumeration):
     See: https://schema.org/EnergyStarCertified
     Model depth: 6
     """
-    type_: str = Field(default="EnergyStarCertified", alias='@type')
+    type_: str = Field(default="EnergyStarCertified", alias='@type', constant=True)
     

@@ -11,5 +11,5 @@ class MusicEvent(Event):
     See: https://schema.org/MusicEvent
     Model depth: 3
     """
-    type_: str = Field(default="MusicEvent", alias='@type')
+    type_: str = Field(default="MusicEvent", alias='@type', constant=True)
     

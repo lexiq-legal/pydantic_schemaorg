@@ -16,7 +16,7 @@ class ServiceChannel(Intangible):
     See: https://schema.org/ServiceChannel
     Model depth: 3
     """
-    type_: str = Field(default="ServiceChannel", alias='@type')
+    type_: str = Field(default="ServiceChannel", alias='@type', constant=True)
     processingTime: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
         default=None,
         description="Estimated processing time for the service using this channel.",

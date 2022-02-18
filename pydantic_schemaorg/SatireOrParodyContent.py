@@ -25,5 +25,5 @@ class SatireOrParodyContent(MediaManipulationRatingEnumeration):
     See: https://schema.org/SatireOrParodyContent
     Model depth: 5
     """
-    type_: str = Field(default="SatireOrParodyContent", alias='@type')
+    type_: str = Field(default="SatireOrParodyContent", alias='@type', constant=True)
     

@@ -14,7 +14,7 @@ class MedicalTestPanel(MedicalTest):
     See: https://schema.org/MedicalTestPanel
     Model depth: 4
     """
-    type_: str = Field(default="MedicalTestPanel", alias='@type')
+    type_: str = Field(default="MedicalTestPanel", alias='@type', constant=True)
     subTest: Optional[Union[List[Union['MedicalTest', str]], 'MedicalTest', str]] = Field(
         default=None,
         description="A component test of the panel.",

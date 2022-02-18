@@ -11,5 +11,5 @@ class EmploymentAgency(LocalBusiness):
     See: https://schema.org/EmploymentAgency
     Model depth: 4
     """
-    type_: str = Field(default="EmploymentAgency", alias='@type')
+    type_: str = Field(default="EmploymentAgency", alias='@type', constant=True)
     

@@ -12,5 +12,5 @@ class AgreeAction(ReactAction):
     See: https://schema.org/AgreeAction
     Model depth: 5
     """
-    type_: str = Field(default="AgreeAction", alias='@type')
+    type_: str = Field(default="AgreeAction", alias='@type', constant=True)
     

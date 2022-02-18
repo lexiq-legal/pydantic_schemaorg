@@ -11,5 +11,5 @@ class DataType(Class):
     See: https://schema.org/DataType
     Model depth: 4
     """
-    type_: str = Field(default="DataType", alias='@type')
+    type_: str = Field(default="DataType", alias='@type', constant=True)
     

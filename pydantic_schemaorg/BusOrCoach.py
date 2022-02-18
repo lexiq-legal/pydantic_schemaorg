@@ -15,7 +15,7 @@ class BusOrCoach(Vehicle):
     See: https://schema.org/BusOrCoach
     Model depth: 4
     """
-    type_: str = Field(default="BusOrCoach", alias='@type')
+    type_: str = Field(default="BusOrCoach", alias='@type', constant=True)
     acrissCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The ACRISS Car Classification Code is a code used by many car rental companies, for classifying"

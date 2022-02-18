@@ -11,5 +11,5 @@ class ReservationStatusType(StatusEnumeration):
     See: https://schema.org/ReservationStatusType
     Model depth: 5
     """
-    type_: str = Field(default="ReservationStatusType", alias='@type')
+    type_: str = Field(default="ReservationStatusType", alias='@type', constant=True)
     

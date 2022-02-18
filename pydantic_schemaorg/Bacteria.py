@@ -11,5 +11,5 @@ class Bacteria(InfectiousAgentClass):
     See: https://schema.org/Bacteria
     Model depth: 6
     """
-    type_: str = Field(default="Bacteria", alias='@type')
+    type_: str = Field(default="Bacteria", alias='@type', constant=True)
     

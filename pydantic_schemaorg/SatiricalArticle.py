@@ -13,5 +13,5 @@ class SatiricalArticle(Article):
     See: https://schema.org/SatiricalArticle
     Model depth: 4
     """
-    type_: str = Field(default="SatiricalArticle", alias='@type')
+    type_: str = Field(default="SatiricalArticle", alias='@type', constant=True)
     

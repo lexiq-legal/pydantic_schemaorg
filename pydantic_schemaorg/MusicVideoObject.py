@@ -11,5 +11,5 @@ class MusicVideoObject(MediaObject):
     See: https://schema.org/MusicVideoObject
     Model depth: 4
     """
-    type_: str = Field(default="MusicVideoObject", alias='@type')
+    type_: str = Field(default="MusicVideoObject", alias='@type', constant=True)
     

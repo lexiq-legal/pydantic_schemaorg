@@ -16,5 +16,5 @@ class CovidTestingFacility(MedicalClinic):
     See: https://schema.org/CovidTestingFacility
     Model depth: 5
     """
-    type_: str = Field(default="CovidTestingFacility", alias='@type')
+    type_: str = Field(default="CovidTestingFacility", alias='@type', constant=True)
     

@@ -18,7 +18,7 @@ class GeoShape(StructuredValue):
     See: https://schema.org/GeoShape
     Model depth: 4
     """
-    type_: str = Field(default="GeoShape", alias='@type')
+    type_: str = Field(default="GeoShape", alias='@type', constant=True)
     polygon: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A polygon is the area enclosed by a point-to-point path for which the starting and ending"
@@ -39,7 +39,7 @@ class GeoShape(StructuredValue):
         description="A circle is the circular region of a specified radius centered at a specified latitude"
      "and longitude. A circle is expressed as a pair followed by a radius in meters.",
     )
-    elevation: Optional[Union[List[Union[Decimal, 'Number', str, 'Text']], Decimal, 'Number', str, 'Text']] = Field(
+    elevation: Optional[Union[List[Union[int, float, 'Number', str, 'Text']], int, float, 'Number', str, 'Text']] = Field(
         default=None,
         description="The elevation of a location ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System))."
      "Values may be of the form 'NUMBER UNIT_OF_MEASUREMENT' (e.g., '1,000 m', '3,200 ft')"

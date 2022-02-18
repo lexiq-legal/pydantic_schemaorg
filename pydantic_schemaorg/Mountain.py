@@ -11,5 +11,5 @@ class Mountain(Landform):
     See: https://schema.org/Mountain
     Model depth: 4
     """
-    type_: str = Field(default="Mountain", alias='@type')
+    type_: str = Field(default="Mountain", alias='@type', constant=True)
     

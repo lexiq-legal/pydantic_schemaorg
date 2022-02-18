@@ -20,7 +20,7 @@ class HyperTocEntry(CreativeWork):
     See: https://schema.org/HyperTocEntry
     Model depth: 3
     """
-    type_: str = Field(default="HyperTocEntry", alias='@type')
+    type_: str = Field(default="HyperTocEntry", alias='@type', constant=True)
     utterances: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of"

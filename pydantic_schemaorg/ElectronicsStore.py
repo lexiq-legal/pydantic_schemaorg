@@ -11,5 +11,5 @@ class ElectronicsStore(Store):
     See: https://schema.org/ElectronicsStore
     Model depth: 5
     """
-    type_: str = Field(default="ElectronicsStore", alias='@type')
+    type_: str = Field(default="ElectronicsStore", alias='@type', constant=True)
     

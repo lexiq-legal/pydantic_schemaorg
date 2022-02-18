@@ -11,5 +11,5 @@ class BodyMeasurementHips(BodyMeasurementTypeEnumeration):
     See: https://schema.org/BodyMeasurementHips
     Model depth: 6
     """
-    type_: str = Field(default="BodyMeasurementHips", alias='@type')
+    type_: str = Field(default="BodyMeasurementHips", alias='@type', constant=True)
     

@@ -15,7 +15,7 @@ class LymphaticVessel(Vessel):
     See: https://schema.org/LymphaticVessel
     Model depth: 5
     """
-    type_: str = Field(default="LymphaticVessel", alias='@type')
+    type_: str = Field(default="LymphaticVessel", alias='@type', constant=True)
     originatesFrom: Optional[Union[List[Union['Vessel', str]], 'Vessel', str]] = Field(
         default=None,
         description="The vasculature the lymphatic structure originates, or afferents, from.",

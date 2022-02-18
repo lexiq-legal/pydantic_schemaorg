@@ -11,5 +11,5 @@ class NewCondition(OfferItemCondition):
     See: https://schema.org/NewCondition
     Model depth: 5
     """
-    type_: str = Field(default="NewCondition", alias='@type')
+    type_: str = Field(default="NewCondition", alias='@type', constant=True)
     

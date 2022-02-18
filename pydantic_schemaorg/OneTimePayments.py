@@ -11,5 +11,5 @@ class OneTimePayments(GovernmentBenefitsType):
     See: https://schema.org/OneTimePayments
     Model depth: 5
     """
-    type_: str = Field(default="OneTimePayments", alias='@type')
+    type_: str = Field(default="OneTimePayments", alias='@type', constant=True)
     

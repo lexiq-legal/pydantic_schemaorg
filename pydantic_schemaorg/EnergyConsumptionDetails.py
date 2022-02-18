@@ -18,7 +18,7 @@ class EnergyConsumptionDetails(Intangible):
     See: https://schema.org/EnergyConsumptionDetails
     Model depth: 3
     """
-    type_: str = Field(default="EnergyConsumptionDetails", alias='@type')
+    type_: str = Field(default="EnergyConsumptionDetails", alias='@type', constant=True)
     energyEfficiencyScaleMax: Optional[Union[List[Union['EUEnergyEfficiencyEnumeration', str]], 'EUEnergyEfficiencyEnumeration', str]] = Field(
         default=None,
         description="Specifies the most energy efficient class on the regulated EU energy consumption scale"

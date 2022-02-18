@@ -11,5 +11,5 @@ class HinduDiet(RestrictedDiet):
     See: https://schema.org/HinduDiet
     Model depth: 5
     """
-    type_: str = Field(default="HinduDiet", alias='@type')
+    type_: str = Field(default="HinduDiet", alias='@type', constant=True)
     

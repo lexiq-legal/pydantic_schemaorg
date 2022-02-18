@@ -11,5 +11,5 @@ class CoOp(GamePlayMode):
     See: https://schema.org/CoOp
     Model depth: 5
     """
-    type_: str = Field(default="CoOp", alias='@type')
+    type_: str = Field(default="CoOp", alias='@type', constant=True)
     

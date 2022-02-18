@@ -17,7 +17,7 @@ class DietarySupplement(Substance):
     See: https://schema.org/DietarySupplement
     Model depth: 4
     """
-    type_: str = Field(default="DietarySupplement", alias='@type')
+    type_: str = Field(default="DietarySupplement", alias='@type', constant=True)
     safetyConsideration: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Any potential safety concern associated with the supplement. May include interactions"

@@ -20,8 +20,8 @@ class MonetaryAmount(StructuredValue):
     See: https://schema.org/MonetaryAmount
     Model depth: 4
     """
-    type_: str = Field(default="MonetaryAmount", alias='@type')
-    minValue: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    type_: str = Field(default="MonetaryAmount", alias='@type', constant=True)
+    minValue: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="The lower value of some characteristic or property.",
     )
@@ -29,7 +29,7 @@ class MonetaryAmount(StructuredValue):
         default=None,
         description="The date when the item becomes valid.",
     )
-    value: Optional[Union[List[Union[Decimal, 'Number', StrictBool, 'Boolean', str, 'Text', 'StructuredValue']], Decimal, 'Number', StrictBool, 'Boolean', str, 'Text', 'StructuredValue']] = Field(
+    value: Optional[Union[List[Union[int, float, 'Number', str, 'Text', StrictBool, 'Boolean', 'StructuredValue']], int, float, 'Number', str, 'Text', StrictBool, 'Boolean', 'StructuredValue']] = Field(
         default=None,
         description="The value of the quantitative value or property value node. * For [[QuantitativeValue]]"
      "and [[MonetaryAmount]], the recommended type for values is 'Number'. * For [[PropertyValue]],"
@@ -43,7 +43,7 @@ class MonetaryAmount(StructuredValue):
         description="The date after when the item is not valid. For example the end of an offer, salary period,"
      "or a period of opening hours.",
     )
-    maxValue: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    maxValue: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="The upper value of some characteristic or property.",
     )
@@ -61,6 +61,6 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Date import Date
-    from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.Text import Text
+    from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.StructuredValue import StructuredValue

@@ -17,8 +17,8 @@ class Quotation(CreativeWork):
     See: https://schema.org/Quotation
     Model depth: 3
     """
-    type_: str = Field(default="Quotation", alias='@type')
-    spokenByCharacter: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    type_: str = Field(default="Quotation", alias='@type', constant=True)
+    spokenByCharacter: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The (e.g. fictional) character, Person or Organization to whom the quotation is attributed"
      "within the containing CreativeWork.",
@@ -26,5 +26,5 @@ class Quotation(CreativeWork):
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person

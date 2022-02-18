@@ -12,5 +12,5 @@ class DistanceFee(PriceComponentTypeEnumeration):
     See: https://schema.org/DistanceFee
     Model depth: 5
     """
-    type_: str = Field(default="DistanceFee", alias='@type')
+    type_: str = Field(default="DistanceFee", alias='@type', constant=True)
     

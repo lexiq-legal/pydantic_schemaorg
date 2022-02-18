@@ -11,5 +11,5 @@ class PhysicalActivityCategory(Enumeration):
     See: https://schema.org/PhysicalActivityCategory
     Model depth: 4
     """
-    type_: str = Field(default="PhysicalActivityCategory", alias='@type')
+    type_: str = Field(default="PhysicalActivityCategory", alias='@type', constant=True)
     

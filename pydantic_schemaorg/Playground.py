@@ -11,5 +11,5 @@ class Playground(CivicStructure):
     See: https://schema.org/Playground
     Model depth: 4
     """
-    type_: str = Field(default="Playground", alias='@type')
+    type_: str = Field(default="Playground", alias='@type', constant=True)
     

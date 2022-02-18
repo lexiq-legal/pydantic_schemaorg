@@ -14,7 +14,7 @@ class NutritionInformation(StructuredValue):
     See: https://schema.org/NutritionInformation
     Model depth: 4
     """
-    type_: str = Field(default="NutritionInformation", alias='@type')
+    type_: str = Field(default="NutritionInformation", alias='@type', constant=True)
     calories: Optional[Union[List[Union['Energy', str]], 'Energy', str]] = Field(
         default=None,
         description="The number of calories.",

@@ -20,5 +20,5 @@ class OriginalMediaContent(MediaManipulationRatingEnumeration):
     See: https://schema.org/OriginalMediaContent
     Model depth: 5
     """
-    type_: str = Field(default="OriginalMediaContent", alias='@type')
+    type_: str = Field(default="OriginalMediaContent", alias='@type', constant=True)
     

@@ -15,7 +15,7 @@ class DrugStrength(MedicalIntangible):
     See: https://schema.org/DrugStrength
     Model depth: 4
     """
-    type_: str = Field(default="DrugStrength", alias='@type')
+    type_: str = Field(default="DrugStrength", alias='@type', constant=True)
     activeIngredient: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="An active ingredient, typically chemical compounds and/or biologic substances.",
@@ -28,7 +28,7 @@ class DrugStrength(MedicalIntangible):
         default=None,
         description="The units of an active ingredient's strength, e.g. mg.",
     )
-    strengthValue: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    strengthValue: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="The value of an active ingredient's strength, e.g. 325.",
     )

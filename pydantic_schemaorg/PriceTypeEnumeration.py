@@ -11,5 +11,5 @@ class PriceTypeEnumeration(Enumeration):
     See: https://schema.org/PriceTypeEnumeration
     Model depth: 4
     """
-    type_: str = Field(default="PriceTypeEnumeration", alias='@type')
+    type_: str = Field(default="PriceTypeEnumeration", alias='@type', constant=True)
     

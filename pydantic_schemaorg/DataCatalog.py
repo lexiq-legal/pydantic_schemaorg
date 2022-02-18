@@ -15,7 +15,7 @@ class DataCatalog(CreativeWork):
     See: https://schema.org/DataCatalog
     Model depth: 3
     """
-    type_: str = Field(default="DataCatalog", alias='@type')
+    type_: str = Field(default="DataCatalog", alias='@type', constant=True)
     measurementTechnique: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         default=None,
         description="A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),"

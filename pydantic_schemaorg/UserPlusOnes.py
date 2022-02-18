@@ -13,5 +13,5 @@ class UserPlusOnes(UserInteraction):
     See: https://schema.org/UserPlusOnes
     Model depth: 4
     """
-    type_: str = Field(default="UserPlusOnes", alias='@type')
+    type_: str = Field(default="UserPlusOnes", alias='@type', constant=True)
     

@@ -12,5 +12,5 @@ class GovernmentBenefitsType(Enumeration):
     See: https://schema.org/GovernmentBenefitsType
     Model depth: 4
     """
-    type_: str = Field(default="GovernmentBenefitsType", alias='@type')
+    type_: str = Field(default="GovernmentBenefitsType", alias='@type', constant=True)
     

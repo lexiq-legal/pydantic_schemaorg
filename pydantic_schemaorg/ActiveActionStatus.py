@@ -11,5 +11,5 @@ class ActiveActionStatus(ActionStatusType):
     See: https://schema.org/ActiveActionStatus
     Model depth: 6
     """
-    type_: str = Field(default="ActiveActionStatus", alias='@type')
+    type_: str = Field(default="ActiveActionStatus", alias='@type', constant=True)
     

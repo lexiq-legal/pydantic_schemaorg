@@ -11,5 +11,5 @@ class MedicalStudyStatus(MedicalEnumeration):
     See: https://schema.org/MedicalStudyStatus
     Model depth: 5
     """
-    type_: str = Field(default="MedicalStudyStatus", alias='@type')
+    type_: str = Field(default="MedicalStudyStatus", alias='@type', constant=True)
     

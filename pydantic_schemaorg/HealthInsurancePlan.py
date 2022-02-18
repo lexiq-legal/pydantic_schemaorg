@@ -15,7 +15,7 @@ class HealthInsurancePlan(Intangible):
     See: https://schema.org/HealthInsurancePlan
     Model depth: 3
     """
-    type_: str = Field(default="HealthInsurancePlan", alias='@type')
+    type_: str = Field(default="HealthInsurancePlan", alias='@type', constant=True)
     contactPoint: Optional[Union[List[Union['ContactPoint', str]], 'ContactPoint', str]] = Field(
         default=None,
         description="A contact point for a person or organization.",

@@ -15,5 +15,5 @@ class ImageObjectSnapshot(ImageObject):
     See: https://schema.org/ImageObjectSnapshot
     Model depth: 5
     """
-    type_: str = Field(default="ImageObjectSnapshot", alias='@type')
+    type_: str = Field(default="ImageObjectSnapshot", alias='@type', constant=True)
     

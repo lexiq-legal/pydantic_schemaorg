@@ -16,7 +16,7 @@ class BioChemEntity(Thing):
     See: https://schema.org/BioChemEntity
     Model depth: 2
     """
-    type_: str = Field(default="BioChemEntity", alias='@type')
+    type_: str = Field(default="BioChemEntity", alias='@type', constant=True)
     bioChemSimilarity: Optional[Union[List[Union['BioChemEntity', str]], 'BioChemEntity', str]] = Field(
         default=None,
         description="A similar BioChemEntity, e.g., obtained by fingerprint similarity algorithms.",
@@ -44,7 +44,7 @@ class BioChemEntity(Thing):
         description="Disease associated to this BioChemEntity. Such disease can be a MedicalCondition or"
      "a URL. If you want to add an evidence supporting the association, please use PropertyValue.",
     )
-    taxonomicRange: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'DefinedTerm', 'Taxon']], AnyUrl, 'URL', str, 'Text', 'DefinedTerm', 'Taxon']] = Field(
+    taxonomicRange: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Taxon', 'DefinedTerm']], AnyUrl, 'URL', str, 'Text', 'Taxon', 'DefinedTerm']] = Field(
         default=None,
         description="The taxonomic grouping of the organism that expresses, encodes, or in someway related"
      "to the BioChemEntity.",

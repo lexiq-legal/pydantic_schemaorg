@@ -12,5 +12,5 @@ class BrokerageAccount(InvestmentOrDeposit):
     See: https://schema.org/BrokerageAccount
     Model depth: 6
     """
-    type_: str = Field(default="BrokerageAccount", alias='@type')
+    type_: str = Field(default="BrokerageAccount", alias='@type', constant=True)
     

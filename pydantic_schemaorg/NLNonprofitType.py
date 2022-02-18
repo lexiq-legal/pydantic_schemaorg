@@ -11,5 +11,5 @@ class NLNonprofitType(NonprofitType):
     See: https://schema.org/NLNonprofitType
     Model depth: 5
     """
-    type_: str = Field(default="NLNonprofitType", alias='@type')
+    type_: str = Field(default="NLNonprofitType", alias='@type', constant=True)
     

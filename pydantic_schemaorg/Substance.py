@@ -15,7 +15,7 @@ class Substance(MedicalEntity):
     See: https://schema.org/Substance
     Model depth: 3
     """
-    type_: str = Field(default="Substance", alias='@type')
+    type_: str = Field(default="Substance", alias='@type', constant=True)
     activeIngredient: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="An active ingredient, typically chemical compounds and/or biologic substances.",

@@ -15,12 +15,12 @@ class SportsEvent(Event):
     See: https://schema.org/SportsEvent
     Model depth: 3
     """
-    type_: str = Field(default="SportsEvent", alias='@type')
+    type_: str = Field(default="SportsEvent", alias='@type', constant=True)
     sport: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         default=None,
         description="A type of sport (e.g. Baseball).",
     )
-    awayTeam: Optional[Union[List[Union['Person', 'SportsTeam', str]], 'Person', 'SportsTeam', str]] = Field(
+    awayTeam: Optional[Union[List[Union['SportsTeam', 'Person', str]], 'SportsTeam', 'Person', str]] = Field(
         default=None,
         description="The away team in a sports event.",
     )
@@ -28,7 +28,7 @@ class SportsEvent(Event):
         default=None,
         description="The home team in a sports event.",
     )
-    competitor: Optional[Union[List[Union['Person', 'SportsTeam', str]], 'Person', 'SportsTeam', str]] = Field(
+    competitor: Optional[Union[List[Union['SportsTeam', 'Person', str]], 'SportsTeam', 'Person', str]] = Field(
         default=None,
         description="A competitor in a sports event.",
     )
@@ -37,5 +37,5 @@ class SportsEvent(Event):
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.SportsTeam import SportsTeam
+    from pydantic_schemaorg.Person import Person

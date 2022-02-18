@@ -16,7 +16,7 @@ class Invoice(Intangible):
     See: https://schema.org/Invoice
     Model depth: 3
     """
-    type_: str = Field(default="Invoice", alias='@type')
+    type_: str = Field(default="Invoice", alias='@type', constant=True)
     paymentDue: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
         default=None,
         description="The date that payment is due.",
@@ -42,7 +42,7 @@ class Invoice(Intangible):
         default=None,
         description="The status of payment; whether the invoice has been paid or not.",
     )
-    customer: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    customer: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="Party placing the order or paying the invoice.",
     )
@@ -71,7 +71,7 @@ class Invoice(Intangible):
         default=None,
         description="The minimum payment required at this time.",
     )
-    provider: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    provider: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."
@@ -81,7 +81,7 @@ class Invoice(Intangible):
         default=None,
         description="The name of the credit card or other method of payment for the order.",
     )
-    broker: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    broker: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="An entity that arranges for an exchange between a buyer and a seller. In most cases a broker"
      "never acquires or releases ownership of a product or service involved in an exchange."
@@ -98,8 +98,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
     from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.PaymentStatusType import PaymentStatusType
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
     from pydantic_schemaorg.PriceSpecification import PriceSpecification
     from pydantic_schemaorg.Date import Date

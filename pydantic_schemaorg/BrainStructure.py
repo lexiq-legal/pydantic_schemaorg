@@ -12,5 +12,5 @@ class BrainStructure(AnatomicalStructure):
     See: https://schema.org/BrainStructure
     Model depth: 4
     """
-    type_: str = Field(default="BrainStructure", alias='@type')
+    type_: str = Field(default="BrainStructure", alias='@type', constant=True)
     

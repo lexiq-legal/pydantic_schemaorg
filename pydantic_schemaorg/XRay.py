@@ -11,5 +11,5 @@ class XRay(MedicalImagingTechnique):
     See: https://schema.org/XRay
     Model depth: 6
     """
-    type_: str = Field(default="XRay", alias='@type')
+    type_: str = Field(default="XRay", alias='@type', constant=True)
     

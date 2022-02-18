@@ -11,5 +11,5 @@ class HalalDiet(RestrictedDiet):
     See: https://schema.org/HalalDiet
     Model depth: 5
     """
-    type_: str = Field(default="HalalDiet", alias='@type')
+    type_: str = Field(default="HalalDiet", alias='@type', constant=True)
     

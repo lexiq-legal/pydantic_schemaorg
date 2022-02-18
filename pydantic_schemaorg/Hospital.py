@@ -16,7 +16,7 @@ class Hospital(MedicalOrganization, EmergencyService, CivicStructure):
     See: https://schema.org/Hospital
     Model depth: 4
     """
-    type_: str = Field(default="Hospital", alias='@type')
+    type_: str = Field(default="Hospital", alias='@type', constant=True)
     medicalSpecialty: Optional[Union[List[Union['MedicalSpecialty', str]], 'MedicalSpecialty', str]] = Field(
         default=None,
         description="A medical specialty of the provider.",
@@ -26,7 +26,7 @@ class Hospital(MedicalOrganization, EmergencyService, CivicStructure):
         description="Indicates data describing a hospital, e.g. a CDC [[CDCPMDRecord]] or as some kind of"
      "[[Dataset]].",
     )
-    availableService: Optional[Union[List[Union['MedicalTest', 'MedicalTherapy', 'MedicalProcedure', str]], 'MedicalTest', 'MedicalTherapy', 'MedicalProcedure', str]] = Field(
+    availableService: Optional[Union[List[Union['MedicalTherapy', 'MedicalTest', 'MedicalProcedure', str]], 'MedicalTherapy', 'MedicalTest', 'MedicalProcedure', str]] = Field(
         default=None,
         description="A medical service available from this provider.",
     )
@@ -36,6 +36,6 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
     from pydantic_schemaorg.CDCPMDRecord import CDCPMDRecord
     from pydantic_schemaorg.Dataset import Dataset
-    from pydantic_schemaorg.MedicalTest import MedicalTest
     from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
+    from pydantic_schemaorg.MedicalTest import MedicalTest
     from pydantic_schemaorg.MedicalProcedure import MedicalProcedure

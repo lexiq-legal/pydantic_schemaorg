@@ -15,7 +15,7 @@ class Clip(CreativeWork):
     See: https://schema.org/Clip
     Model depth: 3
     """
-    type_: str = Field(default="Clip", alias='@type')
+    type_: str = Field(default="Clip", alias='@type', constant=True)
     partOfSeason: Optional[Union[List[Union['CreativeWorkSeason', str]], 'CreativeWorkSeason', str]] = Field(
         default=None,
         description="The season to which this episode belongs.",
@@ -30,7 +30,7 @@ class Clip(CreativeWork):
         description="A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors"
      "can be associated with individual items or with a series, episode, clip.",
     )
-    startOffset: Optional[Union[List[Union[Decimal, 'Number', 'HyperTocEntry', str]], Decimal, 'Number', 'HyperTocEntry', str]] = Field(
+    startOffset: Optional[Union[List[Union[int, float, 'Number', 'HyperTocEntry', str]], int, float, 'Number', 'HyperTocEntry', str]] = Field(
         default=None,
         description="The start time of the clip expressed as the number of seconds from the beginning of the"
      "work.",
@@ -52,7 +52,7 @@ class Clip(CreativeWork):
         default=None,
         description="The episode to which this clip belongs.",
     )
-    endOffset: Optional[Union[List[Union[Decimal, 'Number', 'HyperTocEntry', str]], Decimal, 'Number', 'HyperTocEntry', str]] = Field(
+    endOffset: Optional[Union[List[Union[int, float, 'Number', 'HyperTocEntry', str]], int, float, 'Number', 'HyperTocEntry', str]] = Field(
         default=None,
         description="The end time of the clip expressed as the number of seconds from the beginning of the work.",
     )
@@ -61,7 +61,7 @@ class Clip(CreativeWork):
         description="A director of e.g. tv, radio, movie, video games etc. content. Directors can be associated"
      "with individual items or with a series, episode, clip.",
     )
-    musicBy: Optional[Union[List[Union['Person', 'MusicGroup', str]], 'Person', 'MusicGroup', str]] = Field(
+    musicBy: Optional[Union[List[Union['MusicGroup', 'Person', str]], 'MusicGroup', 'Person', str]] = Field(
         default=None,
         description="The composer of the soundtrack.",
     )

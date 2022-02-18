@@ -13,5 +13,5 @@ class Oncologic(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Oncologic
     Model depth: 5
     """
-    type_: str = Field(default="Oncologic", alias='@type')
+    type_: str = Field(default="Oncologic", alias='@type', constant=True)
     

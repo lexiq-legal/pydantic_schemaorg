@@ -16,7 +16,7 @@ class MoveAction(Action):
     See: https://schema.org/MoveAction
     Model depth: 3
     """
-    type_: str = Field(default="MoveAction", alias='@type')
+    type_: str = Field(default="MoveAction", alias='@type', constant=True)
     fromLocation: Optional[Union[List[Union['Place', str]], 'Place', str]] = Field(
         default=None,
         description="A sub property of location. The original location of the object or the agent before the"

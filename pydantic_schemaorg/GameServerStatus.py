@@ -11,5 +11,5 @@ class GameServerStatus(StatusEnumeration):
     See: https://schema.org/GameServerStatus
     Model depth: 5
     """
-    type_: str = Field(default="GameServerStatus", alias='@type')
+    type_: str = Field(default="GameServerStatus", alias='@type', constant=True)
     

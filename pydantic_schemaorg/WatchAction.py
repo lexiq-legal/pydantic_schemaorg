@@ -11,5 +11,5 @@ class WatchAction(ConsumeAction):
     See: https://schema.org/WatchAction
     Model depth: 4
     """
-    type_: str = Field(default="WatchAction", alias='@type')
+    type_: str = Field(default="WatchAction", alias='@type', constant=True)
     

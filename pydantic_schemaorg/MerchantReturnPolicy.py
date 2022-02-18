@@ -18,7 +18,7 @@ class MerchantReturnPolicy(Intangible):
     See: https://schema.org/MerchantReturnPolicy
     Model depth: 3
     """
-    type_: str = Field(default="MerchantReturnPolicy", alias='@type')
+    type_: str = Field(default="MerchantReturnPolicy", alias='@type', constant=True)
     customerRemorseReturnFees: Optional[Union[List[Union['ReturnFeesEnumeration', str]], 'ReturnFeesEnumeration', str]] = Field(
         default=None,
         description="The type of return fees if the product is returned due to customer remorse.",
@@ -96,7 +96,7 @@ class MerchantReturnPolicy(Intangible):
      "or service, or the products or services included in the offer. Also used for product return"
      "policies to specify the condition of products accepted for returns.",
     )
-    restockingFee: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', str]], Decimal, 'Number', 'MonetaryAmount', str]] = Field(
+    restockingFee: Optional[Union[List[Union[int, float, 'Number', 'MonetaryAmount', str]], int, float, 'Number', 'MonetaryAmount', str]] = Field(
         default=None,
         description="Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use"
      "[[Number]] to specify a percentage of the product price paid by the customer.",

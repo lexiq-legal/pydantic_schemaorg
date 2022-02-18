@@ -11,5 +11,5 @@ class Discontinued(ItemAvailability):
     See: https://schema.org/Discontinued
     Model depth: 5
     """
-    type_: str = Field(default="Discontinued", alias='@type')
+    type_: str = Field(default="Discontinued", alias='@type', constant=True)
     

@@ -15,7 +15,7 @@ class Muscle(AnatomicalStructure):
     See: https://schema.org/Muscle
     Model depth: 4
     """
-    type_: str = Field(default="Muscle", alias='@type')
+    type_: str = Field(default="Muscle", alias='@type', constant=True)
     nerve: Optional[Union[List[Union['Nerve', str]], 'Nerve', str]] = Field(
         default=None,
         description="The underlying innervation associated with the muscle.",

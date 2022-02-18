@@ -12,5 +12,5 @@ class Pharmacy(MedicalBusiness, MedicalOrganization):
     See: https://schema.org/Pharmacy
     Model depth: 4
     """
-    type_: str = Field(default="Pharmacy", alias='@type')
+    type_: str = Field(default="Pharmacy", alias='@type', constant=True)
     

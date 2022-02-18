@@ -11,5 +11,5 @@ class AnimalShelter(LocalBusiness):
     See: https://schema.org/AnimalShelter
     Model depth: 4
     """
-    type_: str = Field(default="AnimalShelter", alias='@type')
+    type_: str = Field(default="AnimalShelter", alias='@type', constant=True)
     

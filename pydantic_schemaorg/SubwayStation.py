@@ -11,5 +11,5 @@ class SubwayStation(CivicStructure):
     See: https://schema.org/SubwayStation
     Model depth: 4
     """
-    type_: str = Field(default="SubwayStation", alias='@type')
+    type_: str = Field(default="SubwayStation", alias='@type', constant=True)
     

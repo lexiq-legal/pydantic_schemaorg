@@ -12,5 +12,5 @@ class Ligament(AnatomicalStructure):
     See: https://schema.org/Ligament
     Model depth: 4
     """
-    type_: str = Field(default="Ligament", alias='@type')
+    type_: str = Field(default="Ligament", alias='@type', constant=True)
     

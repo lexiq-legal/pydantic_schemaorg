@@ -14,7 +14,7 @@ class TVClip(Clip):
     See: https://schema.org/TVClip
     Model depth: 4
     """
-    type_: str = Field(default="TVClip", alias='@type')
+    type_: str = Field(default="TVClip", alias='@type', constant=True)
     partOfTVSeries: Optional[Union[List[Union['TVSeries', str]], 'TVSeries', str]] = Field(
         default=None,
         description="The TV series to which this episode or season belongs.",

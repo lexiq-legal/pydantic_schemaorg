@@ -11,5 +11,5 @@ class CT(MedicalImagingTechnique):
     See: https://schema.org/CT
     Model depth: 6
     """
-    type_: str = Field(default="CT", alias='@type')
+    type_: str = Field(default="CT", alias='@type', constant=True)
     

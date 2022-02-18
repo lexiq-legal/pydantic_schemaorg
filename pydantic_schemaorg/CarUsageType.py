@@ -12,5 +12,5 @@ class CarUsageType(Enumeration):
     See: https://schema.org/CarUsageType
     Model depth: 4
     """
-    type_: str = Field(default="CarUsageType", alias='@type')
+    type_: str = Field(default="CarUsageType", alias='@type', constant=True)
     

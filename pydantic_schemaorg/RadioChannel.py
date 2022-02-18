@@ -11,5 +11,5 @@ class RadioChannel(BroadcastChannel):
     See: https://schema.org/RadioChannel
     Model depth: 4
     """
-    type_: str = Field(default="RadioChannel", alias='@type')
+    type_: str = Field(default="RadioChannel", alias='@type', constant=True)
     

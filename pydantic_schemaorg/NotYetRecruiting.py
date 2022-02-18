@@ -11,5 +11,5 @@ class NotYetRecruiting(MedicalStudyStatus):
     See: https://schema.org/NotYetRecruiting
     Model depth: 6
     """
-    type_: str = Field(default="NotYetRecruiting", alias='@type')
+    type_: str = Field(default="NotYetRecruiting", alias='@type', constant=True)
     

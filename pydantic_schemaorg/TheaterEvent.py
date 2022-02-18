@@ -11,5 +11,5 @@ class TheaterEvent(Event):
     See: https://schema.org/TheaterEvent
     Model depth: 3
     """
-    type_: str = Field(default="TheaterEvent", alias='@type')
+    type_: str = Field(default="TheaterEvent", alias='@type', constant=True)
     

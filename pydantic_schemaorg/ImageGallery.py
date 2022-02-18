@@ -11,5 +11,5 @@ class ImageGallery(MediaGallery):
     See: https://schema.org/ImageGallery
     Model depth: 6
     """
-    type_: str = Field(default="ImageGallery", alias='@type')
+    type_: str = Field(default="ImageGallery", alias='@type', constant=True)
     

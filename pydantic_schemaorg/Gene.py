@@ -17,7 +17,7 @@ class Gene(BioChemEntity):
     See: https://schema.org/Gene
     Model depth: 3
     """
-    type_: str = Field(default="Gene", alias='@type')
+    type_: str = Field(default="Gene", alias='@type', constant=True)
     hasBioPolymerSequence: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of"
@@ -31,7 +31,7 @@ class Gene(BioChemEntity):
         default=None,
         description="Another gene which is a variation of this one.",
     )
-    expressedIn: Optional[Union[List[Union['AnatomicalStructure', 'BioChemEntity', 'AnatomicalSystem', 'DefinedTerm', str]], 'AnatomicalStructure', 'BioChemEntity', 'AnatomicalSystem', 'DefinedTerm', str]] = Field(
+    expressedIn: Optional[Union[List[Union['BioChemEntity', 'DefinedTerm', 'AnatomicalSystem', 'AnatomicalStructure', str]], 'BioChemEntity', 'DefinedTerm', 'AnatomicalSystem', 'AnatomicalStructure', str]] = Field(
         default=None,
         description="Tissue, organ, biological sample, etc in which activity of this gene has been observed"
      "experimentally. For example brain, digestive system.",
@@ -41,6 +41,6 @@ class Gene(BioChemEntity):
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.BioChemEntity import BioChemEntity
-    from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
-    from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
+    from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
+    from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure

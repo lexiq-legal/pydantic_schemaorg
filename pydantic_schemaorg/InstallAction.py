@@ -11,5 +11,5 @@ class InstallAction(ConsumeAction):
     See: https://schema.org/InstallAction
     Model depth: 4
     """
-    type_: str = Field(default="InstallAction", alias='@type')
+    type_: str = Field(default="InstallAction", alias='@type', constant=True)
     

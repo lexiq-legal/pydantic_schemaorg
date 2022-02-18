@@ -11,5 +11,5 @@ class Recruiting(MedicalStudyStatus):
     See: https://schema.org/Recruiting
     Model depth: 6
     """
-    type_: str = Field(default="Recruiting", alias='@type')
+    type_: str = Field(default="Recruiting", alias='@type', constant=True)
     

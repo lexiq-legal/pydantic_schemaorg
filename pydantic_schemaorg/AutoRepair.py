@@ -11,5 +11,5 @@ class AutoRepair(AutomotiveBusiness):
     See: https://schema.org/AutoRepair
     Model depth: 5
     """
-    type_: str = Field(default="AutoRepair", alias='@type')
+    type_: str = Field(default="AutoRepair", alias='@type', constant=True)
     

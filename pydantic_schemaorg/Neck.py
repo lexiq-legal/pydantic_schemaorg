@@ -11,5 +11,5 @@ class Neck(PhysicalExam):
     See: https://schema.org/Neck
     Model depth: 5
     """
-    type_: str = Field(default="Neck", alias='@type')
+    type_: str = Field(default="Neck", alias='@type', constant=True)
     

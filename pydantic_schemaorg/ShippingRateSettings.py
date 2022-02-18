@@ -18,7 +18,7 @@ class ShippingRateSettings(StructuredValue):
     See: https://schema.org/ShippingRateSettings
     Model depth: 4
     """
-    type_: str = Field(default="ShippingRateSettings", alias='@type')
+    type_: str = Field(default="ShippingRateSettings", alias='@type', constant=True)
     shippingLabel: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Label to match an [[OfferShippingDetails]] with a [[ShippingRateSettings]] (within"
@@ -38,7 +38,7 @@ class ShippingRateSettings(StructuredValue):
         description="The shipping rate is the cost of shipping to the specified destination. Typically, the"
      "maxValue and currency values (of the [[MonetaryAmount]]) are most appropriate.",
     )
-    freeShippingThreshold: Optional[Union[List[Union['MonetaryAmount', 'DeliveryChargeSpecification', str]], 'MonetaryAmount', 'DeliveryChargeSpecification', str]] = Field(
+    freeShippingThreshold: Optional[Union[List[Union['DeliveryChargeSpecification', 'MonetaryAmount', str]], 'DeliveryChargeSpecification', 'MonetaryAmount', str]] = Field(
         default=None,
         description="A monetary value above which (or equal to) the shipping rate becomes free. Intended to"
      "be used via an [[OfferShippingDetails]] with [[shippingSettingsLink]] matching"

@@ -12,5 +12,5 @@ class EventScheduled(EventStatusType):
     See: https://schema.org/EventScheduled
     Model depth: 6
     """
-    type_: str = Field(default="EventScheduled", alias='@type')
+    type_: str = Field(default="EventScheduled", alias='@type', constant=True)
     

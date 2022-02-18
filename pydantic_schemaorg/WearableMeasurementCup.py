@@ -11,5 +11,5 @@ class WearableMeasurementCup(WearableMeasurementTypeEnumeration):
     See: https://schema.org/WearableMeasurementCup
     Model depth: 6
     """
-    type_: str = Field(default="WearableMeasurementCup", alias='@type')
+    type_: str = Field(default="WearableMeasurementCup", alias='@type', constant=True)
     

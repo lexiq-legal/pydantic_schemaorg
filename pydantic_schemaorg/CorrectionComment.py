@@ -11,5 +11,5 @@ class CorrectionComment(Comment):
     See: https://schema.org/CorrectionComment
     Model depth: 4
     """
-    type_: str = Field(default="CorrectionComment", alias='@type')
+    type_: str = Field(default="CorrectionComment", alias='@type', constant=True)
     

@@ -11,5 +11,5 @@ class TireShop(Store):
     See: https://schema.org/TireShop
     Model depth: 5
     """
-    type_: str = Field(default="TireShop", alias='@type')
+    type_: str = Field(default="TireShop", alias='@type', constant=True)
     

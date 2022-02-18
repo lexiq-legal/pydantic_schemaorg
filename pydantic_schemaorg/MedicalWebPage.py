@@ -14,8 +14,8 @@ class MedicalWebPage(WebPage):
     See: https://schema.org/MedicalWebPage
     Model depth: 4
     """
-    type_: str = Field(default="MedicalWebPage", alias='@type')
-    medicalAudience: Optional[Union[List[Union['MedicalAudience', 'MedicalAudienceType', str]], 'MedicalAudience', 'MedicalAudienceType', str]] = Field(
+    type_: str = Field(default="MedicalWebPage", alias='@type', constant=True)
+    medicalAudience: Optional[Union[List[Union['MedicalAudienceType', 'MedicalAudience', str]], 'MedicalAudienceType', 'MedicalAudience', str]] = Field(
         default=None,
         description="Medical audience for page.",
     )
@@ -27,6 +27,6 @@ class MedicalWebPage(WebPage):
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.MedicalAudience import MedicalAudience
     from pydantic_schemaorg.MedicalAudienceType import MedicalAudienceType
+    from pydantic_schemaorg.MedicalAudience import MedicalAudience
     from pydantic_schemaorg.Text import Text

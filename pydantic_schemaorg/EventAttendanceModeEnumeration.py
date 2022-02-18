@@ -12,5 +12,5 @@ class EventAttendanceModeEnumeration(Enumeration):
     See: https://schema.org/EventAttendanceModeEnumeration
     Model depth: 4
     """
-    type_: str = Field(default="EventAttendanceModeEnumeration", alias='@type')
+    type_: str = Field(default="EventAttendanceModeEnumeration", alias='@type', constant=True)
     

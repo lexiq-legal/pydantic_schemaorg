@@ -11,5 +11,5 @@ class TelevisionStation(LocalBusiness):
     See: https://schema.org/TelevisionStation
     Model depth: 4
     """
-    type_: str = Field(default="TelevisionStation", alias='@type')
+    type_: str = Field(default="TelevisionStation", alias='@type', constant=True)
     

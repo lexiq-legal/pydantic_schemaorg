@@ -15,7 +15,7 @@ class ChemicalSubstance(BioChemEntity):
     See: https://schema.org/ChemicalSubstance
     Model depth: 3
     """
-    type_: str = Field(default="ChemicalSubstance", alias='@type')
+    type_: str = Field(default="ChemicalSubstance", alias='@type', constant=True)
     chemicalComposition: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The chemical composition describes the identity and relative ratio of the chemical"

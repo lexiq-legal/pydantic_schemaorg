@@ -11,5 +11,5 @@ class KosherDiet(RestrictedDiet):
     See: https://schema.org/KosherDiet
     Model depth: 5
     """
-    type_: str = Field(default="KosherDiet", alias='@type')
+    type_: str = Field(default="KosherDiet", alias='@type', constant=True)
     

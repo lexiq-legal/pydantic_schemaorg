@@ -14,7 +14,7 @@ class DataFeed(Dataset):
     See: https://schema.org/DataFeed
     Model depth: 4
     """
-    type_: str = Field(default="DataFeed", alias='@type')
+    type_: str = Field(default="DataFeed", alias='@type', constant=True)
     dataFeedElement: Optional[Union[List[Union[str, 'Text', 'Thing', 'DataFeedItem']], str, 'Text', 'Thing', 'DataFeedItem']] = Field(
         default=None,
         description="An item within in a data feed. Data feeds may have many elements.",

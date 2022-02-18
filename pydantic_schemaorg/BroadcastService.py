@@ -14,7 +14,7 @@ class BroadcastService(Service):
     See: https://schema.org/BroadcastService
     Model depth: 4
     """
-    type_: str = Field(default="BroadcastService", alias='@type')
+    type_: str = Field(default="BroadcastService", alias='@type', constant=True)
     broadcastFrequency: Optional[Union[List[Union[str, 'Text', 'BroadcastFrequencySpecification']], str, 'Text', 'BroadcastFrequencySpecification']] = Field(
         default=None,
         description="The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g."

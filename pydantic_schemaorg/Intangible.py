@@ -12,5 +12,5 @@ class Intangible(Thing):
     See: https://schema.org/Intangible
     Model depth: 2
     """
-    type_: str = Field(default="Intangible", alias='@type')
+    type_: str = Field(default="Intangible", alias='@type', constant=True)
     

@@ -18,13 +18,13 @@ class PaymentCard(PaymentMethod, FinancialProduct):
     See: https://schema.org/PaymentCard
     Model depth: 5
     """
-    type_: str = Field(default="PaymentCard", alias='@type')
+    type_: str = Field(default="PaymentCard", alias='@type', constant=True)
     contactlessPayment: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="A secure method for consumers to purchase products or services via debit, credit or smartcards"
      "by using RFID or NFC technology.",
     )
-    cashBack: Optional[Union[List[Union[Decimal, 'Number', StrictBool, 'Boolean', str]], Decimal, 'Number', StrictBool, 'Boolean', str]] = Field(
+    cashBack: Optional[Union[List[Union[int, float, 'Number', StrictBool, 'Boolean', str]], int, float, 'Number', StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="A cardholder benefit that pays the cardholder a small percentage of their net expenditures.",
     )
@@ -32,7 +32,7 @@ class PaymentCard(PaymentMethod, FinancialProduct):
         default=None,
         description="A floor limit is the amount of money above which credit card transactions must be authorized.",
     )
-    monthlyMinimumRepaymentAmount: Optional[Union[List[Union[Decimal, 'Number', 'MonetaryAmount', str]], Decimal, 'Number', 'MonetaryAmount', str]] = Field(
+    monthlyMinimumRepaymentAmount: Optional[Union[List[Union[int, float, 'Number', 'MonetaryAmount', str]], int, float, 'Number', 'MonetaryAmount', str]] = Field(
         default=None,
         description="The minimum payment is the lowest amount of money that one is required to pay on a credit"
      "card statement each month.",

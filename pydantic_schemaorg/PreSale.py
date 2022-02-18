@@ -11,5 +11,5 @@ class PreSale(ItemAvailability):
     See: https://schema.org/PreSale
     Model depth: 5
     """
-    type_: str = Field(default="PreSale", alias='@type')
+    type_: str = Field(default="PreSale", alias='@type', constant=True)
     

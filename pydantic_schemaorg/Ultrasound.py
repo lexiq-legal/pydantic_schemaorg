@@ -11,5 +11,5 @@ class Ultrasound(MedicalImagingTechnique):
     See: https://schema.org/Ultrasound
     Model depth: 6
     """
-    type_: str = Field(default="Ultrasound", alias='@type')
+    type_: str = Field(default="Ultrasound", alias='@type', constant=True)
     

@@ -11,5 +11,5 @@ class ActiveNotRecruiting(MedicalStudyStatus):
     See: https://schema.org/ActiveNotRecruiting
     Model depth: 6
     """
-    type_: str = Field(default="ActiveNotRecruiting", alias='@type')
+    type_: str = Field(default="ActiveNotRecruiting", alias='@type', constant=True)
     

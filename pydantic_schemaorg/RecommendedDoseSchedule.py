@@ -13,5 +13,5 @@ class RecommendedDoseSchedule(DoseSchedule):
     See: https://schema.org/RecommendedDoseSchedule
     Model depth: 5
     """
-    type_: str = Field(default="RecommendedDoseSchedule", alias='@type')
+    type_: str = Field(default="RecommendedDoseSchedule", alias='@type', constant=True)
     

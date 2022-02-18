@@ -11,5 +11,5 @@ class UseAction(ConsumeAction):
     See: https://schema.org/UseAction
     Model depth: 4
     """
-    type_: str = Field(default="UseAction", alias='@type')
+    type_: str = Field(default="UseAction", alias='@type', constant=True)
     

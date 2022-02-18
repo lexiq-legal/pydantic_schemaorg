@@ -11,5 +11,5 @@ class GovernmentPermit(Permit):
     See: https://schema.org/GovernmentPermit
     Model depth: 4
     """
-    type_: str = Field(default="GovernmentPermit", alias='@type')
+    type_: str = Field(default="GovernmentPermit", alias='@type', constant=True)
     

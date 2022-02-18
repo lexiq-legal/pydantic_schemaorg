@@ -16,7 +16,7 @@ class BankAccount(FinancialProduct):
     See: https://schema.org/BankAccount
     Model depth: 5
     """
-    type_: str = Field(default="BankAccount", alias='@type')
+    type_: str = Field(default="BankAccount", alias='@type', constant=True)
     accountMinimumInflow: Optional[Union[List[Union['MonetaryAmount', str]], 'MonetaryAmount', str]] = Field(
         default=None,
         description="A minimum amount that has to be paid in every month.",

@@ -12,5 +12,5 @@ class ActivateAction(ControlAction):
     See: https://schema.org/ActivateAction
     Model depth: 4
     """
-    type_: str = Field(default="ActivateAction", alias='@type')
+    type_: str = Field(default="ActivateAction", alias='@type', constant=True)
     

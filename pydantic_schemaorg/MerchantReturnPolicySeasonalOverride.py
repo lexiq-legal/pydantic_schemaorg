@@ -15,7 +15,7 @@ class MerchantReturnPolicySeasonalOverride(Intangible):
     See: https://schema.org/MerchantReturnPolicySeasonalOverride
     Model depth: 3
     """
-    type_: str = Field(default="MerchantReturnPolicySeasonalOverride", alias='@type')
+    type_: str = Field(default="MerchantReturnPolicySeasonalOverride", alias='@type', constant=True)
     merchantReturnDays: Optional[Union[List[Union[ISO8601Date, 'DateTime', int, 'Integer', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', int, 'Integer', ISO8601Date, 'Date', str]] = Field(
         default=None,
         description="Specifies either a fixed return date or the number of days (from the delivery date) that"

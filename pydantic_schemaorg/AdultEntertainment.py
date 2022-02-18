@@ -11,5 +11,5 @@ class AdultEntertainment(EntertainmentBusiness):
     See: https://schema.org/AdultEntertainment
     Model depth: 5
     """
-    type_: str = Field(default="AdultEntertainment", alias='@type')
+    type_: str = Field(default="AdultEntertainment", alias='@type', constant=True)
     

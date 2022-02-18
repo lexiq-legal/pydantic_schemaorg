@@ -12,5 +12,5 @@ class BedAndBreakfast(LodgingBusiness):
     See: https://schema.org/BedAndBreakfast
     Model depth: 5
     """
-    type_: str = Field(default="BedAndBreakfast", alias='@type')
+    type_: str = Field(default="BedAndBreakfast", alias='@type', constant=True)
     

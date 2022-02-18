@@ -12,5 +12,5 @@ class MedicalGuidelineContraindication(MedicalGuideline):
     See: https://schema.org/MedicalGuidelineContraindication
     Model depth: 4
     """
-    type_: str = Field(default="MedicalGuidelineContraindication", alias='@type')
+    type_: str = Field(default="MedicalGuidelineContraindication", alias='@type', constant=True)
     

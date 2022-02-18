@@ -14,7 +14,7 @@ class ReservationPackage(Reservation):
     See: https://schema.org/ReservationPackage
     Model depth: 4
     """
-    type_: str = Field(default="ReservationPackage", alias='@type')
+    type_: str = Field(default="ReservationPackage", alias='@type', constant=True)
     subReservation: Optional[Union[List[Union['Reservation', str]], 'Reservation', str]] = Field(
         default=None,
         description="The individual reservations included in the package. Typically a repeated property.",

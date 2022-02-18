@@ -11,5 +11,5 @@ class SRP(PriceTypeEnumeration):
     See: https://schema.org/SRP
     Model depth: 5
     """
-    type_: str = Field(default="SRP", alias='@type')
+    type_: str = Field(default="SRP", alias='@type', constant=True)
     

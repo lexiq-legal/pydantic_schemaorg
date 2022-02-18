@@ -15,7 +15,7 @@ class PostalCodeRangeSpecification(StructuredValue):
     See: https://schema.org/PostalCodeRangeSpecification
     Model depth: 4
     """
-    type_: str = Field(default="PostalCodeRangeSpecification", alias='@type')
+    type_: str = Field(default="PostalCodeRangeSpecification", alias='@type', constant=True)
     postalCodeEnd: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Last postal code in the range (included). Needs to be after [[postalCodeBegin]].",

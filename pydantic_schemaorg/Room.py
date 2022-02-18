@@ -14,5 +14,5 @@ class Room(Accommodation):
     See: https://schema.org/Room
     Model depth: 4
     """
-    type_: str = Field(default="Room", alias='@type')
+    type_: str = Field(default="Room", alias='@type', constant=True)
     

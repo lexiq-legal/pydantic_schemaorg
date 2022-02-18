@@ -11,5 +11,5 @@ class BloodTest(MedicalTest):
     See: https://schema.org/BloodTest
     Model depth: 4
     """
-    type_: str = Field(default="BloodTest", alias='@type')
+    type_: str = Field(default="BloodTest", alias='@type', constant=True)
     

@@ -11,5 +11,5 @@ class WearAction(UseAction):
     See: https://schema.org/WearAction
     Model depth: 5
     """
-    type_: str = Field(default="WearAction", alias='@type')
+    type_: str = Field(default="WearAction", alias='@type', constant=True)
     

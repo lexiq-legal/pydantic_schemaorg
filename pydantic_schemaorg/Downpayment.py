@@ -12,5 +12,5 @@ class Downpayment(PriceComponentTypeEnumeration):
     See: https://schema.org/Downpayment
     Model depth: 5
     """
-    type_: str = Field(default="Downpayment", alias='@type')
+    type_: str = Field(default="Downpayment", alias='@type', constant=True)
     

@@ -17,17 +17,17 @@ class ActionAccessSpecification(Intangible):
     See: https://schema.org/ActionAccessSpecification
     Model depth: 3
     """
-    type_: str = Field(default="ActionAccessSpecification", alias='@type')
+    type_: str = Field(default="ActionAccessSpecification", alias='@type', constant=True)
     category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']], AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']] = Field(
         default=None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
     )
-    availabilityStarts: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', time, 'Time', ISO8601Date, 'Date', str]] = Field(
+    availabilityStarts: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', time, 'Time', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', time, 'Time', str]] = Field(
         default=None,
         description="The beginning of the availability of the product or service included in the offer.",
     )
-    eligibleRegion: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'Place']], str, 'Text', 'GeoShape', 'Place']] = Field(
+    eligibleRegion: Optional[Union[List[Union[str, 'Text', 'Place', 'GeoShape']], str, 'Text', 'Place', 'GeoShape']] = Field(
         default=None,
         description="The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for"
      "the geo-political region(s) for which the offer or delivery charge specification is"
@@ -43,11 +43,11 @@ class ActionAccessSpecification(Intangible):
         description="An Offer which must be accepted before the user can perform the Action. For example, the"
      "user may need to buy a movie before being able to watch it.",
     )
-    availabilityEnds: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', time, 'Time', ISO8601Date, 'Date', str]] = Field(
+    availabilityEnds: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', time, 'Time', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', time, 'Time', str]] = Field(
         default=None,
         description="The end of the availability of the product or service included in the offer.",
     )
-    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'Place']], str, 'Text', 'GeoShape', 'Place']] = Field(
+    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'Place', 'GeoShape']], str, 'Text', 'Place', 'GeoShape']] = Field(
         default=None,
         description="The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for"
      "the geo-political region(s) for which the offer or delivery charge specification is"
@@ -61,10 +61,10 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
     from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.DateTime import DateTime
-    from pydantic_schemaorg.Time import Time
     from pydantic_schemaorg.Date import Date
-    from pydantic_schemaorg.GeoShape import GeoShape
+    from pydantic_schemaorg.Time import Time
     from pydantic_schemaorg.Place import Place
+    from pydantic_schemaorg.GeoShape import GeoShape
     from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.MediaSubscription import MediaSubscription
     from pydantic_schemaorg.Offer import Offer

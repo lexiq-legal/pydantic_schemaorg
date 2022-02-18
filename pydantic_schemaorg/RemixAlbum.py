@@ -11,5 +11,5 @@ class RemixAlbum(MusicAlbumProductionType):
     See: https://schema.org/RemixAlbum
     Model depth: 5
     """
-    type_: str = Field(default="RemixAlbum", alias='@type')
+    type_: str = Field(default="RemixAlbum", alias='@type', constant=True)
     

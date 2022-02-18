@@ -11,5 +11,5 @@ class DryCleaningOrLaundry(LocalBusiness):
     See: https://schema.org/DryCleaningOrLaundry
     Model depth: 4
     """
-    type_: str = Field(default="DryCleaningOrLaundry", alias='@type')
+    type_: str = Field(default="DryCleaningOrLaundry", alias='@type', constant=True)
     

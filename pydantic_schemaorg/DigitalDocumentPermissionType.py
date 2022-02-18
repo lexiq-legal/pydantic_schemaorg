@@ -11,5 +11,5 @@ class DigitalDocumentPermissionType(Enumeration):
     See: https://schema.org/DigitalDocumentPermissionType
     Model depth: 4
     """
-    type_: str = Field(default="DigitalDocumentPermissionType", alias='@type')
+    type_: str = Field(default="DigitalDocumentPermissionType", alias='@type', constant=True)
     

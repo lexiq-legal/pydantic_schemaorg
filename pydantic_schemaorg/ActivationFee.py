@@ -12,5 +12,5 @@ class ActivationFee(PriceComponentTypeEnumeration):
     See: https://schema.org/ActivationFee
     Model depth: 5
     """
-    type_: str = Field(default="ActivationFee", alias='@type')
+    type_: str = Field(default="ActivationFee", alias='@type', constant=True)
     

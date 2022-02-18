@@ -17,7 +17,7 @@ class CourseInstance(Event):
     See: https://schema.org/CourseInstance
     Model depth: 3
     """
-    type_: str = Field(default="CourseInstance", alias='@type')
+    type_: str = Field(default="CourseInstance", alias='@type', constant=True)
     courseWorkload: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The amount of work expected of students taking the course, often provided as a figure"

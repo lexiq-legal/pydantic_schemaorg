@@ -11,5 +11,5 @@ class HowToTool(HowToItem):
     See: https://schema.org/HowToTool
     Model depth: 5
     """
-    type_: str = Field(default="HowToTool", alias='@type')
+    type_: str = Field(default="HowToTool", alias='@type', constant=True)
     

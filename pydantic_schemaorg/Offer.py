@@ -26,7 +26,7 @@ class Offer(Intangible):
     See: https://schema.org/Offer
     Model depth: 3
     """
-    type_: str = Field(default="Offer", alias='@type')
+    type_: str = Field(default="Offer", alias='@type', constant=True)
     hasMeasurement: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
         default=None,
         description="A product measurement, for example the inseam of pants, the wheel size of a bicycle, or"
@@ -38,7 +38,7 @@ class Offer(Intangible):
         description="This links to a node or nodes indicating the exact quantity of the products included in"
      "an [[Offer]] or [[ProductCollection]].",
     )
-    areaServed: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'AdministrativeArea', 'Place']], str, 'Text', 'GeoShape', 'AdministrativeArea', 'Place']] = Field(
+    areaServed: Optional[Union[List[Union[str, 'Text', 'AdministrativeArea', 'Place', 'GeoShape']], str, 'Text', 'AdministrativeArea', 'Place', 'GeoShape']] = Field(
         default=None,
         description="The geographic area where a service or offered item is provided.",
     )
@@ -81,7 +81,7 @@ class Offer(Intangible):
      "known as EAN/UCC-8 or 8-digit EAN. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin)"
      "for more details.",
     )
-    leaseLength: Optional[Union[List[Union['QuantitativeValue', 'Duration', str]], 'QuantitativeValue', 'Duration', str]] = Field(
+    leaseLength: Optional[Union[List[Union['Duration', 'QuantitativeValue', str]], 'Duration', 'QuantitativeValue', str]] = Field(
         default=None,
         description="Length of the lease for some [[Accommodation]], either particular to some [[Offer]]"
      "or in some cases intrinsic to the property.",
@@ -93,7 +93,7 @@ class Offer(Intangible):
      "above a certain order volume, or to limit the acceptance of credit cards to purchases"
      "to a certain minimal amount.",
     )
-    acceptedPaymentMethod: Optional[Union[List[Union['PaymentMethod', 'LoanOrCredit', str]], 'PaymentMethod', 'LoanOrCredit', str]] = Field(
+    acceptedPaymentMethod: Optional[Union[List[Union['LoanOrCredit', 'PaymentMethod', str]], 'LoanOrCredit', 'PaymentMethod', str]] = Field(
         default=None,
         description="The payment method(s) accepted by seller for this offer.",
     )
@@ -115,7 +115,7 @@ class Offer(Intangible):
         default=None,
         description="Specifies a MerchantReturnPolicy that may be applicable.",
     )
-    availabilityStarts: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', time, 'Time', ISO8601Date, 'Date', str]] = Field(
+    availabilityStarts: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', time, 'Time', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', time, 'Time', str]] = Field(
         default=None,
         description="The beginning of the availability of the product or service included in the offer.",
     )
@@ -127,7 +127,7 @@ class Offer(Intangible):
      "for cryptocurrencies e.g. \"BTC\"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system)"
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
-    price: Optional[Union[List[Union[Decimal, 'Number', str, 'Text']], Decimal, 'Number', str, 'Text']] = Field(
+    price: Optional[Union[List[Union[int, float, 'Number', str, 'Text']], int, float, 'Number', str, 'Text']] = Field(
         default=None,
         description="The offer price of a product, or of a price component when attached to PriceSpecification"
      "and its subtypes. Usage guidelines: * Use the [[priceCurrency]] property (with standard"
@@ -144,13 +144,13 @@ class Offer(Intangible):
      "0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially"
      "similiar Unicode symbols.",
     )
-    eligibleRegion: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'Place']], str, 'Text', 'GeoShape', 'Place']] = Field(
+    eligibleRegion: Optional[Union[List[Union[str, 'Text', 'Place', 'GeoShape']], str, 'Text', 'Place', 'GeoShape']] = Field(
         default=None,
         description="The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for"
      "the geo-political region(s) for which the offer or delivery charge specification is"
      "valid. See also [[ineligibleRegion]].",
     )
-    seller: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    seller: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="An entity which offers (sells / leases / lends / loans) the services / goods. A seller may"
      "also be a provider.",
@@ -179,7 +179,7 @@ class Offer(Intangible):
         default=None,
         description="The place(s) from which the offer can be obtained (e.g. store locations).",
     )
-    offeredBy: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
+    offeredBy: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
         default=None,
         description="A pointer to the organization or person making the offer.",
     )
@@ -187,7 +187,7 @@ class Offer(Intangible):
         default=None,
         description="The date when the item becomes valid.",
     )
-    itemOffered: Optional[Union[List[Union['Product', 'Event', 'MenuItem', 'AggregateOffer', 'Service', 'Trip', 'CreativeWork', str]], 'Product', 'Event', 'MenuItem', 'AggregateOffer', 'Service', 'Trip', 'CreativeWork', str]] = Field(
+    itemOffered: Optional[Union[List[Union['Trip', 'Product', 'AggregateOffer', 'Event', 'MenuItem', 'Service', 'CreativeWork', str]], 'Trip', 'Product', 'AggregateOffer', 'Event', 'MenuItem', 'Service', 'CreativeWork', str]] = Field(
         default=None,
         description="An item being offered (or demanded). The transactional nature of the offer or demand"
      "is documented using [[businessFunction]], e.g. sell, lease etc. While several common"
@@ -199,7 +199,7 @@ class Offer(Intangible):
         description="The GTIN-14 code of the product, or the product to which the offer refers. See [GS1 GTIN"
      "Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.",
     )
-    availabilityEnds: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', time, 'Time', ISO8601Date, 'Date', str]] = Field(
+    availabilityEnds: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', time, 'Time', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', time, 'Time', str]] = Field(
         default=None,
         description="The end of the availability of the product or service included in the offer.",
     )
@@ -259,7 +259,7 @@ class Offer(Intangible):
         description="One or more detailed price specifications, indicating the unit price and delivery or"
      "payment charges.",
     )
-    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'Place']], str, 'Text', 'GeoShape', 'Place']] = Field(
+    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'Place', 'GeoShape']], str, 'Text', 'Place', 'GeoShape']] = Field(
         default=None,
         description="The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for"
      "the geo-political region(s) for which the offer or delivery charge specification is"
@@ -281,9 +281,9 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
     from pydantic_schemaorg.TypeAndQuantityNode import TypeAndQuantityNode
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.GeoShape import GeoShape
     from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
     from pydantic_schemaorg.Place import Place
+    from pydantic_schemaorg.GeoShape import GeoShape
     from pydantic_schemaorg.DeliveryMethod import DeliveryMethod
     from pydantic_schemaorg.Date import Date
     from pydantic_schemaorg.AggregateRating import AggregateRating
@@ -291,8 +291,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.ItemAvailability import ItemAvailability
     from pydantic_schemaorg.Duration import Duration
     from pydantic_schemaorg.PriceSpecification import PriceSpecification
-    from pydantic_schemaorg.PaymentMethod import PaymentMethod
     from pydantic_schemaorg.LoanOrCredit import LoanOrCredit
+    from pydantic_schemaorg.PaymentMethod import PaymentMethod
     from pydantic_schemaorg.BusinessFunction import BusinessFunction
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
@@ -301,15 +301,15 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Time import Time
     from pydantic_schemaorg.Number import Number
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.WarrantyPromise import WarrantyPromise
+    from pydantic_schemaorg.Trip import Trip
     from pydantic_schemaorg.Product import Product
+    from pydantic_schemaorg.AggregateOffer import AggregateOffer
     from pydantic_schemaorg.Event import Event
     from pydantic_schemaorg.MenuItem import MenuItem
-    from pydantic_schemaorg.AggregateOffer import AggregateOffer
     from pydantic_schemaorg.Service import Service
-    from pydantic_schemaorg.Trip import Trip
     from pydantic_schemaorg.CreativeWork import CreativeWork
     from pydantic_schemaorg.Review import Review
     from pydantic_schemaorg.OfferItemCondition import OfferItemCondition

@@ -15,7 +15,7 @@ class MusicGroup(PerformingGroup):
     See: https://schema.org/MusicGroup
     Model depth: 4
     """
-    type_: str = Field(default="MusicGroup", alias='@type')
+    type_: str = Field(default="MusicGroup", alias='@type', constant=True)
     genre: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         default=None,
         description="Genre of the creative work, broadcast channel or group.",

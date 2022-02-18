@@ -28,7 +28,7 @@ class SuperficialAnatomy(MedicalEntity):
     See: https://schema.org/SuperficialAnatomy
     Model depth: 3
     """
-    type_: str = Field(default="SuperficialAnatomy", alias='@type')
+    type_: str = Field(default="SuperficialAnatomy", alias='@type', constant=True)
     significance: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The significance associated with the superficial anatomy; as an example, how characteristics"

@@ -14,7 +14,7 @@ class PerformAction(PlayAction):
     See: https://schema.org/PerformAction
     Model depth: 4
     """
-    type_: str = Field(default="PerformAction", alias='@type')
+    type_: str = Field(default="PerformAction", alias='@type', constant=True)
     entertainmentBusiness: Optional[Union[List[Union['EntertainmentBusiness', str]], 'EntertainmentBusiness', str]] = Field(
         default=None,
         description="A sub property of location. The entertainment business where the action occurred.",

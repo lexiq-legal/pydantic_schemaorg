@@ -11,5 +11,5 @@ class DownloadAction(TransferAction):
     See: https://schema.org/DownloadAction
     Model depth: 4
     """
-    type_: str = Field(default="DownloadAction", alias='@type')
+    type_: str = Field(default="DownloadAction", alias='@type', constant=True)
     

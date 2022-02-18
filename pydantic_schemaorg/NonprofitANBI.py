@@ -11,5 +11,5 @@ class NonprofitANBI(NLNonprofitType):
     See: https://schema.org/NonprofitANBI
     Model depth: 6
     """
-    type_: str = Field(default="NonprofitANBI", alias='@type')
+    type_: str = Field(default="NonprofitANBI", alias='@type', constant=True)
     

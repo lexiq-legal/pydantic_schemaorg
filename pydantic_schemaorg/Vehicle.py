@@ -18,7 +18,7 @@ class Vehicle(Product):
     See: https://schema.org/Vehicle
     Model depth: 3
     """
-    type_: str = Field(default="Vehicle", alias='@type')
+    type_: str = Field(default="Vehicle", alias='@type', constant=True)
     meetsEmissionStandard: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'QualitativeValue']], AnyUrl, 'URL', str, 'Text', 'QualitativeValue']] = Field(
         default=None,
         description="Indicates that the vehicle meets the respective emission standard.",
@@ -27,7 +27,7 @@ class Vehicle(Product):
         default=None,
         description="A textual description of known damages, both repaired and unrepaired.",
     )
-    numberOfDoors: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    numberOfDoors: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of doors. Typical unit code(s): C62",
     )
@@ -52,7 +52,7 @@ class Vehicle(Product):
         description="The Vehicle Identification Number (VIN) is a unique serial number used by the automotive"
      "industry to identify individual motor vehicles.",
     )
-    numberOfAxles: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    numberOfAxles: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of axles. Typical unit code(s): C62",
     )
@@ -71,7 +71,7 @@ class Vehicle(Product):
         default=None,
         description="The color or color combination of the interior of the vehicle.",
     )
-    seatingCapacity: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    seatingCapacity: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical"
      "space available, and in terms of limitations set by law. Typical unit code(s): C62 for"
@@ -147,7 +147,7 @@ class Vehicle(Product):
      "the speed range. You can link to information about how the given value has been determined"
      "using the [[valueReference]] property.",
     )
-    emissionsCO2: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    emissionsCO2: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="The CO2 emissions in g/km. When used in combination with a QuantitativeValue, put \"g/km\""
      "into the unitText property of that value, since there is no UN/CEFACT Common Code for"
@@ -165,12 +165,12 @@ class Vehicle(Product):
      "node that provides additional information using [[valueReference]]. * Note 3: Note"
      "that you can use [[minValue]] and [[maxValue]] to indicate ranges.",
     )
-    numberOfForwardGears: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    numberOfForwardGears: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The total number of forward gears available for the transmission system of the vehicle."
      "Typical unit code(s): C62",
     )
-    numberOfAirbags: Optional[Union[List[Union[Decimal, 'Number', str, 'Text']], Decimal, 'Number', str, 'Text']] = Field(
+    numberOfAirbags: Optional[Union[List[Union[int, float, 'Number', str, 'Text']], int, float, 'Number', str, 'Text']] = Field(
         default=None,
         description="The number or type of airbags in the vehicle.",
     )
@@ -187,7 +187,7 @@ class Vehicle(Product):
         default=None,
         description="The position of the steering wheel or similar device (mostly for cars).",
     )
-    numberOfPreviousOwners: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    numberOfPreviousOwners: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of owners of the vehicle, including the current one. Typical unit code(s):"
      "C62",
@@ -232,7 +232,7 @@ class Vehicle(Product):
      "node that provides additional information using [[valueReference]]. * Note 3: Note"
      "that you can use [[minValue]] and [[maxValue]] to indicate ranges.",
     )
-    vehicleSeatingCapacity: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    vehicleSeatingCapacity: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of passengers that can be seated in the vehicle, both in terms of the physical"
      "space available, and in terms of limitations set by law. Typical unit code(s): C62 for"

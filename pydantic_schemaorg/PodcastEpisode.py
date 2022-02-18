@@ -11,5 +11,5 @@ class PodcastEpisode(Episode):
     See: https://schema.org/PodcastEpisode
     Model depth: 4
     """
-    type_: str = Field(default="PodcastEpisode", alias='@type')
+    type_: str = Field(default="PodcastEpisode", alias='@type', constant=True)
     

@@ -12,5 +12,5 @@ class DepartAction(MoveAction):
     See: https://schema.org/DepartAction
     Model depth: 4
     """
-    type_: str = Field(default="DepartAction", alias='@type')
+    type_: str = Field(default="DepartAction", alias='@type', constant=True)
     

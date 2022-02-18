@@ -13,5 +13,5 @@ class ApprovedIndication(MedicalIndication):
     See: https://schema.org/ApprovedIndication
     Model depth: 4
     """
-    type_: str = Field(default="ApprovedIndication", alias='@type')
+    type_: str = Field(default="ApprovedIndication", alias='@type', constant=True)
     

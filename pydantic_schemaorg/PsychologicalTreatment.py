@@ -12,5 +12,5 @@ class PsychologicalTreatment(TherapeuticProcedure):
     See: https://schema.org/PsychologicalTreatment
     Model depth: 5
     """
-    type_: str = Field(default="PsychologicalTreatment", alias='@type')
+    type_: str = Field(default="PsychologicalTreatment", alias='@type', constant=True)
     

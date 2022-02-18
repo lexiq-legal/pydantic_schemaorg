@@ -11,5 +11,5 @@ class FrontWheelDriveConfiguration(DriveWheelConfigurationValue):
     See: https://schema.org/FrontWheelDriveConfiguration
     Model depth: 6
     """
-    type_: str = Field(default="FrontWheelDriveConfiguration", alias='@type')
+    type_: str = Field(default="FrontWheelDriveConfiguration", alias='@type', constant=True)
     

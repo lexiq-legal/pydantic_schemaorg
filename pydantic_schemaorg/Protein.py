@@ -19,7 +19,7 @@ class Protein(BioChemEntity):
     See: https://schema.org/Protein
     Model depth: 3
     """
-    type_: str = Field(default="Protein", alias='@type')
+    type_: str = Field(default="Protein", alias='@type', constant=True)
     hasBioPolymerSequence: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A symbolic representation of a BioChemEnity. For example, a nucleotide sequence of"

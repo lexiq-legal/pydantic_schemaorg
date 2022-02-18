@@ -12,5 +12,5 @@ class Infectious(MedicalSpecialty):
     See: https://schema.org/Infectious
     Model depth: 6
     """
-    type_: str = Field(default="Infectious", alias='@type')
+    type_: str = Field(default="Infectious", alias='@type', constant=True)
     

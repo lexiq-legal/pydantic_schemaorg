@@ -12,5 +12,5 @@ class SizeSystemEnumeration(Enumeration):
     See: https://schema.org/SizeSystemEnumeration
     Model depth: 4
     """
-    type_: str = Field(default="SizeSystemEnumeration", alias='@type')
+    type_: str = Field(default="SizeSystemEnumeration", alias='@type', constant=True)
     

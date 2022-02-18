@@ -11,5 +11,5 @@ class ReturnMethodEnumeration(Enumeration):
     See: https://schema.org/ReturnMethodEnumeration
     Model depth: 4
     """
-    type_: str = Field(default="ReturnMethodEnumeration", alias='@type')
+    type_: str = Field(default="ReturnMethodEnumeration", alias='@type', constant=True)
     

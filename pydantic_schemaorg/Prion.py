@@ -11,5 +11,5 @@ class Prion(InfectiousAgentClass):
     See: https://schema.org/Prion
     Model depth: 6
     """
-    type_: str = Field(default="Prion", alias='@type')
+    type_: str = Field(default="Prion", alias='@type', constant=True)
     

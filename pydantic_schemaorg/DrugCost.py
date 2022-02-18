@@ -20,7 +20,7 @@ class DrugCost(MedicalEntity):
     See: https://schema.org/DrugCost
     Model depth: 3
     """
-    type_: str = Field(default="DrugCost", alias='@type')
+    type_: str = Field(default="DrugCost", alias='@type', constant=True)
     costCategory: Optional[Union[List[Union['DrugCostCategory', str]], 'DrugCostCategory', str]] = Field(
         default=None,
         description="The category of cost, such as wholesale, retail, reimbursement cap, etc.",
@@ -37,7 +37,7 @@ class DrugCost(MedicalEntity):
         default=None,
         description="The currency (in 3-letter of the drug cost. See: http://en.wikipedia.org/wiki/ISO_4217.",
     )
-    costPerUnit: Optional[Union[List[Union[Decimal, 'Number', str, 'Text', 'QualitativeValue']], Decimal, 'Number', str, 'Text', 'QualitativeValue']] = Field(
+    costPerUnit: Optional[Union[List[Union[int, float, 'Number', str, 'Text', 'QualitativeValue']], int, float, 'Number', str, 'Text', 'QualitativeValue']] = Field(
         default=None,
         description="The cost per unit of the drug.",
     )

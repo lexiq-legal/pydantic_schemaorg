@@ -11,5 +11,5 @@ class WritePermission(DigitalDocumentPermissionType):
     See: https://schema.org/WritePermission
     Model depth: 5
     """
-    type_: str = Field(default="WritePermission", alias='@type')
+    type_: str = Field(default="WritePermission", alias='@type', constant=True)
     

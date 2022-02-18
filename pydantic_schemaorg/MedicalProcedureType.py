@@ -11,5 +11,5 @@ class MedicalProcedureType(MedicalEnumeration):
     See: https://schema.org/MedicalProcedureType
     Model depth: 5
     """
-    type_: str = Field(default="MedicalProcedureType", alias='@type')
+    type_: str = Field(default="MedicalProcedureType", alias='@type', constant=True)
     

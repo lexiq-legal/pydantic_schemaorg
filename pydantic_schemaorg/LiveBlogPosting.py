@@ -16,7 +16,7 @@ class LiveBlogPosting(BlogPosting):
     See: https://schema.org/LiveBlogPosting
     Model depth: 6
     """
-    type_: str = Field(default="LiveBlogPosting", alias='@type')
+    type_: str = Field(default="LiveBlogPosting", alias='@type', constant=True)
     coverageEndTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
         default=None,
         description="The time when the live blog will stop covering the Event. Note that coverage may continue"

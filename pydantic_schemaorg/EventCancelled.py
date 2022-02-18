@@ -13,5 +13,5 @@ class EventCancelled(EventStatusType):
     See: https://schema.org/EventCancelled
     Model depth: 6
     """
-    type_: str = Field(default="EventCancelled", alias='@type')
+    type_: str = Field(default="EventCancelled", alias='@type', constant=True)
     

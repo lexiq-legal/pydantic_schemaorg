@@ -11,5 +11,5 @@ class TaxiVehicleUsage(CarUsageType):
     See: https://schema.org/TaxiVehicleUsage
     Model depth: 5
     """
-    type_: str = Field(default="TaxiVehicleUsage", alias='@type')
+    type_: str = Field(default="TaxiVehicleUsage", alias='@type', constant=True)
     

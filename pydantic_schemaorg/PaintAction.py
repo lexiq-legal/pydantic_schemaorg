@@ -11,5 +11,5 @@ class PaintAction(CreateAction):
     See: https://schema.org/PaintAction
     Model depth: 4
     """
-    type_: str = Field(default="PaintAction", alias='@type')
+    type_: str = Field(default="PaintAction", alias='@type', constant=True)
     

@@ -18,8 +18,8 @@ class FinancialProduct(Service):
     See: https://schema.org/FinancialProduct
     Model depth: 4
     """
-    type_: str = Field(default="FinancialProduct", alias='@type')
-    annualPercentageRate: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    type_: str = Field(default="FinancialProduct", alias='@type', constant=True)
+    annualPercentageRate: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The annual rate that is charged for borrowing (or made by investing), expressed as a single"
      "percentage number that represents the actual yearly cost of funds over the term of a loan."
@@ -30,7 +30,7 @@ class FinancialProduct(Service):
         description="Description of fees, commissions, and other terms applied either to a class of financial"
      "product, or by a financial service organization.",
     )
-    interestRate: Optional[Union[List[Union[Decimal, 'Number', 'QuantitativeValue', str]], Decimal, 'Number', 'QuantitativeValue', str]] = Field(
+    interestRate: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The interest rate, charged or paid, applicable to the financial product. Note: This"
      "is different from the calculated annualPercentageRate.",

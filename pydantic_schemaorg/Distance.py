@@ -12,5 +12,5 @@ class Distance(Quantity):
     See: https://schema.org/Distance
     Model depth: 4
     """
-    type_: str = Field(default="Distance", alias='@type')
+    type_: str = Field(default="Distance", alias='@type', constant=True)
     

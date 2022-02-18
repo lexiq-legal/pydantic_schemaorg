@@ -11,5 +11,5 @@ class ScreeningHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/ScreeningHealthAspect
     Model depth: 5
     """
-    type_: str = Field(default="ScreeningHealthAspect", alias='@type')
+    type_: str = Field(default="ScreeningHealthAspect", alias='@type', constant=True)
     

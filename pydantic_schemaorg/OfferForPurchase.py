@@ -14,5 +14,5 @@ class OfferForPurchase(Offer):
     See: https://schema.org/OfferForPurchase
     Model depth: 4
     """
-    type_: str = Field(default="OfferForPurchase", alias='@type')
+    type_: str = Field(default="OfferForPurchase", alias='@type', constant=True)
     

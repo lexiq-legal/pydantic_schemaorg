@@ -12,5 +12,5 @@ class Poster(CreativeWork):
     See: https://schema.org/Poster
     Model depth: 3
     """
-    type_: str = Field(default="Poster", alias='@type')
+    type_: str = Field(default="Poster", alias='@type', constant=True)
     

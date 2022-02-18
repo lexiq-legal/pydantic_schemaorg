@@ -18,7 +18,7 @@ class ComicIssue(PublicationIssue):
     See: https://schema.org/ComicIssue
     Model depth: 4
     """
-    type_: str = Field(default="ComicIssue", alias='@type')
+    type_: str = Field(default="ComicIssue", alias='@type', constant=True)
     colorist: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
         default=None,
         description="The individual who adds color to inked drawings.",

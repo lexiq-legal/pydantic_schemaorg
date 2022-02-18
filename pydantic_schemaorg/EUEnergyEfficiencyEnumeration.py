@@ -12,5 +12,5 @@ class EUEnergyEfficiencyEnumeration(EnergyEfficiencyEnumeration):
     See: https://schema.org/EUEnergyEfficiencyEnumeration
     Model depth: 5
     """
-    type_: str = Field(default="EUEnergyEfficiencyEnumeration", alias='@type')
+    type_: str = Field(default="EUEnergyEfficiencyEnumeration", alias='@type', constant=True)
     

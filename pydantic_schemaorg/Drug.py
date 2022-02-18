@@ -17,7 +17,7 @@ class Drug(Substance):
     See: https://schema.org/Drug
     Model depth: 4
     """
-    type_: str = Field(default="Drug", alias='@type')
+    type_: str = Field(default="Drug", alias='@type', constant=True)
     prescribingInfo: Optional[Union[List[Union[AnyUrl, 'URL', str]], AnyUrl, 'URL', str]] = Field(
         default=None,
         description="Link to prescribing information for the drug.",

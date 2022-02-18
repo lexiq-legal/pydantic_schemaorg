@@ -18,7 +18,7 @@ class DeliveryTimeSettings(StructuredValue):
     See: https://schema.org/DeliveryTimeSettings
     Model depth: 4
     """
-    type_: str = Field(default="DeliveryTimeSettings", alias='@type')
+    type_: str = Field(default="DeliveryTimeSettings", alias='@type', constant=True)
     shippingDestination: Optional[Union[List[Union['DefinedRegion', str]], 'DefinedRegion', str]] = Field(
         default=None,
         description="indicates (possibly multiple) shipping destinations. These can be defined in several"

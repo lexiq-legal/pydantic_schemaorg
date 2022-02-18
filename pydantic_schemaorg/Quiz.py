@@ -11,5 +11,5 @@ class Quiz(LearningResource):
     See: https://schema.org/Quiz
     Model depth: 4
     """
-    type_: str = Field(default="Quiz", alias='@type')
+    type_: str = Field(default="Quiz", alias='@type', constant=True)
     

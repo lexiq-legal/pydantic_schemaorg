@@ -20,7 +20,7 @@ class PropertyValue(StructuredValue):
     See: https://schema.org/PropertyValue
     Model depth: 4
     """
-    type_: str = Field(default="PropertyValue", alias='@type')
+    type_: str = Field(default="PropertyValue", alias='@type', constant=True)
     measurementTechnique: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         default=None,
         description="A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),"
@@ -35,7 +35,7 @@ class PropertyValue(StructuredValue):
      "several [[variableMeasured]] properties recorded for some given data object, use"
      "a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].",
     )
-    minValue: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    minValue: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="The lower value of some characteristic or property.",
     )
@@ -44,7 +44,7 @@ class PropertyValue(StructuredValue):
         description="A string or text indicating the unit of measurement. Useful if you cannot provide a standard"
      "unit code for <a href='unitCode'>unitCode</a>.",
     )
-    value: Optional[Union[List[Union[Decimal, 'Number', StrictBool, 'Boolean', str, 'Text', 'StructuredValue']], Decimal, 'Number', StrictBool, 'Boolean', str, 'Text', 'StructuredValue']] = Field(
+    value: Optional[Union[List[Union[int, float, 'Number', str, 'Text', StrictBool, 'Boolean', 'StructuredValue']], int, float, 'Number', str, 'Text', StrictBool, 'Boolean', 'StructuredValue']] = Field(
         default=None,
         description="The value of the quantitative value or property value node. * For [[QuantitativeValue]]"
      "and [[MonetaryAmount]], the recommended type for values is 'Number'. * For [[PropertyValue]],"
@@ -69,11 +69,11 @@ class PropertyValue(StructuredValue):
         description="The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL."
      "Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.",
     )
-    maxValue: Optional[Union[List[Union[Decimal, 'Number', str]], Decimal, 'Number', str]] = Field(
+    maxValue: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
         default=None,
         description="The upper value of some characteristic or property.",
     )
-    valueReference: Optional[Union[List[Union[str, 'Text', 'PropertyValue', 'DefinedTerm', 'QualitativeValue', 'Enumeration', 'MeasurementTypeEnumeration', 'QuantitativeValue', 'StructuredValue']], str, 'Text', 'PropertyValue', 'DefinedTerm', 'QualitativeValue', 'Enumeration', 'MeasurementTypeEnumeration', 'QuantitativeValue', 'StructuredValue']] = Field(
+    valueReference: Optional[Union[List[Union[str, 'Text', 'MeasurementTypeEnumeration', 'PropertyValue', 'StructuredValue', 'Enumeration', 'DefinedTerm', 'QualitativeValue', 'QuantitativeValue']], str, 'Text', 'MeasurementTypeEnumeration', 'PropertyValue', 'StructuredValue', 'Enumeration', 'DefinedTerm', 'QualitativeValue', 'QuantitativeValue']] = Field(
         default=None,
         description="A secondary value that provides additional information on the original value, e.g."
      "a reference temperature or a type of measurement.",
@@ -86,8 +86,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.StructuredValue import StructuredValue
+    from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
+    from pydantic_schemaorg.Enumeration import Enumeration
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.QualitativeValue import QualitativeValue
-    from pydantic_schemaorg.Enumeration import Enumeration
-    from pydantic_schemaorg.MeasurementTypeEnumeration import MeasurementTypeEnumeration
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue

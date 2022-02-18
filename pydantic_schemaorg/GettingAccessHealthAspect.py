@@ -12,5 +12,5 @@ class GettingAccessHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/GettingAccessHealthAspect
     Model depth: 5
     """
-    type_: str = Field(default="GettingAccessHealthAspect", alias='@type')
+    type_: str = Field(default="GettingAccessHealthAspect", alias='@type', constant=True)
     

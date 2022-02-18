@@ -11,5 +11,5 @@ class CollegeOrUniversity(EducationalOrganization):
     See: https://schema.org/CollegeOrUniversity
     Model depth: 4
     """
-    type_: str = Field(default="CollegeOrUniversity", alias='@type')
+    type_: str = Field(default="CollegeOrUniversity", alias='@type', constant=True)
     

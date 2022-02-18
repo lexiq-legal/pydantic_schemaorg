@@ -11,5 +11,5 @@ class Continent(Landform):
     See: https://schema.org/Continent
     Model depth: 4
     """
-    type_: str = Field(default="Continent", alias='@type')
+    type_: str = Field(default="Continent", alias='@type', constant=True)
     

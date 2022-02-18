@@ -11,5 +11,5 @@ class XPathType(Text):
     See: https://schema.org/XPathType
     Model depth: 6
     """
-    type_: str = Field(default="XPathType", alias='@type')
+    type_: str = Field(default="XPathType", alias='@type', constant=True)
     

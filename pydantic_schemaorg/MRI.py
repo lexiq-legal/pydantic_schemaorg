@@ -11,5 +11,5 @@ class MRI(MedicalImagingTechnique):
     See: https://schema.org/MRI
     Model depth: 6
     """
-    type_: str = Field(default="MRI", alias='@type')
+    type_: str = Field(default="MRI", alias='@type', constant=True)
     

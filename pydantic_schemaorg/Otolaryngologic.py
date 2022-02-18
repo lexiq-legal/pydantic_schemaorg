@@ -13,5 +13,5 @@ class Otolaryngologic(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Otolaryngologic
     Model depth: 5
     """
-    type_: str = Field(default="Otolaryngologic", alias='@type')
+    type_: str = Field(default="Otolaryngologic", alias='@type', constant=True)
     

@@ -15,7 +15,7 @@ class VisualArtwork(CreativeWork):
     See: https://schema.org/VisualArtwork
     Model depth: 3
     """
-    type_: str = Field(default="VisualArtwork", alias='@type')
+    type_: str = Field(default="VisualArtwork", alias='@type', constant=True)
     artworkSurface: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         default=None,
         description="The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc.",
@@ -34,7 +34,7 @@ class VisualArtwork(CreativeWork):
         default=None,
         description="The individual who adds color to inked drawings.",
     )
-    height: Optional[Union[List[Union['QuantitativeValue', 'Distance', str]], 'QuantitativeValue', 'Distance', str]] = Field(
+    height: Optional[Union[List[Union['Distance', 'QuantitativeValue', str]], 'Distance', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The height of the item.",
     )

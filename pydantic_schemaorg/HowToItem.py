@@ -16,8 +16,8 @@ class HowToItem(ListItem):
     See: https://schema.org/HowToItem
     Model depth: 4
     """
-    type_: str = Field(default="HowToItem", alias='@type')
-    requiredQuantity: Optional[Union[List[Union[Decimal, 'Number', str, 'Text', 'QuantitativeValue']], Decimal, 'Number', str, 'Text', 'QuantitativeValue']] = Field(
+    type_: str = Field(default="HowToItem", alias='@type', constant=True)
+    requiredQuantity: Optional[Union[List[Union[int, float, 'Number', str, 'Text', 'QuantitativeValue']], int, float, 'Number', str, 'Text', 'QuantitativeValue']] = Field(
         default=None,
         description="The required quantity of the item(s).",
     )

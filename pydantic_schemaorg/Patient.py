@@ -15,7 +15,7 @@ class Patient(MedicalAudience, Person):
     See: https://schema.org/Patient
     Model depth: 3
     """
-    type_: str = Field(default="Patient", alias='@type')
+    type_: str = Field(default="Patient", alias='@type', constant=True)
     diagnosis: Optional[Union[List[Union['MedicalCondition', str]], 'MedicalCondition', str]] = Field(
         default=None,
         description="One or more alternative conditions considered in the differential diagnosis process"

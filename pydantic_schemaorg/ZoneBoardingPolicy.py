@@ -11,5 +11,5 @@ class ZoneBoardingPolicy(BoardingPolicyType):
     See: https://schema.org/ZoneBoardingPolicy
     Model depth: 5
     """
-    type_: str = Field(default="ZoneBoardingPolicy", alias='@type')
+    type_: str = Field(default="ZoneBoardingPolicy", alias='@type', constant=True)
     

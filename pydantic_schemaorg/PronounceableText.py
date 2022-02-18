@@ -14,7 +14,7 @@ class PronounceableText(Text):
     See: https://schema.org/PronounceableText
     Model depth: 6
     """
-    type_: str = Field(default="PronounceableText", alias='@type')
+    type_: str = Field(default="PronounceableText", alias='@type', constant=True)
     textValue: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Text value being annotated.",

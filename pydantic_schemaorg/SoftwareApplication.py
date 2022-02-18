@@ -15,7 +15,7 @@ class SoftwareApplication(CreativeWork):
     See: https://schema.org/SoftwareApplication
     Model depth: 3
     """
-    type_: str = Field(default="SoftwareApplication", alias='@type')
+    type_: str = Field(default="SoftwareApplication", alias='@type', constant=True)
     applicationSubCategory: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         default=None,
         description="Subcategory of the application, e.g. 'Arcade Game'.",

@@ -15,7 +15,7 @@ class Property(Intangible):
     See: https://schema.org/Property
     Model depth: 3
     """
-    type_: str = Field(default="Property", alias='@type')
+    type_: str = Field(default="Property", alias='@type', constant=True)
     domainIncludes: Optional[Union[List[Union['Class', str]], 'Class', str]] = Field(
         default=None,
         description="Relates a property to a class that is (one of) the type(s) the property is expected to be"
@@ -34,7 +34,7 @@ class Property(Intangible):
      "inverses; in these situations RDFa and JSON-LD syntax for reverse properties can be"
      "used.",
     )
-    supersededBy: Optional[Union[List[Union['Class', 'Property', 'Enumeration', str]], 'Class', 'Property', 'Enumeration', str]] = Field(
+    supersededBy: Optional[Union[List[Union['Class', 'Enumeration', 'Property', str]], 'Class', 'Enumeration', 'Property', str]] = Field(
         default=None,
         description="Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",
     )

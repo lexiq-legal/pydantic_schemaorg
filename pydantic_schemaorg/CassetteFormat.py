@@ -11,5 +11,5 @@ class CassetteFormat(MusicReleaseFormatType):
     See: https://schema.org/CassetteFormat
     Model depth: 5
     """
-    type_: str = Field(default="CassetteFormat", alias='@type')
+    type_: str = Field(default="CassetteFormat", alias='@type', constant=True)
     

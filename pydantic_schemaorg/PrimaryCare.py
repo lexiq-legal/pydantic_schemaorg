@@ -13,5 +13,5 @@ class PrimaryCare(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/PrimaryCare
     Model depth: 5
     """
-    type_: str = Field(default="PrimaryCare", alias='@type')
+    type_: str = Field(default="PrimaryCare", alias='@type', constant=True)
     

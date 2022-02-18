@@ -12,5 +12,5 @@ class PhysicalExam(MedicalEnumeration, MedicalProcedure):
     See: https://schema.org/PhysicalExam
     Model depth: 4
     """
-    type_: str = Field(default="PhysicalExam", alias='@type')
+    type_: str = Field(default="PhysicalExam", alias='@type', constant=True)
     

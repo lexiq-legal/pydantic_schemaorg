@@ -11,5 +11,5 @@ class Manuscript(CreativeWork):
     See: https://schema.org/Manuscript
     Model depth: 3
     """
-    type_: str = Field(default="Manuscript", alias='@type')
+    type_: str = Field(default="Manuscript", alias='@type', constant=True)
     

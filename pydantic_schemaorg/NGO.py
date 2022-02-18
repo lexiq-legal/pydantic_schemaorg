@@ -11,5 +11,5 @@ class NGO(Organization):
     See: https://schema.org/NGO
     Model depth: 3
     """
-    type_: str = Field(default="NGO", alias='@type')
+    type_: str = Field(default="NGO", alias='@type', constant=True)
     

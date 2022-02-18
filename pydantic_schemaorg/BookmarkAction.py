@@ -11,5 +11,5 @@ class BookmarkAction(OrganizeAction):
     See: https://schema.org/BookmarkAction
     Model depth: 4
     """
-    type_: str = Field(default="BookmarkAction", alias='@type')
+    type_: str = Field(default="BookmarkAction", alias='@type', constant=True)
     

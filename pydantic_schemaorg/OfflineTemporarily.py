@@ -11,5 +11,5 @@ class OfflineTemporarily(GameServerStatus):
     See: https://schema.org/OfflineTemporarily
     Model depth: 6
     """
-    type_: str = Field(default="OfflineTemporarily", alias='@type')
+    type_: str = Field(default="OfflineTemporarily", alias='@type', constant=True)
     

@@ -11,5 +11,5 @@ class CurrencyConversionService(FinancialProduct):
     See: https://schema.org/CurrencyConversionService
     Model depth: 5
     """
-    type_: str = Field(default="CurrencyConversionService", alias='@type')
+    type_: str = Field(default="CurrencyConversionService", alias='@type', constant=True)
     

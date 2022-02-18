@@ -11,5 +11,5 @@ class ReturnLabelInBox(ReturnLabelSourceEnumeration):
     See: https://schema.org/ReturnLabelInBox
     Model depth: 5
     """
-    type_: str = Field(default="ReturnLabelInBox", alias='@type')
+    type_: str = Field(default="ReturnLabelInBox", alias='@type', constant=True)
     

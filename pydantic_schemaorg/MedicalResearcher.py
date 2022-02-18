@@ -11,5 +11,5 @@ class MedicalResearcher(MedicalAudienceType):
     See: https://schema.org/MedicalResearcher
     Model depth: 6
     """
-    type_: str = Field(default="MedicalResearcher", alias='@type')
+    type_: str = Field(default="MedicalResearcher", alias='@type', constant=True)
     

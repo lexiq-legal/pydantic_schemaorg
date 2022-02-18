@@ -61,8 +61,8 @@ class SpecialAnnouncement(CreativeWork):
     See: https://schema.org/SpecialAnnouncement
     Model depth: 3
     """
-    type_: str = Field(default="SpecialAnnouncement", alias='@type')
-    announcementLocation: Optional[Union[List[Union['LocalBusiness', 'CivicStructure', str]], 'LocalBusiness', 'CivicStructure', str]] = Field(
+    type_: str = Field(default="SpecialAnnouncement", alias='@type', constant=True)
+    announcementLocation: Optional[Union[List[Union['CivicStructure', 'LocalBusiness', str]], 'CivicStructure', 'LocalBusiness', str]] = Field(
         default=None,
         description="Indicates a specific [[CivicStructure]] or [[LocalBusiness]] associated with the"
      "SpecialAnnouncement. For example, a specific testing facility or business with special"
@@ -78,7 +78,7 @@ class SpecialAnnouncement(CreativeWork):
         description="governmentBenefitsInfo provides information about government benefits associated"
      "with a SpecialAnnouncement.",
     )
-    diseaseSpreadStatistics: Optional[Union[List[Union[AnyUrl, 'URL', 'Observation', 'WebContent', 'Dataset', str]], AnyUrl, 'URL', 'Observation', 'WebContent', 'Dataset', str]] = Field(
+    diseaseSpreadStatistics: Optional[Union[List[Union[AnyUrl, 'URL', 'WebContent', 'Dataset', 'Observation', str]], AnyUrl, 'URL', 'WebContent', 'Dataset', 'Observation', str]] = Field(
         default=None,
         description="Statistical information about the spread of a disease, either as [[WebContent]], or"
      "described directly as a [[Dataset]], or the specific [[Observation]]s in the dataset."
@@ -128,13 +128,13 @@ class SpecialAnnouncement(CreativeWork):
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.LocalBusiness import LocalBusiness
     from pydantic_schemaorg.CivicStructure import CivicStructure
+    from pydantic_schemaorg.LocalBusiness import LocalBusiness
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.WebContent import WebContent
     from pydantic_schemaorg.GovernmentService import GovernmentService
-    from pydantic_schemaorg.Observation import Observation
     from pydantic_schemaorg.Dataset import Dataset
+    from pydantic_schemaorg.Observation import Observation
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
     from pydantic_schemaorg.Thing import Thing

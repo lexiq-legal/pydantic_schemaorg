@@ -13,5 +13,5 @@ class AskPublicNewsArticle(NewsArticle):
     See: https://schema.org/AskPublicNewsArticle
     Model depth: 5
     """
-    type_: str = Field(default="AskPublicNewsArticle", alias='@type')
+    type_: str = Field(default="AskPublicNewsArticle", alias='@type', constant=True)
     

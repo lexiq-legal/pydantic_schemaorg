@@ -11,5 +11,5 @@ class BookSeries(CreativeWorkSeries):
     See: https://schema.org/BookSeries
     Model depth: 4
     """
-    type_: str = Field(default="BookSeries", alias='@type')
+    type_: str = Field(default="BookSeries", alias='@type', constant=True)
     
