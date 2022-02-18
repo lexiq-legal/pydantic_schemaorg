@@ -11,5 +11,5 @@ class LowLactoseDiet(RestrictedDiet):
     See: https://schema.org/LowLactoseDiet
     Model depth: 5
     """
-    type_: str = Field(default="LowLactoseDiet", alias='@type', constant=True)
+    type_: str = Field(default="LowLactoseDiet", alias='@type', const=True)
     

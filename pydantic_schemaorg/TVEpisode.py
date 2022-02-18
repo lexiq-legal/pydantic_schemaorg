@@ -15,7 +15,7 @@ class TVEpisode(Episode):
     See: https://schema.org/TVEpisode
     Model depth: 4
     """
-    type_: str = Field(default="TVEpisode", alias='@type', constant=True)
+    type_: str = Field(default="TVEpisode", alias='@type', const=True)
     subtitleLanguage: Optional[Union[List[Union[str, 'Text', 'Language']], str, 'Text', 'Language']] = Field(
         default=None,
         description="Languages in which subtitles/captions are available, in [IETF BCP 47 standard format](http://tools.ietf.org/html/bcp47).",

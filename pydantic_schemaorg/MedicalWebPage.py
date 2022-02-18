@@ -14,7 +14,7 @@ class MedicalWebPage(WebPage):
     See: https://schema.org/MedicalWebPage
     Model depth: 4
     """
-    type_: str = Field(default="MedicalWebPage", alias='@type', constant=True)
+    type_: str = Field(default="MedicalWebPage", alias='@type', const=True)
     medicalAudience: Optional[Union[List[Union['MedicalAudienceType', 'MedicalAudience', str]], 'MedicalAudienceType', 'MedicalAudience', str]] = Field(
         default=None,
         description="Medical audience for page.",

@@ -16,7 +16,7 @@ class ParcelDelivery(Intangible):
     See: https://schema.org/ParcelDelivery
     Model depth: 3
     """
-    type_: str = Field(default="ParcelDelivery", alias='@type', constant=True)
+    type_: str = Field(default="ParcelDelivery", alias='@type', const=True)
     trackingNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Shipper tracking number.",
@@ -53,7 +53,7 @@ class ParcelDelivery(Intangible):
         default=None,
         description="Shipper's address.",
     )
-    provider: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    provider: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."

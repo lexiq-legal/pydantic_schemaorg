@@ -15,7 +15,7 @@ class GeospatialGeometry(Intangible):
     See: https://schema.org/GeospatialGeometry
     Model depth: 3
     """
-    type_: str = Field(default="GeospatialGeometry", alias='@type', constant=True)
+    type_: str = Field(default="GeospatialGeometry", alias='@type', const=True)
     geoEquals: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents spatial relations in which two geometries (or the places they represent)"

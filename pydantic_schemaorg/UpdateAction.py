@@ -14,7 +14,7 @@ class UpdateAction(Action):
     See: https://schema.org/UpdateAction
     Model depth: 3
     """
-    type_: str = Field(default="UpdateAction", alias='@type', constant=True)
+    type_: str = Field(default="UpdateAction", alias='@type', const=True)
     collection: Optional[Union[List[Union['Thing', str]], 'Thing', str]] = Field(
         default=None,
         description="A sub property of object. The collection target of the action.",

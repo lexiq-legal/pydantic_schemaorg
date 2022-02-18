@@ -11,5 +11,5 @@ class Electrician(HomeAndConstructionBusiness):
     See: https://schema.org/Electrician
     Model depth: 5
     """
-    type_: str = Field(default="Electrician", alias='@type', constant=True)
+    type_: str = Field(default="Electrician", alias='@type', const=True)
     

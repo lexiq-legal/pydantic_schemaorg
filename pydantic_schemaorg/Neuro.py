@@ -11,5 +11,5 @@ class Neuro(PhysicalExam):
     See: https://schema.org/Neuro
     Model depth: 5
     """
-    type_: str = Field(default="Neuro", alias='@type', constant=True)
+    type_: str = Field(default="Neuro", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class OfflinePermanently(GameServerStatus):
     See: https://schema.org/OfflinePermanently
     Model depth: 6
     """
-    type_: str = Field(default="OfflinePermanently", alias='@type', constant=True)
+    type_: str = Field(default="OfflinePermanently", alias='@type', const=True)
     

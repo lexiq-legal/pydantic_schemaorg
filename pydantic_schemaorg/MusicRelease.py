@@ -14,7 +14,7 @@ class MusicRelease(MusicPlaylist):
     See: https://schema.org/MusicRelease
     Model depth: 4
     """
-    type_: str = Field(default="MusicRelease", alias='@type', constant=True)
+    type_: str = Field(default="MusicRelease", alias='@type', const=True)
     releaseOf: Optional[Union[List[Union['MusicAlbum', str]], 'MusicAlbum', str]] = Field(
         default=None,
         description="The album this is a release of.",
@@ -32,7 +32,7 @@ class MusicRelease(MusicPlaylist):
         description="Format of this release (the type of recording media used, ie. compact disc, digital media,"
      "LP, etc.).",
     )
-    creditedTo: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    creditedTo: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="The group the release is credited to if different than the byArtist. For example, Red"
      "and Blue is credited to \"Stefani Germanotta Band\", but by Lady Gaga.",
@@ -48,5 +48,5 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Duration import Duration
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.MusicReleaseFormatType import MusicReleaseFormatType
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.Organization import Organization

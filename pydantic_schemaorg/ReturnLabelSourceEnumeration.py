@@ -11,5 +11,5 @@ class ReturnLabelSourceEnumeration(Enumeration):
     See: https://schema.org/ReturnLabelSourceEnumeration
     Model depth: 4
     """
-    type_: str = Field(default="ReturnLabelSourceEnumeration", alias='@type', constant=True)
+    type_: str = Field(default="ReturnLabelSourceEnumeration", alias='@type', const=True)
     

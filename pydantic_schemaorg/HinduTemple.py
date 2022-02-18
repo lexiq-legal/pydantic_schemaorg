@@ -11,5 +11,5 @@ class HinduTemple(PlaceOfWorship):
     See: https://schema.org/HinduTemple
     Model depth: 5
     """
-    type_: str = Field(default="HinduTemple", alias='@type', constant=True)
+    type_: str = Field(default="HinduTemple", alias='@type', const=True)
     

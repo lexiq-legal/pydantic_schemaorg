@@ -11,5 +11,5 @@ class Virus(InfectiousAgentClass):
     See: https://schema.org/Virus
     Model depth: 6
     """
-    type_: str = Field(default="Virus", alias='@type', constant=True)
+    type_: str = Field(default="Virus", alias='@type', const=True)
     

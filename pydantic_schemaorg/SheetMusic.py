@@ -11,5 +11,5 @@ class SheetMusic(CreativeWork):
     See: https://schema.org/SheetMusic
     Model depth: 3
     """
-    type_: str = Field(default="SheetMusic", alias='@type', constant=True)
+    type_: str = Field(default="SheetMusic", alias='@type', const=True)
     

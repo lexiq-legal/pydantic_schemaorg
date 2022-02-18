@@ -16,5 +16,5 @@ class CreditCard(PaymentCard, LoanOrCredit):
     See: https://schema.org/CreditCard
     Model depth: 6
     """
-    type_: str = Field(default="CreditCard", alias='@type', constant=True)
+    type_: str = Field(default="CreditCard", alias='@type', const=True)
     

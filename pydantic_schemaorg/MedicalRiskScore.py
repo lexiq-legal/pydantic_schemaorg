@@ -15,7 +15,7 @@ class MedicalRiskScore(MedicalRiskEstimator):
     See: https://schema.org/MedicalRiskScore
     Model depth: 4
     """
-    type_: str = Field(default="MedicalRiskScore", alias='@type', constant=True)
+    type_: str = Field(default="MedicalRiskScore", alias='@type', const=True)
     algorithm: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The algorithm or rules to follow to compute the score.",

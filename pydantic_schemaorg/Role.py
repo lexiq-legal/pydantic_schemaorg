@@ -21,7 +21,7 @@ class Role(Intangible):
     See: https://schema.org/Role
     Model depth: 3
     """
-    type_: str = Field(default="Role", alias='@type', constant=True)
+    type_: str = Field(default="Role", alias='@type', const=True)
     roleName: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         default=None,
         description="A role played, performed or filled by a person or organization. For example, the team"

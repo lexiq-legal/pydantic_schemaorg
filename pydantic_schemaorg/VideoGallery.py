@@ -11,5 +11,5 @@ class VideoGallery(MediaGallery):
     See: https://schema.org/VideoGallery
     Model depth: 6
     """
-    type_: str = Field(default="VideoGallery", alias='@type', constant=True)
+    type_: str = Field(default="VideoGallery", alias='@type', const=True)
     

@@ -16,7 +16,7 @@ class FlightReservation(Reservation):
     See: https://schema.org/FlightReservation
     Model depth: 4
     """
-    type_: str = Field(default="FlightReservation", alias='@type', constant=True)
+    type_: str = Field(default="FlightReservation", alias='@type', const=True)
     passengerSequenceNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The passenger's sequence number as assigned by the airline.",

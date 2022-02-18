@@ -15,7 +15,7 @@ class SolveMathAction(Action):
     See: https://schema.org/SolveMathAction
     Model depth: 3
     """
-    type_: str = Field(default="SolveMathAction", alias='@type', constant=True)
+    type_: str = Field(default="SolveMathAction", alias='@type', const=True)
     eduQuestionType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="For questions that are part of learning resources (e.g. Quiz), eduQuestionType indicates"

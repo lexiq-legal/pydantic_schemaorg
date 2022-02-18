@@ -11,5 +11,5 @@ class BarOrPub(FoodEstablishment):
     See: https://schema.org/BarOrPub
     Model depth: 5
     """
-    type_: str = Field(default="BarOrPub", alias='@type', constant=True)
+    type_: str = Field(default="BarOrPub", alias='@type', const=True)
     

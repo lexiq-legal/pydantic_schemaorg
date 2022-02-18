@@ -11,5 +11,5 @@ class OceanBodyOfWater(BodyOfWater):
     See: https://schema.org/OceanBodyOfWater
     Model depth: 5
     """
-    type_: str = Field(default="OceanBodyOfWater", alias='@type', constant=True)
+    type_: str = Field(default="OceanBodyOfWater", alias='@type', const=True)
     

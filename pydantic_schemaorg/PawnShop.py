@@ -11,5 +11,5 @@ class PawnShop(Store):
     See: https://schema.org/PawnShop
     Model depth: 5
     """
-    type_: str = Field(default="PawnShop", alias='@type', constant=True)
+    type_: str = Field(default="PawnShop", alias='@type', const=True)
     

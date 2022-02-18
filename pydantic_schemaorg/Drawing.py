@@ -11,5 +11,5 @@ class Drawing(CreativeWork):
     See: https://schema.org/Drawing
     Model depth: 3
     """
-    type_: str = Field(default="Drawing", alias='@type', constant=True)
+    type_: str = Field(default="Drawing", alias='@type', const=True)
     

@@ -12,5 +12,5 @@ class Gastroenterologic(MedicalSpecialty):
     See: https://schema.org/Gastroenterologic
     Model depth: 6
     """
-    type_: str = Field(default="Gastroenterologic", alias='@type', constant=True)
+    type_: str = Field(default="Gastroenterologic", alias='@type', const=True)
     

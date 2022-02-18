@@ -15,7 +15,7 @@ class Permit(Intangible):
     See: https://schema.org/Permit
     Model depth: 3
     """
-    type_: str = Field(default="Permit", alias='@type', constant=True)
+    type_: str = Field(default="Permit", alias='@type', const=True)
     issuedThrough: Optional[Union[List[Union['Service', str]], 'Service', str]] = Field(
         default=None,
         description="The service through with the permit was granted.",

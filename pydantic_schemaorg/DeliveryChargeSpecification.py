@@ -14,7 +14,7 @@ class DeliveryChargeSpecification(PriceSpecification):
     See: https://schema.org/DeliveryChargeSpecification
     Model depth: 5
     """
-    type_: str = Field(default="DeliveryChargeSpecification", alias='@type', constant=True)
+    type_: str = Field(default="DeliveryChargeSpecification", alias='@type', const=True)
     areaServed: Optional[Union[List[Union[str, 'Text', 'Place', 'AdministrativeArea', 'GeoShape']], str, 'Text', 'Place', 'AdministrativeArea', 'GeoShape']] = Field(
         default=None,
         description="The geographic area where a service or offered item is provided.",
@@ -30,7 +30,7 @@ class DeliveryChargeSpecification(PriceSpecification):
         description="The delivery method(s) to which the delivery charge or payment charge specification"
      "applies.",
     )
-    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'Place']], str, 'Text', 'GeoShape', 'Place']] = Field(
+    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'Place', 'GeoShape']], str, 'Text', 'Place', 'GeoShape']] = Field(
         default=None,
         description="The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for"
      "the geo-political region(s) for which the offer or delivery charge specification is"

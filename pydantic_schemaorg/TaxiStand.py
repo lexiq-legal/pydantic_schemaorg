@@ -11,5 +11,5 @@ class TaxiStand(CivicStructure):
     See: https://schema.org/TaxiStand
     Model depth: 4
     """
-    type_: str = Field(default="TaxiStand", alias='@type', constant=True)
+    type_: str = Field(default="TaxiStand", alias='@type', const=True)
     

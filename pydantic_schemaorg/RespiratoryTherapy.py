@@ -13,5 +13,5 @@ class RespiratoryTherapy(MedicalTherapy, MedicalSpecialty):
     See: https://schema.org/RespiratoryTherapy
     Model depth: 6
     """
-    type_: str = Field(default="RespiratoryTherapy", alias='@type', constant=True)
+    type_: str = Field(default="RespiratoryTherapy", alias='@type', const=True)
     

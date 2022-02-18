@@ -13,5 +13,5 @@ class UserPlays(UserInteraction):
     See: https://schema.org/UserPlays
     Model depth: 4
     """
-    type_: str = Field(default="UserPlays", alias='@type', constant=True)
+    type_: str = Field(default="UserPlays", alias='@type', const=True)
     

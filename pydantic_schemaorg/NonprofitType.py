@@ -12,5 +12,5 @@ class NonprofitType(Enumeration):
     See: https://schema.org/NonprofitType
     Model depth: 4
     """
-    type_: str = Field(default="NonprofitType", alias='@type', constant=True)
+    type_: str = Field(default="NonprofitType", alias='@type', const=True)
     

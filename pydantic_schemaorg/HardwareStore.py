@@ -11,5 +11,5 @@ class HardwareStore(Store):
     See: https://schema.org/HardwareStore
     Model depth: 5
     """
-    type_: str = Field(default="HardwareStore", alias='@type', constant=True)
+    type_: str = Field(default="HardwareStore", alias='@type', const=True)
     

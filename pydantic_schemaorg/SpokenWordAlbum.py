@@ -11,5 +11,5 @@ class SpokenWordAlbum(MusicAlbumProductionType):
     See: https://schema.org/SpokenWordAlbum
     Model depth: 5
     """
-    type_: str = Field(default="SpokenWordAlbum", alias='@type', constant=True)
+    type_: str = Field(default="SpokenWordAlbum", alias='@type', const=True)
     

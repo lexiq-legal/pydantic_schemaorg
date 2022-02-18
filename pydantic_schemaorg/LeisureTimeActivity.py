@@ -12,5 +12,5 @@ class LeisureTimeActivity(PhysicalActivityCategory):
     See: https://schema.org/LeisureTimeActivity
     Model depth: 5
     """
-    type_: str = Field(default="LeisureTimeActivity", alias='@type', constant=True)
+    type_: str = Field(default="LeisureTimeActivity", alias='@type', const=True)
     

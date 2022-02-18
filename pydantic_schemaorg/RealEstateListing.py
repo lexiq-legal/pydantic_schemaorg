@@ -17,8 +17,8 @@ class RealEstateListing(WebPage):
     See: https://schema.org/RealEstateListing
     Model depth: 4
     """
-    type_: str = Field(default="RealEstateListing", alias='@type', constant=True)
-    leaseLength: Optional[Union[List[Union['QuantitativeValue', 'Duration', str]], 'QuantitativeValue', 'Duration', str]] = Field(
+    type_: str = Field(default="RealEstateListing", alias='@type', const=True)
+    leaseLength: Optional[Union[List[Union['Duration', 'QuantitativeValue', str]], 'Duration', 'QuantitativeValue', str]] = Field(
         default=None,
         description="Length of the lease for some [[Accommodation]], either particular to some [[Offer]]"
      "or in some cases intrinsic to the property.",
@@ -30,7 +30,7 @@ class RealEstateListing(WebPage):
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
     from pydantic_schemaorg.Duration import Duration
+    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Date import Date

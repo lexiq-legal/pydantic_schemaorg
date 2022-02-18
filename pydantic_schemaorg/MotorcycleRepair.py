@@ -11,5 +11,5 @@ class MotorcycleRepair(AutomotiveBusiness):
     See: https://schema.org/MotorcycleRepair
     Model depth: 5
     """
-    type_: str = Field(default="MotorcycleRepair", alias='@type', constant=True)
+    type_: str = Field(default="MotorcycleRepair", alias='@type', const=True)
     

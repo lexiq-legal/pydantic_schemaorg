@@ -11,5 +11,5 @@ class PaymentStatusType(StatusEnumeration):
     See: https://schema.org/PaymentStatusType
     Model depth: 5
     """
-    type_: str = Field(default="PaymentStatusType", alias='@type', constant=True)
+    type_: str = Field(default="PaymentStatusType", alias='@type', const=True)
     

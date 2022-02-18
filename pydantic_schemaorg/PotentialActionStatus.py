@@ -11,5 +11,5 @@ class PotentialActionStatus(ActionStatusType):
     See: https://schema.org/PotentialActionStatus
     Model depth: 6
     """
-    type_: str = Field(default="PotentialActionStatus", alias='@type', constant=True)
+    type_: str = Field(default="PotentialActionStatus", alias='@type', const=True)
     

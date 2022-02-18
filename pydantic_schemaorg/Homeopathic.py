@@ -12,5 +12,5 @@ class Homeopathic(MedicineSystem):
     See: https://schema.org/Homeopathic
     Model depth: 6
     """
-    type_: str = Field(default="Homeopathic", alias='@type', constant=True)
+    type_: str = Field(default="Homeopathic", alias='@type', const=True)
     

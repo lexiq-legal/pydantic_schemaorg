@@ -11,5 +11,5 @@ class MedicineSystem(MedicalEnumeration):
     See: https://schema.org/MedicineSystem
     Model depth: 5
     """
-    type_: str = Field(default="MedicineSystem", alias='@type', constant=True)
+    type_: str = Field(default="MedicineSystem", alias='@type', const=True)
     

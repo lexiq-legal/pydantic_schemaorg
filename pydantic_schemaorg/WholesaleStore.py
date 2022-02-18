@@ -11,5 +11,5 @@ class WholesaleStore(Store):
     See: https://schema.org/WholesaleStore
     Model depth: 5
     """
-    type_: str = Field(default="WholesaleStore", alias='@type', constant=True)
+    type_: str = Field(default="WholesaleStore", alias='@type', const=True)
     

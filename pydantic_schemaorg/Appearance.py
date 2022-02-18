@@ -11,5 +11,5 @@ class Appearance(PhysicalExam):
     See: https://schema.org/Appearance
     Model depth: 5
     """
-    type_: str = Field(default="Appearance", alias='@type', constant=True)
+    type_: str = Field(default="Appearance", alias='@type', const=True)
     

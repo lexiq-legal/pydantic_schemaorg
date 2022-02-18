@@ -12,5 +12,5 @@ class EventMovedOnline(EventStatusType):
     See: https://schema.org/EventMovedOnline
     Model depth: 6
     """
-    type_: str = Field(default="EventMovedOnline", alias='@type', constant=True)
+    type_: str = Field(default="EventMovedOnline", alias='@type', const=True)
     

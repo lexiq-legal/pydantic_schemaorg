@@ -14,5 +14,5 @@ class OpinionNewsArticle(NewsArticle):
     See: https://schema.org/OpinionNewsArticle
     Model depth: 5
     """
-    type_: str = Field(default="OpinionNewsArticle", alias='@type', constant=True)
+    type_: str = Field(default="OpinionNewsArticle", alias='@type', const=True)
     

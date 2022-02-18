@@ -11,5 +11,5 @@ class ResearchProject(Project):
     See: https://schema.org/ResearchProject
     Model depth: 4
     """
-    type_: str = Field(default="ResearchProject", alias='@type', constant=True)
+    type_: str = Field(default="ResearchProject", alias='@type', const=True)
     

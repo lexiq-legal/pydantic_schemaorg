@@ -14,7 +14,7 @@ class Collection(CreativeWork):
     See: https://schema.org/Collection
     Model depth: 3
     """
-    type_: str = Field(default="Collection", alias='@type', constant=True)
+    type_: str = Field(default="Collection", alias='@type', const=True)
     collectionSize: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
         default=None,
         description="The number of items in the [[Collection]].",

@@ -11,5 +11,5 @@ class DrugPrescriptionStatus(MedicalEnumeration):
     See: https://schema.org/DrugPrescriptionStatus
     Model depth: 5
     """
-    type_: str = Field(default="DrugPrescriptionStatus", alias='@type', constant=True)
+    type_: str = Field(default="DrugPrescriptionStatus", alias='@type', const=True)
     

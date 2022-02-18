@@ -11,5 +11,5 @@ class NailSalon(HealthAndBeautyBusiness):
     See: https://schema.org/NailSalon
     Model depth: 5
     """
-    type_: str = Field(default="NailSalon", alias='@type', constant=True)
+    type_: str = Field(default="NailSalon", alias='@type', const=True)
     

@@ -21,7 +21,7 @@ class Schedule(Intangible):
     See: https://schema.org/Schedule
     Model depth: 3
     """
-    type_: str = Field(default="Schedule", alias='@type', constant=True)
+    type_: str = Field(default="Schedule", alias='@type', const=True)
     exceptDate: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="Defines a [[Date]] or [[DateTime]] during which a scheduled [[Event]] will not take"

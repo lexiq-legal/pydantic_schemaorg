@@ -12,5 +12,5 @@ class SingleBlindedTrial(MedicalTrialDesign):
     See: https://schema.org/SingleBlindedTrial
     Model depth: 6
     """
-    type_: str = Field(default="SingleBlindedTrial", alias='@type', constant=True)
+    type_: str = Field(default="SingleBlindedTrial", alias='@type', const=True)
     

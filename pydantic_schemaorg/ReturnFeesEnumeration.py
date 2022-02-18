@@ -11,5 +11,5 @@ class ReturnFeesEnumeration(Enumeration):
     See: https://schema.org/ReturnFeesEnumeration
     Model depth: 4
     """
-    type_: str = Field(default="ReturnFeesEnumeration", alias='@type', constant=True)
+    type_: str = Field(default="ReturnFeesEnumeration", alias='@type', const=True)
     

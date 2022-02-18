@@ -14,7 +14,7 @@ class Seat(Intangible):
     See: https://schema.org/Seat
     Model depth: 3
     """
-    type_: str = Field(default="Seat", alias='@type', constant=True)
+    type_: str = Field(default="Seat", alias='@type', const=True)
     seatNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The location of the reserved seat (e.g., 27).",

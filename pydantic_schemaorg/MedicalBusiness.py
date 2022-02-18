@@ -12,5 +12,5 @@ class MedicalBusiness(LocalBusiness):
     See: https://schema.org/MedicalBusiness
     Model depth: 4
     """
-    type_: str = Field(default="MedicalBusiness", alias='@type', constant=True)
+    type_: str = Field(default="MedicalBusiness", alias='@type', const=True)
     

@@ -14,7 +14,7 @@ class CategoryCodeSet(DefinedTermSet):
     See: https://schema.org/CategoryCodeSet
     Model depth: 4
     """
-    type_: str = Field(default="CategoryCodeSet", alias='@type', constant=True)
+    type_: str = Field(default="CategoryCodeSet", alias='@type', const=True)
     hasCategoryCode: Optional[Union[List[Union['CategoryCode', str]], 'CategoryCode', str]] = Field(
         default=None,
         description="A Category code contained in this code set.",

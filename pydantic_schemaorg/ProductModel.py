@@ -14,7 +14,7 @@ class ProductModel(Product):
     See: https://schema.org/ProductModel
     Model depth: 3
     """
-    type_: str = Field(default="ProductModel", alias='@type', constant=True)
+    type_: str = Field(default="ProductModel", alias='@type', const=True)
     predecessorOf: Optional[Union[List[Union['ProductModel', str]], 'ProductModel', str]] = Field(
         default=None,
         description="A pointer from a previous, often discontinued variant of the product to its newer variant.",

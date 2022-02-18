@@ -11,5 +11,5 @@ class OrganizeAction(Action):
     See: https://schema.org/OrganizeAction
     Model depth: 3
     """
-    type_: str = Field(default="OrganizeAction", alias='@type', constant=True)
+    type_: str = Field(default="OrganizeAction", alias='@type', const=True)
     

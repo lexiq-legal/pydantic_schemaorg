@@ -11,5 +11,5 @@ class SeatingMap(MapCategoryType):
     See: https://schema.org/SeatingMap
     Model depth: 5
     """
-    type_: str = Field(default="SeatingMap", alias='@type', constant=True)
+    type_: str = Field(default="SeatingMap", alias='@type', const=True)
     

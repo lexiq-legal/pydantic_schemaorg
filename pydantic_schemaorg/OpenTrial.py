@@ -12,5 +12,5 @@ class OpenTrial(MedicalTrialDesign):
     See: https://schema.org/OpenTrial
     Model depth: 6
     """
-    type_: str = Field(default="OpenTrial", alias='@type', constant=True)
+    type_: str = Field(default="OpenTrial", alias='@type', const=True)
     

@@ -12,5 +12,5 @@ class Neurologic(MedicalSpecialty):
     See: https://schema.org/Neurologic
     Model depth: 6
     """
-    type_: str = Field(default="Neurologic", alias='@type', constant=True)
+    type_: str = Field(default="Neurologic", alias='@type', const=True)
     

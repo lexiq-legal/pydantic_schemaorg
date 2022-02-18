@@ -18,5 +18,5 @@ class PaymentMethod(Enumeration):
     See: https://schema.org/PaymentMethod
     Model depth: 4
     """
-    type_: str = Field(default="PaymentMethod", alias='@type', constant=True)
+    type_: str = Field(default="PaymentMethod", alias='@type', const=True)
     

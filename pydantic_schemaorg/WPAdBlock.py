@@ -11,5 +11,5 @@ class WPAdBlock(WebPageElement):
     See: https://schema.org/WPAdBlock
     Model depth: 4
     """
-    type_: str = Field(default="WPAdBlock", alias='@type', constant=True)
+    type_: str = Field(default="WPAdBlock", alias='@type', const=True)
     

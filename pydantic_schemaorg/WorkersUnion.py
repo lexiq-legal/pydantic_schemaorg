@@ -13,5 +13,5 @@ class WorkersUnion(Organization):
     See: https://schema.org/WorkersUnion
     Model depth: 3
     """
-    type_: str = Field(default="WorkersUnion", alias='@type', constant=True)
+    type_: str = Field(default="WorkersUnion", alias='@type', const=True)
     

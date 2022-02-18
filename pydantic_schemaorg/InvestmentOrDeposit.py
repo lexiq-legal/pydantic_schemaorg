@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 from typing import List, Optional, Union
 
 
@@ -16,8 +16,8 @@ class InvestmentOrDeposit(FinancialProduct):
     See: https://schema.org/InvestmentOrDeposit
     Model depth: 5
     """
-    type_: str = Field(default="InvestmentOrDeposit", alias='@type', constant=True)
-    amount: Optional[Union[List[Union[int, float, 'Number', 'MonetaryAmount', str]], int, float, 'Number', 'MonetaryAmount', str]] = Field(
+    type_: str = Field(default="InvestmentOrDeposit", alias='@type', const=True)
+    amount: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'MonetaryAmount', str]], StrictInt, StrictFloat, 'Number', 'MonetaryAmount', str]] = Field(
         default=None,
         description="The amount of money.",
     )

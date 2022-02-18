@@ -17,5 +17,5 @@ class CriticReview(Review):
     See: https://schema.org/CriticReview
     Model depth: 4
     """
-    type_: str = Field(default="CriticReview", alias='@type', constant=True)
+    type_: str = Field(default="CriticReview", alias='@type', const=True)
     

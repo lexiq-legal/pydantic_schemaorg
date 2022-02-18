@@ -14,7 +14,7 @@ class IndividualProduct(Product):
     See: https://schema.org/IndividualProduct
     Model depth: 3
     """
-    type_: str = Field(default="IndividualProduct", alias='@type', constant=True)
+    type_: str = Field(default="IndividualProduct", alias='@type', const=True)
     serialNumber: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The serial number or any alphanumeric identifier of a particular product. When attached"

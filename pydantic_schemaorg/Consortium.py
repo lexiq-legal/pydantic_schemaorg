@@ -11,5 +11,5 @@ class Consortium(Organization):
     See: https://schema.org/Consortium
     Model depth: 3
     """
-    type_: str = Field(default="Consortium", alias='@type', constant=True)
+    type_: str = Field(default="Consortium", alias='@type', const=True)
     

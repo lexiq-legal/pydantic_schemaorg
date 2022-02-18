@@ -11,5 +11,5 @@ class DiabeticDiet(RestrictedDiet):
     See: https://schema.org/DiabeticDiet
     Model depth: 5
     """
-    type_: str = Field(default="DiabeticDiet", alias='@type', constant=True)
+    type_: str = Field(default="DiabeticDiet", alias='@type', const=True)
     

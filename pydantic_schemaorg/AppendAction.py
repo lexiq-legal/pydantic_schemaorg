@@ -11,5 +11,5 @@ class AppendAction(InsertAction):
     See: https://schema.org/AppendAction
     Model depth: 6
     """
-    type_: str = Field(default="AppendAction", alias='@type', constant=True)
+    type_: str = Field(default="AppendAction", alias='@type', const=True)
     

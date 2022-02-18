@@ -11,5 +11,5 @@ class PerformingGroup(Organization):
     See: https://schema.org/PerformingGroup
     Model depth: 3
     """
-    type_: str = Field(default="PerformingGroup", alias='@type', constant=True)
+    type_: str = Field(default="PerformingGroup", alias='@type', const=True)
     

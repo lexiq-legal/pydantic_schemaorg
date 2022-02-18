@@ -15,7 +15,7 @@ class BroadcastChannel(Intangible):
     See: https://schema.org/BroadcastChannel
     Model depth: 3
     """
-    type_: str = Field(default="BroadcastChannel", alias='@type', constant=True)
+    type_: str = Field(default="BroadcastChannel", alias='@type', const=True)
     broadcastChannelId: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The unique address by which the BroadcastService can be identified in a provider lineup."

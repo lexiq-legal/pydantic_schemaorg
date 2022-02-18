@@ -11,5 +11,5 @@ class WearableMeasurementHips(WearableMeasurementTypeEnumeration):
     See: https://schema.org/WearableMeasurementHips
     Model depth: 6
     """
-    type_: str = Field(default="WearableMeasurementHips", alias='@type', constant=True)
+    type_: str = Field(default="WearableMeasurementHips", alias='@type', const=True)
     

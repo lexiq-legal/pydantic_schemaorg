@@ -3,8 +3,7 @@ from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
 from datetime import date, datetime
-from pydantic import AnyUrl
-from decimal import Decimal
+from pydantic import AnyUrl, StrictInt, StrictFloat
 
 
 from pydantic import Field
@@ -21,7 +20,7 @@ class EducationalOccupationalProgram(Intangible):
     See: https://schema.org/EducationalOccupationalProgram
     Model depth: 3
     """
-    type_: str = Field(default="EducationalOccupationalProgram", alias='@type', constant=True)
+    type_: str = Field(default="EducationalOccupationalProgram", alias='@type', const=True)
     timeToComplete: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
         default=None,
         description="The expected length of time to complete the program if attending full-time.",
@@ -45,7 +44,7 @@ class EducationalOccupationalProgram(Intangible):
         description="The date at which the program begins collecting applications for the next enrollment"
      "cycle.",
     )
-    programPrerequisites: Optional[Union[List[Union[str, 'Text', 'Course', 'EducationalOccupationalCredential', 'AlignmentObject']], str, 'Text', 'Course', 'EducationalOccupationalCredential', 'AlignmentObject']] = Field(
+    programPrerequisites: Optional[Union[List[Union[str, 'Text', 'AlignmentObject', 'EducationalOccupationalCredential', 'Course']], str, 'Text', 'AlignmentObject', 'EducationalOccupationalCredential', 'Course']] = Field(
         default=None,
         description="Prerequisites for enrolling in the program.",
     )
@@ -101,7 +100,7 @@ class EducationalOccupationalProgram(Intangible):
         default=None,
         description="The time of day the program normally runs. For example, \"evenings\".",
     )
-    termsPerYear: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    termsPerYear: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="The number of times terms of study are offered per year. Semesters and quarters are common"
      "units for term. For example, if the student can only take 2 semesters for the program in"
@@ -125,7 +124,7 @@ class EducationalOccupationalProgram(Intangible):
         description="A financial aid type or program which students may use to pay for tuition or fees associated"
      "with the program.",
     )
-    provider: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    provider: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."
@@ -157,15 +156,15 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.StructuredValue import StructuredValue
     from pydantic_schemaorg.Date import Date
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.Course import Course
-    from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
     from pydantic_schemaorg.AlignmentObject import AlignmentObject
+    from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
+    from pydantic_schemaorg.Course import Course
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.MonetaryAmountDistribution import MonetaryAmountDistribution
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.DayOfWeek import DayOfWeek
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.CategoryCode import CategoryCode

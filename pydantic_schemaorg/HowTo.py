@@ -14,7 +14,7 @@ class HowTo(CreativeWork):
     See: https://schema.org/HowTo
     Model depth: 3
     """
-    type_: str = Field(default="HowTo", alias='@type', constant=True)
+    type_: str = Field(default="HowTo", alias='@type', const=True)
     yield_: Optional[Union[List[Union[str, 'Text', 'QuantitativeValue']], str, 'Text', 'QuantitativeValue']] = Field(
         default=None,alias="yield",
         description="The quantity that results by performing instructions. For example, a paper airplane,"

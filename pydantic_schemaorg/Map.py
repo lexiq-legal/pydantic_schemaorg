@@ -14,7 +14,7 @@ class Map(CreativeWork):
     See: https://schema.org/Map
     Model depth: 3
     """
-    type_: str = Field(default="Map", alias='@type', constant=True)
+    type_: str = Field(default="Map", alias='@type', const=True)
     mapType: Optional[Union[List[Union['MapCategoryType', str]], 'MapCategoryType', str]] = Field(
         default=None,
         description="Indicates the kind of Map, from the MapCategoryType Enumeration.",

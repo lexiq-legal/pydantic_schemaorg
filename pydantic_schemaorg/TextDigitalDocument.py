@@ -11,5 +11,5 @@ class TextDigitalDocument(DigitalDocument):
     See: https://schema.org/TextDigitalDocument
     Model depth: 4
     """
-    type_: str = Field(default="TextDigitalDocument", alias='@type', constant=True)
+    type_: str = Field(default="TextDigitalDocument", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class InfectiousAgentClass(MedicalEnumeration):
     See: https://schema.org/InfectiousAgentClass
     Model depth: 5
     """
-    type_: str = Field(default="InfectiousAgentClass", alias='@type', constant=True)
+    type_: str = Field(default="InfectiousAgentClass", alias='@type', const=True)
     

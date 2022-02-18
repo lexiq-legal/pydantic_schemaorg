@@ -11,5 +11,5 @@ class PartiallyInForce(LegalForceStatus):
     See: https://schema.org/PartiallyInForce
     Model depth: 6
     """
-    type_: str = Field(default="PartiallyInForce", alias='@type', constant=True)
+    type_: str = Field(default="PartiallyInForce", alias='@type', const=True)
     

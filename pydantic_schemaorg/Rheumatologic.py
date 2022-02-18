@@ -12,5 +12,5 @@ class Rheumatologic(MedicalSpecialty):
     See: https://schema.org/Rheumatologic
     Model depth: 6
     """
-    type_: str = Field(default="Rheumatologic", alias='@type', constant=True)
+    type_: str = Field(default="Rheumatologic", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class AllocateAction(OrganizeAction):
     See: https://schema.org/AllocateAction
     Model depth: 4
     """
-    type_: str = Field(default="AllocateAction", alias='@type', constant=True)
+    type_: str = Field(default="AllocateAction", alias='@type', const=True)
     

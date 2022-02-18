@@ -11,5 +11,5 @@ class PaymentComplete(PaymentStatusType):
     See: https://schema.org/PaymentComplete
     Model depth: 6
     """
-    type_: str = Field(default="PaymentComplete", alias='@type', constant=True)
+    type_: str = Field(default="PaymentComplete", alias='@type', const=True)
     

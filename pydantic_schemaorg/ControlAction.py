@@ -11,5 +11,5 @@ class ControlAction(Action):
     See: https://schema.org/ControlAction
     Model depth: 3
     """
-    type_: str = Field(default="ControlAction", alias='@type', constant=True)
+    type_: str = Field(default="ControlAction", alias='@type', const=True)
     

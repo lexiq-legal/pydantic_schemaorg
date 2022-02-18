@@ -11,5 +11,5 @@ class Florist(Store):
     See: https://schema.org/Florist
     Model depth: 5
     """
-    type_: str = Field(default="Florist", alias='@type', constant=True)
+    type_: str = Field(default="Florist", alias='@type', const=True)
     

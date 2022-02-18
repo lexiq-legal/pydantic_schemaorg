@@ -11,5 +11,5 @@ class Taxi(Service):
     See: https://schema.org/Taxi
     Model depth: 4
     """
-    type_: str = Field(default="Taxi", alias='@type', constant=True)
+    type_: str = Field(default="Taxi", alias='@type', const=True)
     

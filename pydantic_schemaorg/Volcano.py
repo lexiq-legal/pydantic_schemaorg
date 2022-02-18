@@ -11,5 +11,5 @@ class Volcano(Landform):
     See: https://schema.org/Volcano
     Model depth: 4
     """
-    type_: str = Field(default="Volcano", alias='@type', constant=True)
+    type_: str = Field(default="Volcano", alias='@type', const=True)
     

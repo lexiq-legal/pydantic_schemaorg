@@ -15,7 +15,7 @@ class HotelRoom(Room):
     See: https://schema.org/HotelRoom
     Model depth: 5
     """
-    type_: str = Field(default="HotelRoom", alias='@type', constant=True)
+    type_: str = Field(default="HotelRoom", alias='@type', const=True)
     bed: Optional[Union[List[Union[str, 'Text', 'BedDetails', 'BedType']], str, 'Text', 'BedDetails', 'BedType']] = Field(
         default=None,
         description="The type of bed or beds included in the accommodation. For the single case of just one bed"

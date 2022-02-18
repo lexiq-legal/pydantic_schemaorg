@@ -16,7 +16,7 @@ class Dataset(CreativeWork):
     See: https://schema.org/Dataset
     Model depth: 3
     """
-    type_: str = Field(default="Dataset", alias='@type', constant=True)
+    type_: str = Field(default="Dataset", alias='@type', const=True)
     includedDataCatalog: Optional[Union[List[Union['DataCatalog', str]], 'DataCatalog', str]] = Field(
         default=None,
         description="A data catalog which contains this dataset (this property was previously 'catalog',"

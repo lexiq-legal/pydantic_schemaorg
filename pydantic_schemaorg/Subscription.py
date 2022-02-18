@@ -11,5 +11,5 @@ class Subscription(PriceComponentTypeEnumeration):
     See: https://schema.org/Subscription
     Model depth: 5
     """
-    type_: str = Field(default="Subscription", alias='@type', constant=True)
+    type_: str = Field(default="Subscription", alias='@type', const=True)
     

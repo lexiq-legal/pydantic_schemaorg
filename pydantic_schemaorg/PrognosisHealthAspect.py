@@ -11,5 +11,5 @@ class PrognosisHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/PrognosisHealthAspect
     Model depth: 5
     """
-    type_: str = Field(default="PrognosisHealthAspect", alias='@type', constant=True)
+    type_: str = Field(default="PrognosisHealthAspect", alias='@type', const=True)
     

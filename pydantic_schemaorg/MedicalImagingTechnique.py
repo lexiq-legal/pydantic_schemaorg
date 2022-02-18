@@ -11,5 +11,5 @@ class MedicalImagingTechnique(MedicalEnumeration):
     See: https://schema.org/MedicalImagingTechnique
     Model depth: 5
     """
-    type_: str = Field(default="MedicalImagingTechnique", alias='@type', constant=True)
+    type_: str = Field(default="MedicalImagingTechnique", alias='@type', const=True)
     

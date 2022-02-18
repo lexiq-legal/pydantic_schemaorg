@@ -11,5 +11,5 @@ class OrderStatus(StatusEnumeration):
     See: https://schema.org/OrderStatus
     Model depth: 5
     """
-    type_: str = Field(default="OrderStatus", alias='@type', constant=True)
+    type_: str = Field(default="OrderStatus", alias='@type', const=True)
     

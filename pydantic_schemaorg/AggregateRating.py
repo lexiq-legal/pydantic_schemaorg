@@ -14,7 +14,7 @@ class AggregateRating(Rating):
     See: https://schema.org/AggregateRating
     Model depth: 4
     """
-    type_: str = Field(default="AggregateRating", alias='@type', constant=True)
+    type_: str = Field(default="AggregateRating", alias='@type', const=True)
     reviewCount: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
         default=None,
         description="The count of total number of reviews.",

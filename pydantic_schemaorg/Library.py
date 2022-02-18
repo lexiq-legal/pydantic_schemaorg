@@ -11,5 +11,5 @@ class Library(LocalBusiness):
     See: https://schema.org/Library
     Model depth: 4
     """
-    type_: str = Field(default="Library", alias='@type', constant=True)
+    type_: str = Field(default="Library", alias='@type', const=True)
     

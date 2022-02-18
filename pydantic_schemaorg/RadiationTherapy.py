@@ -11,5 +11,5 @@ class RadiationTherapy(MedicalTherapy):
     See: https://schema.org/RadiationTherapy
     Model depth: 6
     """
-    type_: str = Field(default="RadiationTherapy", alias='@type', constant=True)
+    type_: str = Field(default="RadiationTherapy", alias='@type', const=True)
     

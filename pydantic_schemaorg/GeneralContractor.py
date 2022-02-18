@@ -11,5 +11,5 @@ class GeneralContractor(HomeAndConstructionBusiness):
     See: https://schema.org/GeneralContractor
     Model depth: 5
     """
-    type_: str = Field(default="GeneralContractor", alias='@type', constant=True)
+    type_: str = Field(default="GeneralContractor", alias='@type', const=True)
     

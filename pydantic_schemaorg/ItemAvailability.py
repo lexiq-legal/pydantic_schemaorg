@@ -11,5 +11,5 @@ class ItemAvailability(Enumeration):
     See: https://schema.org/ItemAvailability
     Model depth: 4
     """
-    type_: str = Field(default="ItemAvailability", alias='@type', constant=True)
+    type_: str = Field(default="ItemAvailability", alias='@type', const=True)
     

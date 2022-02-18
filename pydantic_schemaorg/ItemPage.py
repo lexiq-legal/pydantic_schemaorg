@@ -11,5 +11,5 @@ class ItemPage(WebPage):
     See: https://schema.org/ItemPage
     Model depth: 4
     """
-    type_: str = Field(default="ItemPage", alias='@type', constant=True)
+    type_: str = Field(default="ItemPage", alias='@type', const=True)
     

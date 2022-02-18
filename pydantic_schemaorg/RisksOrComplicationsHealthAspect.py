@@ -11,5 +11,5 @@ class RisksOrComplicationsHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/RisksOrComplicationsHealthAspect
     Model depth: 5
     """
-    type_: str = Field(default="RisksOrComplicationsHealthAspect", alias='@type', constant=True)
+    type_: str = Field(default="RisksOrComplicationsHealthAspect", alias='@type', const=True)
     

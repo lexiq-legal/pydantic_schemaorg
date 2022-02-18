@@ -16,7 +16,7 @@ class BioChemEntity(Thing):
     See: https://schema.org/BioChemEntity
     Model depth: 2
     """
-    type_: str = Field(default="BioChemEntity", alias='@type', constant=True)
+    type_: str = Field(default="BioChemEntity", alias='@type', const=True)
     bioChemSimilarity: Optional[Union[List[Union['BioChemEntity', str]], 'BioChemEntity', str]] = Field(
         default=None,
         description="A similar BioChemEntity, e.g., obtained by fingerprint similarity algorithms.",
@@ -39,12 +39,12 @@ class BioChemEntity(Thing):
         default=None,
         description="Indicates a BioChemEntity that (in some sense) has this BioChemEntity as a part.",
     )
-    associatedDisease: Optional[Union[List[Union[AnyUrl, 'URL', 'MedicalCondition', 'PropertyValue', str]], AnyUrl, 'URL', 'MedicalCondition', 'PropertyValue', str]] = Field(
+    associatedDisease: Optional[Union[List[Union[AnyUrl, 'URL', 'PropertyValue', 'MedicalCondition', str]], AnyUrl, 'URL', 'PropertyValue', 'MedicalCondition', str]] = Field(
         default=None,
         description="Disease associated to this BioChemEntity. Such disease can be a MedicalCondition or"
      "a URL. If you want to add an evidence supporting the association, please use PropertyValue.",
     )
-    taxonomicRange: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Taxon', 'DefinedTerm']], AnyUrl, 'URL', str, 'Text', 'Taxon', 'DefinedTerm']] = Field(
+    taxonomicRange: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'DefinedTerm', 'Taxon']], AnyUrl, 'URL', str, 'Text', 'DefinedTerm', 'Taxon']] = Field(
         default=None,
         description="The taxonomic grouping of the organism that expresses, encodes, or in someway related"
      "to the BioChemEntity.",

@@ -14,7 +14,7 @@ class Audience(Intangible):
     See: https://schema.org/Audience
     Model depth: 3
     """
-    type_: str = Field(default="Audience", alias='@type', constant=True)
+    type_: str = Field(default="Audience", alias='@type', const=True)
     audienceType: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The target group associated with a given audience (e.g. veterans, car owners, musicians,"

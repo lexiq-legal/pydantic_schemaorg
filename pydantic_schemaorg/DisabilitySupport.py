@@ -11,5 +11,5 @@ class DisabilitySupport(GovernmentBenefitsType):
     See: https://schema.org/DisabilitySupport
     Model depth: 5
     """
-    type_: str = Field(default="DisabilitySupport", alias='@type', constant=True)
+    type_: str = Field(default="DisabilitySupport", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class DiscussionForumPosting(SocialMediaPosting):
     See: https://schema.org/DiscussionForumPosting
     Model depth: 5
     """
-    type_: str = Field(default="DiscussionForumPosting", alias='@type', constant=True)
+    type_: str = Field(default="DiscussionForumPosting", alias='@type', const=True)
     

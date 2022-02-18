@@ -11,5 +11,5 @@ class SportsClub(SportsActivityLocation):
     See: https://schema.org/SportsClub
     Model depth: 5
     """
-    type_: str = Field(default="SportsClub", alias='@type', constant=True)
+    type_: str = Field(default="SportsClub", alias='@type', const=True)
     

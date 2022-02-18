@@ -11,5 +11,5 @@ class SoldOut(ItemAvailability):
     See: https://schema.org/SoldOut
     Model depth: 5
     """
-    type_: str = Field(default="SoldOut", alias='@type', constant=True)
+    type_: str = Field(default="SoldOut", alias='@type', const=True)
     

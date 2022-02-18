@@ -11,5 +11,5 @@ class HearingImpairedSupported(ContactPointOption):
     See: https://schema.org/HearingImpairedSupported
     Model depth: 5
     """
-    type_: str = Field(default="HearingImpairedSupported", alias='@type', constant=True)
+    type_: str = Field(default="HearingImpairedSupported", alias='@type', const=True)
     

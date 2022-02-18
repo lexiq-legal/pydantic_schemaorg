@@ -11,5 +11,5 @@ class MisconceptionsHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/MisconceptionsHealthAspect
     Model depth: 5
     """
-    type_: str = Field(default="MisconceptionsHealthAspect", alias='@type', constant=True)
+    type_: str = Field(default="MisconceptionsHealthAspect", alias='@type', const=True)
     

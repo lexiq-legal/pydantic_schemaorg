@@ -15,7 +15,7 @@ class DefinedTermSet(CreativeWork):
     See: https://schema.org/DefinedTermSet
     Model depth: 3
     """
-    type_: str = Field(default="DefinedTermSet", alias='@type', constant=True)
+    type_: str = Field(default="DefinedTermSet", alias='@type', const=True)
     hasDefinedTerm: Optional[Union[List[Union['DefinedTerm', str]], 'DefinedTerm', str]] = Field(
         default=None,
         description="A Defined Term contained in this term set.",

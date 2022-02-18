@@ -17,7 +17,7 @@ class TaxiReservation(Reservation):
     See: https://schema.org/TaxiReservation
     Model depth: 4
     """
-    type_: str = Field(default="TaxiReservation", alias='@type', constant=True)
+    type_: str = Field(default="TaxiReservation", alias='@type', const=True)
     partySize: Optional[Union[List[Union[int, 'Integer', 'QuantitativeValue', str]], int, 'Integer', 'QuantitativeValue', str]] = Field(
         default=None,
         description="Number of people the reservation should accommodate.",

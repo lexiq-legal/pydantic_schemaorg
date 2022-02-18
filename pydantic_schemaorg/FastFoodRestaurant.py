@@ -11,5 +11,5 @@ class FastFoodRestaurant(FoodEstablishment):
     See: https://schema.org/FastFoodRestaurant
     Model depth: 5
     """
-    type_: str = Field(default="FastFoodRestaurant", alias='@type', constant=True)
+    type_: str = Field(default="FastFoodRestaurant", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class NightClub(EntertainmentBusiness):
     See: https://schema.org/NightClub
     Model depth: 5
     """
-    type_: str = Field(default="NightClub", alias='@type', constant=True)
+    type_: str = Field(default="NightClub", alias='@type', const=True)
     

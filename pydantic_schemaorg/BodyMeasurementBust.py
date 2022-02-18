@@ -11,5 +11,5 @@ class BodyMeasurementBust(BodyMeasurementTypeEnumeration):
     See: https://schema.org/BodyMeasurementBust
     Model depth: 6
     """
-    type_: str = Field(default="BodyMeasurementBust", alias='@type', constant=True)
+    type_: str = Field(default="BodyMeasurementBust", alias='@type', const=True)
     

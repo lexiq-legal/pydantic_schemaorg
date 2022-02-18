@@ -11,5 +11,5 @@ class EPRelease(MusicAlbumReleaseType):
     See: https://schema.org/EPRelease
     Model depth: 5
     """
-    type_: str = Field(default="EPRelease", alias='@type', constant=True)
+    type_: str = Field(default="EPRelease", alias='@type', const=True)
     

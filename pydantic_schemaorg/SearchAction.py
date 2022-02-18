@@ -15,7 +15,7 @@ class SearchAction(Action):
     See: https://schema.org/SearchAction
     Model depth: 3
     """
-    type_: str = Field(default="SearchAction", alias='@type', constant=True)
+    type_: str = Field(default="SearchAction", alias='@type', const=True)
     query: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A sub property of instrument. The query used on this action.",

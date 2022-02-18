@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 from typing import List, Optional, Union
 
 
@@ -16,8 +16,8 @@ class HowToItem(ListItem):
     See: https://schema.org/HowToItem
     Model depth: 4
     """
-    type_: str = Field(default="HowToItem", alias='@type', constant=True)
-    requiredQuantity: Optional[Union[List[Union[int, float, 'Number', str, 'Text', 'QuantitativeValue']], int, float, 'Number', str, 'Text', 'QuantitativeValue']] = Field(
+    type_: str = Field(default="HowToItem", alias='@type', const=True)
+    requiredQuantity: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str, 'Text', 'QuantitativeValue']], StrictInt, StrictFloat, 'Number', str, 'Text', 'QuantitativeValue']] = Field(
         default=None,
         description="The required quantity of the item(s).",
     )

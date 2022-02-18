@@ -11,5 +11,5 @@ class PaidLeave(GovernmentBenefitsType):
     See: https://schema.org/PaidLeave
     Model depth: 5
     """
-    type_: str = Field(default="PaidLeave", alias='@type', constant=True)
+    type_: str = Field(default="PaidLeave", alias='@type', const=True)
     

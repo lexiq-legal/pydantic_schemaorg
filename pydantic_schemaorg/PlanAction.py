@@ -16,7 +16,7 @@ class PlanAction(OrganizeAction):
     See: https://schema.org/PlanAction
     Model depth: 4
     """
-    type_: str = Field(default="PlanAction", alias='@type', constant=True)
+    type_: str = Field(default="PlanAction", alias='@type', const=True)
     scheduledTime: Optional[Union[List[Union[datetime, 'DateTime', str]], datetime, 'DateTime', str]] = Field(
         default=None,
         description="The time the object is scheduled to.",

@@ -14,7 +14,7 @@ class Enumeration(Intangible):
     See: https://schema.org/Enumeration
     Model depth: 3
     """
-    type_: str = Field(default="Enumeration", alias='@type', constant=True)
+    type_: str = Field(default="Enumeration", alias='@type', const=True)
     supersededBy: Optional[Union[List[Union['Property', 'Enumeration', 'Class', str]], 'Property', 'Enumeration', 'Class', str]] = Field(
         default=None,
         description="Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",

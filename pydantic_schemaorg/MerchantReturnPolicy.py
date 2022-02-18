@@ -2,9 +2,8 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic import AnyUrl, StrictBool
+from pydantic import AnyUrl, StrictBool, StrictInt, StrictFloat
 from datetime import date, datetime
-from decimal import Decimal
 
 
 from pydantic import Field
@@ -18,7 +17,7 @@ class MerchantReturnPolicy(Intangible):
     See: https://schema.org/MerchantReturnPolicy
     Model depth: 3
     """
-    type_: str = Field(default="MerchantReturnPolicy", alias='@type', constant=True)
+    type_: str = Field(default="MerchantReturnPolicy", alias='@type', const=True)
     customerRemorseReturnFees: Optional[Union[List[Union['ReturnFeesEnumeration', str]], 'ReturnFeesEnumeration', str]] = Field(
         default=None,
         description="The type of return fees if the product is returned due to customer remorse.",
@@ -51,7 +50,7 @@ class MerchantReturnPolicy(Intangible):
         description="The method (from an enumeration) by which the customer obtains a return shipping label"
      "for a defect product.",
     )
-    merchantReturnDays: Optional[Union[List[Union[datetime, 'DateTime', int, 'Integer', date, 'Date', str]], datetime, 'DateTime', int, 'Integer', date, 'Date', str]] = Field(
+    merchantReturnDays: Optional[Union[List[Union[int, 'Integer', datetime, 'DateTime', date, 'Date', str]], int, 'Integer', datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="Specifies either a fixed return date or the number of days (from the delivery date) that"
      "a product can be returned. Used when the [[returnPolicyCategory]] property is specified"
@@ -96,7 +95,7 @@ class MerchantReturnPolicy(Intangible):
      "or service, or the products or services included in the offer. Also used for product return"
      "policies to specify the condition of products accepted for returns.",
     )
-    restockingFee: Optional[Union[List[Union[int, float, 'Number', 'MonetaryAmount', str]], int, float, 'Number', 'MonetaryAmount', str]] = Field(
+    restockingFee: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'MonetaryAmount', str]], StrictInt, StrictFloat, 'Number', 'MonetaryAmount', str]] = Field(
         default=None,
         description="Use [[MonetaryAmount]] to specify a fixed restocking fee for product returns, or use"
      "[[Number]] to specify a percentage of the product price paid by the customer.",
@@ -128,8 +127,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Boolean import Boolean
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.ReturnLabelSourceEnumeration import ReturnLabelSourceEnumeration
-    from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Integer import Integer
+    from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Date import Date
     from pydantic_schemaorg.MerchantReturnPolicySeasonalOverride import MerchantReturnPolicySeasonalOverride
     from pydantic_schemaorg.RefundTypeEnumeration import RefundTypeEnumeration

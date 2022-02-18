@@ -11,5 +11,5 @@ class InForce(LegalForceStatus):
     See: https://schema.org/InForce
     Model depth: 6
     """
-    type_: str = Field(default="InForce", alias='@type', constant=True)
+    type_: str = Field(default="InForce", alias='@type', const=True)
     

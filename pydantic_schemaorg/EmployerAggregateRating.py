@@ -11,5 +11,5 @@ class EmployerAggregateRating(AggregateRating):
     See: https://schema.org/EmployerAggregateRating
     Model depth: 5
     """
-    type_: str = Field(default="EmployerAggregateRating", alias='@type', constant=True)
+    type_: str = Field(default="EmployerAggregateRating", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class OutletStore(Store):
     See: https://schema.org/OutletStore
     Model depth: 5
     """
-    type_: str = Field(default="OutletStore", alias='@type', constant=True)
+    type_: str = Field(default="OutletStore", alias='@type', const=True)
     

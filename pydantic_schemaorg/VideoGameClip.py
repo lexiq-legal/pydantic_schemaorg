@@ -11,5 +11,5 @@ class VideoGameClip(Clip):
     See: https://schema.org/VideoGameClip
     Model depth: 4
     """
-    type_: str = Field(default="VideoGameClip", alias='@type', constant=True)
+    type_: str = Field(default="VideoGameClip", alias='@type', const=True)
     

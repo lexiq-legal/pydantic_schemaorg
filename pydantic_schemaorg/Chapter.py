@@ -15,7 +15,7 @@ class Chapter(CreativeWork):
     See: https://schema.org/Chapter
     Model depth: 3
     """
-    type_: str = Field(default="Chapter", alias='@type', constant=True)
+    type_: str = Field(default="Chapter", alias='@type', const=True)
     pageStart: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
         default=None,
         description="The page on which the work starts; for example \"135\" or \"xiii\".",

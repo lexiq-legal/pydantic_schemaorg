@@ -15,7 +15,7 @@ class BroadcastEvent(PublicationEvent):
     See: https://schema.org/BroadcastEvent
     Model depth: 4
     """
-    type_: str = Field(default="BroadcastEvent", alias='@type', constant=True)
+    type_: str = Field(default="BroadcastEvent", alias='@type', const=True)
     isLiveBroadcast: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="True if the broadcast is of a live event.",

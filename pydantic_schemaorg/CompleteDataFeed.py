@@ -18,5 +18,5 @@ class CompleteDataFeed(DataFeed):
     See: https://schema.org/CompleteDataFeed
     Model depth: 5
     """
-    type_: str = Field(default="CompleteDataFeed", alias='@type', constant=True)
+    type_: str = Field(default="CompleteDataFeed", alias='@type', const=True)
     

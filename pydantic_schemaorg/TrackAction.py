@@ -17,7 +17,7 @@ class TrackAction(FindAction):
     See: https://schema.org/TrackAction
     Model depth: 4
     """
-    type_: str = Field(default="TrackAction", alias='@type', constant=True)
+    type_: str = Field(default="TrackAction", alias='@type', const=True)
     deliveryMethod: Optional[Union[List[Union['DeliveryMethod', str]], 'DeliveryMethod', str]] = Field(
         default=None,
         description="A sub property of instrument. The method of delivery.",

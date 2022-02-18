@@ -11,5 +11,5 @@ class OfficeEquipmentStore(Store):
     See: https://schema.org/OfficeEquipmentStore
     Model depth: 5
     """
-    type_: str = Field(default="OfficeEquipmentStore", alias='@type', constant=True)
+    type_: str = Field(default="OfficeEquipmentStore", alias='@type', const=True)
     

@@ -15,7 +15,7 @@ class Movie(CreativeWork):
     See: https://schema.org/Movie
     Model depth: 3
     """
-    type_: str = Field(default="Movie", alias='@type', constant=True)
+    type_: str = Field(default="Movie", alias='@type', const=True)
     actors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
         default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"

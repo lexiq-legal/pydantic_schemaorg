@@ -11,5 +11,5 @@ class SalePrice(PriceTypeEnumeration):
     See: https://schema.org/SalePrice
     Model depth: 5
     """
-    type_: str = Field(default="SalePrice", alias='@type', constant=True)
+    type_: str = Field(default="SalePrice", alias='@type', const=True)
     

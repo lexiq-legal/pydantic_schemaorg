@@ -11,5 +11,5 @@ class FreeReturn(ReturnFeesEnumeration):
     See: https://schema.org/FreeReturn
     Model depth: 5
     """
-    type_: str = Field(default="FreeReturn", alias='@type', constant=True)
+    type_: str = Field(default="FreeReturn", alias='@type', const=True)
     

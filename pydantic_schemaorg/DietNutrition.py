@@ -12,5 +12,5 @@ class DietNutrition(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/DietNutrition
     Model depth: 5
     """
-    type_: str = Field(default="DietNutrition", alias='@type', constant=True)
+    type_: str = Field(default="DietNutrition", alias='@type', const=True)
     

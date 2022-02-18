@@ -16,7 +16,7 @@ class Brand(Intangible):
     See: https://schema.org/Brand
     Model depth: 3
     """
-    type_: str = Field(default="Brand", alias='@type', constant=True)
+    type_: str = Field(default="Brand", alias='@type', const=True)
     aggregateRating: Optional[Union[List[Union['AggregateRating', str]], 'AggregateRating', str]] = Field(
         default=None,
         description="The overall rating, based on a collection of reviews or ratings, of the item.",

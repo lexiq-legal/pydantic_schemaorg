@@ -16,7 +16,7 @@ class ShippingDeliveryTime(StructuredValue):
     See: https://schema.org/ShippingDeliveryTime
     Model depth: 4
     """
-    type_: str = Field(default="ShippingDeliveryTime", alias='@type', constant=True)
+    type_: str = Field(default="ShippingDeliveryTime", alias='@type', const=True)
     transitTime: Optional[Union[List[Union['QuantitativeValue', str]], 'QuantitativeValue', str]] = Field(
         default=None,
         description="The typical delay the order has been sent for delivery and the goods reach the final customer."

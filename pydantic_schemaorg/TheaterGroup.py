@@ -11,5 +11,5 @@ class TheaterGroup(PerformingGroup):
     See: https://schema.org/TheaterGroup
     Model depth: 4
     """
-    type_: str = Field(default="TheaterGroup", alias='@type', constant=True)
+    type_: str = Field(default="TheaterGroup", alias='@type', const=True)
     

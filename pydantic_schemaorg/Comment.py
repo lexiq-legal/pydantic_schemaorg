@@ -15,7 +15,7 @@ class Comment(CreativeWork):
     See: https://schema.org/Comment
     Model depth: 3
     """
-    type_: str = Field(default="Comment", alias='@type', constant=True)
+    type_: str = Field(default="Comment", alias='@type', const=True)
     downvoteCount: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
         default=None,
         description="The number of downvotes this question, answer or comment has received from the community.",

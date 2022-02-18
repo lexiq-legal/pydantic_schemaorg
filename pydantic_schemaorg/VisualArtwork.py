@@ -15,7 +15,7 @@ class VisualArtwork(CreativeWork):
     See: https://schema.org/VisualArtwork
     Model depth: 3
     """
-    type_: str = Field(default="VisualArtwork", alias='@type', constant=True)
+    type_: str = Field(default="VisualArtwork", alias='@type', const=True)
     artworkSurface: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text']], AnyUrl, 'URL', str, 'Text']] = Field(
         default=None,
         description="The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc.",

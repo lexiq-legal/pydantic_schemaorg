@@ -11,5 +11,5 @@ class ReturnLabelCustomerResponsibility(ReturnLabelSourceEnumeration):
     See: https://schema.org/ReturnLabelCustomerResponsibility
     Model depth: 5
     """
-    type_: str = Field(default="ReturnLabelCustomerResponsibility", alias='@type', constant=True)
+    type_: str = Field(default="ReturnLabelCustomerResponsibility", alias='@type', const=True)
     

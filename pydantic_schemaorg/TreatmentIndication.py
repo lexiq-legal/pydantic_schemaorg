@@ -11,5 +11,5 @@ class TreatmentIndication(MedicalIndication):
     See: https://schema.org/TreatmentIndication
     Model depth: 4
     """
-    type_: str = Field(default="TreatmentIndication", alias='@type', constant=True)
+    type_: str = Field(default="TreatmentIndication", alias='@type', const=True)
     

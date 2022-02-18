@@ -15,7 +15,7 @@ class HealthPlanNetwork(Intangible):
     See: https://schema.org/HealthPlanNetwork
     Model depth: 3
     """
-    type_: str = Field(default="HealthPlanNetwork", alias='@type', constant=True)
+    type_: str = Field(default="HealthPlanNetwork", alias='@type', const=True)
     healthPlanNetworkTier: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The tier(s) for this network.",

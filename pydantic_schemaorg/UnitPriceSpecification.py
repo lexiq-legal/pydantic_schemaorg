@@ -1,9 +1,8 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from decimal import Decimal
+from pydantic import AnyUrl, StrictInt, StrictFloat
 from typing import List, Optional, Union
-from pydantic import AnyUrl
 
 
 from pydantic import Field
@@ -16,14 +15,14 @@ class UnitPriceSpecification(PriceSpecification):
     See: https://schema.org/UnitPriceSpecification
     Model depth: 5
     """
-    type_: str = Field(default="UnitPriceSpecification", alias='@type', constant=True)
-    billingStart: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    type_: str = Field(default="UnitPriceSpecification", alias='@type', const=True)
+    billingStart: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="Specifies after how much time this price (or price component) becomes valid and billing"
      "starts. Can be used, for example, to model a price increase after the first year of a subscription."
      "The unit of measurement is specified by the unitCode property.",
     )
-    billingIncrement: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    billingIncrement: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="This property specifies the minimal quantity and rounding increment that will be the"
      "basis for the billing. The unit of measurement is specified by the unitCode property.",
@@ -42,7 +41,7 @@ class UnitPriceSpecification(PriceSpecification):
      "PriceTypeEnumeration or as a free form text string for price types that are not already"
      "predefined in PriceTypeEnumeration.",
     )
-    billingDuration: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', 'Duration', str]], int, float, 'Number', 'QuantitativeValue', 'Duration', str]] = Field(
+    billingDuration: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'Duration', 'QuantitativeValue', str]], StrictInt, StrictFloat, 'Number', 'Duration', 'QuantitativeValue', str]] = Field(
         default=None,
         description="Specifies for how long this price (or price component) will be billed. Can be used, for"
      "example, to model the contractual duration of a subscription or payment plan. Type can"
@@ -71,7 +70,7 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.PriceTypeEnumeration import PriceTypeEnumeration
-    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
     from pydantic_schemaorg.Duration import Duration
+    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.PriceComponentTypeEnumeration import PriceComponentTypeEnumeration

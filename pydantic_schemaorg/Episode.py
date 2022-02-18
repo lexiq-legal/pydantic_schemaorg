@@ -14,7 +14,7 @@ class Episode(CreativeWork):
     See: https://schema.org/Episode
     Model depth: 3
     """
-    type_: str = Field(default="Episode", alias='@type', constant=True)
+    type_: str = Field(default="Episode", alias='@type', const=True)
     partOfSeason: Optional[Union[List[Union['CreativeWorkSeason', str]], 'CreativeWorkSeason', str]] = Field(
         default=None,
         description="The season to which this episode belongs.",

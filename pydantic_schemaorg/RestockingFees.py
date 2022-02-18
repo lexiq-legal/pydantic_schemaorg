@@ -11,5 +11,5 @@ class RestockingFees(ReturnFeesEnumeration):
     See: https://schema.org/RestockingFees
     Model depth: 5
     """
-    type_: str = Field(default="RestockingFees", alias='@type', constant=True)
+    type_: str = Field(default="RestockingFees", alias='@type', const=True)
     

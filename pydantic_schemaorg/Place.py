@@ -2,8 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic import AnyUrl, StrictBool
-from decimal import Decimal
+from pydantic import AnyUrl, StrictBool, StrictInt, StrictFloat
 
 
 from pydantic import Field
@@ -16,7 +15,7 @@ class Place(Thing):
     See: https://schema.org/Place
     Model depth: 2
     """
-    type_: str = Field(default="Place", alias='@type', constant=True)
+    type_: str = Field(default="Place", alias='@type', const=True)
     geo: Optional[Union[List[Union['GeoCoordinates', 'GeoShape', str]], 'GeoCoordinates', 'GeoShape', str]] = Field(
         default=None,
         description="The geo coordinates of the place.",
@@ -68,7 +67,7 @@ class Place(Thing):
         default=None,
         description="The total number of individuals that may attend an event or venue.",
     )
-    photo: Optional[Union[List[Union['Photograph', 'ImageObject', str]], 'Photograph', 'ImageObject', str]] = Field(
+    photo: Optional[Union[List[Union['ImageObject', 'Photograph', str]], 'ImageObject', 'Photograph', str]] = Field(
         default=None,
         description="A photograph of this place.",
     )
@@ -85,7 +84,7 @@ class Place(Thing):
         description="The International Standard of Industrial Classification of All Economic Activities"
      "(ISIC), Revision 4 code for a particular organization, business person, or place.",
     )
-    longitude: Optional[Union[List[Union[int, float, 'Number', str, 'Text']], int, float, 'Number', str, 'Text']] = Field(
+    longitude: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str, 'Text']], StrictInt, StrictFloat, 'Number', str, 'Text']] = Field(
         default=None,
         description="The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).",
     )
@@ -142,7 +141,7 @@ class Place(Thing):
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
-    photos: Optional[Union[List[Union['Photograph', 'ImageObject', str]], 'Photograph', 'ImageObject', str]] = Field(
+    photos: Optional[Union[List[Union['ImageObject', 'Photograph', str]], 'ImageObject', 'Photograph', str]] = Field(
         default=None,
         description="Photographs of this place.",
     )
@@ -168,7 +167,7 @@ class Place(Thing):
         default=None,
         description="An associated logo.",
     )
-    latitude: Optional[Union[List[Union[int, float, 'Number', str, 'Text']], int, float, 'Number', str, 'Text']] = Field(
+    latitude: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str, 'Text']], StrictInt, StrictFloat, 'Number', str, 'Text']] = Field(
         default=None,
         description="The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).",
     )
@@ -245,8 +244,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.OpeningHoursSpecification import OpeningHoursSpecification
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.Integer import Integer
-    from pydantic_schemaorg.Photograph import Photograph
     from pydantic_schemaorg.ImageObject import ImageObject
+    from pydantic_schemaorg.Photograph import Photograph
     from pydantic_schemaorg.AggregateRating import AggregateRating
     from pydantic_schemaorg.Number import Number
     from pydantic_schemaorg.LocationFeatureSpecification import LocationFeatureSpecification

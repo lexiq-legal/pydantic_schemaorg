@@ -12,5 +12,5 @@ class EmployerReview(Review):
     See: https://schema.org/EmployerReview
     Model depth: 4
     """
-    type_: str = Field(default="EmployerReview", alias='@type', constant=True)
+    type_: str = Field(default="EmployerReview", alias='@type', const=True)
     

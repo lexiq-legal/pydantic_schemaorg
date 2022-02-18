@@ -12,5 +12,5 @@ class StructuredValue(Intangible):
     See: https://schema.org/StructuredValue
     Model depth: 3
     """
-    type_: str = Field(default="StructuredValue", alias='@type', constant=True)
+    type_: str = Field(default="StructuredValue", alias='@type', const=True)
     

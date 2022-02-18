@@ -2,9 +2,8 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from decimal import Decimal
+from pydantic import StrictBool, StrictInt, StrictFloat
 from datetime import datetime, time
-from pydantic import StrictBool
 
 
 from pydantic import Field
@@ -17,14 +16,14 @@ class LodgingBusiness(LocalBusiness):
     See: https://schema.org/LodgingBusiness
     Model depth: 4
     """
-    type_: str = Field(default="LodgingBusiness", alias='@type', constant=True)
+    type_: str = Field(default="LodgingBusiness", alias='@type', const=True)
     amenityFeature: Optional[Union[List[Union['LocationFeatureSpecification', str]], 'LocationFeatureSpecification', str]] = Field(
         default=None,
         description="An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic"
      "property does not make a statement about whether the feature is included in an offer for"
      "the main accommodation or available at extra costs.",
     )
-    numberOfRooms: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
+    numberOfRooms: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'QuantitativeValue', str]], StrictInt, StrictFloat, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
      "business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be"

@@ -12,5 +12,5 @@ class HealthClub(HealthAndBeautyBusiness, SportsActivityLocation):
     See: https://schema.org/HealthClub
     Model depth: 5
     """
-    type_: str = Field(default="HealthClub", alias='@type', constant=True)
+    type_: str = Field(default="HealthClub", alias='@type', const=True)
     

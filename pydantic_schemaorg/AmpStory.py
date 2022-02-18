@@ -12,5 +12,5 @@ class AmpStory(CreativeWork):
     See: https://schema.org/AmpStory
     Model depth: 3
     """
-    type_: str = Field(default="AmpStory", alias='@type', constant=True)
+    type_: str = Field(default="AmpStory", alias='@type', const=True)
     

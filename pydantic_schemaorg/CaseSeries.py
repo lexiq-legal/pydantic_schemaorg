@@ -17,5 +17,5 @@ class CaseSeries(MedicalObservationalStudyDesign):
     See: https://schema.org/CaseSeries
     Model depth: 6
     """
-    type_: str = Field(default="CaseSeries", alias='@type', constant=True)
+    type_: str = Field(default="CaseSeries", alias='@type', const=True)
     

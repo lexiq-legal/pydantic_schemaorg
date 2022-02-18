@@ -12,5 +12,5 @@ class EnergyEfficiencyEnumeration(Enumeration):
     See: https://schema.org/EnergyEfficiencyEnumeration
     Model depth: 4
     """
-    type_: str = Field(default="EnergyEfficiencyEnumeration", alias='@type', constant=True)
+    type_: str = Field(default="EnergyEfficiencyEnumeration", alias='@type', const=True)
     

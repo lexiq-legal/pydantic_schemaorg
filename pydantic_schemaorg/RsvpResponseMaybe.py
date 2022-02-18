@@ -11,5 +11,5 @@ class RsvpResponseMaybe(RsvpResponseType):
     See: https://schema.org/RsvpResponseMaybe
     Model depth: 5
     """
-    type_: str = Field(default="RsvpResponseMaybe", alias='@type', constant=True)
+    type_: str = Field(default="RsvpResponseMaybe", alias='@type', const=True)
     

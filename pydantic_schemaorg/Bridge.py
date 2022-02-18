@@ -11,5 +11,5 @@ class Bridge(CivicStructure):
     See: https://schema.org/Bridge
     Model depth: 4
     """
-    type_: str = Field(default="Bridge", alias='@type', constant=True)
+    type_: str = Field(default="Bridge", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class BackOrder(ItemAvailability):
     See: https://schema.org/BackOrder
     Model depth: 5
     """
-    type_: str = Field(default="BackOrder", alias='@type', constant=True)
+    type_: str = Field(default="BackOrder", alias='@type', const=True)
     

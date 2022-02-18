@@ -15,7 +15,7 @@ class NewsMediaOrganization(Organization):
     See: https://schema.org/NewsMediaOrganization
     Model depth: 3
     """
-    type_: str = Field(default="NewsMediaOrganization", alias='@type', constant=True)
+    type_: str = Field(default="NewsMediaOrganization", alias='@type', const=True)
     actionableFeedbackPolicy: Optional[Union[List[Union[AnyUrl, 'URL', 'CreativeWork', str]], AnyUrl, 'URL', 'CreativeWork', str]] = Field(
         default=None,
         description="For a [[NewsMediaOrganization]] or other news-related [[Organization]], a statement"
@@ -47,7 +47,7 @@ class NewsMediaOrganization(Organization):
         description="For a [[NewsMediaOrganization]], a statement on coverage priorities, including any"
      "public agenda or stance on issues.",
     )
-    ownershipFundingInfo: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'AboutPage', 'CreativeWork']], AnyUrl, 'URL', str, 'Text', 'AboutPage', 'CreativeWork']] = Field(
+    ownershipFundingInfo: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'CreativeWork', 'AboutPage']], AnyUrl, 'URL', str, 'Text', 'CreativeWork', 'AboutPage']] = Field(
         default=None,
         description="For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]),"
      "a description of organizational ownership structure; funding and grants. In a news/media"

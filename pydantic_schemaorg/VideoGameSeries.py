@@ -15,7 +15,7 @@ class VideoGameSeries(CreativeWorkSeries):
     See: https://schema.org/VideoGameSeries
     Model depth: 4
     """
-    type_: str = Field(default="VideoGameSeries", alias='@type', constant=True)
+    type_: str = Field(default="VideoGameSeries", alias='@type', const=True)
     actors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
         default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"
@@ -29,7 +29,7 @@ class VideoGameSeries(CreativeWorkSeries):
         default=None,
         description="The number of seasons in this series.",
     )
-    gameLocation: Optional[Union[List[Union[AnyUrl, 'URL', 'Place', 'PostalAddress', str]], AnyUrl, 'URL', 'Place', 'PostalAddress', str]] = Field(
+    gameLocation: Optional[Union[List[Union[AnyUrl, 'URL', 'PostalAddress', 'Place', str]], AnyUrl, 'URL', 'PostalAddress', 'Place', str]] = Field(
         default=None,
         description="Real or fictional location of the game (or part of game).",
     )
@@ -121,8 +121,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.CreativeWorkSeason import CreativeWorkSeason
     from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.URL import URL
-    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.PostalAddress import PostalAddress
+    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.VideoObject import VideoObject
     from pydantic_schemaorg.Episode import Episode
     from pydantic_schemaorg.Organization import Organization

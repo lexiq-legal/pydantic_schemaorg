@@ -12,5 +12,5 @@ class MedicalIndication(MedicalEntity):
     See: https://schema.org/MedicalIndication
     Model depth: 3
     """
-    type_: str = Field(default="MedicalIndication", alias='@type', constant=True)
+    type_: str = Field(default="MedicalIndication", alias='@type', const=True)
     

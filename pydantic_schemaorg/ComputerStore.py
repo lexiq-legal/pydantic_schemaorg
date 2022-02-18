@@ -11,5 +11,5 @@ class ComputerStore(Store):
     See: https://schema.org/ComputerStore
     Model depth: 5
     """
-    type_: str = Field(default="ComputerStore", alias='@type', constant=True)
+    type_: str = Field(default="ComputerStore", alias='@type', const=True)
     

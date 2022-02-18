@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 
 
 from pydantic import Field
@@ -19,7 +19,7 @@ class AggregateOffer(Offer):
     See: https://schema.org/AggregateOffer
     Model depth: 4
     """
-    type_: str = Field(default="AggregateOffer", alias='@type', constant=True)
+    type_: str = Field(default="AggregateOffer", alias='@type', const=True)
     offers: Optional[Union[List[Union['Offer', 'Demand', str]], 'Offer', 'Demand', str]] = Field(
         default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
@@ -29,14 +29,14 @@ class AggregateOffer(Offer):
      "of common types, it can be used in others. In that case, using a second type, such as Product"
      "or a subtype of Product, can clarify the nature of the offer.",
     )
-    lowPrice: Optional[Union[List[Union[int, float, 'Number', str, 'Text']], int, float, 'Number', str, 'Text']] = Field(
+    lowPrice: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str, 'Text']], StrictInt, StrictFloat, 'Number', str, 'Text']] = Field(
         default=None,
         description="The lowest price of all offers available. Usage guidelines: * Use values from 0123456789"
      "(Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially"
      "similiar Unicode symbols. * Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to"
      "indicate a decimal point. Avoid using these symbols as a readability separator.",
     )
-    highPrice: Optional[Union[List[Union[int, float, 'Number', str, 'Text']], int, float, 'Number', str, 'Text']] = Field(
+    highPrice: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str, 'Text']], StrictInt, StrictFloat, 'Number', str, 'Text']] = Field(
         default=None,
         description="The highest price of all offers available. Usage guidelines: * Use values from 0123456789"
      "(Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially"

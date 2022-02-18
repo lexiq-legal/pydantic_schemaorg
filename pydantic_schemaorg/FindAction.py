@@ -12,5 +12,5 @@ class FindAction(Action):
     See: https://schema.org/FindAction
     Model depth: 3
     """
-    type_: str = Field(default="FindAction", alias='@type', constant=True)
+    type_: str = Field(default="FindAction", alias='@type', const=True)
     

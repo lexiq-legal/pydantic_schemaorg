@@ -1,9 +1,8 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from pydantic import StrictBool
+from pydantic import StrictBool, StrictInt, StrictFloat
 from typing import List, Optional, Union
-from decimal import Decimal
 
 
 from pydantic import Field
@@ -16,12 +15,12 @@ class PropertyValueSpecification(Intangible):
     See: https://schema.org/PropertyValueSpecification
     Model depth: 3
     """
-    type_: str = Field(default="PropertyValueSpecification", alias='@type', constant=True)
+    type_: str = Field(default="PropertyValueSpecification", alias='@type', const=True)
     multipleValues: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="Whether multiple values are allowed for the property. Default is false.",
     )
-    valueMaxLength: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    valueMaxLength: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="Specifies the allowed range for number of characters in a literal value.",
     )
@@ -30,7 +29,7 @@ class PropertyValueSpecification(Intangible):
         description="Whether or not a property is mutable. Default is false. Specifying this for a property"
      "that also has a value makes it act similar to a \"hidden\" input in an HTML form.",
     )
-    valueMinLength: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    valueMinLength: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="Specifies the minimum allowed range for number of characters in a literal value.",
     )
@@ -42,7 +41,7 @@ class PropertyValueSpecification(Intangible):
         default=None,
         description="Whether the property must be filled in to complete the action. Default is false.",
     )
-    minValue: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    minValue: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="The lower value of some characteristic or property.",
     )
@@ -51,12 +50,12 @@ class PropertyValueSpecification(Intangible):
         description="Indicates the name of the PropertyValueSpecification to be used in URL templates and"
      "form encoding in a manner analogous to HTML's input@name.",
     )
-    stepValue: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    stepValue: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="The stepValue attribute indicates the granularity that is expected (and required)"
      "of the value in a PropertyValueSpecification.",
     )
-    maxValue: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    maxValue: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="The upper value of some characteristic or property.",
     )

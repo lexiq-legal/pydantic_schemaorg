@@ -16,7 +16,7 @@ class Person(Thing):
     See: https://schema.org/Person
     Model depth: 2
     """
-    type_: str = Field(default="Person", alias='@type', constant=True)
+    type_: str = Field(default="Person", alias='@type', const=True)
     contactPoint: Optional[Union[List[Union['ContactPoint', str]], 'ContactPoint', str]] = Field(
         default=None,
         description="A contact point for a person or organization.",
@@ -41,11 +41,11 @@ class Person(Thing):
         default=None,
         description="A contact location for a person's place of work.",
     )
-    alumniOf: Optional[Union[List[Union['Organization', 'EducationalOrganization', str]], 'Organization', 'EducationalOrganization', str]] = Field(
+    alumniOf: Optional[Union[List[Union['EducationalOrganization', 'Organization', str]], 'EducationalOrganization', 'Organization', str]] = Field(
         default=None,
         description="An organization that the person is an alumni of.",
     )
-    funder: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    funder: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="A person or organization that supports (sponsors) something through some kind of financial"
      "contribution.",
@@ -66,7 +66,7 @@ class Person(Thing):
      "We do not distinguish skill levels or reading/writing/speaking/signing here. Use"
      "language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).",
     )
-    netWorth: Optional[Union[List[Union['PriceSpecification', 'MonetaryAmount', str]], 'PriceSpecification', 'MonetaryAmount', str]] = Field(
+    netWorth: Optional[Union[List[Union['MonetaryAmount', 'PriceSpecification', str]], 'MonetaryAmount', 'PriceSpecification', str]] = Field(
         default=None,
         description="The total financial value of the person as calculated by subtracting assets from liabilities.",
     )
@@ -206,7 +206,7 @@ class Person(Thing):
         default=None,
         description="Date of birth.",
     )
-    sponsor: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    sponsor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -300,12 +300,12 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.Country import Country
     from pydantic_schemaorg.Place import Place
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.EducationalOrganization import EducationalOrganization
+    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
     from pydantic_schemaorg.Language import Language
-    from pydantic_schemaorg.PriceSpecification import PriceSpecification
     from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
+    from pydantic_schemaorg.PriceSpecification import PriceSpecification
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.CreativeWork import CreativeWork
     from pydantic_schemaorg.GenderType import GenderType

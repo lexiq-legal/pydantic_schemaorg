@@ -15,7 +15,7 @@ class MedicalRiskEstimator(MedicalEntity):
     See: https://schema.org/MedicalRiskEstimator
     Model depth: 3
     """
-    type_: str = Field(default="MedicalRiskEstimator", alias='@type', constant=True)
+    type_: str = Field(default="MedicalRiskEstimator", alias='@type', const=True)
     estimatesRiskOf: Optional[Union[List[Union['MedicalEntity', str]], 'MedicalEntity', str]] = Field(
         default=None,
         description="The condition, complication, or symptom whose risk is being estimated.",

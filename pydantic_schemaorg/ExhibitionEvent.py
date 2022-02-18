@@ -11,5 +11,5 @@ class ExhibitionEvent(Event):
     See: https://schema.org/ExhibitionEvent
     Model depth: 3
     """
-    type_: str = Field(default="ExhibitionEvent", alias='@type', constant=True)
+    type_: str = Field(default="ExhibitionEvent", alias='@type', const=True)
     

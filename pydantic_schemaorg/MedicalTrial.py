@@ -17,7 +17,7 @@ class MedicalTrial(MedicalStudy):
     See: https://schema.org/MedicalTrial
     Model depth: 4
     """
-    type_: str = Field(default="MedicalTrial", alias='@type', constant=True)
+    type_: str = Field(default="MedicalTrial", alias='@type', const=True)
     trialDesign: Optional[Union[List[Union['MedicalTrialDesign', str]], 'MedicalTrialDesign', str]] = Field(
         default=None,
         description="Specifics about the trial design (enumerated).",

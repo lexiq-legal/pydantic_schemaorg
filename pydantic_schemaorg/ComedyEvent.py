@@ -11,5 +11,5 @@ class ComedyEvent(Event):
     See: https://schema.org/ComedyEvent
     Model depth: 3
     """
-    type_: str = Field(default="ComedyEvent", alias='@type', constant=True)
+    type_: str = Field(default="ComedyEvent", alias='@type', const=True)
     

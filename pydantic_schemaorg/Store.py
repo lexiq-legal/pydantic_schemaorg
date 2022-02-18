@@ -11,5 +11,5 @@ class Store(LocalBusiness):
     See: https://schema.org/Store
     Model depth: 4
     """
-    type_: str = Field(default="Store", alias='@type', constant=True)
+    type_: str = Field(default="Store", alias='@type', const=True)
     

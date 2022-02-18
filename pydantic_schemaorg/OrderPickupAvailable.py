@@ -11,5 +11,5 @@ class OrderPickupAvailable(OrderStatus):
     See: https://schema.org/OrderPickupAvailable
     Model depth: 6
     """
-    type_: str = Field(default="OrderPickupAvailable", alias='@type', constant=True)
+    type_: str = Field(default="OrderPickupAvailable", alias='@type', const=True)
     

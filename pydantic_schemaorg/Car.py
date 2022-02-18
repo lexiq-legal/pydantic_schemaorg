@@ -14,7 +14,7 @@ class Car(Vehicle):
     See: https://schema.org/Car
     Model depth: 4
     """
-    type_: str = Field(default="Car", alias='@type', constant=True)
+    type_: str = Field(default="Car", alias='@type', const=True)
     acrissCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The ACRISS Car Classification Code is a code used by many car rental companies, for classifying"

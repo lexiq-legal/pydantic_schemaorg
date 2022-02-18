@@ -11,5 +11,5 @@ class PrependAction(InsertAction):
     See: https://schema.org/PrependAction
     Model depth: 6
     """
-    type_: str = Field(default="PrependAction", alias='@type', constant=True)
+    type_: str = Field(default="PrependAction", alias='@type', const=True)
     

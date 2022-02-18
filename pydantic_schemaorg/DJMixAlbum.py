@@ -11,5 +11,5 @@ class DJMixAlbum(MusicAlbumProductionType):
     See: https://schema.org/DJMixAlbum
     Model depth: 5
     """
-    type_: str = Field(default="DJMixAlbum", alias='@type', constant=True)
+    type_: str = Field(default="DJMixAlbum", alias='@type', const=True)
     

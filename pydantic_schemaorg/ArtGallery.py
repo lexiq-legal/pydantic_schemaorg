@@ -11,5 +11,5 @@ class ArtGallery(EntertainmentBusiness):
     See: https://schema.org/ArtGallery
     Model depth: 5
     """
-    type_: str = Field(default="ArtGallery", alias='@type', constant=True)
+    type_: str = Field(default="ArtGallery", alias='@type', const=True)
     

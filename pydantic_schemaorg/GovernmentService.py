@@ -15,7 +15,7 @@ class GovernmentService(Service):
     See: https://schema.org/GovernmentService
     Model depth: 4
     """
-    type_: str = Field(default="GovernmentService", alias='@type', constant=True)
+    type_: str = Field(default="GovernmentService", alias='@type', const=True)
     jurisdiction: Optional[Union[List[Union[str, 'Text', 'AdministrativeArea']], str, 'Text', 'AdministrativeArea']] = Field(
         default=None,
         description="Indicates a legal jurisdiction, e.g. of some legislation, or where some government"

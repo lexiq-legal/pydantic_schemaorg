@@ -15,7 +15,7 @@ class ReplyAction(CommunicateAction):
     See: https://schema.org/ReplyAction
     Model depth: 5
     """
-    type_: str = Field(default="ReplyAction", alias='@type', constant=True)
+    type_: str = Field(default="ReplyAction", alias='@type', const=True)
     resultComment: Optional[Union[List[Union['Comment', str]], 'Comment', str]] = Field(
         default=None,
         description="A sub property of result. The Comment created or sent as a result of this action.",

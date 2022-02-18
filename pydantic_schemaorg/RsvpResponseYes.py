@@ -11,5 +11,5 @@ class RsvpResponseYes(RsvpResponseType):
     See: https://schema.org/RsvpResponseYes
     Model depth: 5
     """
-    type_: str = Field(default="RsvpResponseYes", alias='@type', constant=True)
+    type_: str = Field(default="RsvpResponseYes", alias='@type', const=True)
     

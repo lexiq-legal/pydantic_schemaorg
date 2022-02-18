@@ -17,5 +17,5 @@ class BackgroundNewsArticle(NewsArticle):
     See: https://schema.org/BackgroundNewsArticle
     Model depth: 5
     """
-    type_: str = Field(default="BackgroundNewsArticle", alias='@type', constant=True)
+    type_: str = Field(default="BackgroundNewsArticle", alias='@type', const=True)
     

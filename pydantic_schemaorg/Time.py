@@ -12,5 +12,5 @@ class Time(DataType):
     See: https://schema.org/Time
     Model depth: 5
     """
-    type_: str = Field(default="Time", alias='@type', constant=True)
+    type_: str = Field(default="Time", alias='@type', const=True)
     

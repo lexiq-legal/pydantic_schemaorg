@@ -14,7 +14,7 @@ class Review(CreativeWork):
     See: https://schema.org/Review
     Model depth: 3
     """
-    type_: str = Field(default="Review", alias='@type', constant=True)
+    type_: str = Field(default="Review", alias='@type', const=True)
     associatedMediaReview: Optional[Union[List[Union['Review', str]], 'Review', str]] = Field(
         default=None,
         description="An associated [[MediaReview]], related by specific common content, topic or claim."
@@ -54,7 +54,7 @@ class Review(CreativeWork):
         default=None,
         description="The actual body of the review.",
     )
-    negativeNotes: Optional[Union[List[Union[str, 'Text', 'ListItem', 'ItemList', 'WebContent']], str, 'Text', 'ListItem', 'ItemList', 'WebContent']] = Field(
+    negativeNotes: Optional[Union[List[Union[str, 'Text', 'ListItem', 'WebContent', 'ItemList']], str, 'Text', 'ListItem', 'WebContent', 'ItemList']] = Field(
         default=None,
         description="Indicates, in the context of a [[Review]] (e.g. framed as 'pro' vs 'con' considerations),"
      "negative considerations - either as unstructured text, or a list.",

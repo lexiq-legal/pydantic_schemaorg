@@ -17,7 +17,7 @@ class LocalBusiness(Place, Organization):
     See: https://schema.org/LocalBusiness
     Model depth: 3
     """
-    type_: str = Field(default="LocalBusiness", alias='@type', constant=True)
+    type_: str = Field(default="LocalBusiness", alias='@type', const=True)
     priceRange: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The price range of the business, for example ```$$$```.",

@@ -15,7 +15,7 @@ class ExerciseAction(PlayAction):
     See: https://schema.org/ExerciseAction
     Model depth: 4
     """
-    type_: str = Field(default="ExerciseAction", alias='@type', constant=True)
+    type_: str = Field(default="ExerciseAction", alias='@type', const=True)
     exercisePlan: Optional[Union[List[Union['ExercisePlan', str]], 'ExercisePlan', str]] = Field(
         default=None,
         description="A sub property of instrument. The exercise plan used on this action.",

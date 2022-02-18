@@ -11,5 +11,5 @@ class Installment(PriceComponentTypeEnumeration):
     See: https://schema.org/Installment
     Model depth: 5
     """
-    type_: str = Field(default="Installment", alias='@type', constant=True)
+    type_: str = Field(default="Installment", alias='@type', const=True)
     

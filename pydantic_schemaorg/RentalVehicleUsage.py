@@ -11,5 +11,5 @@ class RentalVehicleUsage(CarUsageType):
     See: https://schema.org/RentalVehicleUsage
     Model depth: 5
     """
-    type_: str = Field(default="RentalVehicleUsage", alias='@type', constant=True)
+    type_: str = Field(default="RentalVehicleUsage", alias='@type', const=True)
     

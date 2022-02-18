@@ -11,5 +11,5 @@ class StatusEnumeration(Enumeration):
     See: https://schema.org/StatusEnumeration
     Model depth: 4
     """
-    type_: str = Field(default="StatusEnumeration", alias='@type', constant=True)
+    type_: str = Field(default="StatusEnumeration", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class PreOrderAction(TradeAction):
     See: https://schema.org/PreOrderAction
     Model depth: 4
     """
-    type_: str = Field(default="PreOrderAction", alias='@type', constant=True)
+    type_: str = Field(default="PreOrderAction", alias='@type', const=True)
     

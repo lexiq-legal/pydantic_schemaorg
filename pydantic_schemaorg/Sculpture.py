@@ -11,5 +11,5 @@ class Sculpture(CreativeWork):
     See: https://schema.org/Sculpture
     Model depth: 3
     """
-    type_: str = Field(default="Sculpture", alias='@type', constant=True)
+    type_: str = Field(default="Sculpture", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class WearableMeasurementLength(WearableMeasurementTypeEnumeration):
     See: https://schema.org/WearableMeasurementLength
     Model depth: 6
     """
-    type_: str = Field(default="WearableMeasurementLength", alias='@type', constant=True)
+    type_: str = Field(default="WearableMeasurementLength", alias='@type', const=True)
     

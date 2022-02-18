@@ -11,5 +11,5 @@ class SportingGoodsStore(Store):
     See: https://schema.org/SportingGoodsStore
     Model depth: 5
     """
-    type_: str = Field(default="SportingGoodsStore", alias='@type', constant=True)
+    type_: str = Field(default="SportingGoodsStore", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class RsvpResponseNo(RsvpResponseType):
     See: https://schema.org/RsvpResponseNo
     Model depth: 5
     """
-    type_: str = Field(default="RsvpResponseNo", alias='@type', constant=True)
+    type_: str = Field(default="RsvpResponseNo", alias='@type', const=True)
     

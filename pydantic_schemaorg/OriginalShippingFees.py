@@ -11,5 +11,5 @@ class OriginalShippingFees(ReturnFeesEnumeration):
     See: https://schema.org/OriginalShippingFees
     Model depth: 5
     """
-    type_: str = Field(default="OriginalShippingFees", alias='@type', constant=True)
+    type_: str = Field(default="OriginalShippingFees", alias='@type', const=True)
     

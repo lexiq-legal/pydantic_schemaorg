@@ -13,5 +13,5 @@ class UserLikes(UserInteraction):
     See: https://schema.org/UserLikes
     Model depth: 4
     """
-    type_: str = Field(default="UserLikes", alias='@type', constant=True)
+    type_: str = Field(default="UserLikes", alias='@type', const=True)
     

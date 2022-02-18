@@ -11,5 +11,5 @@ class FurnitureStore(Store):
     See: https://schema.org/FurnitureStore
     Model depth: 5
     """
-    type_: str = Field(default="FurnitureStore", alias='@type', constant=True)
+    type_: str = Field(default="FurnitureStore", alias='@type', const=True)
     

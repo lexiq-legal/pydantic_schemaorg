@@ -13,5 +13,5 @@ class ComputerLanguage(Intangible):
     See: https://schema.org/ComputerLanguage
     Model depth: 3
     """
-    type_: str = Field(default="ComputerLanguage", alias='@type', constant=True)
+    type_: str = Field(default="ComputerLanguage", alias='@type', const=True)
     

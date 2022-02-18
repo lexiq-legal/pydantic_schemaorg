@@ -11,5 +11,5 @@ class OnSitePickup(DeliveryMethod):
     See: https://schema.org/OnSitePickup
     Model depth: 5
     """
-    type_: str = Field(default="OnSitePickup", alias='@type', constant=True)
+    type_: str = Field(default="OnSitePickup", alias='@type', const=True)
     

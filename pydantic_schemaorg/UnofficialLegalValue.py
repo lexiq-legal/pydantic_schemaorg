@@ -12,5 +12,5 @@ class UnofficialLegalValue(LegalValueLevel):
     See: https://schema.org/UnofficialLegalValue
     Model depth: 5
     """
-    type_: str = Field(default="UnofficialLegalValue", alias='@type', constant=True)
+    type_: str = Field(default="UnofficialLegalValue", alias='@type', const=True)
     

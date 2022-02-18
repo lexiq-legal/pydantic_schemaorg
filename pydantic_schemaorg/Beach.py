@@ -11,5 +11,5 @@ class Beach(CivicStructure):
     See: https://schema.org/Beach
     Model depth: 4
     """
-    type_: str = Field(default="Beach", alias='@type', constant=True)
+    type_: str = Field(default="Beach", alias='@type', const=True)
     

@@ -12,5 +12,5 @@ class MedicalSymptom(MedicalSignOrSymptom):
     See: https://schema.org/MedicalSymptom
     Model depth: 5
     """
-    type_: str = Field(default="MedicalSymptom", alias='@type', constant=True)
+    type_: str = Field(default="MedicalSymptom", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class Male(GenderType):
     See: https://schema.org/Male
     Model depth: 5
     """
-    type_: str = Field(default="Male", alias='@type', constant=True)
+    type_: str = Field(default="Male", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class SteeringPositionValue(QualitativeValue):
     See: https://schema.org/SteeringPositionValue
     Model depth: 5
     """
-    type_: str = Field(default="SteeringPositionValue", alias='@type', constant=True)
+    type_: str = Field(default="SteeringPositionValue", alias='@type', const=True)
     

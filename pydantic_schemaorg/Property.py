@@ -15,7 +15,7 @@ class Property(Intangible):
     See: https://schema.org/Property
     Model depth: 3
     """
-    type_: str = Field(default="Property", alias='@type', constant=True)
+    type_: str = Field(default="Property", alias='@type', const=True)
     domainIncludes: Optional[Union[List[Union['Class', str]], 'Class', str]] = Field(
         default=None,
         description="Relates a property to a class that is (one of) the type(s) the property is expected to be"

@@ -11,5 +11,5 @@ class Terminated(MedicalStudyStatus):
     See: https://schema.org/Terminated
     Model depth: 6
     """
-    type_: str = Field(default="Terminated", alias='@type', constant=True)
+    type_: str = Field(default="Terminated", alias='@type', const=True)
     

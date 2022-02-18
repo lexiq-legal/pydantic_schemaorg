@@ -15,7 +15,7 @@ class DeliveryEvent(Event):
     See: https://schema.org/DeliveryEvent
     Model depth: 3
     """
-    type_: str = Field(default="DeliveryEvent", alias='@type', constant=True)
+    type_: str = Field(default="DeliveryEvent", alias='@type', const=True)
     accessCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Password, PIN, or access code needed for delivery (e.g. from a locker).",

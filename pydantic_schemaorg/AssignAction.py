@@ -11,5 +11,5 @@ class AssignAction(AllocateAction):
     See: https://schema.org/AssignAction
     Model depth: 5
     """
-    type_: str = Field(default="AssignAction", alias='@type', constant=True)
+    type_: str = Field(default="AssignAction", alias='@type', const=True)
     

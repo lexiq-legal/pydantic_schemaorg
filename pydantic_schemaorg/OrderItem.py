@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 
 
 from pydantic import Field
@@ -16,7 +16,7 @@ class OrderItem(Intangible):
     See: https://schema.org/OrderItem
     Model depth: 3
     """
-    type_: str = Field(default="OrderItem", alias='@type', constant=True)
+    type_: str = Field(default="OrderItem", alias='@type', const=True)
     orderDelivery: Optional[Union[List[Union['ParcelDelivery', str]], 'ParcelDelivery', str]] = Field(
         default=None,
         description="The delivery of the parcel related to this order or order item.",
@@ -25,7 +25,7 @@ class OrderItem(Intangible):
         default=None,
         description="The item ordered.",
     )
-    orderQuantity: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    orderQuantity: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="The number of the item ordered. If the property is not set, assume the quantity is one.",
     )

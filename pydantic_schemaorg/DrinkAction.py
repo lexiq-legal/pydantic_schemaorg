@@ -11,5 +11,5 @@ class DrinkAction(ConsumeAction):
     See: https://schema.org/DrinkAction
     Model depth: 4
     """
-    type_: str = Field(default="DrinkAction", alias='@type', constant=True)
+    type_: str = Field(default="DrinkAction", alias='@type', const=True)
     

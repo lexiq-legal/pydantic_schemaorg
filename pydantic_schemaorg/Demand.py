@@ -17,7 +17,7 @@ class Demand(Intangible):
     See: https://schema.org/Demand
     Model depth: 3
     """
-    type_: str = Field(default="Demand", alias='@type', constant=True)
+    type_: str = Field(default="Demand", alias='@type', const=True)
     includesObject: Optional[Union[List[Union['TypeAndQuantityNode', str]], 'TypeAndQuantityNode', str]] = Field(
         default=None,
         description="This links to a node or nodes indicating the exact quantity of the products included in"
@@ -88,7 +88,7 @@ class Demand(Intangible):
      "the geo-political region(s) for which the offer or delivery charge specification is"
      "valid. See also [[ineligibleRegion]].",
     )
-    seller: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    seller: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="An entity which offers (sells / leases / lends / loans) the services / goods. A seller may"
      "also be a provider.",
@@ -121,7 +121,7 @@ class Demand(Intangible):
         default=None,
         description="The date when the item becomes valid.",
     )
-    itemOffered: Optional[Union[List[Union['Service', 'AggregateOffer', 'CreativeWork', 'MenuItem', 'Event', 'Trip', 'Product', str]], 'Service', 'AggregateOffer', 'CreativeWork', 'MenuItem', 'Event', 'Trip', 'Product', str]] = Field(
+    itemOffered: Optional[Union[List[Union['Event', 'MenuItem', 'Trip', 'AggregateOffer', 'Product', 'Service', 'CreativeWork', str]], 'Event', 'MenuItem', 'Trip', 'AggregateOffer', 'Product', 'Service', 'CreativeWork', str]] = Field(
         default=None,
         description="An item being offered (or demanded). The transactional nature of the offer or demand"
      "is documented using [[businessFunction]], e.g. sell, lease etc. While several common"
@@ -180,7 +180,7 @@ class Demand(Intangible):
         description="One or more detailed price specifications, indicating the unit price and delivery or"
      "payment charges.",
     )
-    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'Place']], str, 'Text', 'GeoShape', 'Place']] = Field(
+    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'Place', 'GeoShape']], str, 'Text', 'Place', 'GeoShape']] = Field(
         default=None,
         description="The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for"
      "the geo-political region(s) for which the offer or delivery charge specification is"
@@ -211,14 +211,14 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Time import Time
     from pydantic_schemaorg.Date import Date
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.WarrantyPromise import WarrantyPromise
-    from pydantic_schemaorg.Service import Service
-    from pydantic_schemaorg.AggregateOffer import AggregateOffer
-    from pydantic_schemaorg.CreativeWork import CreativeWork
-    from pydantic_schemaorg.MenuItem import MenuItem
     from pydantic_schemaorg.Event import Event
+    from pydantic_schemaorg.MenuItem import MenuItem
     from pydantic_schemaorg.Trip import Trip
+    from pydantic_schemaorg.AggregateOffer import AggregateOffer
     from pydantic_schemaorg.Product import Product
+    from pydantic_schemaorg.Service import Service
+    from pydantic_schemaorg.CreativeWork import CreativeWork
     from pydantic_schemaorg.OfferItemCondition import OfferItemCondition

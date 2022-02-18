@@ -11,5 +11,5 @@ class UsedCondition(OfferItemCondition):
     See: https://schema.org/UsedCondition
     Model depth: 5
     """
-    type_: str = Field(default="UsedCondition", alias='@type', constant=True)
+    type_: str = Field(default="UsedCondition", alias='@type', const=True)
     

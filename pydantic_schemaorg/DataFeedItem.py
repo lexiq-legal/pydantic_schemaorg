@@ -15,7 +15,7 @@ class DataFeedItem(Intangible):
     See: https://schema.org/DataFeedItem
     Model depth: 3
     """
-    type_: str = Field(default="DataFeedItem", alias='@type', constant=True)
+    type_: str = Field(default="DataFeedItem", alias='@type', const=True)
     dateDeleted: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The datetime the item was removed from the DataFeed.",

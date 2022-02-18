@@ -17,7 +17,7 @@ class SizeSpecification(QualitativeValue):
     See: https://schema.org/SizeSpecification
     Model depth: 5
     """
-    type_: str = Field(default="SizeSpecification", alias='@type', constant=True)
+    type_: str = Field(default="SizeSpecification", alias='@type', const=True)
     sizeSystem: Optional[Union[List[Union[str, 'Text', 'SizeSystemEnumeration']], str, 'Text', 'SizeSystemEnumeration']] = Field(
         default=None,
         description="The size system used to identify a product's size. Typically either a standard (for example,"

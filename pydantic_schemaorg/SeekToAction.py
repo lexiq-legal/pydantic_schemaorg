@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 from typing import List, Optional, Union
 
 
@@ -16,8 +16,8 @@ class SeekToAction(Action):
     See: https://schema.org/SeekToAction
     Model depth: 3
     """
-    type_: str = Field(default="SeekToAction", alias='@type', constant=True)
-    startOffset: Optional[Union[List[Union[int, float, 'Number', 'HyperTocEntry', str]], int, float, 'Number', 'HyperTocEntry', str]] = Field(
+    type_: str = Field(default="SeekToAction", alias='@type', const=True)
+    startOffset: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'HyperTocEntry', str]], StrictInt, StrictFloat, 'Number', 'HyperTocEntry', str]] = Field(
         default=None,
         description="The start time of the clip expressed as the number of seconds from the beginning of the"
      "work.",

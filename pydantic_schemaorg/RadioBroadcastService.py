@@ -12,5 +12,5 @@ class RadioBroadcastService(BroadcastService):
     See: https://schema.org/RadioBroadcastService
     Model depth: 5
     """
-    type_: str = Field(default="RadioBroadcastService", alias='@type', constant=True)
+    type_: str = Field(default="RadioBroadcastService", alias='@type', const=True)
     

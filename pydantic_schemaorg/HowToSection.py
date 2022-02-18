@@ -17,7 +17,7 @@ class HowToSection(ItemList, ListItem, CreativeWork):
     See: https://schema.org/HowToSection
     Model depth: 3
     """
-    type_: str = Field(default="HowToSection", alias='@type', constant=True)
+    type_: str = Field(default="HowToSection", alias='@type', const=True)
     steps: Optional[Union[List[Union[str, 'Text', 'ItemList', 'CreativeWork']], str, 'Text', 'ItemList', 'CreativeWork']] = Field(
         default=None,
         description="A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally"

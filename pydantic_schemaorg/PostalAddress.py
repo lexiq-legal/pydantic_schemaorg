@@ -14,7 +14,7 @@ class PostalAddress(ContactPoint):
     See: https://schema.org/PostalAddress
     Model depth: 5
     """
-    type_: str = Field(default="PostalAddress", alias='@type', constant=True)
+    type_: str = Field(default="PostalAddress", alias='@type', const=True)
     postalCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The postal code. For example, 94043.",

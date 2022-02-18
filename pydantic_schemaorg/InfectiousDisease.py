@@ -17,7 +17,7 @@ class InfectiousDisease(MedicalCondition):
     See: https://schema.org/InfectiousDisease
     Model depth: 4
     """
-    type_: str = Field(default="InfectiousDisease", alias='@type', constant=True)
+    type_: str = Field(default="InfectiousDisease", alias='@type', const=True)
     transmissionMethod: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="How the disease spreads, either as a route or vector, for example 'direct contact', 'Aedes"

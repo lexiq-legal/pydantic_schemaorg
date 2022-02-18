@@ -14,7 +14,7 @@ class Airport(CivicStructure):
     See: https://schema.org/Airport
     Model depth: 4
     """
-    type_: str = Field(default="Airport", alias='@type', constant=True)
+    type_: str = Field(default="Airport", alias='@type', const=True)
     iataCode: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="IATA identifier for an airline or airport.",

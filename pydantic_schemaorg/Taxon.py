@@ -15,7 +15,7 @@ class Taxon(Thing):
     See: https://schema.org/Taxon
     Model depth: 2
     """
-    type_: str = Field(default="Taxon", alias='@type', constant=True)
+    type_: str = Field(default="Taxon", alias='@type', const=True)
     hasDefinedTerm: Optional[Union[List[Union['DefinedTerm', str]], 'DefinedTerm', str]] = Field(
         default=None,
         description="A Defined Term contained in this term set.",

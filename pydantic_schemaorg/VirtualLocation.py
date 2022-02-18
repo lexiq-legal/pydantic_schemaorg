@@ -14,5 +14,5 @@ class VirtualLocation(Intangible):
     See: https://schema.org/VirtualLocation
     Model depth: 3
     """
-    type_: str = Field(default="VirtualLocation", alias='@type', constant=True)
+    type_: str = Field(default="VirtualLocation", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class AboutPage(WebPage):
     See: https://schema.org/AboutPage
     Model depth: 4
     """
-    type_: str = Field(default="AboutPage", alias='@type', constant=True)
+    type_: str = Field(default="AboutPage", alias='@type', const=True)
     

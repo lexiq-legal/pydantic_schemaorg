@@ -2,8 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic import AnyUrl, StrictBool
-from decimal import Decimal
+from pydantic import AnyUrl, StrictBool, StrictInt, StrictFloat
 from datetime import date, datetime
 
 
@@ -17,7 +16,7 @@ class JobPosting(Intangible):
     See: https://schema.org/JobPosting
     Model depth: 3
     """
-    type_: str = Field(default="JobPosting", alias='@type', constant=True)
+    type_: str = Field(default="JobPosting", alias='@type', const=True)
     experienceRequirements: Optional[Union[List[Union[str, 'Text', 'OccupationalExperienceRequirements']], str, 'Text', 'OccupationalExperienceRequirements']] = Field(
         default=None,
         description="Description of skills and experience needed for the position or Occupation.",
@@ -41,7 +40,7 @@ class JobPosting(Intangible):
         description="A statement of knowledge, skill, ability, task or any other assertion expressing a competency"
      "that is desired or required to fulfill this role or to work in this occupation.",
     )
-    estimatedSalary: Optional[Union[List[Union[int, float, 'Number', 'MonetaryAmountDistribution', 'MonetaryAmount', str]], int, float, 'Number', 'MonetaryAmountDistribution', 'MonetaryAmount', str]] = Field(
+    estimatedSalary: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'MonetaryAmountDistribution', 'MonetaryAmount', str]], StrictInt, StrictFloat, 'Number', 'MonetaryAmountDistribution', 'MonetaryAmount', str]] = Field(
         default=None,
         description="An estimated salary for a job posting or occupation, based on a variety of variables including,"
      "but not limited to industry, job title, and location. Estimated salaries are often computed"
@@ -139,7 +138,7 @@ class JobPosting(Intangible):
         description="Indicates the department, unit and/or facility where the employee reports and/or in"
      "which the job is to be performed.",
     )
-    baseSalary: Optional[Union[List[Union[int, float, 'Number', 'PriceSpecification', 'MonetaryAmount', str]], int, float, 'Number', 'PriceSpecification', 'MonetaryAmount', str]] = Field(
+    baseSalary: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'MonetaryAmount', 'PriceSpecification', str]], StrictInt, StrictFloat, 'Number', 'MonetaryAmount', 'PriceSpecification', str]] = Field(
         default=None,
         description="The base salary of the job or of an employee in an EmployeeRole.",
     )

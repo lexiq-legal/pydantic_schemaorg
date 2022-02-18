@@ -14,5 +14,5 @@ class Hotel(LodgingBusiness):
     See: https://schema.org/Hotel
     Model depth: 5
     """
-    type_: str = Field(default="Hotel", alias='@type', constant=True)
+    type_: str = Field(default="Hotel", alias='@type', const=True)
     

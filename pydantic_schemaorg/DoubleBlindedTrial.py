@@ -12,5 +12,5 @@ class DoubleBlindedTrial(MedicalTrialDesign):
     See: https://schema.org/DoubleBlindedTrial
     Model depth: 6
     """
-    type_: str = Field(default="DoubleBlindedTrial", alias='@type', constant=True)
+    type_: str = Field(default="DoubleBlindedTrial", alias='@type', const=True)
     

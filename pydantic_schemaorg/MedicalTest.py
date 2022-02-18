@@ -14,7 +14,7 @@ class MedicalTest(MedicalEntity):
     See: https://schema.org/MedicalTest
     Model depth: 3
     """
-    type_: str = Field(default="MedicalTest", alias='@type', constant=True)
+    type_: str = Field(default="MedicalTest", alias='@type', const=True)
     usesDevice: Optional[Union[List[Union['MedicalDevice', str]], 'MedicalDevice', str]] = Field(
         default=None,
         description="Device used to perform the test.",

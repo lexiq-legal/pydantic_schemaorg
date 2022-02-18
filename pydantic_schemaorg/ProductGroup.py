@@ -22,7 +22,7 @@ class ProductGroup(Product):
     See: https://schema.org/ProductGroup
     Model depth: 3
     """
-    type_: str = Field(default="ProductGroup", alias='@type', constant=True)
+    type_: str = Field(default="ProductGroup", alias='@type', const=True)
     variesBy: Optional[Union[List[Union[str, 'Text', 'DefinedTerm']], str, 'Text', 'DefinedTerm']] = Field(
         default=None,
         description="Indicates the property or properties by which the variants in a [[ProductGroup]] vary,"

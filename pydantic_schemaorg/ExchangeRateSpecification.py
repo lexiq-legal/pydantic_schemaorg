@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 from typing import List, Optional, Union
 
 
@@ -15,8 +15,8 @@ class ExchangeRateSpecification(StructuredValue):
     See: https://schema.org/ExchangeRateSpecification
     Model depth: 4
     """
-    type_: str = Field(default="ExchangeRateSpecification", alias='@type', constant=True)
-    exchangeRateSpread: Optional[Union[List[Union[int, float, 'Number', 'MonetaryAmount', str]], int, float, 'Number', 'MonetaryAmount', str]] = Field(
+    type_: str = Field(default="ExchangeRateSpecification", alias='@type', const=True)
+    exchangeRateSpread: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'MonetaryAmount', str]], StrictInt, StrictFloat, 'Number', 'MonetaryAmount', str]] = Field(
         default=None,
         description="The difference between the price at which a broker or other intermediary buys and sells"
      "foreign currency.",

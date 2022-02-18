@@ -11,5 +11,5 @@ class PaymentAutomaticallyApplied(PaymentStatusType):
     See: https://schema.org/PaymentAutomaticallyApplied
     Model depth: 6
     """
-    type_: str = Field(default="PaymentAutomaticallyApplied", alias='@type', constant=True)
+    type_: str = Field(default="PaymentAutomaticallyApplied", alias='@type', const=True)
     

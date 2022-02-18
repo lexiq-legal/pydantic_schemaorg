@@ -11,5 +11,5 @@ class WearableSizeSystemContinental(WearableSizeSystemEnumeration):
     See: https://schema.org/WearableSizeSystemContinental
     Model depth: 6
     """
-    type_: str = Field(default="WearableSizeSystemContinental", alias='@type', constant=True)
+    type_: str = Field(default="WearableSizeSystemContinental", alias='@type', const=True)
     

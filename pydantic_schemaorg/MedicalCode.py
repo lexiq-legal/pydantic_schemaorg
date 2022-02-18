@@ -15,7 +15,7 @@ class MedicalCode(CategoryCode, MedicalIntangible):
     See: https://schema.org/MedicalCode
     Model depth: 4
     """
-    type_: str = Field(default="MedicalCode", alias='@type', constant=True)
+    type_: str = Field(default="MedicalCode", alias='@type', const=True)
     codeValue: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A short textual code that uniquely identifies the value.",

@@ -15,7 +15,7 @@ class Service(Intangible):
     See: https://schema.org/Service
     Model depth: 3
     """
-    type_: str = Field(default="Service", alias='@type', constant=True)
+    type_: str = Field(default="Service", alias='@type', const=True)
     offers: Optional[Union[List[Union['Offer', 'Demand', str]], 'Offer', 'Demand', str]] = Field(
         default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
@@ -58,7 +58,7 @@ class Service(Intangible):
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
     )
-    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']], AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']] = Field(
+    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']], AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']] = Field(
         default=None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -103,7 +103,7 @@ class Service(Intangible):
         default=None,
         description="A review of the item.",
     )
-    provider: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    provider: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."
@@ -113,7 +113,7 @@ class Service(Intangible):
         default=None,
         description="A means of accessing the service (e.g. a phone bank, a web site, a location, etc.).",
     )
-    broker: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    broker: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="An entity that arranges for an exchange between a buyer and a seller. In most cases a broker"
      "never acquires or releases ownership of a product or service involved in an exchange."

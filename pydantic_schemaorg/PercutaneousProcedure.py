@@ -13,5 +13,5 @@ class PercutaneousProcedure(MedicalProcedureType):
     See: https://schema.org/PercutaneousProcedure
     Model depth: 6
     """
-    type_: str = Field(default="PercutaneousProcedure", alias='@type', constant=True)
+    type_: str = Field(default="PercutaneousProcedure", alias='@type', const=True)
     

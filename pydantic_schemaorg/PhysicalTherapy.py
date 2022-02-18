@@ -12,5 +12,5 @@ class PhysicalTherapy(MedicalTherapy):
     See: https://schema.org/PhysicalTherapy
     Model depth: 6
     """
-    type_: str = Field(default="PhysicalTherapy", alias='@type', constant=True)
+    type_: str = Field(default="PhysicalTherapy", alias='@type', const=True)
     

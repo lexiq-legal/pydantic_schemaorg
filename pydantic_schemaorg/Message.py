@@ -15,20 +15,20 @@ class Message(CreativeWork):
     See: https://schema.org/Message
     Model depth: 3
     """
-    type_: str = Field(default="Message", alias='@type', constant=True)
-    sender: Optional[Union[List[Union['Organization', 'Person', 'Audience', str]], 'Organization', 'Person', 'Audience', str]] = Field(
+    type_: str = Field(default="Message", alias='@type', const=True)
+    sender: Optional[Union[List[Union['Person', 'Audience', 'Organization', str]], 'Person', 'Audience', 'Organization', str]] = Field(
         default=None,
         description="A sub property of participant. The participant who is at the sending end of the action.",
     )
-    ccRecipient: Optional[Union[List[Union['Organization', 'Person', 'ContactPoint', str]], 'Organization', 'Person', 'ContactPoint', str]] = Field(
+    ccRecipient: Optional[Union[List[Union['ContactPoint', 'Organization', 'Person', str]], 'ContactPoint', 'Organization', 'Person', str]] = Field(
         default=None,
         description="A sub property of recipient. The recipient copied on a message.",
     )
-    toRecipient: Optional[Union[List[Union['Organization', 'Person', 'ContactPoint', 'Audience', str]], 'Organization', 'Person', 'ContactPoint', 'Audience', str]] = Field(
+    toRecipient: Optional[Union[List[Union['ContactPoint', 'Audience', 'Organization', 'Person', str]], 'ContactPoint', 'Audience', 'Organization', 'Person', str]] = Field(
         default=None,
         description="A sub property of recipient. The recipient who was directly sent the message.",
     )
-    recipient: Optional[Union[List[Union['Organization', 'Person', 'ContactPoint', 'Audience', str]], 'Organization', 'Person', 'ContactPoint', 'Audience', str]] = Field(
+    recipient: Optional[Union[List[Union['ContactPoint', 'Audience', 'Organization', 'Person', str]], 'ContactPoint', 'Audience', 'Organization', 'Person', str]] = Field(
         default=None,
         description="A sub property of participant. The participant who is at the receiving end of the action.",
     )
@@ -49,16 +49,16 @@ class Message(CreativeWork):
         default=None,
         description="The date/time the message was received if a single recipient exists.",
     )
-    bccRecipient: Optional[Union[List[Union['Organization', 'Person', 'ContactPoint', str]], 'Organization', 'Person', 'ContactPoint', str]] = Field(
+    bccRecipient: Optional[Union[List[Union['ContactPoint', 'Organization', 'Person', str]], 'ContactPoint', 'Organization', 'Person', str]] = Field(
         default=None,
         description="A sub property of recipient. The recipient blind copied on a message.",
     )
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Audience import Audience
+    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.ContactPoint import ContactPoint
     from pydantic_schemaorg.CreativeWork import CreativeWork
     from pydantic_schemaorg.DateTime import DateTime

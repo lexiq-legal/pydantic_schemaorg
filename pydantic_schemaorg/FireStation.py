@@ -12,5 +12,5 @@ class FireStation(EmergencyService, CivicStructure):
     See: https://schema.org/FireStation
     Model depth: 4
     """
-    type_: str = Field(default="FireStation", alias='@type', constant=True)
+    type_: str = Field(default="FireStation", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class LaserDiscFormat(MusicReleaseFormatType):
     See: https://schema.org/LaserDiscFormat
     Model depth: 5
     """
-    type_: str = Field(default="LaserDiscFormat", alias='@type', constant=True)
+    type_: str = Field(default="LaserDiscFormat", alias='@type', const=True)
     

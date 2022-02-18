@@ -11,5 +11,5 @@ class PublicSwimmingPool(SportsActivityLocation):
     See: https://schema.org/PublicSwimmingPool
     Model depth: 5
     """
-    type_: str = Field(default="PublicSwimmingPool", alias='@type', constant=True)
+    type_: str = Field(default="PublicSwimmingPool", alias='@type', const=True)
     

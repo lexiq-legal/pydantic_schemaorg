@@ -14,7 +14,7 @@ class MedicalEntity(Thing):
     See: https://schema.org/MedicalEntity
     Model depth: 2
     """
-    type_: str = Field(default="MedicalEntity", alias='@type', constant=True)
+    type_: str = Field(default="MedicalEntity", alias='@type', const=True)
     medicineSystem: Optional[Union[List[Union['MedicineSystem', str]], 'MedicineSystem', str]] = Field(
         default=None,
         description="The system of medicine that includes this MedicalEntity, for example 'evidence-based',"
@@ -42,7 +42,7 @@ class MedicalEntity(Thing):
         description="A medical code for the entity, taken from a controlled vocabulary or ontology such as"
      "ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.",
     )
-    legalStatus: Optional[Union[List[Union[str, 'Text', 'MedicalEnumeration', 'DrugLegalStatus']], str, 'Text', 'MedicalEnumeration', 'DrugLegalStatus']] = Field(
+    legalStatus: Optional[Union[List[Union[str, 'Text', 'DrugLegalStatus', 'MedicalEnumeration']], str, 'Text', 'DrugLegalStatus', 'MedicalEnumeration']] = Field(
         default=None,
         description="The drug or supplement's legal status, including any controlled substance schedules"
      "that apply.",
@@ -57,5 +57,5 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.MedicalCode import MedicalCode
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
     from pydantic_schemaorg.DrugLegalStatus import DrugLegalStatus
+    from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration

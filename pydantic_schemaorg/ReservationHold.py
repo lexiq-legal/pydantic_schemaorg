@@ -12,5 +12,5 @@ class ReservationHold(ReservationStatusType):
     See: https://schema.org/ReservationHold
     Model depth: 6
     """
-    type_: str = Field(default="ReservationHold", alias='@type', constant=True)
+    type_: str = Field(default="ReservationHold", alias='@type', const=True)
     

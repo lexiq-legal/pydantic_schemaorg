@@ -11,5 +11,5 @@ class WPFooter(WebPageElement):
     See: https://schema.org/WPFooter
     Model depth: 4
     """
-    type_: str = Field(default="WPFooter", alias='@type', constant=True)
+    type_: str = Field(default="WPFooter", alias='@type', const=True)
     

@@ -12,5 +12,5 @@ class FourWheelDriveConfiguration(DriveWheelConfigurationValue):
     See: https://schema.org/FourWheelDriveConfiguration
     Model depth: 6
     """
-    type_: str = Field(default="FourWheelDriveConfiguration", alias='@type', constant=True)
+    type_: str = Field(default="FourWheelDriveConfiguration", alias='@type', const=True)
     

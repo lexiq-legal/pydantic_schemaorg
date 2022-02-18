@@ -11,5 +11,5 @@ class EUEnergyEfficiencyCategoryA3Plus(EUEnergyEfficiencyEnumeration):
     See: https://schema.org/EUEnergyEfficiencyCategoryA3Plus
     Model depth: 6
     """
-    type_: str = Field(default="EUEnergyEfficiencyCategoryA3Plus", alias='@type', constant=True)
+    type_: str = Field(default="EUEnergyEfficiencyCategoryA3Plus", alias='@type', const=True)
     

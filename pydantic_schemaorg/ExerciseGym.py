@@ -11,5 +11,5 @@ class ExerciseGym(SportsActivityLocation):
     See: https://schema.org/ExerciseGym
     Model depth: 5
     """
-    type_: str = Field(default="ExerciseGym", alias='@type', constant=True)
+    type_: str = Field(default="ExerciseGym", alias='@type', const=True)
     

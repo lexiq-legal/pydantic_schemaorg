@@ -12,5 +12,5 @@ class FDAnotEvaluated(DrugPregnancyCategory):
     See: https://schema.org/FDAnotEvaluated
     Model depth: 6
     """
-    type_: str = Field(default="FDAnotEvaluated", alias='@type', constant=True)
+    type_: str = Field(default="FDAnotEvaluated", alias='@type', const=True)
     

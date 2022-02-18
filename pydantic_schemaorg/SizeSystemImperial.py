@@ -11,5 +11,5 @@ class SizeSystemImperial(SizeSystemEnumeration):
     See: https://schema.org/SizeSystemImperial
     Model depth: 5
     """
-    type_: str = Field(default="SizeSystemImperial", alias='@type', constant=True)
+    type_: str = Field(default="SizeSystemImperial", alias='@type', const=True)
     

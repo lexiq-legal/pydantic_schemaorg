@@ -11,5 +11,5 @@ class BikeStore(Store):
     See: https://schema.org/BikeStore
     Model depth: 5
     """
-    type_: str = Field(default="BikeStore", alias='@type', constant=True)
+    type_: str = Field(default="BikeStore", alias='@type', const=True)
     

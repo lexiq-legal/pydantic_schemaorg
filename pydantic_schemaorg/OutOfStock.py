@@ -11,5 +11,5 @@ class OutOfStock(ItemAvailability):
     See: https://schema.org/OutOfStock
     Model depth: 5
     """
-    type_: str = Field(default="OutOfStock", alias='@type', constant=True)
+    type_: str = Field(default="OutOfStock", alias='@type', const=True)
     

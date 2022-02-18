@@ -11,5 +11,5 @@ class DamagedCondition(OfferItemCondition):
     See: https://schema.org/DamagedCondition
     Model depth: 5
     """
-    type_: str = Field(default="DamagedCondition", alias='@type', constant=True)
+    type_: str = Field(default="DamagedCondition", alias='@type', const=True)
     

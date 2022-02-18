@@ -11,5 +11,5 @@ class ReturnFeesCustomerResponsibility(ReturnFeesEnumeration):
     See: https://schema.org/ReturnFeesCustomerResponsibility
     Model depth: 5
     """
-    type_: str = Field(default="ReturnFeesCustomerResponsibility", alias='@type', constant=True)
+    type_: str = Field(default="ReturnFeesCustomerResponsibility", alias='@type', const=True)
     

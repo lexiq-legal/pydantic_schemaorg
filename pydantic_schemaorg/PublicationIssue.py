@@ -16,7 +16,7 @@ class PublicationIssue(CreativeWork):
     See: https://schema.org/PublicationIssue
     Model depth: 3
     """
-    type_: str = Field(default="PublicationIssue", alias='@type', constant=True)
+    type_: str = Field(default="PublicationIssue", alias='@type', const=True)
     issueNumber: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
         default=None,
         description="Identifies the issue of publication; for example, \"iii\" or \"2\".",

@@ -13,5 +13,5 @@ class Emergency(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Emergency
     Model depth: 5
     """
-    type_: str = Field(default="Emergency", alias='@type', constant=True)
+    type_: str = Field(default="Emergency", alias='@type', const=True)
     

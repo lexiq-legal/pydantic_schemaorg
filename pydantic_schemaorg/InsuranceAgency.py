@@ -11,5 +11,5 @@ class InsuranceAgency(FinancialService):
     See: https://schema.org/InsuranceAgency
     Model depth: 5
     """
-    type_: str = Field(default="InsuranceAgency", alias='@type', constant=True)
+    type_: str = Field(default="InsuranceAgency", alias='@type', const=True)
     

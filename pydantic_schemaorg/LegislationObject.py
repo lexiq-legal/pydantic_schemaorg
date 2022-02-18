@@ -17,7 +17,7 @@ class LegislationObject(Legislation, MediaObject):
     See: https://schema.org/LegislationObject
     Model depth: 4
     """
-    type_: str = Field(default="LegislationObject", alias='@type', constant=True)
+    type_: str = Field(default="LegislationObject", alias='@type', const=True)
     legislationLegalValue: Optional[Union[List[Union['LegalValueLevel', str]], 'LegalValueLevel', str]] = Field(
         default=None,
         description="The legal value of this legislation file. The same legislation can be written in multiple"

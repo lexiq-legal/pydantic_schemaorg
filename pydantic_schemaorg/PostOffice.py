@@ -11,5 +11,5 @@ class PostOffice(GovernmentOffice):
     See: https://schema.org/PostOffice
     Model depth: 5
     """
-    type_: str = Field(default="PostOffice", alias='@type', constant=True)
+    type_: str = Field(default="PostOffice", alias='@type', const=True)
     

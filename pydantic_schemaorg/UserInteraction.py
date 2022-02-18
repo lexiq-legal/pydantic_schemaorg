@@ -13,5 +13,5 @@ class UserInteraction(Event):
     See: https://schema.org/UserInteraction
     Model depth: 3
     """
-    type_: str = Field(default="UserInteraction", alias='@type', constant=True)
+    type_: str = Field(default="UserInteraction", alias='@type', const=True)
     

@@ -16,7 +16,7 @@ class MediaReviewItem(CreativeWork):
     See: https://schema.org/MediaReviewItem
     Model depth: 3
     """
-    type_: str = Field(default="MediaReviewItem", alias='@type', constant=True)
+    type_: str = Field(default="MediaReviewItem", alias='@type', const=True)
     mediaItemAppearance: Optional[Union[List[Union['MediaObject', str]], 'MediaObject', str]] = Field(
         default=None,
         description="In the context of a [[MediaReview]], indicates specific media item(s) that are grouped"

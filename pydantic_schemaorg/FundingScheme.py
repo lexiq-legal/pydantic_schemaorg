@@ -18,5 +18,5 @@ class FundingScheme(Organization):
     See: https://schema.org/FundingScheme
     Model depth: 3
     """
-    type_: str = Field(default="FundingScheme", alias='@type', constant=True)
+    type_: str = Field(default="FundingScheme", alias='@type', const=True)
     

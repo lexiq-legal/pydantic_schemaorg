@@ -16,7 +16,7 @@ class ComicStory(CreativeWork):
     See: https://schema.org/ComicStory
     Model depth: 3
     """
-    type_: str = Field(default="ComicStory", alias='@type', constant=True)
+    type_: str = Field(default="ComicStory", alias='@type', const=True)
     colorist: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
         default=None,
         description="The individual who adds color to inked drawings.",

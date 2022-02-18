@@ -14,5 +14,5 @@ class OfferForLease(Offer):
     See: https://schema.org/OfferForLease
     Model depth: 4
     """
-    type_: str = Field(default="OfferForLease", alias='@type', constant=True)
+    type_: str = Field(default="OfferForLease", alias='@type', const=True)
     

@@ -12,5 +12,5 @@ class RsvpResponseType(Enumeration):
     See: https://schema.org/RsvpResponseType
     Model depth: 4
     """
-    type_: str = Field(default="RsvpResponseType", alias='@type', constant=True)
+    type_: str = Field(default="RsvpResponseType", alias='@type', const=True)
     

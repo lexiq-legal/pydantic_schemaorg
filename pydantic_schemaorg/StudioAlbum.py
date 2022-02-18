@@ -11,5 +11,5 @@ class StudioAlbum(MusicAlbumProductionType):
     See: https://schema.org/StudioAlbum
     Model depth: 5
     """
-    type_: str = Field(default="StudioAlbum", alias='@type', constant=True)
+    type_: str = Field(default="StudioAlbum", alias='@type', const=True)
     

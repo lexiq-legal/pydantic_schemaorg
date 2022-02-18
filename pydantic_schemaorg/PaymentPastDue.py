@@ -11,5 +11,5 @@ class PaymentPastDue(PaymentStatusType):
     See: https://schema.org/PaymentPastDue
     Model depth: 6
     """
-    type_: str = Field(default="PaymentPastDue", alias='@type', constant=True)
+    type_: str = Field(default="PaymentPastDue", alias='@type', const=True)
     

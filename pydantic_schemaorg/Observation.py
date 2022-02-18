@@ -22,7 +22,7 @@ class Observation(Intangible):
     See: https://schema.org/Observation
     Model depth: 3
     """
-    type_: str = Field(default="Observation", alias='@type', constant=True)
+    type_: str = Field(default="Observation", alias='@type', const=True)
     measuredProperty: Optional[Union[List[Union['Property', str]], 'Property', str]] = Field(
         default=None,
         description="The measuredProperty of an [[Observation]], either a schema.org property, a property"

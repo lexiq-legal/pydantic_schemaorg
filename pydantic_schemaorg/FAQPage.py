@@ -12,5 +12,5 @@ class FAQPage(WebPage):
     See: https://schema.org/FAQPage
     Model depth: 4
     """
-    type_: str = Field(default="FAQPage", alias='@type', constant=True)
+    type_: str = Field(default="FAQPage", alias='@type', const=True)
     

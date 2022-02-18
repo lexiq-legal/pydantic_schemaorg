@@ -14,7 +14,7 @@ class PaymentChargeSpecification(PriceSpecification):
     See: https://schema.org/PaymentChargeSpecification
     Model depth: 5
     """
-    type_: str = Field(default="PaymentChargeSpecification", alias='@type', constant=True)
+    type_: str = Field(default="PaymentChargeSpecification", alias='@type', const=True)
     appliesToDeliveryMethod: Optional[Union[List[Union['DeliveryMethod', str]], 'DeliveryMethod', str]] = Field(
         default=None,
         description="The delivery method(s) to which the delivery charge or payment charge specification"

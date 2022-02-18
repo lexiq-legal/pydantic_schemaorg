@@ -17,7 +17,7 @@ class Product(Thing):
     See: https://schema.org/Product
     Model depth: 2
     """
-    type_: str = Field(default="Product", alias='@type', constant=True)
+    type_: str = Field(default="Product", alias='@type', const=True)
     pattern: Optional[Union[List[Union[str, 'Text', 'DefinedTerm']], str, 'Text', 'DefinedTerm']] = Field(
         default=None,
         description="A pattern that something has, for example 'polka dot', 'striped', 'Canadian flag'."
@@ -117,7 +117,7 @@ class Product(Thing):
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
     )
-    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']], AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']] = Field(
+    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']], AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']] = Field(
         default=None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -143,7 +143,7 @@ class Product(Thing):
         default=None,
         description="The height of the item.",
     )
-    size: Optional[Union[List[Union[str, 'Text', 'SizeSpecification', 'DefinedTerm', 'QuantitativeValue']], str, 'Text', 'SizeSpecification', 'DefinedTerm', 'QuantitativeValue']] = Field(
+    size: Optional[Union[List[Union[str, 'Text', 'DefinedTerm', 'SizeSpecification', 'QuantitativeValue']], str, 'Text', 'DefinedTerm', 'SizeSpecification', 'QuantitativeValue']] = Field(
         default=None,
         description="A standardized size of a product or creative work, specified either through a simple"
      "textual string (for example 'XL', '32Wx34L'), a QuantitativeValue with a unitCode,"
@@ -284,8 +284,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Brand import Brand
     from pydantic_schemaorg.URL import URL
-    from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+    from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.MerchantReturnPolicy import MerchantReturnPolicy
     from pydantic_schemaorg.EnergyConsumptionDetails import EnergyConsumptionDetails
     from pydantic_schemaorg.Service import Service

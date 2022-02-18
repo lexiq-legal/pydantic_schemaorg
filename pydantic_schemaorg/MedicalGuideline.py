@@ -20,7 +20,7 @@ class MedicalGuideline(MedicalEntity):
     See: https://schema.org/MedicalGuideline
     Model depth: 3
     """
-    type_: str = Field(default="MedicalGuideline", alias='@type', constant=True)
+    type_: str = Field(default="MedicalGuideline", alias='@type', const=True)
     evidenceOrigin: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Source of the data used to formulate the guidance, e.g. RCT, consensus opinion, etc.",

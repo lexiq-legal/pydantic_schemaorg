@@ -11,5 +11,5 @@ class SingleRelease(MusicAlbumReleaseType):
     See: https://schema.org/SingleRelease
     Model depth: 5
     """
-    type_: str = Field(default="SingleRelease", alias='@type', constant=True)
+    type_: str = Field(default="SingleRelease", alias='@type', const=True)
     

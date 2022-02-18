@@ -14,7 +14,7 @@ class EducationalAudience(Audience):
     See: https://schema.org/EducationalAudience
     Model depth: 4
     """
-    type_: str = Field(default="EducationalAudience", alias='@type', constant=True)
+    type_: str = Field(default="EducationalAudience", alias='@type', const=True)
     educationalRole: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="An educationalRole of an EducationalAudience.",

@@ -11,5 +11,5 @@ class ShoppingCenter(LocalBusiness):
     See: https://schema.org/ShoppingCenter
     Model depth: 4
     """
-    type_: str = Field(default="ShoppingCenter", alias='@type', constant=True)
+    type_: str = Field(default="ShoppingCenter", alias='@type', const=True)
     

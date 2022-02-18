@@ -14,8 +14,8 @@ class MenuItem(Intangible):
     See: https://schema.org/MenuItem
     Model depth: 3
     """
-    type_: str = Field(default="MenuItem", alias='@type', constant=True)
-    menuAddOn: Optional[Union[List[Union['MenuSection', 'MenuItem', str]], 'MenuSection', 'MenuItem', str]] = Field(
+    type_: str = Field(default="MenuItem", alias='@type', const=True)
+    menuAddOn: Optional[Union[List[Union['MenuItem', 'MenuSection', str]], 'MenuItem', 'MenuSection', str]] = Field(
         default=None,
         description="Additional menu item(s) such as a side dish of salad or side order of fries that can be added"
      "to this menu item. Additionally it can be a menu section containing allowed add-on menu"

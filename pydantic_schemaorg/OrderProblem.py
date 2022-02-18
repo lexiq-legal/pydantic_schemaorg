@@ -11,5 +11,5 @@ class OrderProblem(OrderStatus):
     See: https://schema.org/OrderProblem
     Model depth: 6
     """
-    type_: str = Field(default="OrderProblem", alias='@type', constant=True)
+    type_: str = Field(default="OrderProblem", alias='@type', const=True)
     

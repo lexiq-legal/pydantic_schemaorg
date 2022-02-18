@@ -11,5 +11,5 @@ class SearchResultsPage(WebPage):
     See: https://schema.org/SearchResultsPage
     Model depth: 4
     """
-    type_: str = Field(default="SearchResultsPage", alias='@type', constant=True)
+    type_: str = Field(default="SearchResultsPage", alias='@type', const=True)
     

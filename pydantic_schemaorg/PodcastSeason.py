@@ -12,5 +12,5 @@ class PodcastSeason(CreativeWorkSeason):
     See: https://schema.org/PodcastSeason
     Model depth: 4
     """
-    type_: str = Field(default="PodcastSeason", alias='@type', constant=True)
+    type_: str = Field(default="PodcastSeason", alias='@type', const=True)
     

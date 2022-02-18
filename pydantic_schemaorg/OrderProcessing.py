@@ -11,5 +11,5 @@ class OrderProcessing(OrderStatus):
     See: https://schema.org/OrderProcessing
     Model depth: 6
     """
-    type_: str = Field(default="OrderProcessing", alias='@type', constant=True)
+    type_: str = Field(default="OrderProcessing", alias='@type', const=True)
     

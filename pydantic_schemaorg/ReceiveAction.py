@@ -18,8 +18,8 @@ class ReceiveAction(TransferAction):
     See: https://schema.org/ReceiveAction
     Model depth: 4
     """
-    type_: str = Field(default="ReceiveAction", alias='@type', constant=True)
-    sender: Optional[Union[List[Union['Organization', 'Person', 'Audience', str]], 'Organization', 'Person', 'Audience', str]] = Field(
+    type_: str = Field(default="ReceiveAction", alias='@type', const=True)
+    sender: Optional[Union[List[Union['Person', 'Audience', 'Organization', str]], 'Person', 'Audience', 'Organization', str]] = Field(
         default=None,
         description="A sub property of participant. The participant who is at the sending end of the action.",
     )
@@ -30,7 +30,7 @@ class ReceiveAction(TransferAction):
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.Audience import Audience
+    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.DeliveryMethod import DeliveryMethod

@@ -17,5 +17,5 @@ class SubscribeAction(InteractAction):
     See: https://schema.org/SubscribeAction
     Model depth: 4
     """
-    type_: str = Field(default="SubscribeAction", alias='@type', constant=True)
+    type_: str = Field(default="SubscribeAction", alias='@type', const=True)
     

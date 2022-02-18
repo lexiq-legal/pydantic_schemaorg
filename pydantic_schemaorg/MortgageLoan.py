@@ -16,7 +16,7 @@ class MortgageLoan(LoanOrCredit):
     See: https://schema.org/MortgageLoan
     Model depth: 6
     """
-    type_: str = Field(default="MortgageLoan", alias='@type', constant=True)
+    type_: str = Field(default="MortgageLoan", alias='@type', const=True)
     domiciledMortgage: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="Whether borrower is a resident of the jurisdiction where the property is located.",

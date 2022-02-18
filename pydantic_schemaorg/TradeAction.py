@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 
 
 from pydantic import Field
@@ -17,7 +17,7 @@ class TradeAction(Action):
     See: https://schema.org/TradeAction
     Model depth: 3
     """
-    type_: str = Field(default="TradeAction", alias='@type', constant=True)
+    type_: str = Field(default="TradeAction", alias='@type', const=True)
     priceCurrency: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The currency of the price, or a price component when attached to [[PriceSpecification]]"
@@ -26,7 +26,7 @@ class TradeAction(Action):
      "for cryptocurrencies e.g. \"BTC\"; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system)"
      "(LETS) and other currency types e.g. \"Ithaca HOUR\".",
     )
-    price: Optional[Union[List[Union[int, float, 'Number', str, 'Text']], int, float, 'Number', str, 'Text']] = Field(
+    price: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str, 'Text']], StrictInt, StrictFloat, 'Number', str, 'Text']] = Field(
         default=None,
         description="The offer price of a product, or of a price component when attached to PriceSpecification"
      "and its subtypes. Usage guidelines: * Use the [[priceCurrency]] property (with standard"

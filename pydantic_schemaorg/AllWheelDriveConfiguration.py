@@ -11,5 +11,5 @@ class AllWheelDriveConfiguration(DriveWheelConfigurationValue):
     See: https://schema.org/AllWheelDriveConfiguration
     Model depth: 6
     """
-    type_: str = Field(default="AllWheelDriveConfiguration", alias='@type', constant=True)
+    type_: str = Field(default="AllWheelDriveConfiguration", alias='@type', const=True)
     

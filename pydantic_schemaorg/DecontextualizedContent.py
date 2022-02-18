@@ -26,5 +26,5 @@ class DecontextualizedContent(MediaManipulationRatingEnumeration):
     See: https://schema.org/DecontextualizedContent
     Model depth: 5
     """
-    type_: str = Field(default="DecontextualizedContent", alias='@type', constant=True)
+    type_: str = Field(default="DecontextualizedContent", alias='@type', const=True)
     

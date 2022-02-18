@@ -12,5 +12,5 @@ class CableOrSatelliteService(Service):
     See: https://schema.org/CableOrSatelliteService
     Model depth: 4
     """
-    type_: str = Field(default="CableOrSatelliteService", alias='@type', constant=True)
+    type_: str = Field(default="CableOrSatelliteService", alias='@type', const=True)
     

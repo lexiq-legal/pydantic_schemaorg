@@ -13,5 +13,5 @@ class CommunityHealth(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/CommunityHealth
     Model depth: 5
     """
-    type_: str = Field(default="CommunityHealth", alias='@type', constant=True)
+    type_: str = Field(default="CommunityHealth", alias='@type', const=True)
     

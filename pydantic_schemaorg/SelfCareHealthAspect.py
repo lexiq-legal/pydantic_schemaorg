@@ -12,5 +12,5 @@ class SelfCareHealthAspect(HealthAspectEnumeration):
     See: https://schema.org/SelfCareHealthAspect
     Model depth: 5
     """
-    type_: str = Field(default="SelfCareHealthAspect", alias='@type', constant=True)
+    type_: str = Field(default="SelfCareHealthAspect", alias='@type', const=True)
     

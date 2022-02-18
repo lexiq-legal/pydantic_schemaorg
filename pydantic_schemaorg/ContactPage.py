@@ -11,5 +11,5 @@ class ContactPage(WebPage):
     See: https://schema.org/ContactPage
     Model depth: 4
     """
-    type_: str = Field(default="ContactPage", alias='@type', constant=True)
+    type_: str = Field(default="ContactPage", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class MusicVenue(CivicStructure):
     See: https://schema.org/MusicVenue
     Model depth: 4
     """
-    type_: str = Field(default="MusicVenue", alias='@type', constant=True)
+    type_: str = Field(default="MusicVenue", alias='@type', const=True)
     

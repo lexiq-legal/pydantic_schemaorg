@@ -15,7 +15,7 @@ class Audiobook(AudioObject, Book):
     See: https://schema.org/Audiobook
     Model depth: 4
     """
-    type_: str = Field(default="Audiobook", alias='@type', constant=True)
+    type_: str = Field(default="Audiobook", alias='@type', const=True)
     duration: Optional[Union[List[Union['Duration', str]], 'Duration', str]] = Field(
         default=None,
         description="The duration of the item (movie, audio recording, event, etc.) in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).",

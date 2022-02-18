@@ -11,5 +11,5 @@ class ReactAction(AssessAction):
     See: https://schema.org/ReactAction
     Model depth: 4
     """
-    type_: str = Field(default="ReactAction", alias='@type', constant=True)
+    type_: str = Field(default="ReactAction", alias='@type', const=True)
     

@@ -14,5 +14,5 @@ class PlasticSurgery(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/PlasticSurgery
     Model depth: 5
     """
-    type_: str = Field(default="PlasticSurgery", alias='@type', constant=True)
+    type_: str = Field(default="PlasticSurgery", alias='@type', const=True)
     

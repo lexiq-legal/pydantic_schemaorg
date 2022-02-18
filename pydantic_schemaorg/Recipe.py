@@ -16,7 +16,7 @@ class Recipe(HowTo):
     See: https://schema.org/Recipe
     Model depth: 4
     """
-    type_: str = Field(default="Recipe", alias='@type', constant=True)
+    type_: str = Field(default="Recipe", alias='@type', const=True)
     recipeInstructions: Optional[Union[List[Union[str, 'Text', 'ItemList', 'CreativeWork']], str, 'Text', 'ItemList', 'CreativeWork']] = Field(
         default=None,
         description="A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered"

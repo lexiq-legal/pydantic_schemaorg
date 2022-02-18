@@ -11,5 +11,5 @@ class Synagogue(PlaceOfWorship):
     See: https://schema.org/Synagogue
     Model depth: 5
     """
-    type_: str = Field(default="Synagogue", alias='@type', constant=True)
+    type_: str = Field(default="Synagogue", alias='@type', const=True)
     

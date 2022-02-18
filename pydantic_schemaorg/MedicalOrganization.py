@@ -15,7 +15,7 @@ class MedicalOrganization(Organization):
     See: https://schema.org/MedicalOrganization
     Model depth: 3
     """
-    type_: str = Field(default="MedicalOrganization", alias='@type', constant=True)
+    type_: str = Field(default="MedicalOrganization", alias='@type', const=True)
     medicalSpecialty: Optional[Union[List[Union['MedicalSpecialty', str]], 'MedicalSpecialty', str]] = Field(
         default=None,
         description="A medical specialty of the provider.",

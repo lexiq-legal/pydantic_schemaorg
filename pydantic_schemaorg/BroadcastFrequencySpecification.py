@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 
 
 from pydantic import Field
@@ -15,12 +15,12 @@ class BroadcastFrequencySpecification(Intangible):
     See: https://schema.org/BroadcastFrequencySpecification
     Model depth: 3
     """
-    type_: str = Field(default="BroadcastFrequencySpecification", alias='@type', constant=True)
+    type_: str = Field(default="BroadcastFrequencySpecification", alias='@type', const=True)
     broadcastSignalModulation: Optional[Union[List[Union[str, 'Text', 'QualitativeValue']], str, 'Text', 'QualitativeValue']] = Field(
         default=None,
         description="The modulation (e.g. FM, AM, etc) used by a particular broadcast service.",
     )
-    broadcastFrequencyValue: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
+    broadcastFrequencyValue: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'QuantitativeValue', str]], StrictInt, StrictFloat, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The frequency in MHz for a particular broadcast.",
     )

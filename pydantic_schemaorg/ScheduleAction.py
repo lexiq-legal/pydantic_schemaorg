@@ -13,5 +13,5 @@ class ScheduleAction(PlanAction):
     See: https://schema.org/ScheduleAction
     Model depth: 5
     """
-    type_: str = Field(default="ScheduleAction", alias='@type', constant=True)
+    type_: str = Field(default="ScheduleAction", alias='@type', const=True)
     

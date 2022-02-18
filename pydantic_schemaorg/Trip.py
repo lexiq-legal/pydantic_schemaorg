@@ -15,7 +15,7 @@ class Trip(Intangible):
     See: https://schema.org/Trip
     Model depth: 3
     """
-    type_: str = Field(default="Trip", alias='@type', constant=True)
+    type_: str = Field(default="Trip", alias='@type', const=True)
     offers: Optional[Union[List[Union['Offer', 'Demand', str]], 'Offer', 'Demand', str]] = Field(
         default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
@@ -43,7 +43,7 @@ class Trip(Intangible):
         default=None,
         description="The expected arrival time.",
     )
-    provider: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    provider: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="The service provider, service operator, or service performer; the goods producer."
      "Another party (a seller) may offer those services or goods on behalf of the provider."
@@ -63,5 +63,5 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Time import Time
     from pydantic_schemaorg.ItemList import ItemList
     from pydantic_schemaorg.Place import Place
-    from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.Organization import Organization

@@ -12,5 +12,5 @@ class Energy(Quantity):
     See: https://schema.org/Energy
     Model depth: 4
     """
-    type_: str = Field(default="Energy", alias='@type', constant=True)
+    type_: str = Field(default="Energy", alias='@type', const=True)
     

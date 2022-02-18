@@ -11,5 +11,5 @@ class VeterinaryCare(MedicalOrganization):
     See: https://schema.org/VeterinaryCare
     Model depth: 4
     """
-    type_: str = Field(default="VeterinaryCare", alias='@type', constant=True)
+    type_: str = Field(default="VeterinaryCare", alias='@type', const=True)
     

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 from typing import List, Optional, Union
 
 
@@ -15,8 +15,8 @@ class SingleFamilyResidence(House):
     See: https://schema.org/SingleFamilyResidence
     Model depth: 5
     """
-    type_: str = Field(default="SingleFamilyResidence", alias='@type', constant=True)
-    numberOfRooms: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
+    type_: str = Field(default="SingleFamilyResidence", alias='@type', const=True)
+    numberOfRooms: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'QuantitativeValue', str]], StrictInt, StrictFloat, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The number of rooms (excluding bathrooms and closets) of the accommodation or lodging"
      "business. Typical unit code(s): ROM for room or C62 for no unit. The type of room can be"

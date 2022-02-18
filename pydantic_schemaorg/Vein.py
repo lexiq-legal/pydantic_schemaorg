@@ -14,7 +14,7 @@ class Vein(Vessel):
     See: https://schema.org/Vein
     Model depth: 5
     """
-    type_: str = Field(default="Vein", alias='@type', constant=True)
+    type_: str = Field(default="Vein", alias='@type', const=True)
     tributary: Optional[Union[List[Union['AnatomicalStructure', str]], 'AnatomicalStructure', str]] = Field(
         default=None,
         description="The anatomical or organ system that the vein flows into; a larger structure that the vein"
@@ -24,7 +24,7 @@ class Vein(Vessel):
         default=None,
         description="The vasculature that the vein drains into.",
     )
-    regionDrained: Optional[Union[List[Union['AnatomicalStructure', 'AnatomicalSystem', str]], 'AnatomicalStructure', 'AnatomicalSystem', str]] = Field(
+    regionDrained: Optional[Union[List[Union['AnatomicalSystem', 'AnatomicalStructure', str]], 'AnatomicalSystem', 'AnatomicalStructure', str]] = Field(
         default=None,
         description="The anatomical or organ system drained by this vessel; generally refers to a specific"
      "part of an organ.",

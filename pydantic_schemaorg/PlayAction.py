@@ -19,7 +19,7 @@ class PlayAction(Action):
     See: https://schema.org/PlayAction
     Model depth: 3
     """
-    type_: str = Field(default="PlayAction", alias='@type', constant=True)
+    type_: str = Field(default="PlayAction", alias='@type', const=True)
     audience: Optional[Union[List[Union['Audience', str]], 'Audience', str]] = Field(
         default=None,
         description="An intended audience, i.e. a group for whom something was created.",

@@ -11,5 +11,5 @@ class SingleCenterTrial(MedicalTrialDesign):
     See: https://schema.org/SingleCenterTrial
     Model depth: 6
     """
-    type_: str = Field(default="SingleCenterTrial", alias='@type', constant=True)
+    type_: str = Field(default="SingleCenterTrial", alias='@type', const=True)
     

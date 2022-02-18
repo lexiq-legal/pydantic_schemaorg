@@ -11,5 +11,5 @@ class Pond(BodyOfWater):
     See: https://schema.org/Pond
     Model depth: 5
     """
-    type_: str = Field(default="Pond", alias='@type', constant=True)
+    type_: str = Field(default="Pond", alias='@type', const=True)
     

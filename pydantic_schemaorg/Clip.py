@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 
 
 from pydantic import Field
@@ -15,7 +15,7 @@ class Clip(CreativeWork):
     See: https://schema.org/Clip
     Model depth: 3
     """
-    type_: str = Field(default="Clip", alias='@type', constant=True)
+    type_: str = Field(default="Clip", alias='@type', const=True)
     partOfSeason: Optional[Union[List[Union['CreativeWorkSeason', str]], 'CreativeWorkSeason', str]] = Field(
         default=None,
         description="The season to which this episode belongs.",
@@ -30,7 +30,7 @@ class Clip(CreativeWork):
         description="A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors"
      "can be associated with individual items or with a series, episode, clip.",
     )
-    startOffset: Optional[Union[List[Union[int, float, 'Number', 'HyperTocEntry', str]], int, float, 'Number', 'HyperTocEntry', str]] = Field(
+    startOffset: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'HyperTocEntry', str]], StrictInt, StrictFloat, 'Number', 'HyperTocEntry', str]] = Field(
         default=None,
         description="The start time of the clip expressed as the number of seconds from the beginning of the"
      "work.",
@@ -52,7 +52,7 @@ class Clip(CreativeWork):
         default=None,
         description="The episode to which this clip belongs.",
     )
-    endOffset: Optional[Union[List[Union[int, float, 'Number', 'HyperTocEntry', str]], int, float, 'Number', 'HyperTocEntry', str]] = Field(
+    endOffset: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'HyperTocEntry', str]], StrictInt, StrictFloat, 'Number', 'HyperTocEntry', str]] = Field(
         default=None,
         description="The end time of the clip expressed as the number of seconds from the beginning of the work.",
     )

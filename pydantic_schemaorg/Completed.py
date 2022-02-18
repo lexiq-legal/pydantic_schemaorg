@@ -11,5 +11,5 @@ class Completed(MedicalStudyStatus):
     See: https://schema.org/Completed
     Model depth: 6
     """
-    type_: str = Field(default="Completed", alias='@type', constant=True)
+    type_: str = Field(default="Completed", alias='@type', const=True)
     

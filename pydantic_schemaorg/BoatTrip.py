@@ -14,7 +14,7 @@ class BoatTrip(Trip):
     See: https://schema.org/BoatTrip
     Model depth: 4
     """
-    type_: str = Field(default="BoatTrip", alias='@type', constant=True)
+    type_: str = Field(default="BoatTrip", alias='@type', const=True)
     arrivalBoatTerminal: Optional[Union[List[Union['BoatTerminal', str]], 'BoatTerminal', str]] = Field(
         default=None,
         description="The terminal or port from which the boat arrives.",

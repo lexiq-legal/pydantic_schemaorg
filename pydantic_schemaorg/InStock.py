@@ -11,5 +11,5 @@ class InStock(ItemAvailability):
     See: https://schema.org/InStock
     Model depth: 5
     """
-    type_: str = Field(default="InStock", alias='@type', constant=True)
+    type_: str = Field(default="InStock", alias='@type', const=True)
     

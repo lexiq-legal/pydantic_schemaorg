@@ -14,7 +14,7 @@ class WebPageElement(CreativeWork):
     See: https://schema.org/WebPageElement
     Model depth: 3
     """
-    type_: str = Field(default="WebPageElement", alias='@type', constant=True)
+    type_: str = Field(default="WebPageElement", alias='@type', const=True)
     xpath: Optional[Union[List[Union[str, 'XPathType']], str, 'XPathType']] = Field(
         default=None,
         description="An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter"

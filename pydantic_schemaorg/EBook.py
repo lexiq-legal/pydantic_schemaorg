@@ -11,5 +11,5 @@ class EBook(BookFormatType):
     See: https://schema.org/EBook
     Model depth: 5
     """
-    type_: str = Field(default="EBook", alias='@type', constant=True)
+    type_: str = Field(default="EBook", alias='@type', const=True)
     

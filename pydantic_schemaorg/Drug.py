@@ -17,7 +17,7 @@ class Drug(Substance):
     See: https://schema.org/Drug
     Model depth: 4
     """
-    type_: str = Field(default="Drug", alias='@type', constant=True)
+    type_: str = Field(default="Drug", alias='@type', const=True)
     prescribingInfo: Optional[Union[List[Union[AnyUrl, 'URL', str]], AnyUrl, 'URL', str]] = Field(
         default=None,
         description="Link to prescribing information for the drug.",
@@ -144,7 +144,7 @@ class Drug(Substance):
         description="The specific biochemical interaction through which this drug or supplement produces"
      "its pharmacological effect.",
     )
-    legalStatus: Optional[Union[List[Union[str, 'Text', 'MedicalEnumeration', 'DrugLegalStatus']], str, 'Text', 'MedicalEnumeration', 'DrugLegalStatus']] = Field(
+    legalStatus: Optional[Union[List[Union[str, 'Text', 'DrugLegalStatus', 'MedicalEnumeration']], str, 'Text', 'DrugLegalStatus', 'MedicalEnumeration']] = Field(
         default=None,
         description="The drug or supplement's legal status, including any controlled substance schedules"
      "that apply.",
@@ -171,5 +171,5 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.DrugPrescriptionStatus import DrugPrescriptionStatus
     from pydantic_schemaorg.HealthInsurancePlan import HealthInsurancePlan
     from pydantic_schemaorg.DrugClass import DrugClass
-    from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
     from pydantic_schemaorg.DrugLegalStatus import DrugLegalStatus
+    from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration

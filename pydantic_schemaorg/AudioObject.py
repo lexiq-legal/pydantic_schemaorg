@@ -14,7 +14,7 @@ class AudioObject(MediaObject):
     See: https://schema.org/AudioObject
     Model depth: 4
     """
-    type_: str = Field(default="AudioObject", alias='@type', constant=True)
+    type_: str = Field(default="AudioObject", alias='@type', const=True)
     embeddedTextCaption: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Represents textual captioning from a [[MediaObject]], e.g. text of a 'meme'.",

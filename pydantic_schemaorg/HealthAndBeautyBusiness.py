@@ -11,5 +11,5 @@ class HealthAndBeautyBusiness(LocalBusiness):
     See: https://schema.org/HealthAndBeautyBusiness
     Model depth: 4
     """
-    type_: str = Field(default="HealthAndBeautyBusiness", alias='@type', constant=True)
+    type_: str = Field(default="HealthAndBeautyBusiness", alias='@type', const=True)
     

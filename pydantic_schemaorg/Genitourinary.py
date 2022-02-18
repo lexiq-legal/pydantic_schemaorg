@@ -11,5 +11,5 @@ class Genitourinary(PhysicalExam):
     See: https://schema.org/Genitourinary
     Model depth: 5
     """
-    type_: str = Field(default="Genitourinary", alias='@type', constant=True)
+    type_: str = Field(default="Genitourinary", alias='@type', const=True)
     

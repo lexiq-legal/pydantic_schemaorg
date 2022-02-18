@@ -1,10 +1,9 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from decimal import Decimal
+from pydantic import StrictBool, StrictInt, StrictFloat
 from typing import List, Optional, Union
 from datetime import date, datetime
-from pydantic import StrictBool
 
 
 from pydantic import Field
@@ -20,8 +19,8 @@ class MonetaryAmount(StructuredValue):
     See: https://schema.org/MonetaryAmount
     Model depth: 4
     """
-    type_: str = Field(default="MonetaryAmount", alias='@type', constant=True)
-    minValue: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    type_: str = Field(default="MonetaryAmount", alias='@type', const=True)
+    minValue: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="The lower value of some characteristic or property.",
     )
@@ -29,7 +28,7 @@ class MonetaryAmount(StructuredValue):
         default=None,
         description="The date when the item becomes valid.",
     )
-    value: Optional[Union[List[Union[int, float, 'Number', str, 'Text', StrictBool, 'Boolean', 'StructuredValue']], int, float, 'Number', str, 'Text', StrictBool, 'Boolean', 'StructuredValue']] = Field(
+    value: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str, 'Text', StrictBool, 'Boolean', 'StructuredValue']], StrictInt, StrictFloat, 'Number', str, 'Text', StrictBool, 'Boolean', 'StructuredValue']] = Field(
         default=None,
         description="The value of the quantitative value or property value node. * For [[QuantitativeValue]]"
      "and [[MonetaryAmount]], the recommended type for values is 'Number'. * For [[PropertyValue]],"
@@ -43,7 +42,7 @@ class MonetaryAmount(StructuredValue):
         description="The date after when the item is not valid. For example the end of an offer, salary period,"
      "or a period of opening hours.",
     )
-    maxValue: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    maxValue: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="The upper value of some characteristic or property.",
     )

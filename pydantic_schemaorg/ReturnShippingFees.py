@@ -11,5 +11,5 @@ class ReturnShippingFees(ReturnFeesEnumeration):
     See: https://schema.org/ReturnShippingFees
     Model depth: 5
     """
-    type_: str = Field(default="ReturnShippingFees", alias='@type', constant=True)
+    type_: str = Field(default="ReturnShippingFees", alias='@type', const=True)
     

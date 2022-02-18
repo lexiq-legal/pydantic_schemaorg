@@ -11,5 +11,5 @@ class GasStation(AutomotiveBusiness):
     See: https://schema.org/GasStation
     Model depth: 5
     """
-    type_: str = Field(default="GasStation", alias='@type', constant=True)
+    type_: str = Field(default="GasStation", alias='@type', const=True)
     

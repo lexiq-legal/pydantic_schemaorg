@@ -16,5 +16,5 @@ class MediaManipulationRatingEnumeration(Enumeration):
     See: https://schema.org/MediaManipulationRatingEnumeration
     Model depth: 4
     """
-    type_: str = Field(default="MediaManipulationRatingEnumeration", alias='@type', constant=True)
+    type_: str = Field(default="MediaManipulationRatingEnumeration", alias='@type', const=True)
     

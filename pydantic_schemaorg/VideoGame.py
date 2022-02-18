@@ -17,7 +17,7 @@ class VideoGame(SoftwareApplication, Game):
     See: https://schema.org/VideoGame
     Model depth: 4
     """
-    type_: str = Field(default="VideoGame", alias='@type', constant=True)
+    type_: str = Field(default="VideoGame", alias='@type', const=True)
     actors: Optional[Union[List[Union['Person', str]], 'Person', str]] = Field(
         default=None,
         description="An actor, e.g. in tv, radio, movie, video games etc. Actors can be associated with individual"

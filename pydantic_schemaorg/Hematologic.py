@@ -12,5 +12,5 @@ class Hematologic(MedicalSpecialty):
     See: https://schema.org/Hematologic
     Model depth: 6
     """
-    type_: str = Field(default="Hematologic", alias='@type', constant=True)
+    type_: str = Field(default="Hematologic", alias='@type', const=True)
     

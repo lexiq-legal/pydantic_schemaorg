@@ -11,5 +11,5 @@ class LiteraryEvent(Event):
     See: https://schema.org/LiteraryEvent
     Model depth: 3
     """
-    type_: str = Field(default="LiteraryEvent", alias='@type', constant=True)
+    type_: str = Field(default="LiteraryEvent", alias='@type', const=True)
     

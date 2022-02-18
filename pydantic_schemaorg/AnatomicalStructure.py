@@ -15,7 +15,7 @@ class AnatomicalStructure(MedicalEntity):
     See: https://schema.org/AnatomicalStructure
     Model depth: 3
     """
-    type_: str = Field(default="AnatomicalStructure", alias='@type', constant=True)
+    type_: str = Field(default="AnatomicalStructure", alias='@type', const=True)
     diagram: Optional[Union[List[Union['ImageObject', str]], 'ImageObject', str]] = Field(
         default=None,
         description="An image containing a diagram that illustrates the structure and/or its component substructures"

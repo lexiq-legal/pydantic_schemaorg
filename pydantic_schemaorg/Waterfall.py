@@ -11,5 +11,5 @@ class Waterfall(BodyOfWater):
     See: https://schema.org/Waterfall
     Model depth: 5
     """
-    type_: str = Field(default="Waterfall", alias='@type', constant=True)
+    type_: str = Field(default="Waterfall", alias='@type', const=True)
     

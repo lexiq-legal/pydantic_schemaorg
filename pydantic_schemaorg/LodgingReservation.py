@@ -17,7 +17,7 @@ class LodgingReservation(Reservation):
     See: https://schema.org/LodgingReservation
     Model depth: 4
     """
-    type_: str = Field(default="LodgingReservation", alias='@type', constant=True)
+    type_: str = Field(default="LodgingReservation", alias='@type', const=True)
     lodgingUnitDescription: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="A full description of the lodging unit.",

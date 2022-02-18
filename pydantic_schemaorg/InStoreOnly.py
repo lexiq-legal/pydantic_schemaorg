@@ -11,5 +11,5 @@ class InStoreOnly(ItemAvailability):
     See: https://schema.org/InStoreOnly
     Model depth: 5
     """
-    type_: str = Field(default="InStoreOnly", alias='@type', constant=True)
+    type_: str = Field(default="InStoreOnly", alias='@type', const=True)
     

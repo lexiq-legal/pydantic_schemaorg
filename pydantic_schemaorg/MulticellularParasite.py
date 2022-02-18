@@ -11,5 +11,5 @@ class MulticellularParasite(InfectiousAgentClass):
     See: https://schema.org/MulticellularParasite
     Model depth: 6
     """
-    type_: str = Field(default="MulticellularParasite", alias='@type', constant=True)
+    type_: str = Field(default="MulticellularParasite", alias='@type', const=True)
     

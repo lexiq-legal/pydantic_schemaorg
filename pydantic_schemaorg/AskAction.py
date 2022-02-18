@@ -15,7 +15,7 @@ class AskAction(CommunicateAction):
     See: https://schema.org/AskAction
     Model depth: 5
     """
-    type_: str = Field(default="AskAction", alias='@type', constant=True)
+    type_: str = Field(default="AskAction", alias='@type', const=True)
     question: Optional[Union[List[Union['Question', str]], 'Question', str]] = Field(
         default=None,
         description="A sub property of object. A question.",

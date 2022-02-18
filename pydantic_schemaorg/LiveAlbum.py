@@ -11,5 +11,5 @@ class LiveAlbum(MusicAlbumProductionType):
     See: https://schema.org/LiveAlbum
     Model depth: 5
     """
-    type_: str = Field(default="LiveAlbum", alias='@type', constant=True)
+    type_: str = Field(default="LiveAlbum", alias='@type', const=True)
     

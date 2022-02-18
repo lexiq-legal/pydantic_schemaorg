@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 from typing import List, Optional, Union
 
 
@@ -15,8 +15,8 @@ class RsvpAction(InformAction):
     See: https://schema.org/RsvpAction
     Model depth: 6
     """
-    type_: str = Field(default="RsvpAction", alias='@type', constant=True)
-    additionalNumberOfGuests: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    type_: str = Field(default="RsvpAction", alias='@type', const=True)
+    additionalNumberOfGuests: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="If responding yes, the number of guests who will attend in addition to the invitee.",
     )

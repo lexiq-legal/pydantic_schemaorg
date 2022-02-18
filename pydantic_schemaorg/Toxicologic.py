@@ -12,5 +12,5 @@ class Toxicologic(MedicalSpecialty):
     See: https://schema.org/Toxicologic
     Model depth: 6
     """
-    type_: str = Field(default="Toxicologic", alias='@type', constant=True)
+    type_: str = Field(default="Toxicologic", alias='@type', const=True)
     

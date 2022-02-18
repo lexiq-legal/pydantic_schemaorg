@@ -2,8 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic import AnyUrl
-from decimal import Decimal
+from pydantic import AnyUrl, StrictInt, StrictFloat
 
 
 from pydantic import Field
@@ -17,7 +16,7 @@ class TypeAndQuantityNode(StructuredValue):
     See: https://schema.org/TypeAndQuantityNode
     Model depth: 4
     """
-    type_: str = Field(default="TypeAndQuantityNode", alias='@type', constant=True)
+    type_: str = Field(default="TypeAndQuantityNode", alias='@type', const=True)
     businessFunction: Optional[Union[List[Union['BusinessFunction', str]], 'BusinessFunction', str]] = Field(
         default=None,
         description="The business function (e.g. sell, lease, repair, dispose) of the offer or component"
@@ -37,7 +36,7 @@ class TypeAndQuantityNode(StructuredValue):
         description="The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL."
      "Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.",
     )
-    amountOfThisGood: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    amountOfThisGood: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="The quantity of the goods included in the offer.",
     )

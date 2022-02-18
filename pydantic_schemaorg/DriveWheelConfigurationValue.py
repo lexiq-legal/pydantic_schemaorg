@@ -11,5 +11,5 @@ class DriveWheelConfigurationValue(QualitativeValue):
     See: https://schema.org/DriveWheelConfigurationValue
     Model depth: 5
     """
-    type_: str = Field(default="DriveWheelConfigurationValue", alias='@type', constant=True)
+    type_: str = Field(default="DriveWheelConfigurationValue", alias='@type', const=True)
     

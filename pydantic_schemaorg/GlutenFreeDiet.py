@@ -11,5 +11,5 @@ class GlutenFreeDiet(RestrictedDiet):
     See: https://schema.org/GlutenFreeDiet
     Model depth: 5
     """
-    type_: str = Field(default="GlutenFreeDiet", alias='@type', constant=True)
+    type_: str = Field(default="GlutenFreeDiet", alias='@type', const=True)
     

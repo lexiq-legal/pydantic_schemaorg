@@ -15,7 +15,7 @@ class EducationEvent(Event):
     See: https://schema.org/EducationEvent
     Model depth: 3
     """
-    type_: str = Field(default="EducationEvent", alias='@type', constant=True)
+    type_: str = Field(default="EducationEvent", alias='@type', const=True)
     teaches: Optional[Union[List[Union[str, 'Text', 'DefinedTerm']], str, 'Text', 'DefinedTerm']] = Field(
         default=None,
         description="The item being described is intended to help a person learn the competency or learning"

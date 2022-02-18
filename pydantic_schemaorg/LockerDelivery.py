@@ -11,5 +11,5 @@ class LockerDelivery(DeliveryMethod):
     See: https://schema.org/LockerDelivery
     Model depth: 5
     """
-    type_: str = Field(default="LockerDelivery", alias='@type', constant=True)
+    type_: str = Field(default="LockerDelivery", alias='@type', const=True)
     

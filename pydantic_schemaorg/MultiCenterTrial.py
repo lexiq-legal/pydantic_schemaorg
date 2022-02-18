@@ -11,5 +11,5 @@ class MultiCenterTrial(MedicalTrialDesign):
     See: https://schema.org/MultiCenterTrial
     Model depth: 6
     """
-    type_: str = Field(default="MultiCenterTrial", alias='@type', constant=True)
+    type_: str = Field(default="MultiCenterTrial", alias='@type', const=True)
     

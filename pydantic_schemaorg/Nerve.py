@@ -15,7 +15,7 @@ class Nerve(AnatomicalStructure):
     See: https://schema.org/Nerve
     Model depth: 4
     """
-    type_: str = Field(default="Nerve", alias='@type', constant=True)
+    type_: str = Field(default="Nerve", alias='@type', const=True)
     branch: Optional[Union[List[Union['AnatomicalStructure', str]], 'AnatomicalStructure', str]] = Field(
         default=None,
         description="The branches that delineate from the nerve bundle. Not to be confused with [[branchOf]].",
@@ -24,7 +24,7 @@ class Nerve(AnatomicalStructure):
         default=None,
         description="The neurological pathway extension that involves muscle control.",
     )
-    sensoryUnit: Optional[Union[List[Union['AnatomicalStructure', 'SuperficialAnatomy', str]], 'AnatomicalStructure', 'SuperficialAnatomy', str]] = Field(
+    sensoryUnit: Optional[Union[List[Union['SuperficialAnatomy', 'AnatomicalStructure', str]], 'SuperficialAnatomy', 'AnatomicalStructure', str]] = Field(
         default=None,
         description="The neurological pathway extension that inputs and sends information to the brain or"
      "spinal cord.",

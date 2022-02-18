@@ -16,7 +16,7 @@ class Organization(Thing):
     See: https://schema.org/Organization
     Model depth: 2
     """
-    type_: str = Field(default="Organization", alias='@type', constant=True)
+    type_: str = Field(default="Organization", alias='@type', const=True)
     subOrganization: Optional[Union[List[Union['Organization', str]], 'Organization', str]] = Field(
         default=None,
         description="A relationship between two organizations where the first includes the second, e.g.,"
@@ -41,7 +41,7 @@ class Organization(Thing):
         default=None,
         description="The larger organization that this organization is a [[subOrganization]] of, if any.",
     )
-    funder: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    funder: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="A person or organization that supports (sponsors) something through some kind of financial"
      "contribution.",
@@ -95,7 +95,7 @@ class Organization(Thing):
         description="The International Standard of Industrial Classification of All Economic Activities"
      "(ISIC), Revision 4 code for a particular organization, business person, or place.",
     )
-    member: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    member: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="A member of an Organization or a ProgramMembership. Organizations can be members of"
      "organizations; ProgramMembership is typically for individuals.",
@@ -122,7 +122,7 @@ class Organization(Thing):
         default=None,
         description="Specifies a MerchantReturnPolicy that may be applicable.",
     )
-    location: Optional[Union[List[Union[str, 'Text', 'Place', 'VirtualLocation', 'PostalAddress']], str, 'Text', 'Place', 'VirtualLocation', 'PostalAddress']] = Field(
+    location: Optional[Union[List[Union[str, 'Text', 'PostalAddress', 'Place', 'VirtualLocation']], str, 'Text', 'PostalAddress', 'Place', 'VirtualLocation']] = Field(
         default=None,
         description="The location of, for example, where an event is happening, where an organization is located,"
      "or where an action takes place.",
@@ -185,7 +185,7 @@ class Organization(Thing):
         default=None,
         description="An associated logo.",
     )
-    members: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    members: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="A member of this organization.",
     )
@@ -213,7 +213,7 @@ class Organization(Thing):
         default=None,
         description="Alumni of an organization.",
     )
-    sponsor: Optional[Union[List[Union['Organization', 'Person', str]], 'Organization', 'Person', str]] = Field(
+    sponsor: Optional[Union[List[Union['Person', 'Organization', str]], 'Person', 'Organization', str]] = Field(
         default=None,
         description="A person or organization that supports a thing through a pledge, promise, or financial"
      "contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
@@ -243,7 +243,7 @@ class Organization(Thing):
         default=None,
         description="The number of employees in an organization e.g. business.",
     )
-    ownershipFundingInfo: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'AboutPage', 'CreativeWork']], AnyUrl, 'URL', str, 'Text', 'AboutPage', 'CreativeWork']] = Field(
+    ownershipFundingInfo: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'CreativeWork', 'AboutPage']], AnyUrl, 'URL', str, 'Text', 'CreativeWork', 'AboutPage']] = Field(
         default=None,
         description="For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]),"
      "a description of organizational ownership structure; funding and grants. In a news/media"
@@ -327,8 +327,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Language import Language
     from pydantic_schemaorg.Brand import Brand
     from pydantic_schemaorg.MerchantReturnPolicy import MerchantReturnPolicy
-    from pydantic_schemaorg.VirtualLocation import VirtualLocation
     from pydantic_schemaorg.PostalAddress import PostalAddress
+    from pydantic_schemaorg.VirtualLocation import VirtualLocation
     from pydantic_schemaorg.InteractionCounter import InteractionCounter
     from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
     from pydantic_schemaorg.NonprofitType import NonprofitType

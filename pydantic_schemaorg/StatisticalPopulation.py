@@ -25,7 +25,7 @@ class StatisticalPopulation(Intangible):
     See: https://schema.org/StatisticalPopulation
     Model depth: 3
     """
-    type_: str = Field(default="StatisticalPopulation", alias='@type', constant=True)
+    type_: str = Field(default="StatisticalPopulation", alias='@type', const=True)
     numConstraints: Optional[Union[List[Union[int, 'Integer', str]], int, 'Integer', str]] = Field(
         default=None,
         description="Indicates the number of constraints (not counting [[populationType]]) defined for"

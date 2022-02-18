@@ -2,7 +2,7 @@ from datetime import time, datetime, date
 from decimal import Decimal
 from typing import Any, Optional, ForwardRef, List, Union
 
-from pydantic import BaseModel, Field, StrictBool, AnyUrl
+from pydantic import BaseModel, Field, StrictBool, AnyUrl, StrictInt, StrictFloat
 from pydantic.typing import update_model_forward_refs
 
 from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
@@ -65,7 +65,7 @@ class SchemaOrgBase(BaseModel):
         Try to update ForwardRefs on fields based on this Model, globalns and localns.
         """
         locals = {'Optional': Optional, 'List': List, 'Union': Union, 'StrictBool': StrictBool, 'AnyUrl': AnyUrl,
-                  'Decimal': Decimal, 'time': time, 'datetime': datetime, 'date': date,'ISO8601Date':ISO8601Date}
+                  'Decimal': Decimal, 'time': time, 'datetime': datetime, 'date': date,'ISO8601Date':ISO8601Date, 'StrictInt':StrictInt, 'StrictFloat': StrictFloat}
         for cls_ in cls.mro():
             if hasattr(cls_, 'get_local_ns'):
                 locals.update(cls_.get_local_ns())

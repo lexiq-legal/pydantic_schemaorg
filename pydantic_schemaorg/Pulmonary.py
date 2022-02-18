@@ -12,5 +12,5 @@ class Pulmonary(MedicalSpecialty):
     See: https://schema.org/Pulmonary
     Model depth: 6
     """
-    type_: str = Field(default="Pulmonary", alias='@type', constant=True)
+    type_: str = Field(default="Pulmonary", alias='@type', const=True)
     

@@ -19,7 +19,7 @@ class MediaObject(CreativeWork):
     See: https://schema.org/MediaObject
     Model depth: 3
     """
-    type_: str = Field(default="MediaObject", alias='@type', constant=True)
+    type_: str = Field(default="MediaObject", alias='@type', const=True)
     bitrate: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="The bitrate of the media object.",
@@ -120,7 +120,7 @@ class MediaObject(CreativeWork):
         default=None,
         description="Player type required&#x2014;for example, Flash or Silverlight.",
     )
-    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'Place']], str, 'Text', 'GeoShape', 'Place']] = Field(
+    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'Place', 'GeoShape']], str, 'Text', 'Place', 'GeoShape']] = Field(
         default=None,
         description="The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for"
      "the geo-political region(s) for which the offer or delivery charge specification is"

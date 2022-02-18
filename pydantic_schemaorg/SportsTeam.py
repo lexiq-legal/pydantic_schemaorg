@@ -14,7 +14,7 @@ class SportsTeam(SportsOrganization):
     See: https://schema.org/SportsTeam
     Model depth: 4
     """
-    type_: str = Field(default="SportsTeam", alias='@type', constant=True)
+    type_: str = Field(default="SportsTeam", alias='@type', const=True)
     gender: Optional[Union[List[Union[str, 'Text', 'GenderType']], str, 'Text', 'GenderType']] = Field(
         default=None,
         description="Gender of something, typically a [[Person]], but possibly also fictional characters,"

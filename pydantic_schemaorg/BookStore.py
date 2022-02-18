@@ -11,5 +11,5 @@ class BookStore(Store):
     See: https://schema.org/BookStore
     Model depth: 5
     """
-    type_: str = Field(default="BookStore", alias='@type', constant=True)
+    type_: str = Field(default="BookStore", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class MiddleSchool(EducationalOrganization):
     See: https://schema.org/MiddleSchool
     Model depth: 4
     """
-    type_: str = Field(default="MiddleSchool", alias='@type', constant=True)
+    type_: str = Field(default="MiddleSchool", alias='@type', const=True)
     

@@ -13,5 +13,5 @@ class Geriatric(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/Geriatric
     Model depth: 5
     """
-    type_: str = Field(default="Geriatric", alias='@type', constant=True)
+    type_: str = Field(default="Geriatric", alias='@type', const=True)
     

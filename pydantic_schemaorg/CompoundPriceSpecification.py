@@ -17,7 +17,7 @@ class CompoundPriceSpecification(PriceSpecification):
     See: https://schema.org/CompoundPriceSpecification
     Model depth: 5
     """
-    type_: str = Field(default="CompoundPriceSpecification", alias='@type', constant=True)
+    type_: str = Field(default="CompoundPriceSpecification", alias='@type', const=True)
     priceType: Optional[Union[List[Union[str, 'Text', 'PriceTypeEnumeration']], str, 'Text', 'PriceTypeEnumeration']] = Field(
         default=None,
         description="Defines the type of a price specified for an offered product, for example a list price,"

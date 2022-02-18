@@ -14,12 +14,12 @@ class DigitalDocumentPermission(Intangible):
     See: https://schema.org/DigitalDocumentPermission
     Model depth: 3
     """
-    type_: str = Field(default="DigitalDocumentPermission", alias='@type', constant=True)
+    type_: str = Field(default="DigitalDocumentPermission", alias='@type', const=True)
     permissionType: Optional[Union[List[Union['DigitalDocumentPermissionType', str]], 'DigitalDocumentPermissionType', str]] = Field(
         default=None,
         description="The type of permission granted the person, organization, or audience.",
     )
-    grantee: Optional[Union[List[Union['Organization', 'Person', 'ContactPoint', 'Audience', str]], 'Organization', 'Person', 'ContactPoint', 'Audience', str]] = Field(
+    grantee: Optional[Union[List[Union['ContactPoint', 'Audience', 'Organization', 'Person', str]], 'ContactPoint', 'Audience', 'Organization', 'Person', str]] = Field(
         default=None,
         description="The person, organization, contact point, or audience that has been granted this permission.",
     )
@@ -27,7 +27,7 @@ class DigitalDocumentPermission(Intangible):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.DigitalDocumentPermissionType import DigitalDocumentPermissionType
-    from pydantic_schemaorg.Organization import Organization
-    from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.ContactPoint import ContactPoint
     from pydantic_schemaorg.Audience import Audience
+    from pydantic_schemaorg.Organization import Organization
+    from pydantic_schemaorg.Person import Person

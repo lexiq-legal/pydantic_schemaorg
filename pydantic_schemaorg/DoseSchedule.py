@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 
 
 from pydantic import Field
@@ -15,13 +15,13 @@ class DoseSchedule(MedicalIntangible):
     See: https://schema.org/DoseSchedule
     Model depth: 4
     """
-    type_: str = Field(default="DoseSchedule", alias='@type', constant=True)
+    type_: str = Field(default="DoseSchedule", alias='@type', const=True)
     targetPopulation: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Characteristics of the population for which this is intended, or which typically uses"
      "it, e.g. 'adults'.",
     )
-    doseValue: Optional[Union[List[Union[int, float, 'Number', 'QualitativeValue', str]], int, float, 'Number', 'QualitativeValue', str]] = Field(
+    doseValue: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'QualitativeValue', str]], StrictInt, StrictFloat, 'Number', 'QualitativeValue', str]] = Field(
         default=None,
         description="The value of the dose, e.g. 500.",
     )

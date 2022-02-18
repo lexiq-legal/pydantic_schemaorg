@@ -11,5 +11,5 @@ class Locksmith(HomeAndConstructionBusiness):
     See: https://schema.org/Locksmith
     Model depth: 5
     """
-    type_: str = Field(default="Locksmith", alias='@type', constant=True)
+    type_: str = Field(default="Locksmith", alias='@type', const=True)
     

@@ -12,5 +12,5 @@ class LimitedByGuaranteeCharity(UKNonprofitType):
     See: https://schema.org/LimitedByGuaranteeCharity
     Model depth: 6
     """
-    type_: str = Field(default="LimitedByGuaranteeCharity", alias='@type', constant=True)
+    type_: str = Field(default="LimitedByGuaranteeCharity", alias='@type', const=True)
     

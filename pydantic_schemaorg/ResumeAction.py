@@ -12,5 +12,5 @@ class ResumeAction(ControlAction):
     See: https://schema.org/ResumeAction
     Model depth: 4
     """
-    type_: str = Field(default="ResumeAction", alias='@type', constant=True)
+    type_: str = Field(default="ResumeAction", alias='@type', const=True)
     

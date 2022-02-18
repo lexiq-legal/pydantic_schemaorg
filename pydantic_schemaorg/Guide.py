@@ -18,7 +18,7 @@ class Guide(CreativeWork):
     See: https://schema.org/Guide
     Model depth: 3
     """
-    type_: str = Field(default="Guide", alias='@type', constant=True)
+    type_: str = Field(default="Guide", alias='@type', const=True)
     reviewAspect: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="This Review or Rating is relevant to this part or facet of the itemReviewed.",

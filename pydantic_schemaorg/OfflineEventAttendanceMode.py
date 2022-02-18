@@ -11,5 +11,5 @@ class OfflineEventAttendanceMode(EventAttendanceModeEnumeration):
     See: https://schema.org/OfflineEventAttendanceMode
     Model depth: 5
     """
-    type_: str = Field(default="OfflineEventAttendanceMode", alias='@type', constant=True)
+    type_: str = Field(default="OfflineEventAttendanceMode", alias='@type', const=True)
     

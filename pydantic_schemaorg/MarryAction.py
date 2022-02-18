@@ -11,5 +11,5 @@ class MarryAction(InteractAction):
     See: https://schema.org/MarryAction
     Model depth: 4
     """
-    type_: str = Field(default="MarryAction", alias='@type', constant=True)
+    type_: str = Field(default="MarryAction", alias='@type', const=True)
     

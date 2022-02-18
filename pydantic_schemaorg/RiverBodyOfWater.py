@@ -11,5 +11,5 @@ class RiverBodyOfWater(BodyOfWater):
     See: https://schema.org/RiverBodyOfWater
     Model depth: 5
     """
-    type_: str = Field(default="RiverBodyOfWater", alias='@type', constant=True)
+    type_: str = Field(default="RiverBodyOfWater", alias='@type', const=True)
     

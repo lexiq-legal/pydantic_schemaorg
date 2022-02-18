@@ -14,7 +14,7 @@ class BusTrip(Trip):
     See: https://schema.org/BusTrip
     Model depth: 4
     """
-    type_: str = Field(default="BusTrip", alias='@type', constant=True)
+    type_: str = Field(default="BusTrip", alias='@type', const=True)
     departureBusStop: Optional[Union[List[Union['BusStop', 'BusStation', str]], 'BusStop', 'BusStation', str]] = Field(
         default=None,
         description="The stop or station from which the bus departs.",

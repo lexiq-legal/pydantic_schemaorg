@@ -19,7 +19,7 @@ class HealthTopicContent(WebContent):
     See: https://schema.org/HealthTopicContent
     Model depth: 4
     """
-    type_: str = Field(default="HealthTopicContent", alias='@type', constant=True)
+    type_: str = Field(default="HealthTopicContent", alias='@type', const=True)
     hasHealthAspect: Optional[Union[List[Union['HealthAspectEnumeration', str]], 'HealthAspectEnumeration', str]] = Field(
         default=None,
         description="Indicates the aspect or aspects specifically addressed in some [[HealthTopicContent]]."

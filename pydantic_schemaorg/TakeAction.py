@@ -13,5 +13,5 @@ class TakeAction(TransferAction):
     See: https://schema.org/TakeAction
     Model depth: 4
     """
-    type_: str = Field(default="TakeAction", alias='@type', constant=True)
+    type_: str = Field(default="TakeAction", alias='@type', const=True)
     

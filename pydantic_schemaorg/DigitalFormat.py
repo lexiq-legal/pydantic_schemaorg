@@ -11,5 +11,5 @@ class DigitalFormat(MusicReleaseFormatType):
     See: https://schema.org/DigitalFormat
     Model depth: 5
     """
-    type_: str = Field(default="DigitalFormat", alias='@type', constant=True)
+    type_: str = Field(default="DigitalFormat", alias='@type', const=True)
     

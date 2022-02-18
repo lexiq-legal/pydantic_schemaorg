@@ -13,5 +13,5 @@ class OccupationalActivity(PhysicalActivityCategory):
     See: https://schema.org/OccupationalActivity
     Model depth: 5
     """
-    type_: str = Field(default="OccupationalActivity", alias='@type', constant=True)
+    type_: str = Field(default="OccupationalActivity", alias='@type', const=True)
     

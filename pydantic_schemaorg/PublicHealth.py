@@ -13,5 +13,5 @@ class PublicHealth(MedicalSpecialty, MedicalBusiness):
     See: https://schema.org/PublicHealth
     Model depth: 5
     """
-    type_: str = Field(default="PublicHealth", alias='@type', constant=True)
+    type_: str = Field(default="PublicHealth", alias='@type', const=True)
     

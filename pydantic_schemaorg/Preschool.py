@@ -11,5 +11,5 @@ class Preschool(EducationalOrganization):
     See: https://schema.org/Preschool
     Model depth: 4
     """
-    type_: str = Field(default="Preschool", alias='@type', constant=True)
+    type_: str = Field(default="Preschool", alias='@type', const=True)
     

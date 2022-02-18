@@ -14,7 +14,7 @@ class ImagingTest(MedicalTest):
     See: https://schema.org/ImagingTest
     Model depth: 4
     """
-    type_: str = Field(default="ImagingTest", alias='@type', constant=True)
+    type_: str = Field(default="ImagingTest", alias='@type', const=True)
     imagingTechnique: Optional[Union[List[Union['MedicalImagingTechnique', str]], 'MedicalImagingTechnique', str]] = Field(
         default=None,
         description="Imaging technique used.",

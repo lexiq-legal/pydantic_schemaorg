@@ -11,5 +11,5 @@ class Flexibility(PhysicalActivityCategory):
     See: https://schema.org/Flexibility
     Model depth: 5
     """
-    type_: str = Field(default="Flexibility", alias='@type', constant=True)
+    type_: str = Field(default="Flexibility", alias='@type', const=True)
     

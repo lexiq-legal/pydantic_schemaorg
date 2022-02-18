@@ -11,5 +11,5 @@ class CompletedActionStatus(ActionStatusType):
     See: https://schema.org/CompletedActionStatus
     Model depth: 6
     """
-    type_: str = Field(default="CompletedActionStatus", alias='@type', constant=True)
+    type_: str = Field(default="CompletedActionStatus", alias='@type', const=True)
     

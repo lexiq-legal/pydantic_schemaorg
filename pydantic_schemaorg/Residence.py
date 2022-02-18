@@ -14,7 +14,7 @@ class Residence(Place):
     See: https://schema.org/Residence
     Model depth: 3
     """
-    type_: str = Field(default="Residence", alias='@type', constant=True)
+    type_: str = Field(default="Residence", alias='@type', const=True)
     accommodationFloorPlan: Optional[Union[List[Union['FloorPlan', str]], 'FloorPlan', str]] = Field(
         default=None,
         description="A floorplan of some [[Accommodation]].",

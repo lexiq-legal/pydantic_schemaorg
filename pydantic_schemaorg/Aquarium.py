@@ -11,5 +11,5 @@ class Aquarium(CivicStructure):
     See: https://schema.org/Aquarium
     Model depth: 4
     """
-    type_: str = Field(default="Aquarium", alias='@type', constant=True)
+    type_: str = Field(default="Aquarium", alias='@type', const=True)
     

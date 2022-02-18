@@ -14,7 +14,7 @@ class Joint(AnatomicalStructure):
     See: https://schema.org/Joint
     Model depth: 4
     """
-    type_: str = Field(default="Joint", alias='@type', constant=True)
+    type_: str = Field(default="Joint", alias='@type', const=True)
     functionalClass: Optional[Union[List[Union[str, 'Text', 'MedicalEntity']], str, 'Text', 'MedicalEntity']] = Field(
         default=None,
         description="The degree of mobility the joint allows.",

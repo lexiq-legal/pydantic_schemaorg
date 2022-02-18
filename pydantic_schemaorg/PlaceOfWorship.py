@@ -11,5 +11,5 @@ class PlaceOfWorship(CivicStructure):
     See: https://schema.org/PlaceOfWorship
     Model depth: 4
     """
-    type_: str = Field(default="PlaceOfWorship", alias='@type', constant=True)
+    type_: str = Field(default="PlaceOfWorship", alias='@type', const=True)
     

@@ -11,5 +11,5 @@ class Dentistry(MedicalSpecialty):
     See: https://schema.org/Dentistry
     Model depth: 6
     """
-    type_: str = Field(default="Dentistry", alias='@type', constant=True)
+    type_: str = Field(default="Dentistry", alias='@type', const=True)
     

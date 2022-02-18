@@ -11,5 +11,5 @@ class MedicalDevicePurpose(MedicalEnumeration):
     See: https://schema.org/MedicalDevicePurpose
     Model depth: 5
     """
-    type_: str = Field(default="MedicalDevicePurpose", alias='@type', constant=True)
+    type_: str = Field(default="MedicalDevicePurpose", alias='@type', const=True)
     

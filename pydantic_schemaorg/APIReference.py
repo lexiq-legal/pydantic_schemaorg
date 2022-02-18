@@ -14,7 +14,7 @@ class APIReference(TechArticle):
     See: https://schema.org/APIReference
     Model depth: 5
     """
-    type_: str = Field(default="APIReference", alias='@type', constant=True)
+    type_: str = Field(default="APIReference", alias='@type', const=True)
     assemblyVersion: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Associated product/technology version. e.g., .NET Framework 4.5.",

@@ -14,7 +14,7 @@ class ListItem(Intangible):
     See: https://schema.org/ListItem
     Model depth: 3
     """
-    type_: str = Field(default="ListItem", alias='@type', constant=True)
+    type_: str = Field(default="ListItem", alias='@type', const=True)
     position: Optional[Union[List[Union[int, 'Integer', str, 'Text']], int, 'Integer', str, 'Text']] = Field(
         default=None,
         description="The position of an item in a series or sequence of items.",

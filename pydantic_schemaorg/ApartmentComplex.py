@@ -1,9 +1,8 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from decimal import Decimal
+from pydantic import AnyUrl, StrictBool, StrictInt, StrictFloat
 from typing import List, Optional, Union
-from pydantic import AnyUrl, StrictBool
 
 
 from pydantic import Field
@@ -16,8 +15,8 @@ class ApartmentComplex(Residence):
     See: https://schema.org/ApartmentComplex
     Model depth: 4
     """
-    type_: str = Field(default="ApartmentComplex", alias='@type', constant=True)
-    numberOfBedrooms: Optional[Union[List[Union[int, float, 'Number', 'QuantitativeValue', str]], int, float, 'Number', 'QuantitativeValue', str]] = Field(
+    type_: str = Field(default="ApartmentComplex", alias='@type', const=True)
+    numberOfBedrooms: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'QuantitativeValue', str]], StrictInt, StrictFloat, 'Number', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The total integer number of bedrooms in a some [[Accommodation]], [[ApartmentComplex]]"
      "or [[FloorPlan]].",

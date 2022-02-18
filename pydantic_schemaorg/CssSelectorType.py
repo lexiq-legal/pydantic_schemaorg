@@ -11,5 +11,5 @@ class CssSelectorType(Text):
     See: https://schema.org/CssSelectorType
     Model depth: 6
     """
-    type_: str = Field(default="CssSelectorType", alias='@type', constant=True)
+    type_: str = Field(default="CssSelectorType", alias='@type', const=True)
     

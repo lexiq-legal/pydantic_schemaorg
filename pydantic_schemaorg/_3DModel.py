@@ -21,7 +21,7 @@ class _3DModel(MediaObject):
     See: https://schema.org/3DModel
     Model depth: 4
     """
-    type_: str = Field(default="3DModel", alias='@type', constant=True)
+    type_: str = Field(default="3DModel", alias='@type', const=True)
     isResizable: Optional[Union[List[Union[StrictBool, 'Boolean', str]], StrictBool, 'Boolean', str]] = Field(
         default=None,
         description="Whether the 3DModel allows resizing. For example, room layout applications often do"

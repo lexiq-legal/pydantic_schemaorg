@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from decimal import Decimal
+from pydantic import StrictInt, StrictFloat
 
 
 from pydantic import Field
@@ -15,7 +15,7 @@ class HealthPlanCostSharingSpecification(Intangible):
     See: https://schema.org/HealthPlanCostSharingSpecification
     Model depth: 3
     """
-    type_: str = Field(default="HealthPlanCostSharingSpecification", alias='@type', constant=True)
+    type_: str = Field(default="HealthPlanCostSharingSpecification", alias='@type', const=True)
     healthPlanCoinsuranceOption: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Whether the coinsurance applies before or after deductible, etc. TODO: Is this a closed"
@@ -33,7 +33,7 @@ class HealthPlanCostSharingSpecification(Intangible):
         default=None,
         description="Whether the copay is before or after deductible, etc. TODO: Is this a closed set?",
     )
-    healthPlanCoinsuranceRate: Optional[Union[List[Union[int, float, 'Number', str]], int, float, 'Number', str]] = Field(
+    healthPlanCoinsuranceRate: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', str]], StrictInt, StrictFloat, 'Number', str]] = Field(
         default=None,
         description="Whether The rate of coinsurance expressed as a number between 0.0 and 1.0.",
     )

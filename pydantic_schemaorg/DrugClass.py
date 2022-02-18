@@ -15,7 +15,7 @@ class DrugClass(MedicalEntity):
     See: https://schema.org/DrugClass
     Model depth: 3
     """
-    type_: str = Field(default="DrugClass", alias='@type', constant=True)
+    type_: str = Field(default="DrugClass", alias='@type', const=True)
     drug: Optional[Union[List[Union['Drug', str]], 'Drug', str]] = Field(
         default=None,
         description="Specifying a drug or medicine used in a medication procedure.",

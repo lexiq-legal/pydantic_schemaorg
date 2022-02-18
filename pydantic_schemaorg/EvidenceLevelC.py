@@ -11,5 +11,5 @@ class EvidenceLevelC(MedicalEvidenceLevel):
     See: https://schema.org/EvidenceLevelC
     Model depth: 6
     """
-    type_: str = Field(default="EvidenceLevelC", alias='@type', constant=True)
+    type_: str = Field(default="EvidenceLevelC", alias='@type', const=True)
     

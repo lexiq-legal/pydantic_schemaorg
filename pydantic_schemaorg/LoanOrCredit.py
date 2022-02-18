@@ -2,8 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic import AnyUrl, StrictBool
-from decimal import Decimal
+from pydantic import AnyUrl, StrictBool, StrictInt, StrictFloat
 
 
 from pydantic import Field
@@ -17,7 +16,7 @@ class LoanOrCredit(FinancialProduct):
     See: https://schema.org/LoanOrCredit
     Model depth: 5
     """
-    type_: str = Field(default="LoanOrCredit", alias='@type', constant=True)
+    type_: str = Field(default="LoanOrCredit", alias='@type', const=True)
     loanRepaymentForm: Optional[Union[List[Union['RepaymentSpecification', str]], 'RepaymentSpecification', str]] = Field(
         default=None,
         description="A form of paying back money previously borrowed from a lender. Repayment usually takes"
@@ -37,7 +36,7 @@ class LoanOrCredit(FinancialProduct):
         default=None,
         description="The type of a loan or credit.",
     )
-    amount: Optional[Union[List[Union[int, float, 'Number', 'MonetaryAmount', str]], int, float, 'Number', 'MonetaryAmount', str]] = Field(
+    amount: Optional[Union[List[Union[StrictInt, StrictFloat, 'Number', 'MonetaryAmount', str]], StrictInt, StrictFloat, 'Number', 'MonetaryAmount', str]] = Field(
         default=None,
         description="The amount of money.",
     )

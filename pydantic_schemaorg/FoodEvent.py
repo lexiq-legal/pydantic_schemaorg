@@ -11,5 +11,5 @@ class FoodEvent(Event):
     See: https://schema.org/FoodEvent
     Model depth: 3
     """
-    type_: str = Field(default="FoodEvent", alias='@type', constant=True)
+    type_: str = Field(default="FoodEvent", alias='@type', const=True)
     

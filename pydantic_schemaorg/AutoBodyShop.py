@@ -11,5 +11,5 @@ class AutoBodyShop(AutomotiveBusiness):
     See: https://schema.org/AutoBodyShop
     Model depth: 5
     """
-    type_: str = Field(default="AutoBodyShop", alias='@type', constant=True)
+    type_: str = Field(default="AutoBodyShop", alias='@type', const=True)
     

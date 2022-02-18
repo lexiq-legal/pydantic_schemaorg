@@ -14,5 +14,5 @@ class MedicalSpecialty(MedicalEnumeration, Specialty):
     See: https://schema.org/MedicalSpecialty
     Model depth: 5
     """
-    type_: str = Field(default="MedicalSpecialty", alias='@type', constant=True)
+    type_: str = Field(default="MedicalSpecialty", alias='@type', const=True)
     

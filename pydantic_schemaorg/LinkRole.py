@@ -17,7 +17,7 @@ class LinkRole(Role):
     See: https://schema.org/LinkRole
     Model depth: 4
     """
-    type_: str = Field(default="LinkRole", alias='@type', constant=True)
+    type_: str = Field(default="LinkRole", alias='@type', const=True)
     linkRelationship: Optional[Union[List[Union[str, 'Text']], str, 'Text']] = Field(
         default=None,
         description="Indicates the relationship type of a Web link.",
