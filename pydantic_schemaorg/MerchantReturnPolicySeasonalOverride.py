@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date, datetime
 from typing import List, Optional, Union
 
 
@@ -16,13 +16,13 @@ class MerchantReturnPolicySeasonalOverride(Intangible):
     Model depth: 3
     """
     type_: str = Field(default="MerchantReturnPolicySeasonalOverride", alias='@type', constant=True)
-    merchantReturnDays: Optional[Union[List[Union[ISO8601Date, 'DateTime', int, 'Integer', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', int, 'Integer', ISO8601Date, 'Date', str]] = Field(
+    merchantReturnDays: Optional[Union[List[Union[datetime, 'DateTime', int, 'Integer', date, 'Date', str]], datetime, 'DateTime', int, 'Integer', date, 'Date', str]] = Field(
         default=None,
         description="Specifies either a fixed return date or the number of days (from the delivery date) that"
      "a product can be returned. Used when the [[returnPolicyCategory]] property is specified"
      "as [[MerchantReturnFiniteReturnWindow]].",
     )
-    endDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    endDate: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
@@ -30,7 +30,7 @@ class MerchantReturnPolicySeasonalOverride(Intangible):
         default=None,
         description="Specifies an applicable return policy (from an enumeration).",
     )
-    startDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    startDate: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )

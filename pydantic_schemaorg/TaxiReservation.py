@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import datetime
 
 
 from pydantic import Field
@@ -26,7 +26,7 @@ class TaxiReservation(Reservation):
         default=None,
         description="Where a taxi will pick up a passenger or a rental car can be picked up.",
     )
-    pickupTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
+    pickupTime: Optional[Union[List[Union[datetime, 'DateTime', str]], datetime, 'DateTime', str]] = Field(
         default=None,
         description="When a taxi will pickup a passenger or a rental car can be picked up.",
     )

@@ -2,8 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
-from datetime import time
+from datetime import date, datetime, time
 from pydantic import StrictBool
 
 
@@ -29,7 +28,7 @@ class Event(Thing):
         default=None,
         description="The subject matter of the content.",
     )
-    offers: Optional[Union[List[Union['Demand', 'Offer', str]], 'Demand', 'Offer', str]] = Field(
+    offers: Optional[Union[List[Union['Offer', 'Demand', str]], 'Offer', 'Demand', str]] = Field(
         default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -38,7 +37,7 @@ class Event(Thing):
      "of common types, it can be used in others. In that case, using a second type, such as Product"
      "or a subtype of Product, can clarify the nature of the offer.",
     )
-    doorTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
+    doorTime: Optional[Union[List[Union[datetime, 'DateTime', time, 'Time', str]], datetime, 'DateTime', time, 'Time', str]] = Field(
         default=None,
         description="The time admission will commence.",
     )
@@ -78,7 +77,7 @@ class Event(Thing):
      "differences and technical requirements of a target market, or that translates during"
      "some event.",
     )
-    previousStartDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    previousStartDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="Used in conjunction with eventStatus for rescheduled or cancelled events. This property"
      "contains the previously scheduled start date. For rescheduled events, the startDate"
@@ -90,7 +89,7 @@ class Event(Thing):
         description="A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors"
      "can be associated with individual items or with a series, episode, clip.",
     )
-    location: Optional[Union[List[Union[str, 'Text', 'VirtualLocation', 'PostalAddress', 'Place']], str, 'Text', 'VirtualLocation', 'PostalAddress', 'Place']] = Field(
+    location: Optional[Union[List[Union[str, 'Text', 'Place', 'VirtualLocation', 'PostalAddress']], str, 'Text', 'Place', 'VirtualLocation', 'PostalAddress']] = Field(
         default=None,
         description="The location of, for example, where an event is happening, where an organization is located,"
      "or where an action takes place.",
@@ -113,7 +112,7 @@ class Event(Thing):
         default=None,
         description="A person or organization attending the event.",
     )
-    endDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    endDate: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
@@ -168,7 +167,7 @@ class Event(Thing):
         description="The maximum physical attendee capacity of an [[Event]] whose [[eventAttendanceMode]]"
      "is [[OnlineEventAttendanceMode]] (or the online aspects, in the case of a [[MixedEventAttendanceMode]]).",
     )
-    startDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    startDate: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
@@ -216,8 +215,8 @@ class Event(Thing):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Thing import Thing
-    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Offer import Offer
+    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Time import Time
     from pydantic_schemaorg.Text import Text
@@ -227,9 +226,9 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.AggregateRating import AggregateRating
     from pydantic_schemaorg.Duration import Duration
     from pydantic_schemaorg.Date import Date
+    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.VirtualLocation import VirtualLocation
     from pydantic_schemaorg.PostalAddress import PostalAddress
-    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.EventStatusType import EventStatusType
     from pydantic_schemaorg.Audience import Audience
     from pydantic_schemaorg.CreativeWork import CreativeWork

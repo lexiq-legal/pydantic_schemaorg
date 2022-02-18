@@ -20,15 +20,15 @@ class SportsEvent(Event):
         default=None,
         description="A type of sport (e.g. Baseball).",
     )
-    awayTeam: Optional[Union[List[Union['SportsTeam', 'Person', str]], 'SportsTeam', 'Person', str]] = Field(
+    awayTeam: Optional[Union[List[Union['Person', 'SportsTeam', str]], 'Person', 'SportsTeam', str]] = Field(
         default=None,
         description="The away team in a sports event.",
     )
-    homeTeam: Optional[Union[List[Union['SportsTeam', 'Person', str]], 'SportsTeam', 'Person', str]] = Field(
+    homeTeam: Optional[Union[List[Union['Person', 'SportsTeam', str]], 'Person', 'SportsTeam', str]] = Field(
         default=None,
         description="The home team in a sports event.",
     )
-    competitor: Optional[Union[List[Union['SportsTeam', 'Person', str]], 'SportsTeam', 'Person', str]] = Field(
+    competitor: Optional[Union[List[Union['Person', 'SportsTeam', str]], 'Person', 'SportsTeam', str]] = Field(
         default=None,
         description="A competitor in a sports event.",
     )
@@ -37,5 +37,5 @@ class SportsEvent(Event):
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.SportsTeam import SportsTeam
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.SportsTeam import SportsTeam

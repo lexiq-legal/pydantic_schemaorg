@@ -22,7 +22,7 @@ class PhysicalActivity(LifestyleModification):
         default=None,
         description="The characteristics of associated patients, such as age, gender, race etc.",
     )
-    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']], AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']] = Field(
+    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']], AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']] = Field(
         default=None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -32,7 +32,7 @@ class PhysicalActivity(LifestyleModification):
         description="Changes in the normal mechanical, physical, and biochemical functions that are associated"
      "with this activity or condition.",
     )
-    associatedAnatomy: Optional[Union[List[Union['AnatomicalStructure', 'AnatomicalSystem', 'SuperficialAnatomy', str]], 'AnatomicalStructure', 'AnatomicalSystem', 'SuperficialAnatomy', str]] = Field(
+    associatedAnatomy: Optional[Union[List[Union['SuperficialAnatomy', 'AnatomicalStructure', 'AnatomicalSystem', str]], 'SuperficialAnatomy', 'AnatomicalStructure', 'AnatomicalSystem', str]] = Field(
         default=None,
         description="The anatomy of the underlying organ system or structures associated with this entity.",
     )
@@ -41,8 +41,8 @@ class PhysicalActivity(LifestyleModification):
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.URL import URL
-    from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
     from pydantic_schemaorg.Thing import Thing
+    from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
+    from pydantic_schemaorg.SuperficialAnatomy import SuperficialAnatomy
     from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
     from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
-    from pydantic_schemaorg.SuperficialAnatomy import SuperficialAnatomy

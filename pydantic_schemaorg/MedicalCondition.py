@@ -60,7 +60,7 @@ class MedicalCondition(MedicalEntity):
         default=None,
         description="A possible treatment to address this condition, sign or symptom.",
     )
-    status: Optional[Union[List[Union[str, 'Text', 'MedicalStudyStatus', 'EventStatusType']], str, 'Text', 'MedicalStudyStatus', 'EventStatusType']] = Field(
+    status: Optional[Union[List[Union[str, 'Text', 'EventStatusType', 'MedicalStudyStatus']], str, 'Text', 'EventStatusType', 'MedicalStudyStatus']] = Field(
         default=None,
         description="The status of the study (enumerated).",
     )
@@ -84,7 +84,7 @@ class MedicalCondition(MedicalEntity):
      "may include worsening of the signs or symptoms of the disease, extension of the condition"
      "to other organ systems, etc.",
     )
-    associatedAnatomy: Optional[Union[List[Union['AnatomicalStructure', 'AnatomicalSystem', 'SuperficialAnatomy', str]], 'AnatomicalStructure', 'AnatomicalSystem', 'SuperficialAnatomy', str]] = Field(
+    associatedAnatomy: Optional[Union[List[Union['SuperficialAnatomy', 'AnatomicalStructure', 'AnatomicalSystem', str]], 'SuperficialAnatomy', 'AnatomicalStructure', 'AnatomicalSystem', str]] = Field(
         default=None,
         description="The anatomy of the underlying organ system or structures associated with this entity.",
     )
@@ -103,10 +103,10 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalConditionStage import MedicalConditionStage
     from pydantic_schemaorg.DDxElement import DDxElement
     from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
-    from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
     from pydantic_schemaorg.EventStatusType import EventStatusType
+    from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
     from pydantic_schemaorg.Drug import Drug
+    from pydantic_schemaorg.SuperficialAnatomy import SuperficialAnatomy
     from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
     from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
-    from pydantic_schemaorg.SuperficialAnatomy import SuperficialAnatomy
     from pydantic_schemaorg.MedicalSignOrSymptom import MedicalSignOrSymptom

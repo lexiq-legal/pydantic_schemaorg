@@ -15,12 +15,12 @@ class Class(Intangible):
     Model depth: 3
     """
     type_: str = Field(default="Class", alias='@type', constant=True)
-    supersededBy: Optional[Union[List[Union['Class', 'Enumeration', 'Property', str]], 'Class', 'Enumeration', 'Property', str]] = Field(
+    supersededBy: Optional[Union[List[Union['Property', 'Enumeration', 'Class', str]], 'Property', 'Enumeration', 'Class', str]] = Field(
         default=None,
         description="Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",
     )
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.Enumeration import Enumeration
     from pydantic_schemaorg.Property import Property
+    from pydantic_schemaorg.Enumeration import Enumeration

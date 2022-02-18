@@ -2,8 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
-from datetime import time
+from datetime import datetime, time
 
 
 from pydantic import Field
@@ -27,12 +26,12 @@ class InteractionCounter(StructuredValue):
         description="The Action representing the type of interaction. For up votes, +1s, etc. use [[LikeAction]]."
      "For down votes use [[DislikeAction]]. Otherwise, use the most specific Action.",
     )
-    location: Optional[Union[List[Union[str, 'Text', 'VirtualLocation', 'PostalAddress', 'Place']], str, 'Text', 'VirtualLocation', 'PostalAddress', 'Place']] = Field(
+    location: Optional[Union[List[Union[str, 'Text', 'Place', 'VirtualLocation', 'PostalAddress']], str, 'Text', 'Place', 'VirtualLocation', 'PostalAddress']] = Field(
         default=None,
         description="The location of, for example, where an event is happening, where an organization is located,"
      "or where an action takes place.",
     )
-    endTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
+    endTime: Optional[Union[List[Union[datetime, 'DateTime', time, 'Time', str]], datetime, 'DateTime', time, 'Time', str]] = Field(
         default=None,
         description="The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation),"
      "the time that it is expected to end. For actions that span a period of time, when the action"
@@ -45,7 +44,7 @@ class InteractionCounter(StructuredValue):
         default=None,
         description="The WebSite or SoftwareApplication where the interactions took place.",
     )
-    startTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
+    startTime: Optional[Union[List[Union[datetime, 'DateTime', time, 'Time', str]], datetime, 'DateTime', time, 'Time', str]] = Field(
         default=None,
         description="The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation),"
      "the time that it is expected to start. For actions that span a period of time, when the action"
@@ -60,9 +59,9 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.Action import Action
     from pydantic_schemaorg.Text import Text
+    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.VirtualLocation import VirtualLocation
     from pydantic_schemaorg.PostalAddress import PostalAddress
-    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.DateTime import DateTime
     from pydantic_schemaorg.Time import Time
     from pydantic_schemaorg.SoftwareApplication import SoftwareApplication

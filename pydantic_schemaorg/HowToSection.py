@@ -18,7 +18,7 @@ class HowToSection(ItemList, ListItem, CreativeWork):
     Model depth: 3
     """
     type_: str = Field(default="HowToSection", alias='@type', constant=True)
-    steps: Optional[Union[List[Union[str, 'Text', 'CreativeWork', 'ItemList']], str, 'Text', 'CreativeWork', 'ItemList']] = Field(
+    steps: Optional[Union[List[Union[str, 'Text', 'ItemList', 'CreativeWork']], str, 'Text', 'ItemList', 'CreativeWork']] = Field(
         default=None,
         description="A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally"
      "misnamed 'steps'; 'step' is preferred).",
@@ -27,5 +27,5 @@ class HowToSection(ItemList, ListItem, CreativeWork):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.CreativeWork import CreativeWork
     from pydantic_schemaorg.ItemList import ItemList
+    from pydantic_schemaorg.CreativeWork import CreativeWork

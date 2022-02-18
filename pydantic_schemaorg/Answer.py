@@ -15,7 +15,7 @@ class Answer(Comment):
     Model depth: 4
     """
     type_: str = Field(default="Answer", alias='@type', constant=True)
-    answerExplanation: Optional[Union[List[Union['Comment', 'WebContent', str]], 'Comment', 'WebContent', str]] = Field(
+    answerExplanation: Optional[Union[List[Union['WebContent', 'Comment', str]], 'WebContent', 'Comment', str]] = Field(
         default=None,
         description="A step-by-step or full explanation about Answer. Can outline how this Answer was achieved"
      "or contain more broad clarification or statement about it.",
@@ -23,5 +23,5 @@ class Answer(Comment):
     
 
 if TYPE_CHECKING:
-    from pydantic_schemaorg.Comment import Comment
     from pydantic_schemaorg.WebContent import WebContent
+    from pydantic_schemaorg.Comment import Comment

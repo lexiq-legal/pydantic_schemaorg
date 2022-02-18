@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date, datetime
 
 
 from pydantic import Field
@@ -24,11 +24,11 @@ class Permit(Intangible):
         default=None,
         description="The duration of validity of a permit or similar thing.",
     )
-    validUntil: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    validUntil: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The date when the item is no longer valid.",
     )
-    validFrom: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    validFrom: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The date when the item becomes valid.",
     )

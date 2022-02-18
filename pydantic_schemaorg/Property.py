@@ -34,7 +34,7 @@ class Property(Intangible):
      "inverses; in these situations RDFa and JSON-LD syntax for reverse properties can be"
      "used.",
     )
-    supersededBy: Optional[Union[List[Union['Class', 'Enumeration', 'Property', str]], 'Class', 'Enumeration', 'Property', str]] = Field(
+    supersededBy: Optional[Union[List[Union['Property', 'Enumeration', 'Class', str]], 'Property', 'Enumeration', 'Class', str]] = Field(
         default=None,
         description="Relates a term (i.e. a property, class or enumeration) to one that supersedes it.",
     )

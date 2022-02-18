@@ -22,7 +22,7 @@ class MedicalClinic(MedicalBusiness, MedicalOrganization):
         default=None,
         description="A medical specialty of the provider.",
     )
-    availableService: Optional[Union[List[Union['MedicalTherapy', 'MedicalTest', 'MedicalProcedure', str]], 'MedicalTherapy', 'MedicalTest', 'MedicalProcedure', str]] = Field(
+    availableService: Optional[Union[List[Union['MedicalProcedure', 'MedicalTest', 'MedicalTherapy', str]], 'MedicalProcedure', 'MedicalTest', 'MedicalTherapy', str]] = Field(
         default=None,
         description="A medical service available from this provider.",
     )
@@ -30,6 +30,6 @@ class MedicalClinic(MedicalBusiness, MedicalOrganization):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalSpecialty import MedicalSpecialty
-    from pydantic_schemaorg.MedicalTherapy import MedicalTherapy
-    from pydantic_schemaorg.MedicalTest import MedicalTest
     from pydantic_schemaorg.MedicalProcedure import MedicalProcedure
+    from pydantic_schemaorg.MedicalTest import MedicalTest
+    from pydantic_schemaorg.MedicalTherapy import MedicalTherapy

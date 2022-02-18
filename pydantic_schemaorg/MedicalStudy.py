@@ -31,7 +31,7 @@ class MedicalStudy(MedicalEntity):
         description="A subject of the study, i.e. one of the medical conditions, therapies, devices, drugs,"
      "etc. investigated by the study.",
     )
-    status: Optional[Union[List[Union[str, 'Text', 'MedicalStudyStatus', 'EventStatusType']], str, 'Text', 'MedicalStudyStatus', 'EventStatusType']] = Field(
+    status: Optional[Union[List[Union[str, 'Text', 'EventStatusType', 'MedicalStudyStatus']], str, 'Text', 'EventStatusType', 'MedicalStudyStatus']] = Field(
         default=None,
         description="The status of the study (enumerated).",
     )
@@ -50,8 +50,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.AdministrativeArea import AdministrativeArea
     from pydantic_schemaorg.MedicalEntity import MedicalEntity
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
     from pydantic_schemaorg.EventStatusType import EventStatusType
+    from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
     from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Person import Person
     from pydantic_schemaorg.MedicalCondition import MedicalCondition

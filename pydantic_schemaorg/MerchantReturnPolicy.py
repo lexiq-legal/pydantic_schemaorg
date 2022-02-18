@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
 from pydantic import AnyUrl, StrictBool
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date, datetime
 from decimal import Decimal
 
 
@@ -51,7 +51,7 @@ class MerchantReturnPolicy(Intangible):
         description="The method (from an enumeration) by which the customer obtains a return shipping label"
      "for a defect product.",
     )
-    merchantReturnDays: Optional[Union[List[Union[ISO8601Date, 'DateTime', int, 'Integer', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', int, 'Integer', ISO8601Date, 'Date', str]] = Field(
+    merchantReturnDays: Optional[Union[List[Union[datetime, 'DateTime', int, 'Integer', date, 'Date', str]], datetime, 'DateTime', int, 'Integer', date, 'Date', str]] = Field(
         default=None,
         description="Specifies either a fixed return date or the number of days (from the delivery date) that"
      "a product can be returned. Used when the [[returnPolicyCategory]] property is specified"

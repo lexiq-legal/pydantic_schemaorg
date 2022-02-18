@@ -24,7 +24,7 @@ class MusicAlbum(MusicPlaylist):
         default=None,
         description="The kind of release which this album is: single, EP or album.",
     )
-    byArtist: Optional[Union[List[Union['MusicGroup', 'Person', str]], 'MusicGroup', 'Person', str]] = Field(
+    byArtist: Optional[Union[List[Union['Person', 'MusicGroup', str]], 'Person', 'MusicGroup', str]] = Field(
         default=None,
         description="The artist that performed this album or recording.",
     )
@@ -37,6 +37,6 @@ class MusicAlbum(MusicPlaylist):
 if TYPE_CHECKING:
     from pydantic_schemaorg.MusicAlbumProductionType import MusicAlbumProductionType
     from pydantic_schemaorg.MusicAlbumReleaseType import MusicAlbumReleaseType
-    from pydantic_schemaorg.MusicGroup import MusicGroup
     from pydantic_schemaorg.Person import Person
+    from pydantic_schemaorg.MusicGroup import MusicGroup
     from pydantic_schemaorg.MusicRelease import MusicRelease

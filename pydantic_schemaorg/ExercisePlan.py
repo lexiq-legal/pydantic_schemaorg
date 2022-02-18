@@ -47,7 +47,7 @@ class ExercisePlan(PhysicalActivity, CreativeWork):
         description="Type(s) of exercise or activity, such as strength training, flexibility training,"
      "aerobics, cardiac rehabilitation, etc.",
     )
-    activityDuration: Optional[Union[List[Union['Duration', 'QuantitativeValue', str]], 'Duration', 'QuantitativeValue', str]] = Field(
+    activityDuration: Optional[Union[List[Union['QuantitativeValue', 'Duration', str]], 'QuantitativeValue', 'Duration', str]] = Field(
         default=None,
         description="Length of time to engage in the activity.",
     )

@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 from pydantic import AnyUrl
 from typing import List, Optional, Union
 from decimal import Decimal
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date
 
 
 from pydantic import Field
@@ -37,7 +37,7 @@ class Vehicle(Product):
      "driving school, or as a taxi. The legislation in many countries requires this information"
      "to be revealed when offering a car for sale.",
     )
-    productionDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    productionDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The date of production of the item, e.g. vehicle.",
     )
@@ -174,12 +174,12 @@ class Vehicle(Product):
         default=None,
         description="The number or type of airbags in the vehicle.",
     )
-    modelDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    modelDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The release date of a vehicle model (often used to differentiate versions of the same"
      "make and model).",
     )
-    dateVehicleFirstRegistered: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    dateVehicleFirstRegistered: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The date of the first registration of the vehicle with the respective public authorities.",
     )
@@ -238,12 +238,12 @@ class Vehicle(Product):
      "space available, and in terms of limitations set by law. Typical unit code(s): C62 for"
      "persons.",
     )
-    vehicleModelDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    vehicleModelDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The release date of a vehicle model (often used to differentiate versions of the same"
      "make and model).",
     )
-    purchaseDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    purchaseDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The date the item e.g. vehicle was purchased by the current owner.",
     )

@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 from typing import List, Optional, Union
 from pydantic import AnyUrl, StrictBool
 from decimal import Decimal
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date, datetime
 
 
 from pydantic import Field
@@ -112,7 +112,7 @@ class JobPosting(Intangible):
         default=None,
         description="A description of any security clearance requirements of the job.",
     )
-    datePosted: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    datePosted: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="Publication date of an online listing.",
     )
@@ -120,7 +120,7 @@ class JobPosting(Intangible):
         default=None,
         description="Specific qualifications required for this role or Occupation.",
     )
-    jobStartDate: Optional[Union[List[Union[ISO8601Date, 'Date', str, 'Text']], ISO8601Date, 'Date', str, 'Text']] = Field(
+    jobStartDate: Optional[Union[List[Union[date, 'Date', str, 'Text']], date, 'Date', str, 'Text']] = Field(
         default=None,
         description="The date on which a successful applicant for this job would be expected to start work."
      "Choose a specific date in the future or use the jobImmediateStart property to indicate"
@@ -139,11 +139,11 @@ class JobPosting(Intangible):
         description="Indicates the department, unit and/or facility where the employee reports and/or in"
      "which the job is to be performed.",
     )
-    baseSalary: Optional[Union[List[Union[int, float, 'Number', 'MonetaryAmount', 'PriceSpecification', str]], int, float, 'Number', 'MonetaryAmount', 'PriceSpecification', str]] = Field(
+    baseSalary: Optional[Union[List[Union[int, float, 'Number', 'PriceSpecification', 'MonetaryAmount', str]], int, float, 'Number', 'PriceSpecification', 'MonetaryAmount', str]] = Field(
         default=None,
         description="The base salary of the job or of an employee in an EmployeeRole.",
     )
-    validThrough: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    validThrough: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The date after when the item is not valid. For example the end of an offer, salary period,"
      "or a period of opening hours.",

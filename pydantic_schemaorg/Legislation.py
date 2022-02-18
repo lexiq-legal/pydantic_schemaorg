@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date
 from pydantic import AnyUrl
 
 
@@ -41,7 +41,7 @@ class Legislation(CreativeWork):
      "of the change. For consolidation relationships, use the <a href=\"/legislationConsolidates\">legislationConsolidates</a>"
      "property.",
     )
-    legislationDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    legislationDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The date of adoption or signature of the legislation. This is the date at which the text"
      "is officially aknowledged to be a legislation, even though it might not even be published"
@@ -94,7 +94,7 @@ class Legislation(CreativeWork):
      "state \"applies\" the consolidated version of the European Directive implemented"
      "in it.",
     )
-    legislationDateVersion: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    legislationDateVersion: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The point-in-time at which the provided description of the legislation is valid (e.g."
      ": when looking at the law on the 2016-04-07 (= dateVersion), I get the consolidation of"

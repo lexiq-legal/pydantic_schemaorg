@@ -1,4 +1,4 @@
-from datetime import time
+from datetime import time, datetime, date
 from decimal import Decimal
 from typing import Any, Optional, ForwardRef, List, Union
 
@@ -65,7 +65,7 @@ class SchemaOrgBase(BaseModel):
         Try to update ForwardRefs on fields based on this Model, globalns and localns.
         """
         locals = {'Optional': Optional, 'List': List, 'Union': Union, 'StrictBool': StrictBool, 'AnyUrl': AnyUrl,
-                  'Decimal': Decimal, 'time': time,'ISO8601Date':ISO8601Date}
+                  'Decimal': Decimal, 'time': time, 'datetime': datetime, 'date': date,'ISO8601Date':ISO8601Date}
         for cls_ in cls.mro():
             if hasattr(cls_, 'get_local_ns'):
                 locals.update(cls_.get_local_ns())

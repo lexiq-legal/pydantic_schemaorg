@@ -19,7 +19,7 @@ class CookAction(CreateAction):
         default=None,
         description="A sub property of instrument. The recipe/instructions used to perform the action.",
     )
-    foodEstablishment: Optional[Union[List[Union['Place', 'FoodEstablishment', str]], 'Place', 'FoodEstablishment', str]] = Field(
+    foodEstablishment: Optional[Union[List[Union['FoodEstablishment', 'Place', str]], 'FoodEstablishment', 'Place', str]] = Field(
         default=None,
         description="A sub property of location. The specific food establishment where the action occurred.",
     )
@@ -31,6 +31,6 @@ class CookAction(CreateAction):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Recipe import Recipe
-    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.FoodEstablishment import FoodEstablishment
+    from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.FoodEvent import FoodEvent

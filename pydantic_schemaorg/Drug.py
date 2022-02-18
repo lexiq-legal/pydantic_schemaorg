@@ -144,7 +144,7 @@ class Drug(Substance):
         description="The specific biochemical interaction through which this drug or supplement produces"
      "its pharmacological effect.",
     )
-    legalStatus: Optional[Union[List[Union[str, 'Text', 'DrugLegalStatus', 'MedicalEnumeration']], str, 'Text', 'DrugLegalStatus', 'MedicalEnumeration']] = Field(
+    legalStatus: Optional[Union[List[Union[str, 'Text', 'MedicalEnumeration', 'DrugLegalStatus']], str, 'Text', 'MedicalEnumeration', 'DrugLegalStatus']] = Field(
         default=None,
         description="The drug or supplement's legal status, including any controlled substance schedules"
      "that apply.",
@@ -171,5 +171,5 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.DrugPrescriptionStatus import DrugPrescriptionStatus
     from pydantic_schemaorg.HealthInsurancePlan import HealthInsurancePlan
     from pydantic_schemaorg.DrugClass import DrugClass
-    from pydantic_schemaorg.DrugLegalStatus import DrugLegalStatus
     from pydantic_schemaorg.MedicalEnumeration import MedicalEnumeration
+    from pydantic_schemaorg.DrugLegalStatus import DrugLegalStatus

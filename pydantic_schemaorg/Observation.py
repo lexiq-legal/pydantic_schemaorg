@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import datetime
 
 
 from pydantic import Field
@@ -29,7 +29,7 @@ class Observation(Intangible):
      "from other RDF-compatible systems e.g. W3C RDF Data Cube, or schema.org extensions"
      "such as [GS1's](https://www.gs1.org/voc/?show=properties).",
     )
-    observationDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
+    observationDate: Optional[Union[List[Union[datetime, 'DateTime', str]], datetime, 'DateTime', str]] = Field(
         default=None,
         description="The observationDate of an [[Observation]].",
     )

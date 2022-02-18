@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 from decimal import Decimal
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date, datetime
 
 
 from pydantic import Field
@@ -55,7 +55,7 @@ class CDCPMDRecord(StructuredValue):
         description="numbeds - HOSPITAL INPATIENT BEDS: Inpatient beds, including all staffed, licensed,"
      "and overflow (surge) beds used for inpatients.",
     )
-    datePosted: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    datePosted: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="Publication date of an online listing.",
     )
@@ -95,7 +95,7 @@ class CDCPMDRecord(StructuredValue):
      "to indicate the county. To provide other details, [[healthcareReportingData]] can"
      "be used on a [[Hospital]] entry.",
     )
-    cvdCollectionDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', str, 'Text']], ISO8601Date, 'DateTime', str, 'Text']] = Field(
+    cvdCollectionDate: Optional[Union[List[Union[datetime, 'DateTime', str, 'Text']], datetime, 'DateTime', str, 'Text']] = Field(
         default=None,
         description="collectiondate - Date for which patient counts are reported.",
     )

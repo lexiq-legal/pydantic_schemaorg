@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
 from pydantic import AnyUrl
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date, datetime
 
 
 from pydantic import Field
@@ -31,7 +31,7 @@ class UserComments(UserInteraction):
         default=None,
         description="The URL at which a reply may be posted to the specified UserComment.",
     )
-    commentTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    commentTime: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The time at which the UserComment was made.",
     )

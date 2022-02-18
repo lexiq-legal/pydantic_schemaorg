@@ -31,7 +31,7 @@ class Gene(BioChemEntity):
         default=None,
         description="Another gene which is a variation of this one.",
     )
-    expressedIn: Optional[Union[List[Union['BioChemEntity', 'DefinedTerm', 'AnatomicalSystem', 'AnatomicalStructure', str]], 'BioChemEntity', 'DefinedTerm', 'AnatomicalSystem', 'AnatomicalStructure', str]] = Field(
+    expressedIn: Optional[Union[List[Union['DefinedTerm', 'BioChemEntity', 'AnatomicalStructure', 'AnatomicalSystem', str]], 'DefinedTerm', 'BioChemEntity', 'AnatomicalStructure', 'AnatomicalSystem', str]] = Field(
         default=None,
         description="Tissue, organ, biological sample, etc in which activity of this gene has been observed"
      "experimentally. For example brain, digestive system.",
@@ -42,5 +42,5 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.BioChemEntity import BioChemEntity
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
-    from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem
     from pydantic_schemaorg.AnatomicalStructure import AnatomicalStructure
+    from pydantic_schemaorg.AnatomicalSystem import AnatomicalSystem

@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import datetime
 
 
 from pydantic import Field
@@ -54,7 +54,7 @@ class Flight(Trip):
         default=None,
         description="Identifier of the flight's arrival terminal.",
     )
-    webCheckinTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
+    webCheckinTime: Optional[Union[List[Union[datetime, 'DateTime', str]], datetime, 'DateTime', str]] = Field(
         default=None,
         description="The time when a passenger can check into the flight online.",
     )

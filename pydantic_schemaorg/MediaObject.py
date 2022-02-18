@@ -3,8 +3,7 @@ from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
 from pydantic import AnyUrl, StrictBool
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
-from datetime import time
+from datetime import date, datetime, time
 
 
 from pydantic import Field
@@ -48,7 +47,7 @@ class MediaObject(CreativeWork):
         description="Indicates if use of the media require a subscription (either paid or free). Allowed values"
      "are ```true``` or ```false``` (note that an earlier version had 'yes', 'no').",
     )
-    uploadDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    uploadDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="Date when this media object was uploaded to this site.",
     )
@@ -56,7 +55,7 @@ class MediaObject(CreativeWork):
         default=None,
         description="The height of the item.",
     )
-    endTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
+    endTime: Optional[Union[List[Union[datetime, 'DateTime', time, 'Time', str]], datetime, 'DateTime', time, 'Time', str]] = Field(
         default=None,
         description="The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation),"
      "the time that it is expected to end. For actions that span a period of time, when the action"
@@ -78,7 +77,7 @@ class MediaObject(CreativeWork):
         default=None,
         description="A NewsArticle associated with the Media Object.",
     )
-    width: Optional[Union[List[Union['QuantitativeValue', 'Distance', str]], 'QuantitativeValue', 'Distance', str]] = Field(
+    width: Optional[Union[List[Union['Distance', 'QuantitativeValue', str]], 'Distance', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The width of the item.",
     )
@@ -104,7 +103,7 @@ class MediaObject(CreativeWork):
      "content of a [[MediaObject]] or other [[CreativeWork]]. The interpreting party can"
      "be indicated using [[claimInterpreter]].",
     )
-    startTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
+    startTime: Optional[Union[List[Union[datetime, 'DateTime', time, 'Time', str]], datetime, 'DateTime', time, 'Time', str]] = Field(
         default=None,
         description="The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation),"
      "the time that it is expected to start. For actions that span a period of time, when the action"
@@ -121,7 +120,7 @@ class MediaObject(CreativeWork):
         default=None,
         description="Player type required&#x2014;for example, Flash or Silverlight.",
     )
-    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'Place', 'GeoShape']], str, 'Text', 'Place', 'GeoShape']] = Field(
+    ineligibleRegion: Optional[Union[List[Union[str, 'Text', 'GeoShape', 'Place']], str, 'Text', 'GeoShape', 'Place']] = Field(
         default=None,
         description="The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for"
      "the geo-political region(s) for which the offer or delivery charge specification is"

@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 from pydantic import AnyUrl
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date
 
 
 from pydantic import Field
@@ -64,7 +64,7 @@ class WebPage(CreativeWork):
         default=None,
         description="Indicates the main image on the page.",
     )
-    lastReviewed: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    lastReviewed: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="Date on which the content on this web page was last reviewed for accuracy and/or completeness.",
     )

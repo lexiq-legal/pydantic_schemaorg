@@ -47,7 +47,7 @@ class NewsMediaOrganization(Organization):
         description="For a [[NewsMediaOrganization]], a statement on coverage priorities, including any"
      "public agenda or stance on issues.",
     )
-    ownershipFundingInfo: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'CreativeWork', 'AboutPage']], AnyUrl, 'URL', str, 'Text', 'CreativeWork', 'AboutPage']] = Field(
+    ownershipFundingInfo: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'AboutPage', 'CreativeWork']], AnyUrl, 'URL', str, 'Text', 'AboutPage', 'CreativeWork']] = Field(
         default=None,
         description="For an [[Organization]] (often but not necessarily a [[NewsMediaOrganization]]),"
      "a description of organizational ownership structure; funding and grants. In a news/media"

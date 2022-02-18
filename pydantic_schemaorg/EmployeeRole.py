@@ -21,7 +21,7 @@ class EmployeeRole(OrganizationRole):
         description="The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) )"
      "used for the main salary information in this job posting or for this employee.",
     )
-    baseSalary: Optional[Union[List[Union[int, float, 'Number', 'MonetaryAmount', 'PriceSpecification', str]], int, float, 'Number', 'MonetaryAmount', 'PriceSpecification', str]] = Field(
+    baseSalary: Optional[Union[List[Union[int, float, 'Number', 'PriceSpecification', 'MonetaryAmount', str]], int, float, 'Number', 'PriceSpecification', 'MonetaryAmount', str]] = Field(
         default=None,
         description="The base salary of the job or of an employee in an EmployeeRole.",
     )
@@ -30,5 +30,5 @@ class EmployeeRole(OrganizationRole):
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.Number import Number
-    from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
     from pydantic_schemaorg.PriceSpecification import PriceSpecification
+    from pydantic_schemaorg.MonetaryAmount import MonetaryAmount

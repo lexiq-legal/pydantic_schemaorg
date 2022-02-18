@@ -5,11 +5,11 @@ from typing import List, Optional, Union
 
 
 from pydantic import Field
-from pydantic_schemaorg.MediaObject import MediaObject
 from pydantic_schemaorg.Legislation import Legislation
+from pydantic_schemaorg.MediaObject import MediaObject
 
 
-class LegislationObject(MediaObject, Legislation):
+class LegislationObject(Legislation, MediaObject):
     """A specific object or file containing a Legislation. Note that the same Legislation can"
      "be published in multiple files. For example, a digitally signed PDF, a plain PDF and an"
      "HTML version.

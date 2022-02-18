@@ -21,7 +21,7 @@ class Place(Thing):
         default=None,
         description="The geo coordinates of the place.",
     )
-    geoEquals: Optional[Union[List[Union['Place', 'GeospatialGeometry', str]], 'Place', 'GeospatialGeometry', str]] = Field(
+    geoEquals: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents spatial relations in which two geometries (or the places they represent)"
      "are topologically equal, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM)."
@@ -34,13 +34,13 @@ class Place(Thing):
         description="A flag to signal that the [[Place]] is open to public visitors. If this property is omitted"
      "there is no assumed default boolean value",
     )
-    geoDisjoint: Optional[Union[List[Union['Place', 'GeospatialGeometry', str]], 'Place', 'GeospatialGeometry', str]] = Field(
+    geoDisjoint: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents spatial relations in which two geometries (or the places they represent)"
      "are topologically disjoint: they have no point in common. They form a set of disconnected"
      "geometries.\" (a symmetric relationship, as defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM))",
     )
-    geoTouches: Optional[Union[List[Union['Place', 'GeospatialGeometry', str]], 'Place', 'GeospatialGeometry', str]] = Field(
+    geoTouches: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents spatial relations in which two geometries (or the places they represent)"
      "touch: they have at least one boundary point in common, but no interior points.\" (a symmetric"
@@ -100,7 +100,7 @@ class Place(Thing):
      "property does not make a statement about whether the feature is included in an offer for"
      "the main accommodation or available at extra costs.",
     )
-    geoCovers: Optional[Union[List[Union['Place', 'GeospatialGeometry', str]], 'Place', 'GeospatialGeometry', str]] = Field(
+    geoCovers: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a covering geometry to a covered geometry. \"Every point of b is a point of (the interior"
@@ -125,7 +125,7 @@ class Place(Thing):
      "URLs. For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047"
      "the code \"3047\" is a branchCode for a particular branch.",
     )
-    geoContains: Optional[Union[List[Union['Place', 'GeospatialGeometry', str]], 'Place', 'GeospatialGeometry', str]] = Field(
+    geoContains: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a containing geometry to a contained geometry. \"a contains b iff no points of b lie in"
@@ -137,7 +137,7 @@ class Place(Thing):
         description="A page providing information on how to book a tour of some [[Place]], such as an [[Accommodation]]"
      "or [[ApartmentComplex]] in a real estate setting, as well as other kinds of tours as appropriate.",
     )
-    geoCoveredBy: Optional[Union[List[Union['Place', 'GeospatialGeometry', str]], 'Place', 'GeospatialGeometry', str]] = Field(
+    geoCoveredBy: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a geometry to another that covers it. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -146,20 +146,20 @@ class Place(Thing):
         default=None,
         description="Photographs of this place.",
     )
-    geoCrosses: Optional[Union[List[Union['Place', 'GeospatialGeometry', str]], 'Place', 'GeospatialGeometry', str]] = Field(
+    geoCrosses: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a geometry to another that crosses it: \"a crosses b: they have some but not all interior"
      "points in common, and the dimension of the intersection is less than that of at least one"
      "of them\". As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
-    geoWithin: Optional[Union[List[Union['Place', 'GeospatialGeometry', str]], 'Place', 'GeospatialGeometry', str]] = Field(
+    geoWithin: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined"
      "in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
     )
-    geoIntersects: Optional[Union[List[Union['Place', 'GeospatialGeometry', str]], 'Place', 'GeospatialGeometry', str]] = Field(
+    geoIntersects: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents spatial relations in which two geometries (or the places they represent)"
      "have at least one point in common. As defined in [DE-9IM](https://en.wikipedia.org/wiki/DE-9IM).",
@@ -184,7 +184,7 @@ class Place(Thing):
         default=None,
         description="Upcoming or past events associated with this place or organization.",
     )
-    geoOverlaps: Optional[Union[List[Union['Place', 'GeospatialGeometry', str]], 'Place', 'GeospatialGeometry', str]] = Field(
+    geoOverlaps: Optional[Union[List[Union['GeospatialGeometry', 'Place', str]], 'GeospatialGeometry', 'Place', str]] = Field(
         default=None,
         description="Represents a relationship between two geometries (or the places they represent), relating"
      "a geometry to another that geospatially overlaps it, i.e. they have some but not all points"

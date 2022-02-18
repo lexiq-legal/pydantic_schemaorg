@@ -20,7 +20,7 @@ class VisualArtwork(CreativeWork):
         default=None,
         description="The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc.",
     )
-    depth: Optional[Union[List[Union['QuantitativeValue', 'Distance', str]], 'QuantitativeValue', 'Distance', str]] = Field(
+    depth: Optional[Union[List[Union['Distance', 'QuantitativeValue', str]], 'Distance', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The depth of the item.",
     )
@@ -48,7 +48,7 @@ class VisualArtwork(CreativeWork):
         description="The primary artist for a work in a medium other than pencils or digital line art--for example,"
      "if the primary artwork is done in watercolors or digital paints.",
     )
-    width: Optional[Union[List[Union['QuantitativeValue', 'Distance', str]], 'QuantitativeValue', 'Distance', str]] = Field(
+    width: Optional[Union[List[Union['Distance', 'QuantitativeValue', str]], 'Distance', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The width of the item.",
     )
@@ -78,7 +78,7 @@ class VisualArtwork(CreativeWork):
 if TYPE_CHECKING:
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
     from pydantic_schemaorg.Distance import Distance
+    from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
     from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.Person import Person

@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import datetime
 
 
 from pydantic import Field
@@ -20,7 +20,7 @@ class DeliveryEvent(Event):
         default=None,
         description="Password, PIN, or access code needed for delivery (e.g. from a locker).",
     )
-    availableThrough: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
+    availableThrough: Optional[Union[List[Union[datetime, 'DateTime', str]], datetime, 'DateTime', str]] = Field(
         default=None,
         description="After this date, the item will no longer be available for pickup.",
     )
@@ -28,7 +28,7 @@ class DeliveryEvent(Event):
         default=None,
         description="Method used for delivery or shipping.",
     )
-    availableFrom: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
+    availableFrom: Optional[Union[List[Union[datetime, 'DateTime', str]], datetime, 'DateTime', str]] = Field(
         default=None,
         description="When the item is available for pickup from the store, locker, etc.",
     )

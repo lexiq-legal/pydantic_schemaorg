@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date
 
 
 from pydantic import Field
@@ -29,7 +29,7 @@ class MedicalGuideline(MedicalEntity):
         default=None,
         description="Strength of evidence of the data used to formulate the guideline (enumerated).",
     )
-    guidelineDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    guidelineDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="Date on which this guideline's recommendation was made.",
     )

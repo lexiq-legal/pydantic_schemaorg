@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date
 from pydantic import AnyUrl
 
 
@@ -30,7 +30,7 @@ class Product(Thing):
      "the gauge of a screw. Usually an exact measurement, but can also be a range of measurements"
      "for adjustable products, for example belts and ski bindings.",
     )
-    offers: Optional[Union[List[Union['Demand', 'Offer', str]], 'Demand', 'Offer', str]] = Field(
+    offers: Optional[Union[List[Union['Offer', 'Demand', str]], 'Offer', 'Demand', str]] = Field(
         default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -60,7 +60,7 @@ class Product(Thing):
      "is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14"
      "and mpn properties.",
     )
-    depth: Optional[Union[List[Union['QuantitativeValue', 'Distance', str]], 'QuantitativeValue', 'Distance', str]] = Field(
+    depth: Optional[Union[List[Union['Distance', 'QuantitativeValue', str]], 'Distance', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The depth of the item.",
     )
@@ -75,7 +75,7 @@ class Product(Thing):
      "a GTIN-13 code by simply adding a preceding zero. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin)"
      "for more details.",
     )
-    productionDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    productionDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The date of production of the item, e.g. vehicle.",
     )
@@ -112,12 +112,12 @@ class Product(Thing):
         default=None,
         description="The manufacturer of the product.",
     )
-    brand: Optional[Union[List[Union['Brand', 'Organization', str]], 'Brand', 'Organization', str]] = Field(
+    brand: Optional[Union[List[Union['Organization', 'Brand', str]], 'Organization', 'Brand', str]] = Field(
         default=None,
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
     )
-    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']], AnyUrl, 'URL', str, 'Text', 'PhysicalActivityCategory', 'Thing']] = Field(
+    category: Optional[Union[List[Union[AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']], AnyUrl, 'URL', str, 'Text', 'Thing', 'PhysicalActivityCategory']] = Field(
         default=None,
         description="A category for the item. Greater signs or slashes can be used to informally indicate a"
      "category hierarchy.",
@@ -143,14 +143,14 @@ class Product(Thing):
         default=None,
         description="The height of the item.",
     )
-    size: Optional[Union[List[Union[str, 'Text', 'SizeSpecification', 'QuantitativeValue', 'DefinedTerm']], str, 'Text', 'SizeSpecification', 'QuantitativeValue', 'DefinedTerm']] = Field(
+    size: Optional[Union[List[Union[str, 'Text', 'SizeSpecification', 'DefinedTerm', 'QuantitativeValue']], str, 'Text', 'SizeSpecification', 'DefinedTerm', 'QuantitativeValue']] = Field(
         default=None,
         description="A standardized size of a product or creative work, specified either through a simple"
      "textual string (for example 'XL', '32Wx34L'), a QuantitativeValue with a unitCode,"
      "or a comprehensive and structured [[SizeSpecification]]; in other cases, the [[width]],"
      "[[height]], [[depth]] and [[weight]] properties may be more applicable.",
     )
-    releaseDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    releaseDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The release date of a product or product model. This can be used to distinguish the exact"
      "variant of a product.",
@@ -179,7 +179,7 @@ class Product(Thing):
      "and Check Digit used to identify trade items. See [GS1 GTIN Summary](http://www.gs1.org/barcodes/technical/idkeys/gtin)"
      "for more details.",
     )
-    width: Optional[Union[List[Union['QuantitativeValue', 'Distance', str]], 'QuantitativeValue', 'Distance', str]] = Field(
+    width: Optional[Union[List[Union['Distance', 'QuantitativeValue', str]], 'Distance', 'QuantitativeValue', str]] = Field(
         default=None,
         description="The width of the item.",
     )
@@ -264,7 +264,7 @@ class Product(Thing):
         default=None,
         description="The place where the product was assembled.",
     )
-    purchaseDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    purchaseDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The date the item e.g. vehicle was purchased by the current owner.",
     )
@@ -274,8 +274,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
-    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Offer import Offer
+    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.ProductModel import ProductModel
     from pydantic_schemaorg.Distance import Distance
     from pydantic_schemaorg.Date import Date
@@ -284,8 +284,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.Organization import Organization
     from pydantic_schemaorg.Brand import Brand
     from pydantic_schemaorg.URL import URL
-    from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
     from pydantic_schemaorg.Thing import Thing
+    from pydantic_schemaorg.PhysicalActivityCategory import PhysicalActivityCategory
     from pydantic_schemaorg.MerchantReturnPolicy import MerchantReturnPolicy
     from pydantic_schemaorg.EnergyConsumptionDetails import EnergyConsumptionDetails
     from pydantic_schemaorg.Service import Service

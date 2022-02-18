@@ -23,7 +23,7 @@ class Review(CreativeWork):
      "would commonly be used on a [[ClaimReview]], while [[relatedClaimReview]] would be"
      "used on [[MediaReview]].",
     )
-    positiveNotes: Optional[Union[List[Union[str, 'Text', 'ListItem', 'WebContent', 'ItemList']], str, 'Text', 'ListItem', 'WebContent', 'ItemList']] = Field(
+    positiveNotes: Optional[Union[List[Union[str, 'Text', 'ListItem', 'ItemList', 'WebContent']], str, 'Text', 'ListItem', 'ItemList', 'WebContent']] = Field(
         default=None,
         description="Indicates, in the context of a [[Review]] (e.g. framed as 'pro' vs 'con' considerations),"
      "positive considerations - either as unstructured text, or a list.",
@@ -54,7 +54,7 @@ class Review(CreativeWork):
         default=None,
         description="The actual body of the review.",
     )
-    negativeNotes: Optional[Union[List[Union[str, 'Text', 'ListItem', 'WebContent', 'ItemList']], str, 'Text', 'ListItem', 'WebContent', 'ItemList']] = Field(
+    negativeNotes: Optional[Union[List[Union[str, 'Text', 'ListItem', 'ItemList', 'WebContent']], str, 'Text', 'ListItem', 'ItemList', 'WebContent']] = Field(
         default=None,
         description="Indicates, in the context of a [[Review]] (e.g. framed as 'pro' vs 'con' considerations),"
      "negative considerations - either as unstructured text, or a list.",
@@ -68,7 +68,7 @@ class Review(CreativeWork):
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.ListItem import ListItem
-    from pydantic_schemaorg.WebContent import WebContent
     from pydantic_schemaorg.ItemList import ItemList
+    from pydantic_schemaorg.WebContent import WebContent
     from pydantic_schemaorg.Rating import Rating
     from pydantic_schemaorg.Thing import Thing

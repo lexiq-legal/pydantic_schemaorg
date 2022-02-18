@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import datetime
 from decimal import Decimal
 
 
@@ -33,7 +33,7 @@ class Reservation(Intangible):
         default=None,
         description="The person or organization the reservation or ticket is for.",
     )
-    modifiedTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
+    modifiedTime: Optional[Union[List[Union[datetime, 'DateTime', str]], datetime, 'DateTime', str]] = Field(
         default=None,
         description="The date and time the reservation was modified.",
     )
@@ -67,7 +67,7 @@ class Reservation(Intangible):
      "Another party (a seller) may offer those services or goods on behalf of the provider."
      "A provider may also serve as the seller.",
     )
-    bookingTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
+    bookingTime: Optional[Union[List[Union[datetime, 'DateTime', str]], datetime, 'DateTime', str]] = Field(
         default=None,
         description="The date and time the reservation was booked.",
     )

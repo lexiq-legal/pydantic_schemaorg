@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import datetime
 from pydantic import AnyUrl
 
 
@@ -22,7 +22,7 @@ class Dataset(CreativeWork):
         description="A data catalog which contains this dataset (this property was previously 'catalog',"
      "preferred name is now 'includedInDataCatalog').",
     )
-    datasetTimeInterval: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
+    datasetTimeInterval: Optional[Union[List[Union[datetime, 'DateTime', str]], datetime, 'DateTime', str]] = Field(
         default=None,
         description="The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the"
      "year 2011 (in ISO 8601 time interval format).",

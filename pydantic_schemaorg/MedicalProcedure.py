@@ -28,7 +28,7 @@ class MedicalProcedure(MedicalEntity):
         default=None,
         description="Typical preparation that a patient must undergo before having the procedure performed.",
     )
-    status: Optional[Union[List[Union[str, 'Text', 'MedicalStudyStatus', 'EventStatusType']], str, 'Text', 'MedicalStudyStatus', 'EventStatusType']] = Field(
+    status: Optional[Union[List[Union[str, 'Text', 'EventStatusType', 'MedicalStudyStatus']], str, 'Text', 'EventStatusType', 'MedicalStudyStatus']] = Field(
         default=None,
         description="The status of the study (enumerated).",
     )
@@ -46,5 +46,5 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.MedicalProcedureType import MedicalProcedureType
     from pydantic_schemaorg.Text import Text
     from pydantic_schemaorg.MedicalEntity import MedicalEntity
-    from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus
     from pydantic_schemaorg.EventStatusType import EventStatusType
+    from pydantic_schemaorg.MedicalStudyStatus import MedicalStudyStatus

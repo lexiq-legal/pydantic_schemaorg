@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date, datetime
 from typing import List, Optional, Union
 
 
@@ -16,7 +16,7 @@ class DataFeedItem(Intangible):
     Model depth: 3
     """
     type_: str = Field(default="DataFeedItem", alias='@type', constant=True)
-    dateDeleted: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    dateDeleted: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The datetime the item was removed from the DataFeed.",
     )
@@ -24,12 +24,12 @@ class DataFeedItem(Intangible):
         default=None,
         description="An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.",
     )
-    dateModified: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    dateModified: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The date on which the CreativeWork was most recently modified or when the item's entry"
      "was modified within a DataFeed.",
     )
-    dateCreated: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    dateCreated: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The date on which the CreativeWork was created or the item was added to a DataFeed.",
     )

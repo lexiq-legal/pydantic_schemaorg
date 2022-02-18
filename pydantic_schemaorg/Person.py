@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
 from pydantic import AnyUrl
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date
 
 
 from pydantic import Field
@@ -66,7 +66,7 @@ class Person(Thing):
      "We do not distinguish skill levels or reading/writing/speaking/signing here. Use"
      "language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47).",
     )
-    netWorth: Optional[Union[List[Union['MonetaryAmount', 'PriceSpecification', str]], 'MonetaryAmount', 'PriceSpecification', str]] = Field(
+    netWorth: Optional[Union[List[Union['PriceSpecification', 'MonetaryAmount', str]], 'PriceSpecification', 'MonetaryAmount', str]] = Field(
         default=None,
         description="The total financial value of the person as calculated by subtracting assets from liabilities.",
     )
@@ -131,7 +131,7 @@ class Person(Thing):
         default=None,
         description="A sibling of the person.",
     )
-    brand: Optional[Union[List[Union['Brand', 'Organization', str]], 'Brand', 'Organization', str]] = Field(
+    brand: Optional[Union[List[Union['Organization', 'Brand', str]], 'Organization', 'Brand', str]] = Field(
         default=None,
         description="The brand(s) associated with a product or service, or the brand(s) maintained by an organization"
      "or business person.",
@@ -186,7 +186,7 @@ class Person(Thing):
         default=None,
         description="The most generic uni-directional social relation.",
     )
-    deathDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    deathDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="Date of death.",
     )
@@ -202,7 +202,7 @@ class Person(Thing):
         default=None,
         description="Physical address of the item.",
     )
-    birthDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    birthDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="Date of birth.",
     )
@@ -304,8 +304,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.EducationalOrganization import EducationalOrganization
     from pydantic_schemaorg.QuantitativeValue import QuantitativeValue
     from pydantic_schemaorg.Language import Language
-    from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
     from pydantic_schemaorg.PriceSpecification import PriceSpecification
+    from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.CreativeWork import CreativeWork
     from pydantic_schemaorg.GenderType import GenderType

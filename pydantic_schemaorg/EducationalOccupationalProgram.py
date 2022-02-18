@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date, datetime
 from pydantic import AnyUrl
 from decimal import Decimal
 
@@ -26,7 +26,7 @@ class EducationalOccupationalProgram(Intangible):
         default=None,
         description="The expected length of time to complete the program if attending full-time.",
     )
-    offers: Optional[Union[List[Union['Demand', 'Offer', str]], 'Demand', 'Offer', str]] = Field(
+    offers: Optional[Union[List[Union['Offer', 'Demand', str]], 'Offer', 'Demand', str]] = Field(
         default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -40,12 +40,12 @@ class EducationalOccupationalProgram(Intangible):
         description="The number of credits or units a full-time student would be expected to take in 1 term however"
      "'term' is defined by the institution.",
     )
-    applicationStartDate: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    applicationStartDate: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The date at which the program begins collecting applications for the next enrollment"
      "cycle.",
     )
-    programPrerequisites: Optional[Union[List[Union[str, 'Text', 'EducationalOccupationalCredential', 'Course', 'AlignmentObject']], str, 'Text', 'EducationalOccupationalCredential', 'Course', 'AlignmentObject']] = Field(
+    programPrerequisites: Optional[Union[List[Union[str, 'Text', 'Course', 'EducationalOccupationalCredential', 'AlignmentObject']], str, 'Text', 'Course', 'EducationalOccupationalCredential', 'AlignmentObject']] = Field(
         default=None,
         description="Prerequisites for enrolling in the program.",
     )
@@ -66,7 +66,7 @@ class EducationalOccupationalProgram(Intangible):
         description="The type of educational or occupational program. For example, classroom, internship,"
      "alternance, etc..",
     )
-    applicationDeadline: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    applicationDeadline: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="The date at which the program stops collecting applications for the next enrollment"
      "cycle.",
@@ -85,7 +85,7 @@ class EducationalOccupationalProgram(Intangible):
         description="The amount of time in a term as defined by the institution. A term is a length of time where"
      "students take one or more classes. Semesters and quarters are common units for term.",
     )
-    endDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    endDate: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
@@ -112,7 +112,7 @@ class EducationalOccupationalProgram(Intangible):
         description="A description of the qualification, award, certificate, diploma or other occupational"
      "credential awarded as a consequence of successful completion of this course or program.",
     )
-    startDate: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    startDate: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).",
     )
@@ -151,14 +151,14 @@ class EducationalOccupationalProgram(Intangible):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Duration import Duration
-    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Offer import Offer
+    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.StructuredValue import StructuredValue
     from pydantic_schemaorg.Date import Date
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
     from pydantic_schemaorg.Course import Course
+    from pydantic_schemaorg.EducationalOccupationalCredential import EducationalOccupationalCredential
     from pydantic_schemaorg.AlignmentObject import AlignmentObject
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.DefinedTerm import DefinedTerm

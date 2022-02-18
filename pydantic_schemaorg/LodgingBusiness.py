@@ -3,8 +3,7 @@ from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
 from decimal import Decimal
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
-from datetime import time
+from datetime import datetime, time
 from pydantic import StrictBool
 
 
@@ -37,7 +36,7 @@ class LodgingBusiness(LocalBusiness):
      "associations or standards bodies. Use the author property to indicate the rating organization,"
      "e.g. as an Organization with name such as (e.g. HOTREC, DEHOGA, WHR, or Hotelstars).",
     )
-    checkinTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
+    checkinTime: Optional[Union[List[Union[datetime, 'DateTime', time, 'Time', str]], datetime, 'DateTime', time, 'Time', str]] = Field(
         default=None,
         description="The earliest someone may check into a lodging establishment.",
     )
@@ -56,7 +55,7 @@ class LodgingBusiness(LocalBusiness):
      "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
      "[[inLanguage]]",
     )
-    checkoutTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
+    checkoutTime: Optional[Union[List[Union[datetime, 'DateTime', time, 'Time', str]], datetime, 'DateTime', time, 'Time', str]] = Field(
         default=None,
         description="The latest someone may check out of a lodging establishment.",
     )

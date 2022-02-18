@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
 from pydantic import AnyUrl, StrictBool
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
+from datetime import date, datetime
 from decimal import Decimal
 
 
@@ -42,7 +42,7 @@ class CreativeWork(Thing):
         default=None,
         description="Fictional person connected with a creative work.",
     )
-    offers: Optional[Union[List[Union['Demand', 'Offer', str]], 'Demand', 'Offer', str]] = Field(
+    offers: Optional[Union[List[Union['Offer', 'Demand', str]], 'Offer', 'Demand', str]] = Field(
         default=None,
         description="An offer to provide this item&#x2014;for example, an offer to sell a product, rent the"
      "DVD of a movie, perform a service, or give away tickets to an event. Use [[businessFunction]]"
@@ -71,7 +71,7 @@ class CreativeWork(Thing):
         description="The quantity of the materials being described or an expression of the physical space"
      "they occupy.",
     )
-    contentReferenceTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', str]], ISO8601Date, 'DateTime', str]] = Field(
+    contentReferenceTime: Optional[Union[List[Union[datetime, 'DateTime', str]], datetime, 'DateTime', str]] = Field(
         default=None,
         description="The specific time described by a creative work, for works (e.g. articles, video objects"
      "etc.) that emphasise a particular moment within an Event.",
@@ -104,7 +104,7 @@ class CreativeWork(Thing):
         description="A person or organization that supports (sponsors) something through some kind of financial"
      "contribution.",
     )
-    expires: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    expires: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="Date the content expires and is no longer useful or available. For example a [[VideoObject]]"
      "or [[NewsArticle]] whose availability or relevance is time-limited, or a [[ClaimReview]]"
@@ -129,7 +129,7 @@ class CreativeWork(Thing):
         default=None,
         description="An award won by or for this item.",
     )
-    temporalCoverage: Optional[Union[List[Union[ISO8601Date, 'DateTime', AnyUrl, 'URL', str, 'Text']], ISO8601Date, 'DateTime', AnyUrl, 'URL', str, 'Text']] = Field(
+    temporalCoverage: Optional[Union[List[Union[datetime, 'DateTime', AnyUrl, 'URL', str, 'Text']], datetime, 'DateTime', AnyUrl, 'URL', str, 'Text']] = Field(
         default=None,
         description="The temporalCoverage of a CreativeWork indicates the period that the content applies"
      "to, i.e. that it describes, either as a DateTime or as a textual string indicating a time"
@@ -185,11 +185,11 @@ class CreativeWork(Thing):
         default=None,
         description="Comments, typically from users.",
     )
-    audio: Optional[Union[List[Union['MusicRecording', 'AudioObject', 'Clip', str]], 'MusicRecording', 'AudioObject', 'Clip', str]] = Field(
+    audio: Optional[Union[List[Union['AudioObject', 'MusicRecording', 'Clip', str]], 'AudioObject', 'MusicRecording', 'Clip', str]] = Field(
         default=None,
         description="An embedded audio object.",
     )
-    video: Optional[Union[List[Union['Clip', 'VideoObject', str]], 'Clip', 'VideoObject', str]] = Field(
+    video: Optional[Union[List[Union['VideoObject', 'Clip', str]], 'VideoObject', 'Clip', str]] = Field(
         default=None,
         description="An embedded video object.",
     )
@@ -273,7 +273,7 @@ class CreativeWork(Thing):
         description="Indicates that the CreativeWork contains a reference to, but is not necessarily about"
      "a concept.",
     )
-    temporal: Optional[Union[List[Union[ISO8601Date, 'DateTime', str, 'Text']], ISO8601Date, 'DateTime', str, 'Text']] = Field(
+    temporal: Optional[Union[List[Union[datetime, 'DateTime', str, 'Text']], datetime, 'DateTime', str, 'Text']] = Field(
         default=None,
         description="The \"temporal\" property can be used in cases where more specific properties (e.g."
      "[[temporalCoverage]], [[dateCreated]], [[dateModified]], [[datePublished]])"
@@ -350,7 +350,7 @@ class CreativeWork(Thing):
         description="Example/instance/realization/derivation of the concept of this creative work. eg."
      "The paperback edition, first edition, or eBook.",
     )
-    size: Optional[Union[List[Union[str, 'Text', 'SizeSpecification', 'QuantitativeValue', 'DefinedTerm']], str, 'Text', 'SizeSpecification', 'QuantitativeValue', 'DefinedTerm']] = Field(
+    size: Optional[Union[List[Union[str, 'Text', 'SizeSpecification', 'DefinedTerm', 'QuantitativeValue']], str, 'Text', 'SizeSpecification', 'DefinedTerm', 'QuantitativeValue']] = Field(
         default=None,
         description="A standardized size of a product or creative work, specified either through a simple"
      "textual string (for example 'XL', '32Wx34L'), a QuantitativeValue with a unitCode,"
@@ -411,7 +411,7 @@ class CreativeWork(Thing):
         default=None,
         description="Specifies the Person who edited the CreativeWork.",
     )
-    datePublished: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    datePublished: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="Date of first broadcast/publication.",
     )
@@ -459,7 +459,7 @@ class CreativeWork(Thing):
         description="The purpose of a work in the context of education; for example, 'assignment', 'group"
      "work'.",
     )
-    sdDatePublished: Optional[Union[List[Union[ISO8601Date, 'Date', str]], ISO8601Date, 'Date', str]] = Field(
+    sdDatePublished: Optional[Union[List[Union[date, 'Date', str]], date, 'Date', str]] = Field(
         default=None,
         description="Indicates the date on which the current structured data was generated / published. Typically"
      "used alongside [[sdPublisher]]",
@@ -496,7 +496,7 @@ class CreativeWork(Thing):
      "codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also"
      "[[availableLanguage]].",
     )
-    dateModified: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    dateModified: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The date on which the CreativeWork was most recently modified or when the item's entry"
      "was modified within a DataFeed.",
@@ -505,7 +505,7 @@ class CreativeWork(Thing):
         default=None,
         description="Review of the item.",
     )
-    dateCreated: Optional[Union[List[Union[ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]], ISO8601Date, 'DateTime', ISO8601Date, 'Date', str]] = Field(
+    dateCreated: Optional[Union[List[Union[datetime, 'DateTime', date, 'Date', str]], datetime, 'DateTime', date, 'Date', str]] = Field(
         default=None,
         description="The date on which the CreativeWork was created or the item was added to a DataFeed.",
     )
@@ -626,8 +626,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.DefinedTerm import DefinedTerm
     from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.Person import Person
-    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Offer import Offer
+    from pydantic_schemaorg.Demand import Demand
     from pydantic_schemaorg.Place import Place
     from pydantic_schemaorg.URL import URL
     from pydantic_schemaorg.Product import Product
@@ -639,8 +639,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.ItemList import ItemList
     from pydantic_schemaorg.AlignmentObject import AlignmentObject
     from pydantic_schemaorg.Comment import Comment
-    from pydantic_schemaorg.MusicRecording import MusicRecording
     from pydantic_schemaorg.AudioObject import AudioObject
+    from pydantic_schemaorg.MusicRecording import MusicRecording
     from pydantic_schemaorg.Clip import Clip
     from pydantic_schemaorg.VideoObject import VideoObject
     from pydantic_schemaorg.Integer import Integer

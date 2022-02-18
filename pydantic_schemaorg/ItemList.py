@@ -16,7 +16,7 @@ class ItemList(Intangible):
     Model depth: 3
     """
     type_: str = Field(default="ItemList", alias='@type', constant=True)
-    itemListElement: Optional[Union[List[Union[str, 'Text', 'Thing', 'ListItem']], str, 'Text', 'Thing', 'ListItem']] = Field(
+    itemListElement: Optional[Union[List[Union[str, 'Text', 'ListItem', 'Thing']], str, 'Text', 'ListItem', 'Thing']] = Field(
         default=None,
         description="For itemListElement values, you can use simple strings (e.g. \"Peter\", \"Paul\","
      "\"Mary\"), existing entities, or use ListItem. Text values are best if the elements"
@@ -41,7 +41,7 @@ class ItemList(Intangible):
 
 if TYPE_CHECKING:
     from pydantic_schemaorg.Text import Text
-    from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.ListItem import ListItem
+    from pydantic_schemaorg.Thing import Thing
     from pydantic_schemaorg.Integer import Integer
     from pydantic_schemaorg.ItemListOrderType import ItemListOrderType

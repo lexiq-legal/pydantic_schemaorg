@@ -2,8 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from typing import List, Optional, Union
-from pydantic_schemaorg.ISO8601.ISO8601Date import ISO8601Date
-from datetime import time
+from datetime import datetime, time
 
 
 from pydantic import Field
@@ -27,7 +26,7 @@ class LodgingReservation(Reservation):
         default=None,
         description="The number of children staying in the unit.",
     )
-    checkinTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
+    checkinTime: Optional[Union[List[Union[datetime, 'DateTime', time, 'Time', str]], datetime, 'DateTime', time, 'Time', str]] = Field(
         default=None,
         description="The earliest someone may check into a lodging establishment.",
     )
@@ -35,7 +34,7 @@ class LodgingReservation(Reservation):
         default=None,
         description="The number of adults staying in the unit.",
     )
-    checkoutTime: Optional[Union[List[Union[ISO8601Date, 'DateTime', time, 'Time', str]], ISO8601Date, 'DateTime', time, 'Time', str]] = Field(
+    checkoutTime: Optional[Union[List[Union[datetime, 'DateTime', time, 'Time', str]], datetime, 'DateTime', time, 'Time', str]] = Field(
         default=None,
         description="The latest someone may check out of a lodging establishment.",
     )

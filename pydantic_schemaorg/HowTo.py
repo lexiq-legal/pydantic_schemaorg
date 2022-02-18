@@ -29,7 +29,7 @@ class HowTo(CreativeWork):
         description="The length of time it takes to prepare the items to be used in instructions or a direction,"
      "in [ISO 8601 duration format](http://en.wikipedia.org/wiki/ISO_8601).",
     )
-    step: Optional[Union[List[Union[str, 'Text', 'HowToSection', 'CreativeWork', 'HowToStep']], str, 'Text', 'HowToSection', 'CreativeWork', 'HowToStep']] = Field(
+    step: Optional[Union[List[Union[str, 'Text', 'HowToSection', 'HowToStep', 'CreativeWork']], str, 'Text', 'HowToSection', 'HowToStep', 'CreativeWork']] = Field(
         default=None,
         description="A single step item (as HowToStep, text, document, video, etc.) or a HowToSection.",
     )
@@ -48,7 +48,7 @@ class HowTo(CreativeWork):
         description="A sub property of instrument. An object used (but not consumed) when performing instructions"
      "or a direction.",
     )
-    steps: Optional[Union[List[Union[str, 'Text', 'CreativeWork', 'ItemList']], str, 'Text', 'CreativeWork', 'ItemList']] = Field(
+    steps: Optional[Union[List[Union[str, 'Text', 'ItemList', 'CreativeWork']], str, 'Text', 'ItemList', 'CreativeWork']] = Field(
         default=None,
         description="A single step item (as HowToStep, text, document, video, etc.) or a HowToSection (originally"
      "misnamed 'steps'; 'step' is preferred).",
@@ -65,8 +65,8 @@ if TYPE_CHECKING:
     from pydantic_schemaorg.MonetaryAmount import MonetaryAmount
     from pydantic_schemaorg.Duration import Duration
     from pydantic_schemaorg.HowToSection import HowToSection
-    from pydantic_schemaorg.CreativeWork import CreativeWork
     from pydantic_schemaorg.HowToStep import HowToStep
+    from pydantic_schemaorg.CreativeWork import CreativeWork
     from pydantic_schemaorg.HowToTool import HowToTool
     from pydantic_schemaorg.ItemList import ItemList
     from pydantic_schemaorg.HowToSupply import HowToSupply
