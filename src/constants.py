@@ -8,7 +8,7 @@ data_type_map = {
     "Date": ("date", f"datetime", "date"),
     "DateTime": ("datetime", f"datetime", "datetime"),
     "Time": ("time", "datetime", "time"),
-    "Number": ("int, float", "decimal", "Decimal"),
+    "Number": ("StrictInt, StrictFloat", "pydantic", "StrictInt, StrictFloat"),
     "Float": ("float", "", ""),
     "Integer": ("int", "", ""),
     "Text": ("str", "", ""),

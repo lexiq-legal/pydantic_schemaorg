@@ -18,7 +18,7 @@ class {{ model.valid_name }}({{model.parents| sort(attribute='depth', reverse=Tr
     See: https://schema.org/{{ model.name }}
     Model depth: {{model.depth}}
     """
-    type_: str = Field(default="{{ model.name }}", alias='@type', constant=True)
+    type_: str = Field(default="{{ model.name }}", alias='@type', const=True)
     {% for field in model.fields -%}
     {{ field.valid_name }}: {{ field.type }} = Field(
         default=None,
